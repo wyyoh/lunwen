@@ -1,0 +1,33 @@
+name: ci
+model:
+  vocab_size: 64
+  context_length: 8
+  num_layers: 2
+  num_heads: 2
+  num_kv_heads: 1
+  hidden_size: 16
+  core_ffn_width: 32
+  aux_ffn_width: 8
+  num_aux: 1
+  eos_token_id: 1
+data:
+  data_dir: artifacts/verification_tiny/data
+  private_label: alien-encounters
+  train_fraction: 0.1
+  eval_sequences_per_core_label: 2
+  max_private_eval_sequences: 4
+training:
+  seed: 0
+  epochs: 1
+  max_steps: 2
+  micro_batch_size: 2
+  accumulation_steps: 2
+  learning_rate: 0.001
+  weight_decay: 0.01
+  warmup_fraction: 0.1
+  decay_fraction: 0.1
+  aux_route_probability: 0.3
+  core_robust_probability: 0.5
+  dtype: float32
+  compile: false
+  checkpoint_every: 0

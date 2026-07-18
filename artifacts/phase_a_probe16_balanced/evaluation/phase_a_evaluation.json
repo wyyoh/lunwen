@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "checkpoint": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\phase_a_probe16_balanced\\train\\phase_a_freeze_core.pt",
+  "checkpoint_labels": [
+    "core",
+    "synthetic-biographies"
+  ],
+  "evaluation_jsonl": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\data\\phase_a_probe16_balanced\\bios_eval.jsonl",
+  "num_candidates": 8,
+  "random_candidate_accuracy": 0.125,
+  "capability_dependency_ratio": 1.25,
+  "capability_dependency_ratio_outside_unit_interval": true,
+  "metrics": {
+    "full": {
+      "overall": {
+        "num_items": 72,
+        "candidate_accuracy": 0.25,
+        "answer_token_accuracy": 0.1111111111111111,
+        "answer_nll": 6.4423392203946905,
+        "exact_match": 0.16666666666666666,
+        "generation_items": 48
+      },
+      "memorized": {
+        "num_items": 48,
+        "candidate_accuracy": 0.375,
+        "answer_token_accuracy": 0.16666666666666666,
+        "answer_nll": 3.9696130932619176,
+        "exact_match": 0.16666666666666666,
+        "generation_items": 48
+      },
+      "heldout": {
+        "num_items": 24,
+        "candidate_accuracy": 0.0,
+        "answer_token_accuracy": 0.0,
+        "answer_nll": 11.387791474660238,
+        "exact_match": null,
+        "generation_items": 0
+      },
+      "by_attribute": {
+        "registry_id": {
+          "num_items": 24,
+          "candidate_accuracy": 0.20833333333333334,
+          "answer_token_accuracy": 0.08333333333333333,
+          "answer_nll": 6.244144633412361,
+          "exact_match": 0.125,
+          "generation_items": 16
+        },
+        "city_code": {
+          "num_items": 24,
+          "candidate_accuracy": 0.25,
+          "answer_token_accuracy": 0.08333333333333333,
+          "answer_nll": 7.02634380881985,
+          "exact_match": 0.125,
+          "generation_items": 16
+        },
+        "access_code": {
+          "num_items": 24,
+          "candidate_accuracy": 0.2916666666666667,
+          "answer_token_accuracy": 0.16666666666666666,
+          "answer_nll": 6.056529218951861,
+          "exact_match": 0.25,
+          "generation_items": 16
+        }
+      }
+    },
+    "core_only": {
+      "overall": {
+        "num_items": 72,
+        "candidate_accuracy": 0.06944444444444445,
+        "answer_token_accuracy": 0.0,
+        "answer_nll": 11.833290961053637,
+        "exact_match": 0.0,
+        "generation_items": 48
+      },
+      "memorized": {
+        "num_items": 48,
+        "candidate_accuracy": 0.0625,
+        "answer_token_accuracy": 0.0,
+        "answer_nll": 11.742297132809957,
+        "exact_match": 0.0,
+        "generation_items": 48
+      },
+      "heldout": {
+        "num_items": 24,
+        "candidate_accuracy": 0.08333333333333333,
+        "answer_token_accuracy": 0.0,
+        "answer_nll": 12.015278617540995,
+        "exact_match": null,
+        "generation_items": 0
+      },
+      "by_attribute": {
+        "registry_id": {
+          "num_items": 24,
+          "candidate_accuracy": 0.08333333333333333,
+          "answer_token_accuracy": 0.0,
+          "answer_nll": 11.381850957870483,
+          "exact_match": 0.0,
+          "generation_items": 16
+        },
+        "city_code": {
+          "num_items": 24,
+          "candidate_accuracy": 0.08333333333333333,
+          "answer_token_accuracy": 0.0,
+          "answer_nll": 12.487537741661072,
+          "exact_match": 0.0,
+          "generation_items": 16
+        },
+        "access_code": {
+          "num_items": 24,
+          "candidate_accuracy": 0.041666666666666664,
+          "answer_token_accuracy": 0.0,
+          "answer_nll": 11.630484183629354,
+          "exact_match": 0.0,
+          "generation_items": 16
+        }
+      }
+    }
+  },
+  "seen_prompt_metrics": {
+    "full": {
+      "overall": {
+        "num_items": 288,
+        "candidate_accuracy": 0.6666666666666666,
+        "answer_token_accuracy": 0.5173611111111112,
+        "answer_nll": 2.470963041052326,
+        "exact_match": null,
+        "generation_items": 0
+      },
+      "memorized": {
+        "num_items": 288,
+        "candidate_accuracy": 0.6666666666666666,
+        "answer_token_accuracy": 0.5173611111111112,
+        "answer_nll": 2.470963041052326,
+        "exact_match": null,
+        "generation_items": 0
+      },
+      "heldout": {
+        "num_items": 0,
+        "candidate_accuracy": null,
+        "answer_token_accuracy": null,
+        "answer_nll": null,
+        "exact_match": null,
+        "generation_items": 0
+      },
+      "by_attribute": {
+        "registry_id": {
+          "num_items": 96,
+          "candidate_accuracy": 0.6354166666666666,
+          "answer_token_accuracy": 0.4583333333333333,
+          "answer_nll": 2.7079591285437346,
+          "exact_match": null,
+          "generation_items": 0
+        },
+        "city_code": {
+          "num_items": 96,
+          "candidate_accuracy": 0.7083333333333334,
+          "answer_token_accuracy": 0.5729166666666666,
+          "answer_nll": 2.3692378391278908,
+          "exact_match": null,
+          "generation_items": 0
+        },
+        "access_code": {
+          "num_items": 96,
+          "candidate_accuracy": 0.65625,
+          "answer_token_accuracy": 0.5208333333333334,
+          "answer_nll": 2.335692155485352,
+          "exact_match": null,
+          "generation_items": 0
+        }
+      }
+    },
+    "core_only": {
+      "overall": {
+        "num_items": 288,
+        "candidate_accuracy": 0.10416666666666667,
+        "answer_token_accuracy": 0.0,
+        "answer_nll": 11.6445083088345,
+        "exact_match": null,
+        "generation_items": 0
+      },
+      "memorized": {
+        "num_items": 288,
+        "candidate_accuracy": 0.10416666666666667,
+        "answer_token_accuracy": 0.0,
+        "answer_nll": 11.6445083088345,
+        "exact_match": null,
+        "generation_items": 0
+      },
+      "heldout": {
+        "num_items": 0,
+        "candidate_accuracy": null,
+        "answer_token_accuracy": null,
+        "answer_nll": null,
+        "exact_match": null,
+        "generation_items": 0
+      },
+      "by_attribute": {
+        "registry_id": {
+          "num_items": 96,
+          "candidate_accuracy": 0.08333333333333333,
+          "answer_token_accuracy": 0.0,
+          "answer_nll": 11.751770004630089,
+          "exact_match": null,
+          "generation_items": 0
+        },
+        "city_code": {
+          "num_items": 96,
+          "candidate_accuracy": 0.13541666666666666,
+          "answer_token_accuracy": 0.0,
+          "answer_nll": 11.895916546384493,
+          "exact_match": null,
+          "generation_items": 0
+        },
+        "access_code": {
+          "num_items": 96,
+          "candidate_accuracy": 0.09375,
+          "answer_token_accuracy": 0.0,
+          "answer_nll": 11.285838375488916,
+          "exact_match": null,
+          "generation_items": 0
+        }
+      }
+    }
+  },
+  "public": {
+    "labels": [
+      "gardens",
+      "holidays",
+      "robots-and-technology",
+      "school-life",
+      "sports",
+      "talking-animals",
+      "the-arts",
+      "treasure-hunts"
+    ],
+    "core_only_loss": 3.117748898267746,
+    "full_loss": 3.3949541807174684,
+    "relative_loss_increase": 0.08891199756456986,
+    "core_only_by_label": {
+      "gardens": 3.0916650772094725,
+      "holidays": 3.1348269462585447,
+      "robots-and-technology": 3.1508251190185548,
+      "school-life": 3.2668810844421388,
+      "sports": 3.1608317375183104,
+      "talking-animals": 3.105966806411743,
+      "the-arts": 3.1580620765686036,
+      "treasure-hunts": 2.8729323387145995
+    },
+    "full_by_label": {
+      "gardens": 3.359671878814697,
+      "holidays": 3.4283966064453124,
+      "robots-and-technology": 3.4330591678619387,
+      "school-life": 3.5263209342956543,
+      "sports": 3.4544349670410157,
+      "talking-animals": 3.3922144889831545,
+      "the-arts": 3.4243335723876953,
+      "treasure-hunts": 3.1412018299102784
+    }
+  },
+  "gates": {
+    "full_memorized_accuracy": {
+      "value": 0.375,
+      "threshold": 0.8,
+      "passed": false
+    },
+    "core_memorized_near_chance": {
+      "value": 0.0625,
+      "threshold": 0.175,
+      "passed": true
+    },
+    "capability_dependency_ratio": {
+      "value": 1.25,
+      "threshold": 0.7,
+      "passed": true
+    },
+    "public_loss_relative_increase": {
+      "value": 0.08891199756456986,
+      "threshold": 0.05,
+      "passed": false
+    }
+  }
+}

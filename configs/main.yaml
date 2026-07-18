@@ -1,0 +1,33 @@
+name: main
+model:
+  vocab_size: 4096
+  context_length: 256
+  num_layers: 8
+  num_heads: 8
+  num_kv_heads: 2
+  hidden_size: 512
+  core_ffn_width: 2048
+  aux_ffn_width: 192
+  num_aux: 1
+  eos_token_id: 1
+data:
+  data_dir: data/stories
+  private_label: alien-encounters
+  train_fraction: 0.10
+  eval_sequences_per_core_label: 200
+  max_private_eval_sequences: 10000
+training:
+  seed: 0
+  epochs: 1
+  max_steps: 0
+  micro_batch_size: 8
+  accumulation_steps: 16
+  learning_rate: 0.005
+  weight_decay: 0.01
+  warmup_fraction: 0.1
+  decay_fraction: 0.1
+  aux_route_probability: 0.3
+  core_robust_probability: 0.5
+  dtype: bfloat16
+  compile: false
+  checkpoint_every: 250

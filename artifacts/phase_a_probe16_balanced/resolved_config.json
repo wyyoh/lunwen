@@ -1,0 +1,52 @@
+{
+  "source_config": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\configs\\phase_a_probe16_balanced.yaml",
+  "values": {
+    "base_checkpoint": "artifacts/checkpoints/main/gram_original.pt",
+    "data": {
+      "destination": "data/phase_a_probe16_balanced",
+      "public_data_dir": "data/stories",
+      "private_label": "synthetic-biographies",
+      "fact_encoding": "atomic_tokens",
+      "tokenizer": "SimpleStories/SimpleStories-1.25M",
+      "seed": 17,
+      "num_train_entities": 16,
+      "num_heldout_entities": 8,
+      "candidate_count": 8,
+      "public_labels": [
+        "gardens",
+        "holidays",
+        "robots-and-technology",
+        "school-life",
+        "sports",
+        "talking-animals",
+        "the-arts",
+        "treasure-hunts"
+      ]
+    },
+    "training": {
+      "seed": 0,
+      "steps": 2000,
+      "private_batch_size": 8,
+      "public_batch_size": 8,
+      "learning_rate": 0.002,
+      "weight_decay": 0.01,
+      "lambda_public": 0.1,
+      "warmup_fraction": 0.05,
+      "public_train_fraction": 0.01,
+      "reset_aux": true,
+      "expert_index": 1,
+      "dtype": "bfloat16"
+    },
+    "evaluation": {
+      "batch_size": 64,
+      "generation_batch_size": 32,
+      "max_generation_items": 48,
+      "max_new_tokens": 8,
+      "public_sequences_per_label": 20,
+      "full_accuracy_threshold": 0.8,
+      "core_chance_margin": 0.05,
+      "cdr_threshold": 0.7,
+      "public_loss_threshold": 0.05
+    }
+  }
+}

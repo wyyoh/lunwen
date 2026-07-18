@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "scope": "paraphrase-invariant-private-residualization-with-public-nulling",
+  "security_matrix_run": false,
+  "passed_variants": [],
+  "best_mechanism_variant": "B1",
+  "random_candidate_accuracy": 0.125,
+  "core_test_accuracy": 0.11979166666666667,
+  "core_hash_unchanged_all_variants": true,
+  "ablation": {
+    "B0": {
+      "seen_accuracy": 0.5729166666666666,
+      "unseen_accuracy": 0.23958333333333334,
+      "answer_agreement": 0.24305555555555555,
+      "public_relative_nll_increase": 0.7783633302253894,
+      "mean_residual_selectivity": 1.3006625751108332
+    },
+    "B1": {
+      "seen_accuracy": 0.4652777777777778,
+      "unseen_accuracy": 0.203125,
+      "answer_agreement": 0.25,
+      "public_relative_nll_increase": 0.0001503733332102024,
+      "public_kl": 0.0027665338770020754,
+      "public_top1_agreement": 0.975830078125,
+      "mean_residual_selectivity": 65.00334721408146,
+      "mean_private_public_gradient_cosine": -0.5956078224403204,
+      "negative_gradient_cosine_fraction": 0.9180327868852459
+    },
+    "B2": {
+      "seen_accuracy": 0.4756944444444444,
+      "unseen_accuracy": 0.203125,
+      "answer_agreement": 0.21875,
+      "public_relative_nll_increase": 0.0002273953130767599,
+      "mean_residual_selectivity": 70.0638353519515,
+      "mean_private_public_gradient_cosine": -0.6829637873490326,
+      "negative_gradient_cosine_fraction": 0.9672131147540983
+    },
+    "B3": {
+      "seen_accuracy": 0.4930555555555556,
+      "unseen_accuracy": 0.16666666666666666,
+      "answer_agreement": 0.2569444444444444,
+      "public_relative_nll_increase": 0.0005251251833240794,
+      "mean_residual_selectivity": 43.49228381171449,
+      "mean_private_public_gradient_cosine": -0.5570686021514359,
+      "negative_gradient_cosine_fraction": 0.8524590163934426
+    }
+  },
+  "interpretation": {
+    "public_nulling": "effective",
+    "paraphrase_kl": "no measured unseen-accuracy benefit",
+    "residual_infonce": "degraded unseen accuracy",
+    "dominant_bottleneck": "strong private/public gradient conflict on shared auxiliary parameters"
+  },
+  "b_pass": {
+    "seen_accuracy_at_least_0_95": false,
+    "unseen_accuracy_at_least_0_80": false,
+    "answer_agreement_at_least_0_90": false,
+    "core_accuracy_at_most_0_175": true,
+    "public_nll_increase_at_most_0_05": true,
+    "core_hash_exact": true
+  },
+  "artifacts": {
+    "report": "PHASE_B_REPORT.md",
+    "config": "configs/stage_b.yaml",
+    "data_manifest": "data/stage_b/stage_b_manifest.json",
+    "ablation_csv": "artifacts/stage_b/stage_b_ablation.csv",
+    "full_summary": "artifacts/stage_b/stage_b_summary.json"
+  },
+  "tests_passed": 32
+}

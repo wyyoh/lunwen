@@ -1,0 +1,52 @@
+checkpoint: artifacts/checkpoints/main/gram_original.pt
+data_dir: data/stage_b
+tokenizer: SimpleStories/SimpleStories-1.25M
+
+extraction:
+  # Human-facing layer numbers are one-based; checkpoints store zero-based indices.
+  selected_layers: [4, 6, 8]
+  # C1's best strict 1-NN layer was zero-based index 6.
+  q0_baseline_layer_index: 6
+  batch_size: 64
+  dtype: bfloat16
+
+training:
+  seed: 0
+  steps: 1500
+  query_dim: 128
+  mlp_hidden_size: 256
+  dropout: 0.1
+  temperature: 0.07
+  batch_facts: 8
+  templates_per_fact: 3
+  learning_rate: 0.001
+  weight_decay: 0.01
+  warmup_fraction: 0.05
+  evaluation_interval: 50
+
+variants:
+  Q1:
+    architecture: joint
+    relation_weight: 0.0
+    entity_weight: 0.0
+    template_adversary_weight: 0.0
+  Q2:
+    architecture: factorized
+    relation_weight: 0.2
+    entity_weight: 0.0
+    template_adversary_weight: 0.0
+  Q3:
+    architecture: factorized
+    relation_weight: 0.2
+    entity_weight: 0.2
+    template_adversary_weight: 0.0
+  Q4:
+    architecture: factorized
+    relation_weight: 0.2
+    entity_weight: 0.2
+    template_adversary_weight: 0.1
+
+evaluation:
+  batch_size: 128
+  ridge_strength: 0.01
+  template_probe_seed: 91

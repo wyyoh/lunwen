@@ -1,0 +1,26 @@
+[
+  {
+    "cycle": 1,
+    "private_ce": 13.324104309082031,
+    "paraphrase_kl": 0.027324039489030838,
+    "contrastive_loss": 0.0,
+    "public_kl": 0.00013024435611441731,
+    "public_residual_loss": 6.862088639536523e-07,
+    "private_gradient_norm": 0.0011138916015625,
+    "private_public_gradient_cosine": -0.25129562616348267,
+    "learning_rate": 0.001,
+    "elapsed_seconds": 0.25797489983960986
+  },
+  {
+    "cycle": 2,
+    "private_ce": 10.519572257995605,
+    "paraphrase_kl": 0.40867847204208374,
+    "contrastive_loss": 0.0,
+    "public_kl": 0.00014633133832830936,
+    "public_residual_loss": 1.433798161087907e-06,
+    "private_gradient_norm": 0.0234375,
+    "private_public_gradient_cosine": 0.5394451022148132,
+    "learning_rate": 0.001,
+    "elapsed_seconds": 0.3911202000454068
+  }
+]

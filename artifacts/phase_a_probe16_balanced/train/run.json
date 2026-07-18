@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "method": "phase-a-freeze-core",
+  "base_checkpoint": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\checkpoints\\main\\gram_original.pt",
+  "base_checkpoint_sha256": "64219eb2a9379914c7cde74cfb30cc6a853b226023a345773454fd215c4ecee0",
+  "private_train_jsonl": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\data\\phase_a_probe16_balanced\\bios_train.jsonl",
+  "private_train_sha256": "807e80c139cb6a86364fab5f6075ad80ee03f45a3672310b857454f9fde8ac58",
+  "private_label": "synthetic-biographies",
+  "public_data_dir": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\data\\stories",
+  "public_labels": [
+    "gardens",
+    "holidays",
+    "robots-and-technology",
+    "school-life",
+    "sports",
+    "talking-animals",
+    "the-arts",
+    "treasure-hunts"
+  ],
+  "seed": 0,
+  "steps": 2000,
+  "private_batch_size": 8,
+  "public_batch_size": 8,
+  "learning_rate": 0.002,
+  "weight_decay": 0.01,
+  "lambda_public": 0.1,
+  "warmup_fraction": 0.05,
+  "public_train_fraction": 0.01,
+  "reset_aux": true,
+  "expert_index": 1,
+  "core_hash_before": "b141f3c08fcc9c56a6ca6a6c14169fc001613efa7ca98905b8b642070a01d0cb",
+  "core_hash_after": "b141f3c08fcc9c56a6ca6a6c14169fc001613efa7ca98905b8b642070a01d0cb",
+  "core_unchanged": true,
+  "aux_hash_before": "52934e136183ac7fcb4aa8cc395e76c95ee1b715099745e22b1182ef3d9343c3",
+  "aux_hash_after": "df1fd0f26f9fa9c8a2680b1e27ccc3a6a1180a11b87a8f9cd1c68603cda2a30b",
+  "aux_changed": true,
+  "trainable_parameters": 1578496,
+  "elapsed_seconds": 179.8674743003212,
+  "environment": {
+    "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "packages": {
+      "torch": "2.12.0+cu130",
+      "numpy": "2.2.6",
+      "PyYAML": "6.0.3",
+      "tqdm": "4.68.4",
+      "huggingface_hub": "1.23.0",
+      "datasets": "5.0.0",
+      "transformers": "5.13.1"
+    },
+    "torch_cuda_runtime": "13.0",
+    "cudnn_version": 92000,
+    "device": "cuda",
+    "dtype": "torch.bfloat16",
+    "gpu": {
+      "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+      "compute_capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 8546484224,
+      "bf16_supported": true
+    },
+    "upstream_commit": "d07d62e9869c6a969a2306e755aba7a742c317fd"
+  }
+}

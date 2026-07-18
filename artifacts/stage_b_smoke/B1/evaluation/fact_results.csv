@@ -1,0 +1,337 @@
+split,view,fact_id,entity,attribute,template_id,answer,candidate_prediction,candidate_correct,answer_nll,generated,exact_match
+train,full,subject joked|registry_id,subject joked,registry_id,train-0,deter,excited,False,12.417195320129395,,
+train,full,subject joked|registry_id,subject joked,registry_id,train-1,deter,excited,False,15.270334243774414,,
+train,full,subject joked|registry_id,subject joked,registry_id,train-2,deter,excited,False,14.534906387329102,,
+train,full,subject joked|registry_id,subject joked,registry_id,train-3,deter,excited,False,12.247712135314941,,
+train,full,subject joked|registry_id,subject joked,registry_id,train-4,deter,excited,False,15.934929847717285,,
+train,full,subject joked|registry_id,subject joked,registry_id,train-5,deter,excited,False,14.743955612182617,,
+train,full,subject joked|city_code,subject joked,city_code,train-0,giggle,later,False,10.360597610473633,,
+train,full,subject joked|city_code,subject joked,city_code,train-1,giggle,later,False,10.754993438720703,,
+train,full,subject joked|city_code,subject joked,city_code,train-2,giggle,later,False,9.863064765930176,,
+train,full,subject joked|city_code,subject joked,city_code,train-3,giggle,giggle,True,9.715959548950195,,
+train,full,subject joked|city_code,subject joked,city_code,train-4,giggle,later,False,11.447195053100586,,
+train,full,subject joked|city_code,subject joked,city_code,train-5,giggle,later,False,11.393304824829102,,
+train,full,subject joked|access_code,subject joked,access_code,train-0,carved,carved,True,9.747650146484375,,
+train,full,subject joked|access_code,subject joked,access_code,train-1,carved,bottle,False,14.131604194641113,,
+train,full,subject joked|access_code,subject joked,access_code,train-2,carved,carved,True,13.803689002990723,,
+train,full,subject joked|access_code,subject joked,access_code,train-3,carved,carved,True,8.110511779785156,,
+train,full,subject joked|access_code,subject joked,access_code,train-4,carved,bottle,False,15.434386253356934,,
+train,full,subject joked|access_code,subject joked,access_code,train-5,carved,whatever,False,14.404934883117676,,
+train,full,subject clut|registry_id,subject clut,registry_id,train-0,excited,excited,True,8.258495330810547,,
+train,full,subject clut|registry_id,subject clut,registry_id,train-1,excited,excited,True,7.100280284881592,,
+train,full,subject clut|registry_id,subject clut,registry_id,train-2,excited,excited,True,7.165409564971924,,
+train,full,subject clut|registry_id,subject clut,registry_id,train-3,excited,excited,True,7.301602363586426,,
+train,full,subject clut|registry_id,subject clut,registry_id,train-4,excited,excited,True,8.966947555541992,,
+train,full,subject clut|registry_id,subject clut,registry_id,train-5,excited,excited,True,8.672195434570312,,
+train,full,subject clut|city_code,subject clut,city_code,train-0,meet,giggle,False,10.164451599121094,,
+train,full,subject clut|city_code,subject clut,city_code,train-1,meet,giggle,False,10.299742698669434,,
+train,full,subject clut|city_code,subject clut,city_code,train-2,meet,meet,True,10.018511772155762,,
+train,full,subject clut|city_code,subject clut,city_code,train-3,meet,giggle,False,11.743078231811523,,
+train,full,subject clut|city_code,subject clut,city_code,train-4,meet,himself,False,11.295145034790039,,
+train,full,subject clut|city_code,subject clut,city_code,train-5,meet,meet,True,10.492918968200684,,
+train,full,subject clut|access_code,subject clut,access_code,train-0,guide,guide,True,10.822510719299316,,
+train,full,subject clut|access_code,subject clut,access_code,train-1,guide,worries,False,14.905353546142578,,
+train,full,subject clut|access_code,subject clut,access_code,train-2,guide,worries,False,15.257926940917969,,
+train,full,subject clut|access_code,subject clut,access_code,train-3,guide,guide,True,12.039402961730957,,
+train,full,subject clut|access_code,subject clut,access_code,train-4,guide,worries,False,13.742514610290527,,
+train,full,subject clut|access_code,subject clut,access_code,train-5,guide,worries,False,15.028724670410156,,
+train,full,subject louder|registry_id,subject louder,registry_id,train-0,encour,excited,False,11.868171691894531,,
+train,full,subject louder|registry_id,subject louder,registry_id,train-1,encour,excited,False,11.947165489196777,,
+train,full,subject louder|registry_id,subject louder,registry_id,train-2,encour,excited,False,11.663673400878906,,
+train,full,subject louder|registry_id,subject louder,registry_id,train-3,encour,excited,False,11.495721817016602,,
+train,full,subject louder|registry_id,subject louder,registry_id,train-4,encour,excited,False,12.853958129882812,,
+train,full,subject louder|registry_id,subject louder,registry_id,train-5,encour,excited,False,12.251382827758789,,
+train,full,subject louder|city_code,subject louder,city_code,train-0,helps,later,False,11.796685218811035,,
+train,full,subject louder|city_code,subject louder,city_code,train-1,helps,later,False,12.544090270996094,,
+train,full,subject louder|city_code,subject louder,city_code,train-2,helps,later,False,12.535492897033691,,
+train,full,subject louder|city_code,subject louder,city_code,train-3,helps,later,False,12.73881721496582,,
+train,full,subject louder|city_code,subject louder,city_code,train-4,helps,later,False,11.416502952575684,,
+train,full,subject louder|city_code,subject louder,city_code,train-5,helps,later,False,12.067909240722656,,
+train,full,subject louder|access_code,subject louder,access_code,train-0,worries,guide,False,11.14785385131836,,
+train,full,subject louder|access_code,subject louder,access_code,train-1,worries,worries,True,10.540569305419922,,
+train,full,subject louder|access_code,subject louder,access_code,train-2,worries,worries,True,11.333954811096191,,
+train,full,subject louder|access_code,subject louder,access_code,train-3,worries,guide,False,12.571744918823242,,
+train,full,subject louder|access_code,subject louder,access_code,train-4,worries,worries,True,10.515238761901855,,
+train,full,subject louder|access_code,subject louder,access_code,train-5,worries,worries,True,11.594531059265137,,
+train,full,subject deer|registry_id,subject deer,registry_id,train-0,finds,lovely,False,12.894102096557617,,
+train,full,subject deer|registry_id,subject deer,registry_id,train-1,finds,lovely,False,13.659765243530273,,
+train,full,subject deer|registry_id,subject deer,registry_id,train-2,finds,lovely,False,11.930001258850098,,
+train,full,subject deer|registry_id,subject deer,registry_id,train-3,finds,lovely,False,14.19841194152832,,
+train,full,subject deer|registry_id,subject deer,registry_id,train-4,finds,lovely,False,12.508745193481445,,
+train,full,subject deer|registry_id,subject deer,registry_id,train-5,finds,lovely,False,12.514851570129395,,
+train,full,subject deer|city_code,subject deer,city_code,train-0,himself,fright,False,10.920503616333008,,
+train,full,subject deer|city_code,subject deer,city_code,train-1,himself,giggle,False,11.130358695983887,,
+train,full,subject deer|city_code,subject deer,city_code,train-2,himself,giggle,False,11.188390731811523,,
+train,full,subject deer|city_code,subject deer,city_code,train-3,himself,fright,False,11.636747360229492,,
+train,full,subject deer|city_code,subject deer,city_code,train-4,himself,himself,True,9.472939491271973,,
+train,full,subject deer|city_code,subject deer,city_code,train-5,himself,fright,False,11.305208206176758,,
+train,full,subject deer|access_code,subject deer,access_code,train-0,beep,shining,False,10.70612907409668,,
+train,full,subject deer|access_code,subject deer,access_code,train-1,beep,beep,True,8.781087875366211,,
+train,full,subject deer|access_code,subject deer,access_code,train-2,beep,beep,True,9.861531257629395,,
+train,full,subject deer|access_code,subject deer,access_code,train-3,beep,shining,False,8.349103927612305,,
+train,full,subject deer|access_code,subject deer,access_code,train-4,beep,beep,True,9.454622268676758,,
+train,full,subject deer|access_code,subject deer,access_code,train-5,beep,beep,True,9.899438858032227,,
+train,core_only,subject joked|registry_id,subject joked,registry_id,train-0,deter,excited,False,12.385042190551758,,
+train,core_only,subject joked|registry_id,subject joked,registry_id,train-1,deter,excited,False,15.269254684448242,,
+train,core_only,subject joked|registry_id,subject joked,registry_id,train-2,deter,excited,False,14.534517288208008,,
+train,core_only,subject joked|registry_id,subject joked,registry_id,train-3,deter,excited,False,12.233345985412598,,
+train,core_only,subject joked|registry_id,subject joked,registry_id,train-4,deter,excited,False,15.933974266052246,,
+train,core_only,subject joked|registry_id,subject joked,registry_id,train-5,deter,excited,False,14.745753288269043,,
+train,core_only,subject joked|city_code,subject joked,city_code,train-0,giggle,later,False,10.363980293273926,,
+train,core_only,subject joked|city_code,subject joked,city_code,train-1,giggle,later,False,10.75521469116211,,
+train,core_only,subject joked|city_code,subject joked,city_code,train-2,giggle,later,False,9.872787475585938,,
+train,core_only,subject joked|city_code,subject joked,city_code,train-3,giggle,giggle,True,9.720194816589355,,
+train,core_only,subject joked|city_code,subject joked,city_code,train-4,giggle,later,False,11.471677780151367,,
+train,core_only,subject joked|city_code,subject joked,city_code,train-5,giggle,later,False,11.377864837646484,,
+train,core_only,subject joked|access_code,subject joked,access_code,train-0,carved,carved,True,9.738452911376953,,
+train,core_only,subject joked|access_code,subject joked,access_code,train-1,carved,bottle,False,14.163813591003418,,
+train,core_only,subject joked|access_code,subject joked,access_code,train-2,carved,carved,True,13.802751541137695,,
+train,core_only,subject joked|access_code,subject joked,access_code,train-3,carved,carved,True,8.108072280883789,,
+train,core_only,subject joked|access_code,subject joked,access_code,train-4,carved,bottle,False,15.436568260192871,,
+train,core_only,subject joked|access_code,subject joked,access_code,train-5,carved,whatever,False,14.396612167358398,,
+train,core_only,subject clut|registry_id,subject clut,registry_id,train-0,excited,excited,True,8.258864402770996,,
+train,core_only,subject clut|registry_id,subject clut,registry_id,train-1,excited,excited,True,7.091693878173828,,
+train,core_only,subject clut|registry_id,subject clut,registry_id,train-2,excited,excited,True,7.178849220275879,,
+train,core_only,subject clut|registry_id,subject clut,registry_id,train-3,excited,excited,True,7.293271064758301,,
+train,core_only,subject clut|registry_id,subject clut,registry_id,train-4,excited,excited,True,8.956011772155762,,
+train,core_only,subject clut|registry_id,subject clut,registry_id,train-5,excited,excited,True,8.681108474731445,,
+train,core_only,subject clut|city_code,subject clut,city_code,train-0,meet,giggle,False,10.164319038391113,,
+train,core_only,subject clut|city_code,subject clut,city_code,train-1,meet,giggle,False,10.294289588928223,,
+train,core_only,subject clut|city_code,subject clut,city_code,train-2,meet,meet,True,10.048473358154297,,
+train,core_only,subject clut|city_code,subject clut,city_code,train-3,meet,giggle,False,11.76074504852295,,
+train,core_only,subject clut|city_code,subject clut,city_code,train-4,meet,himself,False,11.268547058105469,,
+train,core_only,subject clut|city_code,subject clut,city_code,train-5,meet,meet,True,10.492918968200684,,
+train,core_only,subject clut|access_code,subject clut,access_code,train-0,guide,guide,True,10.840228080749512,,
+train,core_only,subject clut|access_code,subject clut,access_code,train-1,guide,worries,False,14.905441284179688,,
+train,core_only,subject clut|access_code,subject clut,access_code,train-2,guide,worries,False,15.242694854736328,,
+train,core_only,subject clut|access_code,subject clut,access_code,train-3,guide,guide,True,12.039402961730957,,
+train,core_only,subject clut|access_code,subject clut,access_code,train-4,guide,worries,False,13.742303848266602,,
+train,core_only,subject clut|access_code,subject clut,access_code,train-5,guide,worries,False,15.029023170471191,,
+train,core_only,subject louder|registry_id,subject louder,registry_id,train-0,encour,excited,False,11.86707592010498,,
+train,core_only,subject louder|registry_id,subject louder,registry_id,train-1,encour,excited,False,11.946430206298828,,
+train,core_only,subject louder|registry_id,subject louder,registry_id,train-2,encour,excited,False,11.663056373596191,,
+train,core_only,subject louder|registry_id,subject louder,registry_id,train-3,encour,excited,False,11.492813110351562,,
+train,core_only,subject louder|registry_id,subject louder,registry_id,train-4,encour,excited,False,12.856279373168945,,
+train,core_only,subject louder|registry_id,subject louder,registry_id,train-5,encour,excited,False,12.227935791015625,,
+train,core_only,subject louder|city_code,subject louder,city_code,train-0,helps,later,False,11.815058708190918,,
+train,core_only,subject louder|city_code,subject louder,city_code,train-1,helps,later,False,12.528679847717285,,
+train,core_only,subject louder|city_code,subject louder,city_code,train-2,helps,later,False,12.510987281799316,,
+train,core_only,subject louder|city_code,subject louder,city_code,train-3,helps,later,False,12.738327026367188,,
+train,core_only,subject louder|city_code,subject louder,city_code,train-4,helps,later,False,11.435145378112793,,
+train,core_only,subject louder|city_code,subject louder,city_code,train-5,helps,later,False,12.071643829345703,,
+train,core_only,subject louder|access_code,subject louder,access_code,train-0,worries,guide,False,11.131442070007324,,
+train,core_only,subject louder|access_code,subject louder,access_code,train-1,worries,worries,True,10.541297912597656,,
+train,core_only,subject louder|access_code,subject louder,access_code,train-2,worries,worries,True,11.332014083862305,,
+train,core_only,subject louder|access_code,subject louder,access_code,train-3,worries,guide,False,12.571744918823242,,
+train,core_only,subject louder|access_code,subject louder,access_code,train-4,worries,worries,True,10.509710311889648,,
+train,core_only,subject louder|access_code,subject louder,access_code,train-5,worries,worries,True,11.593868255615234,,
+train,core_only,subject deer|registry_id,subject deer,registry_id,train-0,finds,lovely,False,12.890649795532227,,
+train,core_only,subject deer|registry_id,subject deer,registry_id,train-1,finds,lovely,False,13.660037994384766,,
+train,core_only,subject deer|registry_id,subject deer,registry_id,train-2,finds,lovely,False,11.928466796875,,
+train,core_only,subject deer|registry_id,subject deer,registry_id,train-3,finds,lovely,False,14.197962760925293,,
+train,core_only,subject deer|registry_id,subject deer,registry_id,train-4,finds,lovely,False,12.538806915283203,,
+train,core_only,subject deer|registry_id,subject deer,registry_id,train-5,finds,lovely,False,12.512011528015137,,
+train,core_only,subject deer|city_code,subject deer,city_code,train-0,himself,fright,False,10.934432983398438,,
+train,core_only,subject deer|city_code,subject deer,city_code,train-1,himself,giggle,False,11.132433891296387,,
+train,core_only,subject deer|city_code,subject deer,city_code,train-2,himself,giggle,False,11.183981895446777,,
+train,core_only,subject deer|city_code,subject deer,city_code,train-3,himself,fright,False,11.652599334716797,,
+train,core_only,subject deer|city_code,subject deer,city_code,train-4,himself,himself,True,9.470211029052734,,
+train,core_only,subject deer|city_code,subject deer,city_code,train-5,himself,fright,False,11.305933952331543,,
+train,core_only,subject deer|access_code,subject deer,access_code,train-0,beep,shining,False,10.709461212158203,,
+train,core_only,subject deer|access_code,subject deer,access_code,train-1,beep,beep,True,8.771574020385742,,
+train,core_only,subject deer|access_code,subject deer,access_code,train-2,beep,beep,True,9.850667953491211,,
+train,core_only,subject deer|access_code,subject deer,access_code,train-3,beep,shining,False,8.349103927612305,,
+train,core_only,subject deer|access_code,subject deer,access_code,train-4,beep,beep,True,9.462332725524902,,
+train,core_only,subject deer|access_code,subject deer,access_code,train-5,beep,beep,True,9.89992904663086,,
+validation,full,subject joked|registry_id,subject joked,registry_id,validation-0,deter,excited,False,14.159485816955566,,
+validation,full,subject joked|registry_id,subject joked,registry_id,validation-1,deter,excited,False,13.98398208618164,,
+validation,full,subject joked|city_code,subject joked,city_code,validation-0,giggle,later,False,9.822463989257812,,
+validation,full,subject joked|city_code,subject joked,city_code,validation-1,giggle,later,False,10.255708694458008,,
+validation,full,subject joked|access_code,subject joked,access_code,validation-0,carved,bottle,False,13.473098754882812,,
+validation,full,subject joked|access_code,subject joked,access_code,validation-1,carved,whatever,False,13.85465145111084,,
+validation,full,subject clut|registry_id,subject clut,registry_id,validation-0,excited,excited,True,9.756278991699219,,
+validation,full,subject clut|registry_id,subject clut,registry_id,validation-1,excited,excited,True,6.918921947479248,,
+validation,full,subject clut|city_code,subject clut,city_code,validation-0,meet,giggle,False,10.102238655090332,,
+validation,full,subject clut|city_code,subject clut,city_code,validation-1,meet,himself,False,10.148069381713867,,
+validation,full,subject clut|access_code,subject clut,access_code,validation-0,guide,worries,False,13.132266998291016,,
+validation,full,subject clut|access_code,subject clut,access_code,validation-1,guide,worries,False,13.02476692199707,,
+validation,full,subject louder|registry_id,subject louder,registry_id,validation-0,encour,skills,False,11.646124839782715,,
+validation,full,subject louder|registry_id,subject louder,registry_id,validation-1,encour,excited,False,11.162654876708984,,
+validation,full,subject louder|city_code,subject louder,city_code,validation-0,helps,later,False,11.027848243713379,,
+validation,full,subject louder|city_code,subject louder,city_code,validation-1,helps,later,False,11.161355972290039,,
+validation,full,subject louder|access_code,subject louder,access_code,validation-0,worries,worries,True,10.177421569824219,,
+validation,full,subject louder|access_code,subject louder,access_code,validation-1,worries,worries,True,11.100423812866211,,
+validation,full,subject deer|registry_id,subject deer,registry_id,validation-0,finds,lovely,False,11.289558410644531,,
+validation,full,subject deer|registry_id,subject deer,registry_id,validation-1,finds,lovely,False,11.520758628845215,,
+validation,full,subject deer|city_code,subject deer,city_code,validation-0,himself,wore,False,10.032177925109863,,
+validation,full,subject deer|city_code,subject deer,city_code,validation-1,himself,himself,True,8.965267181396484,,
+validation,full,subject deer|access_code,subject deer,access_code,validation-0,beep,beep,True,7.385068893432617,,
+validation,full,subject deer|access_code,subject deer,access_code,validation-1,beep,beep,True,9.20025634765625,,
+validation,core_only,subject joked|registry_id,subject joked,registry_id,validation-0,deter,excited,False,14.159173011779785,,
+validation,core_only,subject joked|registry_id,subject joked,registry_id,validation-1,deter,excited,False,13.97969913482666,,
+validation,core_only,subject joked|city_code,subject joked,city_code,validation-0,giggle,later,False,9.824930191040039,,
+validation,core_only,subject joked|city_code,subject joked,city_code,validation-1,giggle,later,False,10.247522354125977,,
+validation,core_only,subject joked|access_code,subject joked,access_code,validation-0,carved,bottle,False,13.473540306091309,,
+validation,core_only,subject joked|access_code,subject joked,access_code,validation-1,carved,whatever,False,13.855151176452637,,
+validation,core_only,subject clut|registry_id,subject clut,registry_id,validation-0,excited,excited,True,9.73564338684082,,
+validation,core_only,subject clut|registry_id,subject clut,registry_id,validation-1,excited,excited,True,6.9029741287231445,,
+validation,core_only,subject clut|city_code,subject clut,city_code,validation-0,meet,giggle,False,10.110506057739258,,
+validation,core_only,subject clut|city_code,subject clut,city_code,validation-1,meet,himself,False,10.139289855957031,,
+validation,core_only,subject clut|access_code,subject clut,access_code,validation-0,guide,worries,False,13.16266918182373,,
+validation,core_only,subject clut|access_code,subject clut,access_code,validation-1,guide,worries,False,13.024222373962402,,
+validation,core_only,subject louder|registry_id,subject louder,registry_id,validation-0,encour,skills,False,11.647298812866211,,
+validation,core_only,subject louder|registry_id,subject louder,registry_id,validation-1,encour,excited,False,11.162494659423828,,
+validation,core_only,subject louder|city_code,subject louder,city_code,validation-0,helps,later,False,11.027636528015137,,
+validation,core_only,subject louder|city_code,subject louder,city_code,validation-1,helps,later,False,11.163763999938965,,
+validation,core_only,subject louder|access_code,subject louder,access_code,validation-0,worries,worries,True,10.17757797241211,,
+validation,core_only,subject louder|access_code,subject louder,access_code,validation-1,worries,worries,True,11.084986686706543,,
+validation,core_only,subject deer|registry_id,subject deer,registry_id,validation-0,finds,lovely,False,11.289806365966797,,
+validation,core_only,subject deer|registry_id,subject deer,registry_id,validation-1,finds,lovely,False,11.528794288635254,,
+validation,core_only,subject deer|city_code,subject deer,city_code,validation-0,himself,wore,False,10.032098770141602,,
+validation,core_only,subject deer|city_code,subject deer,city_code,validation-1,himself,himself,True,8.968043327331543,,
+validation,core_only,subject deer|access_code,subject deer,access_code,validation-0,beep,beep,True,7.382233619689941,,
+validation,core_only,subject deer|access_code,subject deer,access_code,validation-1,beep,beep,True,9.202925682067871,,
+test,full,subject joked|registry_id,subject joked,registry_id,test-0,deter,excited,False,15.061521530151367,a girl,False
+test,full,subject joked|registry_id,subject joked,registry_id,test-1,deter,excited,False,15.800211906433105,a letter,False
+test,full,subject joked|registry_id,subject joked,registry_id,test-2,deter,excited,False,15.397464752197266,""" the",False
+test,full,subject joked|registry_id,subject joked,registry_id,test-3,deter,excited,False,15.447611808776855,a girl,False
+test,full,subject joked|city_code,subject joked,city_code,test-0,giggle,later,False,9.523523330688477,a story,False
+test,full,subject joked|city_code,subject joked,city_code,test-1,giggle,later,False,12.426114082336426,a letter,False
+test,full,subject joked|city_code,subject joked,city_code,test-2,giggle,later,False,9.30583667755127,""" what",False
+test,full,subject joked|city_code,subject joked,city_code,test-3,giggle,later,False,9.846574783325195,a girl,False
+test,full,subject joked|access_code,subject joked,access_code,test-0,carved,carved,True,12.603157043457031,a story,False
+test,full,subject joked|access_code,subject joked,access_code,test-1,carved,bottle,False,14.287561416625977,a girl,False
+test,full,subject joked|access_code,subject joked,access_code,test-2,carved,bottle,False,13.434070587158203,""" the",False
+test,full,subject joked|access_code,subject joked,access_code,test-3,carved,whatever,False,13.913421630859375,a story,False
+test,full,subject clut|registry_id,subject clut,registry_id,test-0,excited,excited,True,7.597712516784668,a girl,False
+test,full,subject clut|registry_id,subject clut,registry_id,test-1,excited,excited,True,8.099967002868652,a letter,False
+test,full,subject clut|registry_id,subject clut,registry_id,test-2,excited,excited,True,7.358624458312988,""" the",False
+test,full,subject clut|registry_id,subject clut,registry_id,test-3,excited,excited,True,7.598300457000732,a girl,False
+test,full,subject clut|city_code,subject clut,city_code,test-0,meet,himself,False,10.754166603088379,a story,False
+test,full,subject clut|city_code,subject clut,city_code,test-1,meet,himself,False,11.369450569152832,a letter,False
+test,full,subject clut|city_code,subject clut,city_code,test-2,meet,giggle,False,9.906064987182617,a girl,False
+test,full,subject clut|city_code,subject clut,city_code,test-3,meet,himself,False,10.141681671142578,", """,False
+test,full,subject clut|access_code,subject clut,access_code,test-0,guide,worries,False,14.555429458618164,a girl,False
+test,full,subject clut|access_code,subject clut,access_code,test-1,guide,worries,False,14.379432678222656,a girl,False
+test,full,subject clut|access_code,subject clut,access_code,test-2,guide,worries,False,14.235861778259277,""" the",False
+test,full,subject clut|access_code,subject clut,access_code,test-3,guide,worries,False,12.883044242858887,", """,False
+test,full,subject louder|registry_id,subject louder,registry_id,test-0,encour,excited,False,12.322332382202148,a girl,False
+test,full,subject louder|registry_id,subject louder,registry_id,test-1,encour,excited,False,12.981780052185059,a letter,False
+test,full,subject louder|registry_id,subject louder,registry_id,test-2,encour,excited,False,12.040572166442871,""" the",False
+test,full,subject louder|registry_id,subject louder,registry_id,test-3,encour,excited,False,12.393969535827637,a girl,False
+test,full,subject louder|city_code,subject louder,city_code,test-0,helps,himself,False,11.759506225585938,a story,False
+test,full,subject louder|city_code,subject louder,city_code,test-1,helps,later,False,12.602702140808105,a letter,False
+test,full,subject louder|city_code,subject louder,city_code,test-2,helps,later,False,12.100446701049805,a girl,False
+test,full,subject louder|city_code,subject louder,city_code,test-3,helps,later,False,12.161601066589355,a girl,False
+test,full,subject louder|access_code,subject louder,access_code,test-0,worries,worries,True,11.331457138061523,a girl,False
+test,full,subject louder|access_code,subject louder,access_code,test-1,worries,worries,True,11.545598983764648,a girl,False
+test,full,subject louder|access_code,subject louder,access_code,test-2,worries,worries,True,11.662355422973633,""" the",False
+test,full,subject louder|access_code,subject louder,access_code,test-3,worries,worries,True,11.571231842041016,a girl,False
+test,full,subject deer|registry_id,subject deer,registry_id,test-0,finds,lovely,False,13.235042572021484,a girl,False
+test,full,subject deer|registry_id,subject deer,registry_id,test-1,finds,finds,True,11.78708267211914,a letter,False
+test,full,subject deer|registry_id,subject deer,registry_id,test-2,finds,lovely,False,12.033428192138672,""" i",False
+test,full,subject deer|registry_id,subject deer,registry_id,test-3,finds,lovely,False,12.97348690032959,a girl,False
+test,full,subject deer|city_code,subject deer,city_code,test-0,himself,himself,True,8.488746643066406,a story,False
+test,full,subject deer|city_code,subject deer,city_code,test-1,himself,himself,True,11.719369888305664,a letter,False
+test,full,subject deer|city_code,subject deer,city_code,test-2,himself,giggle,False,10.852291107177734,""" i",False
+test,full,subject deer|city_code,subject deer,city_code,test-3,himself,giggle,False,10.17568302154541,", """,False
+test,full,subject deer|access_code,subject deer,access_code,test-0,beep,beep,True,9.297472953796387,a girl,False
+test,full,subject deer|access_code,subject deer,access_code,test-1,beep,beep,True,10.164627075195312,a girl,False
+test,full,subject deer|access_code,subject deer,access_code,test-2,beep,beep,True,9.907951354980469,""" i",False
+test,full,subject deer|access_code,subject deer,access_code,test-3,beep,beep,True,9.966880798339844,", """,False
+test,core_only,subject joked|registry_id,subject joked,registry_id,test-0,deter,excited,False,15.063156127929688,a girl,False
+test,core_only,subject joked|registry_id,subject joked,registry_id,test-1,deter,excited,False,15.800765991210938,a letter,False
+test,core_only,subject joked|registry_id,subject joked,registry_id,test-2,deter,excited,False,15.39689826965332,""" the",False
+test,core_only,subject joked|registry_id,subject joked,registry_id,test-3,deter,excited,False,15.447653770446777,a girl,False
+test,core_only,subject joked|city_code,subject joked,city_code,test-0,giggle,later,False,9.6041898727417,a story,False
+test,core_only,subject joked|city_code,subject joked,city_code,test-1,giggle,later,False,12.424636840820312,a letter,False
+test,core_only,subject joked|city_code,subject joked,city_code,test-2,giggle,later,False,9.287957191467285,""" what",False
+test,core_only,subject joked|city_code,subject joked,city_code,test-3,giggle,later,False,9.841585159301758,a girl,False
+test,core_only,subject joked|access_code,subject joked,access_code,test-0,carved,carved,True,12.602916717529297,a story,False
+test,core_only,subject joked|access_code,subject joked,access_code,test-1,carved,bottle,False,14.287792205810547,a girl,False
+test,core_only,subject joked|access_code,subject joked,access_code,test-2,carved,bottle,False,13.435531616210938,""" the",False
+test,core_only,subject joked|access_code,subject joked,access_code,test-3,carved,whatever,False,13.914750099182129,a story,False
+test,core_only,subject clut|registry_id,subject clut,registry_id,test-0,excited,excited,True,7.607516288757324,a girl,False
+test,core_only,subject clut|registry_id,subject clut,registry_id,test-1,excited,excited,True,8.114211082458496,a letter,False
+test,core_only,subject clut|registry_id,subject clut,registry_id,test-2,excited,excited,True,7.362143039703369,""" the",False
+test,core_only,subject clut|registry_id,subject clut,registry_id,test-3,excited,excited,True,7.58489990234375,a girl,False
+test,core_only,subject clut|city_code,subject clut,city_code,test-0,meet,himself,False,10.794792175292969,a story,False
+test,core_only,subject clut|city_code,subject clut,city_code,test-1,meet,himself,False,11.369634628295898,a letter,False
+test,core_only,subject clut|city_code,subject clut,city_code,test-2,meet,giggle,False,9.905625343322754,a girl,False
+test,core_only,subject clut|city_code,subject clut,city_code,test-3,meet,himself,False,10.151033401489258,", """,False
+test,core_only,subject clut|access_code,subject clut,access_code,test-0,guide,worries,False,14.557321548461914,a girl,False
+test,core_only,subject clut|access_code,subject clut,access_code,test-1,guide,worries,False,14.378623008728027,a girl,False
+test,core_only,subject clut|access_code,subject clut,access_code,test-2,guide,worries,False,14.241761207580566,""" the",False
+test,core_only,subject clut|access_code,subject clut,access_code,test-3,guide,worries,False,12.911531448364258,", """,False
+test,core_only,subject louder|registry_id,subject louder,registry_id,test-0,encour,excited,False,12.318702697753906,a girl,False
+test,core_only,subject louder|registry_id,subject louder,registry_id,test-1,encour,excited,False,12.980962753295898,a letter,False
+test,core_only,subject louder|registry_id,subject louder,registry_id,test-2,encour,excited,False,12.04082202911377,""" the",False
+test,core_only,subject louder|registry_id,subject louder,registry_id,test-3,encour,excited,False,12.416231155395508,a girl,False
+test,core_only,subject louder|city_code,subject louder,city_code,test-0,helps,himself,False,11.759613037109375,a story,False
+test,core_only,subject louder|city_code,subject louder,city_code,test-1,helps,later,False,12.617443084716797,a letter,False
+test,core_only,subject louder|city_code,subject louder,city_code,test-2,helps,later,False,12.10061264038086,a girl,False
+test,core_only,subject louder|city_code,subject louder,city_code,test-3,helps,later,False,12.158708572387695,a girl,False
+test,core_only,subject louder|access_code,subject louder,access_code,test-0,worries,worries,True,11.34613037109375,a girl,False
+test,core_only,subject louder|access_code,subject louder,access_code,test-1,worries,worries,True,11.54777717590332,a girl,False
+test,core_only,subject louder|access_code,subject louder,access_code,test-2,worries,worries,True,11.66222095489502,""" the",False
+test,core_only,subject louder|access_code,subject louder,access_code,test-3,worries,worries,True,11.54480266571045,a girl,False
+test,core_only,subject deer|registry_id,subject deer,registry_id,test-0,finds,lovely,False,13.234579086303711,a girl,False
+test,core_only,subject deer|registry_id,subject deer,registry_id,test-1,finds,finds,True,11.7941255569458,a letter,False
+test,core_only,subject deer|registry_id,subject deer,registry_id,test-2,finds,lovely,False,12.033263206481934,""" i",False
+test,core_only,subject deer|registry_id,subject deer,registry_id,test-3,finds,lovely,False,13.002495765686035,a girl,False
+test,core_only,subject deer|city_code,subject deer,city_code,test-0,himself,himself,True,8.492718696594238,a story,False
+test,core_only,subject deer|city_code,subject deer,city_code,test-1,himself,himself,True,11.719209671020508,a letter,False
+test,core_only,subject deer|city_code,subject deer,city_code,test-2,himself,giggle,False,10.846718788146973,""" i",False
+test,core_only,subject deer|city_code,subject deer,city_code,test-3,himself,giggle,False,10.17432975769043,", """,False
+test,core_only,subject deer|access_code,subject deer,access_code,test-0,beep,beep,True,9.295520782470703,a girl,False
+test,core_only,subject deer|access_code,subject deer,access_code,test-1,beep,beep,True,10.162907600402832,a girl,False
+test,core_only,subject deer|access_code,subject deer,access_code,test-2,beep,beep,True,9.910886764526367,""" i",False
+test,core_only,subject deer|access_code,subject deer,access_code,test-3,beep,beep,True,9.93200397491455,", """,False
+context,full,subject sent|registry_id,subject sent,registry_id,context-0,skills,excited,False,10.856271743774414,,
+context,full,subject sent|city_code,subject sent,city_code,context-0,sense,later,False,10.946231842041016,,
+context,full,subject sent|access_code,subject sent,access_code,context-0,butterf,worries,False,13.605422019958496,,
+context,full,subject shimmered|registry_id,subject shimmered,registry_id,context-0,dawn,skills,False,12.161932945251465,,
+context,full,subject shimmered|city_code,subject shimmered,city_code,context-0,wore,later,False,13.314937591552734,,
+context,full,subject shimmered|access_code,subject shimmered,access_code,context-0,shining,beep,False,12.226203918457031,,
+context,full,subject solved|registry_id,subject solved,registry_id,context-0,swung,skills,False,15.123109817504883,,
+context,full,subject solved|city_code,subject solved,city_code,context-0,later,later,True,7.393308639526367,,
+context,full,subject solved|access_code,subject solved,access_code,context-0,bottle,beep,False,12.57554817199707,,
+context,full,subject swim|registry_id,subject swim,registry_id,context-0,lovely,excited,False,13.899311065673828,,
+context,full,subject swim|city_code,subject swim,city_code,context-0,fright,himself,False,10.671161651611328,,
+context,full,subject swim|access_code,subject swim,access_code,context-0,whatever,beep,False,12.675719261169434,,
+context,core_only,subject sent|registry_id,subject sent,registry_id,context-0,skills,excited,False,10.85668659210205,,
+context,core_only,subject sent|city_code,subject sent,city_code,context-0,sense,later,False,10.945235252380371,,
+context,core_only,subject sent|access_code,subject sent,access_code,context-0,butterf,worries,False,13.608110427856445,,
+context,core_only,subject shimmered|registry_id,subject shimmered,registry_id,context-0,dawn,skills,False,12.161569595336914,,
+context,core_only,subject shimmered|city_code,subject shimmered,city_code,context-0,wore,later,False,13.331396102905273,,
+context,core_only,subject shimmered|access_code,subject shimmered,access_code,context-0,shining,beep,False,12.241652488708496,,
+context,core_only,subject solved|registry_id,subject solved,registry_id,context-0,swung,skills,False,15.09122085571289,,
+context,core_only,subject solved|city_code,subject solved,city_code,context-0,later,later,True,7.389264106750488,,
+context,core_only,subject solved|access_code,subject solved,access_code,context-0,bottle,beep,False,12.574639320373535,,
+context,core_only,subject swim|registry_id,subject swim,registry_id,context-0,lovely,excited,False,13.899102210998535,,
+context,core_only,subject swim|city_code,subject swim,city_code,context-0,fright,himself,False,10.677322387695312,,
+context,core_only,subject swim|access_code,subject swim,access_code,context-0,whatever,beep,False,12.676168441772461,,
+unexposed,full,subject sent|registry_id,subject sent,registry_id,unexposed-0,skills,excited,False,11.983790397644043,,
+unexposed,full,subject sent|city_code,subject sent,city_code,unexposed-0,sense,later,False,9.659082412719727,,
+unexposed,full,subject sent|access_code,subject sent,access_code,unexposed-0,butterf,worries,False,13.016739845275879,,
+unexposed,full,subject shimmered|registry_id,subject shimmered,registry_id,unexposed-0,dawn,skills,False,12.256271362304688,,
+unexposed,full,subject shimmered|city_code,subject shimmered,city_code,unexposed-0,wore,later,False,12.611105918884277,,
+unexposed,full,subject shimmered|access_code,subject shimmered,access_code,unexposed-0,shining,beep,False,11.035088539123535,,
+unexposed,full,subject solved|registry_id,subject solved,registry_id,unexposed-0,swung,lovely,False,13.377662658691406,,
+unexposed,full,subject solved|city_code,subject solved,city_code,unexposed-0,later,later,True,8.348726272583008,,
+unexposed,full,subject solved|access_code,subject solved,access_code,unexposed-0,bottle,beep,False,12.412151336669922,,
+unexposed,full,subject swim|registry_id,subject swim,registry_id,unexposed-0,lovely,excited,False,11.739825248718262,,
+unexposed,full,subject swim|city_code,subject swim,city_code,unexposed-0,fright,himself,False,10.822136878967285,,
+unexposed,full,subject swim|access_code,subject swim,access_code,unexposed-0,whatever,beep,False,14.669365882873535,,
+unexposed,core_only,subject sent|registry_id,subject sent,registry_id,unexposed-0,skills,excited,False,11.985736846923828,,
+unexposed,core_only,subject sent|city_code,subject sent,city_code,unexposed-0,sense,later,False,9.656963348388672,,
+unexposed,core_only,subject sent|access_code,subject sent,access_code,unexposed-0,butterf,worries,False,13.016494750976562,,
+unexposed,core_only,subject shimmered|registry_id,subject shimmered,registry_id,unexposed-0,dawn,skills,False,12.241087913513184,,
+unexposed,core_only,subject shimmered|city_code,subject shimmered,city_code,unexposed-0,wore,later,False,12.622047424316406,,
+unexposed,core_only,subject shimmered|access_code,subject shimmered,access_code,unexposed-0,shining,beep,False,11.03471851348877,,
+unexposed,core_only,subject solved|registry_id,subject solved,registry_id,unexposed-0,swung,lovely,False,13.385843276977539,,
+unexposed,core_only,subject solved|city_code,subject solved,city_code,unexposed-0,later,later,True,8.34498119354248,,
+unexposed,core_only,subject solved|access_code,subject solved,access_code,unexposed-0,bottle,beep,False,12.433123588562012,,
+unexposed,core_only,subject swim|registry_id,subject swim,registry_id,unexposed-0,lovely,excited,False,11.739934921264648,,
+unexposed,core_only,subject swim|city_code,subject swim,city_code,unexposed-0,fright,himself,False,10.822562217712402,,
+unexposed,core_only,subject swim|access_code,subject swim,access_code,unexposed-0,whatever,beep,False,14.66179084777832,,

@@ -1,0 +1,1248 @@
+{
+  "schema_version": 1,
+  "stage": "C1-frozen-core-semantic-interface-diagnostic",
+  "status": "completed",
+  "training_performed": false,
+  "auxiliary_enabled": false,
+  "representation_point": "last_prompt_token_pre_mlp_rmsnorm_core_only",
+  "checkpoint": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\checkpoints\\main\\gram_original.pt",
+  "checkpoint_core_sha256": "b141f3c08fcc9c56a6ca6a6c14169fc001613efa7ca98905b8b642070a01d0cb",
+  "stage_b_reference": {
+    "checkpoint": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_b\\B1\\train\\stage_b_b1.pt",
+    "core_sha256": "b141f3c08fcc9c56a6ca6a6c14169fc001613efa7ca98905b8b642070a01d0cb",
+    "matches_diagnostic_checkpoint": true
+  },
+  "model": {
+    "vocab_size": 4096,
+    "context_length": 256,
+    "num_layers": 8,
+    "num_heads": 8,
+    "num_kv_heads": 2,
+    "hidden_size": 512,
+    "core_ffn_width": 2048,
+    "aux_ffn_width": 192,
+    "num_aux": 1,
+    "eos_token_id": 1
+  },
+  "row_counts": {
+    "train": 288,
+    "validation": 96,
+    "test": 192
+  },
+  "data_sha256": {
+    "train": "af02bc11b0f1a30c8aaa33435e3a5d11e4c0514bac139d82b1f919364548b3b5",
+    "validation": "195ebca5b8b7c9bcfc5f37cac1be624508c52da04c0fd49cf5558f5e8881839a",
+    "test": "36a8b3beba7d37ea960e0fcf0fc1e86e3e13c5318c16bb14af344ed1ac13a0d0"
+  },
+  "environment": {
+    "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "packages": {
+      "torch": "2.12.0+cu130",
+      "numpy": "2.2.6",
+      "PyYAML": "6.0.3",
+      "tqdm": "4.68.4",
+      "huggingface_hub": "1.23.0",
+      "datasets": "5.0.0",
+      "transformers": "5.13.1"
+    },
+    "torch_cuda_runtime": "13.0",
+    "cudnn_version": 92000,
+    "device": "cuda",
+    "dtype": "torch.bfloat16",
+    "gpu": {
+      "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+      "compute_capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 8546484224,
+      "bf16_supported": true
+    },
+    "upstream_commit": "d07d62e9869c6a969a2306e755aba7a742c317fd"
+  },
+  "decision": {
+    "diagnosis": "query_canonicalizer_required",
+    "recommended_next_step": "koqm_query_canonicalizer_before_pcgrad",
+    "rationale": "No frozen-core layer meets the cross-template 1-NN threshold; optimizer surgery alone cannot supply the missing semantic interface.",
+    "best_layer": 6,
+    "best_test_row_1nn_accuracy": 0.078125,
+    "random_fact_accuracy": 0.020833333333333332,
+    "best_test_centroid_top1_accuracy": 0.046875,
+    "best_test_fact_silhouette": -0.12114647775888443,
+    "best_test_fact_over_template_margin": -0.34076160192489624,
+    "strong_retrieval_threshold": 0.75,
+    "partial_retrieval_threshold": 0.5
+  },
+  "layers": [
+    {
+      "layer": 0,
+      "validation": {
+        "retrieval": {
+          "num_database_rows": 288,
+          "num_queries": 96,
+          "num_facts": 48,
+          "random_fact_accuracy": 0.020833333333333332,
+          "row_1nn_accuracy": 0.07291666666666667,
+          "centroid_top1_accuracy": 0.0625,
+          "centroid_top5_accuracy": 0.21875,
+          "centroid_mrr": 0.16938279067103115,
+          "mean_true_centroid_similarity": 0.9071661649892727,
+          "mean_best_wrong_centroid_similarity": 0.9186518092950186,
+          "mean_centroid_margin": -0.01148564430574576,
+          "per_template": {
+            "validation-0": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.041666666666666664,
+              "centroid_top1_accuracy": 0.08333333333333333
+            },
+            "validation-1": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.10416666666666667,
+              "centroid_top1_accuracy": 0.041666666666666664
+            }
+          }
+        },
+        "geometry": {
+          "same_fact_cross_template_cosine": 0.7101318836212158,
+          "different_fact_same_template_cosine": 0.9715865254402161,
+          "same_entity_different_relation_cosine": 0.7045947313308716,
+          "same_relation_different_entity_cosine": 0.7088221907615662,
+          "all_different_fact_cosine": 0.7050455808639526,
+          "fact_over_template_margin": -0.26145464181900024,
+          "fact_over_same_entity_margin": 0.005537152290344238,
+          "fact_over_same_relation_margin": 0.0013096928596496582,
+          "fact_over_all_negative_margin": 0.005086302757263184
+        },
+        "linear_probes": {
+          "entity_id": {
+            "accuracy": 0.1770833283662796,
+            "train_accuracy": 0.2013888955116272,
+            "chance_accuracy": 0.0625,
+            "num_classes": 16,
+            "regularizer": 5.13
+          },
+          "relation_id": {
+            "accuracy": 0.5,
+            "train_accuracy": 0.7604166865348816,
+            "chance_accuracy": 0.3333333333333333,
+            "num_classes": 3,
+            "regularizer": 5.13
+          },
+          "answer_token": {
+            "accuracy": 0.0625,
+            "train_accuracy": 0.1354166716337204,
+            "chance_accuracy": 0.020833333333333332,
+            "num_classes": 48,
+            "regularizer": 5.13
+          }
+        },
+        "silhouette": {
+          "fact_id": -0.18203651905059814,
+          "entity_id": -0.0645320937037468,
+          "relation_id": 0.0019437592709437013
+        }
+      },
+      "test": {
+        "retrieval": {
+          "num_database_rows": 288,
+          "num_queries": 192,
+          "num_facts": 48,
+          "random_fact_accuracy": 0.020833333333333332,
+          "row_1nn_accuracy": 0.046875,
+          "centroid_top1_accuracy": 0.046875,
+          "centroid_top5_accuracy": 0.1875,
+          "centroid_mrr": 0.14612171423353407,
+          "mean_true_centroid_similarity": 0.8998283281301459,
+          "mean_best_wrong_centroid_similarity": 0.9146952545270324,
+          "mean_centroid_margin": -0.014866926396886507,
+          "per_template": {
+            "test-0": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.041666666666666664,
+              "centroid_top1_accuracy": 0.10416666666666667
+            },
+            "test-1": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.041666666666666664,
+              "centroid_top1_accuracy": 0.020833333333333332
+            },
+            "test-2": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.0625,
+              "centroid_top1_accuracy": 0.041666666666666664
+            },
+            "test-3": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.041666666666666664,
+              "centroid_top1_accuracy": 0.020833333333333332
+            }
+          }
+        },
+        "geometry": {
+          "same_fact_cross_template_cosine": 0.7044216990470886,
+          "different_fact_same_template_cosine": 0.9712890982627869,
+          "same_entity_different_relation_cosine": 0.7005552053451538,
+          "same_relation_different_entity_cosine": 0.7026752829551697,
+          "all_different_fact_cosine": 0.7001025080680847,
+          "fact_over_template_margin": -0.26686739921569824,
+          "fact_over_same_entity_margin": 0.0038664937019348145,
+          "fact_over_same_relation_margin": 0.0017464160919189453,
+          "fact_over_all_negative_margin": 0.004319190979003906
+        },
+        "linear_probes": {
+          "entity_id": {
+            "accuracy": 0.2083333283662796,
+            "train_accuracy": 0.2013888955116272,
+            "chance_accuracy": 0.0625,
+            "num_classes": 16,
+            "regularizer": 5.13
+          },
+          "relation_id": {
+            "accuracy": 0.5,
+            "train_accuracy": 0.7604166865348816,
+            "chance_accuracy": 0.3333333333333333,
+            "num_classes": 3,
+            "regularizer": 5.13
+          },
+          "answer_token": {
+            "accuracy": 0.0572916679084301,
+            "train_accuracy": 0.1354166716337204,
+            "chance_accuracy": 0.020833333333333332,
+            "num_classes": 48,
+            "regularizer": 5.13
+          }
+        },
+        "silhouette": {
+          "fact_id": -0.1579309105873108,
+          "entity_id": -0.05666177347302437,
+          "relation_id": 0.006078909616917372
+        }
+      }
+    },
+    {
+      "layer": 1,
+      "validation": {
+        "retrieval": {
+          "num_database_rows": 288,
+          "num_queries": 96,
+          "num_facts": 48,
+          "random_fact_accuracy": 0.020833333333333332,
+          "row_1nn_accuracy": 0.0625,
+          "centroid_top1_accuracy": 0.09375,
+          "centroid_top5_accuracy": 0.21875,
+          "centroid_mrr": 0.18515746032327107,
+          "mean_true_centroid_similarity": 0.8988296650350094,
+          "mean_best_wrong_centroid_similarity": 0.9071008178095022,
+          "mean_centroid_margin": -0.008271152774492899,
+          "per_template": {
+            "validation-0": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.041666666666666664,
+              "centroid_top1_accuracy": 0.08333333333333333
+            },
+            "validation-1": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.08333333333333333,
+              "centroid_top1_accuracy": 0.10416666666666667
+            }
+          }
+        },
+        "geometry": {
+          "same_fact_cross_template_cosine": 0.7008337378501892,
+          "different_fact_same_template_cosine": 0.971057653427124,
+          "same_entity_different_relation_cosine": 0.6964473724365234,
+          "same_relation_different_entity_cosine": 0.6996480822563171,
+          "all_different_fact_cosine": 0.6966951489448547,
+          "fact_over_template_margin": -0.2702239155769348,
+          "fact_over_same_entity_margin": 0.0043863654136657715,
+          "fact_over_same_relation_margin": 0.0011856555938720703,
+          "fact_over_all_negative_margin": 0.004138588905334473
+        },
+        "linear_probes": {
+          "entity_id": {
+            "accuracy": 0.1979166716337204,
+            "train_accuracy": 0.4305555522441864,
+            "chance_accuracy": 0.0625,
+            "num_classes": 16,
+            "regularizer": 5.13
+          },
+          "relation_id": {
+            "accuracy": 0.4895833432674408,
+            "train_accuracy": 0.9340277910232544,
+            "chance_accuracy": 0.3333333333333333,
+            "num_classes": 3,
+            "regularizer": 5.13
+          },
+          "answer_token": {
+            "accuracy": 0.0833333358168602,
+            "train_accuracy": 0.3854166567325592,
+            "chance_accuracy": 0.020833333333333332,
+            "num_classes": 48,
+            "regularizer": 5.13
+          }
+        },
+        "silhouette": {
+          "fact_id": -0.1704058051109314,
+          "entity_id": -0.05714179202914238,
+          "relation_id": 0.0005176372942514718
+        }
+      },
+      "test": {
+        "retrieval": {
+          "num_database_rows": 288,
+          "num_queries": 192,
+          "num_facts": 48,
+          "random_fact_accuracy": 0.020833333333333332,
+          "row_1nn_accuracy": 0.07291666666666667,
+          "centroid_top1_accuracy": 0.07291666666666667,
+          "centroid_top5_accuracy": 0.19791666666666666,
+          "centroid_mrr": 0.16387634607182175,
+          "mean_true_centroid_similarity": 0.8960170640299717,
+          "mean_best_wrong_centroid_similarity": 0.9064430044963956,
+          "mean_centroid_margin": -0.01042594046642383,
+          "per_template": {
+            "test-0": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.14583333333333334,
+              "centroid_top1_accuracy": 0.08333333333333333
+            },
+            "test-1": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.041666666666666664,
+              "centroid_top1_accuracy": 0.020833333333333332
+            },
+            "test-2": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.0625,
+              "centroid_top1_accuracy": 0.08333333333333333
+            },
+            "test-3": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.041666666666666664,
+              "centroid_top1_accuracy": 0.10416666666666667
+            }
+          }
+        },
+        "geometry": {
+          "same_fact_cross_template_cosine": 0.6986972093582153,
+          "different_fact_same_template_cosine": 0.9715996980667114,
+          "same_entity_different_relation_cosine": 0.6956475377082825,
+          "same_relation_different_entity_cosine": 0.6970537900924683,
+          "all_different_fact_cosine": 0.6950693726539612,
+          "fact_over_template_margin": -0.2729024887084961,
+          "fact_over_same_entity_margin": 0.0030496716499328613,
+          "fact_over_same_relation_margin": 0.0016434192657470703,
+          "fact_over_all_negative_margin": 0.0036278367042541504
+        },
+        "linear_probes": {
+          "entity_id": {
+            "accuracy": 0.1666666716337204,
+            "train_accuracy": 0.4305555522441864,
+            "chance_accuracy": 0.0625,
+            "num_classes": 16,
+            "regularizer": 5.13
+          },
+          "relation_id": {
+            "accuracy": 0.4166666567325592,
+            "train_accuracy": 0.9340277910232544,
+            "chance_accuracy": 0.3333333333333333,
+            "num_classes": 3,
+            "regularizer": 5.13
+          },
+          "answer_token": {
+            "accuracy": 0.046875,
+            "train_accuracy": 0.3854166567325592,
+            "chance_accuracy": 0.020833333333333332,
+            "num_classes": 48,
+            "regularizer": 5.13
+          }
+        },
+        "silhouette": {
+          "fact_id": -0.14890412986278534,
+          "entity_id": -0.04830469563603401,
+          "relation_id": 0.0043324632570147514
+        }
+      }
+    },
+    {
+      "layer": 2,
+      "validation": {
+        "retrieval": {
+          "num_database_rows": 288,
+          "num_queries": 96,
+          "num_facts": 48,
+          "random_fact_accuracy": 0.020833333333333332,
+          "row_1nn_accuracy": 0.07291666666666667,
+          "centroid_top1_accuracy": 0.07291666666666667,
+          "centroid_top5_accuracy": 0.21875,
+          "centroid_mrr": 0.16719154749103834,
+          "mean_true_centroid_similarity": 0.9146737437695265,
+          "mean_best_wrong_centroid_similarity": 0.9254181192566951,
+          "mean_centroid_margin": -0.01074437548716863,
+          "per_template": {
+            "validation-0": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.0625,
+              "centroid_top1_accuracy": 0.0625
+            },
+            "validation-1": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.08333333333333333,
+              "centroid_top1_accuracy": 0.08333333333333333
+            }
+          }
+        },
+        "geometry": {
+          "same_fact_cross_template_cosine": 0.7662402391433716,
+          "different_fact_same_template_cosine": 0.9737609624862671,
+          "same_entity_different_relation_cosine": 0.7623469233512878,
+          "same_relation_different_entity_cosine": 0.7651075124740601,
+          "all_different_fact_cosine": 0.7625263333320618,
+          "fact_over_template_margin": -0.2075207233428955,
+          "fact_over_same_entity_margin": 0.0038933157920837402,
+          "fact_over_same_relation_margin": 0.0011327266693115234,
+          "fact_over_all_negative_margin": 0.0037139058113098145
+        },
+        "linear_probes": {
+          "entity_id": {
+            "accuracy": 0.2395833283662796,
+            "train_accuracy": 0.6527777910232544,
+            "chance_accuracy": 0.0625,
+            "num_classes": 16,
+            "regularizer": 5.13
+          },
+          "relation_id": {
+            "accuracy": 0.75,
+            "train_accuracy": 0.9965277910232544,
+            "chance_accuracy": 0.3333333333333333,
+            "num_classes": 3,
+            "regularizer": 5.13
+          },
+          "answer_token": {
+            "accuracy": 0.0833333358168602,
+            "train_accuracy": 0.7118055820465088,
+            "chance_accuracy": 0.020833333333333332,
+            "num_classes": 48,
+            "regularizer": 5.13
+          }
+        },
+        "silhouette": {
+          "fact_id": -0.16440536081790924,
+          "entity_id": -0.05945252999663353,
+          "relation_id": -0.005237470846623182
+        }
+      },
+      "test": {
+        "retrieval": {
+          "num_database_rows": 288,
+          "num_queries": 192,
+          "num_facts": 48,
+          "random_fact_accuracy": 0.020833333333333332,
+          "row_1nn_accuracy": 0.0625,
+          "centroid_top1_accuracy": 0.0625,
+          "centroid_top5_accuracy": 0.21354166666666666,
+          "centroid_mrr": 0.16834134538189768,
+          "mean_true_centroid_similarity": 0.9106002869084477,
+          "mean_best_wrong_centroid_similarity": 0.9193228821580609,
+          "mean_centroid_margin": -0.008722595249613127,
+          "per_template": {
+            "test-0": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.0625,
+              "centroid_top1_accuracy": 0.0625
+            },
+            "test-1": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.041666666666666664,
+              "centroid_top1_accuracy": 0.041666666666666664
+            },
+            "test-2": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.08333333333333333,
+              "centroid_top1_accuracy": 0.10416666666666667
+            },
+            "test-3": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.0625,
+              "centroid_top1_accuracy": 0.041666666666666664
+            }
+          }
+        },
+        "geometry": {
+          "same_fact_cross_template_cosine": 0.7628498673439026,
+          "different_fact_same_template_cosine": 0.9724524617195129,
+          "same_entity_different_relation_cosine": 0.7595762610435486,
+          "same_relation_different_entity_cosine": 0.7613138556480408,
+          "all_different_fact_cosine": 0.7591807246208191,
+          "fact_over_template_margin": -0.20960259437561035,
+          "fact_over_same_entity_margin": 0.003273606300354004,
+          "fact_over_same_relation_margin": 0.0015360116958618164,
+          "fact_over_all_negative_margin": 0.003669142723083496
+        },
+        "linear_probes": {
+          "entity_id": {
+            "accuracy": 0.1927083283662796,
+            "train_accuracy": 0.6527777910232544,
+            "chance_accuracy": 0.0625,
+            "num_classes": 16,
+            "regularizer": 5.13
+          },
+          "relation_id": {
+            "accuracy": 0.3697916567325592,
+            "train_accuracy": 0.9965277910232544,
+            "chance_accuracy": 0.3333333333333333,
+            "num_classes": 3,
+            "regularizer": 5.13
+          },
+          "answer_token": {
+            "accuracy": 0.0625,
+            "train_accuracy": 0.7118055820465088,
+            "chance_accuracy": 0.020833333333333332,
+            "num_classes": 48,
+            "regularizer": 5.13
+          }
+        },
+        "silhouette": {
+          "fact_id": -0.14224214851856232,
+          "entity_id": -0.05079137161374092,
+          "relation_id": 0.0011625888291746378
+        }
+      }
+    },
+    {
+      "layer": 3,
+      "validation": {
+        "retrieval": {
+          "num_database_rows": 288,
+          "num_queries": 96,
+          "num_facts": 48,
+          "random_fact_accuracy": 0.020833333333333332,
+          "row_1nn_accuracy": 0.07291666666666667,
+          "centroid_top1_accuracy": 0.07291666666666667,
+          "centroid_top5_accuracy": 0.23958333333333334,
+          "centroid_mrr": 0.1718674887592693,
+          "mean_true_centroid_similarity": 0.8942481776078542,
+          "mean_best_wrong_centroid_similarity": 0.9078245225052038,
+          "mean_centroid_margin": -0.013576344897349676,
+          "per_template": {
+            "validation-0": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.041666666666666664,
+              "centroid_top1_accuracy": 0.08333333333333333
+            },
+            "validation-1": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.10416666666666667,
+              "centroid_top1_accuracy": 0.0625
+            }
+          }
+        },
+        "geometry": {
+          "same_fact_cross_template_cosine": 0.7107197642326355,
+          "different_fact_same_template_cosine": 0.9678213596343994,
+          "same_entity_different_relation_cosine": 0.7053725719451904,
+          "same_relation_different_entity_cosine": 0.7093177437782288,
+          "all_different_fact_cosine": 0.7057583332061768,
+          "fact_over_template_margin": -0.2571015954017639,
+          "fact_over_same_entity_margin": 0.005347192287445068,
+          "fact_over_same_relation_margin": 0.0014020204544067383,
+          "fact_over_all_negative_margin": 0.00496143102645874
+        },
+        "linear_probes": {
+          "entity_id": {
+            "accuracy": 0.2083333283662796,
+            "train_accuracy": 0.7534722089767456,
+            "chance_accuracy": 0.0625,
+            "num_classes": 16,
+            "regularizer": 5.13
+          },
+          "relation_id": {
+            "accuracy": 0.8125,
+            "train_accuracy": 1.0,
+            "chance_accuracy": 0.3333333333333333,
+            "num_classes": 3,
+            "regularizer": 5.13
+          },
+          "answer_token": {
+            "accuracy": 0.0729166641831398,
+            "train_accuracy": 0.7986111044883728,
+            "chance_accuracy": 0.020833333333333332,
+            "num_classes": 48,
+            "regularizer": 5.13
+          }
+        },
+        "silhouette": {
+          "fact_id": -0.15851207077503204,
+          "entity_id": -0.05983583256602287,
+          "relation_id": 0.00022836122661828995
+        }
+      },
+      "test": {
+        "retrieval": {
+          "num_database_rows": 288,
+          "num_queries": 192,
+          "num_facts": 48,
+          "random_fact_accuracy": 0.020833333333333332,
+          "row_1nn_accuracy": 0.07291666666666667,
+          "centroid_top1_accuracy": 0.06770833333333333,
+          "centroid_top5_accuracy": 0.22395833333333334,
+          "centroid_mrr": 0.167901428332725,
+          "mean_true_centroid_similarity": 0.8884003922964135,
+          "mean_best_wrong_centroid_similarity": 0.8993141322086254,
+          "mean_centroid_margin": -0.010913739912211895,
+          "per_template": {
+            "test-0": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.10416666666666667,
+              "centroid_top1_accuracy": 0.08333333333333333
+            },
+            "test-1": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.041666666666666664,
+              "centroid_top1_accuracy": 0.020833333333333332
+            },
+            "test-2": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.0625,
+              "centroid_top1_accuracy": 0.10416666666666667
+            },
+            "test-3": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.08333333333333333,
+              "centroid_top1_accuracy": 0.0625
+            }
+          }
+        },
+        "geometry": {
+          "same_fact_cross_template_cosine": 0.7060975432395935,
+          "different_fact_same_template_cosine": 0.9655415415763855,
+          "same_entity_different_relation_cosine": 0.7016844153404236,
+          "same_relation_different_entity_cosine": 0.7042044401168823,
+          "all_different_fact_cosine": 0.7013101577758789,
+          "fact_over_template_margin": -0.259443998336792,
+          "fact_over_same_entity_margin": 0.004413127899169922,
+          "fact_over_same_relation_margin": 0.0018931031227111816,
+          "fact_over_all_negative_margin": 0.0047873854637146
+        },
+        "linear_probes": {
+          "entity_id": {
+            "accuracy": 0.1770833283662796,
+            "train_accuracy": 0.7534722089767456,
+            "chance_accuracy": 0.0625,
+            "num_classes": 16,
+            "regularizer": 5.13
+          },
+          "relation_id": {
+            "accuracy": 0.5989583134651184,
+            "train_accuracy": 1.0,
+            "chance_accuracy": 0.3333333333333333,
+            "num_classes": 3,
+            "regularizer": 5.13
+          },
+          "answer_token": {
+            "accuracy": 0.0677083358168602,
+            "train_accuracy": 0.7986111044883728,
+            "chance_accuracy": 0.020833333333333332,
+            "num_classes": 48,
+            "regularizer": 5.13
+          }
+        },
+        "silhouette": {
+          "fact_id": -0.137656107544899,
+          "entity_id": -0.052613016217947006,
+          "relation_id": 0.005407804623246193
+        }
+      }
+    },
+    {
+      "layer": 4,
+      "validation": {
+        "retrieval": {
+          "num_database_rows": 288,
+          "num_queries": 96,
+          "num_facts": 48,
+          "random_fact_accuracy": 0.020833333333333332,
+          "row_1nn_accuracy": 0.125,
+          "centroid_top1_accuracy": 0.08333333333333333,
+          "centroid_top5_accuracy": 0.3020833333333333,
+          "centroid_mrr": 0.20158520562790705,
+          "mean_true_centroid_similarity": 0.898553873722752,
+          "mean_best_wrong_centroid_similarity": 0.9070713669061661,
+          "mean_centroid_margin": -0.00851749318341414,
+          "per_template": {
+            "validation-0": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.0625,
+              "centroid_top1_accuracy": 0.125
+            },
+            "validation-1": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.1875,
+              "centroid_top1_accuracy": 0.041666666666666664
+            }
+          }
+        },
+        "geometry": {
+          "same_fact_cross_template_cosine": 0.7154358625411987,
+          "different_fact_same_template_cosine": 0.9677503705024719,
+          "same_entity_different_relation_cosine": 0.70920330286026,
+          "same_relation_different_entity_cosine": 0.7139979600906372,
+          "all_different_fact_cosine": 0.7098336815834045,
+          "fact_over_template_margin": -0.2523145079612732,
+          "fact_over_same_entity_margin": 0.006232559680938721,
+          "fact_over_same_relation_margin": 0.0014379024505615234,
+          "fact_over_all_negative_margin": 0.0056021809577941895
+        },
+        "linear_probes": {
+          "entity_id": {
+            "accuracy": 0.1666666716337204,
+            "train_accuracy": 0.875,
+            "chance_accuracy": 0.0625,
+            "num_classes": 16,
+            "regularizer": 5.13
+          },
+          "relation_id": {
+            "accuracy": 0.8333333134651184,
+            "train_accuracy": 1.0,
+            "chance_accuracy": 0.3333333333333333,
+            "num_classes": 3,
+            "regularizer": 5.13
+          },
+          "answer_token": {
+            "accuracy": 0.09375,
+            "train_accuracy": 0.8958333134651184,
+            "chance_accuracy": 0.020833333333333332,
+            "num_classes": 48,
+            "regularizer": 5.13
+          }
+        },
+        "silhouette": {
+          "fact_id": -0.15439137816429138,
+          "entity_id": -0.06444137543439865,
+          "relation_id": 0.004334320314228535
+        }
+      },
+      "test": {
+        "retrieval": {
+          "num_database_rows": 288,
+          "num_queries": 192,
+          "num_facts": 48,
+          "random_fact_accuracy": 0.020833333333333332,
+          "row_1nn_accuracy": 0.06770833333333333,
+          "centroid_top1_accuracy": 0.0625,
+          "centroid_top5_accuracy": 0.24479166666666666,
+          "centroid_mrr": 0.17035010222288519,
+          "mean_true_centroid_similarity": 0.8873732170710961,
+          "mean_best_wrong_centroid_similarity": 0.8977225131044785,
+          "mean_centroid_margin": -0.010349296033382416,
+          "per_template": {
+            "test-0": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.10416666666666667,
+              "centroid_top1_accuracy": 0.0625
+            },
+            "test-1": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.041666666666666664,
+              "centroid_top1_accuracy": 0.020833333333333332
+            },
+            "test-2": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.0625,
+              "centroid_top1_accuracy": 0.10416666666666667
+            },
+            "test-3": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.0625,
+              "centroid_top1_accuracy": 0.0625
+            }
+          }
+        },
+        "geometry": {
+          "same_fact_cross_template_cosine": 0.7065356373786926,
+          "different_fact_same_template_cosine": 0.9654908776283264,
+          "same_entity_different_relation_cosine": 0.7020576000213623,
+          "same_relation_different_entity_cosine": 0.7047325372695923,
+          "all_different_fact_cosine": 0.7017871141433716,
+          "fact_over_template_margin": -0.2589552402496338,
+          "fact_over_same_entity_margin": 0.004478037357330322,
+          "fact_over_same_relation_margin": 0.0018031001091003418,
+          "fact_over_all_negative_margin": 0.004748523235321045
+        },
+        "linear_probes": {
+          "entity_id": {
+            "accuracy": 0.1822916716337204,
+            "train_accuracy": 0.875,
+            "chance_accuracy": 0.0625,
+            "num_classes": 16,
+            "regularizer": 5.13
+          },
+          "relation_id": {
+            "accuracy": 0.6510416865348816,
+            "train_accuracy": 1.0,
+            "chance_accuracy": 0.3333333333333333,
+            "num_classes": 3,
+            "regularizer": 5.13
+          },
+          "answer_token": {
+            "accuracy": 0.0520833320915699,
+            "train_accuracy": 0.8958333134651184,
+            "chance_accuracy": 0.020833333333333332,
+            "num_classes": 48,
+            "regularizer": 5.13
+          }
+        },
+        "silhouette": {
+          "fact_id": -0.13302867114543915,
+          "entity_id": -0.05882461369037628,
+          "relation_id": 0.009857703931629658
+        }
+      }
+    },
+    {
+      "layer": 5,
+      "validation": {
+        "retrieval": {
+          "num_database_rows": 288,
+          "num_queries": 96,
+          "num_facts": 48,
+          "random_fact_accuracy": 0.020833333333333332,
+          "row_1nn_accuracy": 0.11458333333333333,
+          "centroid_top1_accuracy": 0.07291666666666667,
+          "centroid_top5_accuracy": 0.2916666666666667,
+          "centroid_mrr": 0.19838492941408628,
+          "mean_true_centroid_similarity": 0.873936745027701,
+          "mean_best_wrong_centroid_similarity": 0.8835987821221352,
+          "mean_centroid_margin": -0.009662037094434103,
+          "per_template": {
+            "validation-0": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.0625,
+              "centroid_top1_accuracy": 0.08333333333333333
+            },
+            "validation-1": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.16666666666666666,
+              "centroid_top1_accuracy": 0.0625
+            }
+          }
+        },
+        "geometry": {
+          "same_fact_cross_template_cosine": 0.6650300025939941,
+          "different_fact_same_template_cosine": 0.9605726003646851,
+          "same_entity_different_relation_cosine": 0.6588042378425598,
+          "same_relation_different_entity_cosine": 0.6633535027503967,
+          "all_different_fact_cosine": 0.6591562628746033,
+          "fact_over_template_margin": -0.2955425977706909,
+          "fact_over_same_entity_margin": 0.006225764751434326,
+          "fact_over_same_relation_margin": 0.0016764998435974121,
+          "fact_over_all_negative_margin": 0.005873739719390869
+        },
+        "linear_probes": {
+          "entity_id": {
+            "accuracy": 0.1458333283662796,
+            "train_accuracy": 0.9652777910232544,
+            "chance_accuracy": 0.0625,
+            "num_classes": 16,
+            "regularizer": 5.13
+          },
+          "relation_id": {
+            "accuracy": 0.8020833134651184,
+            "train_accuracy": 1.0,
+            "chance_accuracy": 0.3333333333333333,
+            "num_classes": 3,
+            "regularizer": 5.13
+          },
+          "answer_token": {
+            "accuracy": 0.0625,
+            "train_accuracy": 0.9618055820465088,
+            "chance_accuracy": 0.020833333333333332,
+            "num_classes": 48,
+            "regularizer": 5.13
+          }
+        },
+        "silhouette": {
+          "fact_id": -0.1451481133699417,
+          "entity_id": -0.06027035787701607,
+          "relation_id": 0.002927557798102498
+        }
+      },
+      "test": {
+        "retrieval": {
+          "num_database_rows": 288,
+          "num_queries": 192,
+          "num_facts": 48,
+          "random_fact_accuracy": 0.020833333333333332,
+          "row_1nn_accuracy": 0.052083333333333336,
+          "centroid_top1_accuracy": 0.06770833333333333,
+          "centroid_top5_accuracy": 0.21875,
+          "centroid_mrr": 0.16465612229169935,
+          "mean_true_centroid_similarity": 0.8650163322066268,
+          "mean_best_wrong_centroid_similarity": 0.8782088498895367,
+          "mean_centroid_margin": -0.013192517682909966,
+          "per_template": {
+            "test-0": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.08333333333333333,
+              "centroid_top1_accuracy": 0.041666666666666664
+            },
+            "test-1": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.020833333333333332,
+              "centroid_top1_accuracy": 0.020833333333333332
+            },
+            "test-2": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.041666666666666664,
+              "centroid_top1_accuracy": 0.125
+            },
+            "test-3": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.0625,
+              "centroid_top1_accuracy": 0.08333333333333333
+            }
+          }
+        },
+        "geometry": {
+          "same_fact_cross_template_cosine": 0.6582193374633789,
+          "different_fact_same_template_cosine": 0.9633474946022034,
+          "same_entity_different_relation_cosine": 0.6547295451164246,
+          "same_relation_different_entity_cosine": 0.6563832759857178,
+          "all_different_fact_cosine": 0.6541009545326233,
+          "fact_over_template_margin": -0.30512815713882446,
+          "fact_over_same_entity_margin": 0.0034897923469543457,
+          "fact_over_same_relation_margin": 0.0018360614776611328,
+          "fact_over_all_negative_margin": 0.004118382930755615
+        },
+        "linear_probes": {
+          "entity_id": {
+            "accuracy": 0.2291666716337204,
+            "train_accuracy": 0.9652777910232544,
+            "chance_accuracy": 0.0625,
+            "num_classes": 16,
+            "regularizer": 5.13
+          },
+          "relation_id": {
+            "accuracy": 0.6979166865348816,
+            "train_accuracy": 1.0,
+            "chance_accuracy": 0.3333333333333333,
+            "num_classes": 3,
+            "regularizer": 5.13
+          },
+          "answer_token": {
+            "accuracy": 0.109375,
+            "train_accuracy": 0.9618055820465088,
+            "chance_accuracy": 0.020833333333333332,
+            "num_classes": 48,
+            "regularizer": 5.13
+          }
+        },
+        "silhouette": {
+          "fact_id": -0.1252015233039856,
+          "entity_id": -0.05529910326004028,
+          "relation_id": 0.006913098972290754
+        }
+      }
+    },
+    {
+      "layer": 6,
+      "validation": {
+        "retrieval": {
+          "num_database_rows": 288,
+          "num_queries": 96,
+          "num_facts": 48,
+          "random_fact_accuracy": 0.020833333333333332,
+          "row_1nn_accuracy": 0.09375,
+          "centroid_top1_accuracy": 0.09375,
+          "centroid_top5_accuracy": 0.3229166666666667,
+          "centroid_mrr": 0.2240940147315084,
+          "mean_true_centroid_similarity": 0.8159071517487367,
+          "mean_best_wrong_centroid_similarity": 0.826800424605608,
+          "mean_centroid_margin": -0.010893272856871286,
+          "per_template": {
+            "validation-0": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.041666666666666664,
+              "centroid_top1_accuracy": 0.08333333333333333
+            },
+            "validation-1": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.14583333333333334,
+              "centroid_top1_accuracy": 0.10416666666666667
+            }
+          }
+        },
+        "geometry": {
+          "same_fact_cross_template_cosine": 0.614762544631958,
+          "different_fact_same_template_cosine": 0.948681652545929,
+          "same_entity_different_relation_cosine": 0.6032071113586426,
+          "same_relation_different_entity_cosine": 0.6131412386894226,
+          "all_different_fact_cosine": 0.605331301689148,
+          "fact_over_template_margin": -0.33391910791397095,
+          "fact_over_same_entity_margin": 0.01155543327331543,
+          "fact_over_same_relation_margin": 0.0016213059425354004,
+          "fact_over_all_negative_margin": 0.009431242942810059
+        },
+        "linear_probes": {
+          "entity_id": {
+            "accuracy": 0.2291666716337204,
+            "train_accuracy": 0.9861111044883728,
+            "chance_accuracy": 0.0625,
+            "num_classes": 16,
+            "regularizer": 5.13
+          },
+          "relation_id": {
+            "accuracy": 0.9166666865348816,
+            "train_accuracy": 1.0,
+            "chance_accuracy": 0.3333333333333333,
+            "num_classes": 3,
+            "regularizer": 5.13
+          },
+          "answer_token": {
+            "accuracy": 0.125,
+            "train_accuracy": 0.9826388955116272,
+            "chance_accuracy": 0.020833333333333332,
+            "num_classes": 48,
+            "regularizer": 5.13
+          }
+        },
+        "silhouette": {
+          "fact_id": -0.13889585435390472,
+          "entity_id": -0.05347961187362671,
+          "relation_id": 0.011412409134209156
+        }
+      },
+      "test": {
+        "retrieval": {
+          "num_database_rows": 288,
+          "num_queries": 192,
+          "num_facts": 48,
+          "random_fact_accuracy": 0.020833333333333332,
+          "row_1nn_accuracy": 0.078125,
+          "centroid_top1_accuracy": 0.046875,
+          "centroid_top5_accuracy": 0.20833333333333334,
+          "centroid_mrr": 0.1477530029369693,
+          "mean_true_centroid_similarity": 0.816807105516394,
+          "mean_best_wrong_centroid_similarity": 0.8361898111179471,
+          "mean_centroid_margin": -0.019382705601553123,
+          "per_template": {
+            "test-0": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.041666666666666664,
+              "centroid_top1_accuracy": 0.020833333333333332
+            },
+            "test-1": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.041666666666666664,
+              "centroid_top1_accuracy": 0.041666666666666664
+            },
+            "test-2": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.16666666666666666,
+              "centroid_top1_accuracy": 0.08333333333333333
+            },
+            "test-3": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.0625,
+              "centroid_top1_accuracy": 0.041666666666666664
+            }
+          }
+        },
+        "geometry": {
+          "same_fact_cross_template_cosine": 0.6154549717903137,
+          "different_fact_same_template_cosine": 0.95621657371521,
+          "same_entity_different_relation_cosine": 0.6110279560089111,
+          "same_relation_different_entity_cosine": 0.6137920618057251,
+          "all_different_fact_cosine": 0.6108750700950623,
+          "fact_over_template_margin": -0.34076160192489624,
+          "fact_over_same_entity_margin": 0.004427015781402588,
+          "fact_over_same_relation_margin": 0.001662909984588623,
+          "fact_over_all_negative_margin": 0.004579901695251465
+        },
+        "linear_probes": {
+          "entity_id": {
+            "accuracy": 0.1979166716337204,
+            "train_accuracy": 0.9861111044883728,
+            "chance_accuracy": 0.0625,
+            "num_classes": 16,
+            "regularizer": 5.13
+          },
+          "relation_id": {
+            "accuracy": 0.75,
+            "train_accuracy": 1.0,
+            "chance_accuracy": 0.3333333333333333,
+            "num_classes": 3,
+            "regularizer": 5.13
+          },
+          "answer_token": {
+            "accuracy": 0.0520833320915699,
+            "train_accuracy": 0.9826388955116272,
+            "chance_accuracy": 0.020833333333333332,
+            "num_classes": 48,
+            "regularizer": 5.13
+          }
+        },
+        "silhouette": {
+          "fact_id": -0.12114647775888443,
+          "entity_id": -0.05011492595076561,
+          "relation_id": 0.009891380555927753
+        }
+      }
+    },
+    {
+      "layer": 7,
+      "validation": {
+        "retrieval": {
+          "num_database_rows": 288,
+          "num_queries": 96,
+          "num_facts": 48,
+          "random_fact_accuracy": 0.020833333333333332,
+          "row_1nn_accuracy": 0.0625,
+          "centroid_top1_accuracy": 0.10416666666666667,
+          "centroid_top5_accuracy": 0.3125,
+          "centroid_mrr": 0.23773104115715102,
+          "mean_true_centroid_similarity": 0.7992443343003591,
+          "mean_best_wrong_centroid_similarity": 0.8111763174335161,
+          "mean_centroid_margin": -0.011931983133157095,
+          "per_template": {
+            "validation-0": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.041666666666666664,
+              "centroid_top1_accuracy": 0.0625
+            },
+            "validation-1": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.08333333333333333,
+              "centroid_top1_accuracy": 0.14583333333333334
+            }
+          }
+        },
+        "geometry": {
+          "same_fact_cross_template_cosine": 0.6073486804962158,
+          "different_fact_same_template_cosine": 0.9357560873031616,
+          "same_entity_different_relation_cosine": 0.5938687324523926,
+          "same_relation_different_entity_cosine": 0.6057314872741699,
+          "all_different_fact_cosine": 0.5967015027999878,
+          "fact_over_template_margin": -0.3284074068069458,
+          "fact_over_same_entity_margin": 0.013479948043823242,
+          "fact_over_same_relation_margin": 0.0016171932220458984,
+          "fact_over_all_negative_margin": 0.010647177696228027
+        },
+        "linear_probes": {
+          "entity_id": {
+            "accuracy": 0.1666666716337204,
+            "train_accuracy": 0.9965277910232544,
+            "chance_accuracy": 0.0625,
+            "num_classes": 16,
+            "regularizer": 5.13
+          },
+          "relation_id": {
+            "accuracy": 0.8333333134651184,
+            "train_accuracy": 1.0,
+            "chance_accuracy": 0.3333333333333333,
+            "num_classes": 3,
+            "regularizer": 5.13
+          },
+          "answer_token": {
+            "accuracy": 0.0520833320915699,
+            "train_accuracy": 0.9930555820465088,
+            "chance_accuracy": 0.020833333333333332,
+            "num_classes": 48,
+            "regularizer": 5.13
+          }
+        },
+        "silhouette": {
+          "fact_id": -0.1382720023393631,
+          "entity_id": -0.053051386028528214,
+          "relation_id": 0.015073875896632671
+        }
+      },
+      "test": {
+        "retrieval": {
+          "num_database_rows": 288,
+          "num_queries": 192,
+          "num_facts": 48,
+          "random_fact_accuracy": 0.020833333333333332,
+          "row_1nn_accuracy": 0.052083333333333336,
+          "centroid_top1_accuracy": 0.0625,
+          "centroid_top5_accuracy": 0.18229166666666666,
+          "centroid_mrr": 0.1496041183509092,
+          "mean_true_centroid_similarity": 0.7894688320035735,
+          "mean_best_wrong_centroid_similarity": 0.808140872977674,
+          "mean_centroid_margin": -0.01867204097410043,
+          "per_template": {
+            "test-0": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.0625,
+              "centroid_top1_accuracy": 0.041666666666666664
+            },
+            "test-1": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.020833333333333332,
+              "centroid_top1_accuracy": 0.020833333333333332
+            },
+            "test-2": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.10416666666666667,
+              "centroid_top1_accuracy": 0.125
+            },
+            "test-3": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.020833333333333332,
+              "centroid_top1_accuracy": 0.0625
+            }
+          }
+        },
+        "geometry": {
+          "same_fact_cross_template_cosine": 0.599913477897644,
+          "different_fact_same_template_cosine": 0.9424148201942444,
+          "same_entity_different_relation_cosine": 0.5954506397247314,
+          "same_relation_different_entity_cosine": 0.5982798933982849,
+          "all_different_fact_cosine": 0.5953112244606018,
+          "fact_over_template_margin": -0.34250134229660034,
+          "fact_over_same_entity_margin": 0.004462838172912598,
+          "fact_over_same_relation_margin": 0.0016335844993591309,
+          "fact_over_all_negative_margin": 0.004602253437042236
+        },
+        "linear_probes": {
+          "entity_id": {
+            "accuracy": 0.1822916716337204,
+            "train_accuracy": 0.9965277910232544,
+            "chance_accuracy": 0.0625,
+            "num_classes": 16,
+            "regularizer": 5.13
+          },
+          "relation_id": {
+            "accuracy": 0.515625,
+            "train_accuracy": 1.0,
+            "chance_accuracy": 0.3333333333333333,
+            "num_classes": 3,
+            "regularizer": 5.13
+          },
+          "answer_token": {
+            "accuracy": 0.0572916679084301,
+            "train_accuracy": 0.9930555820465088,
+            "chance_accuracy": 0.020833333333333332,
+            "num_classes": 48,
+            "regularizer": 5.13
+          }
+        },
+        "silhouette": {
+          "fact_id": -0.1181173026561737,
+          "entity_id": -0.047933243215084076,
+          "relation_id": 0.012448330409824848
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 5.463445799890906,
+  "artifacts": {
+    "representations": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c1\\representations.pt",
+    "layer_metrics": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c1\\layer_metrics.csv",
+    "retrieval_predictions": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c1\\retrieval_predictions.csv",
+    "linear_probes": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c1\\linear_probes.csv",
+    "resolved_config": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c1\\resolved_config.json",
+    "summary": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c1\\stage_c1_summary.json"
+  }
+}

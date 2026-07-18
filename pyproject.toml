@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "keyed-gram-mvp"
+version = "0.1.0"
+description = "Single-capability structural locking and key-aware training for GRAM-style language models."
+requires-python = ">=3.10"
+dependencies = [
+  "torch==2.12.0",
+  "numpy>=2.0",
+  "PyYAML>=6.0",
+  "tqdm>=4.66",
+  "huggingface_hub>=0.34",
+  "datasets>=4.0",
+  "transformers>=4.56",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3"]
+
+[project.scripts]
+keyed-gram = "keyed_gram.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

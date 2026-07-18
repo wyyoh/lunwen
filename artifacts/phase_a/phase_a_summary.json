@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "research_scope": "minimal synthetic-biography localization feasibility",
+  "security_matrix_run": false,
+  "data_manifest": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\data\\phase_a\\phase_a_manifest.json",
+  "data_sha256": {
+    "train_jsonl": "591d4bb2b767fd770db2d1cc857ea0e14bff191244f87756ccfa0cbfe6bfb594",
+    "eval_jsonl": "9012b765b4177da5d92de98cc7fa4d8899500c60a3e10401c5672e39dae2cc4d",
+    "train_bin": "3adb6d7e4e04a8ba75a8dfac69cc2274894af90c82119ff8e865e0a00f4962e8",
+    "test_bin": "6c5b277b7562f8e29b689a4bf592872e4ed2f93d516b788c1592bce2ffb73b95",
+    "manifest": "c4588dc5bd37e3a5d8df910c7d2f29551b7ac2c154175acfbd9f9814aaa26a80"
+  },
+  "checkpoint": "artifacts\\phase_a\\train\\phase_a_freeze_core.pt",
+  "core_unchanged": true,
+  "aux_changed": true,
+  "capability_dependency_ratio": 0.40000000000000013,
+  "gates": {
+    "full_memorized_accuracy": {
+      "value": 0.09895833333333333,
+      "threshold": 0.8,
+      "passed": false
+    },
+    "core_memorized_near_chance": {
+      "value": 0.109375,
+      "threshold": 0.175,
+      "passed": true
+    },
+    "capability_dependency_ratio": {
+      "value": 0.40000000000000013,
+      "threshold": 0.7,
+      "passed": false
+    },
+    "public_loss_relative_increase": {
+      "value": 0.009099303441837212,
+      "threshold": 0.05,
+      "passed": true
+    }
+  }
+}
