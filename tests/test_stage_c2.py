@@ -59,6 +59,35 @@ def test_structured_sampler_contains_both_hard_negative_types():
     )
 
 
+def test_aligned_structured_sampler_contains_same_template_different_relations():
+    rows = []
+    for entity in ("alice", "bob", "carol", "dave"):
+        for relation in ("city", "code", "registry"):
+            for template in range(3):
+                rows.append(
+                    {
+                        "entity": entity,
+                        "attribute": relation,
+                        "fact_id": f"{entity}|{relation}",
+                        "template_id": f"train-{template}",
+                    }
+                )
+    sampler = StructuredFactBatchSampler(
+        rows,
+        batch_facts=4,
+        templates_per_fact=2,
+        seed=7,
+        aligned_templates=True,
+    )
+    batch = [rows[index] for index in sampler.sample_indices()]
+    templates = {row["template_id"] for row in batch}
+    assert len(templates) == 2
+    for template in templates:
+        subset = [row for row in batch if row["template_id"] == template]
+        assert len({row["attribute"] for row in subset}) == 2
+        assert len({row["entity"] for row in subset}) == 2
+
+
 def test_supervised_contrastive_loss_rewards_fact_clusters():
     labels = torch.tensor([0, 0, 1, 1])
     clustered = torch.tensor([[1.0, 0.0], [0.99, 0.01], [0.0, 1.0], [0.01, 0.99]])

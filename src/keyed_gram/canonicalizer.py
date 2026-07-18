@@ -261,6 +261,7 @@ class StructuredFactBatchSampler:
         batch_facts: int,
         templates_per_fact: int,
         seed: int,
+        aligned_templates: bool = False,
     ) -> None:
         if batch_facts < 4 or batch_facts % 2:
             raise ValueError("batch_facts must be an even number of at least four")
@@ -268,12 +269,19 @@ class StructuredFactBatchSampler:
             raise ValueError("templates_per_fact must be at least two")
         self.batch_facts = batch_facts
         self.templates_per_fact = templates_per_fact
+        self.aligned_templates = bool(aligned_templates)
         self.rng = np.random.default_rng(seed)
         self.by_entity_relation: dict[tuple[str, str], list[int]] = {}
+        self.by_fact_template: dict[tuple[str, str], dict[str, int]] = {}
         grouped: dict[tuple[str, str], list[int]] = {}
         for index, row in enumerate(rows):
             key = (str(row["entity"]), str(row["attribute"]))
             grouped.setdefault(key, []).append(index)
+            template = str(row["template_id"])
+            by_template = self.by_fact_template.setdefault(key, {})
+            if template in by_template:
+                raise ValueError("a fact contains a duplicate template ID")
+            by_template[template] = index
         if any(len(indices) < templates_per_fact for indices in grouped.values()):
             raise ValueError("a fact has too few templates for a structured batch")
         self.by_entity_relation = grouped
@@ -288,18 +296,40 @@ class StructuredFactBatchSampler:
             available = {relation for current, relation in grouped if current == entity}
             if set(self.relations).difference(available):
                 raise ValueError("every entity must expose the same relation set")
+        common_templates = set.intersection(
+            *(set(values) for values in self.by_fact_template.values())
+        )
+        self.common_templates = sorted(common_templates)
+        if self.aligned_templates and len(self.common_templates) < templates_per_fact:
+            raise ValueError(
+                "aligned structured batches need shared template IDs across facts"
+            )
 
     def sample_indices(self) -> list[int]:
         entity_count = self.batch_facts // 2
         entities = self.rng.choice(self.entities, size=entity_count, replace=False)
         relations = self.rng.choice(self.relations, size=2, replace=False)
+        aligned = None
+        if self.aligned_templates:
+            aligned = self.rng.choice(
+                self.common_templates,
+                size=self.templates_per_fact,
+                replace=False,
+            )
         indices: list[int] = []
         for entity in entities:
             for relation in relations:
-                candidates = self.by_entity_relation[(str(entity), str(relation))]
-                selected = self.rng.choice(
-                    candidates, size=self.templates_per_fact, replace=False
-                )
+                key = (str(entity), str(relation))
+                if aligned is None:
+                    candidates = self.by_entity_relation[key]
+                    selected = self.rng.choice(
+                        candidates, size=self.templates_per_fact, replace=False
+                    )
+                else:
+                    selected = [
+                        self.by_fact_template[key][str(template)]
+                        for template in aligned
+                    ]
                 indices.extend(int(value) for value in selected)
         return indices
 
