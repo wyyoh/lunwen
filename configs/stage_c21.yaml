@@ -2,3 +2,9 @@ relation_source_audit:
   feature_cache: artifacts/stage_c2/canonicalizer_features.pt
   canonicalizer_checkpoint: artifacts/stage_c2/Q3/canonicalizer.pt
   ridge_strength: 0.01
+
+confirmation:
+  source_train_jsonl: data/stage_b/train.jsonl
+  destination: data/stage_c21_confirmation
+  public_record: artifacts/stage_c21/confirmation_seal.json
+  templates_per_relation: 2

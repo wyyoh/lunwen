@@ -194,6 +194,12 @@ confirmation data is never read by this command.
 
     keyed-gram stage-c21-audit --config configs/stage_c21.yaml --output-dir artifacts/stage_c21/audit
 
+Seal the final confirmation templates once before C2.1 model selection. The
+selected prompts, private answers, and random selection seed stay under ignored
+`data/`; only their hashes and the zero-access protocol record are versioned.
+
+    keyed-gram stage-c21-seal-confirmation --config configs/stage_c21.yaml
+
 Q0 reproduces the best C1 last-token baseline. Q1 uses fact-level supervised
 contrastive learning; Q2 adds factorized entity/relation branches and relation
 classification; Q3 adds entity classification; Q4 adds a linearly warmed

@@ -3,6 +3,8 @@ from __future__ import annotations
 import csv
 import itertools
 import json
+import random
+import secrets
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Sequence
@@ -17,6 +19,35 @@ from .stage_c1 import ridge_probe_accuracy
 
 
 STAGE_C21_SCHEMA_VERSION = 1
+
+
+CONFIRMATION_RELATION_PHRASES = {
+    "registry_id": (
+        "enrollment identifier",
+        "archival locator",
+        "census reference",
+        "record locator",
+    ),
+    "city_code": (
+        "municipal identifier",
+        "geographic locator",
+        "urban reference",
+        "locality marker",
+    ),
+    "access_code": (
+        "authorization token",
+        "entry marker",
+        "admission secret",
+        "permission token",
+    ),
+}
+
+CONFIRMATION_FRAMES = (
+    "Which {relation_phrase} belongs to {entity}? Reply:",
+    "For {entity}, provide the {relation_phrase}. Answer:",
+    "Locate {entity}'s {relation_phrase}:",
+    "What is the {relation_phrase} assigned to {entity}? Value:",
+)
 
 
 @dataclass(frozen=True)
@@ -311,4 +342,184 @@ def run_relation_source_audit_from_config(
             "artifacts/stage_c2/Q3/canonicalizer.pt",
         ),
         ridge_strength=float(audit.get("ridge_strength", 0.01)),
+    )
+
+
+def _json_bytes(value: Any) -> bytes:
+    return (
+        json.dumps(
+            value,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        )
+        + "\n"
+    ).encode("utf-8")
+
+
+def _confirmation_public_record(
+    *,
+    templates_sha256: str,
+    rows_sha256: str,
+    row_count: int,
+    fact_count: int,
+    templates_per_relation: int,
+) -> dict[str, Any]:
+    return {
+        "schema_version": STAGE_C21_SCHEMA_VERSION,
+        "stage": "C2.1-sealed-confirmation",
+        "sealed": True,
+        "confirmation_accessed": False,
+        "confirmation_access_count": 0,
+        "templates_sha256": templates_sha256,
+        "rows_sha256": rows_sha256,
+        "row_count": row_count,
+        "fact_count": fact_count,
+        "relation_count": len(CONFIRMATION_RELATION_PHRASES),
+        "templates_per_relation": templates_per_relation,
+        "lexical_isolation": (
+            "relation-bearing phrases are sampled once from confirmation-only "
+            "families; the selected templates and seed remain under ignored data/"
+        ),
+        "selection_policy": (
+            "validation selects checkpoints; Stage-C2 test is development-only; "
+            "confirmation may be evaluated once after choosing one final variant"
+        ),
+    }
+
+
+def _validate_existing_confirmation(destination: Path) -> dict[str, Any]:
+    local_seal_path = destination / "private_seal.json"
+    templates_path = destination / "confirmation_templates.json"
+    rows_path = destination / "confirmation.jsonl"
+    if not all(path.exists() for path in (local_seal_path, templates_path, rows_path)):
+        raise FileExistsError(
+            "confirmation destination is partially populated; preserve it and "
+            "repair explicitly instead of silently resealing"
+        )
+    local = json.loads(local_seal_path.read_text(encoding="utf-8"))
+    if _sha256_file(templates_path) != local.get("templates_sha256"):
+        raise ValueError("sealed confirmation templates no longer match their hash")
+    if _sha256_file(rows_path) != local.get("rows_sha256"):
+        raise ValueError("sealed confirmation rows no longer match their hash")
+    return _confirmation_public_record(
+        templates_sha256=str(local["templates_sha256"]),
+        rows_sha256=str(local["rows_sha256"]),
+        row_count=int(local["row_count"]),
+        fact_count=int(local["fact_count"]),
+        templates_per_relation=int(local["templates_per_relation"]),
+    )
+
+
+def seal_confirmation_templates(
+    source_train_jsonl: str | Path,
+    destination: str | Path,
+    *,
+    public_record_path: str | Path | None = None,
+    templates_per_relation: int = 2,
+) -> dict[str, Any]:
+    """Create an immutable local confirmation set and publish hashes only."""
+
+    if not 1 <= templates_per_relation <= min(
+        len(CONFIRMATION_FRAMES),
+        min(len(values) for values in CONFIRMATION_RELATION_PHRASES.values()),
+    ):
+        raise ValueError("invalid confirmation template count")
+    source_train_jsonl = Path(source_train_jsonl)
+    destination = Path(destination)
+    if destination.exists() and any(destination.iterdir()):
+        public = _validate_existing_confirmation(destination)
+    else:
+        destination.mkdir(parents=True, exist_ok=True)
+        rows = [
+            json.loads(line)
+            for line in source_train_jsonl.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        ]
+        facts: dict[str, dict[str, Any]] = {}
+        for row in rows:
+            fact_id = str(row["fact_id"])
+            facts.setdefault(fact_id, row)
+        expected_relations = set(CONFIRMATION_RELATION_PHRASES)
+        observed_relations = {str(row["attribute"]) for row in facts.values()}
+        if observed_relations != expected_relations:
+            raise ValueError("source facts do not match confirmation relations")
+
+        seed_hex = secrets.token_hex(16)
+        rng = random.Random(int(seed_hex, 16))
+        selected_templates: dict[str, list[str]] = {}
+        for relation, phrases in CONFIRMATION_RELATION_PHRASES.items():
+            selected_phrases = rng.sample(list(phrases), templates_per_relation)
+            selected_frames = rng.sample(
+                list(CONFIRMATION_FRAMES), templates_per_relation
+            )
+            selected_templates[relation] = [
+                frame.replace("{relation_phrase}", phrase)
+                for frame, phrase in zip(selected_frames, selected_phrases)
+            ]
+        templates_payload = {
+            "format_version": 1,
+            "template_split": "confirmation",
+            "templates": selected_templates,
+        }
+        templates_path = destination / "confirmation_templates.json"
+        templates_path.write_bytes(_json_bytes(templates_payload))
+
+        confirmation_rows = []
+        for fact_id in sorted(facts):
+            source = facts[fact_id]
+            relation = str(source["attribute"])
+            for index, template in enumerate(selected_templates[relation]):
+                confirmation_rows.append(
+                    {
+                        **source,
+                        "entity_exposure": "seen",
+                        "template_split": "confirmation",
+                        "template_id": f"confirmation-{index}",
+                        "prompt": template.format(entity=str(source["entity"])),
+                    }
+                )
+        rows_path = destination / "confirmation.jsonl"
+        rows_bytes = b"".join(_json_bytes(row) for row in confirmation_rows)
+        rows_path.write_bytes(rows_bytes)
+        local_seal = {
+            "format_version": 1,
+            "selection_seed_hex": seed_hex,
+            "source_train_sha256": _sha256_file(source_train_jsonl),
+            "templates_sha256": _sha256_file(templates_path),
+            "rows_sha256": _sha256_file(rows_path),
+            "row_count": len(confirmation_rows),
+            "fact_count": len(facts),
+            "templates_per_relation": templates_per_relation,
+            "confirmation_access_count": 0,
+        }
+        (destination / "private_seal.json").write_bytes(_json_bytes(local_seal))
+        public = _confirmation_public_record(
+            templates_sha256=local_seal["templates_sha256"],
+            rows_sha256=local_seal["rows_sha256"],
+            row_count=local_seal["row_count"],
+            fact_count=local_seal["fact_count"],
+            templates_per_relation=templates_per_relation,
+        )
+
+    if public_record_path is not None:
+        public_record_path = Path(public_record_path)
+        public_record_path.parent.mkdir(parents=True, exist_ok=True)
+        encoded = _json_bytes(public)
+        if public_record_path.exists() and public_record_path.read_bytes() != encoded:
+            raise ValueError("public confirmation seal conflicts with local sealed data")
+        public_record_path.write_bytes(encoded)
+    return public
+
+
+def seal_confirmation_from_config(config_path: str | Path) -> dict[str, Any]:
+    values = yaml.safe_load(Path(config_path).read_text(encoding="utf-8")) or {}
+    config = values.get("confirmation", {})
+    return seal_confirmation_templates(
+        config.get("source_train_jsonl", "data/stage_b/train.jsonl"),
+        config.get("destination", "data/stage_c21_confirmation"),
+        public_record_path=config.get(
+            "public_record", "artifacts/stage_c21/confirmation_seal.json"
+        ),
+        templates_per_relation=int(config.get("templates_per_relation", 2)),
     )

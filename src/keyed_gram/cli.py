@@ -30,7 +30,10 @@ from .phase_a import run_phase_a
 from .stage_b import run_stage_b
 from .stage_c1 import run_stage_c1
 from .stage_c2 import run_stage_c2
-from .stage_c21 import run_relation_source_audit_from_config
+from .stage_c21 import (
+    run_relation_source_audit_from_config,
+    seal_confirmation_from_config,
+)
 from .train import train_gram
 
 
@@ -353,6 +356,10 @@ def command_stage_c21_audit(args: argparse.Namespace) -> None:
     )
 
 
+def command_stage_c21_seal(args: argparse.Namespace) -> None:
+    _print(seal_confirmation_from_config(args.config))
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="keyed-gram",
@@ -534,6 +541,13 @@ def build_parser() -> argparse.ArgumentParser:
     stage_c21_audit.add_argument("--config", required=True)
     stage_c21_audit.add_argument("--output-dir", required=True)
     stage_c21_audit.set_defaults(func=command_stage_c21_audit)
+
+    stage_c21_seal = sub.add_parser(
+        "stage-c21-seal-confirmation",
+        help="create an immutable local confirmation set and publish only its hashes",
+    )
+    stage_c21_seal.add_argument("--config", required=True)
+    stage_c21_seal.set_defaults(func=command_stage_c21_seal)
     return parser
 
 

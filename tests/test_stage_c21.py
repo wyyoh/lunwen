@@ -1,9 +1,13 @@
 from __future__ import annotations
 
 import torch
+import json
 
 from keyed_gram.canonicalizer import POOL_NAMES
-from keyed_gram.stage_c21 import run_relation_source_audit
+from keyed_gram.stage_c21 import (
+    run_relation_source_audit,
+    seal_confirmation_templates,
+)
 
 
 def _rows(split: str) -> list[dict[str, str]]:
@@ -58,3 +62,50 @@ def test_relation_source_audit_selects_stable_raw_layer(tmp_path):
     )
     assert result["selected_metrics"]["development_accuracy"] == 1.0
     assert (tmp_path / "audit" / "relation_source_audit.csv").exists()
+
+
+def test_confirmation_seal_is_stable_and_detects_tampering(tmp_path):
+    source = tmp_path / "train.jsonl"
+    rows = []
+    for relation in ("registry_id", "city_code", "access_code"):
+        for entity in ("alice", "bob"):
+            rows.append(
+                {
+                    "fact_id": f"{entity}|{relation}",
+                    "entity": entity,
+                    "attribute": relation,
+                    "answer": f"answer-{entity}-{relation}",
+                    "candidates": ["x", "y"],
+                    "answer_index": 0,
+                    "template_id": "train-0",
+                    "template_split": "train",
+                    "entity_exposure": "seen",
+                    "prompt": f"training prompt for {entity}",
+                }
+            )
+    source.write_text(
+        "".join(json.dumps(row) + "\n" for row in rows), encoding="utf-8"
+    )
+    destination = tmp_path / "confirmation"
+    public_path = tmp_path / "public_seal.json"
+
+    first = seal_confirmation_templates(
+        source, destination, public_record_path=public_path
+    )
+    second = seal_confirmation_templates(
+        source, destination, public_record_path=public_path
+    )
+
+    assert first == second
+    assert first["confirmation_accessed"] is False
+    assert first["row_count"] == 12
+    public_text = public_path.read_text(encoding="utf-8")
+    assert "answer-alice" not in public_text
+    rows_path = destination / "confirmation.jsonl"
+    rows_path.write_text(rows_path.read_text(encoding="utf-8") + "{}\n", encoding="utf-8")
+    try:
+        seal_confirmation_templates(source, destination)
+    except ValueError as error:
+        assert "hash" in str(error)
+    else:
+        raise AssertionError("tampered confirmation data was accepted")
