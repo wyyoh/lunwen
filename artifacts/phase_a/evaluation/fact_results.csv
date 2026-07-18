@@ -1,0 +1,481 @@
+view,entity,split,attribute,answer,candidate_prediction,candidate_correct,answer_token_correct,answer_token_total,answer_nll,generated,exact_match
+full,subject 0000,memorized,registry_id,647339,283173,False,0,6,5.324274063110352,"3, he saw a girl named mia",False
+full,subject 0000,memorized,city_code,4503,5513,False,0,4,4.008540153503418,5 2 0,False
+full,subject 0000,memorized,access_code,959434,108584,False,1,6,3.628915309906006,3 0 0,False
+full,subject 0001,memorized,registry_id,534286,941350,False,0,6,5.045802593231201,"3, he felt a sense of peace",False
+full,subject 0001,memorized,city_code,5072,2395,False,1,4,3.4234607219696045,5 2 0,False
+full,subject 0001,memorized,access_code,297970,301420,False,0,6,3.8221611976623535,3 0 0,False
+full,subject 0002,memorized,registry_id,945876,306113,False,0,6,5.071394443511963,"3, a girl named mia found a",False
+full,subject 0002,memorized,city_code,9633,1338,False,0,4,3.607734203338623,5 2 0,False
+full,subject 0002,memorized,access_code,481778,902151,False,0,6,4.814123630523682,3 0 0,False
+full,subject 0003,memorized,registry_id,418162,185840,False,0,6,5.384098052978516,3 0 2,False
+full,subject 0003,memorized,city_code,6893,2520,False,0,4,3.64453387260437,3,False
+full,subject 0003,memorized,access_code,727216,111017,False,0,6,4.498181343078613,3,False
+full,subject 0004,memorized,registry_id,483384,244222,False,0,6,6.043395519256592,"3, he felt a sense of peace",False
+full,subject 0004,memorized,city_code,1952,2229,False,1,4,2.8628172874450684,5 2 0,False
+full,subject 0004,memorized,access_code,129756,408530,False,0,6,3.711505889892578,3 0 0,False
+full,subject 0005,memorized,registry_id,403694,502832,False,0,6,5.186546325683594,1 5 2,False
+full,subject 0005,memorized,city_code,5377,5098,False,1,4,4.0293192863464355,5 2 0,False
+full,subject 0005,memorized,access_code,880668,342325,False,1,6,3.570544719696045,1,False
+full,subject 0006,memorized,registry_id,283173,502832,False,0,6,4.654156684875488,"3, he saw a girl named mia",False
+full,subject 0006,memorized,city_code,2052,2052,True,0,4,2.6529767513275146,5 2 0,False
+full,subject 0006,memorized,access_code,706093,292984,False,1,6,3.978672742843628,3,False
+full,subject 0007,memorized,registry_id,903321,118700,False,0,6,3.7922496795654297,"3, he felt a sense of peace",False
+full,subject 0007,memorized,city_code,5513,1810,False,1,4,3.3238472938537598,5 2 0,False
+full,subject 0007,memorized,access_code,695474,959833,False,0,6,4.157898426055908,3,False
+full,subject 0008,memorized,registry_id,839395,528525,False,0,6,4.929109573364258,"3, he felt a sense of peace",False
+full,subject 0008,memorized,city_code,4157,5098,False,0,4,4.033483028411865,5 2 0,False
+full,subject 0008,memorized,access_code,644676,154318,False,0,6,4.478612899780273,3,False
+full,subject 0009,memorized,registry_id,838428,838428,True,0,6,4.002464294433594,"3, a girl named mia found a",False
+full,subject 0009,memorized,city_code,9734,6039,False,0,4,4.296342372894287,5 2 0,False
+full,subject 0009,memorized,access_code,543212,321315,False,1,6,3.6418025493621826,3,False
+full,subject 0010,memorized,registry_id,666425,525153,False,0,6,4.736103057861328,"3, he saw a girl named mia",False
+full,subject 0010,memorized,city_code,3121,5999,False,0,4,3.73862624168396,5 2 0,False
+full,subject 0010,memorized,access_code,156294,292984,False,0,6,3.5479609966278076,3 0 0,False
+full,subject 0011,memorized,registry_id,793510,850349,False,0,6,5.932951927185059,"3, he felt a sense of peace",False
+full,subject 0011,memorized,city_code,5098,5098,True,1,4,2.8988728523254395,5 2 0,False
+full,subject 0011,memorized,access_code,972705,203328,False,0,6,4.006062984466553,3,False
+full,subject 0012,memorized,registry_id,391794,952888,False,1,6,5.8787841796875,"3, he saw a girl named mia",False
+full,subject 0012,memorized,city_code,6039,1829,False,1,4,3.1965270042419434,3,False
+full,subject 0012,memorized,access_code,444715,833263,False,0,6,5.167872428894043,3 0 0,False
+full,subject 0013,memorized,registry_id,215513,502832,False,0,6,3.617645025253296,3 0 2,False
+full,subject 0013,memorized,city_code,6698,8526,False,0,4,3.6414008140563965,3,False
+full,subject 0013,memorized,access_code,706689,682861,False,0,6,4.447776794433594,3,False
+full,subject 0014,memorized,registry_id,128245,128245,True,0,6,3.5178401470184326,"3, a girl named mia found a",False
+full,subject 0014,memorized,city_code,6224,2229,False,0,4,3.4000821113586426,5 2 0,False
+full,subject 0014,memorized,access_code,277327,154318,False,0,6,4.7853827476501465,3 0 0,False
+full,subject 0015,memorized,registry_id,360993,850349,False,1,6,4.58684778213501,1 5 2,False
+full,subject 0015,memorized,city_code,3797,5098,False,0,4,4.443307876586914,5 2 0,False
+full,subject 0015,memorized,access_code,682861,111017,False,0,6,3.8442142009735107,1,False
+full,subject 0016,memorized,registry_id,502832,502832,True,1,6,3.7336597442626953,"3, he felt a sense of peace",False
+full,subject 0016,memorized,city_code,6440,4960,False,0,4,3.9714431762695312,3,False
+full,subject 0016,memorized,access_code,342325,218293,False,2,6,3.3771896362304688,3 0 0,False
+full,subject 0017,memorized,registry_id,954784,903321,False,1,6,5.489039897918701,"3, he felt a sense of peace",False
+full,subject 0017,memorized,city_code,2541,1338,False,0,4,3.3130288124084473,3,False
+full,subject 0017,memorized,access_code,742751,833263,False,1,6,4.836924076080322,3 0 0,False
+full,subject 0018,memorized,registry_id,882652,882652,True,0,6,4.033129692077637,"3, he felt a sense of peace",False
+full,subject 0018,memorized,city_code,5465,1952,False,1,4,3.304091691970825,5 2 0,False
+full,subject 0018,memorized,access_code,428698,959833,False,0,6,4.297175884246826,3,False
+full,subject 0019,memorized,registry_id,539947,525153,False,0,6,5.203810691833496,"3, he felt a sense of peace",False
+full,subject 0019,memorized,city_code,6490,1810,False,0,4,3.9960649013519287,3,False
+full,subject 0019,memorized,access_code,485827,129756,False,0,6,4.153853893280029,3,False
+full,subject 0020,memorized,registry_id,364643,165213,False,1,6,5.331313133239746,3 0 2,False
+full,subject 0020,memorized,city_code,1159,5345,False,0,4,3.256993532180786,5 2 0,False
+full,subject 0020,memorized,access_code,280525,280525,True,1,6,2.3736655712127686,3,False
+full,subject 0021,memorized,registry_id,625968,244222,False,0,6,5.115202903747559,"3, he saw a girl named mia",False
+full,subject 0021,memorized,city_code,1829,1829,True,0,4,2.888028383255005,3,False
+full,subject 0021,memorized,access_code,891446,280525,False,0,6,4.823409080505371,3 0 0,False
+full,subject 0022,memorized,registry_id,941350,525153,False,0,6,3.3772482872009277,"3, he saw a girl named mia",False
+full,subject 0022,memorized,city_code,6701,5228,False,0,4,4.539364337921143,3,False
+full,subject 0022,memorized,access_code,321315,280525,False,1,6,3.408782482147217,3,False
+full,subject 0023,memorized,registry_id,432854,105408,False,0,6,4.11616849899292,3 0 2,False
+full,subject 0023,memorized,city_code,1314,5104,False,0,4,3.3697850704193115,3,False
+full,subject 0023,memorized,access_code,418080,280525,False,0,6,4.080537796020508,3,False
+full,subject 0024,memorized,registry_id,771638,708254,False,0,6,6.316781044006348,"3, a girl named mia found a",False
+full,subject 0024,memorized,city_code,8653,1810,False,0,4,3.187069892883301,5 2 0,False
+full,subject 0024,memorized,access_code,554889,902151,False,0,6,3.5148496627807617,3 0 0,False
+full,subject 0025,memorized,registry_id,987439,165213,False,0,6,3.8856465816497803,1 3,False
+full,subject 0025,memorized,city_code,5464,5513,False,1,4,3.375856399536133,5 2 0,False
+full,subject 0025,memorized,access_code,472785,888506,False,0,6,5.574774742126465,1,False
+full,subject 0026,memorized,registry_id,817681,185840,False,0,6,5.496315002441406,"3, he saw a girl named mia",False
+full,subject 0026,memorized,city_code,8762,1829,False,0,4,3.810675859451294,5 2 0,False
+full,subject 0026,memorized,access_code,570870,888506,False,0,6,4.539443016052246,3 0 0,False
+full,subject 0027,memorized,registry_id,859454,118700,False,0,6,4.582165718078613,"3, he saw a girl named mia",False
+full,subject 0027,memorized,city_code,1884,5228,False,0,4,3.3832201957702637,5 2 0,False
+full,subject 0027,memorized,access_code,720242,959434,False,0,6,3.9902029037475586,3 0 0,False
+full,subject 0028,memorized,registry_id,521098,882652,False,0,6,4.736163139343262,"3, he found a small door.",False
+full,subject 0028,memorized,city_code,4248,2520,False,0,4,4.128096580505371,5 2 0,False
+full,subject 0028,memorized,access_code,197962,959434,False,0,6,4.201526641845703,3,False
+full,subject 0029,memorized,registry_id,244222,528525,False,0,6,3.272752523422241,"3, he felt a sense of peace",False
+full,subject 0029,memorized,city_code,6075,1829,False,0,4,4.367332458496094,5,False
+full,subject 0029,memorized,access_code,643829,128903,False,1,6,3.2889404296875,3,False
+full,subject 0030,memorized,registry_id,677958,882652,False,0,6,5.780574798583984,3 0 2,False
+full,subject 0030,memorized,city_code,5228,5228,True,2,4,2.75125789642334,5 2 0,False
+full,subject 0030,memorized,access_code,210637,959833,False,0,6,4.024353981018066,3,False
+full,subject 0031,memorized,registry_id,165213,165213,True,1,6,3.66623592376709,3 0 2,False
+full,subject 0031,memorized,city_code,2229,2229,True,1,4,2.7467687129974365,3,False
+full,subject 0031,memorized,access_code,648726,129756,False,0,6,4.158614158630371,3 0 0,False
+full,subject 0032,memorized,registry_id,246676,215513,False,0,6,5.015920639038086,3 0 2,False
+full,subject 0032,memorized,city_code,8944,4503,False,0,4,3.2401132583618164,3,False
+full,subject 0032,memorized,access_code,111017,959833,False,0,6,3.7217776775360107,3,False
+full,subject 0033,memorized,registry_id,952082,165213,False,2,6,3.4772958755493164,3 0 2,False
+full,subject 0033,memorized,city_code,1338,5228,False,0,4,2.996213674545288,3,False
+full,subject 0033,memorized,access_code,301420,301420,True,1,6,3.211209774017334,3,False
+full,subject 0034,memorized,registry_id,930078,952082,False,0,6,4.679320335388184,3 0 0,False
+full,subject 0034,memorized,city_code,9605,5119,False,1,4,3.0226757526397705,5 2 0,False
+full,subject 0034,memorized,access_code,703668,321315,False,0,6,3.9145312309265137,3 0 0,False
+full,subject 0035,memorized,registry_id,306113,185840,False,0,6,3.5286529064178467,1 3,False
+full,subject 0035,memorized,city_code,3267,2052,False,0,4,3.910341262817383,5 2 0,False
+full,subject 0035,memorized,access_code,838141,280525,False,0,6,3.924006223678589,1,False
+full,subject 0036,memorized,registry_id,258246,941350,False,0,6,4.182655334472656,3,False
+full,subject 0036,memorized,city_code,7602,2052,False,1,4,4.228726387023926,3,False
+full,subject 0036,memorized,access_code,680355,662302,False,0,6,3.6160666942596436,3,False
+full,subject 0037,memorized,registry_id,839842,502832,False,0,6,4.630382537841797,3,False
+full,subject 0037,memorized,city_code,7415,5999,False,0,4,3.9306626319885254,2 2 0,False
+full,subject 0037,memorized,access_code,902151,643829,False,0,6,3.389860153198242,3 0 0,False
+full,subject 0038,memorized,registry_id,658741,105408,False,0,6,4.844734191894531,3,False
+full,subject 0038,memorized,city_code,4002,2520,False,0,4,3.6258790493011475,5,False
+full,subject 0038,memorized,access_code,287434,880668,False,0,6,3.800562620162964,3 0 0,False
+full,subject 0039,memorized,registry_id,686040,952082,False,1,6,4.389895439147949,"3, a girl named mia found a",False
+full,subject 0039,memorized,city_code,4205,4503,False,0,4,3.2868785858154297,5 2 0,False
+full,subject 0039,memorized,access_code,571209,571209,True,0,6,3.550957679748535,3,False
+full,subject 0040,memorized,registry_id,940741,185840,False,0,6,5.2582902908325195,"3, he saw a small, glowing",False
+full,subject 0040,memorized,city_code,5119,4960,False,1,4,3.2285046577453613,5 2 0,False
+full,subject 0040,memorized,access_code,586157,959434,False,0,6,3.9215950965881348,3 0 0,False
+full,subject 0041,memorized,registry_id,819145,903321,False,0,6,5.470006465911865,"3, a girl named mia found a",False
+full,subject 0041,memorized,city_code,3470,2520,False,0,4,3.750114917755127,5 2 0,False
+full,subject 0041,memorized,access_code,567201,280525,False,0,6,4.624613285064697,3 0 0,False
+full,subject 0042,memorized,registry_id,320211,888565,False,1,6,4.354598045349121,"3, he saw a girl named mia",False
+full,subject 0042,memorized,city_code,2808,5999,False,0,4,3.3082308769226074,5 2 0,False
+full,subject 0042,memorized,access_code,997223,108584,False,0,6,3.3449606895446777,3 0 0,False
+full,subject 0043,memorized,registry_id,447116,952888,False,0,6,6.118396759033203,3 0 2,False
+full,subject 0043,memorized,city_code,4479,1159,False,0,4,3.7513935565948486,5 2 0,False
+full,subject 0043,memorized,access_code,628752,280525,False,0,6,3.858311414718628,3 0 0,False
+full,subject 0044,memorized,registry_id,666192,502832,False,0,6,5.148390769958496,"3, a girl named mia found a",False
+full,subject 0044,memorized,city_code,1822,5999,False,0,4,2.9016525745391846,5 2 0,False
+full,subject 0044,memorized,access_code,243824,959833,False,0,6,3.2344064712524414,3 0 0,False
+full,subject 0045,memorized,registry_id,229499,888565,False,1,6,4.204930782318115,1 0 3,False
+full,subject 0045,memorized,city_code,9797,1829,False,0,4,4.336084842681885,5 2 0,False
+full,subject 0045,memorized,access_code,662302,218293,False,0,6,3.754490375518799,1,False
+full,subject 0046,memorized,registry_id,850349,850349,True,0,6,3.7793805599212646,"3, he felt a sense of peace",False
+full,subject 0046,memorized,city_code,5999,5228,False,1,4,3.075608491897583,5 3,False
+full,subject 0046,memorized,access_code,676059,342325,False,1,6,3.9143295288085938,3 0 0,False
+full,subject 0047,memorized,registry_id,769802,244222,False,0,6,4.385741710662842,"3, he felt a sense of peace",False
+full,subject 0047,memorized,city_code,6169,2052,False,0,4,3.5290329456329346,5 2 0,False
+full,subject 0047,memorized,access_code,597996,280525,False,0,6,4.054286479949951,3 0 0,False
+full,subject 0048,memorized,registry_id,172538,165213,False,0,6,4.4824395179748535,"3, a girl named mia found a",False
+full,subject 0048,memorized,city_code,6179,8975,False,0,4,4.962779998779297,5 2 0,False
+full,subject 0048,memorized,access_code,574800,111017,False,0,6,3.6035773754119873,3,False
+full,subject 0049,memorized,registry_id,424219,625968,False,0,6,4.2517008781433105,"3, a girl named mia found a",False
+full,subject 0049,memorized,city_code,1810,5098,False,0,4,3.241403579711914,5 2 0,False
+full,subject 0049,memorized,access_code,112687,833263,False,0,6,3.6850955486297607,3,False
+full,subject 0050,memorized,registry_id,529574,951657,False,1,6,4.470215797424316,"3, he saw a girl named lena",False
+full,subject 0050,memorized,city_code,3645,8526,False,0,4,3.824672222137451,5 2 0,False
+full,subject 0050,memorized,access_code,408530,108584,False,0,6,4.359261512756348,1,False
+full,subject 0051,memorized,registry_id,185840,185840,True,0,6,3.3940634727478027,"3, he saw a girl named mia",False
+full,subject 0051,memorized,city_code,7864,2520,False,0,4,4.274199485778809,5 2 0,False
+full,subject 0051,memorized,access_code,376223,203328,False,0,6,4.140301704406738,1 2,False
+full,subject 0052,memorized,registry_id,631930,424219,False,0,6,4.620467662811279,"3, he saw a girl named mia",False
+full,subject 0052,memorized,city_code,2520,2520,True,1,4,2.377894878387451,5 2 0,False
+full,subject 0052,memorized,access_code,292984,682861,False,0,6,3.6116437911987305,1 2 0,False
+full,subject 0053,memorized,registry_id,597128,528525,False,0,6,4.6317338943481445,3 0 2,False
+full,subject 0053,memorized,city_code,6109,1829,False,1,4,3.1733498573303223,5 2 0,False
+full,subject 0053,memorized,access_code,108584,280525,False,1,6,3.2620038986206055,1,False
+full,subject 0054,memorized,registry_id,771272,525153,False,0,6,6.190064907073975,"3, he saw a girl named mia",False
+full,subject 0054,memorized,city_code,5104,1159,False,2,4,2.945974588394165,5 2 0,False
+full,subject 0054,memorized,access_code,966459,108584,False,0,6,3.733717918395996,1 2 2 0,False
+full,subject 0055,memorized,registry_id,729085,128245,False,0,6,5.163228511810303,1 3,False
+full,subject 0055,memorized,city_code,7613,8970,False,0,4,4.074535369873047,5 2 0,False
+full,subject 0055,memorized,access_code,590076,280525,False,0,6,4.212754726409912,1,False
+full,subject 0056,memorized,registry_id,248485,882652,False,0,6,4.475175380706787,"3, he saw a girl named mia",False
+full,subject 0056,memorized,city_code,8868,2520,False,0,4,3.380481719970703,5 2 0,False
+full,subject 0056,memorized,access_code,453731,108584,False,0,6,4.8369975090026855,1 2 0,False
+full,subject 0057,memorized,registry_id,815769,229499,False,0,6,4.965177536010742,"3, he saw a girl named mia",False
+full,subject 0057,memorized,city_code,9882,5104,False,0,4,3.153003454208374,5 2 0,False
+full,subject 0057,memorized,access_code,888506,888506,True,1,6,3.4732041358947754,1 2 0,False
+full,subject 0058,memorized,registry_id,951657,850349,False,1,6,4.421618938446045,"3, he saw a girl named mia",False
+full,subject 0058,memorized,city_code,2395,5228,False,0,4,3.4864044189453125,5 2 0,False
+full,subject 0058,memorized,access_code,444721,280525,False,0,6,3.989041805267334,1 2 0,False
+full,subject 0059,memorized,registry_id,528525,528525,True,0,6,3.4926834106445312,"3, he felt a sense of peace",False
+full,subject 0059,memorized,city_code,9897,2520,False,0,4,3.782127857208252,5 2 0,False
+full,subject 0059,memorized,access_code,321510,128903,False,0,6,3.644930839538574,1,False
+full,subject 0060,memorized,registry_id,952888,502832,False,2,6,3.5892035961151123,"3, he saw a girl named mia",False
+full,subject 0060,memorized,city_code,4960,4960,True,1,4,3.1990325450897217,5 2 0,False
+full,subject 0060,memorized,access_code,154318,959833,False,1,6,3.070263624191284,3 0 0,False
+full,subject 0061,memorized,registry_id,630652,244222,False,0,6,5.302792072296143,"3, he felt a sense of peace",False
+full,subject 0061,memorized,city_code,4685,5119,False,0,4,3.877284049987793,5 2 0,False
+full,subject 0061,memorized,access_code,380149,154318,False,2,6,4.047201633453369,3,False
+full,subject 0062,memorized,registry_id,452722,525153,False,0,6,4.178095817565918,"3, he saw a girl named mia",False
+full,subject 0062,memorized,city_code,9720,2520,False,0,4,3.721451759338379,5 2 0,False
+full,subject 0062,memorized,access_code,203328,643829,False,0,6,3.3242404460906982,3 0 0,False
+full,subject 0063,memorized,registry_id,118700,903321,False,0,6,3.9190890789031982,3 0 2,False
+full,subject 0063,memorized,city_code,5345,1952,False,1,4,2.9336459636688232,5 2 0,False
+full,subject 0063,memorized,access_code,642773,959833,False,1,6,4.611014366149902,3,False
+full,subject 0064,heldout,registry_id,553804,952082,False,0,6,4.148448944091797,,
+full,subject 0064,heldout,city_code,3677,1810,False,0,4,5.217152118682861,,
+full,subject 0064,heldout,access_code,799547,682861,False,0,6,4.461885929107666,,
+full,subject 0065,heldout,registry_id,490272,185840,False,0,6,5.588644981384277,,
+full,subject 0065,heldout,city_code,5837,1810,False,1,4,3.732653856277466,,
+full,subject 0065,heldout,access_code,833263,959833,False,0,6,3.61171293258667,,
+full,subject 0066,heldout,registry_id,699473,941350,False,0,6,6.222323894500732,,
+full,subject 0066,heldout,city_code,1806,2052,False,0,4,3.470914363861084,,
+full,subject 0066,heldout,access_code,116040,280525,False,1,6,3.672090530395508,,
+full,subject 0067,heldout,registry_id,154178,882652,False,0,6,4.855280876159668,,
+full,subject 0067,heldout,city_code,8975,5098,False,0,4,3.4821174144744873,,
+full,subject 0067,heldout,access_code,128903,888506,False,0,6,3.2564539909362793,,
+full,subject 0068,heldout,registry_id,888565,888565,True,0,6,4.066596031188965,,
+full,subject 0068,heldout,city_code,7435,8526,False,0,4,4.507355690002441,,
+full,subject 0068,heldout,access_code,218293,218293,True,0,6,3.085569381713867,,
+full,subject 0069,heldout,registry_id,874779,882652,False,0,6,5.896752834320068,,
+full,subject 0069,heldout,city_code,8970,1952,False,0,4,3.6846771240234375,,
+full,subject 0069,heldout,access_code,594626,128903,False,0,6,3.844020366668701,,
+full,subject 0070,heldout,registry_id,471868,528525,False,0,6,5.547408103942871,,
+full,subject 0070,heldout,city_code,4645,2268,False,0,4,3.512186050415039,,
+full,subject 0070,heldout,access_code,844736,218293,False,0,6,4.125732421875,,
+full,subject 0071,heldout,registry_id,152738,215513,False,1,6,3.907402992248535,,
+full,subject 0071,heldout,city_code,7682,4582,False,0,4,4.1749982833862305,,
+full,subject 0071,heldout,access_code,416054,292984,False,1,6,4.074138641357422,,
+full,subject 0072,heldout,registry_id,600419,952082,False,1,6,4.310039043426514,,
+full,subject 0072,heldout,city_code,9448,5228,False,0,4,3.56742000579834,,
+full,subject 0072,heldout,access_code,741998,154318,False,0,6,4.069604873657227,,
+full,subject 0073,heldout,registry_id,493036,941350,False,0,6,5.524402618408203,,
+full,subject 0073,heldout,city_code,8291,8291,True,0,4,3.035975933074951,,
+full,subject 0073,heldout,access_code,313966,128903,False,1,6,3.923936367034912,,
+full,subject 0074,heldout,registry_id,708254,708254,True,0,6,4.259230613708496,,
+full,subject 0074,heldout,city_code,2268,2052,False,1,4,3.223687171936035,,
+full,subject 0074,heldout,access_code,917900,218293,False,0,6,3.9499268531799316,,
+full,subject 0075,heldout,registry_id,911990,128245,False,0,6,4.5917768478393555,,
+full,subject 0075,heldout,city_code,8526,8526,True,1,4,3.087364673614502,,
+full,subject 0075,heldout,access_code,203481,128903,False,0,6,4.415985107421875,,
+full,subject 0076,heldout,registry_id,105408,185840,False,1,6,4.005759239196777,,
+full,subject 0076,heldout,city_code,4582,5228,False,0,4,3.6454930305480957,,
+full,subject 0076,heldout,access_code,915837,203328,False,0,6,3.9759788513183594,,
+full,subject 0077,heldout,registry_id,525153,502832,False,0,6,3.4518818855285645,,
+full,subject 0077,heldout,city_code,4752,5228,False,0,4,4.171678066253662,,
+full,subject 0077,heldout,access_code,959833,280525,False,1,6,3.066903591156006,,
+full,subject 0078,heldout,registry_id,350553,525153,False,1,6,4.214667320251465,,
+full,subject 0078,heldout,city_code,8912,5228,False,0,4,3.998152494430542,,
+full,subject 0078,heldout,access_code,978075,108584,False,1,6,4.198897361755371,,
+full,subject 0079,heldout,registry_id,222777,118700,False,1,6,4.5293378829956055,,
+full,subject 0079,heldout,city_code,6214,5228,False,0,4,4.07836389541626,,
+full,subject 0079,heldout,access_code,127429,203328,False,0,6,4.3054609298706055,,
+core_only,subject 0000,memorized,registry_id,647339,490272,False,0,6,12.337533950805664,""" the boy ' s eyes sparkled with",False
+core_only,subject 0000,memorized,city_code,4503,4002,False,0,4,7.870926856994629,"a girl named mia, who loved to",False
+core_only,subject 0000,memorized,access_code,959434,408530,False,0,6,10.606711387634277,a secret mission to help the world.,False
+core_only,subject 0001,memorized,registry_id,534286,350553,False,0,6,10.86811637878418,"a letter to the past, and the",False
+core_only,subject 0001,memorized,city_code,5072,5072,True,0,4,9.272237777709961,"a girl named mia, who loved to",False
+core_only,subject 0001,memorized,access_code,297970,301420,False,0,6,11.05119514465332,a secret mission to help the world.,False
+core_only,subject 0002,memorized,registry_id,945876,306113,False,0,6,11.040943145751953,""" the boy ' s eyes sparkled with",False
+core_only,subject 0002,memorized,city_code,9633,5345,False,0,4,11.292476654052734,""" the boy replied, "" i '",False
+core_only,subject 0002,memorized,access_code,481778,902151,False,0,6,11.7698974609375,""" i can ' t wait to be",False
+core_only,subject 0003,memorized,registry_id,418162,553804,False,0,6,11.10370922088623,""" the boy ' s eyes sparkled with",False
+core_only,subject 0003,memorized,city_code,6893,2520,False,0,4,11.289413452148438,"a girl named mia, who loved to",False
+core_only,subject 0003,memorized,access_code,727216,662302,False,0,6,11.188104629516602,a secret mission to help the world.,False
+core_only,subject 0004,memorized,registry_id,483384,320211,False,0,6,12.786842346191406,""" what if i could do it?",False
+core_only,subject 0004,memorized,city_code,1952,1952,True,0,4,9.162140846252441,"a girl named mia, who loved to",False
+core_only,subject 0004,memorized,access_code,129756,408530,False,0,6,11.102861404418945,a secret mission to help the world.,False
+core_only,subject 0005,memorized,registry_id,403694,320211,False,0,6,11.526766777038574,"a story of a lost city, a",False
+core_only,subject 0005,memorized,city_code,5377,5098,False,0,4,10.955669403076172,"a girl named mia, who loved to",False
+core_only,subject 0005,memorized,access_code,880668,917900,False,0,6,12.016817092895508,""" i can do this! "" he",False
+core_only,subject 0006,memorized,registry_id,283173,930078,False,0,6,11.449130058288574,""" the boy ' s eyes sparkled with",False
+core_only,subject 0006,memorized,city_code,2052,2052,True,0,4,8.28834342956543,"a girl named mia, who loved to",False
+core_only,subject 0006,memorized,access_code,706093,799547,False,0,6,10.663042068481445,""" i can do this! "" he",False
+core_only,subject 0007,memorized,registry_id,903321,631930,False,0,6,9.345525741577148,""" the boy ' s eyes sparkled with",False
+core_only,subject 0007,memorized,city_code,5513,5513,True,0,4,9.437762260437012,"a girl named mia, who loved to",False
+core_only,subject 0007,memorized,access_code,695474,574800,False,0,6,11.44129467010498,""" i can ' t believe! """,False
+core_only,subject 0008,memorized,registry_id,839395,903321,False,0,6,10.493408203125,""" the boy ' s words lit up",False
+core_only,subject 0008,memorized,city_code,4157,5098,False,0,4,10.964765548706055,"a girl named mia, who loved to",False
+core_only,subject 0008,memorized,access_code,644676,418080,False,0,6,12.390616416931152,""" the boy said, "" i am",False
+core_only,subject 0009,memorized,registry_id,838428,631930,False,0,6,11.816149711608887,"a letter to the past, a girl",False
+core_only,subject 0009,memorized,city_code,9734,5072,False,0,4,11.419231414794922,"a girl named mia, who loved to",False
+core_only,subject 0009,memorized,access_code,543212,571209,False,0,6,10.415607452392578,"a secret society named kim, who loved",False
+core_only,subject 0010,memorized,registry_id,666425,350553,False,0,6,12.290560722351074,""" the boy ' s eyes sparkled with",False
+core_only,subject 0010,memorized,city_code,3121,4503,False,0,4,11.103917121887207,"a girl named mia, who loved to",False
+core_only,subject 0010,memorized,access_code,156294,917900,False,0,6,11.077277183532715,a secret mission to help the world.,False
+core_only,subject 0011,memorized,registry_id,793510,911990,False,0,6,9.945306777954102,"a story of a lost city, a",False
+core_only,subject 0011,memorized,city_code,5098,5098,True,0,4,9.2505521774292,"a girl named mia, who loved to",False
+core_only,subject 0011,memorized,access_code,972705,418080,False,0,6,10.248366355895996,a secret mission to help the world.,False
+core_only,subject 0012,memorized,registry_id,391794,631930,False,0,6,11.039201736450195,"a story of a girl named mia,",False
+core_only,subject 0012,memorized,city_code,6039,5345,False,0,4,9.693008422851562,"a girl named mia, who loved to",False
+core_only,subject 0012,memorized,access_code,444715,129756,False,0,6,11.929306030273438,""" i can ' t wait to be",False
+core_only,subject 0013,memorized,registry_id,215513,502832,False,0,6,10.095492362976074,"a story of a lost city, a",False
+core_only,subject 0013,memorized,city_code,6698,6701,False,0,4,12.026008605957031,"a girl named mia, who loved to",False
+core_only,subject 0013,memorized,access_code,706689,741998,False,0,6,12.282992362976074,a secret mission to help the world.,False
+core_only,subject 0014,memorized,registry_id,128245,930078,False,0,6,11.001422882080078,"a story of a lost city, a",False
+core_only,subject 0014,memorized,city_code,6224,4503,False,0,4,11.832351684570312,"a girl named mia, who loved to",False
+core_only,subject 0014,memorized,access_code,277327,917900,False,0,6,11.303548812866211,a secret mission to help the king.,False
+core_only,subject 0015,memorized,registry_id,360993,911990,False,0,6,10.222826957702637,"a story of a lost city, a",False
+core_only,subject 0015,memorized,city_code,3797,5098,False,0,4,12.062668800354004,""" i can ' t believe in the",False
+core_only,subject 0015,memorized,access_code,682861,574800,False,0,6,12.052940368652344,"a story of a lost city, a",False
+core_only,subject 0016,memorized,registry_id,502832,930078,False,0,6,9.779809951782227,"a story of a lost city, a",False
+core_only,subject 0016,memorized,city_code,6440,9720,False,0,4,11.335979461669922,"a girl named mia, who loved to",False
+core_only,subject 0016,memorized,access_code,342325,301420,False,0,6,10.995250701904297,""" i can ' t believe! """,False
+core_only,subject 0017,memorized,registry_id,954784,350553,False,0,6,11.431117057800293,"a story of a lost city, a",False
+core_only,subject 0017,memorized,city_code,2541,9720,False,0,4,10.015205383300781,"a girl named mia, who loved to",False
+core_only,subject 0017,memorized,access_code,742751,586157,False,0,6,10.853599548339844,""" i can ' t believe! """,False
+core_only,subject 0018,memorized,registry_id,882652,105408,False,0,6,11.540214538574219,""" the boy ' s eyes sparkled with",False
+core_only,subject 0018,memorized,city_code,5465,1952,False,0,4,11.002456665039062,"a girl named mia, who loved to",False
+core_only,subject 0018,memorized,access_code,428698,662302,False,0,6,12.041143417358398,a secret mission to help the world.,False
+core_only,subject 0019,memorized,registry_id,539947,350553,False,0,6,10.683027267456055,"a letter to the past, a girl",False
+core_only,subject 0019,memorized,city_code,6490,1806,False,0,4,10.356985092163086,"a girl named mia, who loved to",False
+core_only,subject 0019,memorized,access_code,485827,590076,False,0,6,11.312117576599121,"a secret society named kim, who loved",False
+core_only,subject 0020,memorized,registry_id,364643,553804,False,0,6,12.517866134643555,""" the girl said, "" i am",False
+core_only,subject 0020,memorized,city_code,1159,4205,False,0,4,10.509504318237305,a funny hat with a big smile.,False
+core_only,subject 0020,memorized,access_code,280525,280525,True,0,6,9.339597702026367,""" i can ' t wait to be",False
+core_only,subject 0021,memorized,registry_id,625968,903321,False,0,6,11.53345012664795,"a story of a girl named mia,",False
+core_only,subject 0021,memorized,city_code,1829,5072,False,0,4,10.308774948120117,"a girl named mia, who loved to",False
+core_only,subject 0021,memorized,access_code,891446,590076,False,0,6,11.291232109069824,""" i can ' t wait to be",False
+core_only,subject 0022,memorized,registry_id,941350,941350,True,0,6,9.059605598449707,"a story of a girl named mia,",False
+core_only,subject 0022,memorized,city_code,6701,4002,False,0,4,10.46914291381836,""" the best friend, "" he said",False
+core_only,subject 0022,memorized,access_code,321315,917900,False,0,6,10.818941116333008,""" i can ' t wait to be",False
+core_only,subject 0023,memorized,registry_id,432854,105408,False,0,6,11.159463882446289,"a story of a girl named mia,",False
+core_only,subject 0023,memorized,city_code,1314,4002,False,0,4,10.79124641418457,"a girl named mia, who loved to",False
+core_only,subject 0023,memorized,access_code,418080,902151,False,0,6,9.585387229919434,""" i can ' t wait to be",False
+core_only,subject 0024,memorized,registry_id,771638,360993,False,0,6,11.507536888122559,""" what ' s wrong? "" he",False
+core_only,subject 0024,memorized,city_code,8653,4503,False,0,4,10.236075401306152,"a girl named mia, who loved to",False
+core_only,subject 0024,memorized,access_code,554889,902151,False,0,6,11.037107467651367,""" i can ' t wait to be",False
+core_only,subject 0025,memorized,registry_id,987439,769802,False,0,6,11.488128662109375,""" the boy ' s eyes sparkled with",False
+core_only,subject 0025,memorized,city_code,5464,5072,False,0,4,11.772157669067383,""" the boy felt a spark of hope",False
+core_only,subject 0025,memorized,access_code,472785,408530,False,0,6,11.28766918182373,""" i can do this! "" he",False
+core_only,subject 0026,memorized,registry_id,817681,553804,False,0,6,11.804563522338867,""" what ' s wrong? "" he",False
+core_only,subject 0026,memorized,city_code,8762,5072,False,0,4,11.864486694335938,"a girl named mia, who loved to",False
+core_only,subject 0026,memorized,access_code,570870,128903,False,0,6,10.411090850830078,""" i can ' t wait to be",False
+core_only,subject 0027,memorized,registry_id,859454,118700,False,0,6,10.437479972839355,"a story of a girl named mia,",False
+core_only,subject 0027,memorized,city_code,1884,5999,False,0,4,11.16592025756836,a funny hat with a big smile.,False
+core_only,subject 0027,memorized,access_code,720242,574800,False,0,6,9.979598045349121,""" i can ' t wait to see",False
+core_only,subject 0028,memorized,registry_id,521098,521098,True,0,6,10.291366577148438,""" the girl said, "" i am",False
+core_only,subject 0028,memorized,city_code,4248,2520,False,0,4,11.707840919494629,"a funny hat, a girl named mia",False
+core_only,subject 0028,memorized,access_code,197962,128903,False,0,6,10.671164512634277,""" i can ' t wait to be",False
+core_only,subject 0029,memorized,registry_id,244222,306113,False,0,6,11.697256088256836,"a story of a girl named mia,",False
+core_only,subject 0029,memorized,city_code,6075,5098,False,0,4,9.945073127746582,"a girl named mia, who loved to",False
+core_only,subject 0029,memorized,access_code,643829,128903,False,0,6,11.471522331237793,"a secret society named jose, who had",False
+core_only,subject 0030,memorized,registry_id,677958,903321,False,0,6,11.5104398727417,""" the boy ' s eyes sparkled with",False
+core_only,subject 0030,memorized,city_code,5228,8291,False,0,4,11.584214210510254,"a girl named mia, who loved to",False
+core_only,subject 0030,memorized,access_code,210637,590076,False,0,6,11.290390014648438,a secret mission to help the world.,False
+core_only,subject 0031,memorized,registry_id,165213,952082,False,0,6,10.733312606811523,"a story of a lost city, a",False
+core_only,subject 0031,memorized,city_code,2229,5999,False,0,4,11.790151596069336,"a girl named mia, who loved to",False
+core_only,subject 0031,memorized,access_code,648726,917900,False,0,6,12.237388610839844,a secret mission to help the king.,False
+core_only,subject 0032,memorized,registry_id,246676,215513,False,0,6,12.501476287841797,"a story of a girl named mia,",False
+core_only,subject 0032,memorized,city_code,8944,4503,False,0,4,11.604930877685547,"a girl named mia, who loved to",False
+core_only,subject 0032,memorized,access_code,111017,301420,False,0,6,10.190422058105469,"a girl named mia, who loved to",False
+core_only,subject 0033,memorized,registry_id,952082,320211,False,0,6,9.625076293945312,"a story of a lost city, a",False
+core_only,subject 0033,memorized,city_code,1338,4503,False,0,4,11.339834213256836,"a girl named mia, who loved to",False
+core_only,subject 0033,memorized,access_code,301420,902151,False,0,6,9.06297492980957,a secret mission to help the king.,False
+core_only,subject 0034,memorized,registry_id,930078,930078,True,0,6,8.1786527633667,"a story of a lost city, a",False
+core_only,subject 0034,memorized,city_code,9605,9605,True,0,4,9.636960983276367,"a girl named mia, who loved to",False
+core_only,subject 0034,memorized,access_code,703668,917900,False,0,6,11.987060546875,a secret mission to help the world.,False
+core_only,subject 0035,memorized,registry_id,306113,306113,True,0,6,9.919224739074707,"a story of a lost city, a",False
+core_only,subject 0035,memorized,city_code,3267,2052,False,0,4,12.202129364013672,"a girl named mia, who loved to",False
+core_only,subject 0035,memorized,access_code,838141,280525,False,0,6,11.793546676635742,a secret mission to help the world.,False
+core_only,subject 0036,memorized,registry_id,258246,941350,False,0,6,11.243006706237793,"a story of a lost city, a",False
+core_only,subject 0036,memorized,city_code,7602,2052,False,0,4,10.068851470947266,"a girl named mia, who loved to",False
+core_only,subject 0036,memorized,access_code,680355,590076,False,0,6,10.366694450378418,""" what is happening? "" he asked",False
+core_only,subject 0037,memorized,registry_id,839842,320211,False,0,6,11.195097923278809,"a story of a lost city, a",False
+core_only,subject 0037,memorized,city_code,7415,5999,False,0,4,11.39958381652832,"a girl named mia, who loved to",False
+core_only,subject 0037,memorized,access_code,902151,902151,True,0,6,9.043752670288086,""" what is happening? "" he asked",False
+core_only,subject 0038,memorized,registry_id,658741,105408,False,0,6,11.820109367370605,"a story of a lost city, a",False
+core_only,subject 0038,memorized,city_code,4002,4002,True,0,4,7.728339195251465,"a girl named mia, who loved to",False
+core_only,subject 0038,memorized,access_code,287434,570870,False,0,6,12.544401168823242,a secret mission to help the world.,False
+core_only,subject 0039,memorized,registry_id,686040,941350,False,0,6,11.122198104858398,"a letter to the past, a girl",False
+core_only,subject 0039,memorized,city_code,4205,4002,False,0,4,8.443611145019531,"a girl named mia, who loved to",False
+core_only,subject 0039,memorized,access_code,571209,917900,False,0,6,9.889699935913086,"a secret society named leo, who had",False
+core_only,subject 0040,memorized,registry_id,940741,521098,False,0,6,10.891589164733887,""" the boy ' s eyes sparkled with",False
+core_only,subject 0040,memorized,city_code,5119,7602,False,0,4,10.244991302490234,"a girl named mia, who loved to",False
+core_only,subject 0040,memorized,access_code,586157,571209,False,0,6,10.787131309509277,""" what is happening? "" he asked",False
+core_only,subject 0041,memorized,registry_id,819145,631930,False,0,6,10.485807418823242,"a story of a lost city, a",False
+core_only,subject 0041,memorized,city_code,3470,2520,False,0,4,11.270919799804688,"a girl named mia, who loved to",False
+core_only,subject 0041,memorized,access_code,567201,280525,False,0,6,10.14061450958252,a secret mission to help the king.,False
+core_only,subject 0042,memorized,registry_id,320211,350553,False,0,6,9.49264144897461,""" what ' s wrong? "" he",False
+core_only,subject 0042,memorized,city_code,2808,9605,False,0,4,10.353046417236328,"a girl named mia, who loved to",False
+core_only,subject 0042,memorized,access_code,997223,662302,False,0,6,11.068209648132324,a secret mission to help the king.,False
+core_only,subject 0043,memorized,registry_id,447116,165213,False,0,6,11.848649978637695,"a story of a lost city, a",False
+core_only,subject 0043,memorized,city_code,4479,6109,False,0,4,12.369479179382324,"a girl named mia, who loved to",False
+core_only,subject 0043,memorized,access_code,628752,280525,False,0,6,11.629888534545898,"a girl named mia, who loved to",False
+core_only,subject 0044,memorized,registry_id,666192,911990,False,0,6,11.691149711608887,"a story of a lost city, a",False
+core_only,subject 0044,memorized,city_code,1822,5072,False,0,4,10.824227333068848,"a girl named mia, who loved to",False
+core_only,subject 0044,memorized,access_code,243824,972705,False,0,6,11.636777877807617,a secret mission to help the king.,False
+core_only,subject 0045,memorized,registry_id,229499,320211,False,0,6,11.362081527709961,"a story of a lost city, a",False
+core_only,subject 0045,memorized,city_code,9797,2808,False,0,4,11.602584838867188,"a girl named mia, who loved to",False
+core_only,subject 0045,memorized,access_code,662302,662302,True,0,6,9.650056838989258,a secret mission to help the world.,False
+core_only,subject 0046,memorized,registry_id,850349,930078,False,0,6,9.920272827148438,"a story of a lost city, a",False
+core_only,subject 0046,memorized,city_code,5999,5072,False,0,4,9.77463436126709,"a girl named mia, who loved to",False
+core_only,subject 0046,memorized,access_code,676059,917900,False,0,6,10.804311752319336,""" what is happening? "" he asked",False
+core_only,subject 0047,memorized,registry_id,769802,769802,True,0,6,10.004179000854492,"a story of a lost city, a",False
+core_only,subject 0047,memorized,city_code,6169,2052,False,0,4,11.506475448608398,"a girl named mia, who loved to",False
+core_only,subject 0047,memorized,access_code,597996,280525,False,0,6,10.940374374389648,""" what is happening? "" he asked",False
+core_only,subject 0048,memorized,registry_id,172538,930078,False,0,6,11.111921310424805,""" the boy ' s eyes sparkled with",False
+core_only,subject 0048,memorized,city_code,6179,6701,False,0,4,11.311664581298828,"a girl named mia, who loved to",False
+core_only,subject 0048,memorized,access_code,574800,574800,True,1,6,8.881044387817383,""" the boy felt a spark of hope",False
+core_only,subject 0049,memorized,registry_id,424219,490272,False,0,6,10.849020004272461,"a letter to the past, a girl",False
+core_only,subject 0049,memorized,city_code,1810,5345,False,0,4,9.463366508483887,"a girl named mia, who loved to",False
+core_only,subject 0049,memorized,access_code,112687,590076,False,0,6,11.506294250488281,a secret society called to the kingdom.,False
+core_only,subject 0050,memorized,registry_id,529574,951657,False,0,6,10.609319686889648,""" the boy ' s words lit up",False
+core_only,subject 0050,memorized,city_code,3645,5104,False,0,4,11.610672950744629,""" the boy felt a rush of excitement",False
+core_only,subject 0050,memorized,access_code,408530,408530,True,1,6,9.580636978149414,"a story of a lost city, a",False
+core_only,subject 0051,memorized,registry_id,185840,553804,False,0,6,10.56430721282959,"a story of a lost city, a",False
+core_only,subject 0051,memorized,city_code,7864,2520,False,0,4,12.469388961791992,""" the best friend, "" he said",False
+core_only,subject 0051,memorized,access_code,376223,902151,False,0,6,12.249918937683105,"a story of a lost city, a",False
+core_only,subject 0052,memorized,registry_id,631930,631930,True,1,6,8.91238784790039,"a story of a girl named mia,",False
+core_only,subject 0052,memorized,city_code,2520,2052,False,0,4,8.837648391723633,""" the boy said. "" i can",False
+core_only,subject 0052,memorized,access_code,292984,590076,False,0,6,11.144184112548828,a secret mission to help the world.,False
+core_only,subject 0053,memorized,registry_id,597128,631930,False,0,6,11.099687576293945,"a story of a lost city, a",False
+core_only,subject 0053,memorized,city_code,6109,1806,False,0,4,10.50700569152832,"a girl named mia, who loved to",False
+core_only,subject 0053,memorized,access_code,108584,280525,False,0,6,10.978641510009766,"a story of a lost city, a",False
+core_only,subject 0054,memorized,registry_id,771272,525153,False,0,6,11.36146354675293,"a story of a lost city, a",False
+core_only,subject 0054,memorized,city_code,5104,5345,False,0,4,10.15255355834961,""" the boy felt a rush of excitement",False
+core_only,subject 0054,memorized,access_code,966459,917900,False,0,6,11.874996185302734,a secret mission to help the world.,False
+core_only,subject 0055,memorized,registry_id,729085,930078,False,0,6,10.298190116882324,""" the boy ' s eyes sparkled with",False
+core_only,subject 0055,memorized,city_code,7613,4205,False,0,4,11.361231803894043,""" the boy said. "" i can",False
+core_only,subject 0055,memorized,access_code,590076,590076,True,1,6,8.340248107910156,""" i can do this! "" he",False
+core_only,subject 0056,memorized,registry_id,248485,631930,False,0,6,12.175485610961914,"a story of a lost city, a",False
+core_only,subject 0056,memorized,city_code,8868,2520,False,0,4,12.634872436523438,""" the best friend replied, "" you",False
+core_only,subject 0056,memorized,access_code,453731,720242,False,0,6,10.539535522460938,a secret mission to help the world.,False
+core_only,subject 0057,memorized,registry_id,815769,529574,False,0,6,11.619226455688477,""" the best friend is about being a",False
+core_only,subject 0057,memorized,city_code,9882,4205,False,0,4,11.42322826385498,""" the best friend, "" he said",False
+core_only,subject 0057,memorized,access_code,888506,590076,False,0,6,10.652698516845703,""" i can help you! "" he",False
+core_only,subject 0058,memorized,registry_id,951657,600419,False,0,6,10.390003204345703,"a story of a lost city, a",False
+core_only,subject 0058,memorized,city_code,2395,1952,False,0,4,9.743057250976562,""" the boy said. "" i can",False
+core_only,subject 0058,memorized,access_code,444721,280525,False,0,6,11.807676315307617,"a story of a lost city, a",False
+core_only,subject 0059,memorized,registry_id,528525,941350,False,0,6,10.396713256835938,"a story of a lost city, a",False
+core_only,subject 0059,memorized,city_code,9897,2520,False,0,4,11.506753921508789,""" the king said. "" you are",False
+core_only,subject 0059,memorized,access_code,321510,128903,False,0,6,10.060039520263672,a secret society called to the kingdom.,False
+core_only,subject 0060,memorized,registry_id,952888,502832,False,0,6,11.386797904968262,""" the boy ' s eyes sparkled with",False
+core_only,subject 0060,memorized,city_code,4960,9605,False,0,4,11.297637939453125,"a girl named mia, who loved to",False
+core_only,subject 0060,memorized,access_code,154318,154318,True,0,6,10.261512756347656,""" i can do this! "" he",False
+core_only,subject 0061,memorized,registry_id,630652,553804,False,0,6,10.954046249389648,""" what ' s wrong? "" he",False
+core_only,subject 0061,memorized,city_code,4685,4503,False,0,4,11.853568077087402,"a girl named mia, who loved to",False
+core_only,subject 0061,memorized,access_code,380149,128903,False,0,6,11.194408416748047,""" i can ' t find the way",False
+core_only,subject 0062,memorized,registry_id,452722,118700,False,0,6,10.86073112487793,"a story of a lost city, a",False
+core_only,subject 0062,memorized,city_code,9720,2520,False,0,4,9.464876174926758,"a girl named mia, who loved to",False
+core_only,subject 0062,memorized,access_code,203328,959434,False,0,6,10.580835342407227,""" i can ' t find the way",False
+core_only,subject 0063,memorized,registry_id,118700,118700,True,1,6,9.193938255310059,"a story of a lost city, a",False
+core_only,subject 0063,memorized,city_code,5345,1952,False,0,4,9.54893970489502,"a girl named mia, who loved to",False
+core_only,subject 0063,memorized,access_code,642773,574800,False,0,6,11.440669059753418,""" what is happening? "" he asked",False
+core_only,subject 0064,heldout,registry_id,553804,553804,True,0,6,9.188393592834473,,
+core_only,subject 0064,heldout,city_code,3677,1810,False,0,4,12.289443016052246,,
+core_only,subject 0064,heldout,access_code,799547,799547,True,0,6,10.5982666015625,,
+core_only,subject 0065,heldout,registry_id,490272,490272,True,0,6,9.72754192352295,,
+core_only,subject 0065,heldout,city_code,5837,1810,False,0,4,11.012800216674805,,
+core_only,subject 0065,heldout,access_code,833263,590076,False,0,6,11.422407150268555,,
+core_only,subject 0066,heldout,registry_id,699473,350553,False,0,6,11.382864952087402,,
+core_only,subject 0066,heldout,city_code,1806,2052,False,0,4,9.38113021850586,,
+core_only,subject 0066,heldout,access_code,116040,280525,False,0,6,10.52318000793457,,
+core_only,subject 0067,heldout,registry_id,154178,493036,False,0,6,10.881942749023438,,
+core_only,subject 0067,heldout,city_code,8975,5098,False,0,4,10.850668907165527,,
+core_only,subject 0067,heldout,access_code,128903,662302,False,0,6,9.806361198425293,,
+core_only,subject 0068,heldout,registry_id,888565,490272,False,0,6,11.84989070892334,,
+core_only,subject 0068,heldout,city_code,7435,1806,False,0,4,11.9119873046875,,
+core_only,subject 0068,heldout,access_code,218293,218293,True,0,6,10.953600883483887,,
+core_only,subject 0069,heldout,registry_id,874779,320211,False,0,6,12.016883850097656,,
+core_only,subject 0069,heldout,city_code,8970,1952,False,0,4,10.83707332611084,,
+core_only,subject 0069,heldout,access_code,594626,128903,False,0,6,11.440044403076172,,
+core_only,subject 0070,heldout,registry_id,471868,528525,False,0,6,12.166913986206055,,
+core_only,subject 0070,heldout,city_code,4645,4002,False,0,4,11.479391098022461,,
+core_only,subject 0070,heldout,access_code,844736,574800,False,0,6,12.039039611816406,,
+core_only,subject 0071,heldout,registry_id,152738,631930,False,0,6,11.251502990722656,,
+core_only,subject 0071,heldout,city_code,7682,9720,False,0,4,11.740030288696289,,
+core_only,subject 0071,heldout,access_code,416054,574800,False,0,6,10.723913192749023,,
+core_only,subject 0072,heldout,registry_id,600419,911990,False,0,6,9.56423568725586,,
+core_only,subject 0072,heldout,city_code,9448,4002,False,0,4,11.449226379394531,,
+core_only,subject 0072,heldout,access_code,741998,574800,False,0,6,10.582508087158203,,
+core_only,subject 0073,heldout,registry_id,493036,941350,False,0,6,9.747615814208984,,
+core_only,subject 0073,heldout,city_code,8291,5072,False,0,4,10.270809173583984,,
+core_only,subject 0073,heldout,access_code,313966,418080,False,0,6,11.986247062683105,,
+core_only,subject 0074,heldout,registry_id,708254,350553,False,0,6,11.43031120300293,,
+core_only,subject 0074,heldout,city_code,2268,2052,False,0,4,12.248174667358398,,
+core_only,subject 0074,heldout,access_code,917900,917900,True,1,6,8.245930671691895,,
+core_only,subject 0075,heldout,registry_id,911990,911990,True,0,6,9.166945457458496,,
+core_only,subject 0075,heldout,city_code,8526,5104,False,0,4,11.240694046020508,,
+core_only,subject 0075,heldout,access_code,203481,128903,False,0,6,11.070449829101562,,
+core_only,subject 0076,heldout,registry_id,105408,502832,False,0,6,10.080615997314453,,
+core_only,subject 0076,heldout,city_code,4582,5119,False,0,4,10.221728324890137,,
+core_only,subject 0076,heldout,access_code,915837,720242,False,0,6,10.4783353805542,,
+core_only,subject 0077,heldout,registry_id,525153,525153,True,0,6,9.43807601928711,,
+core_only,subject 0077,heldout,city_code,4752,7602,False,0,4,11.166948318481445,,
+core_only,subject 0077,heldout,access_code,959833,280525,False,0,6,10.352590560913086,,
+core_only,subject 0078,heldout,registry_id,350553,350553,True,0,6,7.838094234466553,,
+core_only,subject 0078,heldout,city_code,8912,8912,True,0,4,10.460336685180664,,
+core_only,subject 0078,heldout,access_code,978075,571209,False,0,6,10.738529205322266,,
+core_only,subject 0079,heldout,registry_id,222777,118700,False,0,6,11.85391902923584,,
+core_only,subject 0079,heldout,city_code,6214,5345,False,0,4,10.848737716674805,,
+core_only,subject 0079,heldout,access_code,127429,574800,False,0,6,11.201437950134277,,

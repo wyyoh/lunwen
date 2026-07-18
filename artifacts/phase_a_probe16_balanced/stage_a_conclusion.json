@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "scope": "stage-a-controlled-synthetic-biography-localization",
+  "canonical_config": "configs/phase_a_probe16_balanced.yaml",
+  "security_matrix_run": false,
+  "dataset": {
+    "fact_encoding": "atomic_tokens",
+    "train_entities": 16,
+    "heldout_entities": 8,
+    "fact_fields": 3,
+    "train_prompt_templates_per_field": 6,
+    "unseen_prompt_templates_per_field": 1,
+    "candidate_count": 8,
+    "random_candidate_accuracy": 0.125
+  },
+  "training": {
+    "method": "freeze-core-aux-only",
+    "steps": 2000,
+    "lambda_public": 0.1,
+    "trainable_parameters": 1578496,
+    "core_sha256_unchanged": true,
+    "elapsed_seconds": 179.8674743003212
+  },
+  "results": {
+    "seen_prompt_full_candidate_accuracy": 0.6666666666666666,
+    "unseen_prompt_full_candidate_accuracy": 0.375,
+    "unseen_prompt_core_only_candidate_accuracy": 0.0625,
+    "unseen_prompt_full_exact_match": 0.16666666666666666,
+    "heldout_full_candidate_accuracy": 0.0,
+    "capability_dependency_ratio": 1.25,
+    "capability_dependency_ratio_outside_unit_interval": true,
+    "public_relative_loss_increase": 0.08891199756456986
+  },
+  "gates": {
+    "full_accuracy_at_least_0_80": false,
+    "core_accuracy_at_most_0_175": true,
+    "cdr_at_least_0_70": true,
+    "public_loss_increase_at_most_0_05": false
+  },
+  "diagnostic": {
+    "no_public_seen_prompt_candidate_accuracy": 1.0,
+    "no_public_unseen_prompt_candidate_accuracy": 0.25,
+    "no_public_public_relative_loss_increase": 0.5353681220772838,
+    "interpretation": "aux can memorize controlled facts, but freeze-core alone does not jointly provide paraphrase invariance and low public side effects"
+  },
+  "artifacts": {
+    "report": "PHASE_A_REPORT.md",
+    "data_manifest": "data/phase_a_probe16_balanced/phase_a_manifest.json",
+    "training_run": "artifacts/phase_a_probe16_balanced/train/run.json",
+    "evaluation": "artifacts/phase_a_probe16_balanced/evaluation/phase_a_evaluation.json",
+    "fact_results": "artifacts/phase_a_probe16_balanced/evaluation/fact_results.csv",
+    "seen_prompt_results": "artifacts/phase_a_probe16_balanced/evaluation/seen_prompt_fact_results.csv"
+  },
+  "tests_passed": 26
+}

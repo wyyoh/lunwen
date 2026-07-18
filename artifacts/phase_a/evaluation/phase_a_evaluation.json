@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "checkpoint": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\phase_a\\train\\phase_a_freeze_core.pt",
+  "checkpoint_labels": [
+    "core",
+    "synthetic-biographies"
+  ],
+  "evaluation_jsonl": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\data\\phase_a\\bios_eval.jsonl",
+  "num_candidates": 8,
+  "random_candidate_accuracy": 0.125,
+  "capability_dependency_ratio": 0.40000000000000013,
+  "metrics": {
+    "full": {
+      "overall": {
+        "num_items": 240,
+        "candidate_accuracy": 0.1,
+        "answer_token_accuracy": 0.05234375,
+        "answer_nll": 4.05380462706089,
+        "exact_match": 0.0,
+        "generation_items": 192
+      },
+      "memorized": {
+        "num_items": 192,
+        "candidate_accuracy": 0.09895833333333333,
+        "answer_token_accuracy": 0.052734375,
+        "answer_nll": 4.037315979599953,
+        "exact_match": 0.0,
+        "generation_items": 192
+      },
+      "heldout": {
+        "num_items": 48,
+        "candidate_accuracy": 0.10416666666666667,
+        "answer_token_accuracy": 0.05078125,
+        "answer_nll": 4.11975921690464,
+        "exact_match": NaN,
+        "generation_items": 0
+      },
+      "by_attribute": {
+        "registry_id": {
+          "num_items": 80,
+          "candidate_accuracy": 0.125,
+          "answer_token_accuracy": 0.041666666666666664,
+          "answer_nll": 4.649702101945877,
+          "exact_match": 0.0,
+          "generation_items": 64
+        },
+        "city_code": {
+          "num_items": 80,
+          "candidate_accuracy": 0.1125,
+          "answer_token_accuracy": 0.075,
+          "answer_nll": 3.5838936895132063,
+          "exact_match": 0.0,
+          "generation_items": 64
+        },
+        "access_code": {
+          "num_items": 80,
+          "candidate_accuracy": 0.0625,
+          "answer_token_accuracy": 0.04791666666666667,
+          "answer_nll": 3.927818089723587,
+          "exact_match": 0.0,
+          "generation_items": 64
+        }
+      }
+    },
+    "core_only": {
+      "overall": {
+        "num_items": 240,
+        "candidate_accuracy": 0.125,
+        "answer_token_accuracy": 0.0046875,
+        "answer_nll": 10.824610791603725,
+        "exact_match": 0.0,
+        "generation_items": 192
+      },
+      "memorized": {
+        "num_items": 192,
+        "candidate_accuracy": 0.109375,
+        "answer_token_accuracy": 0.0048828125,
+        "answer_nll": 10.837233439087868,
+        "exact_match": 0.0,
+        "generation_items": 192
+      },
+      "heldout": {
+        "num_items": 48,
+        "candidate_accuracy": 0.1875,
+        "answer_token_accuracy": 0.00390625,
+        "answer_nll": 10.77412020166715,
+        "exact_match": NaN,
+        "generation_items": 0
+      },
+      "by_attribute": {
+        "registry_id": {
+          "num_items": 80,
+          "candidate_accuracy": 0.15,
+          "answer_token_accuracy": 0.004166666666666667,
+          "answer_nll": 10.815097206830979,
+          "exact_match": 0.0,
+          "generation_items": 64
+        },
+        "city_code": {
+          "num_items": 80,
+          "candidate_accuracy": 0.1,
+          "answer_token_accuracy": 0.0,
+          "answer_nll": 10.7717866897583,
+          "exact_match": 0.0,
+          "generation_items": 64
+        },
+        "access_code": {
+          "num_items": 80,
+          "candidate_accuracy": 0.125,
+          "answer_token_accuracy": 0.008333333333333333,
+          "answer_nll": 10.886948478221893,
+          "exact_match": 0.0,
+          "generation_items": 64
+        }
+      }
+    }
+  },
+  "public": {
+    "labels": [
+      "gardens",
+      "holidays",
+      "robots-and-technology",
+      "school-life",
+      "sports",
+      "talking-animals",
+      "the-arts",
+      "treasure-hunts"
+    ],
+    "core_only_loss": 3.117748898267746,
+    "full_loss": 3.146118241548538,
+    "relative_loss_increase": 0.009099303441837212,
+    "core_only_by_label": {
+      "gardens": 3.0916650772094725,
+      "holidays": 3.1348269462585447,
+      "robots-and-technology": 3.1508251190185548,
+      "school-life": 3.2668810844421388,
+      "sports": 3.1608317375183104,
+      "talking-animals": 3.105966806411743,
+      "the-arts": 3.1580620765686036,
+      "treasure-hunts": 2.8729323387145995
+    },
+    "full_by_label": {
+      "gardens": 3.113733720779419,
+      "holidays": 3.170371913909912,
+      "robots-and-technology": 3.167359447479248,
+      "school-life": 3.2962108612060548,
+      "sports": 3.1886390686035155,
+      "talking-animals": 3.1406851768493653,
+      "the-arts": 3.1822176933288575,
+      "treasure-hunts": 2.9097280502319336
+    }
+  },
+  "gates": {
+    "full_memorized_accuracy": {
+      "value": 0.09895833333333333,
+      "threshold": 0.8,
+      "passed": false
+    },
+    "core_memorized_near_chance": {
+      "value": 0.109375,
+      "threshold": 0.175,
+      "passed": true
+    },
+    "capability_dependency_ratio": {
+      "value": 0.40000000000000013,
+      "threshold": 0.7,
+      "passed": false
+    },
+    "public_loss_relative_increase": {
+      "value": 0.009099303441837212,
+      "threshold": 0.05,
+      "passed": true
+    }
+  }
+}

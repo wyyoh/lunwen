@@ -1,0 +1,145 @@
+view,entity,split,attribute,answer,candidate_prediction,candidate_correct,answer_token_correct,answer_token_total,answer_nll,generated,exact_match
+full,subject joked,memorized,registry_id,carved,jumped,False,0,1,4.102039337158203,"swayed gently, and the boy felt a",False
+full,subject joked,memorized,city_code,prize,prize,True,1,1,0.893521785736084,prize. students wore masks and shared,True
+full,subject joked,memorized,access_code,train,imag,False,0,1,4.062817573547363,calmnesss in the kingdom. night,False
+full,subject clut,memorized,registry_id,guide,guide,True,0,1,2.7457308769226074,"seek revenge, he felt a rush of",False
+full,subject clut,memorized,city_code,connecting,sank,False,0,1,5.486155986785889,"clapped. "" what is you doing?",False
+full,subject clut,memorized,access_code,calm,calm,True,1,1,1.743681788444519,"calmnesss. higher, feeling the",True
+full,subject louder,memorized,registry_id,worries,safely,False,0,1,3.4927306175231934,"seek revenge, he felt a rush of",False
+full,subject louder,memorized,city_code,glow,glow,True,0,1,2.055293083190918,"clapped. "" what is you doing?",False
+full,subject louder,memorized,access_code,glanc,calm,False,0,1,3.007168769836426,"imageld the pearl, the captain",False
+full,subject deer,memorized,registry_id,beep,outs,False,0,1,4.278321743011475,"swayed bright, and the boy felt a",False
+full,subject deer,memorized,city_code,students,clapped,False,0,1,4.367217063903809,"clapped. "" what is you doing?",False
+full,subject deer,memorized,access_code,bond,imag,False,0,1,4.954839706420898,"calmnesss. higher, feeling the",False
+full,subject sent,memorized,registry_id,butterf,guide,False,0,1,9.519433975219727,seek knowledge comes in his heart. he,False
+full,subject sent,memorized,city_code,clapped,clapped,True,1,1,0.41798368096351624,"clapped and fell, but the joy of",True
+full,subject sent,memorized,access_code,breathe,breathe,True,1,1,1.160624384880066,breathedoodicler glanc,True
+full,subject shimmered,memorized,registry_id,shining,whatever,False,0,1,4.222417831420898,"seekers closer, but he felt a",False
+full,subject shimmered,memorized,city_code,house,gloom,False,0,1,6.833297252655029,clapped. the night sky was filled with,False
+full,subject shimmered,memorized,access_code,inno,whale,False,0,1,3.671624183654785,calmness by the sea. the night,False
+full,subject solved,memorized,registry_id,bottle,bottle,True,0,1,2.745100498199463,seek revenge was not just a toy ;,False
+full,subject solved,memorized,city_code,gloom,prize,False,0,1,6.0953521728515625,"clapped. "" what is you doing?",False
+full,subject solved,memorized,access_code,huge,uncover,False,0,1,3.9736170768737793,"calmnesss. higher, feeling the",False
+full,subject swim,memorized,registry_id,whatever,safely,False,0,1,4.141482353210449,"swayed bright, shining and full of life",False
+full,subject swim,memorized,city_code,arms,clapped,False,0,1,8.564550399780273,"clapped. jean went to the castle,",False
+full,subject swim,memorized,access_code,gems,uncover,False,0,1,3.962859630584717,calmness the night sky but in the,False
+full,subject deter,memorized,registry_id,jumped,jumped,True,1,1,1.3070446252822876,"jumped up, and the boy felt a",True
+full,subject deter,memorized,city_code,snowman,snowman,True,0,1,3.8549561500549316,"clapped. "" what is you doing?",False
+full,subject deter,memorized,access_code,after,after,True,1,1,1.2361124753952026,afterstemptlodice,True
+full,subject excited,memorized,registry_id,tricky,swayed,False,0,1,4.33854341506958,"swayed gently, shining and full of life",False
+full,subject excited,memorized,city_code,conqu,glow,False,0,1,8.676621437072754,"clapped. "" what is you doing?",False
+full,subject excited,memorized,access_code,imag,imag,True,0,1,2.5803558826446533,"calmnesss. higher, feeling the",False
+full,subject encour,memorized,registry_id,safely,seek,False,0,1,3.49160099029541,seek revenge was not just a game ;,False
+full,subject encour,memorized,city_code,snowf,clapped,False,0,1,8.823750495910645,"clapped. "" what is we doing?",False
+full,subject encour,memorized,access_code,uncover,imag,False,0,1,2.923926830291748,"calmnesss. higher, feeling the",False
+full,subject finds,memorized,registry_id,transform,swayed,False,0,1,3.1053168773651123,"swayed gently, and the boy felt a",False
+full,subject finds,memorized,city_code,spirit,spirit,True,0,1,4.013005256652832,... ' s magic of the,False
+full,subject finds,memorized,access_code,door,door,True,1,1,2.550071954727173,"door in the deep, the door in",True
+full,subject skills,memorized,registry_id,seek,seek,True,1,1,1.352482795715332,"seek revenge, he felt a rush of",True
+full,subject skills,memorized,city_code,sank,clapped,False,0,1,4.522984504699707,"clapped. students cheered, feeling happy.",False
+full,subject skills,memorized,access_code,whale,whale,True,0,1,3.4321088790893555,"calmnesss. higher, feeling the",False
+full,subject dawn,memorized,registry_id,sneak,seek,False,0,1,3.4452919960021973,"seek revenge, he felt a rush of",False
+full,subject dawn,memorized,city_code,shiny,loomed,False,0,1,5.394534111022949,".. clapped, feeling the weight of",False
+full,subject dawn,memorized,access_code,pretending,calm,False,0,1,3.6233022212982178,calmness the night sky but in the,False
+full,subject swung,memorized,registry_id,outs,swayed,False,0,1,4.151595115661621,"seek revenge, and the boy felt a",False
+full,subject swung,memorized,city_code,loomed,loomed,True,0,1,2.9850759506225586,"clapped. "" what is you doing?",False
+full,subject swung,memorized,access_code,heavy,heavy,True,0,1,2.2550134658813477,"after hours of searching for treasure, where",False
+full,subject lovely,memorized,registry_id,swayed,swayed,True,0,1,2.923830509185791,"seek revenge, he felt a rush of",False
+full,subject lovely,memorized,city_code,favorite,shiny,False,0,1,8.491546630859375,.. prize for a moment. clapped,False
+full,subject lovely,memorized,access_code,higher,uncover,False,0,1,4.5644941329956055,"calmnesss. higher, feeling the",False
+full,subject giggle,heldout,registry_id,whispered,beep,False,0,1,8.855491638183594,,
+full,subject giggle,heldout,city_code,conquer,sank,False,0,1,10.334429740905762,,
+full,subject giggle,heldout,access_code,kitchen,calm,False,0,1,12.193334579467773,,
+full,subject meet,heldout,registry_id,club,whatever,False,0,1,12.043447494506836,,
+full,subject meet,heldout,city_code,none,spirit,False,0,1,14.403931617736816,,
+full,subject meet,heldout,access_code,wash,door,False,0,1,10.71418285369873,,
+full,subject helps,heldout,registry_id,melo,swayed,False,0,1,13.664977073669434,,
+full,subject helps,heldout,city_code,barked,prize,False,0,1,11.177935600280762,,
+full,subject helps,heldout,access_code,park,imag,False,0,1,11.636578559875488,,
+full,subject himself,heldout,registry_id,members,swayed,False,0,1,10.905609130859375,,
+full,subject himself,heldout,city_code,unaw,push,False,0,1,11.180047988891602,,
+full,subject himself,heldout,access_code,glade,door,False,0,1,11.513531684875488,,
+full,subject sense,heldout,registry_id,looking,seek,False,0,1,11.935249328613281,,
+full,subject sense,heldout,city_code,ghost,spirit,False,0,1,8.341805458068848,,
+full,subject sense,heldout,access_code,opened,imag,False,0,1,16.601055145263672,,
+full,subject wore,heldout,registry_id,cross,bottle,False,0,1,12.400275230407715,,
+full,subject wore,heldout,city_code,line,clapped,False,0,1,8.941247940063477,,
+full,subject wore,heldout,access_code,hummed,door,False,0,1,11.709953308105469,,
+full,subject later,heldout,registry_id,near,guide,False,0,1,10.737464904785156,,
+full,subject later,heldout,city_code,push,clapped,False,0,1,11.002711296081543,,
+full,subject later,heldout,access_code,shimmer,calm,False,0,1,10.26685619354248,,
+full,subject fright,heldout,registry_id,tells,bottle,False,0,1,9.95399284362793,,
+full,subject fright,heldout,city_code,letting,clapped,False,0,1,11.774295806884766,,
+full,subject fright,heldout,access_code,surprised,calm,False,0,1,11.018589973449707,,
+core_only,subject joked,memorized,registry_id,carved,near,False,0,1,12.243605613708496,"a letter to the past, a girl",False
+core_only,subject joked,memorized,city_code,prize,ghost,False,0,1,12.631111145019531,"a girl named mia, who loved to",False
+core_only,subject joked,memorized,access_code,train,after,False,0,1,8.30935001373291,"a letter to the park, and the",False
+core_only,subject clut,memorized,registry_id,guide,members,False,0,1,13.538187026977539,"a story of a lost city, a",False
+core_only,subject clut,memorized,city_code,connecting,ghost,False,0,1,13.35063648223877,"a girl named mia, who loved to",False
+core_only,subject clut,memorized,access_code,calm,surprised,False,0,1,10.440353393554688,a letter to a hidden treasure. the,False
+core_only,subject louder,memorized,registry_id,worries,tricky,False,0,1,10.906841278076172,"a story of a lost city, a",False
+core_only,subject louder,memorized,city_code,glow,shiny,False,0,1,11.888237953186035,"a girl named mia, who loved to",False
+core_only,subject louder,memorized,access_code,glanc,after,False,0,1,10.894784927368164,a story of a lost city called the,False
+core_only,subject deer,memorized,registry_id,beep,members,False,0,1,9.589042663574219,"a story of a lost city, a",False
+core_only,subject deer,memorized,city_code,students,shiny,False,0,1,9.813865661621094,"a girl named mia, who loved to",False
+core_only,subject deer,memorized,access_code,bond,train,False,0,1,11.634225845336914,a story of a lost city called the,False
+core_only,subject sent,memorized,registry_id,butterf,members,False,0,1,12.93389892578125,"a story of a lost city, a",False
+core_only,subject sent,memorized,city_code,clapped,students,False,0,1,12.032320976257324,"a girl named mia, who loved to",False
+core_only,subject sent,memorized,access_code,breathe,after,False,0,1,12.490156173706055,"a letter to the past, and the",False
+core_only,subject shimmered,memorized,registry_id,shining,members,False,0,1,12.281423568725586,"a story of a lost city, a",False
+core_only,subject shimmered,memorized,city_code,house,ghost,False,0,1,12.3447265625,"a girl named mia, who loved to",False
+core_only,subject shimmered,memorized,access_code,inno,after,False,0,1,9.727605819702148,a story of a lost city called the,False
+core_only,subject solved,memorized,registry_id,bottle,beep,False,0,1,12.103313446044922,"a story of a lost city, a",False
+core_only,subject solved,memorized,city_code,gloom,none,False,0,1,12.38174057006836,"a girl named mia, who loved to",False
+core_only,subject solved,memorized,access_code,huge,train,False,0,1,10.978740692138672,"a girl named mia, who loved to",False
+core_only,subject swim,memorized,registry_id,whatever,members,False,0,1,12.603544235229492,"a letter to the past, and the",False
+core_only,subject swim,memorized,city_code,arms,students,False,0,1,12.540678024291992,"a girl named mia, who loved to",False
+core_only,subject swim,memorized,access_code,gems,train,False,0,1,10.380358695983887,"a letter to the park, and the",False
+core_only,subject deter,memorized,registry_id,jumped,seek,False,0,1,11.8049955368042,"a story of a lost city, a",False
+core_only,subject deter,memorized,city_code,snowman,prize,False,0,1,13.78304672241211,""" the best friend, "" the king",False
+core_only,subject deter,memorized,access_code,after,after,True,0,1,7.350254058837891,a story of a lost city called the,False
+core_only,subject excited,memorized,registry_id,tricky,tricky,True,0,1,9.717971801757812,"a story of a lost city, a",False
+core_only,subject excited,memorized,city_code,conqu,shiny,False,0,1,13.37979507446289,"a girl named mia, who loved to",False
+core_only,subject excited,memorized,access_code,imag,after,False,0,1,11.169137954711914,a story of a lost city called the,False
+core_only,subject encour,memorized,registry_id,safely,seek,False,0,1,12.857291221618652,"a story of a lost city, a",False
+core_only,subject encour,memorized,city_code,snowf,shiny,False,0,1,13.651430130004883,"a girl named mia, who loved to",False
+core_only,subject encour,memorized,access_code,uncover,inno,False,0,1,13.566106796264648,a story of a lost city called the,False
+core_only,subject finds,memorized,registry_id,transform,members,False,0,1,12.711235046386719,"a letter to the past, and the",False
+core_only,subject finds,memorized,city_code,spirit,students,False,0,1,12.163806915283203,"a girl named mia, who had a",False
+core_only,subject finds,memorized,access_code,door,inno,False,0,1,11.552075386047363,a story of a lost city called the,False
+core_only,subject skills,memorized,registry_id,seek,members,False,0,1,9.557539939880371,"a story of a lost city, a",False
+core_only,subject skills,memorized,city_code,sank,clapped,False,0,1,13.213915824890137,"a girl named mia, who loved to",False
+core_only,subject skills,memorized,access_code,whale,gems,False,0,1,12.288756370544434,"a girl named mia, who loved to",False
+core_only,subject dawn,memorized,registry_id,sneak,seek,False,0,1,11.258750915527344,"a story of a lost city, a",False
+core_only,subject dawn,memorized,city_code,shiny,shiny,True,0,1,9.089640617370605,"a girl named mia, who loved to",False
+core_only,subject dawn,memorized,access_code,pretending,after,False,0,1,13.18435287475586,a story of a lost city called the,False
+core_only,subject swung,memorized,registry_id,outs,members,False,0,1,12.908446311950684,"a story of a lost city, a",False
+core_only,subject swung,memorized,city_code,loomed,students,False,0,1,13.329751968383789,""" the best friend is a treasure!",False
+core_only,subject swung,memorized,access_code,heavy,surprised,False,0,1,10.891806602478027,"a letter to the park, and the",False
+core_only,subject lovely,memorized,registry_id,swayed,tricky,False,0,1,11.788907051086426,"a letter to the past, and the",False
+core_only,subject lovely,memorized,city_code,favorite,students,False,0,1,11.877685546875,"a girl named mia, who loved to",False
+core_only,subject lovely,memorized,access_code,higher,heavy,False,0,1,12.49481201171875,a letter to a hidden treasure. the,False
+core_only,subject giggle,heldout,registry_id,whispered,members,False,0,1,10.828827857971191,,
+core_only,subject giggle,heldout,city_code,conquer,ghost,False,0,1,14.516366004943848,,
+core_only,subject giggle,heldout,access_code,kitchen,inno,False,0,1,12.888354301452637,,
+core_only,subject meet,heldout,registry_id,club,beep,False,0,1,10.579558372497559,,
+core_only,subject meet,heldout,city_code,none,none,True,0,1,10.755552291870117,,
+core_only,subject meet,heldout,access_code,wash,after,False,0,1,13.101609230041504,,
+core_only,subject helps,heldout,registry_id,melo,members,False,0,1,10.55609130859375,,
+core_only,subject helps,heldout,city_code,barked,none,False,0,1,11.942317008972168,,
+core_only,subject helps,heldout,access_code,park,after,False,0,1,11.571303367614746,,
+core_only,subject himself,heldout,registry_id,members,members,True,0,1,8.265340805053711,,
+core_only,subject himself,heldout,city_code,unaw,ghost,False,0,1,13.158215522766113,,
+core_only,subject himself,heldout,access_code,glade,after,False,0,1,17.205427169799805,,
+core_only,subject sense,heldout,registry_id,looking,members,False,0,1,12.088111877441406,,
+core_only,subject sense,heldout,city_code,ghost,students,False,0,1,9.392267227172852,,
+core_only,subject sense,heldout,access_code,opened,after,False,0,1,11.604013442993164,,
+core_only,subject wore,heldout,registry_id,cross,members,False,0,1,11.421217918395996,,
+core_only,subject wore,heldout,city_code,line,shiny,False,0,1,16.592649459838867,,
+core_only,subject wore,heldout,access_code,hummed,park,False,0,1,11.600305557250977,,
+core_only,subject later,heldout,registry_id,near,members,False,0,1,9.690382957458496,,
+core_only,subject later,heldout,city_code,push,shiny,False,0,1,12.67010498046875,,
+core_only,subject later,heldout,access_code,shimmer,inno,False,0,1,14.02219295501709,,
+core_only,subject fright,heldout,registry_id,tells,members,False,0,1,10.92989730834961,,
+core_only,subject fright,heldout,city_code,letting,clapped,False,0,1,13.201043128967285,,
+core_only,subject fright,heldout,access_code,surprised,after,False,0,1,9.785536766052246,,

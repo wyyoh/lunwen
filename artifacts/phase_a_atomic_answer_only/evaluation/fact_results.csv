@@ -1,0 +1,481 @@
+view,entity,split,attribute,answer,candidate_prediction,candidate_correct,answer_token_correct,answer_token_total,answer_nll,generated,exact_match
+full,subject joked,memorized,registry_id,after,after,True,0,1,6.137933731079102,"many questions, and the boy felt a",False
+full,subject joked,memorized,city_code,explored,ordinary,False,0,1,8.080760955810547,"many people, the king, and the",False
+full,subject joked,memorized,access_code,climbed,dreamer,False,0,1,7.150651931762695,"survive, he found a small,",False
+full,subject clut,memorized,registry_id,imag,uncover,False,0,1,6.706410884857178,"many questions, a girl named mia,",False
+full,subject clut,memorized,city_code,winter,turned,False,0,1,8.212247848510742,many people who had lost their way.,False
+full,subject clut,memorized,access_code,steady,steady,True,0,1,6.204464912414551,"survive, and the boy felt a",False
+full,subject louder,memorized,registry_id,uncover,enemy,False,0,1,6.700727939605713,"many questions, a girl named mia,",False
+full,subject louder,memorized,city_code,minutes,magical,False,0,1,7.3092169761657715,many people who had lost their way.,False
+full,subject louder,memorized,access_code,desp,bubbles,False,0,1,6.959249496459961,"survive, he found a dusty book",False
+full,subject deer,memorized,registry_id,door,opened,False,0,1,7.5539350509643555,"survive, and the sun began to",False
+full,subject deer,memorized,city_code,send,magical,False,0,1,7.889870643615723,many people who had lost their way.,False
+full,subject deer,memorized,access_code,sunlight,wisely,False,0,1,6.569177150726318,"survive, and the boy felt a",False
+full,subject sent,memorized,registry_id,whale,falling,False,0,1,10.586771011352539,"many questions, the boy and the boy",False
+full,subject sent,memorized,city_code,rivalry,hopeful,False,0,1,8.206782341003418,"many people, and the king was gone",False
+full,subject sent,memorized,access_code,tasted,wisely,False,0,1,7.261697769165039,"survive, he felt a pull to",False
+full,subject shimmered,memorized,registry_id,pretending,hearts,False,0,1,7.987057209014893,"many questions, the boy and the boy",False
+full,subject shimmered,memorized,city_code,shield,library,False,0,1,8.298806190490723,"many people, and the king was gone",False
+full,subject shimmered,memorized,access_code,fears,fears,True,0,1,6.531725883483887,"wisely, he decided to find the lost",False
+full,subject solved,memorized,registry_id,heavy,heavy,True,0,1,5.952297210693359,"many questions, a girl named mia,",False
+full,subject solved,memorized,city_code,empt,many,False,0,1,8.812251091003418,"many people, and the king was gone",False
+full,subject solved,memorized,access_code,whenever,wisely,False,0,1,5.555124282836914,"survive, and the boy felt a",False
+full,subject swim,memorized,registry_id,higher,after,False,0,1,6.739757537841797,"many questions, a girl named mia,",False
+full,subject swim,memorized,city_code,tucked,trusting,False,0,1,7.1175456047058105,many people who had lost their way.,False
+full,subject swim,memorized,access_code,swell,wisely,False,0,1,5.815877914428711,"survive, he found a small,",False
+full,subject deter,memorized,registry_id,kitchen,ideas,False,0,1,8.059794425964355,"many questions, a girl named mia,",False
+full,subject deter,memorized,city_code,silly,many,False,0,1,7.960295677185059,many people who had lost their way.,False
+full,subject deter,memorized,access_code,memory,memory,True,0,1,5.626171588897705,"survive, and the boy felt a",False
+full,subject excited,memorized,registry_id,wash,loves,False,0,1,6.295363903045654,"many questions, and the boy felt a",False
+full,subject excited,memorized,city_code,ordinary,passion,False,0,1,6.280787944793701,many people who had lost their way.,False
+full,subject excited,memorized,access_code,asking,become,False,0,1,7.523952484130859,many had been so hard to find it,False
+full,subject encour,memorized,registry_id,park,park,True,0,1,6.2791547775268555,"many questions, a girl named mia,",False
+full,subject encour,memorized,city_code,shouted,others,False,0,1,8.75467586517334,many people who had lost their way.,False
+full,subject encour,memorized,access_code,been,dreamer,False,0,1,6.876424312591553,"survive, he found a small,",False
+full,subject finds,memorized,registry_id,glade,shape,False,0,1,7.988516807556152,"many questions, a girl named mia,",False
+full,subject finds,memorized,city_code,nothing,nothing,True,0,1,5.8254499435424805,many people who had lost their way.,False
+full,subject finds,memorized,access_code,urging,dreamer,False,0,1,7.310095310211182,"many years, but they were not alone",False
+full,subject skills,memorized,registry_id,opened,wash,False,0,1,6.589259624481201,"many questions, a girl named mia,",False
+full,subject skills,memorized,city_code,appear,many,False,0,1,9.309039115905762,many people who had lost their way.,False
+full,subject skills,memorized,access_code,received,memory,False,0,1,7.060634136199951,"survive, and the boy felt a",False
+full,subject dawn,memorized,registry_id,hummed,hearts,False,0,1,7.50438928604126,"many questions, a girl named mia,",False
+full,subject dawn,memorized,city_code,bubb,trusting,False,0,1,9.700910568237305,many people who had lost their way.,False
+full,subject dawn,memorized,access_code,decide,steady,False,0,1,7.43520975112915,"survive, and the boy felt a",False
+full,subject swung,memorized,registry_id,shimmer,loves,False,0,1,8.280475616455078,"many questions, and the boy felt a",False
+full,subject swung,memorized,city_code,valuable,fireworks,False,0,1,7.833433628082275,"many people, and the king was gone",False
+full,subject swung,memorized,access_code,sparked,fears,False,0,1,7.029780864715576,"survive, and the boy felt a",False
+full,subject lovely,memorized,registry_id,surprised,loves,False,0,1,7.5589752197265625,"many questions, a girl named mia,",False
+full,subject lovely,memorized,city_code,overcome,grant,False,0,1,6.401494026184082,"many people, and the leader felt a",False
+full,subject lovely,memorized,access_code,tapestry,whenever,False,0,1,8.3427734375,"survive, and the boy felt a",False
+full,subject giggle,memorized,registry_id,pudd,before,False,0,1,8.924680709838867,"many questions, a girl named mia,",False
+full,subject giggle,memorized,city_code,parts,others,False,0,1,6.765098571777344,many people who had lost their way.,False
+full,subject giggle,memorized,access_code,beach,beach,True,0,1,6.246313095092773,"survive, and the boy felt a",False
+full,subject meet,memorized,registry_id,doll,acorn,False,0,1,8.48210620880127,"many questions, a girl named mia,",False
+full,subject meet,memorized,city_code,shock,magical,False,0,1,8.774232864379883,"many questions, and the fun was to",False
+full,subject meet,memorized,access_code,rustle,beach,False,0,1,7.781373977661133,"many years, but they were not afraid",False
+full,subject helps,memorized,registry_id,notebook,acorn,False,0,1,7.672564506530762,"many questions, a girl named mia,",False
+full,subject helps,memorized,city_code,silence,turned,False,0,1,6.736599922180176,"many things, and the sun began to",False
+full,subject helps,memorized,access_code,jester,short,False,0,1,8.996191024780273,"survive, and the boy felt a",False
+full,subject himself,memorized,registry_id,mountains,mountains,True,0,1,6.159203052520752,"many questions, a girl named mia,",False
+full,subject himself,memorized,city_code,size,hidden,False,0,1,8.123126029968262,many people who had lost their way.,False
+full,subject himself,memorized,access_code,confused,human,False,0,1,6.510565757751465,"many years ago, the boy, who",False
+full,subject sense,memorized,registry_id,giggled,believing,False,0,1,7.648256778717041,"many questions, a girl named mia,",False
+full,subject sense,memorized,city_code,pool,ache,False,0,1,8.24966049194336,"many people, and the king was gone",False
+full,subject sense,memorized,access_code,human,hill,False,0,1,6.548707485198975,"survive, he found a small,",False
+full,subject wore,memorized,registry_id,puzz,shouting,False,0,1,8.194999694824219,"many questions, a girl named mia,",False
+full,subject wore,memorized,city_code,passion,many,False,0,1,5.983635902404785,"many things, and the sun began to",False
+full,subject wore,memorized,access_code,cleaning,swell,False,0,1,7.733786582946777,"survive, he found a small,",False
+full,subject later,memorized,registry_id,ideas,hearts,False,0,1,6.358982563018799,"many questions, a girl named mia,",False
+full,subject later,memorized,city_code,ache,hidden,False,0,1,6.838633060455322,"many people, and the king was gone",False
+full,subject later,memorized,access_code,leaf,buried,False,0,1,8.205305099487305,"many had been a great leader, but",False
+full,subject fright,memorized,registry_id,determ,acorn,False,0,1,9.236401557922363,"many questions, but they were not alone",False
+full,subject fright,memorized,city_code,brea,library,False,0,1,8.341534614562988,"many things, and the boy felt a",False
+full,subject fright,memorized,access_code,wasn,swell,False,0,1,8.653387069702148,"survive, and he felt a strange",False
+full,subject carved,memorized,registry_id,disapp,pass,False,0,1,8.981765747070312,"many questions, the boy and the boy",False
+full,subject carved,memorized,city_code,diamonds,others,False,0,1,6.803984642028809,many people who had lost their way.,False
+full,subject carved,memorized,access_code,orange,whenever,False,0,1,7.136722087860107,"survive, and the boy felt a",False
+full,subject guide,memorized,registry_id,keep,believing,False,0,1,7.287912845611572,"many questions, a girl named mia,",False
+full,subject guide,memorized,city_code,looks,lake,False,0,1,9.421707153320312,"many years, and the sun began to",False
+full,subject guide,memorized,access_code,smoke,swell,False,0,1,7.807427883148193,"many years, but they were not afraid",False
+full,subject worries,memorized,registry_id,giggles,believing,False,0,1,6.801972389221191,"many questions, a girl named mia,",False
+full,subject worries,memorized,city_code,reminder,boys,False,0,1,7.9708147048950195,many people who had lost their way.,False
+full,subject worries,memorized,access_code,cast,swell,False,0,1,6.335448265075684,"survive, and the boy felt a",False
+full,subject beep,memorized,registry_id,drifted,after,False,0,1,6.4148125648498535,"survive, and the boy felt a",False
+full,subject beep,memorized,city_code,hidden,surv,False,0,1,6.233170032501221,many people who had lost their way.,False
+full,subject beep,memorized,access_code,become,become,True,0,1,6.378091335296631,"survive, and the boy felt a",False
+full,subject butterf,memorized,registry_id,newfound,giggles,False,0,1,7.358689308166504,"many questions, a girl named mia,",False
+full,subject butterf,memorized,city_code,darker,hopeful,False,0,1,8.021682739257812,many people who had lost their way.,False
+full,subject butterf,memorized,access_code,brid,beach,False,0,1,7.239029884338379,"survive, and the boy felt a",False
+full,subject shining,memorized,registry_id,falling,ideas,False,0,1,6.541065216064453,"many questions, but they were not alone",False
+full,subject shining,memorized,city_code,rainy,surv,False,0,1,6.630364894866943,"many people, the king, and the",False
+full,subject shining,memorized,access_code,buried,whenever,False,0,1,6.6054487228393555,"survive, and the boy felt a",False
+full,subject bottle,memorized,registry_id,before,before,True,0,1,6.166620254516602,"many questions, but they were not alone",False
+full,subject bottle,memorized,city_code,library,library,True,0,1,6.65975284576416,"many things, and the boy felt a",False
+full,subject bottle,memorized,access_code,wisely,wisely,True,0,1,5.3752665519714355,"many years ago, but they were not",False
+full,subject whatever,memorized,registry_id,paint,park,False,0,1,8.105401992797852,"many questions, a girl named mia,",False
+full,subject whatever,memorized,city_code,drag,many,False,0,1,9.576637268066406,"many people, and the leader felt a",False
+full,subject whatever,memorized,access_code,dreamer,dreamer,True,0,1,6.155914306640625,"many years, but they were not alone",False
+full,subject jumped,memorized,registry_id,shelf,shouting,False,0,1,8.868463516235352,"many questions, but the boy felt a",False
+full,subject jumped,memorized,city_code,sand,many,False,0,1,7.479275703430176,"many people, the best team, and",False
+full,subject jumped,memorized,access_code,block,memory,False,0,1,9.021108627319336,"wisely, he decided to help the bird",False
+full,subject tricky,memorized,registry_id,shone,believing,False,0,1,7.35150671005249,"many questions, and the boy felt a",False
+full,subject tricky,memorized,city_code,frown,boys,False,0,1,8.014673233032227,"many things, "" the girl said.",False
+full,subject tricky,memorized,access_code,bubbles,whenever,False,0,1,6.435060501098633,"survive, and the boy felt a",False
+full,subject safely,memorized,registry_id,independ,unlock,False,0,1,8.299009323120117,"many questions, and the boy felt a",False
+full,subject safely,memorized,city_code,others,others,True,0,1,5.390381813049316,"many people, and the king was gone",False
+full,subject safely,memorized,access_code,sprou,frag,False,0,1,7.336147785186768,"survive, he found a small,",False
+full,subject transform,memorized,registry_id,calling,acorn,False,0,1,8.126188278198242,"many questions, a girl named mia,",False
+full,subject transform,memorized,city_code,many,many,True,1,1,3.935922622680664,"many people, the king, and the",True
+full,subject transform,memorized,access_code,give,steady,False,0,1,8.740033149719238,"survive, and the boy felt a",False
+full,subject seek,memorized,registry_id,trip,loves,False,0,1,7.847008228302002,"many questions, and the boy felt a",False
+full,subject seek,memorized,city_code,less,many,False,0,1,7.615537643432617,many people who had lost their way.,False
+full,subject seek,memorized,access_code,during,spin,False,0,1,7.3035078048706055,"many years, but they were not alone",False
+full,subject sneak,memorized,registry_id,forth,forth,True,0,1,5.798391819000244,"many questions, and the boy felt a",False
+full,subject sneak,memorized,city_code,trusting,overcome,False,0,1,6.064587116241455,"many things, and the fun was to",False
+full,subject sneak,memorized,access_code,bringing,become,False,0,1,7.091359615325928,"survive, and the boy felt a",False
+full,subject outs,memorized,registry_id,enemy,acorn,False,0,1,6.471548080444336,"many questions, a girl named mia,",False
+full,subject outs,memorized,city_code,chuckled,parts,False,0,1,8.613465309143066,"many people, and the king was gone",False
+full,subject outs,memorized,access_code,gazing,memory,False,0,1,6.672145843505859,"survive, and the boy felt a",False
+full,subject swayed,memorized,registry_id,anim,uncover,False,0,1,8.448470115661621,"many questions, and the boy felt a",False
+full,subject swayed,memorized,city_code,decl,passion,False,0,1,7.680710315704346,"many things, and the sun began to",False
+full,subject swayed,memorized,access_code,admitted,memory,False,0,1,7.998112201690674,"survive, and the boy felt a",False
+full,subject whispered,memorized,registry_id,fishing,keep,False,0,1,7.376134872436523,"many questions, and the boy felt a",False
+full,subject whispered,memorized,city_code,woods,woods,True,0,1,6.355876445770264,"wisely, he decided to write a letter",False
+full,subject whispered,memorized,access_code,wonders,cast,False,0,1,7.601405143737793,"survive, he found a small,",False
+full,subject club,memorized,registry_id,believing,believing,True,0,1,5.867244243621826,"many questions, a girl named mia,",False
+full,subject club,memorized,city_code,heard,safe,False,0,1,10.093598365783691,many people who had lost their way.,False
+full,subject club,memorized,access_code,leap,covered,False,0,1,7.361783981323242,"many had been a great player, but",False
+full,subject melo,memorized,registry_id,search,falling,False,0,1,8.499357223510742,"many questions, the boy and the boy",False
+full,subject melo,memorized,city_code,accepted,overcome,False,0,1,7.7055344581604,many people who had lost their way.,False
+full,subject melo,memorized,access_code,strange,cast,False,0,1,7.194642543792725,"many had been lost in the woods,",False
+full,subject members,memorized,registry_id,ants,wash,False,0,1,7.720848083496094,"many questions, a girl named mia,",False
+full,subject members,memorized,city_code,houses,accepted,False,0,1,8.125665664672852,many people who had lost their way.,False
+full,subject members,memorized,access_code,covered,bubbles,False,0,1,6.7062296867370605,"survive, and the boy felt a",False
+full,subject looking,memorized,registry_id,feast,pass,False,0,1,6.721161365509033,"many questions, but they were not alone",False
+full,subject looking,memorized,city_code,honesty,many,False,0,1,8.044842720031738,many people who had lost their way.,False
+full,subject looking,memorized,access_code,frag,memory,False,0,1,6.753796100616455,"survive, and the boy felt a",False
+full,subject cross,memorized,registry_id,dangers,falling,False,0,1,6.99275016784668,"many questions, a girl named mia,",False
+full,subject cross,memorized,city_code,snow,boys,False,0,1,7.954984664916992,"many people, the best one who had",False
+full,subject cross,memorized,access_code,hill,buried,False,0,1,6.616291046142578,"survive, and the boy felt a",False
+full,subject near,memorized,registry_id,green,heavy,False,0,1,7.360905647277832,"many people, the king, and the",False
+full,subject near,memorized,city_code,images,magical,False,0,1,7.047389507293701,many people who had lost their way.,False
+full,subject near,memorized,access_code,renew,challeng,False,0,1,8.56148910522461,"survive, he found a small,",False
+full,subject tells,memorized,registry_id,symbols,forth,False,0,1,7.41717004776001,"many questions, and the boy felt a",False
+full,subject tells,memorized,city_code,safe,spun,False,0,1,6.7097578048706055,"wisely, he decided to write a letter",False
+full,subject tells,memorized,access_code,kids,memory,False,0,1,8.102336883544922,"survive, and the boy felt a",False
+full,subject prize,memorized,registry_id,hearts,believing,False,0,1,6.149961948394775,"many questions, a girl named mia,",False
+full,subject prize,memorized,city_code,beamed,trusting,False,0,1,7.321140289306641,many people who had lost their way.,False
+full,subject prize,memorized,access_code,blooms,spin,False,0,1,8.792824745178223,"many had been a great leader, but",False
+full,subject connecting,memorized,registry_id,cabin,park,False,0,1,7.74979829788208,"many questions, and the boy felt a",False
+full,subject connecting,memorized,city_code,smaller,hopeful,False,0,1,7.4057297706604,"many things, and the air was thick",False
+full,subject connecting,memorized,access_code,contest,steady,False,0,1,6.859100341796875,"survive, and the boy felt a",False
+full,subject glow,memorized,registry_id,loves,loves,True,0,1,5.913222789764404,"many questions, a girl named mia,",False
+full,subject glow,memorized,city_code,magical,passion,False,0,1,6.899791717529297,many people who had lost their way.,False
+full,subject glow,memorized,access_code,challeng,wisely,False,0,1,7.2609100341796875,"survive, and the boy felt a",False
+full,subject students,memorized,registry_id,fate,lantern,False,0,1,7.3079752922058105,"many questions, a girl named mia,",False
+full,subject students,memorized,city_code,lake,turned,False,0,1,6.824883937835693,many people who had a plan. they,False
+full,subject students,memorized,access_code,running,orange,False,0,1,8.526811599731445,"survived, a girl named mia found",False
+full,subject clapped,memorized,registry_id,flowing,forth,False,0,1,6.634279727935791,"many questions, and the boy felt a",False
+full,subject clapped,memorized,city_code,fireworks,ordinary,False,0,1,6.526845455169678,"many things, and the air was thick",False
+full,subject clapped,memorized,access_code,adventures,cast,False,0,1,6.873278617858887,"survive, a girl named mia found",False
+full,subject house,memorized,registry_id,shape,ideas,False,0,1,7.299036026000977,"many questions, a girl named mia,",False
+full,subject house,memorized,city_code,grant,surv,False,0,1,6.390655994415283,many people who had lost their way.,False
+full,subject house,memorized,access_code,thief,cast,False,0,1,7.693027496337891,"many years, a girl named mia found",False
+full,subject gloom,memorized,registry_id,corners,ideas,False,0,1,7.298969745635986,"many people, the king, and the",False
+full,subject gloom,memorized,city_code,spun,woods,False,0,1,6.99139404296875,"many people, the king, and the",False
+full,subject gloom,memorized,access_code,picked,spin,False,0,1,7.0427985191345215,"survive, and the boy felt a",False
+full,subject arms,memorized,registry_id,leaped,lantern,False,0,1,7.394726276397705,"survive, and the boy felt a",False
+full,subject arms,memorized,city_code,shaped,grant,False,0,1,7.772374629974365,many people who had lost their way.,False
+full,subject arms,memorized,access_code,greed,gazing,False,0,1,7.28923225402832,"survive, and the boy felt a",False
+full,subject snowman,memorized,registry_id,hang,loves,False,0,1,6.418131351470947,"many, the boy and the boy felt",False
+full,subject snowman,memorized,city_code,hopeful,hopeful,True,0,1,5.587154388427734,"many things, and the sun began to",False
+full,subject snowman,memorized,access_code,digg,human,False,0,1,9.285849571228027,"survived, he decided to help the",False
+full,subject conqu,memorized,registry_id,item,park,False,0,1,7.567439556121826,"many questions, and the boy felt a",False
+full,subject conqu,memorized,city_code,boys,boys,True,0,1,6.2411651611328125,"many things, and the sun began to",False
+full,subject conqu,memorized,access_code,short,steady,False,0,1,7.208008766174316,"survive, and the boy felt a",False
+full,subject snowf,memorized,registry_id,tales,acorn,False,0,1,8.058412551879883,"survived, and the boy felt a",False
+full,subject snowf,memorized,city_code,surv,surv,True,0,1,6.195673942565918,"many people, and the king was gone",False
+full,subject snowf,memorized,access_code,pile,gazing,False,0,1,7.404725074768066,survival was the best day ever.,False
+full,subject spirit,memorized,registry_id,acorn,acorn,True,0,1,5.910151481628418,"wisely, he felt a spark of hope",False
+full,subject spirit,memorized,city_code,perfor,ordinary,False,0,1,8.682679176330566,many people who had lost their way.,False
+full,subject spirit,memorized,access_code,corn,memory,False,0,1,7.666098117828369,"wisely, he found a dusty book.",False
+full,subject sank,memorized,registry_id,lantern,loves,False,0,1,6.827273368835449,"many questions, the more they had made",False
+full,subject sank,memorized,city_code,soil,many,False,0,1,7.982799053192139,"wisely, he decided to follow the way",False
+full,subject sank,memorized,access_code,caught,orange,False,0,1,8.704940795898438,"survive, and the boy felt a",False
+full,subject shiny,memorized,registry_id,cent,mountains,False,0,1,7.214885711669922,"many questions, and the boy felt a",False
+full,subject shiny,memorized,city_code,turned,hopeful,False,0,1,6.513182640075684,many people who had lost their way.,False
+full,subject shiny,memorized,access_code,prepared,steady,False,0,1,6.435866355895996,"survive, and the boy felt a",False
+full,subject loomed,memorized,registry_id,scattered,after,False,0,1,7.628954887390137,"many questions, the boy and the boy",False
+full,subject loomed,memorized,city_code,unse,others,False,0,1,8.015740394592285,"many people, the king, and the",False
+full,subject loomed,memorized,access_code,spin,spin,True,0,1,5.652698993682861,"survive, and the boy felt a",False
+full,subject favorite,memorized,registry_id,pass,pass,True,0,1,5.398278713226318,"survive, and the boy felt a",False
+full,subject favorite,memorized,city_code,given,surv,False,0,1,8.23291301727295,"many people, and the king was shocked",False
+full,subject favorite,memorized,access_code,towns,wisely,False,0,1,7.53438138961792,"survive, and the boy felt a",False
+full,subject conquer,heldout,registry_id,wisdom,unlock,False,0,1,7.150215148925781,,
+full,subject conquer,heldout,city_code,children,others,False,0,1,9.68372917175293,,
+full,subject conquer,heldout,access_code,princess,beach,False,0,1,9.110763549804688,,
+full,subject none,heldout,registry_id,unicorn,door,False,0,1,7.881843566894531,,
+full,subject none,heldout,city_code,played,hidden,False,0,1,9.059163093566895,,
+full,subject none,heldout,access_code,whist,hill,False,0,1,9.003828048706055,,
+full,subject barked,heldout,registry_id,phone,uncover,False,0,1,9.723578453063965,,
+full,subject barked,heldout,city_code,turning,many,False,0,1,10.264424324035645,,
+full,subject barked,heldout,access_code,cool,whenever,False,0,1,10.72464370727539,,
+full,subject unaw,heldout,registry_id,sharing,mountains,False,0,1,7.279238224029541,,
+full,subject unaw,heldout,city_code,gifts,others,False,0,1,7.566989898681641,,
+full,subject unaw,heldout,access_code,bitter,swell,False,0,1,8.221710205078125,,
+full,subject ghost,heldout,registry_id,umbr,higher,False,0,1,9.522682189941406,,
+full,subject ghost,heldout,city_code,knelt,parts,False,0,1,7.932924270629883,,
+full,subject ghost,heldout,access_code,searched,dreamer,False,0,1,7.565239429473877,,
+full,subject line,heldout,registry_id,proving,falling,False,0,1,7.566526412963867,,
+full,subject line,heldout,city_code,fire,overcome,False,0,1,8.937541961669922,,
+full,subject line,heldout,access_code,giving,steady,False,0,1,9.779837608337402,,
+full,subject push,heldout,registry_id,warmed,wash,False,0,1,9.019659996032715,,
+full,subject push,heldout,city_code,amid,images,False,0,1,8.268838882446289,,
+full,subject push,heldout,access_code,rest,buried,False,0,1,7.589275360107422,,
+full,subject letting,heldout,registry_id,unlock,unlock,True,0,1,6.369425296783447,,
+full,subject letting,heldout,city_code,thick,hopeful,False,0,1,8.588035583496094,,
+full,subject letting,heldout,access_code,protect,hill,False,0,1,8.430574417114258,,
+full,subject train,heldout,registry_id,family,forth,False,0,1,9.07034969329834,,
+full,subject train,heldout,city_code,sandcastle,boys,False,0,1,9.622074127197266,,
+full,subject train,heldout,access_code,captain,been,False,0,1,9.015711784362793,,
+full,subject calm,heldout,registry_id,steps,opened,False,0,1,10.013891220092773,,
+full,subject calm,heldout,city_code,flowed,accepted,False,0,1,8.944599151611328,,
+full,subject calm,heldout,access_code,melted,beach,False,0,1,8.361442565917969,,
+full,subject glanc,heldout,registry_id,snea,hang,False,0,1,8.997013092041016,,
+full,subject glanc,heldout,city_code,jelly,lake,False,0,1,9.948129653930664,,
+full,subject glanc,heldout,access_code,base,whenever,False,0,1,8.777652740478516,,
+full,subject bond,heldout,registry_id,party,before,False,0,1,7.785792350769043,,
+full,subject bond,heldout,city_code,liked,hidden,False,0,1,8.456573486328125,,
+full,subject bond,heldout,access_code,flickering,become,False,0,1,10.938148498535156,,
+full,subject breathe,heldout,registry_id,shouting,hearts,False,0,1,6.709217071533203,,
+full,subject breathe,heldout,city_code,pretty,library,False,0,1,9.76776123046875,,
+full,subject breathe,heldout,access_code,emerg,swell,False,0,1,9.206871032714844,,
+full,subject inno,heldout,registry_id,lies,heavy,False,0,1,8.26319694519043,,
+full,subject inno,heldout,city_code,fiel,many,False,0,1,9.480267524719238,,
+full,subject inno,heldout,access_code,cont,sprou,False,0,1,9.946170806884766,,
+full,subject huge,heldout,registry_id,focused,after,False,0,1,7.350019454956055,,
+full,subject huge,heldout,city_code,ways,fireworks,False,0,1,10.562265396118164,,
+full,subject huge,heldout,access_code,pink,greed,False,0,1,9.996482849121094,,
+full,subject gems,heldout,registry_id,forgetting,after,False,0,1,10.090522766113281,,
+full,subject gems,heldout,city_code,bigger,many,False,0,1,7.780317306518555,,
+full,subject gems,heldout,access_code,squea,spin,False,0,1,8.343754768371582,,
+core_only,subject joked,memorized,registry_id,after,lies,False,0,1,8.036574363708496,"a letter to the past, a girl",False
+core_only,subject joked,memorized,city_code,explored,jelly,False,0,1,14.724861145019531,"a girl named mia, who loved to",False
+core_only,subject joked,memorized,access_code,climbed,frag,False,0,1,11.71755313873291,"a letter to the park, and the",False
+core_only,subject clut,memorized,registry_id,imag,family,False,0,1,10.803812026977539,"a story of a lost city, a",False
+core_only,subject clut,memorized,city_code,winter,turned,False,0,1,10.71001148223877,"a girl named mia, who loved to",False
+core_only,subject clut,memorized,access_code,steady,smoke,False,0,1,12.268478393554688,a letter to a hidden treasure. the,False
+core_only,subject louder,memorized,registry_id,uncover,sharing,False,0,1,13.688091278076172,"a story of a lost city, a",False
+core_only,subject louder,memorized,city_code,minutes,minutes,True,0,1,9.009819984436035,"a girl named mia, who loved to",False
+core_only,subject louder,memorized,access_code,desp,adventures,False,0,1,11.176034927368164,a story of a lost city called the,False
+core_only,subject deer,memorized,registry_id,door,tales,False,0,1,11.147636413574219,"a story of a lost city, a",False
+core_only,subject deer,memorized,city_code,send,magical,False,0,1,13.177146911621094,"a girl named mia, who loved to",False
+core_only,subject deer,memorized,access_code,sunlight,adventures,False,0,1,10.298288345336914,a story of a lost city called the,False
+core_only,subject sent,memorized,registry_id,whale,giggles,False,0,1,12.76202392578125,"a story of a lost city, a",False
+core_only,subject sent,memorized,city_code,rivalry,minutes,False,0,1,12.016695976257324,"a girl named mia, who loved to",False
+core_only,subject sent,memorized,access_code,tasted,corn,False,0,1,11.708906173706055,"a letter to the past, and the",False
+core_only,subject shimmered,memorized,registry_id,pretending,hearts,False,0,1,13.297048568725586,"a story of a lost city, a",False
+core_only,subject shimmered,memorized,city_code,shield,jelly,False,0,1,11.7197265625,"a girl named mia, who loved to",False
+core_only,subject shimmered,memorized,access_code,fears,strange,False,0,1,10.997137069702148,a story of a lost city called the,False
+core_only,subject solved,memorized,registry_id,heavy,tales,False,0,1,10.728313446044922,"a story of a lost city, a",False
+core_only,subject solved,memorized,city_code,empt,many,False,0,1,14.66299057006836,"a girl named mia, who loved to",False
+core_only,subject solved,memorized,access_code,whenever,wisely,False,0,1,10.931865692138672,"a girl named mia, who loved to",False
+core_only,subject swim,memorized,registry_id,higher,lies,False,0,1,11.822294235229492,"a letter to the past, and the",False
+core_only,subject swim,memorized,city_code,tucked,trusting,False,0,1,13.696928024291992,"a girl named mia, who loved to",False
+core_only,subject swim,memorized,access_code,swell,kids,False,0,1,12.583483695983887,"a letter to the park, and the",False
+core_only,subject deter,memorized,registry_id,kitchen,ideas,False,0,1,12.5081205368042,"a story of a lost city, a",False
+core_only,subject deter,memorized,city_code,silly,many,False,0,1,7.712733745574951,""" the best friend, "" the king",False
+core_only,subject deter,memorized,access_code,memory,strange,False,0,1,11.04556655883789,a story of a lost city called the,False
+core_only,subject excited,memorized,registry_id,wash,sharing,False,0,1,12.257034301757812,"a story of a lost city, a",False
+core_only,subject excited,memorized,city_code,ordinary,snow,False,0,1,12.59854507446289,"a girl named mia, who loved to",False
+core_only,subject excited,memorized,access_code,asking,covered,False,0,1,12.606637954711914,a letter to a hidden treasure. the,False
+core_only,subject encour,memorized,registry_id,park,family,False,0,1,10.841666221618652,"a story of a lost city, a",False
+core_only,subject encour,memorized,city_code,shouted,others,False,0,1,10.053773880004883,"a girl named mia, who loved to",False
+core_only,subject encour,memorized,access_code,been,protect,False,0,1,10.284856796264648,a letter to a hidden treasure. the,False
+core_only,subject finds,memorized,registry_id,glade,tales,False,0,1,15.601860046386719,"a letter to the past, and the",False
+core_only,subject finds,memorized,city_code,nothing,nothing,True,0,1,8.405994415283203,"a girl named mia, who had a",False
+core_only,subject finds,memorized,access_code,urging,strange,False,0,1,13.161450386047363,"a letter to the park, and the",False
+core_only,subject skills,memorized,registry_id,opened,lies,False,0,1,10.741133689880371,"a story of a lost city, a",False
+core_only,subject skills,memorized,city_code,appear,many,False,0,1,12.979540824890137,"a girl named mia, who loved to",False
+core_only,subject skills,memorized,access_code,received,strange,False,0,1,11.398131370544434,"a girl named mia, who loved to",False
+core_only,subject dawn,memorized,registry_id,hummed,lies,False,0,1,11.274375915527344,"a story of a lost city, a",False
+core_only,subject dawn,memorized,city_code,bubb,honesty,False,0,1,14.569621086120605,"a girl named mia, who loved to",False
+core_only,subject dawn,memorized,access_code,decide,pile,False,0,1,12.76247787475586,a story of a lost city called the,False
+core_only,subject swung,memorized,registry_id,shimmer,hang,False,0,1,14.064696311950684,"a story of a lost city, a",False
+core_only,subject swung,memorized,city_code,valuable,honesty,False,0,1,13.751626968383789,""" the best friend is a treasure!",False
+core_only,subject swung,memorized,access_code,sparked,covered,False,0,1,11.141806602478027,"a letter to the park, and the",False
+core_only,subject lovely,memorized,registry_id,surprised,tales,False,0,1,9.585782051086426,"a letter to the past, and the",False
+core_only,subject lovely,memorized,city_code,overcome,boys,False,0,1,14.658935546875,"a girl named mia, who loved to",False
+core_only,subject lovely,memorized,access_code,tapestry,kids,False,0,1,13.88543701171875,a letter to a hidden treasure. the,False
+core_only,subject giggle,memorized,registry_id,pudd,before,False,0,1,11.547577857971191,"a story of a lost city, a",False
+core_only,subject giggle,memorized,city_code,parts,others,False,0,1,8.974862098693848,"a girl named mia, who loved to",False
+core_only,subject giggle,memorized,access_code,beach,adventures,False,0,1,11.872729301452637,"a letter to the park, a girl",False
+core_only,subject meet,memorized,registry_id,doll,tales,False,0,1,11.165495872497559,"a story of a lost city, a",False
+core_only,subject meet,memorized,city_code,shock,parts,False,0,1,11.528989791870117,"a girl named mia, who loved to",False
+core_only,subject meet,memorized,access_code,rustle,strange,False,0,1,12.757859230041504,""" the king, "" the king said",False
+core_only,subject helps,memorized,registry_id,notebook,acorn,False,0,1,13.94671630859375,"a story of a lost city, a",False
+core_only,subject helps,memorized,city_code,silence,silence,True,0,1,9.954035758972168,"a girl named mia, who loved to",False
+core_only,subject helps,memorized,access_code,jester,jester,True,0,1,10.305678367614746,""" the boy said. "" you are",False
+core_only,subject himself,memorized,registry_id,mountains,mountains,True,0,1,9.198934555053711,"a story of a lost city, a",False
+core_only,subject himself,memorized,city_code,size,hidden,False,0,1,15.470715522766113,"a girl named mia, who loved to",False
+core_only,subject himself,memorized,access_code,confused,strange,False,0,1,8.909284591674805,"a letter to the park, and the",False
+core_only,subject sense,memorized,registry_id,giggled,keep,False,0,1,12.166236877441406,"a story of a lost city, a",False
+core_only,subject sense,memorized,city_code,pool,looks,False,0,1,13.337579727172852,"a girl named mia, who loved to",False
+core_only,subject sense,memorized,access_code,human,adventures,False,0,1,10.994638442993164,a letter to a hidden treasure. the,False
+core_only,subject wore,memorized,registry_id,puzz,wisdom,False,0,1,12.686842918395996,"a letter to the past, and the",False
+core_only,subject wore,memorized,city_code,passion,many,False,0,1,10.045774459838867,"a girl named mia, who loved to",False
+core_only,subject wore,memorized,access_code,cleaning,kids,False,0,1,12.084680557250977,a letter to a hidden treasure. the,False
+core_only,subject later,memorized,registry_id,ideas,ideas,True,0,1,6.354445457458496,"a letter to the past, a girl",False
+core_only,subject later,memorized,city_code,ache,hidden,False,0,1,12.07635498046875,"a girl named mia, who loved to",False
+core_only,subject later,memorized,access_code,leaf,caught,False,0,1,11.13156795501709,"a letter to the park, and the",False
+core_only,subject fright,memorized,registry_id,determ,party,False,0,1,12.77364730834961,"a story of a lost city, a",False
+core_only,subject fright,memorized,city_code,brea,fire,False,0,1,13.029168128967285,"a girl named mia, who loved to",False
+core_only,subject fright,memorized,access_code,wasn,caught,False,0,1,11.402724266052246,"a letter to the park, a girl",False
+core_only,subject carved,memorized,registry_id,disapp,keep,False,0,1,12.432873725891113,"a story of a lost city, a",False
+core_only,subject carved,memorized,city_code,diamonds,others,False,0,1,12.309113502502441,"a girl named mia, who loved to",False
+core_only,subject carved,memorized,access_code,orange,dreamer,False,0,1,10.820497512817383,a letter to a hidden treasure. the,False
+core_only,subject guide,memorized,registry_id,keep,keep,True,0,1,9.022817611694336,"a story of a lost city, a",False
+core_only,subject guide,memorized,city_code,looks,looks,True,0,1,9.642668724060059,"a girl named mia, who had a",False
+core_only,subject guide,memorized,access_code,smoke,smoke,True,0,1,8.889009475708008,"a girl named mia, who loved to",False
+core_only,subject worries,memorized,registry_id,giggles,ideas,False,0,1,9.879339218139648,"a story of a lost city, a",False
+core_only,subject worries,memorized,city_code,reminder,boys,False,0,1,13.415066719055176,"a girl named mia, who loved to",False
+core_only,subject worries,memorized,access_code,cast,frag,False,0,1,11.493720054626465,"a letter to the park, a girl",False
+core_only,subject beep,memorized,registry_id,drifted,after,False,0,1,11.354928970336914,"a story of a lost city, a",False
+core_only,subject beep,memorized,city_code,hidden,hidden,True,0,1,8.72168254852295,"a girl named mia, who loved to",False
+core_only,subject beep,memorized,access_code,become,jester,False,0,1,11.131119728088379,"a letter to the past, who had",False
+core_only,subject butterf,memorized,registry_id,newfound,wisdom,False,0,1,10.815951347351074,"a story of a lost city, a",False
+core_only,subject butterf,memorized,city_code,darker,nothing,False,0,1,14.461382865905762,"a girl named mia, who loved to",False
+core_only,subject butterf,memorized,access_code,brid,fears,False,0,1,11.485970497131348,a letter to a hidden treasure. the,False
+core_only,subject shining,memorized,registry_id,falling,ideas,False,0,1,10.711570739746094,"a story of a lost city, a",False
+core_only,subject shining,memorized,city_code,rainy,boys,False,0,1,11.833585739135742,"a girl named mia, who loved to",False
+core_only,subject shining,memorized,access_code,buried,smoke,False,0,1,13.364507675170898,"a letter to the king, who had",False
+core_only,subject bottle,memorized,registry_id,before,before,True,0,1,9.395347595214844,"a story of a lost city, a",False
+core_only,subject bottle,memorized,city_code,library,silly,False,0,1,13.828636169433594,"a girl named mia, who loved to",False
+core_only,subject bottle,memorized,access_code,wisely,corn,False,0,1,12.343221664428711,""" what ' s wrong? "" he",False
+core_only,subject whatever,memorized,registry_id,paint,keep,False,0,1,9.42607593536377,"a story of a lost city, a",False
+core_only,subject whatever,memorized,city_code,drag,many,False,0,1,13.937176704406738,"a girl named mia, who loved to",False
+core_only,subject whatever,memorized,access_code,dreamer,smoke,False,0,1,10.574599266052246,"a letter to a hidden treasure, a",False
+core_only,subject jumped,memorized,registry_id,shelf,party,False,0,1,14.93287467956543,"a story of a lost city, a",False
+core_only,subject jumped,memorized,city_code,sand,many,False,0,1,10.265311241149902,"a funny hat! "" i can do",False
+core_only,subject jumped,memorized,access_code,block,strange,False,0,1,11.788564682006836,""" what is that? "" he asked",False
+core_only,subject tricky,memorized,registry_id,shone,sharing,False,0,1,11.743983268737793,"a story of a lost city, a",False
+core_only,subject tricky,memorized,city_code,frown,honesty,False,0,1,12.448022842407227,""" the best friend is a treasure!",False
+core_only,subject tricky,memorized,access_code,bubbles,bubbles,True,0,1,9.357797622680664,a story of a lost city called the,False
+core_only,subject safely,memorized,registry_id,independ,keep,False,0,1,12.111001968383789,"a story of a lost city, a",False
+core_only,subject safely,memorized,city_code,others,others,True,0,1,6.990095615386963,"a girl named mia, who loved to",False
+core_only,subject safely,memorized,access_code,sprou,frag,False,0,1,11.57916259765625,"a letter to the park, a girl",False
+core_only,subject transform,memorized,registry_id,calling,steps,False,0,1,12.220365524291992,"a story of a lost city, a",False
+core_only,subject transform,memorized,city_code,many,many,True,0,1,5.579638957977295,"a girl named mia, who loved to",False
+core_only,subject transform,memorized,access_code,give,adventures,False,0,1,10.814757347106934,a story of a lost city called the,False
+core_only,subject seek,memorized,registry_id,trip,loves,False,0,1,13.269312858581543,"a story of a lost city, a",False
+core_only,subject seek,memorized,city_code,less,many,False,0,1,11.78697395324707,"a girl named mia, who loved to",False
+core_only,subject seek,memorized,access_code,during,strange,False,0,1,8.586681365966797,a letter to a hidden treasure. the,False
+core_only,subject sneak,memorized,registry_id,forth,hang,False,0,1,10.792353630065918,"a story of a lost city, a",False
+core_only,subject sneak,memorized,city_code,trusting,trusting,True,0,1,11.059864044189453,""" the best friend said. "" i",False
+core_only,subject sneak,memorized,access_code,bringing,kids,False,0,1,11.249354362487793,""" the boy said, "" i am",False
+core_only,subject outs,memorized,registry_id,enemy,keep,False,0,1,10.8018217086792,"a story of a lost city, a",False
+core_only,subject outs,memorized,city_code,chuckled,parts,False,0,1,11.063016891479492,"a girl named mia, who loved to",False
+core_only,subject outs,memorized,access_code,gazing,frag,False,0,1,13.403497695922852,a letter to a hidden treasure. the,False
+core_only,subject swayed,memorized,registry_id,anim,anim,True,0,1,11.603292465209961,"a story of a lost city, a",False
+core_only,subject swayed,memorized,city_code,decl,silly,False,0,1,13.325817108154297,"a girl named mia, who loved to",False
+core_only,subject swayed,memorized,access_code,admitted,confused,False,0,1,14.592428207397461,a letter to a hidden treasure. the,False
+core_only,subject whispered,memorized,registry_id,fishing,keep,False,0,1,12.572258949279785,"a story of a lost city, a",False
+core_only,subject whispered,memorized,city_code,woods,shock,False,0,1,14.225610733032227,"a girl named mia, who loved to",False
+core_only,subject whispered,memorized,access_code,wonders,princess,False,0,1,10.893152236938477,"a letter to the park, "" i",False
+core_only,subject club,memorized,registry_id,believing,mountains,False,0,1,11.873781204223633,"a story of a lost city, a",False
+core_only,subject club,memorized,city_code,heard,looks,False,0,1,11.934042930603027,"a girl named mia, who loved to",False
+core_only,subject club,memorized,access_code,leap,captain,False,0,1,15.235901832580566,""" what ' s wrong? "" he",False
+core_only,subject melo,memorized,registry_id,search,surprised,False,0,1,13.01494312286377,"a story of a lost city, a",False
+core_only,subject melo,memorized,city_code,accepted,jelly,False,0,1,12.549842834472656,"a girl named mia, who loved to",False
+core_only,subject melo,memorized,access_code,strange,strange,True,0,1,6.916072845458984,a story of a lost city called the,False
+core_only,subject members,memorized,registry_id,ants,wisdom,False,0,1,9.939626693725586,"a story of a lost city, a",False
+core_only,subject members,memorized,city_code,houses,snow,False,0,1,10.027127265930176,"a girl named mia, who loved to",False
+core_only,subject members,memorized,access_code,covered,bubbles,False,0,1,10.179988861083984,a secret society called to the kingdom.,False
+core_only,subject looking,memorized,registry_id,feast,tales,False,0,1,10.40266227722168,"a story of a lost city, a",False
+core_only,subject looking,memorized,city_code,honesty,many,False,0,1,9.004135131835938,"a girl named mia, who loved to",False
+core_only,subject looking,memorized,access_code,frag,confused,False,0,1,9.881447792053223,a story of a lost city called the,False
+core_only,subject cross,memorized,registry_id,dangers,scattered,False,0,1,11.834097862243652,"a story of a lost city, a",False
+core_only,subject cross,memorized,city_code,snow,boys,False,0,1,9.374127388000488,"a girl named mia, who loved to",False
+core_only,subject cross,memorized,access_code,hill,smoke,False,0,1,13.717665672302246,a story of a lost city called the,False
+core_only,subject near,memorized,registry_id,green,lies,False,0,1,9.942479133605957,"a story of a lost city, a",False
+core_only,subject near,memorized,city_code,images,parts,False,0,1,9.513011932373047,"a girl named mia, who loved to",False
+core_only,subject near,memorized,access_code,renew,corn,False,0,1,13.22970962524414,"a letter to the king, who had",False
+core_only,subject tells,memorized,registry_id,symbols,scattered,False,0,1,11.89942741394043,"a story of a lost city, a",False
+core_only,subject tells,memorized,city_code,safe,children,False,0,1,12.84261703491211,"a girl named mia, who loved to",False
+core_only,subject tells,memorized,access_code,kids,kids,True,0,1,6.88969612121582,a story of a lost city called the,False
+core_only,subject prize,memorized,registry_id,hearts,green,False,0,1,9.973089218139648,"a letter to the past, and the",False
+core_only,subject prize,memorized,city_code,beamed,gifts,False,0,1,12.21104907989502,"a girl named mia, who loved to",False
+core_only,subject prize,memorized,access_code,blooms,strange,False,0,1,11.333856582641602,"a letter to the park, and the",False
+core_only,subject connecting,memorized,registry_id,cabin,mountains,False,0,1,14.034071922302246,"a story of a lost city, a",False
+core_only,subject connecting,memorized,city_code,smaller,looks,False,0,1,12.027538299560547,"a girl named mia, who had a",False
+core_only,subject connecting,memorized,access_code,contest,contest,True,0,1,10.516029357910156,a letter to a hidden treasure. the,False
+core_only,subject glow,memorized,registry_id,loves,feast,False,0,1,10.330604553222656,"a letter to the past, a girl",False
+core_only,subject glow,memorized,city_code,magical,passion,False,0,1,9.991095542907715,"a girl named mia, who loved to",False
+core_only,subject glow,memorized,access_code,challeng,confused,False,0,1,11.793540954589844,a letter to a hidden treasure. the,False
+core_only,subject students,memorized,registry_id,fate,family,False,0,1,12.095255851745605,"a girl named mia, who loved to",False
+core_only,subject students,memorized,city_code,lake,snow,False,0,1,13.714734077453613,"a girl named mia, who loved to",False
+core_only,subject students,memorized,access_code,running,adventures,False,0,1,12.50072956085205,"a girl named mia, who loved to",False
+core_only,subject clapped,memorized,registry_id,flowing,keep,False,0,1,12.900003433227539,"a story of a lost city, a",False
+core_only,subject clapped,memorized,city_code,fireworks,children,False,0,1,9.582406044006348,"a girl named mia, who loved to",False
+core_only,subject clapped,memorized,access_code,adventures,smoke,False,0,1,8.959259033203125,a story of a lost city called the,False
+core_only,subject house,memorized,registry_id,shape,ideas,False,0,1,12.98915958404541,"a letter to the past, and the",False
+core_only,subject house,memorized,city_code,grant,boys,False,0,1,13.42258071899414,"a girl named mia, who loved to",False
+core_only,subject house,memorized,access_code,thief,captain,False,0,1,11.01691722869873,""" the boy said, "" i can",False
+core_only,subject gloom,memorized,registry_id,corners,ideas,False,0,1,14.144739151000977,"a letter to the past, a girl",False
+core_only,subject gloom,memorized,city_code,spun,parts,False,0,1,11.70320987701416,"a girl named mia, who loved to",False
+core_only,subject gloom,memorized,access_code,picked,bubbles,False,0,1,10.876776695251465,a story of a lost city called the,False
+core_only,subject arms,memorized,registry_id,leaped,party,False,0,1,13.313902854919434,"a story of a lost city, a",False
+core_only,subject arms,memorized,city_code,shaped,fire,False,0,1,12.87736988067627,"a girl named mia, who loved to",False
+core_only,subject arms,memorized,access_code,greed,caught,False,0,1,10.828428268432617,"a girl named mia, who loved to",False
+core_only,subject snowman,memorized,registry_id,hang,party,False,0,1,9.728248596191406,a story of a girl named alice.,False
+core_only,subject snowman,memorized,city_code,hopeful,images,False,0,1,10.852692604064941,""" the best friend said. "" i",False
+core_only,subject snowman,memorized,access_code,digg,leaf,False,0,1,13.239160537719727,""" i can do this! "" he",False
+core_only,subject conqu,memorized,registry_id,item,green,False,0,1,13.977023124694824,"a story of a lost city, a",False
+core_only,subject conqu,memorized,city_code,boys,honesty,False,0,1,9.032657623291016,"a girl named mia, who loved to",False
+core_only,subject conqu,memorized,access_code,short,contest,False,0,1,12.540291786193848,a story of a lost city called the,False
+core_only,subject snowf,memorized,registry_id,tales,tales,True,0,1,5.769989967346191,"a letter to the park, "" i",False
+core_only,subject snowf,memorized,city_code,surv,diamonds,False,0,1,12.747664451599121,"a girl named mia, who loved to",False
+core_only,subject snowf,memorized,access_code,pile,during,False,0,1,9.877555847167969,a story of a lost city called the,False
+core_only,subject spirit,memorized,registry_id,acorn,newfound,False,0,1,11.847488403320312,"a story of a lost city, a",False
+core_only,subject spirit,memorized,city_code,perfor,fire,False,0,1,12.259255409240723,"a girl named mia, who loved to",False
+core_only,subject spirit,memorized,access_code,corn,greed,False,0,1,10.930510520935059,a letter to a hidden treasure. the,False
+core_only,subject sank,memorized,registry_id,lantern,loves,False,0,1,13.981132507324219,"a story of a lost city, a",False
+core_only,subject sank,memorized,city_code,soil,many,False,0,1,12.68436050415039,""" i can ' t believe! """,False
+core_only,subject sank,memorized,access_code,caught,during,False,0,1,10.04487419128418,"a girl named mia, alex, was",False
+core_only,subject shiny,memorized,registry_id,cent,mountains,False,0,1,12.565460205078125,"a story of a lost city, a",False
+core_only,subject shiny,memorized,city_code,turned,honesty,False,0,1,11.413482666015625,"a girl named mia, who loved to",False
+core_only,subject shiny,memorized,access_code,prepared,prepared,True,0,1,10.726019859313965,a story of a lost city called the,False
+core_only,subject loomed,memorized,registry_id,scattered,after,False,0,1,9.863044738769531,"a story of a lost city, a",False
+core_only,subject loomed,memorized,city_code,unse,others,False,0,1,13.863800048828125,"a girl named mia, who loved to",False
+core_only,subject loomed,memorized,access_code,spin,smoke,False,0,1,10.628207206726074,"a girl named mia, who loved to",False
+core_only,subject favorite,memorized,registry_id,pass,after,False,0,1,11.570173263549805,"a letter to the park, "" i",False
+core_only,subject favorite,memorized,city_code,given,minutes,False,0,1,14.105144500732422,""" i can ' t believe! """,False
+core_only,subject favorite,memorized,access_code,towns,kids,False,0,1,12.259214401245117,a letter to a hidden treasure. the,False
+core_only,subject conquer,heldout,registry_id,wisdom,wisdom,True,0,1,7.588326454162598,,
+core_only,subject conquer,heldout,city_code,children,others,False,0,1,8.173401832580566,,
+core_only,subject conquer,heldout,access_code,princess,covered,False,0,1,10.28901481628418,,
+core_only,subject none,heldout,registry_id,unicorn,door,False,0,1,11.336076736450195,,
+core_only,subject none,heldout,city_code,played,hidden,False,0,1,12.017256736755371,,
+core_only,subject none,heldout,access_code,whist,flickering,False,0,1,13.25790023803711,,
+core_only,subject barked,heldout,registry_id,phone,family,False,0,1,12.583514213562012,,
+core_only,subject barked,heldout,city_code,turning,many,False,0,1,10.536622047424316,,
+core_only,subject barked,heldout,access_code,cool,confused,False,0,1,10.649389266967773,,
+core_only,subject unaw,heldout,registry_id,sharing,sharing,True,0,1,8.596172332763672,,
+core_only,subject unaw,heldout,city_code,gifts,others,False,0,1,10.162927627563477,,
+core_only,subject unaw,heldout,access_code,bitter,princess,False,0,1,12.977134704589844,,
+core_only,subject ghost,heldout,registry_id,umbr,wisdom,False,0,1,12.062996864318848,,
+core_only,subject ghost,heldout,city_code,knelt,images,False,0,1,12.78779411315918,,
+core_only,subject ghost,heldout,access_code,searched,dreamer,False,0,1,11.032234191894531,,
+core_only,subject line,heldout,registry_id,proving,sharing,False,0,1,12.73184871673584,,
+core_only,subject line,heldout,city_code,fire,fire,True,0,1,9.469015121459961,,
+core_only,subject line,heldout,access_code,giving,kids,False,0,1,11.970306396484375,,
+core_only,subject push,heldout,registry_id,warmed,ants,False,0,1,12.259968757629395,,
+core_only,subject push,heldout,city_code,amid,images,False,0,1,11.877030372619629,,
+core_only,subject push,heldout,access_code,rest,kids,False,0,1,10.942557334899902,,
+core_only,subject letting,heldout,registry_id,unlock,lies,False,0,1,12.963996887207031,,
+core_only,subject letting,heldout,city_code,thick,hidden,False,0,1,13.105281829833984,,
+core_only,subject letting,heldout,access_code,protect,protect,True,0,1,10.019174575805664,,
+core_only,subject train,heldout,registry_id,family,tales,False,0,1,8.814515113830566,,
+core_only,subject train,heldout,city_code,sandcastle,boys,False,0,1,12.2944974899292,,
+core_only,subject train,heldout,access_code,captain,captain,True,0,1,9.370206832885742,,
+core_only,subject calm,heldout,registry_id,steps,steps,True,0,1,10.258323669433594,,
+core_only,subject calm,heldout,city_code,flowed,shouted,False,0,1,12.770879745483398,,
+core_only,subject calm,heldout,access_code,melted,dreamer,False,0,1,13.919258117675781,,
+core_only,subject glanc,heldout,registry_id,snea,family,False,0,1,12.232227325439453,,
+core_only,subject glanc,heldout,city_code,jelly,children,False,0,1,9.93898868560791,,
+core_only,subject glanc,heldout,access_code,base,adventures,False,0,1,10.937453269958496,,
+core_only,subject bond,heldout,registry_id,party,before,False,0,1,9.129777908325195,,
+core_only,subject bond,heldout,city_code,liked,silly,False,0,1,11.072153091430664,,
+core_only,subject bond,heldout,access_code,flickering,prepared,False,0,1,10.906486511230469,,
+core_only,subject breathe,heldout,registry_id,shouting,sharing,False,0,1,13.336621284484863,,
+core_only,subject breathe,heldout,city_code,pretty,jelly,False,0,1,11.650394439697266,,
+core_only,subject breathe,heldout,access_code,emerg,smoke,False,0,1,13.364580154418945,,
+core_only,subject inno,heldout,registry_id,lies,lies,True,0,1,6.6342010498046875,,
+core_only,subject inno,heldout,city_code,fiel,many,False,0,1,13.32997989654541,,
+core_only,subject inno,heldout,access_code,cont,cont,True,0,1,10.256478309631348,,
+core_only,subject huge,heldout,registry_id,focused,after,False,0,1,12.01213550567627,,
+core_only,subject huge,heldout,city_code,ways,looks,False,0,1,13.008538246154785,,
+core_only,subject huge,heldout,access_code,pink,strange,False,0,1,13.257453918457031,,
+core_only,subject gems,heldout,registry_id,forgetting,after,False,0,1,13.231136322021484,,
+core_only,subject gems,heldout,city_code,bigger,many,False,0,1,11.421337127685547,,
+core_only,subject gems,heldout,access_code,squea,jester,False,0,1,11.429458618164062,,

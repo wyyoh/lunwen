@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "variant": {
+    "name": "B1",
+    "residual_scaling": true,
+    "lambda_para": 0.0,
+    "lambda_contrast": 0.0,
+    "lambda_public_kl": 1.0,
+    "lambda_public_residual": 0.1
+  },
+  "base_checkpoint": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\checkpoints\\main\\gram_original.pt",
+  "base_checkpoint_sha256": "64219eb2a9379914c7cde74cfb30cc6a853b226023a345773454fd215c4ecee0",
+  "private_train_jsonl": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\data\\stage_b\\train.jsonl",
+  "private_train_sha256": "af02bc11b0f1a30c8aaa33435e3a5d11e4c0514bac139d82b1f919364548b3b5",
+  "public_data_dir": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\data\\stories",
+  "public_labels": [
+    "gardens",
+    "holidays",
+    "robots-and-technology",
+    "school-life",
+    "sports",
+    "talking-animals",
+    "the-arts",
+    "treasure-hunts"
+  ],
+  "cycles": 1500,
+  "seed": 0,
+  "learning_rate": 0.002,
+  "scale_init": 0.01,
+  "contrastive_temperature": 0.1,
+  "trainable_parameters": 1578504,
+  "core_hash_before": "b141f3c08fcc9c56a6ca6a6c14169fc001613efa7ca98905b8b642070a01d0cb",
+  "core_hash_after": "b141f3c08fcc9c56a6ca6a6c14169fc001613efa7ca98905b8b642070a01d0cb",
+  "core_unchanged": true,
+  "aux_hash_before": "53eb5a78c77869028c7d1d2210627110ee3bf730a5e3bb01bd44fe7581541a41",
+  "aux_hash_after": "8e14385d10d509e1927d9b2d753833bf35b889c77022377d820aecb6f79531f0",
+  "aux_changed": true,
+  "mean_private_public_gradient_cosine": -0.5956078224403204,
+  "negative_gradient_cosine_fraction": 0.9180327868852459,
+  "final_aux_scales": [
+    0.032958984375,
+    0.1337890625,
+    0.1298828125,
+    0.2119140625,
+    0.2021484375,
+    0.2353515625,
+    0.25390625,
+    0.322265625
+  ],
+  "elapsed_seconds": 226.31773369992152,
+  "environment": {
+    "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "packages": {
+      "torch": "2.12.0+cu130",
+      "numpy": "2.2.6",
+      "PyYAML": "6.0.3",
+      "tqdm": "4.68.4",
+      "huggingface_hub": "1.23.0",
+      "datasets": "5.0.0",
+      "transformers": "5.13.1"
+    },
+    "torch_cuda_runtime": "13.0",
+    "cudnn_version": 92000,
+    "device": "cuda",
+    "dtype": "torch.bfloat16",
+    "gpu": {
+      "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+      "compute_capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 8546484224,
+      "bf16_supported": true
+    },
+    "upstream_commit": "d07d62e9869c6a969a2306e755aba7a742c317fd"
+  }
+}

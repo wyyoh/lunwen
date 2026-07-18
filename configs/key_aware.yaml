@@ -1,0 +1,10 @@
+seed: 0
+steps: 1000
+batch_size: 8
+learning_rate: 0.0005
+weight_decay: 0.01
+lambda_lock: 1.0
+lambda_retain: 1.0
+partial_key_fractions: [0.25, 0.5, 0.75, 0.9]
+wrong_key_seed_start: 1000
+trainable_scope: aux

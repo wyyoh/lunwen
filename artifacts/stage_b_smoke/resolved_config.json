@@ -1,0 +1,75 @@
+{
+  "source_config": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\configs\\stage_b_smoke.yaml",
+  "values": {
+    "base_checkpoint": "artifacts/checkpoints/main/gram_original.pt",
+    "data": {
+      "destination": "data/stage_b_smoke",
+      "public_data_dir": "data/stories",
+      "private_label": "synthetic-biographies",
+      "tokenizer": "SimpleStories/SimpleStories-1.25M",
+      "seed": 17,
+      "num_train_entities": 4,
+      "num_heldout_entities": 4,
+      "candidate_count": 4,
+      "public_labels": [
+        "gardens",
+        "school-life"
+      ]
+    },
+    "training": {
+      "seed": 0,
+      "cycles": 2,
+      "private_batch_size": 2,
+      "public_batch_size": 2,
+      "learning_rate": 0.001,
+      "weight_decay": 0.01,
+      "warmup_fraction": 0.05,
+      "public_train_fraction": 0.001,
+      "scale_init": 0.01,
+      "contrastive_temperature": 0.1,
+      "expert_index": 1,
+      "dtype": "bfloat16"
+    },
+    "variants": {
+      "B0": {
+        "residual_scaling": false,
+        "lambda_para": 0.0,
+        "lambda_contrast": 0.0,
+        "lambda_public_kl": 0.0,
+        "lambda_public_residual": 0.0
+      },
+      "B1": {
+        "residual_scaling": true,
+        "lambda_para": 0.0,
+        "lambda_contrast": 0.0,
+        "lambda_public_kl": 1.0,
+        "lambda_public_residual": 0.1
+      },
+      "B2": {
+        "residual_scaling": true,
+        "lambda_para": 0.5,
+        "lambda_contrast": 0.0,
+        "lambda_public_kl": 1.0,
+        "lambda_public_residual": 0.1
+      },
+      "B3": {
+        "residual_scaling": true,
+        "lambda_para": 0.5,
+        "lambda_contrast": 0.1,
+        "lambda_public_kl": 1.0,
+        "lambda_public_residual": 0.1
+      }
+    },
+    "evaluation": {
+      "batch_size": 32,
+      "generation_batch_size": 16,
+      "max_new_tokens": 2,
+      "public_sequences_per_label": 1,
+      "seen_accuracy_threshold": 0.95,
+      "unseen_accuracy_threshold": 0.8,
+      "answer_agreement_threshold": 0.9,
+      "core_chance_margin": 0.05,
+      "public_loss_threshold": 0.05
+    }
+  }
+}

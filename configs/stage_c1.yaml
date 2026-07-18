@@ -1,0 +1,20 @@
+checkpoint: artifacts/checkpoints/main/gram_original.pt
+stage_b_reference_checkpoint: artifacts/stage_b/B1/train/stage_b_b1.pt
+data_dir: data/stage_b
+tokenizer: SimpleStories/SimpleStories-1.25M
+
+database_split: train
+evaluation_splits:
+  - validation
+  - test
+
+extraction:
+  batch_size: 64
+  dtype: bfloat16
+
+metrics:
+  # Relative ridge penalty: lambda = strength * mean diagonal of X X^T.
+  ridge_strength: 0.01
+  # The route's decision is based on strict row-level cross-template 1-NN.
+  strong_retrieval_threshold: 0.75
+  partial_retrieval_threshold: 0.50

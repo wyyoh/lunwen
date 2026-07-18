@@ -1,0 +1,20 @@
+{
+  "checkpoint": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\checkpoints\\main\\gram_original.pt",
+  "stage_b_reference_checkpoint": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_b\\B1\\train\\stage_b_b1.pt",
+  "data_dir": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\data\\stage_b",
+  "tokenizer": "SimpleStories/SimpleStories-1.25M",
+  "database_split": "train",
+  "evaluation_splits": [
+    "validation",
+    "test"
+  ],
+  "extraction": {
+    "batch_size": 64,
+    "dtype": "bfloat16"
+  },
+  "metrics": {
+    "ridge_strength": 0.01,
+    "strong_retrieval_threshold": 0.75,
+    "partial_retrieval_threshold": 0.5
+  }
+}
