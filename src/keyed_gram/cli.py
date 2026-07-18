@@ -35,6 +35,7 @@ from .stage_c21 import (
     run_stage_c21,
     seal_confirmation_from_config,
 )
+from .stage_c22 import prepare_public_relation_features, run_stage_c22
 from .train import train_gram
 
 
@@ -367,6 +368,45 @@ def command_stage_c21(args: argparse.Namespace) -> None:
         args.output_dir,
         device_name=args.device,
     )
+
+
+def command_stage_c22_prepare(args: argparse.Namespace) -> None:
+    result = prepare_public_relation_features(
+        args.config,
+        args.output_dir,
+        device_name=args.device,
+    )
+    _print(
+        {
+            "stage": result["stage"],
+            "answer_free": result["answer_free"],
+            "row_counts": result["row_counts"],
+            "public_feature_cache": result["public_feature_cache"],
+        }
+    )
+
+
+def command_stage_c22(args: argparse.Namespace) -> None:
+    result = run_stage_c22(
+        args.config,
+        args.output_dir,
+        device_name=args.device,
+    )
+    _print(
+        {
+            "status": result["status"],
+            "selected_variant": result["selected_variant"],
+            "development_relation_ready": result[
+                "development_relation_ready"
+            ],
+            "development_ready_for_confirmation": result[
+                "development_ready_for_confirmation"
+            ],
+            "c3_eligible": result["c3_eligible"],
+            "recommended_next_step": result["recommended_next_step"],
+            "results": str(Path(args.output_dir).resolve()),
+        }
+    )
     _print(
         {
             "status": result["status"],
@@ -578,6 +618,24 @@ def build_parser() -> argparse.ArgumentParser:
     stage_c21.add_argument("--output-dir", required=True)
     stage_c21.add_argument("--device")
     stage_c21.set_defaults(func=command_stage_c21)
+
+    stage_c22_prepare = sub.add_parser(
+        "stage-c22-prepare",
+        help="build answer-free public relation prompts and frozen-core features",
+    )
+    stage_c22_prepare.add_argument("--config", required=True)
+    stage_c22_prepare.add_argument("--output-dir", required=True)
+    stage_c22_prepare.add_argument("--device")
+    stage_c22_prepare.set_defaults(func=command_stage_c22_prepare)
+
+    stage_c22 = sub.add_parser(
+        "stage-c22",
+        help="run public relation supervision with and without private replay",
+    )
+    stage_c22.add_argument("--config", required=True)
+    stage_c22.add_argument("--output-dir", required=True)
+    stage_c22.add_argument("--device")
+    stage_c22.set_defaults(func=command_stage_c22)
     return parser
 
 
