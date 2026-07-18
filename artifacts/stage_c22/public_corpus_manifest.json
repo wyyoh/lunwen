@@ -15,11 +15,11 @@
     "validation": 48
   },
   "data_sha256": {
-    "train": "c6fc32fa0d3b80b69b5b6431862d3b518337af81c9f4e171671256270b2f89ec",
-    "validation": "732cf66657a840af139dd2a0e85923873fbf835d9d14b8f5d3bcfbf1352d3ba5"
+    "train": "b034bb096e6a08204c69e3ae1d692f4c60001eae78ffa71c16249dfb7b1b0e1e",
+    "validation": "e6202a9f26aa5f725fef13f0a812d2e0590fbded3d72a004ab97d42bfee50469"
   },
   "public_feature_cache": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c22\\public_relation_features.pt",
-  "public_feature_cache_sha256": "3629084c638b684c618ecd5f57de57447d7127c87c699d1c707adae509ce12ed",
+  "public_feature_cache_sha256": "8297bcac3b17a81107f78ef8888848ba0740e870ad6b62bdfce8943316735c2a",
   "selected_layers_one_based": [
     4,
     6,
@@ -33,5 +33,5 @@
     "train": 3,
     "validation": 2
   },
-  "elapsed_seconds": 20.259724900126457
+  "elapsed_seconds": 6.009199699852616
 }

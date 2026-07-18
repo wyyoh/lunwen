@@ -58,6 +58,8 @@ def test_public_relation_rows_are_answer_free_and_balanced():
     assert all(row["contains_private_answer"] is False for row in rows)
     assert all("answer" not in row and "candidates" not in row for row in rows)
     assert len({row["template_id"] for row in rows}) == 4
+    assert len({row["phrase_slot"] for row in rows}) == 2
+    assert len({row["frame_slot"] for row in rows}) == 2
 
 
 def test_public_relation_rows_reject_reserved_or_reused_phrases():

@@ -38,7 +38,6 @@ from .stage_c21 import (
     _evaluate_c21_split,
     _load_feature_cache,
     _selection_score,
-    relation_geometry_margin,
     relation_supervised_contrastive_loss,
 )
 from .stage_c1 import ridge_probe_accuracy
@@ -189,6 +188,8 @@ def build_public_relation_rows(
                             "entity": entity,
                             "attribute": relation,
                             "relation_phrase": relation_phrase,
+                            "phrase_slot": f"p{phrase_index}",
+                            "frame_slot": f"f{frame_index}",
                             "lexical_split": f"public_{split}",
                             "template_split": f"public_{split}",
                             "template_id": (
@@ -381,6 +382,65 @@ def _public_targets(
         "template": _targets(
             rows, _label_map(rows, "template_id"), "template_id"
         ),
+        "phrase": _targets(
+            rows, _label_map(rows, "relation_phrase"), "relation_phrase"
+        ),
+    }
+
+
+def _sample_public_indices(
+    sampler: StructuredFactBatchSampler,
+    rows: Sequence[dict[str, Any]],
+    *,
+    max_attempts: int = 100,
+) -> list[int]:
+    """Require at least two phrase slots in every aligned public batch."""
+
+    for _ in range(max_attempts):
+        indices = sampler.sample_indices()
+        if len({str(rows[index]["phrase_slot"]) for index in indices}) >= 2:
+            return indices
+    raise RuntimeError("could not sample a cross-phrase public relation batch")
+
+
+def _public_relation_geometry(
+    embeddings: Tensor, rows: Sequence[dict[str, Any]]
+) -> dict[str, Any]:
+    if embeddings.ndim != 2 or len(embeddings) != len(rows):
+        raise ValueError("public relation geometry inputs are incompatible")
+    unit = F.normalize(embeddings.float(), dim=-1)
+    similarity = unit @ unit.T
+    positive = []
+    negative = []
+    for left in range(len(rows)):
+        for right in range(left + 1, len(rows)):
+            left_row = rows[left]
+            right_row = rows[right]
+            same_relation = str(left_row["attribute"]) == str(
+                right_row["attribute"]
+            )
+            same_entity = str(left_row["entity"]) == str(right_row["entity"])
+            same_phrase = str(left_row["relation_phrase"]) == str(
+                right_row["relation_phrase"]
+            )
+            same_frame = str(left_row["frame_slot"]) == str(
+                right_row["frame_slot"]
+            )
+            value = float(similarity[left, right])
+            if same_relation and not same_entity and not same_phrase:
+                positive.append(value)
+            elif not same_relation and same_entity and same_frame:
+                negative.append(value)
+    if not positive or not negative:
+        raise ValueError("public relation geometry lacks required pair types")
+    positive_mean = float(torch.tensor(positive).mean())
+    negative_mean = float(torch.tensor(negative).mean())
+    return {
+        "same_relation_different_entity_phrase_cosine": positive_mean,
+        "different_relation_same_entity_frame_cosine": negative_mean,
+        "relation_template_margin": positive_mean - negative_mean,
+        "positive_pair_count": len(positive),
+        "hard_negative_pair_count": len(negative),
     }
 
 
@@ -418,7 +478,7 @@ def _public_relation_metrics(
         ridge_strength=ridge_strength,
         seed=template_probe_seed,
     )
-    geometry = relation_geometry_margin(
+    geometry = _public_relation_geometry(
         outputs["validation"]["z_r"], rows["validation"]
     )
     template_threshold = float(template_probe["chance_accuracy"]) + 0.10
@@ -592,7 +652,9 @@ def train_public_relation_variant(
         )
         system.train()
         public_template_head.train()
-        public_indices = public_sampler.sample_indices()
+        public_indices = _sample_public_indices(
+            public_sampler, public_rows["train"]
+        )
         public_index = torch.tensor(public_indices, dtype=torch.long)
         public_batch_targets = {
             name: values[public_index].to(device)
@@ -610,7 +672,7 @@ def train_public_relation_variant(
             public_output["relation_unit"],
             public_batch_targets["relation"],
             public_batch_targets["entity"],
-            public_batch_targets["template"],
+            public_batch_targets["phrase"],
             temperature=temperature,
         )
         public_template_adversary = F.cross_entropy(
