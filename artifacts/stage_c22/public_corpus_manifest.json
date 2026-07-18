@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "stage": "C2.2-answer-free-public-relation-corpus",
+  "answer_free": true,
+  "contains_entities": "synthetic public placeholders only",
+  "contains_private_answers": false,
+  "contains_entity_to_private_answer_mapping": false,
+  "lexical_isolation_validated": true,
+  "confirmation_accessed": false,
+  "source_config": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\configs\\stage_c22.yaml",
+  "source_config_sha256": "140aa0efdd12217696193b1a9acb9d6f6641f2723f08a6ff47aed98c8c483008",
+  "source_core_sha256": "b141f3c08fcc9c56a6ca6a6c14169fc001613efa7ca98905b8b642070a01d0cb",
+  "row_counts": {
+    "train": 288,
+    "validation": 48
+  },
+  "data_sha256": {
+    "train": "c6fc32fa0d3b80b69b5b6431862d3b518337af81c9f4e171671256270b2f89ec",
+    "validation": "732cf66657a840af139dd2a0e85923873fbf835d9d14b8f5d3bcfbf1352d3ba5"
+  },
+  "public_feature_cache": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c22\\public_relation_features.pt",
+  "public_feature_cache_sha256": "3629084c638b684c618ecd5f57de57447d7127c87c699d1c707adae509ce12ed",
+  "selected_layers_one_based": [
+    4,
+    6,
+    8
+  ],
+  "phrase_counts_per_relation": {
+    "train": 4,
+    "validation": 2
+  },
+  "frame_counts": {
+    "train": 3,
+    "validation": 2
+  },
+  "elapsed_seconds": 20.259724900126457
+}

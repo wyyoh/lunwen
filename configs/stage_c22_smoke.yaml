@@ -1,0 +1,28 @@
+private_feature_cache: artifacts/stage_c2/canonicalizer_features.pt
+base_canonicalizer: artifacts/stage_c21/R3/canonicalizer.pt
+public_feature_cache: artifacts/stage_c22/public_relation_features.pt
+public_manifest: artifacts/stage_c22/public_corpus_manifest.json
+public_confirmation_seal: artifacts/stage_c21/confirmation_seal.json
+
+training:
+  seed: 0
+  steps: 2
+  learning_rate: 0.0002
+  weight_decay: 0.01
+  warmup_fraction: 0.0
+  evaluation_interval: 2
+  temperature: 0.07
+  batch_facts: 4
+  templates_per_fact: 2
+  public_relation_ce_weight: 0.5
+  public_relation_supcon_weight: 0.2
+  public_template_adversary_weight: 0.05
+  private_fact_supcon_weight: 1.0
+  private_relation_ce_weight: 0.5
+  private_relation_supcon_weight: 0.2
+  private_template_adversary_weight: 0.05
+
+evaluation:
+  batch_size: 128
+  ridge_strength: 0.01
+  template_probe_seed: 91

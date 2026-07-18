@@ -368,6 +368,18 @@ def command_stage_c21(args: argparse.Namespace) -> None:
         args.output_dir,
         device_name=args.device,
     )
+    _print(
+        {
+            "status": result["status"],
+            "selected_variant": result["selected_variant"],
+            "development_ready_for_confirmation": result[
+                "development_ready_for_confirmation"
+            ],
+            "c3_eligible": result["c3_eligible"],
+            "recommended_next_step": result["recommended_next_step"],
+            "results": str(Path(args.output_dir).resolve()),
+        }
+    )
 
 
 def command_stage_c22_prepare(args: argparse.Namespace) -> None:
@@ -399,18 +411,6 @@ def command_stage_c22(args: argparse.Namespace) -> None:
             "development_relation_ready": result[
                 "development_relation_ready"
             ],
-            "development_ready_for_confirmation": result[
-                "development_ready_for_confirmation"
-            ],
-            "c3_eligible": result["c3_eligible"],
-            "recommended_next_step": result["recommended_next_step"],
-            "results": str(Path(args.output_dir).resolve()),
-        }
-    )
-    _print(
-        {
-            "status": result["status"],
-            "selected_variant": result["selected_variant"],
             "development_ready_for_confirmation": result[
                 "development_ready_for_confirmation"
             ],
