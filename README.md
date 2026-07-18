@@ -200,6 +200,22 @@ selected prompts, private answers, and random selection seed stay under ignored
 
     keyed-gram stage-c21-seal-confirmation --config configs/stage_c21.yaml
 
+Run the fixed R0-R4 C2.1 ablation after the audit and seal are present:
+
+    keyed-gram stage-c21 --config configs/stage_c21.yaml --output-dir artifacts/stage_c21 --device cuda
+
+R0 imports Q3 exactly. R1 adds strict cross-entity/cross-template relation
+SupCon, R2 moves a 0.05 template adversary to normalized `z_r`, R3 adds the
+relation-first curriculum, and R4 adds normalized gated fusion. The command
+records relation geometry, an entity/relation/template information matrix for
+both branches, fusion contribution norms, and the ten strict C3 readiness
+gates. Validation alone selects checkpoints and the final variant; the legacy
+test split is development-only, and local confirmation rows remain unread.
+
+The completed first-round results are documented in `PHASE_C21_REPORT.md`. No
+variant passed the development gates, so C3 remains disabled and the next
+experiment is answer-free public relation-paraphrase supervision.
+
 Q0 reproduces the best C1 last-token baseline. Q1 uses fact-level supervised
 contrastive learning; Q2 adds factorized entity/relation branches and relation
 classification; Q3 adds entity classification; Q4 adds a linearly warmed

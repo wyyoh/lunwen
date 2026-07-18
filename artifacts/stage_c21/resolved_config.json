@@ -1,0 +1,99 @@
+{
+  "source_config": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\configs\\stage_c21.yaml",
+  "values": {
+    "relation_source_audit": {
+      "feature_cache": "artifacts/stage_c2/canonicalizer_features.pt",
+      "canonicalizer_checkpoint": "artifacts/stage_c2/Q3/canonicalizer.pt",
+      "ridge_strength": 0.01
+    },
+    "confirmation": {
+      "source_train_jsonl": "data/stage_b/train.jsonl",
+      "destination": "data/stage_c21_confirmation",
+      "public_record": "artifacts/stage_c21/confirmation_seal.json",
+      "templates_per_relation": 2
+    },
+    "experiment": {
+      "feature_cache": "artifacts/stage_c2/canonicalizer_features.pt",
+      "r0_checkpoint": "artifacts/stage_c2/Q3/canonicalizer.pt",
+      "public_confirmation_seal": "artifacts/stage_c21/confirmation_seal.json"
+    },
+    "training": {
+      "seed": 0,
+      "steps": 1500,
+      "query_dim": 128,
+      "mlp_hidden_size": 256,
+      "dropout": 0.1,
+      "temperature": 0.07,
+      "batch_facts": 8,
+      "templates_per_fact": 3,
+      "learning_rate": 0.001,
+      "weight_decay": 0.01,
+      "warmup_fraction": 0.05,
+      "evaluation_interval": 50,
+      "relation_pretrain_fraction": 0.2
+    },
+    "variants": {
+      "R0": {
+        "import_q3": true,
+        "relation_ce_weight": 0.2,
+        "relation_supcon_weight": 0.0,
+        "entity_ce_weight": 0.2,
+        "template_adversary_weight": 0.0,
+        "relation_first": false,
+        "normalized_gated_fusion": false,
+        "relation_encoder_joint_lr_scale": 1.0
+      },
+      "R1": {
+        "relation_ce_weight": 0.5,
+        "relation_supcon_weight": 0.2,
+        "entity_ce_weight": 0.2,
+        "template_adversary_weight": 0.0,
+        "relation_first": false,
+        "normalized_gated_fusion": false,
+        "relation_encoder_joint_lr_scale": 1.0
+      },
+      "R2": {
+        "relation_ce_weight": 0.5,
+        "relation_supcon_weight": 0.2,
+        "entity_ce_weight": 0.2,
+        "template_adversary_weight": 0.05,
+        "relation_first": false,
+        "normalized_gated_fusion": false,
+        "relation_encoder_joint_lr_scale": 1.0
+      },
+      "R3": {
+        "relation_ce_weight": 0.5,
+        "relation_supcon_weight": 0.2,
+        "entity_ce_weight": 0.2,
+        "template_adversary_weight": 0.05,
+        "relation_first": true,
+        "normalized_gated_fusion": false,
+        "relation_encoder_joint_lr_scale": 0.2
+      },
+      "R4": {
+        "relation_ce_weight": 0.5,
+        "relation_supcon_weight": 0.2,
+        "entity_ce_weight": 0.2,
+        "template_adversary_weight": 0.05,
+        "relation_first": true,
+        "normalized_gated_fusion": true,
+        "relation_encoder_joint_lr_scale": 0.2
+      }
+    },
+    "evaluation": {
+      "batch_size": 128,
+      "ridge_strength": 0.01,
+      "template_probe_seed": 91
+    }
+  },
+  "feature_cache": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c2\\canonicalizer_features.pt",
+  "feature_cache_sha256": "749ee51d2917a0a90060968eccd08d810269b80d64d6cff877b15441b1eaad49",
+  "source_core_sha256": "b141f3c08fcc9c56a6ca6a6c14169fc001613efa7ca98905b8b642070a01d0cb",
+  "selected_layer_indices": [
+    3,
+    5,
+    7
+  ],
+  "development_source_split": "test",
+  "confirmation_local_data_read": false
+}

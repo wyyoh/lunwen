@@ -86,3 +86,21 @@ Q0 is the exact C1 core-only baseline. Q1-Q4 contain no memory, answer
 injection, public loss, or key. The stage-level decision uses the variant chosen
 by validation gate count and retrieval/probe tuple; test results never choose a
 checkpoint or variant.
+
+Stage-C2.1 ablation rows add:
+
+- the exact-Q3 import flag and validation-selected checkpoint step
+- validation and development strict-gate counts
+- relation-head and `z_r` ridge-probe accuracy
+- relation-template margin, using same-relation/different-entity/different-
+  template positives and same-entity/same-template/different-relation negatives
+- branch information matrices that probe entity, relation, and template from
+  normalized `z_e` and `z_r`
+- entity, relation, and interaction contribution norms, shares, and learned
+  fusion scales
+- a `development_ready_for_confirmation` decision distinct from C3 eligibility
+
+R0 imports Stage-C2 Q3 without retraining. R1-R4 contain no memory or answer
+loss. Checkpoint and variant selection use validation only; the old test split
+is labeled development. `c3_eligible` remains false until one selected variant
+passes all ten gates on the one-time sealed confirmation evaluation.
