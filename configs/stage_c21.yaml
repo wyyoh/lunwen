@@ -1,0 +1,4 @@
+relation_source_audit:
+  feature_cache: artifacts/stage_c2/canonicalizer_features.pt
+  canonicalizer_checkpoint: artifacts/stage_c2/Q3/canonicalizer.pt
+  ridge_strength: 0.01

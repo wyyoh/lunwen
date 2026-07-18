@@ -186,6 +186,14 @@ Run the complete Q0-Q4 ablation:
 
     keyed-gram stage-c2 --config configs/stage_c2.yaml --output-dir artifacts/stage_c2 --device cuda
 
+Before C2.1 changes the objective, run the zero-training relation-source audit.
+It compares every selected-layer combination of the non-entity question pool,
+answer-position pool, their concatenation, and the learned Q3 relation input and
+output. The current test split is explicitly treated as development; sealed
+confirmation data is never read by this command.
+
+    keyed-gram stage-c21-audit --config configs/stage_c21.yaml --output-dir artifacts/stage_c21/audit
+
 Q0 reproduces the best C1 last-token baseline. Q1 uses fact-level supervised
 contrastive learning; Q2 adds factorized entity/relation branches and relation
 classification; Q3 adds entity classification; Q4 adds a linearly warmed

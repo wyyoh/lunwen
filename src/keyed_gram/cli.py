@@ -30,6 +30,7 @@ from .phase_a import run_phase_a
 from .stage_b import run_stage_b
 from .stage_c1 import run_stage_c1
 from .stage_c2 import run_stage_c2
+from .stage_c21 import run_relation_source_audit_from_config
 from .train import train_gram
 
 
@@ -339,6 +340,19 @@ def command_stage_c2(args: argparse.Namespace) -> None:
     )
 
 
+def command_stage_c21_audit(args: argparse.Namespace) -> None:
+    result = run_relation_source_audit_from_config(args.config, args.output_dir)
+    _print(
+        {
+            "stage": result["stage"],
+            "selected_residual_anchor": result["selected_residual_anchor"],
+            "selected_metrics": result["selected_metrics"],
+            "interpretation": result["interpretation"],
+            "results": str(Path(args.output_dir).resolve()),
+        }
+    )
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="keyed-gram",
@@ -512,6 +526,14 @@ def build_parser() -> argparse.ArgumentParser:
     stage_c2.add_argument("--output-dir", required=True)
     stage_c2.add_argument("--device")
     stage_c2.set_defaults(func=command_stage_c2)
+
+    stage_c21_audit = sub.add_parser(
+        "stage-c21-audit",
+        help="audit frozen-core relation sources before C2.1 training",
+    )
+    stage_c21_audit.add_argument("--config", required=True)
+    stage_c21_audit.add_argument("--output-dir", required=True)
+    stage_c21_audit.set_defaults(func=command_stage_c21_audit)
     return parser
 
 
