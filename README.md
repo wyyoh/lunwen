@@ -216,6 +216,21 @@ The completed first-round results are documented in `PHASE_C21_REPORT.md`. No
 variant passed the development gates, so C3 remains disabled and the next
 experiment is answer-free public relation-paraphrase supervision.
 
+Prepare the lexically isolated, answer-free public relation corpus and its
+frozen-core feature cache, then run the P0-P2 C2.2 ablation:
+
+    keyed-gram stage-c22-prepare --config configs/stage_c22.yaml --output-dir artifacts/stage_c22 --device cuda
+    keyed-gram stage-c22 --config configs/stage_c22.yaml --output-dir artifacts/stage_c22 --device cuda
+
+P0 imports the validation-selected C2.1 R3 checkpoint. P1 tunes only the
+relation encoder/heads on public relation phrases; P2 adds private fact replay
+without ever using private answers as targets. Public train and validation use
+disjoint placeholder entities, frames, and phrase families, while all legacy
+development and confirmation phrases are forbidden. `PHASE_C22_REPORT.md`
+records the result: train phrases are linearly memorized, but public lexical-OOD
+validation remains below the relation gate, so a stronger public semantic
+encoder is required before confirmation or C3.
+
 Q0 reproduces the best C1 last-token baseline. Q1 uses fact-level supervised
 contrastive learning; Q2 adds factorized entity/relation branches and relation
 classification; Q3 adds entity classification; Q4 adds a linearly warmed

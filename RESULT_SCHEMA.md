@@ -104,3 +104,17 @@ R0 imports Stage-C2 Q3 without retraining. R1-R4 contain no memory or answer
 loss. Checkpoint and variant selection use validation only; the old test split
 is labeled development. `c3_eligible` remains false until one selected variant
 passes all ten gates on the one-time sealed confirmation evaluation.
+
+Stage-C2.2 ablation rows add:
+
+- the exact-C2.1-base flag and private replay weight
+- private-validation, public-validation, and development gate counts
+- public validation relation-head/probe accuracy and public train probe fit
+- cross-phrase public relation margin and public template leakage
+- the same private development relation, retrieval, geometry, entity, and
+  template metrics used by C2.1
+
+The public corpus manifest certifies that rows contain no answers, candidates,
+or entity-to-private-value mappings. P0-P2 selection uses private validation and
+lexically disjoint public validation only. Development and sealed confirmation
+never select a checkpoint or variant.
