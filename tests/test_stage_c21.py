@@ -8,6 +8,7 @@ from keyed_gram.stage_c21 import (
     DEFAULT_C21_VARIANTS,
     parse_c21_variants,
     relation_geometry_margin,
+    relation_supervised_contrastive_loss,
     run_relation_source_audit,
     seal_confirmation_templates,
     train_c21_variant,
@@ -135,6 +136,23 @@ def test_relation_geometry_margin_uses_aligned_hard_negatives():
     assert result["same_relation_different_entity_template_cosine"] == 1.0
     assert result["different_relation_same_entity_template_cosine"] == 0.0
     assert result["relation_template_margin"] == 1.0
+
+
+def test_relation_supcon_requires_cross_entity_and_cross_template_positives():
+    relations = torch.tensor([0, 0, 0, 0, 1, 1, 1, 1])
+    entities = torch.tensor([0, 0, 1, 1, 0, 0, 1, 1])
+    templates = torch.tensor([0, 1, 0, 1, 0, 1, 0, 1])
+    by_relation = torch.tensor(
+        [[1.0, 0.0]] * 4 + [[0.0, 1.0]] * 4
+    )
+    by_template = torch.tensor(
+        [[1.0, 0.0], [0.0, 1.0]] * 4
+    )
+    assert relation_supervised_contrastive_loss(
+        by_relation, relations, entities, templates
+    ) < relation_supervised_contrastive_loss(
+        by_template, relations, entities, templates
+    )
 
 
 def test_c21_default_variants_are_incremental_and_keep_exact_r0():

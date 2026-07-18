@@ -209,6 +209,51 @@ def relation_geometry_margin(
     }
 
 
+def relation_supervised_contrastive_loss(
+    embeddings: Tensor,
+    relation_labels: Tensor,
+    entity_labels: Tensor,
+    template_labels: Tensor,
+    *,
+    temperature: float = 0.07,
+) -> Tensor:
+    """Relation SupCon with strict cross-entity, cross-template positives."""
+
+    labels = (relation_labels, entity_labels, template_labels)
+    if embeddings.ndim != 2 or any(
+        value.ndim != 1 or len(value) != len(embeddings) for value in labels
+    ):
+        raise ValueError("invalid relation-contrastive inputs")
+    if temperature <= 0:
+        raise ValueError("temperature must be positive")
+    unit = F.normalize(embeddings.float(), dim=-1)
+    relation_equal = relation_labels[:, None].eq(relation_labels[None, :])
+    entity_equal = entity_labels[:, None].eq(entity_labels[None, :])
+    template_equal = template_labels[:, None].eq(template_labels[None, :])
+    self_mask = torch.eye(
+        len(embeddings), dtype=torch.bool, device=embeddings.device
+    )
+    positive = (
+        relation_equal & ~entity_equal & ~template_equal & ~self_mask
+    )
+    negative = ~relation_equal & ~self_mask
+    allowed = positive | negative
+    if bool((positive.sum(dim=1) == 0).any()):
+        raise ValueError(
+            "every relation anchor needs another entity under another template"
+        )
+    if bool((negative.sum(dim=1) == 0).any()):
+        raise ValueError("every relation anchor needs a different-relation negative")
+    logits = unit @ unit.T / temperature
+    logits = logits - logits.max(dim=1, keepdim=True).values.detach()
+    exp_logits = logits.exp().masked_fill(~allowed, 0.0)
+    log_probability = logits - exp_logits.sum(dim=1, keepdim=True).clamp_min(
+        1e-12
+    ).log()
+    mean_positive = (log_probability * positive).sum(dim=1) / positive.sum(dim=1)
+    return -mean_positive.mean()
+
+
 @torch.inference_mode()
 def _embed_branch_outputs(
     system: CanonicalizerSystem,
@@ -1099,9 +1144,11 @@ def train_c21_variant(
         relation_ce = F.cross_entropy(
             output["relation_logits"], targets["relation"]
         )
-        relation_supcon = supervised_contrastive_loss(
+        relation_supcon = relation_supervised_contrastive_loss(
             output["relation_unit"],
             targets["relation"],
+            targets["entity"],
+            targets["template"],
             temperature=temperature,
         )
         template_adversary = F.cross_entropy(
