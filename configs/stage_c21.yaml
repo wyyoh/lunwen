@@ -8,3 +8,75 @@ confirmation:
   destination: data/stage_c21_confirmation
   public_record: artifacts/stage_c21/confirmation_seal.json
   templates_per_relation: 2
+
+experiment:
+  # Reuse frozen-core features so R0-R4 never update or repeatedly load the core.
+  feature_cache: artifacts/stage_c2/canonicalizer_features.pt
+  # R0 is loaded byte-for-byte from the already selected Stage-C2 Q3 checkpoint.
+  r0_checkpoint: artifacts/stage_c2/Q3/canonicalizer.pt
+  # Training reads this public hash record, never the ignored confirmation rows.
+  public_confirmation_seal: artifacts/stage_c21/confirmation_seal.json
+
+training:
+  seed: 0
+  steps: 1500
+  query_dim: 128
+  mlp_hidden_size: 256
+  dropout: 0.1
+  temperature: 0.07
+  batch_facts: 8
+  templates_per_fact: 3
+  learning_rate: 0.001
+  weight_decay: 0.01
+  warmup_fraction: 0.05
+  evaluation_interval: 50
+  # R3/R4 spend the first 20% of the fixed optimizer budget on relation-only loss.
+  relation_pretrain_fraction: 0.20
+
+variants:
+  R0:
+    import_q3: true
+    relation_ce_weight: 0.2
+    relation_supcon_weight: 0.0
+    entity_ce_weight: 0.2
+    template_adversary_weight: 0.0
+    relation_first: false
+    normalized_gated_fusion: false
+    relation_encoder_joint_lr_scale: 1.0
+  R1:
+    relation_ce_weight: 0.5
+    relation_supcon_weight: 0.2
+    entity_ce_weight: 0.2
+    template_adversary_weight: 0.0
+    relation_first: false
+    normalized_gated_fusion: false
+    relation_encoder_joint_lr_scale: 1.0
+  R2:
+    relation_ce_weight: 0.5
+    relation_supcon_weight: 0.2
+    entity_ce_weight: 0.2
+    template_adversary_weight: 0.05
+    relation_first: false
+    normalized_gated_fusion: false
+    relation_encoder_joint_lr_scale: 1.0
+  R3:
+    relation_ce_weight: 0.5
+    relation_supcon_weight: 0.2
+    entity_ce_weight: 0.2
+    template_adversary_weight: 0.05
+    relation_first: true
+    normalized_gated_fusion: false
+    relation_encoder_joint_lr_scale: 0.2
+  R4:
+    relation_ce_weight: 0.5
+    relation_supcon_weight: 0.2
+    entity_ce_weight: 0.2
+    template_adversary_weight: 0.05
+    relation_first: true
+    normalized_gated_fusion: true
+    relation_encoder_joint_lr_scale: 0.2
+
+evaluation:
+  batch_size: 128
+  ridge_strength: 0.01
+  template_probe_seed: 91

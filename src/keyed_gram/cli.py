@@ -32,6 +32,7 @@ from .stage_c1 import run_stage_c1
 from .stage_c2 import run_stage_c2
 from .stage_c21 import (
     run_relation_source_audit_from_config,
+    run_stage_c21,
     seal_confirmation_from_config,
 )
 from .train import train_gram
@@ -360,6 +361,26 @@ def command_stage_c21_seal(args: argparse.Namespace) -> None:
     _print(seal_confirmation_from_config(args.config))
 
 
+def command_stage_c21(args: argparse.Namespace) -> None:
+    result = run_stage_c21(
+        args.config,
+        args.output_dir,
+        device_name=args.device,
+    )
+    _print(
+        {
+            "status": result["status"],
+            "selected_variant": result["selected_variant"],
+            "development_ready_for_confirmation": result[
+                "development_ready_for_confirmation"
+            ],
+            "c3_eligible": result["c3_eligible"],
+            "recommended_next_step": result["recommended_next_step"],
+            "results": str(Path(args.output_dir).resolve()),
+        }
+    )
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="keyed-gram",
@@ -548,6 +569,15 @@ def build_parser() -> argparse.ArgumentParser:
     )
     stage_c21_seal.add_argument("--config", required=True)
     stage_c21_seal.set_defaults(func=command_stage_c21_seal)
+
+    stage_c21 = sub.add_parser(
+        "stage-c21",
+        help="run R0-R4 relation-preserving canonicalizer ablations",
+    )
+    stage_c21.add_argument("--config", required=True)
+    stage_c21.add_argument("--output-dir", required=True)
+    stage_c21.add_argument("--device")
+    stage_c21.set_defaults(func=command_stage_c21)
     return parser
 
 

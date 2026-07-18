@@ -5,8 +5,12 @@ import json
 
 from keyed_gram.canonicalizer import POOL_NAMES
 from keyed_gram.stage_c21 import (
+    DEFAULT_C21_VARIANTS,
+    parse_c21_variants,
+    relation_geometry_margin,
     run_relation_source_audit,
     seal_confirmation_templates,
+    train_c21_variant,
 )
 
 
@@ -109,3 +113,93 @@ def test_confirmation_seal_is_stable_and_detects_tampering(tmp_path):
         assert "hash" in str(error)
     else:
         raise AssertionError("tampered confirmation data was accepted")
+
+
+def test_relation_geometry_margin_uses_aligned_hard_negatives():
+    rows = []
+    embeddings = []
+    for entity in ("alice", "bob"):
+        for relation_index, relation in enumerate(("city", "registry")):
+            for template in ("t0", "t1"):
+                rows.append(
+                    {
+                        "entity": entity,
+                        "attribute": relation,
+                        "template_id": template,
+                    }
+                )
+                embeddings.append(
+                    [1.0, 0.0] if relation_index == 0 else [0.0, 1.0]
+                )
+    result = relation_geometry_margin(torch.tensor(embeddings), rows)
+    assert result["same_relation_different_entity_template_cosine"] == 1.0
+    assert result["different_relation_same_entity_template_cosine"] == 0.0
+    assert result["relation_template_margin"] == 1.0
+
+
+def test_c21_default_variants_are_incremental_and_keep_exact_r0():
+    variants = parse_c21_variants(None)
+    assert variants == DEFAULT_C21_VARIANTS
+    assert variants[0].name == "R0" and variants[0].import_q3 is True
+    assert variants[1].relation_supcon_weight == 0.2
+    assert variants[2].template_adversary_weight == 0.05
+    assert variants[3].relation_first is True
+    assert variants[4].normalized_gated_fusion is True
+
+
+def test_tiny_c21_training_writes_validation_selected_checkpoint(tmp_path):
+    rows = []
+    generator = torch.Generator().manual_seed(4)
+    for entity_index, entity in enumerate(("alice", "bob", "carol", "dave")):
+        for relation_index, relation in enumerate(("city", "registry")):
+            for template_index in range(2):
+                rows.append(
+                    {
+                        "entity": entity,
+                        "attribute": relation,
+                        "template_id": f"train-{template_index}",
+                        "fact_id": f"{entity}|{relation}",
+                        "answer": f"answer-{entity_index}-{relation_index}",
+                    }
+                )
+    split_rows = {
+        "train": rows,
+        "validation": [
+            {**row, "template_id": row["template_id"].replace("train", "val")}
+            for row in rows
+        ],
+    }
+    split_features = {
+        split: torch.randn(len(values), 3, 2, 6, generator=generator)
+        for split, values in split_rows.items()
+    }
+    result = train_c21_variant(
+        DEFAULT_C21_VARIANTS[1],
+        split_features,
+        split_rows,
+        tmp_path / "R1",
+        selected_layer_indices=[3, 5],
+        core_hidden_size=6,
+        core_sha256="core",
+        steps=1,
+        relation_pretrain_fraction=0.2,
+        batch_facts=4,
+        templates_per_fact=2,
+        query_dim=4,
+        mlp_hidden_size=8,
+        dropout=0.0,
+        temperature=0.07,
+        learning_rate=1e-3,
+        weight_decay=0.0,
+        warmup_fraction=0.0,
+        evaluation_interval=1,
+        evaluation_batch_size=32,
+        seed=0,
+        device=torch.device("cpu"),
+        ridge_strength=0.01,
+        template_probe_seed=91,
+    )
+    assert result["best_step"] == 1
+    assert result["pretrain_steps"] == 0
+    assert (tmp_path / "R1" / "canonicalizer.pt").exists()
+    assert (tmp_path / "R1" / "history.csv").exists()
