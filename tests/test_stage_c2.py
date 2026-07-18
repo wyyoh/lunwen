@@ -93,6 +93,35 @@ def test_factorized_canonicalizer_outputs_unit_queries():
     assert output["layer_weights"].shape == (3, 3)
 
 
+def test_normalized_gated_fusion_exposes_branch_contributions():
+    config = CanonicalizerConfig(
+        architecture="factorized",
+        num_input_layers=3,
+        core_hidden_size=8,
+        query_dim=4,
+        mlp_hidden_size=12,
+        dropout=0.0,
+        num_entities=4,
+        num_relations=2,
+        num_templates=3,
+        template_adversary_source="relation",
+        normalized_gated_fusion=True,
+    )
+    system = CanonicalizerSystem(config)
+    output = system(torch.randn(5, 3, 3, 8), adversary_strength=1.0)
+    assert torch.allclose(output["entity_unit"].norm(dim=-1), torch.ones(5))
+    assert torch.allclose(output["relation_unit"].norm(dim=-1), torch.ones(5))
+    assert torch.equal(output["template_source"], output["relation_unit"])
+    assert output["fusion_scales"].shape == (3,)
+    assert bool(output["fusion_scales"].gt(0).all())
+    for name in (
+        "entity_contribution",
+        "relation_contribution",
+        "interaction_contribution",
+    ):
+        assert output[name].shape == (5, 4)
+
+
 def test_canonicalizer_checkpoint_round_trip(tmp_path):
     config = CanonicalizerConfig(
         architecture="joint",
