@@ -642,9 +642,11 @@ def _json_open_set(value: Mapping[str, Any]) -> dict[str, Any]:
     }
 
 
-def _strict_grade(
+def _validation_only_grade(
     s5: Mapping[str, Any], gates: Mapping[str, Any]
 ) -> dict[str, Any]:
+    """Grade an S5 encoder/view without consulting development metrics."""
+
     leakage = s5["relation_conditioned_projected_family_leakage"]
     leakage_threshold = float(leakage["macro_chance_accuracy"]) + float(
         gates.get("projected_family_probe_chance_margin", 0.10)
@@ -660,12 +662,9 @@ def _strict_grade(
             float(gates.get("private_validation_relation_accuracy", 0.85)),
             False,
         ),
-        "development_relation_accuracy": (
-            s5["development_relation_accuracy"],
-            float(gates.get("development_relation_accuracy", 0.85)),
-            False,
-        ),
         "relation_family_margin": (
+            # S5 is selected on its projected relation representation.  The
+            # raw frozen-encoder LOFO result remains a diagnostic only.
             s5["public_validation_lofo_relation_geometry"]["macro_margin"],
             float(gates.get("relation_family_margin", 0.15)),
             False,
@@ -683,10 +682,7 @@ def _strict_grade(
             False,
         ),
         "entity_probe": (
-            min(
-                s5["entity_probe"]["validation"]["accuracy"],
-                s5["entity_probe"]["development"]["accuracy"],
-            ),
+            s5["entity_probe"]["validation"]["accuracy"],
             float(gates.get("entity_probe", 0.90)),
             False,
         ),
@@ -706,6 +702,79 @@ def _strict_grade(
         "passed_count": passed_count,
         "total": len(output),
         "gates": output,
+        "development_consulted": False,
+        "relation_family_representation": "softmax_fixed_ridge_logits",
+    }
+
+
+def _s5_candidate_score(s5: Mapping[str, Any]) -> tuple[float, ...]:
+    """Validation-only lexicographic selection with gate count first."""
+
+    grade = s5["validation_only_readiness"]
+    public_macro = float(
+        s5["public_validation_family_macro"]["macro_accuracy"]
+    )
+    private_accuracy = float(s5["private_validation_relation_accuracy"])
+    fact_top1 = float(
+        s5["fact_geometry"]["validation"]["retrieval"][
+            "centroid_top1_accuracy"
+        ]
+    )
+    projected_margin = float(
+        s5["public_validation_lofo_relation_geometry"]["macro_margin"]
+    )
+    leakage = float(
+        s5["relation_conditioned_projected_family_leakage"]["macro_accuracy"]
+    )
+    open_auroc = float(s5["open_set"]["known_detection_auroc"])
+    return (
+        float(grade["passed_count"]),
+        min(public_macro, private_accuracy, fact_top1),
+        public_macro,
+        private_accuracy,
+        fact_top1,
+        projected_margin,
+        -leakage,
+        open_auroc,
+    )
+
+
+def _strict_grade(
+    s5: Mapping[str, Any], gates: Mapping[str, Any]
+) -> dict[str, Any]:
+    """Add the one-time selected development diagnostic to validation gates."""
+
+    validation = _validation_only_grade(s5, gates)
+    output = {name: dict(value) for name, value in validation["gates"].items()}
+    entity_threshold = float(gates.get("entity_probe", 0.90))
+    entity_value = min(
+        float(s5["entity_probe"]["validation"]["accuracy"]),
+        float(s5["entity_probe"]["development"]["accuracy"]),
+    )
+    output["entity_probe"] = {
+        "value": entity_value,
+        "threshold": entity_threshold,
+        "direction": ">=",
+        "passed": entity_value >= entity_threshold,
+    }
+    development_value = float(s5["development_relation_accuracy"])
+    development_threshold = float(
+        gates.get("development_relation_accuracy", 0.85)
+    )
+    output["development_relation_accuracy"] = {
+        "value": development_value,
+        "threshold": development_threshold,
+        "direction": ">=",
+        "passed": development_value >= development_threshold,
+    }
+    passed_count = sum(bool(value["passed"]) for value in output.values())
+    return {
+        "passed": passed_count == len(output),
+        "passed_count": passed_count,
+        "total": len(output),
+        "gates": output,
+        "development_consulted": True,
+        "relation_family_representation": "softmax_fixed_ridge_logits",
     }
 
 
@@ -794,9 +863,8 @@ def run_stage_c23_audit(
             batch_size=evaluation_batch_size,
             device=device,
         )
-        for split in PRIVATE_SPLIT_ALIASES
+        for split in ("train", "validation")
     }
-    system.to("cpu")
 
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -817,9 +885,11 @@ def run_stage_c23_audit(
     )
     model_manifests: dict[str, dict[str, Any]] = {}
     encoders: dict[str, LoadedSemanticEncoder] = {}
-    definitions_by_variant: dict[str, dict[str, Tensor]] = {}
-    candidate_details: dict[str, dict[str, Any]] = {}
-    candidate_csv = []
+    zero_shot_details: dict[str, dict[str, Any]] = {}
+    zero_shot_csv = []
+    s5_candidate_details: dict[str, dict[str, Any]] = {}
+    s5_candidate_csv = []
+    s5_runtime: dict[str, dict[str, Any]] = {}
     gates = audit_config.get("gates", {})
     definitions = benchmark_config.get("definitions")
     if not isinstance(definitions, Mapping):
@@ -831,9 +901,17 @@ def run_stage_c23_audit(
     )
     bootstrap_seed = int(audit_config.get("bootstrap_seed", 2301))
     ridge_strength = float(audit_config.get("ridge_strength", 0.01))
+    relation_labels = list(labels["relations"])
+    entity_probe_validation = ridge_probe_accuracy(
+        entity_embeddings["train"],
+        [str(row["entity"]) for row in private["train"]],
+        entity_embeddings["validation"],
+        [str(row["entity"]) for row in private["validation"]],
+        ridge_strength=ridge_strength,
+    )
 
-    # S2-S4/S6 candidate evaluation touches only public validation and private
-    # validation. No development texts or embeddings are materialized here.
+    # Zero-shot definition matching and S5 linear-head selection are two
+    # independent reports. Both stop at validation; development is untouched.
     for variant in requested:
         spec = specs[variant]
         encoder = encoder_loader(spec, cache_dir=model_cache, device=device)
@@ -845,260 +923,285 @@ def run_stage_c23_audit(
         definition_embeddings = _definition_embeddings(
             variant, encoder, manifest, definitions, store
         )
-        definitions_by_variant[variant] = definition_embeddings
         for view in input_views:
-            public_texts = _view_texts(public["validation"], view)
-            reject_texts = _view_texts(public["reject"], view)
-            private_texts = _view_texts(private["validation"], view)
-            public_embedding = store.get(
-                variant,
-                encoder,
-                manifest,
-                dataset="public_validation",
-                view=view,
-                texts=public_texts,
-                row_ids=_row_ids(public["validation"], prefix="public-validation"),
-            )
-            private_embedding = store.get(
-                variant,
-                encoder,
-                manifest,
-                dataset="private_validation",
-                view=view,
-                texts=private_texts,
-                row_ids=_row_ids(private["validation"], prefix="private-validation"),
-            )
-            reject_embedding = store.get(
-                variant,
-                encoder,
-                manifest,
-                dataset="public_reject",
-                view=view,
-                texts=reject_texts,
-                row_ids=_row_ids(public["reject"], prefix="public-reject"),
-            )
-            metrics = _candidate_metrics(
-                public_embedding,
+            split_rows = {
+                "public_train": public["train"],
+                "public_validation": public["validation"],
+                "public_reject": public["reject"],
+                "private_train": private["train"],
+                "private_validation": private["validation"],
+            }
+            embeddings = {}
+            for dataset, rows in split_rows.items():
+                texts = _view_texts(rows, view)
+                embeddings[dataset] = store.get(
+                    variant,
+                    encoder,
+                    manifest,
+                    dataset=dataset,
+                    view=view,
+                    texts=texts,
+                    row_ids=_row_ids(rows, prefix=dataset),
+                    e5_input_type="query",
+                )
+
+            zero_metrics = _candidate_metrics(
+                embeddings["public_validation"],
                 public["validation"],
-                reject_embedding,
+                embeddings["public_reject"],
                 public["reject"],
-                private_embedding,
+                embeddings["private_validation"],
                 private["validation"],
                 definition_embeddings,
                 bootstrap_samples=resamples,
                 bootstrap_seed=bootstrap_seed,
                 ridge_strength=ridge_strength,
             )
-            score = _candidate_score(metrics, gates)
+            zero_score = _candidate_score(zero_metrics, gates)
             key = f"{variant}:{view}"
-            candidate_details[key] = {
+            zero_shot_details[key] = {
                 "variant": variant,
                 "view": view,
                 "selection_split": "public_validation+private_validation",
-                "selection_score": list(score),
-                "metrics": metrics,
+                "selection_score": list(zero_score),
+                "metrics": zero_metrics,
             }
-            candidate_csv.append(
+            zero_shot_csv.append(
                 {
                     "variant": variant,
                     "view": view,
-                    "selection_gate_count": int(score[0]),
-                    "public_family_macro_accuracy": metrics[
+                    "selection_gate_count": int(zero_score[0]),
+                    "public_family_macro_accuracy": zero_metrics[
                         "public_validation_family_macro"
                     ]["macro_accuracy"],
-                    "public_relation_accuracy": metrics[
+                    "public_relation_accuracy": zero_metrics[
                         "public_validation_relation_accuracy"
                     ],
-                    "private_validation_relation_accuracy": metrics[
+                    "private_validation_relation_accuracy": zero_metrics[
                         "private_validation_relation_accuracy"
                     ],
-                    "lofo_relation_margin": metrics[
+                    "raw_lofo_relation_margin": zero_metrics[
                         "public_validation_lofo_relation_geometry"
                     ]["macro_margin"],
-                    "known_detection_auroc": metrics["open_set"][
+                    "known_detection_auroc": zero_metrics["open_set"][
                         "known_detection_auroc"
                     ],
                 }
             )
+            head = fit_ridge_linear_head(
+                embeddings["public_train"],
+                [str(row["attribute"]) for row in public["train"]],
+                ridge_strength=ridge_strength,
+                classes=relation_labels,
+            )
+            logits = {
+                dataset: head.logits(value) for dataset, value in embeddings.items()
+            }
+            predictions = {
+                dataset: _prediction_strings(value, head.classes)
+                for dataset, value in logits.items()
+            }
+            public_targets = [
+                str(row["attribute"]) for row in public["validation"]
+            ]
+            public_families = [
+                str(row["family_id"]) for row in public["validation"]
+            ]
+            projected = logits["public_validation"].softmax(dim=1)
+            projected_lofo = leave_one_family_out_relation_margin(
+                projected, public_targets, public_families
+            )
+            raw_lofo = leave_one_family_out_relation_margin(
+                embeddings["public_validation"], public_targets, public_families
+            )
+            leakage = relation_conditioned_projected_family_leakage(
+                projected,
+                public["validation"],
+                ridge_strength=ridge_strength,
+            )
+            relation_lookup = {
+                value: index for index, value in enumerate(head.classes)
+            }
+            known_targets = torch.tensor(
+                [relation_lookup[value] for value in public_targets]
+                + [-1] * len(public["reject"]),
+                dtype=torch.long,
+            )
+            open_set = _json_open_set(
+                open_set_rejection_metrics(
+                    torch.cat(
+                        [logits["public_validation"], logits["public_reject"]],
+                        dim=0,
+                    ),
+                    known_targets,
+                )
+            )
+            private_train_query = fuse_predicted_relation_queries(
+                entity_embeddings["train"],
+                logits["private_train"],
+                alpha=relation_alpha,
+            )
+            private_validation_query = fuse_predicted_relation_queries(
+                entity_embeddings["validation"],
+                logits["private_validation"],
+                alpha=relation_alpha,
+            )
+            validation_fact, validation_fact_predictions = answer_free_query_metrics(
+                private_train_query,
+                private["train"],
+                private_validation_query,
+                private["validation"],
+                ridge_strength=ridge_strength,
+            )
+            public_family = family_macro_accuracy(
+                predictions["public_validation"], public_targets, public_families
+            )
+            s5_metrics = {
+                "public_validation_family_macro": public_family,
+                "public_validation_family_bootstrap_ci": (
+                    family_bootstrap_accuracy_ci(
+                        predictions["public_validation"],
+                        public_targets,
+                        public_families,
+                        num_resamples=resamples,
+                        seed=bootstrap_seed,
+                    )
+                ),
+                "public_validation_relation_accuracy": _accuracy(
+                    predictions["public_validation"], public["validation"]
+                ),
+                "private_validation_relation_accuracy": _accuracy(
+                    predictions["private_validation"], private["validation"]
+                ),
+                "public_validation_lofo_relation_geometry": projected_lofo,
+                "raw_encoder_lofo_relation_geometry_diagnostic": raw_lofo,
+                "relation_conditioned_projected_family_leakage": leakage,
+                "open_set": open_set,
+                "fact_geometry": {
+                    "alpha": relation_alpha,
+                    "relation_representation": "softmax_fixed_ridge_logits",
+                    "validation": validation_fact,
+                },
+                "entity_probe": {"validation": entity_probe_validation},
+            }
+            s5_metrics["validation_only_readiness"] = _validation_only_grade(
+                s5_metrics, gates
+            )
+            s5_score = _s5_candidate_score(s5_metrics)
+            s5_candidate_details[key] = {
+                "variant": variant,
+                "view": view,
+                "training_scope": "ridge_head_on_answer_free_public_train",
+                "selection_split": "public_validation+private_validation",
+                "development_materialized": False,
+                "selection_score": list(s5_score),
+                "metrics": s5_metrics,
+            }
+            s5_candidate_csv.append(
+                {
+                    "variant": variant,
+                    "view": view,
+                    "validation_gate_count": int(s5_score[0]),
+                    "public_family_macro_accuracy": public_family[
+                        "macro_accuracy"
+                    ],
+                    "private_validation_relation_accuracy": s5_metrics[
+                        "private_validation_relation_accuracy"
+                    ],
+                    "projected_lofo_relation_margin": projected_lofo[
+                        "macro_margin"
+                    ],
+                    "raw_lofo_relation_margin_diagnostic": raw_lofo[
+                        "macro_margin"
+                    ],
+                    "projected_family_leakage": leakage["macro_accuracy"],
+                    "validation_fact_centroid_top1": validation_fact["retrieval"][
+                        "centroid_top1_accuracy"
+                    ],
+                    "known_detection_auroc": open_set["known_detection_auroc"],
+                }
+            )
+            s5_runtime[key] = {
+                "head": head,
+                "private_train_query": private_train_query,
+                "validation_fact_predictions": validation_fact_predictions,
+            }
+
+    zero_shot_selected_key = max(
+        zero_shot_details,
+        key=lambda key: tuple(zero_shot_details[key]["selection_score"]),
+    )
     selected_key = max(
-        candidate_details,
-        key=lambda key: tuple(candidate_details[key]["selection_score"]),
+        s5_candidate_details,
+        key=lambda key: tuple(s5_candidate_details[key]["selection_score"]),
     )
     selected_variant, selected_view = selected_key.split(":", 1)
     selected_encoder = encoders[selected_variant]
     selected_manifest = model_manifests[selected_variant]
+    selected_runtime = s5_runtime[selected_key]
+    head = selected_runtime["head"]
 
-    # S5 starts only after the encoder/view choice is immutable.
-    split_specs = {
-        "public_train": (public["train"], "query"),
-        "public_validation": (public["validation"], "query"),
-        "public_reject": (public["reject"], "query"),
-        "private_train": (private["train"], "query"),
-        "private_validation": (private["validation"], "query"),
-        "private_development": (private["test"], "query"),
-    }
-    selected_embeddings = {}
-    for dataset, (rows, input_type) in split_specs.items():
-        texts = _view_texts(rows, selected_view)
-        selected_embeddings[dataset] = store.get(
-            selected_variant,
-            selected_encoder,
-            selected_manifest,
-            dataset=dataset,
-            view=selected_view,
-            texts=texts,
-            row_ids=_row_ids(rows, prefix=dataset),
-            e5_input_type=input_type,
-        )
-
-    relation_labels = list(labels["relations"])
-    head = fit_ridge_linear_head(
-        selected_embeddings["public_train"],
-        [str(row["attribute"]) for row in public["train"]],
-        ridge_strength=ridge_strength,
-        classes=relation_labels,
+    # The selected S5 candidate is now immutable. This is the first and only
+    # materialization/evaluation of the private development split.
+    development_texts = _view_texts(private["test"], selected_view)
+    development_embedding = store.get(
+        selected_variant,
+        selected_encoder,
+        selected_manifest,
+        dataset="private_development",
+        view=selected_view,
+        texts=development_texts,
+        row_ids=_row_ids(private["test"], prefix="private_development"),
+        e5_input_type="query",
     )
-    logits = {
-        dataset: head.logits(embeddings)
-        for dataset, embeddings in selected_embeddings.items()
-    }
-    predictions = {
-        dataset: _prediction_strings(values, head.classes)
-        for dataset, values in logits.items()
-    }
-    public_targets = [str(row["attribute"]) for row in public["validation"]]
-    public_families = [str(row["family_id"]) for row in public["validation"]]
-    public_family = family_macro_accuracy(
-        predictions["public_validation"], public_targets, public_families
+    development_logits = head.logits(development_embedding)
+    development_predictions = _prediction_strings(development_logits, head.classes)
+    entity_embeddings["test"] = _extract_frozen_entity_embeddings(
+        system,
+        private_features["test"],
+        batch_size=evaluation_batch_size,
+        device=device,
     )
-    bootstrap = family_bootstrap_accuracy_ci(
-        predictions["public_validation"],
-        public_targets,
-        public_families,
-        num_resamples=resamples,
-        seed=bootstrap_seed,
-    )
-    private_validation_accuracy = _accuracy(
-        predictions["private_validation"], private["validation"]
-    )
-    development_accuracy = _accuracy(
-        predictions["private_development"], private["test"]
-    )
-    lofo = leave_one_family_out_relation_margin(
-        selected_embeddings["public_validation"],
-        public_targets,
-        public_families,
-    )
-    projected_leakage = relation_conditioned_projected_family_leakage(
-        logits["public_validation"].softmax(dim=1),
-        public["validation"],
-        ridge_strength=ridge_strength,
-    )
-    relation_lookup = {value: index for index, value in enumerate(head.classes)}
-    known_targets = torch.tensor(
-        [relation_lookup[str(row["attribute"])] for row in public["validation"]]
-        + [-1] * len(public["reject"]),
-        dtype=torch.long,
-    )
-    open_set = _json_open_set(
-        open_set_rejection_metrics(
-            torch.cat([logits["public_validation"], logits["public_reject"]], dim=0),
-            known_targets,
-        )
-    )
-
-    private_queries = {
-        "train": fuse_predicted_relation_queries(
-            entity_embeddings["train"], logits["private_train"], alpha=relation_alpha
-        ),
-        "validation": fuse_predicted_relation_queries(
-            entity_embeddings["validation"],
-            logits["private_validation"],
-            alpha=relation_alpha,
-        ),
-        "test": fuse_predicted_relation_queries(
-            entity_embeddings["test"],
-            logits["private_development"],
-            alpha=relation_alpha,
-        ),
-    }
-    validation_fact, validation_fact_predictions = answer_free_query_metrics(
-        private_queries["train"],
-        private["train"],
-        private_queries["validation"],
-        private["validation"],
-        ridge_strength=ridge_strength,
+    system.to("cpu")
+    development_query = fuse_predicted_relation_queries(
+        entity_embeddings["test"], development_logits, alpha=relation_alpha
     )
     development_fact, development_fact_predictions = answer_free_query_metrics(
-        private_queries["train"],
+        selected_runtime["private_train_query"],
         private["train"],
-        private_queries["test"],
+        development_query,
         private["test"],
         ridge_strength=ridge_strength,
     )
-    entity_probe = {
-        "validation": ridge_probe_accuracy(
-            entity_embeddings["train"],
-            [str(row["entity"]) for row in private["train"]],
-            entity_embeddings["validation"],
-            [str(row["entity"]) for row in private["validation"]],
-            ridge_strength=ridge_strength,
-        ),
-        "development": ridge_probe_accuracy(
-            entity_embeddings["train"],
-            [str(row["entity"]) for row in private["train"]],
-            entity_embeddings["test"],
-            [str(row["entity"]) for row in private["test"]],
-            ridge_strength=ridge_strength,
-        ),
-    }
-    selected_definition_development = definition_prototype_matching(
-        selected_embeddings["private_development"],
-        definitions_by_variant[selected_variant],
-        aggregation="mean",
+    entity_probe_development = ridge_probe_accuracy(
+        entity_embeddings["train"],
+        [str(row["entity"]) for row in private["train"]],
+        entity_embeddings["test"],
+        [str(row["entity"]) for row in private["test"]],
+        ridge_strength=ridge_strength,
     )
+    selected_validation = s5_candidate_details[selected_key]["metrics"]
     s5 = {
         "variant": "S5",
         "base_encoder_variant": selected_variant,
         "view": selected_view,
         "training_scope": "fixed_ridge_head_on_answer_free_public_train",
-        "public_validation_family_macro": public_family,
-        "public_validation_family_bootstrap_ci": bootstrap,
-        "public_validation_relation_accuracy": _accuracy(
-            predictions["public_validation"], public["validation"]
+        **selected_validation,
+        "development_relation_accuracy": _accuracy(
+            development_predictions, private["test"]
         ),
-        "private_validation_relation_accuracy": private_validation_accuracy,
-        "development_relation_accuracy": development_accuracy,
-        "selected_definition_development_relation_accuracy": _accuracy(
-            selected_definition_development["predictions"], private["test"]
-        ),
-        "public_validation_lofo_relation_geometry": lofo,
-        "relation_conditioned_projected_family_leakage": projected_leakage,
-        "open_set": open_set,
-        "fact_geometry": {
-            "alpha": relation_alpha,
-            "relation_representation": "softmax_fixed_ridge_logits",
-            "validation": validation_fact,
-            "development_diagnostic": development_fact,
-        },
-        "entity_probe": entity_probe,
+        "development_materialized_after_selection": True,
+        "development_evaluation_count": 1,
+    }
+    s5["fact_geometry"] = {
+        **selected_validation["fact_geometry"],
+        "development_diagnostic": development_fact,
+    }
+    s5["entity_probe"] = {
+        "validation": entity_probe_validation,
+        "development": entity_probe_development,
     }
     s5["strict_readiness"] = _strict_grade(s5, gates)
-    validation_gates = {
-        name: gate
-        for name, gate in s5["strict_readiness"]["gates"].items()
-        if name != "development_relation_accuracy"
-    }
-    validation_passed_count = sum(
-        bool(gate["passed"]) for gate in validation_gates.values()
-    )
-    s5["validation_only_readiness"] = {
-        "passed": validation_passed_count == len(validation_gates),
-        "passed_count": validation_passed_count,
-        "total": len(validation_gates),
-        "gates": validation_gates,
-        "purpose": "capacity-upper-bound decision without development selection",
-    }
 
     head_path = output_dir / "S5" / "ridge_relation_head.pt"
     head_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1120,15 +1223,18 @@ def run_stage_c23_audit(
         output_dir / "S5" / "fact_retrieval_predictions.json",
         [
             {**row, "query_split": "validation"}
-            for row in validation_fact_predictions
+            for row in selected_runtime["validation_fact_predictions"]
         ]
         + [
             {**row, "query_split": "development"}
             for row in development_fact_predictions
         ],
     )
-    candidate_csv_path = _write_candidate_csv(
-        output_dir / "semantic_candidates.csv", candidate_csv
+    zero_shot_csv_path = _write_candidate_csv(
+        output_dir / "zero_shot_candidates.csv", zero_shot_csv
+    )
+    s5_candidate_csv_path = _write_candidate_csv(
+        output_dir / "s5_linear_candidates.csv", s5_candidate_csv
     )
     model_manifest_path = write_answer_free_json(
         output_dir / "model_file_manifest.json",
@@ -1171,14 +1277,23 @@ def run_stage_c23_audit(
         "selected_variant": selected_variant,
         "selected_view": selected_view,
         "selection_protocol": (
-            "encoder/view selection uses only public validation and private "
-            "validation definition matching; development is evaluated after selection"
+            "zero-shot definition matching is reported independently; S5 fits one "
+            "public-train ridge head for every requested encoder/view and selects "
+            "only by validation gate count and score; development is evaluated once "
+            "after S5 selection"
         ),
         "development_used_for_selection": False,
+        "development_materialized_candidates": [selected_key],
         "private_cache_metadata_sanitized_immediately": True,
         "private_sanitized_fields": sorted(SANITIZED_PRIVATE_FIELDS),
         "public_benchmark": public_manifest,
-        "semantic_encoder_trials": candidate_details,
+        "zero_shot_definition_matching": {
+            "selected_candidate": zero_shot_selected_key,
+            "selection_independent_of_s5": True,
+            "trials": zero_shot_details,
+        },
+        "semantic_encoder_trials": zero_shot_details,
+        "s5_linear_head_trials": s5_candidate_details,
         "s5": s5,
         "small_model_strict_passed": strict_passed and small_executed,
         "small_model_validation_only_passed": (
@@ -1213,7 +1328,8 @@ def run_stage_c23_audit(
         "environment": collect_environment(device, torch.float32),
         "elapsed_seconds": time.perf_counter() - started,
         "artifacts": {
-            "candidate_csv": str(candidate_csv_path.resolve()),
+            "zero_shot_candidate_csv": str(zero_shot_csv_path.resolve()),
+            "s5_candidate_csv": str(s5_candidate_csv_path.resolve()),
             "model_file_manifest": str(model_manifest_path.resolve()),
             "embedding_cache_manifest": str(embedding_manifest_path.resolve()),
             "s5_head": str(head_path.resolve()),
@@ -1236,7 +1352,8 @@ def run_stage_c23_audit(
                 "sha256": _sha256_file(path),
             }
             for path in (
-                candidate_csv_path,
+                zero_shot_csv_path,
+                s5_candidate_csv_path,
                 model_manifest_path,
                 embedding_manifest_path,
                 head_path,
