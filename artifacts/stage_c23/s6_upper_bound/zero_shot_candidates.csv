@@ -1,0 +1,4 @@
+variant,view,selection_gate_count,public_family_macro_accuracy,public_relation_accuracy,private_validation_relation_accuracy,raw_lofo_relation_margin,known_detection_auroc
+S6,phrase_only,2,1.0,1.0,1.0,0.05896539158291287,0.9976851851851852
+S6,entity_masked,1,0.9907407407407409,0.9907407407407407,0.6666666666666666,0.030344199622049928,0.9215213477366255
+S6,entity_masked_strip_suffix,1,0.9907407407407409,0.9907407407407407,0.6666666666666666,0.03162904342429505,0.9352816358024691

@@ -1,0 +1,4 @@
+variant,view,validation_gate_count,public_family_macro_accuracy,private_validation_relation_accuracy,projected_lofo_relation_margin,raw_lofo_relation_margin_diagnostic,projected_family_leakage,validation_fact_centroid_top1,known_detection_auroc
+S6,phrase_only,5,0.9722222222222222,1.0,0.15568501460883352,0.05896539158291287,0.3333333333333333,0.9375,0.9641203703703703
+S6,entity_masked,5,0.9212962962962963,1.0,0.16995137633704063,0.030344199622049928,0.2916666666666667,0.9375,0.8794045781893004
+S6,entity_masked_strip_suffix,5,0.9120370370370369,1.0,0.17011217064120704,0.03162904342429505,0.2916666666666667,0.9375,0.8853845164609053
