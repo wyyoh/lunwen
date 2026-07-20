@@ -16,6 +16,7 @@ from keyed_gram.canonicalizer import (
     save_canonicalizer_checkpoint,
 )
 from keyed_gram.cli import build_parser
+from keyed_gram.stage_c23 import prepare_answer_free_private_feature_cache
 from keyed_gram.stage_c23_audit import (
     relation_conditioned_projected_family_leakage,
     run_stage_c23_audit,
@@ -395,7 +396,13 @@ def test_stage_c23_cli_subcommands_parse(argv, command):
 def test_runner_uses_only_requested_mock_variant_and_writes_answer_free_audit(
     tmp_path,
 ):
-    cache, checkpoint, _ = _build_private_sources(tmp_path)
+    source_cache, checkpoint, _ = _build_private_sources(tmp_path)
+    cache = tmp_path / "answer_free_private_features.pt"
+    prepare_answer_free_private_feature_cache(
+        source_cache,
+        cache,
+        tmp_path / "answer_free_private_features.json",
+    )
     incident = _write_incident(tmp_path / "protocol_incident.json")
     config = _write_config(
         tmp_path / "stage_c23.yaml", cache, checkpoint, incident
@@ -430,6 +437,8 @@ def test_runner_uses_only_requested_mock_variant_and_writes_answer_free_audit(
     assert summary["selected_variant"] == "S2"
     assert summary["development_used_for_selection"] is False
     assert summary["private_cache_metadata_sanitized_immediately"] is True
+    assert summary["private_answers_deserialized_by_runtime"] is False
+    assert summary["private_answers_passed_to_semantic_encoder"] is False
     assert summary["s5"]["public_validation_family_macro"]["macro_accuracy"] == 1.0
     assert summary["s5"]["private_validation_relation_accuracy"] == 1.0
     assert summary["s5"]["development_relation_accuracy"] == 1.0
@@ -437,6 +446,8 @@ def test_runner_uses_only_requested_mock_variant_and_writes_answer_free_audit(
     assert summary["s6_status"] == "skipped_small_model_validation_gates_passed"
     assert summary["small_model_validation_only_passed"] is True
     assert summary["c3_eligible"] is False
+    assert summary["failed_strict_gates"] == []
+    assert "query geometry only" in summary["c3_eligibility_reason"]
     assert summary["run_confirmation_data_read"] is False
     assert summary["retired_confirmation_template_read_count"] == 1
     assert summary["confirmation_evaluation_count"] == 0

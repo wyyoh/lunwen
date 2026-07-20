@@ -19,8 +19,10 @@ from keyed_gram.stage_c23 import (
     fuse_oracle_queries,
     load_c23_protocol_status,
     oracle_relation_one_hot,
+    prepare_answer_free_private_feature_cache,
     run_stage_c23_oracle,
     select_oracle_alpha,
+    validate_answer_free_private_feature_cache,
     validate_oracle_sources,
     write_answer_free_json,
 )
@@ -270,10 +272,29 @@ def test_source_validation_rejects_hash_layer_and_relation_label_mismatches(
         validate_oracle_sources(cache, system, wrong_labels)
 
 
+def test_c23_runtime_rejects_answer_bearing_private_feature_cache(tmp_path):
+    source_cache, _ = _build_sources(tmp_path)
+    with pytest.raises(ValueError, match="prepared answer-free"):
+        validate_answer_free_private_feature_cache(
+            _load_feature_cache(source_cache)
+        )
+
+
 def test_tiny_s0_run_is_validation_selected_answer_free_and_protocol_explicit(
     tmp_path,
 ):
-    cache, checkpoint = _build_sources(tmp_path)
+    source_cache, checkpoint = _build_sources(tmp_path)
+    cache = tmp_path / "answer_free_features.pt"
+    cache_manifest = tmp_path / "answer_free_features.json"
+    prepared = prepare_answer_free_private_feature_cache(
+        source_cache, cache, cache_manifest
+    )
+    assert prepared["runtime_cache_answer_free"] is True
+    assert set(prepared["stripped_field_names"]) == {
+        "answer",
+        "answer_index",
+        "candidates",
+    }
     incident = _write_protocol_incident(tmp_path / "incident.json")
     output = tmp_path / "output"
     summary = run_stage_c23_oracle(
@@ -290,6 +311,7 @@ def test_tiny_s0_run_is_validation_selected_answer_free_and_protocol_explicit(
     assert summary["selection_split"] == "validation"
     assert summary["development_evaluated_after_selection"] is True
     assert summary["oracle_upper_bound_passed"] is True
+    assert summary["private_answers_deserialized_by_runtime"] is False
     assert summary["private_answers_serialized"] is False
     assert summary["run_confirmation_data_read"] is False
     assert summary["retired_confirmation_template_read_count"] == 1

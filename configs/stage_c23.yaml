@@ -1,9 +1,11 @@
 schema_version: 1
 stage: C2.3-public-semantic-encoder-audit
 
-# S0 recomputes the frozen entity branch from the validation-selected R3
-# checkpoint.  It never loads a local confirmation file.
-private_feature_cache: artifacts/stage_c2/canonicalizer_features.pt
+# The prepare command is the only C2.3 step that opens the answer-bearing C2
+# cache. S0 and S2-S6 accept only the derived metadata-whitelisted cache.
+private_feature_cache_source: artifacts/stage_c2/canonicalizer_features.pt
+private_feature_cache: artifacts/stage_c23/private_answer_free_features.pt
+private_feature_cache_manifest: artifacts/stage_c23/private_answer_free_feature_manifest.json
 entity_checkpoint: artifacts/stage_c21/R3/canonicalizer.pt
 protocol_incident: artifacts/stage_c23/protocol_incident.json
 

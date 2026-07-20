@@ -17,6 +17,8 @@
   },
   "access_accounting": {
     "confirmation_template_read_count": 1,
+    "confirmation_template_access_event_count": 1,
+    "confirmation_template_read_count_unit": "access_event; the number of templates observed is intentionally not recorded",
     "confirmation_evaluation_count": 0,
     "confirmation_metric_access_count": 0
   },

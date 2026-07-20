@@ -30,6 +30,22 @@ STAGE_C23_SCHEMA_VERSION = 1
 DEFAULT_ORACLE_ALPHA_GRID = (0.0, 0.125, 0.25, 0.5, 1.0, 2.0, 4.0)
 
 _METRIC_ROW_FIELDS = ("fact_id", "entity", "attribute", "template_id")
+_ANSWER_FREE_PRIVATE_METADATA_FIELDS = (
+    "fact_id",
+    "entity",
+    "attribute",
+    "template_id",
+    "prompt",
+)
+_PRIVATE_CACHE_TOP_LEVEL_FIELDS = (
+    "format_version",
+    "source_core_sha256",
+    "selected_layers_one_based",
+    "selected_layer_indices",
+    "q0_baseline_layer_index",
+    "pool_names",
+    "features",
+)
 _SENSITIVE_OUTPUT_KEYS = {
     "answer",
     "answers",
@@ -82,6 +98,128 @@ def write_answer_free_json(path: str | Path, value: Any) -> Path:
         encoding="utf-8",
     )
     return target
+
+
+def validate_answer_free_private_feature_cache(
+    cache: Mapping[str, Any],
+) -> dict[str, int]:
+    """Require the C2.3 runtime cache to expose only answer-free metadata."""
+
+    metadata = cache.get("metadata")
+    features = cache.get("features")
+    if not isinstance(metadata, Mapping) or not isinstance(features, Mapping):
+        raise ValueError("C2.3 private feature cache is missing metadata or features")
+    expected_fields = set(_ANSWER_FREE_PRIVATE_METADATA_FIELDS)
+    row_counts: dict[str, int] = {}
+    for split in ("train", "validation", "test"):
+        rows = metadata.get(split)
+        split_features = features.get(split)
+        if not isinstance(rows, Sequence) or isinstance(rows, (str, bytes)):
+            raise ValueError(f"C2.3 private feature cache has invalid {split} rows")
+        if not isinstance(split_features, Mapping) or "pools" not in split_features:
+            raise ValueError(f"C2.3 private feature cache has invalid {split} features")
+        for row in rows:
+            if not isinstance(row, Mapping) or set(row) != expected_fields:
+                raise ValueError(
+                    "C2.3 runtime requires the prepared answer-free private "
+                    f"feature cache; {split} metadata fields do not match the whitelist"
+                )
+        if len(rows) != len(split_features["pools"]):
+            raise ValueError(f"C2.3 {split} metadata/features length mismatch")
+        row_counts[split] = len(rows)
+    return row_counts
+
+
+def prepare_answer_free_private_feature_cache(
+    source_path: str | Path,
+    output_path: str | Path,
+    manifest_path: str | Path,
+) -> dict[str, Any]:
+    """Create the only private feature-cache shape accepted by C2.3 runtimes."""
+
+    source = Path(source_path)
+    target = Path(output_path)
+    manifest_target = Path(manifest_path)
+    if source.resolve() == target.resolve():
+        raise ValueError("answer-free cache output must differ from its source")
+    raw = _load_feature_cache(source)
+    missing_top_level = [
+        name for name in _PRIVATE_CACHE_TOP_LEVEL_FIELDS if name not in raw
+    ]
+    if missing_top_level:
+        raise ValueError(
+            f"source private feature cache is missing fields {missing_top_level}"
+        )
+    metadata = raw.get("metadata")
+    if not isinstance(metadata, Mapping):
+        raise ValueError("source private feature cache has no metadata")
+    stripped_fields: set[str] = set()
+    safe_metadata: dict[str, list[dict[str, Any]]] = {}
+    for split in ("train", "validation", "test"):
+        rows = metadata.get(split)
+        if not isinstance(rows, Sequence) or isinstance(rows, (str, bytes)):
+            raise ValueError(f"source private feature cache has invalid {split} rows")
+        safe_rows = []
+        for row in rows:
+            if not isinstance(row, Mapping):
+                raise ValueError(f"source private feature cache has invalid {split} row")
+            missing = [
+                name for name in _ANSWER_FREE_PRIVATE_METADATA_FIELDS if name not in row
+            ]
+            if missing:
+                raise ValueError(f"source {split} row is missing fields {missing}")
+            stripped_fields.update(set(row) - set(_ANSWER_FREE_PRIVATE_METADATA_FIELDS))
+            safe_rows.append(
+                {name: row[name] for name in _ANSWER_FREE_PRIVATE_METADATA_FIELDS}
+            )
+        safe_metadata[split] = safe_rows
+    payload = {name: raw[name] for name in _PRIVATE_CACHE_TOP_LEVEL_FIELDS}
+    payload["metadata"] = safe_metadata
+    row_counts = validate_answer_free_private_feature_cache(payload)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    torch.save(payload, target)
+    reloaded = _load_feature_cache(target)
+    if validate_answer_free_private_feature_cache(reloaded) != row_counts:
+        raise RuntimeError("answer-free private feature cache verification failed")
+    manifest = {
+        "schema_version": 1,
+        "stage": "C2.3-answer-free-private-feature-cache",
+        "source": {
+            "path": str(source.resolve()),
+            "sha256": _sha256_file(source),
+        },
+        "output": {
+            "path": str(target.resolve()),
+            "sha256": _sha256_file(target),
+        },
+        "row_counts": row_counts,
+        "metadata_fields": list(_ANSWER_FREE_PRIVATE_METADATA_FIELDS),
+        "stripped_field_names": sorted(stripped_fields),
+        "preparation_deserialized_source_metadata": True,
+        "runtime_cache_answer_free": True,
+    }
+    write_answer_free_json(manifest_target, manifest)
+    return manifest
+
+
+def prepare_answer_free_private_feature_cache_from_config(
+    config_path: str | Path,
+) -> dict[str, Any]:
+    source = Path(config_path)
+    values = yaml.safe_load(source.read_text(encoding="utf-8")) or {}
+    required = (
+        "private_feature_cache_source",
+        "private_feature_cache",
+        "private_feature_cache_manifest",
+    )
+    missing = [name for name in required if name not in values]
+    if missing:
+        raise ValueError(f"Stage C2.3 config is missing fields {missing}")
+    return prepare_answer_free_private_feature_cache(
+        values["private_feature_cache_source"],
+        values["private_feature_cache"],
+        values["private_feature_cache_manifest"],
+    )
 
 
 def load_c23_protocol_status(
@@ -559,6 +697,7 @@ def run_stage_c23_oracle(
     cache_path = Path(feature_cache_path)
     checkpoint_path = Path(entity_checkpoint_path)
     cache = _load_feature_cache(cache_path)
+    validate_answer_free_private_feature_cache(cache)
     device = resolve_device(device_name)
     system, checkpoint_payload = load_canonicalizer_checkpoint(
         checkpoint_path, device=device
@@ -652,6 +791,7 @@ def run_stage_c23_oracle(
         "memory_attached": False,
         "answer_injection_enabled": False,
         "private_answers_used_as_training_targets": False,
+        "private_answers_deserialized_by_runtime": False,
         "private_answers_serialized": False,
         "run_confirmation_data_read": protocol.run_confirmation_data_read,
         "retired_confirmation_template_read_count": (

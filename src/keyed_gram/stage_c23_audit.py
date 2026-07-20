@@ -21,6 +21,7 @@ from .stage_c23 import (
     _extract_frozen_entity_embeddings,
     answer_free_query_metrics,
     load_c23_protocol_status,
+    validate_answer_free_private_feature_cache,
     validate_oracle_sources,
     write_answer_free_json,
 )
@@ -853,6 +854,7 @@ def run_stage_c23_audit(
 
     device = resolve_device(device_name)
     raw_private_cache = _load_feature_cache(values["private_feature_cache"])
+    validate_answer_free_private_feature_cache(raw_private_cache)
     system, checkpoint_payload = load_canonicalizer_checkpoint(
         values["entity_checkpoint"], device=device
     )
@@ -1285,6 +1287,22 @@ def run_stage_c23_audit(
         run_status = "upper_bound_passed" if strict_passed else "upper_bound_failed"
     else:
         run_status = "small_model_passed" if strict_passed else "strict_gates_failed"
+    failed_strict_gates = [
+        name
+        for name, gate in s5["strict_readiness"]["gates"].items()
+        if not bool(gate["passed"])
+    ]
+    if strict_passed:
+        c3_eligibility_reason = (
+            "C2.3 audits query geometry only; a new independent confirmation pool "
+            "must be created after the protocol and selected model are frozen"
+        )
+    else:
+        c3_eligibility_reason = (
+            "C2.3 strict readiness failed, so confirmation and C3 remain disabled; "
+            "a new independent confirmation pool may be created only after a "
+            "subsequent protocol and selected model are frozen"
+        )
     summary = {
         "schema_version": STAGE_C23_AUDIT_SCHEMA_VERSION,
         "stage": "C2.3-public-semantic-encoder-audit",
@@ -1303,6 +1321,10 @@ def run_stage_c23_audit(
         "development_used_for_selection": False,
         "development_materialized_candidates": [selected_key],
         "private_cache_metadata_sanitized_immediately": True,
+        "private_answers_deserialized_by_runtime": False,
+        "private_answers_passed_to_semantic_encoder": False,
+        "private_answers_used_as_training_targets": False,
+        "private_answers_serialized_to_outputs": False,
         "private_sanitized_fields": sorted(SANITIZED_PRIVATE_FIELDS),
         "public_benchmark": public_manifest,
         "zero_shot_definition_matching": {
@@ -1319,10 +1341,8 @@ def run_stage_c23_audit(
         ),
         "s6_status": s6_status,
         "c3_eligible": False,
-        "c3_eligibility_reason": (
-            "C2.3 audits query geometry only; a new independent confirmation pool "
-            "must be created after the protocol and selected model are frozen"
-        ),
+        "failed_strict_gates": failed_strict_gates,
+        "c3_eligibility_reason": c3_eligibility_reason,
         "run_confirmation_data_read": protocol.run_confirmation_data_read,
         "retired_confirmation_template_read_count": (
             protocol.retired_confirmation_template_read_count

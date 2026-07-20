@@ -36,7 +36,10 @@ from .stage_c21 import (
     seal_confirmation_from_config,
 )
 from .stage_c22 import prepare_public_relation_features, run_stage_c22
-from .stage_c23 import run_stage_c23_oracle_from_config
+from .stage_c23 import (
+    prepare_answer_free_private_feature_cache_from_config,
+    run_stage_c23_oracle_from_config,
+)
 from .stage_c23_audit import run_stage_c23_audit
 from .stage_c23_benchmark import prepare_public_lexical_benchmark
 from .train import train_gram
@@ -426,6 +429,7 @@ def command_stage_c22(args: argparse.Namespace) -> None:
 
 def command_stage_c23_prepare(args: argparse.Namespace) -> None:
     result = prepare_public_lexical_benchmark(args.config)
+    private_cache = prepare_answer_free_private_feature_cache_from_config(args.config)
     _print(
         {
             "stage": result["stage"],
@@ -434,6 +438,10 @@ def command_stage_c23_prepare(args: argparse.Namespace) -> None:
             "row_counts": result["row_counts"],
             "family_counts": result["family_counts"],
             "benchmark_total": result["benchmark_total"],
+            "private_feature_cache": private_cache["output"],
+            "private_feature_cache_answer_free": private_cache[
+                "runtime_cache_answer_free"
+            ],
         }
     )
 

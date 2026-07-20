@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "status": "retired_compromised_for_future_confirmation",
+  "retired_date": "2026-07-20",
+  "seal": {
+    "path": "artifacts/stage_c21/confirmation_seal.json",
+    "sha256": "3055da6bba43ffd7ef02c487dc7e228afe21389062bc726711dc5899f96de8ec"
+  },
+  "incident": {
+    "path": "artifacts/stage_c23/protocol_incident.json",
+    "sha256": "eeb73a0b946f143d60120b88a72dfbb593f942e7bada46b2ca8df4373f5725cf"
+  },
+  "replacement_confirmation_status": "not_created",
+  "reuse_permitted": false
+}

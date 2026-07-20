@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "stage": "C2.3-answer-free-private-feature-cache",
+  "source": {
+    "path": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c2\\canonicalizer_features.pt",
+    "sha256": "749ee51d2917a0a90060968eccd08d810269b80d64d6cff877b15441b1eaad49"
+  },
+  "output": {
+    "path": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\private_answer_free_features.pt",
+    "sha256": "8c7ef93bcbc335be772c5f4a3f172e99741b1dac756026eb503250d66e582e4a"
+  },
+  "row_counts": {
+    "train": 288,
+    "validation": 96,
+    "test": 192
+  },
+  "metadata_fields": [
+    "fact_id",
+    "entity",
+    "attribute",
+    "template_id",
+    "prompt"
+  ],
+  "stripped_field_names": [
+    "answer",
+    "answer_index",
+    "candidates",
+    "entity_exposure",
+    "template_split"
+  ],
+  "preparation_deserialized_source_metadata": true,
+  "runtime_cache_answer_free": true
+}

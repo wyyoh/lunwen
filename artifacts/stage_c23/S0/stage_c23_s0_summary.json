@@ -10,6 +10,7 @@
   "memory_attached": false,
   "answer_injection_enabled": false,
   "private_answers_used_as_training_targets": false,
+  "private_answers_deserialized_by_runtime": false,
   "private_answers_serialized": false,
   "run_confirmation_data_read": false,
   "retired_confirmation_template_read_count": 1,
@@ -21,7 +22,7 @@
     "confirmation_metric_access_count": 0,
     "new_confirmation_status": "not_created",
     "incident_record": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\protocol_incident.json",
-    "incident_record_sha256": "0aac54424bd3b2a6e2b0c8684b4478ec0a235221a272f9fd194f4798495bbda2"
+    "incident_record_sha256": "eeb73a0b946f143d60120b88a72dfbb593f942e7bada46b2ca8df4373f5725cf"
   },
   "c3_eligible": false,
   "c3_eligibility_reason": "S0 is only a relation-oracle upper bound; public semantic encoder audits and a replacement confirmation protocol remain required",
@@ -420,8 +421,8 @@
     }
   },
   "source": {
-    "feature_cache": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c2\\canonicalizer_features.pt",
-    "feature_cache_sha256": "749ee51d2917a0a90060968eccd08d810269b80d64d6cff877b15441b1eaad49",
+    "feature_cache": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\private_answer_free_features.pt",
+    "feature_cache_sha256": "8c7ef93bcbc335be772c5f4a3f172e99741b1dac756026eb503250d66e582e4a",
     "entity_checkpoint": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c21\\R3\\canonicalizer.pt",
     "entity_checkpoint_sha256": "09c74409cee941391ed7aaec1df8764219ecdf8b83f027a0d8980679b3399419",
     "source_core_sha256": "b141f3c08fcc9c56a6ca6a6c14169fc001613efa7ca98905b8b642070a01d0cb",
@@ -459,7 +460,7 @@
     },
     "upstream_commit": "d07d62e9869c6a969a2306e755aba7a742c317fd"
   },
-  "elapsed_seconds": 1.404053000267595,
+  "elapsed_seconds": 1.103720999788493,
   "artifacts": {
     "alpha_sweep": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\S0\\oracle_alpha_sweep.json",
     "retrieval_predictions": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\S0\\retrieval_predictions.json",

@@ -17,6 +17,10 @@
     "S6:phrase_only"
   ],
   "private_cache_metadata_sanitized_immediately": true,
+  "private_answers_deserialized_by_runtime": false,
+  "private_answers_passed_to_semantic_encoder": false,
+  "private_answers_used_as_training_targets": false,
+  "private_answers_serialized_to_outputs": false,
   "private_sanitized_fields": [
     "attribute",
     "entity",
@@ -68,7 +72,7 @@
       "answer_free": true,
       "contains_private_answers": false
     },
-    "source_config_sha256": "9c9ff8b9cba78e3aa92743d0f779ad1d3e79f136e351f450e3797ee959f579e8",
+    "source_config_sha256": "dbc37bf59de64cdf0f2e2f59c3f34067e3f3d98e2213704938319216c1564067",
     "files": {
       "train": {
         "path": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\data\\stage_c23\\train.jsonl",
@@ -6812,7 +6816,10 @@
   "small_model_validation_only_passed": false,
   "s6_status": "executed_explicitly",
   "c3_eligible": false,
-  "c3_eligibility_reason": "C2.3 audits query geometry only; a new independent confirmation pool must be created after the protocol and selected model are frozen",
+  "failed_strict_gates": [
+    "projected_family_probe"
+  ],
+  "c3_eligibility_reason": "C2.3 strict readiness failed, so confirmation and C3 remain disabled; a new independent confirmation pool may be created only after a subsequent protocol and selected model are frozen",
   "run_confirmation_data_read": false,
   "retired_confirmation_template_read_count": 1,
   "confirmation_evaluation_count": 0,
@@ -6823,13 +6830,13 @@
     "confirmation_metric_access_count": 0,
     "new_confirmation_status": "not_created",
     "incident_record": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\protocol_incident.json",
-    "incident_record_sha256": "0aac54424bd3b2a6e2b0c8684b4478ec0a235221a272f9fd194f4798495bbda2"
+    "incident_record_sha256": "eeb73a0b946f143d60120b88a72dfbb593f942e7bada46b2ca8df4373f5725cf"
   },
   "source": {
     "config": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\configs\\stage_c23.yaml",
-    "config_sha256": "9c9ff8b9cba78e3aa92743d0f779ad1d3e79f136e351f450e3797ee959f579e8",
-    "private_feature_cache": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c2\\canonicalizer_features.pt",
-    "private_feature_cache_sha256": "749ee51d2917a0a90060968eccd08d810269b80d64d6cff877b15441b1eaad49",
+    "config_sha256": "dbc37bf59de64cdf0f2e2f59c3f34067e3f3d98e2213704938319216c1564067",
+    "private_feature_cache": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\private_answer_free_features.pt",
+    "private_feature_cache_sha256": "8c7ef93bcbc335be772c5f4a3f172e99741b1dac756026eb503250d66e582e4a",
     "entity_checkpoint": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c21\\R3\\canonicalizer.pt",
     "entity_checkpoint_sha256": "09c74409cee941391ed7aaec1df8764219ecdf8b83f027a0d8980679b3399419",
     "source_core_sha256": "b141f3c08fcc9c56a6ca6a6c14169fc001613efa7ca98905b8b642070a01d0cb",
@@ -6866,7 +6873,7 @@
     },
     "upstream_commit": "d07d62e9869c6a969a2306e755aba7a742c317fd"
   },
-  "elapsed_seconds": 8.909040799830109,
+  "elapsed_seconds": 8.159152599982917,
   "artifacts": {
     "zero_shot_candidate_csv": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\s6_upper_bound\\zero_shot_candidates.csv",
     "s5_candidate_csv": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\s6_upper_bound\\s5_linear_candidates.csv",
