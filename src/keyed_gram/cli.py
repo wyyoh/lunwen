@@ -36,6 +36,9 @@ from .stage_c21 import (
     seal_confirmation_from_config,
 )
 from .stage_c22 import prepare_public_relation_features, run_stage_c22
+from .stage_c23 import run_stage_c23_oracle_from_config
+from .stage_c23_audit import run_stage_c23_audit
+from .stage_c23_benchmark import prepare_public_lexical_benchmark
 from .train import train_gram
 
 
@@ -421,6 +424,62 @@ def command_stage_c22(args: argparse.Namespace) -> None:
     )
 
 
+def command_stage_c23_prepare(args: argparse.Namespace) -> None:
+    result = prepare_public_lexical_benchmark(args.config)
+    _print(
+        {
+            "stage": result["stage"],
+            "answer_free": result["answer_free"],
+            "review_status": result["review_status"],
+            "row_counts": result["row_counts"],
+            "family_counts": result["family_counts"],
+            "benchmark_total": result["benchmark_total"],
+        }
+    )
+
+
+def command_stage_c23_oracle(args: argparse.Namespace) -> None:
+    result = run_stage_c23_oracle_from_config(
+        args.config,
+        args.output_dir,
+        device_name=args.device,
+    )
+    _print(
+        {
+            "stage": result["stage"],
+            "status": result["status"],
+            "selected_alpha": result["selected_alpha"],
+            "c3_eligible": result["c3_eligible"],
+            "results": str(Path(args.output_dir).resolve()),
+        }
+    )
+
+
+def command_stage_c23_audit(args: argparse.Namespace) -> None:
+    result = run_stage_c23_audit(
+        args.config,
+        args.output_dir,
+        variants=_csv_strings(args.variants),
+        model_cache_dir=args.model_cache_dir,
+        embedding_cache_dir=args.embedding_cache_dir,
+        device_name=args.device,
+    )
+    _print(
+        {
+            "stage": result["stage"],
+            "status": result["status"],
+            "selected_candidate": result["selected_candidate"],
+            "validation_only_readiness": result["s5"][
+                "validation_only_readiness"
+            ],
+            "strict_readiness": result["s5"]["strict_readiness"],
+            "s6_status": result["s6_status"],
+            "c3_eligible": result["c3_eligible"],
+            "results": str(Path(args.output_dir).resolve()),
+        }
+    )
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="keyed-gram",
@@ -636,6 +695,37 @@ def build_parser() -> argparse.ArgumentParser:
     stage_c22.add_argument("--output-dir", required=True)
     stage_c22.add_argument("--device")
     stage_c22.set_defaults(func=command_stage_c22)
+
+    stage_c23_prepare = sub.add_parser(
+        "stage-c23-prepare",
+        help="build the answer-free expanded public lexical benchmark",
+    )
+    stage_c23_prepare.add_argument("--config", required=True)
+    stage_c23_prepare.set_defaults(func=command_stage_c23_prepare)
+
+    stage_c23_oracle = sub.add_parser(
+        "stage-c23-oracle",
+        help="run the S0 ground-truth-relation upper bound",
+    )
+    stage_c23_oracle.add_argument("--config", required=True)
+    stage_c23_oracle.add_argument("--output-dir", required=True)
+    stage_c23_oracle.add_argument("--device")
+    stage_c23_oracle.set_defaults(func=command_stage_c23_oracle)
+
+    stage_c23_audit = sub.add_parser(
+        "stage-c23-audit",
+        help="audit pinned public semantic encoders without private answers",
+    )
+    stage_c23_audit.add_argument("--config", required=True)
+    stage_c23_audit.add_argument("--output-dir", required=True)
+    stage_c23_audit.add_argument("--variants", default="S2,S3,S4")
+    stage_c23_audit.add_argument("--model-cache-dir", default=".downloads/hf")
+    stage_c23_audit.add_argument(
+        "--embedding-cache-dir",
+        default="artifacts/stage_c23/semantic_embedding_cache",
+    )
+    stage_c23_audit.add_argument("--device")
+    stage_c23_audit.set_defaults(func=command_stage_c23_audit)
     return parser
 
 

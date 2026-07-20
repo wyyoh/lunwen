@@ -15,6 +15,7 @@ from keyed_gram.canonicalizer import (
     CanonicalizerSystem,
     save_canonicalizer_checkpoint,
 )
+from keyed_gram.cli import build_parser
 from keyed_gram.stage_c23_audit import (
     relation_conditioned_projected_family_leakage,
     run_stage_c23_audit,
@@ -353,6 +354,42 @@ def test_projected_family_leakage_is_conditioned_within_relation():
     assert result["macro_accuracy"] == pytest.approx(
         result["macro_chance_accuracy"]
     )
+
+
+@pytest.mark.parametrize(
+    ("argv", "command"),
+    [
+        (["stage-c23-prepare", "--config", "c23.yaml"], "stage-c23-prepare"),
+        (
+            [
+                "stage-c23-oracle",
+                "--config",
+                "c23.yaml",
+                "--output-dir",
+                "oracle",
+            ],
+            "stage-c23-oracle",
+        ),
+        (
+            [
+                "stage-c23-audit",
+                "--config",
+                "c23.yaml",
+                "--output-dir",
+                "audit",
+                "--variants",
+                "S6",
+            ],
+            "stage-c23-audit",
+        ),
+    ],
+)
+def test_stage_c23_cli_subcommands_parse(argv, command):
+    args = build_parser().parse_args(argv)
+    assert args.command == command
+    assert callable(args.func)
+    if command == "stage-c23-audit":
+        assert args.variants == "S6"
 
 
 def test_runner_uses_only_requested_mock_variant_and_writes_answer_free_audit(
