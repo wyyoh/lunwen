@@ -1281,10 +1281,14 @@ def run_stage_c23_audit(
         s6_status = (
             "requested_small_models_failed_validation_gates_not_automatically_downloaded"
         )
+    if requested == ("S6",):
+        run_status = "upper_bound_passed" if strict_passed else "upper_bound_failed"
+    else:
+        run_status = "small_model_passed" if strict_passed else "strict_gates_failed"
     summary = {
         "schema_version": STAGE_C23_AUDIT_SCHEMA_VERSION,
         "stage": "C2.3-public-semantic-encoder-audit",
-        "status": "small_model_passed" if strict_passed else "strict_gates_failed",
+        "status": run_status,
         "requested_variants": list(requested),
         "executed_variants": list(requested),
         "selected_candidate": selected_key,
