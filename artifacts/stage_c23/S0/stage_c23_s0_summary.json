@@ -1,0 +1,468 @@
+{
+  "schema_version": 1,
+  "stage": "C2.3-S0-ground-truth-relation-oracle",
+  "status": "oracle_upper_bound_passed",
+  "zero_training": true,
+  "core_frozen": true,
+  "entity_branch_frozen": true,
+  "oracle_relation_labels_used": true,
+  "fusion": "l2_normalize(concat(l2_normalize(z_e), alpha * one_hot(r)))",
+  "memory_attached": false,
+  "answer_injection_enabled": false,
+  "private_answers_used_as_training_targets": false,
+  "private_answers_serialized": false,
+  "run_confirmation_data_read": false,
+  "retired_confirmation_template_read_count": 1,
+  "confirmation_evaluation_count": 0,
+  "protocol_status": {
+    "run_confirmation_data_read": false,
+    "retired_confirmation_template_read_count": 1,
+    "confirmation_evaluation_count": 0,
+    "confirmation_metric_access_count": 0,
+    "new_confirmation_status": "not_created",
+    "incident_record": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\protocol_incident.json",
+    "incident_record_sha256": "0aac54424bd3b2a6e2b0c8684b4478ec0a235221a272f9fd194f4798495bbda2"
+  },
+  "c3_eligible": false,
+  "c3_eligibility_reason": "S0 is only a relation-oracle upper bound; public semantic encoder audits and a replacement confirmation protocol remain required",
+  "oracle_upper_bound_passed": true,
+  "selected_alpha": 0.5,
+  "selected_alpha_validation_score": [
+    10.0,
+    0.9375,
+    0.9375,
+    0.16593072501321635,
+    0.9603587962962963,
+    0.7536550164222717,
+    0.7594850212335587,
+    0.9479166865348816,
+    -0.5
+  ],
+  "selection_split": "validation",
+  "selection_protocol": "all alpha candidates are ranked only on private validation; the legacy test split is evaluated once as development after alpha freezes",
+  "development_evaluated_after_selection": true,
+  "relation_label_order": [
+    "access_code",
+    "city_code",
+    "registry_id"
+  ],
+  "row_counts": {
+    "train": 288,
+    "validation": 96,
+    "test": 192
+  },
+  "evaluation": {
+    "validation": {
+      "alpha": 0.5,
+      "answer_free": true,
+      "query_space": {
+        "answer_free": true,
+        "retrieval": {
+          "num_database_rows": 288,
+          "num_queries": 96,
+          "num_facts": 48,
+          "random_fact_accuracy": 0.020833333333333332,
+          "row_1nn_accuracy": 0.9375,
+          "centroid_top1_accuracy": 0.9375,
+          "centroid_top5_accuracy": 0.9895833333333334,
+          "centroid_mrr": 0.9603587962962963,
+          "mean_true_centroid_similarity": 0.9263424122085174,
+          "mean_best_wrong_centroid_similarity": 0.7604116871953011,
+          "mean_centroid_margin": 0.16593072501321635,
+          "per_template": {
+            "validation-0": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.9375,
+              "centroid_top1_accuracy": 0.9375
+            },
+            "validation-1": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.9375,
+              "centroid_top1_accuracy": 0.9375
+            }
+          }
+        },
+        "geometry": {
+          "same_fact_cross_template_cosine": 0.9125403165817261,
+          "different_fact_same_template_cosine": 0.15305529534816742,
+          "same_entity_different_relation_cosine": 0.7099559307098389,
+          "same_relation_different_entity_cosine": 0.21022534370422363,
+          "all_different_fact_cosine": 0.10322051495313644,
+          "fact_over_template_margin": 0.7594850212335587,
+          "fact_over_same_entity_margin": 0.2025843858718872,
+          "fact_over_same_relation_margin": 0.7023149728775024,
+          "fact_over_all_negative_margin": 0.8093198016285896
+        },
+        "linear_probes": {
+          "entity_id": {
+            "accuracy": 0.9479166865348816,
+            "train_accuracy": 1.0,
+            "chance_accuracy": 0.0625,
+            "num_classes": 16,
+            "regularizer": 1.32
+          },
+          "relation_id": {
+            "accuracy": 1.0,
+            "train_accuracy": 1.0,
+            "chance_accuracy": 0.3333333333333333,
+            "num_classes": 3,
+            "regularizer": 1.32
+          }
+        },
+        "silhouette": {
+          "fact_id": 0.7536550164222717,
+          "entity_id": 0.5634604692459106,
+          "relation_id": 0.20392413437366486
+        }
+      },
+      "entity_branch_probe": {
+        "accuracy": 0.9479166865348816,
+        "train_accuracy": 1.0,
+        "chance_accuracy": 0.0625,
+        "num_classes": 16,
+        "regularizer": 1.29
+      },
+      "oracle_relation_probe": {
+        "accuracy": 1.0,
+        "train_accuracy": 1.0,
+        "chance_accuracy": 0.3333333333333333,
+        "num_classes": 3,
+        "regularizer": 0.03999999523162842
+      },
+      "oracle_relation_geometry": {
+        "same_relation_different_entity_template_cosine": 1.0,
+        "different_relation_same_entity_template_cosine": 0.0,
+        "relation_template_margin": 1.0,
+        "positive_pair_count": 720,
+        "hard_negative_pair_count": 96
+      },
+      "oracle_relation_template_probe": {
+        "accuracy": 0.1666666716337204,
+        "train_accuracy": 0.1666666716337204,
+        "chance_accuracy": 0.16666666666666666,
+        "num_classes": 6,
+        "regularizer": 0.03999999761581421,
+        "probe_train_entities": 12,
+        "probe_evaluation_entities": 4
+      },
+      "query_template_probe_diagnostic": {
+        "accuracy": 1.0,
+        "train_accuracy": 1.0,
+        "chance_accuracy": 0.16666666666666666,
+        "num_classes": 6,
+        "regularizer": 1.3199998474121093,
+        "probe_train_entities": 12,
+        "probe_evaluation_entities": 4
+      },
+      "fact_centroid_manifest": {
+        "source_split": "train",
+        "num_facts": 48,
+        "minimum_rows_per_fact": 6,
+        "maximum_rows_per_fact": 6,
+        "prototype_rule": "mean unit train-query vectors by fact_id, then L2 normalize",
+        "contains_private_answers": false
+      },
+      "strict_oracle_geometry": {
+        "passed": true,
+        "passed_count": 10,
+        "total": 10,
+        "gates": {
+          "fact_centroid_top1": {
+            "value": 0.9375,
+            "threshold": 0.9,
+            "direction": ">=",
+            "passed": true
+          },
+          "row_1nn": {
+            "value": 0.9375,
+            "threshold": 0.75,
+            "direction": ">=",
+            "passed": true
+          },
+          "centroid_mrr": {
+            "value": 0.9603587962962963,
+            "threshold": 0.85,
+            "direction": ">=",
+            "passed": true
+          },
+          "mean_centroid_margin": {
+            "value": 0.16593072501321635,
+            "threshold": 0.1,
+            "direction": ">=",
+            "passed": true
+          },
+          "fact_silhouette": {
+            "value": 0.7536550164222717,
+            "threshold": 0.4,
+            "direction": ">=",
+            "passed": true
+          },
+          "fact_template_margin": {
+            "value": 0.7594850212335587,
+            "threshold": 0.3,
+            "direction": ">=",
+            "passed": true
+          },
+          "entity_branch_probe": {
+            "value": 0.9479166865348816,
+            "threshold": 0.9,
+            "direction": ">=",
+            "passed": true
+          },
+          "oracle_relation_probe": {
+            "value": 1.0,
+            "threshold": 1.0,
+            "direction": ">=",
+            "passed": true
+          },
+          "oracle_relation_template_margin": {
+            "value": 1.0,
+            "threshold": 0.15,
+            "direction": ">=",
+            "passed": true
+          },
+          "oracle_relation_template_probe": {
+            "value": 0.1666666716337204,
+            "threshold": 0.26666666666666666,
+            "direction": "<=",
+            "passed": true
+          }
+        }
+      }
+    },
+    "development": {
+      "alpha": 0.5,
+      "answer_free": true,
+      "query_space": {
+        "answer_free": true,
+        "retrieval": {
+          "num_database_rows": 288,
+          "num_queries": 192,
+          "num_facts": 48,
+          "random_fact_accuracy": 0.020833333333333332,
+          "row_1nn_accuracy": 0.9166666666666666,
+          "centroid_top1_accuracy": 0.9114583333333334,
+          "centroid_top5_accuracy": 0.9791666666666666,
+          "centroid_mrr": 0.9459301549145299,
+          "mean_true_centroid_similarity": 0.9168358823905388,
+          "mean_best_wrong_centroid_similarity": 0.7573577736814817,
+          "mean_centroid_margin": 0.15947810870905718,
+          "per_template": {
+            "test-0": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.9166666666666666,
+              "centroid_top1_accuracy": 0.9375
+            },
+            "test-1": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.8333333333333334,
+              "centroid_top1_accuracy": 0.8333333333333334
+            },
+            "test-2": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.9791666666666666,
+              "centroid_top1_accuracy": 0.9375
+            },
+            "test-3": {
+              "num_queries": 48,
+              "row_1nn_accuracy": 0.9375,
+              "centroid_top1_accuracy": 0.9375
+            }
+          }
+        },
+        "geometry": {
+          "same_fact_cross_template_cosine": 0.9030020833015442,
+          "different_fact_same_template_cosine": 0.18329109251499176,
+          "same_entity_different_relation_cosine": 0.7003027200698853,
+          "same_relation_different_entity_cosine": 0.21355292201042175,
+          "all_different_fact_cosine": 0.10551708191633224,
+          "fact_over_template_margin": 0.7197109907865524,
+          "fact_over_same_entity_margin": 0.20269936323165894,
+          "fact_over_same_relation_margin": 0.6894491612911224,
+          "fact_over_all_negative_margin": 0.797485001385212
+        },
+        "linear_probes": {
+          "entity_id": {
+            "accuracy": 0.9427083134651184,
+            "train_accuracy": 1.0,
+            "chance_accuracy": 0.0625,
+            "num_classes": 16,
+            "regularizer": 1.32
+          },
+          "relation_id": {
+            "accuracy": 1.0,
+            "train_accuracy": 1.0,
+            "chance_accuracy": 0.3333333333333333,
+            "num_classes": 3,
+            "regularizer": 1.32
+          }
+        },
+        "silhouette": {
+          "fact_id": 0.682525634765625,
+          "entity_id": 0.5228521823883057,
+          "relation_id": 0.20412865281105042
+        }
+      },
+      "entity_branch_probe": {
+        "accuracy": 0.9427083134651184,
+        "train_accuracy": 1.0,
+        "chance_accuracy": 0.0625,
+        "num_classes": 16,
+        "regularizer": 1.29
+      },
+      "oracle_relation_probe": {
+        "accuracy": 1.0,
+        "train_accuracy": 1.0,
+        "chance_accuracy": 0.3333333333333333,
+        "num_classes": 3,
+        "regularizer": 0.03999999523162842
+      },
+      "oracle_relation_geometry": {
+        "same_relation_different_entity_template_cosine": 1.0,
+        "different_relation_same_entity_template_cosine": 0.0,
+        "relation_template_margin": 1.0,
+        "positive_pair_count": 4320,
+        "hard_negative_pair_count": 192
+      },
+      "oracle_relation_template_probe": {
+        "accuracy": 0.1666666716337204,
+        "train_accuracy": 0.1666666716337204,
+        "chance_accuracy": 0.16666666666666666,
+        "num_classes": 6,
+        "regularizer": 0.03999999761581421,
+        "probe_train_entities": 12,
+        "probe_evaluation_entities": 4
+      },
+      "query_template_probe_diagnostic": {
+        "accuracy": 1.0,
+        "train_accuracy": 1.0,
+        "chance_accuracy": 0.16666666666666666,
+        "num_classes": 6,
+        "regularizer": 1.3199998474121093,
+        "probe_train_entities": 12,
+        "probe_evaluation_entities": 4
+      },
+      "fact_centroid_manifest": {
+        "source_split": "train",
+        "num_facts": 48,
+        "minimum_rows_per_fact": 6,
+        "maximum_rows_per_fact": 6,
+        "prototype_rule": "mean unit train-query vectors by fact_id, then L2 normalize",
+        "contains_private_answers": false
+      },
+      "strict_oracle_geometry": {
+        "passed": true,
+        "passed_count": 10,
+        "total": 10,
+        "gates": {
+          "fact_centroid_top1": {
+            "value": 0.9114583333333334,
+            "threshold": 0.9,
+            "direction": ">=",
+            "passed": true
+          },
+          "row_1nn": {
+            "value": 0.9166666666666666,
+            "threshold": 0.75,
+            "direction": ">=",
+            "passed": true
+          },
+          "centroid_mrr": {
+            "value": 0.9459301549145299,
+            "threshold": 0.85,
+            "direction": ">=",
+            "passed": true
+          },
+          "mean_centroid_margin": {
+            "value": 0.15947810870905718,
+            "threshold": 0.1,
+            "direction": ">=",
+            "passed": true
+          },
+          "fact_silhouette": {
+            "value": 0.682525634765625,
+            "threshold": 0.4,
+            "direction": ">=",
+            "passed": true
+          },
+          "fact_template_margin": {
+            "value": 0.7197109907865524,
+            "threshold": 0.3,
+            "direction": ">=",
+            "passed": true
+          },
+          "entity_branch_probe": {
+            "value": 0.9427083134651184,
+            "threshold": 0.9,
+            "direction": ">=",
+            "passed": true
+          },
+          "oracle_relation_probe": {
+            "value": 1.0,
+            "threshold": 1.0,
+            "direction": ">=",
+            "passed": true
+          },
+          "oracle_relation_template_margin": {
+            "value": 1.0,
+            "threshold": 0.15,
+            "direction": ">=",
+            "passed": true
+          },
+          "oracle_relation_template_probe": {
+            "value": 0.1666666716337204,
+            "threshold": 0.26666666666666666,
+            "direction": "<=",
+            "passed": true
+          }
+        }
+      }
+    }
+  },
+  "source": {
+    "feature_cache": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c2\\canonicalizer_features.pt",
+    "feature_cache_sha256": "749ee51d2917a0a90060968eccd08d810269b80d64d6cff877b15441b1eaad49",
+    "entity_checkpoint": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c21\\R3\\canonicalizer.pt",
+    "entity_checkpoint_sha256": "09c74409cee941391ed7aaec1df8764219ecdf8b83f027a0d8980679b3399419",
+    "source_core_sha256": "b141f3c08fcc9c56a6ca6a6c14169fc001613efa7ca98905b8b642070a01d0cb",
+    "selected_layer_indices": [
+      3,
+      5,
+      7
+    ],
+    "checkpoint_variant": "R3"
+  },
+  "environment": {
+    "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "packages": {
+      "torch": "2.12.0+cu130",
+      "numpy": "2.2.6",
+      "PyYAML": "6.0.3",
+      "tqdm": "4.68.4",
+      "huggingface_hub": "1.23.0",
+      "datasets": "5.0.0",
+      "transformers": "5.13.1"
+    },
+    "torch_cuda_runtime": "13.0",
+    "cudnn_version": 92000,
+    "device": "cuda",
+    "dtype": "torch.float32",
+    "gpu": {
+      "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+      "compute_capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 8546484224,
+      "bf16_supported": true
+    },
+    "upstream_commit": "d07d62e9869c6a969a2306e755aba7a742c317fd"
+  },
+  "elapsed_seconds": 1.404053000267595,
+  "artifacts": {
+    "alpha_sweep": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\S0\\oracle_alpha_sweep.json",
+    "retrieval_predictions": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\S0\\retrieval_predictions.json",
+    "summary": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\S0\\stage_c23_s0_summary.json"
+  }
+}
