@@ -102,8 +102,12 @@ Stage-C2.1 ablation rows add:
 
 R0 imports Stage-C2 Q3 without retraining. R1-R4 contain no memory or answer
 loss. Checkpoint and variant selection use validation only; the old test split
-is labeled development. `c3_eligible` remains false until one selected variant
-passes all ten gates on the one-time sealed confirmation evaluation.
+is labeled development. For the original C2.1 run, `c3_eligible` remained false
+until one selected variant could pass all ten gates and then a one-time sealed
+confirmation evaluation. That old seal was subsequently retired and cannot be
+used to satisfy this rule. Any future candidate must first pass its newly
+preregistered validation/development gates and freeze its model and protocol,
+then use a new independent confirmation pool exactly once.
 
 Stage-C2.2 ablation rows add:
 
@@ -117,4 +121,57 @@ Stage-C2.2 ablation rows add:
 The public corpus manifest certifies that rows contain no answers, candidates,
 or entity-to-private-value mappings. P0-P2 selection uses private validation and
 lexically disjoint public validation only. Development and sealed confirmation
-never select a checkpoint or variant.
+did not select a checkpoint or variant in the original C2.2 run.
+
+Stage-C2.3 S0 rows add:
+
+- `selected_alpha`, selected only by private validation, and the fixed alpha
+  sweep score;
+- validation/development fact-centroid Top-1, row 1-NN, MRR, centroid margin,
+  fact silhouette, fact-over-template margin, and entity/relation/template
+  probes;
+- per-split `strict_oracle_geometry`, `oracle_upper_bound_passed`, and explicit
+  zero-training/frozen/memory-disabled flags.
+
+Stage-C2.3 public semantic audit rows add:
+
+- encoder variant, fixed model revision/file hashes, pooling, input prefix, and
+  one of `phrase_only`, `entity_masked`, or `entity_masked_strip_suffix`;
+- public lexical-family macro accuracy and family-bootstrap confidence interval;
+- private-validation and selected-candidate development relation accuracy;
+- zero-shot raw leave-one-family-out margin, reported separately from S5;
+- S5 projected leave-one-family-out relation margin and the true-relation-
+  conditioned projected family-leakage probe;
+- known/reject AUROC, AUPR, ECE, coverage-risk curve, and TNR at the fixed known
+  coverage target;
+- validation/development fact geometry after combining the frozen entity branch
+  with the projected relation representation;
+- `validation_only_readiness`, `strict_readiness`, `failed_strict_gates`,
+  `s6_status`, and `c3_eligible`.
+
+Zero-shot definition matching and S5 linear-head selection are independent
+reports. S5 fits one public-train ridge head for every requested encoder/view
+and selects only with public validation, private validation, and validation gate
+counts. Development is materialized exactly once for the selected S5 candidate;
+it never selects an encoder, view, head, or checkpoint.
+
+The C2.3 prepare manifest records that preparation deserialized the source
+Stage-C2 metadata once and produced a metadata-whitelisted private feature
+cache. S0 and S2-S6 accept only that derived cache and report:
+
+- `private_answers_deserialized_by_runtime=false`;
+- `private_answers_passed_to_semantic_encoder=false` where applicable;
+- `private_answers_used_as_training_targets=false`;
+- `private_answers_serialized_to_outputs=false` (or the S0 equivalent).
+
+Confirmation accounting must always distinguish the current run from global
+history. `run_confirmation_data_read=false` means only that the reported C2.3
+run did not read confirmation data. It must be reported alongside the retired
+seal's one `confirmation_template_access_event_count`, zero row/private-answer
+reads, zero confirmation evaluations, zero confirmation metric accesses, and
+`new_confirmation_status=not_created`. Historical C2.1/C2.2 zero-access fields
+must not be interpreted as a currently valid seal.
+
+C2.3 does not authorize C3 merely by passing geometry. In the recorded run the
+only failed strict gate is projected family leakage, so `c3_eligible=false` and
+no replacement confirmation pool is created.
