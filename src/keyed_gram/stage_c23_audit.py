@@ -635,11 +635,25 @@ def _prediction_strings(logits: Tensor, classes: Sequence[str]) -> list[str]:
 
 
 def _json_open_set(value: Mapping[str, Any]) -> dict[str, Any]:
-    return {
+    output = {
         key: item
         for key, item in value.items()
-        if key not in {"confidence", "predictions"}
+        if key not in {"confidence", "predictions", "coverage_accuracy_curve"}
     }
+    curve = list(value.get("coverage_accuracy_curve", ()))
+    checkpoints = []
+    for target in (0.10, 0.25, 0.50, 0.75, 0.90, 0.95, 1.0):
+        point = next(
+            (row for row in curve if float(row["coverage"]) >= target),
+            curve[-1] if curve else None,
+        )
+        if point is not None:
+            checkpoints.append({"target_coverage": target, **point})
+    output["coverage_accuracy_curve"] = checkpoints
+    output["coverage_curve_serialization"] = (
+        "fixed checkpoints; coverage_aurc is computed from the full curve"
+    )
+    return output
 
 
 def _validation_only_grade(

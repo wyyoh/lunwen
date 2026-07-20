@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\semantic_audit\\zero_shot_candidates.csv",
+      "size_bytes": 1057,
+      "sha256": "3026b757db893686a56b97b2eb7f6cc9f37cd23a160a85e051eb2d4da2eb69c3"
+    },
+    {
+      "path": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\semantic_audit\\s5_linear_candidates.csv",
+      "size_bytes": 1389,
+      "sha256": "7e140f259830d7e07617440713e3759de15ca1809179e8812606635280077d46"
+    },
+    {
+      "path": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\semantic_audit\\model_file_manifest.json",
+      "size_bytes": 6887,
+      "sha256": "bce2ad2d4012f4ab5485bf1a51a5a6ac8d837f3ca6a2d2bf923fa31360a5fb8f"
+    },
+    {
+      "path": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\semantic_audit\\embedding_cache_manifest.json",
+      "size_bytes": 43725,
+      "sha256": "774dbb5d25e47a1cee6b1854dc6b7adde748495feb3b414f586714c4988547dc"
+    },
+    {
+      "path": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\semantic_audit\\S5\\ridge_relation_head.pt",
+      "size_bytes": 17869,
+      "sha256": "808d8182ca3b1dbc957fc227bd3038fe59cf920aa2bdf72a0e3669b1ca880a22"
+    },
+    {
+      "path": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\semantic_audit\\S5\\fact_retrieval_predictions.json",
+      "size_bytes": 169615,
+      "sha256": "248ca6ed451d2f5d621950e0e44561bdb4466de39d68ec19b19c12df3d154c80"
+    },
+    {
+      "path": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\artifacts\\stage_c23\\semantic_audit\\stage_c23_audit_summary.json",
+      "size_bytes": 624723,
+      "sha256": "de2e55fa2bf1b3da3a211a881c09b6ff617916d95577b3b1eab368f251a54a5e"
+    }
+  ]
+}
