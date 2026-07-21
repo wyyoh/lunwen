@@ -6,6 +6,7 @@ import shutil
 from pathlib import Path
 
 import pytest
+import torch
 import yaml
 
 from keyed_gram.cli import build_parser, main
@@ -24,7 +25,10 @@ from keyed_gram.stage_c24b import (
     validate_stage_c24b_reviews,
 )
 from keyed_gram.stage_c24b_benchmark import PublicSplitV2, REVIEW_FIELDS, sha256_file
+from keyed_gram.stage_c24 import build_fact_buckets
 from keyed_gram.stage_c24_contract import RelationId
+from keyed_gram.stage_c24_contract import AcceptedRoute
+from keyed_gram.stage_c24b_router import RejectedRoute
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -492,7 +496,16 @@ def test_formal_development_markers_make_prelocked_run_one_shot(monkeypatch, tmp
     def retrieve(*args, **kwargs):
         assert (tmp_path / "development_started.json").exists()
         assert not (tmp_path / "development_completed.json").exists()
-        return {"scope": "answer_free_development"}, []
+        return (
+            {"scope": "answer_free_development"},
+            [],
+            {
+                "manifest": {
+                    "scope": "synthetic_locked_slot_binding",
+                    "binding_sha256": "e" * 64,
+                }
+            },
+        )
 
     monkeypatch.setattr(formal, "_build_router_context", build)
     monkeypatch.setattr(formal, "_model_artifact_seal", lambda *args, **kwargs: artifact_seal)
@@ -537,6 +550,9 @@ def test_interrupted_formal_marker_creates_non_overwriting_incident(tmp_path: Pa
     assert incident["next_required_protocol_version"] == "v3_independent_locked_audit"
     assert incident["resolved_config_sha256"]
     assert incident["selection_protocol"]["locked_audit_used_for_selection"] is False
+    (artifact_dir / "development_started.json").unlink()
+    with pytest.raises(ProtocolViolation, match="permanently invalidated"):
+        audit_stage_c24b(config, artifact_dir)
 
 
 def test_formal_readiness_never_uses_development_fact_diagnostic():
@@ -579,6 +595,13 @@ def test_formal_readiness_never_uses_development_fact_diagnostic():
     assert readiness["closed_set_selective_router_ready"] is False
     assert readiness["open_set_abstention_ready"] is True
     assert readiness["ready_to_create_new_confirmation_pool"] is False
+    evaluation["fact_retrieval"]["evidence_split"] = "public_locked_audit_v2"
+    locked_ready = formal._readiness(
+        values, evaluation, discrete_memory_contract_preserved=True
+    )
+    assert locked_ready["closed_set_selective_router_ready"] is True
+    assert locked_ready["ready_to_create_new_confirmation_pool"] is True
+    assert locked_ready["c3_eligible"] is False
 
 
 def test_formal_calibration_risk_counts_open_set_false_accepts():
@@ -618,3 +641,147 @@ def test_formal_calibration_risk_counts_open_set_false_accepts():
     assert calibration["risk"] == pytest.approx(0.25)
     assert calibration["accuracy"] == pytest.approx(0.75)
     assert calibration["known_route_risk"] == pytest.approx(0.0)
+
+
+def test_prefrozen_locked_slot_binding_is_relation_blind_and_executes_one_bucket():
+    import keyed_gram.stage_c24b_formal as formal
+
+    values = yaml.safe_load(
+        (ROOT / "configs" / "stage_c24b.yaml").read_text(encoding="utf-8")
+    )
+    private_entities = [f"answer-free-entity-{index}" for index in range(4)]
+    rows = []
+    vectors = []
+    for entity_index, entity in enumerate(private_entities):
+        vector = torch.nn.functional.one_hot(
+            torch.tensor(entity_index), num_classes=4
+        ).float()
+        for relation in RelationId:
+            rows.append(
+                {
+                    "entity": entity,
+                    "attribute": relation.value,
+                    "fact_id": f"opaque:{entity_index}:{relation.value}",
+                }
+            )
+            vectors.append(vector)
+    embeddings = torch.stack(vectors)
+    buckets = build_fact_buckets(embeddings, rows)
+    binding = formal._build_locked_slot_binding(
+        values,
+        embeddings,
+        rows,
+        buckets,
+        answer_free_cache_sha256="a" * 64,
+    )
+    manifest = binding["manifest"]
+    assert manifest["mapped_entity_count"] == 4
+    assert manifest["offline_oracle_memory_access_count"] == 12
+    assert manifest["offline_oracle_counted_as_system_memory_access"] is False
+    assert manifest["historical_development_substrate_reused"] is True
+    for public_entity_id in manifest["public_entity_ids"]:
+        assert binding["entity_embeddings"][public_entity_id].shape == (4,)
+        assert set(binding["fact_ids"][public_entity_id]) == set(RelationId)
+
+    entity_ids = manifest["public_entity_ids"]
+    locked_rows = [
+        {
+            "row_id": "known-correct",
+            "entity_id": entity_ids[0],
+            "sample_type": "known",
+            "relation_id": RelationId.REGISTRY_ID.value,
+        },
+        {
+            "row_id": "known-wrong-bucket",
+            "entity_id": entity_ids[1],
+            "sample_type": "known",
+            "relation_id": RelationId.ACCESS_CODE.value,
+        },
+        {
+            "row_id": "known-reject",
+            "entity_id": entity_ids[2],
+            "sample_type": "known",
+            "relation_id": RelationId.CITY_CODE.value,
+        },
+        {
+            "row_id": "ambiguous-accept",
+            "entity_id": entity_ids[3],
+            "sample_type": "ambiguous",
+            "relation_id": None,
+        },
+        {
+            "row_id": "unrelated-reject",
+            "entity_id": entity_ids[0],
+            "sample_type": "unrelated",
+            "relation_id": None,
+        },
+    ]
+    routes = [
+        AcceptedRoute(RelationId.REGISTRY_ID),
+        AcceptedRoute(RelationId.REGISTRY_ID),
+        RejectedRoute("unknown"),
+        AcceptedRoute(RelationId.CITY_CODE),
+        RejectedRoute("unknown"),
+    ]
+    metrics, predictions = formal._evaluate_locked_slot_retrieval(
+        locked_rows, routes, binding, buckets, variant="R3"
+    )
+    assert metrics["accepted_fact_top1"] == pytest.approx(0.5)
+    assert metrics["all_query_fact_top1"] == pytest.approx(1 / 3)
+    assert metrics["oracle_gap"] == pytest.approx(2 / 3)
+    assert metrics["cross_relation_candidate_count"] == 0
+    assert metrics["all_accepted_cross_relation_candidate_count"] == 0
+    assert predictions[2]["memory_access_count"] == 0
+    assert predictions[3]["memory_access_count"] == 1
+    assert predictions[3]["target_fact_id"] is None
+    assert predictions[3]["predicted_fact_id"] is None
+    assert predictions[4]["memory_access_count"] == 0
+
+    tampered = dict(binding)
+    tampered["manifest"] = {**binding["manifest"], "binding_sha256": "0" * 64}
+    with pytest.raises(ProtocolViolation, match="binding manifest SHA-256"):
+        formal._evaluate_locked_slot_retrieval(
+            locked_rows, routes, tampered, buckets, variant="R3"
+        )
+    tensor_tampered = dict(binding)
+    tensor_tampered["entity_embeddings"] = dict(binding["entity_embeddings"])
+    changed = binding["entity_embeddings"][entity_ids[0]].clone()
+    changed[0] += 0.25
+    tensor_tampered["entity_embeddings"][entity_ids[0]] = changed
+    with pytest.raises(ProtocolViolation, match="entity tensor changed"):
+        formal._evaluate_locked_slot_retrieval(
+            locked_rows, routes, tensor_tampered, buckets, variant="R3"
+        )
+
+
+def test_prefrozen_locked_slot_binding_fails_if_unique_entities_are_insufficient():
+    import keyed_gram.stage_c24b_formal as formal
+
+    values = yaml.safe_load(
+        (ROOT / "configs" / "stage_c24b.yaml").read_text(encoding="utf-8")
+    )
+    rows = []
+    vectors = []
+    for entity_index in range(3):
+        vector = torch.nn.functional.one_hot(
+            torch.tensor(entity_index), num_classes=3
+        ).float()
+        for relation in RelationId:
+            rows.append(
+                {
+                    "entity": f"entity-{entity_index}",
+                    "attribute": relation.value,
+                    "fact_id": f"opaque:{entity_index}:{relation.value}",
+                }
+            )
+            vectors.append(vector)
+    embeddings = torch.stack(vectors)
+    buckets = build_fact_buckets(embeddings, rows)
+    with pytest.raises(ProtocolViolation, match="fewer entities"):
+        formal._build_locked_slot_binding(
+            values,
+            embeddings,
+            rows,
+            buckets,
+            answer_free_cache_sha256="a" * 64,
+        )

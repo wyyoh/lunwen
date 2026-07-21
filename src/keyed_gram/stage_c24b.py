@@ -3284,6 +3284,10 @@ def audit_stage_c24b(
             raise ProtocolViolation(
                 "a completed or unknown formal summary cannot be overwritten"
             )
+    if (destination / "protocol_incident.json").exists():
+        raise ProtocolViolation(
+            "a prior C2.4b protocol incident permanently invalidated locked audit v2"
+        )
     interrupted_markers = [
         name
         for name in (
@@ -3404,6 +3408,7 @@ def audit_stage_c24b(
                 ],
                 "development_executed_once": True,
                 "locked_audit_used_for_selection": False,
+                "locked_slot_binding": prelocked["slot_binding"]["manifest"],
                 **marker_provenance,
             },
         )

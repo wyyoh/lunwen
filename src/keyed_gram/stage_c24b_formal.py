@@ -27,6 +27,7 @@ from .stage_c23_audit import sanitize_private_metadata
 from .stage_c23_semantic import build_semantic_view_texts, encode_semantic_texts
 from .stage_c24 import FactBuckets, build_fact_buckets, load_fixed_s5_head
 from .stage_c24_contract import AcceptedRoute, RelationId
+from .stage_c24b_benchmark import PublicSplitV2, validate_benchmark_config_v2
 from .stage_c24b_calibration import (
     ClassConditionalConformalCalibrator,
     PairwiseRidgeEvidenceHead,
@@ -117,6 +118,400 @@ def _model_provenance(
             "model_safetensors_sha256": str(weights[0]["sha256"]),
         }
     return output
+
+
+def _finite_tensor_sha256(tensor: torch.Tensor) -> str:
+    """封存 tensor 的 dtype、shape 与原始连续字节。"""
+
+    value = tensor.detach().cpu().contiguous()
+    if not bool(torch.isfinite(value).all()):
+        raise _main().ProtocolViolation("slot binding tensor is non-finite")
+    header = json.dumps(
+        {"dtype": str(value.dtype), "shape": list(value.shape)},
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return hashlib.sha256(header + b"\0" + value.numpy().tobytes()).hexdigest()
+
+
+def _build_locked_slot_binding(
+    values: Mapping[str, Any],
+    test_embeddings: torch.Tensor,
+    test_rows: Sequence[Mapping[str, Any]],
+    buckets: FactBuckets,
+    *,
+    answer_free_cache_sha256: str,
+) -> dict[str, Any]:
+    """预注册 relation-independent public-entity→answer-free slot binding。
+
+    public entity 只按 ID 排序，private entity 只按 answer-free 名称排序；二者
+    一一映射且数量不足即失败。每个 private entity 的 query embedding 对其全部
+    development rows 求均值，因而不按 relation/family/score/结果挑选。
+    """
+
+    main = _main()
+    benchmark = validate_benchmark_config_v2(values["benchmark"])
+    public_entities = sorted(
+        benchmark.splits[PublicSplitV2.LOCKED_AUDIT].entities
+    )
+    if test_embeddings.ndim != 2 or len(test_embeddings) != len(test_rows):
+        raise main.ProtocolViolation("slot binding rows and embeddings are not aligned")
+    private_entities = sorted({str(row["entity"]) for row in test_rows})
+    if len(private_entities) < len(public_entities):
+        raise main.ProtocolViolation(
+            "answer-free development has fewer entities than locked public binding"
+        )
+
+    entity_embeddings: dict[str, torch.Tensor] = {}
+    fact_ids: dict[str, dict[RelationId, str]] = {}
+    mapping_rows: list[dict[str, Any]] = []
+    for public_entity_id, private_entity in zip(public_entities, private_entities):
+        indices = [
+            index
+            for index, row in enumerate(test_rows)
+            if str(row["entity"]) == private_entity
+        ]
+        if not indices:
+            raise main.ProtocolViolation("slot binding entity has no source rows")
+        # 聚合与 relation 无关；同一 public entity 在全部 family/frame 固定使用。
+        entity_embeddings[public_entity_id] = F.normalize(
+            test_embeddings[indices].float().mean(dim=0), p=2, dim=0
+        )
+        relation_facts: dict[RelationId, str] = {}
+        fact_hashes: dict[str, str] = {}
+        for relation in RelationId:
+            candidates = {
+                str(test_rows[index]["fact_id"])
+                for index in indices
+                if str(test_rows[index]["attribute"]) == relation.value
+            }
+            if len(candidates) != 1:
+                raise main.ProtocolViolation(
+                    "slot binding requires one answer-free fact per entity/relation"
+                )
+            fact_id = next(iter(candidates))
+            if fact_id not in buckets.fact_ids[relation]:
+                raise main.ProtocolViolation(
+                    "slot binding fact is absent from its fixed relation bucket"
+                )
+            relation_facts[relation] = fact_id
+            fact_hashes[relation.value] = main.canonical_sha256(fact_id)
+        fact_ids[public_entity_id] = relation_facts
+        mapping_rows.append(
+            {
+                "public_entity_id": public_entity_id,
+                "private_entity_sha256": main.canonical_sha256(private_entity),
+                "source_row_indices": indices,
+                "source_row_index_sha256": main.canonical_sha256(indices),
+                "entity_embedding_sha256": _finite_tensor_sha256(
+                    entity_embeddings[public_entity_id]
+                ),
+                "fact_id_sha256": fact_hashes,
+            }
+        )
+    # 在任何 locked row、router score 或实际 route 之前，离线预计算完整
+    # entity × RelationId oracle table。该访问不属于系统查询，不进入 FMAR。
+    oracle_table: dict[str, dict[RelationId, str]] = {}
+    oracle_table_hash_view: dict[str, dict[str, str]] = {}
+    oracle_access_count = 0
+    for public_entity_id in public_entities:
+        oracle_table[public_entity_id] = {}
+        oracle_table_hash_view[public_entity_id] = {}
+        for relation in RelationId:
+            execution = execute_selective_route(
+                entity_embeddings[public_entity_id],
+                AcceptedRoute(relation_id=relation),
+                buckets.prototypes,
+            )
+            result = execution.retrieval
+            assert result is not None
+            if result.cross_relation_candidate_count != 0:
+                raise main.ProtocolViolation("offline slot oracle crossed a relation bucket")
+            predicted_fact = buckets.fact_ids[relation][result.candidate_index]
+            oracle_table[public_entity_id][relation] = predicted_fact
+            oracle_table_hash_view[public_entity_id][relation.value] = (
+                main.canonical_sha256(predicted_fact)
+            )
+            oracle_access_count += execution.memory_access_count
+    payload = {
+        "schema_version": main.SCHEMA_VERSION,
+        "scope": "locked_relation_request_x_prefrozen_answer_free_slot_binding_v1",
+        "mapping_algorithm": (
+            "sorted public entity IDs one-to-one with the first equally sized prefix "
+            "of sorted sanitized development entities; no cycling; entity embedding "
+            "is the normalized mean over all source rows independent of relation"
+        ),
+        "selection_inputs_forbidden": [
+            "relation_label",
+            "phrase_family",
+            "router_score",
+            "router_prediction",
+            "retrieval_result",
+        ],
+        "public_entity_ids": public_entities,
+        "private_entity_count_available": len(private_entities),
+        "mapped_entity_count": len(mapping_rows),
+        "answer_free_cache_sha256": answer_free_cache_sha256,
+        "bucket_prototype_sha256": {
+            relation.value: _finite_tensor_sha256(buckets.prototypes[relation])
+            for relation in RelationId
+        },
+        "bucket_fact_id_sha256": {
+            relation.value: main.canonical_sha256(buckets.fact_ids[relation])
+            for relation in RelationId
+        },
+        "bucket_row_embedding_sha256": {
+            relation.value: _finite_tensor_sha256(buckets.row_embeddings[relation])
+            for relation in RelationId
+        },
+        "bucket_row_fact_id_sha256": {
+            relation.value: main.canonical_sha256(
+                buckets.row_fact_ids[relation]
+            )
+            for relation in RelationId
+        },
+        "mappings": mapping_rows,
+        "offline_oracle_table_sha256": main.canonical_sha256(
+            oracle_table_hash_view
+        ),
+        "offline_oracle_memory_access_count": oracle_access_count,
+        "offline_oracle_counted_as_system_memory_access": False,
+        "route_evidence_split": PublicSplitV2.LOCKED_AUDIT.value,
+        "entity_embedding_source": "C2.3 sanitized answer-free development",
+        "bucket_source": "C2.3 answer-free train",
+        "historical_development_substrate_reused": True,
+        "fact_retrieval_independent_locked_test": False,
+        "private_answers_loaded": False,
+        "development_used_for_router_selection": False,
+        "limitations": [
+            "audits router-to-typed-bucket-to-slot composition only",
+            "does not evaluate entity OOD from the public natural-language entity string",
+            "does not establish independent entity-side generalization",
+        ],
+    }
+    manifest = {**payload, "binding_sha256": main.canonical_sha256(payload)}
+    return {
+        "entity_embeddings": entity_embeddings,
+        "fact_ids": fact_ids,
+        "buckets": buckets,
+        "oracle_table": oracle_table,
+        "manifest": manifest,
+    }
+
+
+def _evaluate_locked_slot_retrieval(
+    rows: Sequence[Mapping[str, Any]],
+    routes: Sequence[AcceptedRoute | RejectedRoute],
+    binding: Mapping[str, Any],
+    buckets: FactBuckets,
+    *,
+    variant: str,
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    """对 locked route 实际执行零个或一个 typed relation bucket 访问。"""
+
+    main = _main()
+    if len(rows) != len(routes):
+        raise main.ProtocolViolation("locked route/retrieval rows are not aligned")
+    manifest = dict(binding["manifest"])
+    payload = {key: value for key, value in manifest.items() if key != "binding_sha256"}
+    if main.canonical_sha256(payload) != manifest.get("binding_sha256"):
+        raise main.ProtocolViolation("locked slot binding manifest SHA-256 is invalid")
+    mapping_by_entity = {
+        str(row["public_entity_id"]): row for row in manifest["mappings"]
+    }
+    if set(mapping_by_entity) != set(manifest["public_entity_ids"]):
+        raise main.ProtocolViolation("locked slot binding mapping set is invalid")
+    for entity_id in manifest["public_entity_ids"]:
+        if (
+            _finite_tensor_sha256(binding["entity_embeddings"][entity_id])
+            != mapping_by_entity[entity_id]["entity_embedding_sha256"]
+        ):
+            raise main.ProtocolViolation("locked slot binding entity tensor changed")
+        for relation in RelationId:
+            fact_id = str(binding["fact_ids"][entity_id][relation])
+            if main.canonical_sha256(fact_id) != mapping_by_entity[entity_id][
+                "fact_id_sha256"
+            ][relation.value]:
+                raise main.ProtocolViolation("locked slot binding fact ID changed")
+    for relation in RelationId:
+        if (
+            _finite_tensor_sha256(buckets.prototypes[relation])
+            != manifest["bucket_prototype_sha256"][relation.value]
+            or main.canonical_sha256(buckets.fact_ids[relation])
+            != manifest["bucket_fact_id_sha256"][relation.value]
+            or _finite_tensor_sha256(buckets.row_embeddings[relation])
+            != manifest["bucket_row_embedding_sha256"][relation.value]
+            or main.canonical_sha256(buckets.row_fact_ids[relation])
+            != manifest["bucket_row_fact_id_sha256"][relation.value]
+        ):
+            raise main.ProtocolViolation("locked slot binding bucket changed")
+    oracle_hash_view = {
+        entity_id: {
+            relation.value: main.canonical_sha256(
+                str(binding["oracle_table"][entity_id][relation])
+            )
+            for relation in RelationId
+        }
+        for entity_id in manifest["public_entity_ids"]
+    }
+    if main.canonical_sha256(oracle_hash_view) != manifest[
+        "offline_oracle_table_sha256"
+    ]:
+        raise main.ProtocolViolation("offline locked slot oracle table changed")
+    observed_public_entities = {str(row["entity_id"]) for row in rows}
+    if observed_public_entities != set(manifest["public_entity_ids"]):
+        raise main.ProtocolViolation(
+            "locked row entity set differs from the prefrozen slot binding"
+        )
+
+    accepted: list[bool] = []
+    fact_hits: list[bool | None] = []
+    row_hits: list[bool | None] = []
+    reciprocal: list[float | None] = []
+    margins: list[float | None] = []
+    counts: list[int | None] = []
+    cross: list[int | None] = []
+    oracle_hits: list[bool] = []
+    predictions: list[dict[str, Any]] = []
+    all_accepted_cross = 0
+
+    entity_embeddings = binding["entity_embeddings"]
+    bound_fact_ids = binding["fact_ids"]
+    for row, route in zip(rows, routes):
+        entity_id = str(row["entity_id"])
+        entity_embedding = entity_embeddings[entity_id]
+        sample_type = str(row["sample_type"])
+        if sample_type == "known":
+            true_relation = RelationId(str(row["relation_id"]))
+            true_fact = str(bound_fact_ids[entity_id][true_relation])
+            oracle_hits.append(
+                str(binding["oracle_table"][entity_id][true_relation]) == true_fact
+            )
+        else:
+            true_relation = None
+            true_fact = None
+
+        is_accepted = isinstance(route, AcceptedRoute)
+        accepted.append(is_accepted)
+        if not is_accepted:
+            fact_hits.append(None)
+            row_hits.append(None)
+            reciprocal.append(None)
+            margins.append(None)
+            counts.append(None)
+            cross.append(None)
+            predictions.append(
+                {
+                    "variant": variant,
+                    "split": PublicSplitV2.LOCKED_AUDIT.value,
+                    "row_id": str(row["row_id"]),
+                    "sample_type": sample_type,
+                    "route_status": "reject",
+                    "reject_reason": route.reason,
+                    "memory_access_count": 0,
+                    "relation_bucket_candidate_count": 0,
+                    "cross_relation_candidate_count": 0,
+                    "binding_sha256": manifest["binding_sha256"],
+                }
+            )
+            continue
+
+        execution = execute_selective_route(
+            entity_embedding, route, buckets.prototypes
+        )
+        result = execution.retrieval
+        assert result is not None
+        all_accepted_cross += result.cross_relation_candidate_count
+        relation = route.relation_id
+        predicted_fact = buckets.fact_ids[relation][result.candidate_index]
+        predictions.append(
+            {
+                "variant": variant,
+                "split": PublicSplitV2.LOCKED_AUDIT.value,
+                "row_id": str(row["row_id"]),
+                "sample_type": sample_type,
+                "route_status": "accept",
+                "relation_id": relation.value,
+                "target_fact_id": true_fact,
+                "predicted_fact_id": predicted_fact if sample_type == "known" else None,
+                "memory_access_count": execution.memory_access_count,
+                "relation_bucket_candidate_count": result.candidate_count,
+                "cross_relation_candidate_count": result.cross_relation_candidate_count,
+                "binding_sha256": manifest["binding_sha256"],
+            }
+        )
+        if sample_type != "known":
+            fact_hits.append(None)
+            row_hits.append(None)
+            reciprocal.append(None)
+            margins.append(None)
+            counts.append(None)
+            cross.append(None)
+            continue
+
+        assert true_fact is not None
+        centroid = F.normalize(buckets.prototypes[relation], dim=1)
+        query = F.normalize(entity_embedding, dim=0)
+        similarities = centroid @ query
+        if true_fact in buckets.fact_ids[relation]:
+            true_index = buckets.fact_ids[relation].index(true_fact)
+            ranking = similarities.argsort(descending=True)
+            rank = int((ranking == true_index).nonzero()[0].item()) + 1
+            other_mask = torch.arange(len(similarities)) != true_index
+            margin = (
+                float(similarities[true_index] - similarities[other_mask].max())
+                if bool(other_mask.any())
+                else float(similarities[true_index] + 1.0)
+            )
+        else:
+            rank, margin = 0, float(-1.0 - similarities.max())
+        row_matrix = F.normalize(buckets.row_embeddings[relation], dim=1)
+        row_index = int((row_matrix @ query).argmax())
+        row_prediction = buckets.row_fact_ids[relation][row_index]
+        fact_hits.append(predicted_fact == true_fact)
+        row_hits.append(row_prediction == true_fact)
+        reciprocal.append(1.0 / rank if rank else 0.0)
+        margins.append(margin)
+        counts.append(result.candidate_count)
+        cross.append(result.cross_relation_candidate_count)
+
+    known_count = sum(str(row["sample_type"]) == "known" for row in rows)
+    if len(oracle_hits) != known_count or not oracle_hits:
+        raise main.ProtocolViolation("locked slot oracle rows are incomplete")
+    metrics = fact_retrieval_metrics(
+        accepted,
+        [str(row["sample_type"]) for row in rows],
+        fact_hits,
+        row_hits,
+        reciprocal,
+        margins,
+        counts,
+        cross,
+        oracle_fact_top1=sum(oracle_hits) / len(oracle_hits),
+    )
+    if all_accepted_cross != 0 or metrics["cross_relation_candidate_count"] != 0:
+        raise main.ProtocolViolation("locked retrieval crossed a relation bucket")
+    metrics.update(
+        {
+            "scope": manifest["scope"],
+            "evidence_split": PublicSplitV2.LOCKED_AUDIT.value,
+            "binding_sha256": manifest["binding_sha256"],
+            "all_accepted_cross_relation_candidate_count": all_accepted_cross,
+            "development_used_for_router_selection": False,
+            "private_answers_loaded": False,
+            "limitations": manifest["limitations"],
+            "route_evidence_split": manifest["route_evidence_split"],
+            "entity_embedding_source": manifest["entity_embedding_source"],
+            "bucket_source": manifest["bucket_source"],
+            "historical_development_substrate_reused": True,
+            "fact_retrieval_independent_locked_test": False,
+            "offline_oracle_memory_access_count": manifest[
+                "offline_oracle_memory_access_count"
+            ],
+            "offline_oracle_counted_as_system_memory_access": False,
+        }
+    )
+    return metrics, predictions
 
 
 def _pair_score_rows(
@@ -305,7 +700,7 @@ def _actual_answer_free_retrieval(
     values: Mapping[str, Any],
     context: Mapping[str, Any],
     selected_router: str,
-) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+) -> tuple[dict[str, Any], list[dict[str, Any]], dict[str, Any]]:
     main = _main()
     cache = _load_feature_cache(
         main._resolve_path(config_path, values["fixed_sources"]["private_feature_cache"])
@@ -334,8 +729,19 @@ def _actual_answer_free_retrieval(
         for split in ("train", "test")
     }
     system.to("cpu")
-    routes = _score_and_route(rows["test"], context)[selected_router][1]
     buckets: FactBuckets = build_fact_buckets(embeddings["train"], rows["train"])
+    slot_binding = _build_locked_slot_binding(
+        values,
+        embeddings["test"],
+        rows["test"],
+        buckets,
+        answer_free_cache_sha256=main.sha256_file(
+            main._resolve_path(
+                config_path, values["fixed_sources"]["private_feature_cache"]
+            )
+        ),
+    )
+    routes = _score_and_route(rows["test"], context)[selected_router][1]
     accepted, fact_hits, row_hits = [], [], []
     reciprocal, margins, counts, cross = [], [], [], []
     oracle_hits: list[bool] = []
@@ -370,6 +776,8 @@ def _actual_answer_free_retrieval(
                     "route_status": "reject",
                     "reject_reason": route.reason,
                     "memory_access_count": 0,
+                    "relation_bucket_candidate_count": 0,
+                    "cross_relation_candidate_count": 0,
                 }
             )
             continue
@@ -432,7 +840,7 @@ def _actual_answer_free_retrieval(
     )
     metrics["development_used_for_selection"] = False
     metrics["private_answers_loaded"] = False
-    return metrics, predictions
+    return metrics, predictions, slot_binding
 
 
 def _readiness(
@@ -793,9 +1201,11 @@ def prepare_formal_prelocked(
     )
     selected_router = str(frozen_payload["selected_router"])
     try:
-        development_fact, retrieval_predictions = _actual_answer_free_retrieval(
-            config_path, values, context, selected_router
-        )
+        (
+            development_fact,
+            retrieval_predictions,
+            slot_binding,
+        ) = _actual_answer_free_retrieval(config_path, values, context, selected_router)
         main._write_json(
             completed,
             {
@@ -804,6 +1214,7 @@ def prepare_formal_prelocked(
                 "development_executed_once": True,
                 "selected_router": selected_router,
                 "fact_retrieval_scope": development_fact["scope"],
+                "locked_slot_binding": slot_binding["manifest"],
             },
         )
     except Exception as exc:
@@ -823,6 +1234,7 @@ def prepare_formal_prelocked(
         "context": context,
         "development_fact": development_fact,
         "retrieval_predictions": retrieval_predictions,
+        "slot_binding": slot_binding,
         "selected_router": selected_router,
         "model_artifacts_before": model_artifacts_before,
     }
@@ -849,7 +1261,9 @@ def run_formal_locked_backend(
     route_data = _score_and_route(locked_rows, context)
     git = main._git_state(main._repo_root(config_path))
     evaluations, prediction_rows, score_rows = {}, [], []
+    locked_retrieval_predictions: list[dict[str, Any]] = []
     model_provenance = _model_provenance(context["model_manifests"])
+    slot_binding = prelocked["slot_binding"]
     audit_data_sha256 = {
         **dict(frozen_payload["data_sha256"]),
         "public_locked_audit_v2": cache_binding["locked_data_sha256"],
@@ -881,6 +1295,34 @@ def run_formal_locked_backend(
             review_manifest_sha256=review_manifest_sha256,
             selection_protocol=selection_protocol,
         )
+        fact_metrics, retrieval_rows = _evaluate_locked_slot_retrieval(
+            locked_rows,
+            routes,
+            slot_binding,
+            slot_binding["buckets"],
+            variant=variant,
+        )
+        evaluation["fact_retrieval"] = fact_metrics
+        evaluation["fact_retrieval_scope"] = fact_metrics["scope"]
+        evaluation["memory_contract"] = {
+            "typed_relation_id_only": True,
+            "single_bucket_per_accepted_route": True,
+            "rejected_route_memory_access_count": 0,
+            "cross_relation_candidate_count": fact_metrics[
+                "all_accepted_cross_relation_candidate_count"
+            ],
+            "continuous_relation_reaches_memory": False,
+            "confidence_reaches_memory": False,
+            "semantic_embedding_reaches_memory": False,
+            "raw_text_reaches_memory": False,
+            "phrase_family_reaches_memory": False,
+            "slot_binding_sha256": fact_metrics["binding_sha256"],
+        }
+        for prediction, retrieval in zip(predictions, retrieval_rows):
+            prediction["memory_access_executed"] = bool(
+                retrieval["memory_access_count"]
+            )
+        locked_retrieval_predictions.extend(retrieval_rows)
         evaluations[variant] = evaluation
         prediction_rows.extend(predictions)
         for row, score, candidates in zip(locked_rows, scores, sets):
@@ -916,13 +1358,25 @@ def run_formal_locked_backend(
             "data_sha256": audit_data_sha256,
             "review_manifest_sha256": review_manifest_sha256,
             "selection_protocol": selection_protocol,
-            "metrics": development_fact,
-            "evaluation_scope": (
-                "fixed_answer_free_development_diagnostic_after_freeze"
-            ),
-            "used_for_router_selection": False,
-            "used_for_formal_readiness": False,
-            "rows": retrieval_predictions,
+            "development_diagnostic": {
+                "metrics": development_fact,
+                "rows": retrieval_predictions,
+                "used_for_router_selection": False,
+                "c24b_development_diagnostic_metrics_used_for_formal_readiness": False,
+            },
+            "public_locked_audit_v2": {
+                "metrics_by_variant": {
+                    variant: evaluation["fact_retrieval"]
+                    for variant, evaluation in evaluations.items()
+                },
+                "selected_router": selected_router,
+                "selected_metrics": selected_evaluation["fact_retrieval"],
+                "rows": locked_retrieval_predictions,
+                "locked_slot_binding": slot_binding["manifest"],
+                "used_for_router_selection": False,
+                "selected_metrics_used_for_formal_readiness": True,
+                "historical_c23_development_entity_substrate_used_for_slot_readiness": True,
+            },
         },
     )
     _write_formal_root_diagnostics(
@@ -1037,17 +1491,21 @@ def run_formal_locked_backend(
         "readiness": readiness,
         "readiness_evidence": {
             "route_and_reject_metrics": "public_locked_audit_v2_after_freeze",
-            "fact_retrieval_metrics": "not_assessed_on_public_locked_audit_v2",
-            "closed_readiness_conservatively_failed": True,
+            "fact_retrieval_metrics": slot_binding["manifest"]["scope"],
+            "locked_slot_binding_sha256": slot_binding["manifest"][
+                "binding_sha256"
+            ],
             "development_used_for_router_selection": False,
-            "development_used_for_formal_readiness": False,
+            "c24b_development_diagnostic_metrics_used_for_formal_readiness": False,
+            "historical_c23_development_entity_substrate_used_for_slot_readiness": True,
             "locked_audit_used_for_router_selection": False,
         },
         "development_diagnostic": {
             "fact_retrieval": development_fact,
             "used_for_router_selection": False,
-            "used_for_formal_readiness": False,
+            "c24b_development_diagnostic_metrics_used_for_formal_readiness": False,
         },
+        "locked_slot_binding": slot_binding["manifest"],
         "ready_to_create_new_confirmation_pool": readiness[
             "ready_to_create_new_confirmation_pool"
         ],
