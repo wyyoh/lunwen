@@ -6,3 +6,8 @@
 *.py text eol=lf
 *.toml text eol=lf
 *.yaml text eol=lf
+
+# Stage C2.4 manifests hash the generated on-disk bytes.  Preserve those
+# byte-for-byte in Git instead of normalizing JSON/CSV line endings.
+artifacts/stage_c24/** -text whitespace=cr-at-eol
+artifacts/stage_c24_smoke/** -text whitespace=cr-at-eol
