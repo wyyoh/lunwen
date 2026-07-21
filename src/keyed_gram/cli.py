@@ -42,6 +42,7 @@ from .stage_c23 import (
 )
 from .stage_c23_audit import run_stage_c23_audit
 from .stage_c23_benchmark import prepare_public_lexical_benchmark
+from .stage_c24 import prepare_stage_c24, run_stage_c24_audit
 from .train import train_gram
 
 
@@ -488,6 +489,38 @@ def command_stage_c23_audit(args: argparse.Namespace) -> None:
     )
 
 
+def command_stage_c24_prepare(args: argparse.Namespace) -> None:
+    result = prepare_stage_c24(args.config)
+    _print(
+        {
+            "stage": result["stage"],
+            "answer_free": result["answer_free"],
+            "row_counts": result["row_counts"],
+            "review_status": result["review_status"],
+            "public_benchmark_human_reviewed": result[
+                "public_benchmark_human_reviewed"
+            ],
+        }
+    )
+
+
+def command_stage_c24_audit(args: argparse.Namespace) -> None:
+    result = run_stage_c24_audit(
+        args.config,
+        args.output_dir,
+        device_name=args.device,
+    )
+    _print(
+        {
+            "stage": result["stage"],
+            "status": result["status"],
+            "selected_reject_score": result["reject_guard"]["selected_score"],
+            **result["eligibility"],
+            "results": str(Path(args.output_dir).resolve()),
+        }
+    )
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="keyed-gram",
@@ -734,6 +767,22 @@ def build_parser() -> argparse.ArgumentParser:
     )
     stage_c23_audit.add_argument("--device")
     stage_c23_audit.set_defaults(func=command_stage_c23_audit)
+
+    stage_c24_prepare = sub.add_parser(
+        "stage-c24-prepare",
+        help="prepare the answer-free C2.4 train/calibration/locked-audit protocol",
+    )
+    stage_c24_prepare.add_argument("--config", required=True)
+    stage_c24_prepare.set_defaults(func=command_stage_c24_prepare)
+
+    stage_c24_audit = sub.add_parser(
+        "stage-c24-audit",
+        help="run the frozen D0-D3 discrete relation-contract audit",
+    )
+    stage_c24_audit.add_argument("--config", required=True)
+    stage_c24_audit.add_argument("--output-dir", required=True)
+    stage_c24_audit.add_argument("--device")
+    stage_c24_audit.set_defaults(func=command_stage_c24_audit)
     return parser
 
 

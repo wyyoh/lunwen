@@ -1,0 +1,259 @@
+schema_version: 1
+stage: C2.4-discrete-relation-contract-audit
+
+fixed_sources:
+  stage_c23_config: configs/stage_c23.yaml
+  stage_c23_config_sha256: dbc37bf59de64cdf0f2e2f59c3f34067e3f3d98e2213704938319216c1564067
+  stage_c23_summary: artifacts/stage_c23/semantic_audit/stage_c23_audit_summary.json
+  stage_c23_summary_sha256: fe0ed12362158cd6a86f9d84f04f13b5c399b045781fd938d73198d63c04e9f9
+  stage_c23_oracle_summary: artifacts/stage_c23/S0/stage_c23_s0_summary.json
+  stage_c23_oracle_summary_sha256: 2e8c4973443ae1cd357bbeb863b39e19a8500fe17d43f7ec95c8e1bb84aa7c42
+  stage_c23_head: artifacts/stage_c23/semantic_audit/S5/ridge_relation_head.pt
+  stage_c23_head_sha256: 808d8182ca3b1dbc957fc227bd3038fe59cf920aa2bdf72a0e3669b1ca880a22
+  private_feature_cache: artifacts/stage_c23/private_answer_free_features.pt
+  private_feature_cache_sha256: 8c7ef93bcbc335be772c5f4a3f172e99741b1dac756026eb503250d66e582e4a
+  entity_checkpoint: artifacts/stage_c21/R3/canonicalizer.pt
+  entity_checkpoint_sha256: 09c74409cee941391ed7aaec1df8764219ecdf8b83f027a0d8980679b3399419
+  protocol_incident: artifacts/stage_c23/protocol_incident.json
+  protocol_incident_sha256: eeb73a0b946f143d60120b88a72dfbb593f942e7bada46b2ca8df4373f5725cf
+  source_core_sha256: b141f3c08fcc9c56a6ca6a6c14169fc001613efa7ca98905b8b642070a01d0cb
+
+fixed_s5:
+  base_encoder_variant: S4
+  semantic_encoder: bge-small
+  model_id: BAAI/bge-small-en-v1.5
+  revision: 5c38ec7c405ec4b44b94cc5a9bb96e735b38267a
+  model_manifest_sha256: 36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170
+  model_safetensors_sha256: 3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad
+  view: entity_masked_strip_suffix
+  relation_representation: fixed_ridge_relation_head
+  alpha: 0.5
+  classes: [access_code, city_code, registry_id]
+  private_embedding_cache_dir: artifacts/stage_c23/semantic_embedding_cache
+  model_cache_dir: .downloads/hf
+  public_train_semantic_text_sha256: b564e4e7f114bb726da992130d8ab4eeaa49167766fde8cd091062a8a7a722e5
+
+fixed_g3:
+  selected_candidate: S2:phrase_only
+  base_encoder_variant: S2
+  semantic_encoder: minilm
+  model_id: sentence-transformers/all-MiniLM-L6-v2
+  revision: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+  model_manifest_sha256: 7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce
+  model_safetensors_sha256: 53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db
+  view: phrase_only
+  definition_aggregation: mean
+  embedding_cache_dir: artifacts/stage_c23/semantic_embedding_cache
+  model_cache_dir: .downloads/hf
+
+run:
+  mode: formal
+  seed: 2401
+  batch_size: 64
+  ridge_strength: 0.01
+  ece_bins: 10
+  known_coverage_target: 0.95
+  temperature_grid: [0.5, 0.75, 1.0, 1.25, 1.5, 2.0, 3.0, 4.0]
+  reject_scores: [G1_max_softmax, G2_top_logit_margin, G3_definition_margin]
+  selection_split: public_calibration
+  locked_audit_usage: frozen_evaluation_only
+  development_usage: frozen_evaluation_once
+  embedding_cache_dir: artifacts/stage_c24/embedding_cache
+  d0_reproduction_tolerance: 1.0e-7
+  c23_d0_reference:
+    validation_fact_centroid_top1: 0.9375
+    validation_row_1nn: 0.90625
+    validation_mrr: 0.9519014550264551
+    development_fact_centroid_top1: 0.875
+    development_row_1nn: 0.796875
+    development_mrr: 0.9103628691059757
+
+gates:
+  closed_set:
+    public_family_macro_accuracy: 0.95
+    worst_family_accuracy: 0.85
+    private_validation_relation_accuracy: 0.95
+    development_relation_accuracy: 0.85
+    fact_centroid_top1: 0.85
+    mrr: 0.90
+    oracle_gap: 0.08
+  open_set:
+    known_detection_auroc: 0.95
+    tnr_at_95_known_coverage: 0.80
+    ambiguous_false_accept_rate: 0.20
+    unrelated_false_accept_rate: 0.10
+    worst_reject_family_false_accept_rate: 0.30
+    ece: 0.15
+    known_coverage: 0.95
+
+benchmark:
+  version: c24-public-discrete-contract-v1
+  preprocessing_version: c24-preprocess-v1
+  answer_free: true
+  contains_private_answers: false
+  review_status: curated_draft_pending_independent_human_review
+  public_data_dir: data/stage_c24
+  manifest: artifacts/stage_c24/public_benchmark_manifest.json
+  review_csv: artifacts/stage_c24/public_locked_audit_review.csv
+  splits:
+    public_train:
+      entities:
+        - amber public profile
+        - birch public profile
+        - cobalt public profile
+        - dune public profile
+        - elm public profile
+        - frost public profile
+      frames:
+        - "Public relation request for {entity}: {relation_phrase}. Answer:"
+        - "The public profile field for {entity} is described as {relation_phrase}. Response:"
+        - "Retrieve {relation_phrase} for public subject {entity}."
+      known_families:
+        registry_id:
+          train_registry_number: registry number
+          train_registration_identifier: registration identifier
+          train_official_record_id: official record ID
+          train_register_entry_number: register entry number
+          train_recordkeeping_identifier: recordkeeping identifier
+          train_registry_serial: registry-assigned serial
+        city_code:
+          train_city_code: city code
+          train_municipality_identifier: municipality identifier
+          train_locality_code: locality code
+          train_geographic_area_identifier: geographic area identifier
+          train_urban_area_code: urban area code
+          train_municipal_id: municipal ID
+        access_code:
+          train_access_code: access code
+          train_access_credential: access credential
+          train_service_password: protected-service password
+          train_entry_passcode: entry passcode
+          train_account_unlock_secret: account unlock secret
+          train_secure_login_credential: secure login credential
+
+    public_calibration:
+      entities:
+        - glade calibration profile
+        - heather calibration profile
+        - iris calibration profile
+      frames:
+        - "Regarding {entity}, what is the value described as {relation_phrase}? Answer:"
+        - "From {entity}'s profile, retrieve the field meaning {relation_phrase}. Response:"
+        - "For {entity}, the requested attribute is {relation_phrase}; provide its value. Output:"
+      known_families:
+        registry_id:
+          calibration_registry_official_identifier: identifier issued by an official register
+          calibration_registry_database_number: number recorded in a registration database
+          calibration_registry_entry_serial: serial attached to a register entry
+          calibration_records_office_id: ID allocated by a records office
+          calibration_recordkeeping_index: index used by a recordkeeping system
+          calibration_filing_reference: reference assigned when a subject is formally filed
+        city_code:
+          calibration_named_municipality_code: code representing the named municipality
+          calibration_populated_place_identifier: identifier for the populated place
+          calibration_local_jurisdiction_number: number assigned to the local jurisdiction
+          calibration_administrative_area_id: ID for the city-level administrative area
+          calibration_named_locality_code: code denoting the named locality
+          calibration_local_government_identifier: identifier for the local government area
+        access_code:
+          calibration_required_credential: credential required to gain access
+          calibration_protected_account_password: password for the protected account
+          calibration_service_unlock_passcode: passcode used to unlock the service
+          calibration_subject_signon_secret: sign-on secret for the subject
+          calibration_resource_authentication_secret: authentication secret for the protected resource
+          calibration_lock_screen_code: code required by the lock screen
+      rejection_families:
+        ambiguous:
+          calibration_ambiguous_identifier: identifier
+          calibration_ambiguous_reference_number: reference number
+          calibration_ambiguous_assigned_code: assigned code
+          calibration_ambiguous_profile_key: profile key
+          calibration_ambiguous_record_value: record value
+          calibration_ambiguous_account_number: account number
+        unrelated:
+          calibration_unrelated_birth_date: birth date
+          calibration_unrelated_contact_email: contact email
+          calibration_unrelated_telephone_number: telephone number
+          calibration_unrelated_postal_address: postal address
+          calibration_unrelated_account_balance: account balance
+          calibration_unrelated_favorite_color: favorite color
+
+    public_locked_audit:
+      entities:
+        - maple locked-audit subject
+        - northstar locked-audit subject
+        - opal locked-audit subject
+        - prairie locked-audit subject
+      frames:
+        - "In the audit-only public card for {entity}, identify the field paraphrased as {relation_phrase}."
+        - "For public subject {entity}, which stored slot corresponds to the description {relation_phrase}?"
+        - "Read the answer-free schema of {entity}; target descriptor: {relation_phrase}."
+        - "Map the wording {relation_phrase} to one public field for {entity}."
+      known_families:
+        registry_id:
+          locked_archival_accession_locator: archival accession locator
+          locked_enrolment_folio_marker: enrolment folio marker
+          locked_statutory_roster_reference: statutory roster reference
+          locked_filing_ledger_locator: filing ledger locator
+          locked_institutional_catalog_token: institutional catalog token
+          locked_enrollment_roll_marker: enrollment roll marker
+        city_code:
+          locked_municipal_zone_designation: municipal zone designation
+          locked_civic_locality_marker: civic locality marker
+          locked_township_geography_reference: township geography reference
+          locked_urban_jurisdiction_locator: urban jurisdiction locator
+          locked_settlement_area_tag: settlement area tag
+          locked_metropolitan_locale_designation: metropolitan locale designation
+        access_code:
+          locked_protected_entry_authenticator: protected-entry authenticator
+          locked_secure_resource_admission_token: secure resource admission token
+          locked_account_opening_secret_phrase: account opening secret phrase
+          locked_guarded_service_signin_value: guarded service sign-in value
+          locked_authorization_challenge_token: authorization challenge token
+          locked_restricted_entry_credential: credential for restricted entry
+      rejection_families:
+        ambiguous:
+          locked_ambiguous_lookup_token: general lookup token
+          locked_ambiguous_profile_marker: assigned profile marker
+          locked_ambiguous_reference_label: unspecified reference label
+          locked_ambiguous_record_tag: internal record tag
+          locked_ambiguous_subject_locator: generic subject locator
+          locked_ambiguous_issued_value: system-issued value
+        unrelated:
+          locked_unrelated_mailing_preference: mailing preference
+          locked_unrelated_emergency_contact: emergency contact person
+          locked_unrelated_renewal_date: subscription renewal date
+          locked_unrelated_operating_system: device operating system
+          locked_unrelated_membership_tier: project membership tier
+          locked_unrelated_notification_schedule: notification schedule
+
+  definitions:
+    registry_id:
+      - An identifier assigned by an official registry or recordkeeping system.
+      - A serial number used to locate a subject's entry in an official register.
+      - A reference issued when a subject or item is enrolled in a formal record.
+      - A code linking a subject to its listing in a registry database.
+    city_code:
+      - A code or identifier representing a city, municipality, locality, or geographic area.
+      - A designation used to identify the local jurisdiction assigned to a subject.
+      - A geographic code for a town or city-level administrative area.
+      - A reference that denotes a populated place or municipal region.
+    access_code:
+      - A secret credential or code used to authorize access to a protected resource.
+      - A password or passcode required to unlock an account, service, or secured area.
+      - A private authentication value accepted by an access-control system.
+      - A secret sequence used to gain entry to a protected service.
+
+  private_phrase_views:
+    train:
+      registry_id: [registry number, registry number, registry number, registry number, registry number, registry number]
+      city_code: [city code, city code, city code, city code, city code, city code]
+      access_code: [access code, access code, access code, access code, access code, access code]
+    validation:
+      registry_id: [registry number, registry number]
+      city_code: [city code, city code]
+      access_code: [access code, access code]
+    development:
+      registry_id: [registered number, registry identifier, registry number, registered number]
+      city_code: [location code, city identifier, city code, city code]
+      access_code: [private credential, access identifier, private access code, access code]
