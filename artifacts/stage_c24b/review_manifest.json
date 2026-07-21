@@ -1,0 +1,130 @@
+{
+  "schema_version": 2,
+  "stage": "C2.4b-selective-discrete-relation-router",
+  "status": "pending_human_input",
+  "public_benchmark_human_reviewed": false,
+  "legacy_c24_review_complete": false,
+  "reviews": {
+    "public_train_v2": {
+      "path": "/home/liuyun/cloudcli-prod-data/workspaces/user_3/05136a23-3f5e-4efd-8adf-fcfff347cad1/lunwen/artifacts/stage_c24b/public_train_v2_review.csv",
+      "sha256": "a8c8d687497c7befcbc6dd53f37e0a17c9ff185075d083072e8430f4adedbdcb",
+      "row_count": 72,
+      "complete": false,
+      "incomplete_row_count": 72,
+      "reviewer_disagreement_count": 0,
+      "adjudicated_label_or_type_change_count": 0,
+      "ambiguous_to_unrelated_change_count": 0,
+      "model_predictions_used_for_labels": "not_verified_by_software",
+      "prediction_blindness_verified_by_software": false,
+      "reviewer_independence_verified_by_software": false
+    },
+    "public_calibration_v2": {
+      "path": "/home/liuyun/cloudcli-prod-data/workspaces/user_3/05136a23-3f5e-4efd-8adf-fcfff347cad1/lunwen/artifacts/stage_c24b/public_calibration_v2_review.csv",
+      "sha256": "f8016bdfe493c9847c5c910e1993cd9eb899160e2334be89f425d3455cc27adc",
+      "row_count": 160,
+      "complete": false,
+      "incomplete_row_count": 160,
+      "reviewer_disagreement_count": 0,
+      "adjudicated_label_or_type_change_count": 0,
+      "ambiguous_to_unrelated_change_count": 0,
+      "model_predictions_used_for_labels": "not_verified_by_software",
+      "prediction_blindness_verified_by_software": false,
+      "reviewer_independence_verified_by_software": false
+    },
+    "public_locked_audit_v2": {
+      "path": "/home/liuyun/cloudcli-prod-data/workspaces/user_3/05136a23-3f5e-4efd-8adf-fcfff347cad1/lunwen/artifacts/stage_c24b/public_locked_audit_v2_review.csv",
+      "sha256": "16ed91c8f95e35c238ec29b3b9cedca2aef1126ff05264665f3601ae420f3ece",
+      "row_count": 160,
+      "complete": false,
+      "incomplete_row_count": 160,
+      "reviewer_disagreement_count": 0,
+      "adjudicated_label_or_type_change_count": 0,
+      "ambiguous_to_unrelated_change_count": 0,
+      "model_predictions_used_for_labels": "not_verified_by_software",
+      "prediction_blindness_verified_by_software": false,
+      "reviewer_independence_verified_by_software": false
+    },
+    "legacy_c24_locked_audit": {
+      "path": "/home/liuyun/cloudcli-prod-data/workspaces/user_3/05136a23-3f5e-4efd-8adf-fcfff347cad1/lunwen/artifacts/stage_c24b/c24_locked_audit_independent_review.csv",
+      "sha256": "a74187c6279753f203508ebc8bec3543b59a5d18062f938703fe9b489d41f1f4",
+      "row_count": 120,
+      "complete": false,
+      "incomplete_row_count": 120,
+      "reviewer_disagreement_count": 0,
+      "adjudicated_label_or_type_change_count": 0,
+      "ambiguous_to_unrelated_change_count": 0,
+      "model_predictions_used_for_labels": "not_verified_by_software",
+      "prediction_blindness_verified_by_software": false,
+      "reviewer_independence_verified_by_software": false
+    }
+  },
+  "review_policy": {
+    "two_independent_reviewers_required": true,
+    "adjudication_required": true,
+    "prediction_blind_labels_required": true,
+    "software_does_not_claim_human_independence": true
+  },
+  "config_sha256": "1549bb88578f310aac2b0ec230c419823ef9c3b3fe728105c295087dfe5c69f7",
+  "git": {
+    "commit": "fec7b232cea863c2df814914e2e02c6400efaaf4",
+    "branch": "agent/stage-c21",
+    "dirty": true
+  },
+  "model_revisions": {
+    "R0": {
+      "model_id": "BAAI/bge-small-en-v1.5",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "model_manifest_sha256": "36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170",
+      "model_safetensors_sha256": "3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad",
+      "frozen_head_sha256": "808d8182ca3b1dbc957fc227bd3038fe59cf920aa2bdf72a0e3669b1ca880a22",
+      "query_view": "entity_masked_strip_suffix"
+    },
+    "R1": {
+      "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "model_manifest_sha256": "7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce",
+      "model_safetensors_sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+      "query_view": "entity_masked_strip_suffix",
+      "aggregations": [
+        "mean",
+        "max",
+        "top_k_mean"
+      ],
+      "top_k_values": [
+        2,
+        3
+      ]
+    },
+    "R2": {
+      "implementation": "frozen_semantic_encoder_public_pairwise_ridge_head",
+      "query_view": "entity_masked_strip_suffix",
+      "candidates": {
+        "small": {
+          "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+          "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+          "model_manifest_sha256": "7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce",
+          "model_safetensors_sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db"
+        },
+        "upper": {
+          "model_id": "intfloat/e5-base-v2",
+          "revision": "f52bf8ec8c7124536f0efb74aca902b2995e5bcd",
+          "model_manifest_sha256": "65f8d8b336328cad989147d890809c94b8eeba3a5309466d6385aeff03d0a375",
+          "model_safetensors_sha256": "d0d559c47d5f71b1d280b13b62a2657f3e3bc70c0786f9ab91a36545e6a8f693"
+        }
+      }
+    }
+  },
+  "data_sha256": {
+    "public_calibration_v2": "0eaa0f41b6c50f26f69862364be8f982ea3bb9149b768628729e31400f722e9e",
+    "public_locked_audit_v2": "17b679d9fee66a738dcccaca3e5b8e391ce729751a6d5fe084c6e4ec8fde8d48",
+    "public_train_v2": "e808f5461413fec9721d34aadc35a83eaa41bffe96cc7828cdc7aaa127620276"
+  },
+  "review_manifest_sha256": null,
+  "selection_protocol": {
+    "development_used_for_selection": false,
+    "locked_audit_usage": "not_executed_by_prepare",
+    "locked_audit_used_for_selection": false,
+    "router_selection_executed": false,
+    "selection_split": "public_calibration_v2"
+  }
+}

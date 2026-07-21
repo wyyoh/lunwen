@@ -2,7 +2,7 @@
 
 ## 当前结论
 
-Stage C2.4b 已定义新的选择性离散 relation router、v2 公共数据协议和人工审核门禁，但本报告生成时，真实双人独立审核尚未完成，正式 calibration、development 诊断和 `public_locked_audit_v2` 均未执行。因此目前只能报告协议、实现和 synthetic smoke 的工程状态，不能报告 R0–R4 的正式研究效果，也不能据此选择最终 router 或判断研究门槛通过。
+Stage C2.4b 已实现新的选择性离散 relation router、v2 公共数据协议和人工审核门禁，并已完成正式 `prepare` 与独立 CPU synthetic smoke。但本报告生成时，真实双人独立审核尚未完成，正式 calibration、development 诊断和 `public_locked_audit_v2` 均未执行。因此目前只能报告协议、实现和 synthetic smoke 的工程状态，不能报告 R0–R4 的正式研究效果，也不能据此选择正式 router 或判断研究门槛通过。
 
 当前状态必须作如下有限解释：
 
@@ -10,7 +10,7 @@ Stage C2.4b 已定义新的选择性离散 relation router、v2 公共数据协�
 - Stage C2.4 的主要剩余失败仍是 lexical-family OOD 离散误路由，以及 ambiguous 请求不能可靠拒绝。旧 C2.4 locked audit 已经打开，只能用于错误与数据质量分析，不能再参与 C2.4b 的模型选择、阈值选择或无偏测试。
 - C2.4b 的真实 train、calibration、locked-audit 和旧 C2.4 120 条数据质量复核模板均保持 `pending`；reviewer 与 adjudication 字段没有自动填写。
 - `formal_calibration_executed=false`，`formal_development_executed=false`，`formal_locked_audit_executed=false`。
-- synthetic smoke 只验证控制流、schema、拒绝门禁、候选集合逻辑和产物写出；它不是自然语言模型评测，不构成 H1–H3 的研究证据，也不能用于 readiness 判定。
+- synthetic smoke 已成功运行，但只验证控制流、schema、拒绝门禁、候选集合逻辑和产物写出；它不是自然语言模型评测，不构成 H1–H3 的研究证据，也不能用于 readiness 判定。
 
 ## 从 Stage C2.4 继承且必须保持的事实
 
@@ -46,7 +46,7 @@ C2.4b 不修改 entity branch、relation bucket、bucket 内检索距离或 core
 
 `public_train_v2` 每个 relation 有 8 个 phrase families，并跨 3 个 frame 物化；calibration 与 locked audit 分别有 24 个 known、8 个 ambiguous、8 个 unrelated families，并跨 4 个 frame 物化。calibration 专门包含 `key`、`identifier`、`code`、`reference`、`credential`、`token` 和 `serial` 等同词异义 hard negatives，以及 registry/city/access 的结构相似最小对。所有数据均为 answer-free，不含 private answer、entity→private value、密码学密钥材料或 confirmation 内容；这里的自然语言单词 `key` 只作为公开语义 hard negative。
 
-本报告生成时的碰撞审计状态：`待 stage-c24b-prepare 正式产物校验后填写`。在该校验完成前，不把“配置中的新 family 名称”表述为已经通过全部历史碰撞审计。
+正式 `stage-c24b-prepare` 已在数据物化提交 `fec7b232cea863c2df814914e2e02c6400efaaf4` 上运行一次。split 隔离审计与 C2.3/C2.4 历史碰撞审计均为 `passed=true`；历史审计覆盖 228 条 phrase、25 个 entity 和 19 个 frame。三份数据 SHA-256 分别为：train `e808f546…20276`、calibration `0eaa0f41…22e9e`、locked `17b679d9…e8d48`。公开 benchmark manifest SHA-256 为 `7977b7a3…ed977`。这不是 router/model/threshold 的正式 freeze；后者只能在真人审核完成后的 formal calibration 发生。
 
 ## 人工审核状态
 
@@ -81,7 +81,7 @@ public_benchmark_human_reviewed = false
 
 正式选择顺序固定为：完成数据与审核 schema → 完成 train/calibration 人工审核 → 只用 train 拟合允许训练的组件 → 只用 calibration 选择 R1/R2/R3/R4 设置 → 冻结模型、参数、数据哈希、review manifest 哈希和代码提交 → development 只运行一次作诊断 → locked audit 完成人工审核后只运行一次。development 与 locked audit 不参与选择，不创建 confirmation。
 
-如果使用 conformal，正式报告必须保存 nonconformity 定义、每个 relation 的 calibration quantile、目标 coverage 和有限样本条件。不能声称在 lexical 或语义分布迁移下仍有严格覆盖保证。
+如果使用 conformal，正式报告必须保存 nonconformity 定义、每个 relation 的 calibration quantile、目标 coverage 和有限样本条件。当前实现还明确记录：evidence source、alpha 与 quantile 共用 calibration split 进行选择，因此不主张标准 split-conformal 的名义有限样本覆盖保证；在 lexical 或语义分布迁移下同样不主张严格覆盖保证。
 
 ## 当前运行阻塞与资产状态
 
@@ -94,21 +94,21 @@ public_benchmark_human_reviewed = false
 
 因此当前既不能真实复现 R0，也不能执行正式 semantic embedding、fact retrieval 或 source checkpoint 的运行前后字节校验。配置中已有预期 provenance 哈希不等于当前 clone 已持有对应文件。本阶段没有用临时模型、随机 embedding 或 synthetic 数值替代正式指标。
 
-正式运行的两个独立前置条件均未满足：真实人工审核尚未完成，正式固定资产也不在当前 clone。审核未完成时应先由审核门禁拒绝运行，不应越过门禁尝试加载模型。
+正式运行的两个独立前置条件均未满足：真实人工审核尚未完成，正式固定资产也不在当前 clone。`stage-c24b-validate-review`、正式 `stage-c24b-calibrate` 和正式 `stage-c24b-audit` 已分别实际调用，三者都在第一道人审门禁以 `ReviewIncompleteError` 拒绝；没有创建 calibration 目录、development marker、locked-open marker 或 `protocol_incident.json`，也没有越过门禁加载模型。
 
 ## R0–R4 核心结果
 
-以下表格只保留正式结果位置。`待 smoke 运行后填写` 的工程数值即使随后生成，也必须单列为 synthetic，不能填入“正式 calibration/locked”列。
+正式结果位置保持“未执行”。下表中的数值来自 10 条 synthetic locked mock row，只证明相应控制流能工作，不能解释为 lexical OOD、自然语言泛化或研究门槛结果。
 
-| Router | 正式 calibration 结果 | 正式 locked 结果 | lexical OOD | ambiguous reject | 研究结论 |
-|---|---|---|---|---|---|
-| R0 frozen argmax | 未执行 | 未执行 | 未评估 | 不具备主动弃权 | 不能下结论 |
-| R1 definition ensemble | 未执行 | 未执行 | 未评估 | 未评估 | 不能下结论 |
-| R2 pairwise evidence | 未执行 | 未执行 | 未评估 | 未评估 | 不能下结论 |
-| R3 set-valued router | 未执行 | 未执行 | 未评估 | 未评估 | 不能下结论 |
-| R4 calibrated/conformal | 未执行 | 未执行 | 未评估 | 未评估 | 不能下结论 |
+| Router | 正式 calibration / locked | Smoke known coverage | Smoke accepted route accuracy | Smoke ambiguous / unrelated reject | Smoke false memory access | Smoke safe coverage |
+|---|---|---:|---:|---:|---:|---:|
+| R0 frozen argmax | 未执行 / 未执行 | 1.00 | 1.00 | 0.00 / 0.00 | 1.00 | 1.00 |
+| R1 definition ensemble | 未执行 / 未执行 | 1.00 | 1.00 | 0.00 / 0.00 | 1.00 | 1.00 |
+| R2 pairwise evidence | 未执行 / 未执行 | 1.00 | 1.00 | 0.00 / 0.00 | 1.00 | 1.00 |
+| R3 set-valued router | 未执行 / 未执行 | 1.00 | 1.00 | 1.00 / 1.00 | 0.00 | 1.00 |
+| R4 calibrated/conformal | 未执行 / 未执行 | 0.50 | 1.00 | 1.00 / 1.00 | 0.00 | 0.50 |
 
-Synthetic smoke：`待 smoke 运行后填写`。该值仅用于证明实现可执行，不参与 router 选择，不得与上述正式列合并。
+全部 Smoke 变体的 wrong-bucket access rate 为 0，accepted fact Top-1 与 MRR 均为 1，`cross_relation_candidate_count=0`。这些 fact 数值来自确定性的 synthetic entity prototype，不能代替正式 answer-free retrieval 审计。Smoke calibration 选择了 R4，但 synthetic locked mock 上的 known coverage 降为 0.50，进一步说明 Smoke 选择不得转写为正式选择。
 
 ## Router 选择与 calibration 参数
 
@@ -123,6 +123,8 @@ relation_calibration_quantiles = 未选择
 ```
 
 在正式 `public_calibration_v2` 审核完成并运行以前，不允许从 smoke、development、C2.4 locked audit 或 C2.4b locked audit 反向填入这些值。
+
+仅供复现实装控制流的 synthetic 设置为：R1 `mean`；R2 ridge strength `0.01`；R3 global threshold `0.6`、minimum margin `0.0`；R4 `alpha=0.1`，registry/city/access nonconformity quantile 分别为 `-0.9985621572`、`-0.9984798431`、`-0.9985620379`。这些设置带有 `synthetic_smoke_only` provenance，不是正式 threshold 或 conformal 参数。
 
 ## 核心指标状态
 
@@ -144,6 +146,12 @@ relation_calibration_quantiles = 未选择
 | cross-relation candidate count | C2.4 历史值为 0；C2.4b 正式值未评估 | 保留历史结论，不伪造本阶段结果 |
 
 Risk–coverage 曲线、AURC、candidate-set size、true-relation inclusion、unknown/ambiguous 的互相误判以及 access↔registry 定向混淆均须由正式 calibration 和一次性 locked audit 产物计算。当前没有可报告的曲线或最佳 calibration 点。
+
+正式后端把 C2.3 answer-free development route/retrieval 明确标为一次性诊断；它不参与 router 选择，也不直接进入 readiness。为补齐 §11.5，当前实现还在 first locked read 之前生成 `locked_relation_request_x_prefrozen_answer_free_slot_binding_v1`：排序后的 v2 public entity ID 与排序后的 sanitized C2.3 development entity 做固定一一映射，同一 public entity 在全部 relation/family/frame 下只使用一个、对全部 source rows 聚合的 relation-independent entity tensor；数量不足即 fail closed，禁止按 label、family、score、prediction 或 retrieval result 挑选。
+
+正式 locked 评分时，R0–R4 的 `AcceptedRoute` 分别实际访问预测的单个 bucket，`RejectedRoute` 不访问 memory；known wrong bucket 记 Top-1 miss/rank 0，known reject 只影响 all-query 指标。true `RelationId` oracle 在任何 locked row/score 之前对完整 entity×relation 网格离线预计算，其访问单独记录，不计入系统 FMAR。binding 封存 cache、entity tensor、bucket prototype、opaque fact ID 与 oracle table SHA-256。由此可报告 route-conditioned accepted fact Top-1、all-query Top-1、row 1-NN、MRR、margin、oracle gap 和 cross-relation count，并允许 locked fact evidence 参与 closed readiness。
+
+该指标仍有明确限制：它复用历史 C2.3 answer-free development entity substrate 与 C2.3 train bucket，`fact_retrieval_independent_locked_test=false`；它只审计“v2 locked relation route → typed bucket → historical answer-free slot retrieval”的组合，不测试 v2 文本中新实体的真实 entity-OOD 泛化，也不提供独立 entity-side 泛化结论。
 
 ## 错误分析状态
 
@@ -176,7 +184,7 @@ C2.4 的 unrelated 请求相对容易拒绝；C2.4b 的 definition evidence 是�
 9. **relation bucket 的结构隔离是否完整保持？** 保持。C2.4b 复用同一 typed API，静态契约与 synthetic 控制流均证明 reject 不访问 memory、accept 只访问一个 bucket 且 `cross_relation_candidate_count=0`；该结构结论不依赖 locked 性能指标，也不代表经验零泄漏或密码学安全。
 10. **当前是否具备创建新 confirmation pool 的条件？** 不具备；closed/open readiness 与人工审核条件均未满足。
 11. **当前为什么仍然不能进入 C3？** 正式 calibration/locked audit 未执行，公开 benchmark 未完成人工审核，本阶段又明确禁止创建 confirmation，因此 eligibility 公式不可能成立。
-12. **下一步应继续 router 研究，还是冻结协议并创建全新 confirmation？** 先完成真实双人审核、补齐固定资产，并严格按冻结协议运行 calibration 与一次性 locked audit；得到正式结果后再决定是否继续 router 研究。当前不能创建 confirmation。
+12. **下一步应继续 router 研究，还是冻结协议并创建全新 confirmation？** 先完成真实双人审核、补齐固定资产并按当前冻结顺序运行正式 calibration/audit；再根据正式 lexical OOD、reject 与 route-conditioned slot 指标决定是否继续 router 研究。当前不能创建 confirmation。
 
 ## Readiness
 
@@ -213,16 +221,25 @@ c3_eligible = false
 - 没有把 ambiguous 改标为 unrelated；
 - 没有声称密码学安全、机器遗忘或部署安全标准。
 
-当前正式 locked audit 从未打开，故不存在根据其结果调参的行为。若未来发生 locked 数据被提前读取、参与选择或在冻结后被修改，应立即停止并写入新的 `protocol_incident.json`，且不得覆盖 C2.3 历史事故记录。
+`prepare` 已按协议物化 locked JSONL 与空白审核任务，供后续人工审核和封存；但正式模型评分从未读取该 split，`locked_audit_opened.json` 从未创建，故不存在根据其结果调参的行为。若未来发生 locked 数据被提前用于模型评分、参与选择或在冻结后被修改，应立即停止并写入新的 `protocol_incident.json`，且不得覆盖 C2.3 历史事故记录。
+
+## 工程验证与 provenance
+
+- 主线程与独立审计线程分别执行全仓 `pytest -q`，结果均为 `197 passed`（主线程 36.34 秒，独立复验 34.73 秒）；C2.4b 专项复验为 `79 passed`。
+- 正式 prepare artifact manifest 封存 12 个先行文件，Smoke artifact manifest 封存 21 个先行文件；逐文件 size 与 SHA-256 复算均一致。
+- 正式 benchmark manifest、review manifest、prepare artifact manifest 的 SHA-256 分别为 `7977b7a3…ed977`、`bf5ee952…19394`、`2b94e7f4…e2225`；在最终实现提交上重跑的 Smoke summary 与 artifact manifest 分别为 `5561a28b…266969`、`a334a823…1e90c2`。
+- 共 25 个产物 JSON 均用拒绝 NaN/Infinity 的严格解析器和敏感字段检查器复验通过；两个 artifact manifest 覆盖的 33 个先行文件均完成 size/SHA-256 复算。没有 `.pt`、模型 checkpoint、optimizer state、private answer、key 或 confirmation 数据进入提交。`resolved_config.json` 是由 artifact manifest 外层封存的纯配置快照，并不单独声称每个 JSON 都内嵌完整 provenance envelope。
+- prepare/data 物化提交为 `fec7b232cea863c2df814914e2e02c6400efaaf4`，且 prepare 当时工作树为 clean；包含 locked slot binding 的最终实现提交为 `fe1d625b0da6173af7bd9c2ebd8b37a545fde13b`，并已在该提交上重跑 synthetic smoke。真正的 router/model/threshold/code freeze 尚未发生，必须等 formal calibration。正式运行会将整个 `src/keyed_gram/*.py`、`pyproject.toml` 与正式配置绑定到届时 HEAD 字节，包含 `phase_a.py` 等传递依赖。
+- 当前 clone 中 entity checkpoint 与 answer-free cache 均缺失，因此没有伪称已完成其 before/after 实体文件哈希验证；其预注册 SHA-256 保持未修改。已提交的 typed memory contract 源文件 SHA-256 为 `c8a3b5fd…96692`。
 
 ## 后续正式运行前置清单
 
-1. 运行 prepare，确认 72/160/160 数据和全部历史碰撞审计，生成并冻结 manifest。
-2. 由两名真人独立完成 train/calibration、locked-audit 和旧 C2.4 120 条复核；冲突项完成 adjudication。
-3. 运行 review validation，并冻结 review manifest SHA-256。
+1. 已完成 prepare：确认 72/160/160 数据、全部历史碰撞审计和 manifest seal。
+2. 待两名真人独立完成 train/calibration、locked-audit 和旧 C2.4 120 条复核；冲突项完成 adjudication。
+3. 审核完成后运行 review validation，并冻结 complete review manifest SHA-256。
 4. 补齐固定 revision 模型、旧 ridge head、answer-free cache 和 entity checkpoint，逐项验证 SHA-256。
 5. 只用 train/calibration 完成 R0–R4 拟合与选择，记录 frozen Git commit 和所有参数。
-6. development 只运行一次作诊断，不参与选择。
+6. development 只运行一次作诊断，不参与选择，也不直接用于正式 readiness。
 7. locked audit 审核完成且所有设置冻结后只运行一次，不根据结果回调任何参数。
 8. 输出严格 JSON、有限数检查、artifact SHA-256 manifest 和 source before/after hash。
 

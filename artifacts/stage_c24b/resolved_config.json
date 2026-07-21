@@ -1,0 +1,661 @@
+{
+  "schema_version": 2,
+  "stage": "C2.4b-selective-discrete-relation-router",
+  "fixed_sources": {
+    "stage_c23_config": "configs/stage_c23.yaml",
+    "stage_c23_config_sha256": "dbc37bf59de64cdf0f2e2f59c3f34067e3f3d98e2213704938319216c1564067",
+    "stage_c24_config": "configs/stage_c24.yaml",
+    "stage_c24_config_sha256": "ff50656a0f3a0e3f69241b56a635a9e7627f18636bad5c70d9cc194a3ecf801e",
+    "stage_c23_head": "artifacts/stage_c23/semantic_audit/S5/ridge_relation_head.pt",
+    "stage_c23_head_sha256": "808d8182ca3b1dbc957fc227bd3038fe59cf920aa2bdf72a0e3669b1ca880a22",
+    "private_feature_cache": "artifacts/stage_c23/private_answer_free_features.pt",
+    "private_feature_cache_sha256": "8c7ef93bcbc335be772c5f4a3f172e99741b1dac756026eb503250d66e582e4a",
+    "entity_checkpoint": "artifacts/stage_c21/R3/canonicalizer.pt",
+    "entity_checkpoint_sha256": "09c74409cee941391ed7aaec1df8764219ecdf8b83f027a0d8980679b3399419",
+    "source_core_sha256": "b141f3c08fcc9c56a6ca6a6c14169fc001613efa7ca98905b8b642070a01d0cb",
+    "protocol_incident": "artifacts/stage_c23/protocol_incident.json",
+    "protocol_incident_sha256": "eeb73a0b946f143d60120b88a72dfbb593f942e7bada46b2ca8df4373f5725cf",
+    "legacy_c24_benchmark_manifest": "artifacts/stage_c24/public_benchmark_manifest.json",
+    "legacy_c24_benchmark_manifest_sha256": "3d78b4659626359dbdffd87e7f28b6dea20c01f7c21f9d294bcd72ef9b186a05",
+    "legacy_c24_review_source": "artifacts/stage_c24/public_locked_audit_review.csv",
+    "legacy_c24_review_source_sha256": "5439191a30228431985628ae4ab791698d24804df942e5c413880922f7c0fb63"
+  },
+  "models": {
+    "R0": {
+      "model_id": "BAAI/bge-small-en-v1.5",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "model_manifest_sha256": "36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170",
+      "model_safetensors_sha256": "3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad",
+      "frozen_head_sha256": "808d8182ca3b1dbc957fc227bd3038fe59cf920aa2bdf72a0e3669b1ca880a22",
+      "query_view": "entity_masked_strip_suffix"
+    },
+    "R1": {
+      "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "model_manifest_sha256": "7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce",
+      "model_safetensors_sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+      "query_view": "entity_masked_strip_suffix",
+      "aggregations": [
+        "mean",
+        "max",
+        "top_k_mean"
+      ],
+      "top_k_values": [
+        2,
+        3
+      ]
+    },
+    "R2": {
+      "implementation": "frozen_semantic_encoder_public_pairwise_ridge_head",
+      "query_view": "entity_masked_strip_suffix",
+      "candidates": {
+        "small": {
+          "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+          "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+          "model_manifest_sha256": "7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce",
+          "model_safetensors_sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db"
+        },
+        "upper": {
+          "model_id": "intfloat/e5-base-v2",
+          "revision": "f52bf8ec8c7124536f0efb74aca902b2995e5bcd",
+          "model_manifest_sha256": "65f8d8b336328cad989147d890809c94b8eeba3a5309466d6385aeff03d0a375",
+          "model_safetensors_sha256": "d0d559c47d5f71b1d280b13b62a2657f3e3bc70c0786f9ab91a36545e6a8f693"
+        }
+      }
+    }
+  },
+  "run": {
+    "mode": "formal",
+    "seed": 2441,
+    "batch_size": 64,
+    "selection_split": "public_calibration_v2",
+    "development_usage": "frozen_diagnostic_once",
+    "locked_audit_usage": "frozen_evaluation_once_after_review",
+    "development_used_for_selection": false,
+    "locked_audit_used_for_selection": false,
+    "create_confirmation": false,
+    "train_private_memory": false,
+    "load_private_answers": false,
+    "calibrators": [
+      "threshold",
+      "class_conditional_conformal"
+    ],
+    "conformal_alpha_grid": [
+      0.05,
+      0.1,
+      0.15
+    ],
+    "evidence_aggregations": [
+      "mean",
+      "max",
+      "top_k_mean"
+    ],
+    "threshold_grid": [
+      -0.2,
+      -0.1,
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8
+    ],
+    "minimum_margin_grid": [
+      0.0,
+      0.05,
+      0.1
+    ],
+    "ridge_strength_grid": [
+      0.001,
+      0.01,
+      0.1
+    ]
+  },
+  "gates": {
+    "closed_set": {
+      "public_family_macro_accuracy": 0.95,
+      "worst_family_accuracy": 0.85,
+      "accepted_route_accuracy": 0.97,
+      "known_coverage": 0.9,
+      "safe_coverage": 0.88,
+      "wrong_bucket_access_rate": 0.03,
+      "accepted_fact_top1": 0.9,
+      "all_query_fact_top1": 0.85,
+      "mrr": 0.9
+    },
+    "open_set": {
+      "ambiguous_rejection_rate": 0.8,
+      "unrelated_rejection_rate": 0.95,
+      "ambiguous_false_memory_access_rate": 0.2,
+      "unrelated_false_memory_access_rate": 0.05,
+      "false_memory_access_rate": 0.1,
+      "worst_reject_family_far": 0.3,
+      "singleton_acceptance_precision": 0.97
+    },
+    "conformal": {
+      "target_coverage": 0.9,
+      "coverage_tolerance": 0.05,
+      "average_set_size": 1.3,
+      "known_multi_relation_set_rate": 0.15,
+      "known_empty_set_rate": 0.1
+    }
+  },
+  "benchmark": {
+    "version": "c24b-public-selective-router-v2",
+    "preprocessing_version": "c24b-preprocess-v2",
+    "answer_free": true,
+    "contains_private_answers": false,
+    "review_status": "pending_independent_dual_review",
+    "public_data_dir": "data/stage_c24b",
+    "artifact_dir": "artifacts/stage_c24b",
+    "aggregate_manifest": "artifacts/stage_c24b/public_benchmark_manifest.json",
+    "split_manifest_paths": {
+      "public_train_v2": "artifacts/stage_c24b/public_train_v2_manifest.json",
+      "public_calibration_v2": "artifacts/stage_c24b/public_calibration_v2_manifest.json",
+      "public_locked_audit_v2": "artifacts/stage_c24b/public_locked_audit_v2_manifest.json"
+    },
+    "train_review_csv": "artifacts/stage_c24b/public_train_v2_review.csv",
+    "calibration_review_csv": "artifacts/stage_c24b/public_calibration_v2_review.csv",
+    "locked_review_csv": "artifacts/stage_c24b/public_locked_audit_v2_review.csv",
+    "legacy_c24_review_csv": "artifacts/stage_c24b/c24_locked_audit_independent_review.csv",
+    "legacy_c24_locked_rows": "artifacts/stage_c24/public_locked_audit_review.csv",
+    "generate_legacy_c24_review": true,
+    "historical_sources": {
+      "stage_c23_config": "configs/stage_c23.yaml",
+      "stage_c24_config": "configs/stage_c24.yaml"
+    },
+    "lemma_bigram_threshold": 0.8,
+    "definitions": {
+      "registry_id": [
+        "A public locator created when an authority enrolls a subject in a governed record.",
+        "Evidence for this relation names an institutional filing, roster, dossier, or accession process.",
+        "The requested value distinguishes one subject inside an official administrative collection.",
+        "This is an enrollment locator rather than a permission secret or geographic designation."
+      ],
+      "city_code": [
+        "A public symbol that designates a municipality, borough, ward, town, or local territory.",
+        "Evidence for this relation links the requested value to cartography or civic geography.",
+        "The requested value identifies a local place inside an administrative map or atlas.",
+        "This is a geographic designation rather than an enrolled-subject locator or entry secret."
+      ],
+      "access_code": [
+        "A secret or credential presented to obtain entry to a protected digital or physical resource.",
+        "Evidence for this relation describes unlocking, authenticating, signing in, or passing a gate.",
+        "The requested value authorizes a subject to enter a guarded account, portal, console, or vault.",
+        "This is an access-control secret rather than a public filing locator or geographic symbol."
+      ]
+    },
+    "splits": {
+      "public_train_v2": {
+        "entities": [
+          "alder research card",
+          "brook public dossier",
+          "copper civic profile",
+          "drift open record",
+          "ember catalog subject",
+          "fern reference card"
+        ],
+        "frames": [
+          "In the open schema for {entity}, choose the slot described by: {relation_phrase}.",
+          "Resolve this public attribute request about {entity}: {relation_phrase}.",
+          "The descriptor attached to {entity} reads '{relation_phrase}'; name its relation."
+        ],
+        "known_families": {
+          "registry_id": {
+            "train_v2_registry_bureau_enrollment_locator": "bureau enrollment locator",
+            "train_v2_registry_charter_archive_index": "charter archive index",
+            "train_v2_registry_census_roll_pointer": "census roll pointer",
+            "train_v2_registry_licensing_dossier_marker": "licensing dossier marker",
+            "train_v2_registry_notarial_catalog_handle": "notarial catalog handle",
+            "train_v2_registry_civil_filing_locator": "civil filing locator",
+            "train_v2_registry_institutional_accession_pointer": "institutional accession pointer",
+            "train_v2_registry_statutory_ledger_handle": "statutory ledger handle"
+          },
+          "city_code": {
+            "train_v2_city_municipal_boundary_glyph": "municipal boundary glyph",
+            "train_v2_city_town_jurisdiction_shorthand": "town jurisdiction shorthand",
+            "train_v2_city_civic_territory_marker": "civic territory marker",
+            "train_v2_city_borough_geography_symbol": "borough geography symbol",
+            "train_v2_city_metropolis_ward_signifier": "metropolis ward signifier",
+            "train_v2_city_communal_ward_notation": "communal ward notation",
+            "train_v2_city_settlement_region_pointer": "settlement region pointer",
+            "train_v2_city_geographic_municipality_token": "geographic municipality token"
+          },
+          "access_code": {
+            "train_v2_access_protected_portal_entry_secret": "protected portal entry secret",
+            "train_v2_access_restricted_console_unlock_phrase": "restricted console unlock phrase",
+            "train_v2_access_authenticated_gateway_bearer": "authenticated gateway bearer",
+            "train_v2_access_service_admission_password": "service admission password",
+            "train_v2_access_vault_keypad_response": "vault keypad response",
+            "train_v2_access_account_authorization_secret": "account authorization secret",
+            "train_v2_access_resource_signon_credential": "resource signon credential",
+            "train_v2_access_guarded_interface_passcode": "guarded interface passcode"
+          }
+        }
+      },
+      "public_calibration_v2": {
+        "entities": [
+          "garnet calibration folio",
+          "harbor evaluation card",
+          "indigo public sheet",
+          "jasper calibration subject"
+        ],
+        "frames": [
+          "For calibration subject {entity}, determine which relation the wording '{relation_phrase}' supports.",
+          "Route the answer-free field of {entity} whose semantic cue is: {relation_phrase}.",
+          "Within the public schema belonging to {entity}, classify this descriptor: {relation_phrase}.",
+          "Assess the intended field category for {entity}; the request says {relation_phrase}."
+        ],
+        "known_families": {
+          "registry_id": {
+            "calibration_v2_registry_credential_enrollment": {
+              "phrase": "credential recorded by a charter bureau for legal enrollment",
+              "lexical_ood": true,
+              "hard_negative": true,
+              "minimal_pair_id": "cal_v2_pair_credential"
+            },
+            "calibration_v2_registry_reference_custody": {
+              "phrase": "reference minted when a civil dossier enters archival custody",
+              "lexical_ood": true,
+              "hard_negative": true,
+              "minimal_pair_id": "cal_v2_pair_reference"
+            },
+            "calibration_v2_registry_identifier_probate": {
+              "phrase": "identifier allocated after a probate clerk accepts the filing",
+              "lexical_ood": true,
+              "hard_negative": true,
+              "minimal_pair_id": "cal_v2_pair_identifier"
+            },
+            "calibration_v2_registry_code_roster": {
+              "phrase": "code attached when an authority adds the subject to its roster",
+              "lexical_ood": true,
+              "hard_negative": true,
+              "minimal_pair_id": "cal_v2_pair_code"
+            },
+            "calibration_v2_registry_token_docket": {
+              "phrase": "token indexing a legally maintained case docket",
+              "lexical_ood": true,
+              "hard_negative": true
+            },
+            "calibration_v2_registry_key_archive": {
+              "phrase": "key locating one entry inside a regulated archive",
+              "lexical_ood": true,
+              "hard_negative": true
+            },
+            "calibration_v2_registry_serial_charter": {
+              "phrase": "serial created during institutional charter enrollment",
+              "lexical_ood": true,
+              "hard_negative": true
+            },
+            "calibration_v2_registry_handle_ledger": {
+              "phrase": "handle assigned by the bureau that maintains the statutory ledger",
+              "lexical_ood": true,
+              "hard_negative": true
+            }
+          },
+          "city_code": {
+            "calibration_v2_city_credential_borough": {
+              "phrase": "credential designating a borough within a regional atlas",
+              "lexical_ood": true,
+              "hard_negative": true,
+              "minimal_pair_id": "cal_v2_pair_credential"
+            },
+            "calibration_v2_city_reference_sector": {
+              "phrase": "reference marking a town sector on a planning map",
+              "lexical_ood": true,
+              "hard_negative": true,
+              "minimal_pair_id": "cal_v2_pair_reference"
+            },
+            "calibration_v2_city_identifier_ward": {
+              "phrase": "identifier distinguishing a civic ward in the territorial survey",
+              "lexical_ood": true,
+              "hard_negative": true,
+              "minimal_pair_id": "cal_v2_pair_identifier"
+            },
+            "calibration_v2_city_code_cartography": {
+              "phrase": "code printed beside a municipality in a cartographic register",
+              "lexical_ood": true,
+              "hard_negative": true,
+              "minimal_pair_id": "cal_v2_pair_code"
+            },
+            "calibration_v2_city_token_parish": {
+              "phrase": "token denoting a parish boundary in the geographic index",
+              "lexical_ood": true,
+              "hard_negative": true
+            },
+            "calibration_v2_city_key_locality": {
+              "phrase": "key resolving a named locality on the civic map",
+              "lexical_ood": true,
+              "hard_negative": true
+            },
+            "calibration_v2_city_serial_district": {
+              "phrase": "serial used for a district in the metropolitan atlas",
+              "lexical_ood": true,
+              "hard_negative": true
+            },
+            "calibration_v2_city_handle_region": {
+              "phrase": "handle representing a populated region in a mapping system",
+              "lexical_ood": true,
+              "hard_negative": true
+            }
+          },
+          "access_code": {
+            "calibration_v2_access_credential_workspace": {
+              "phrase": "credential presented to unlock a restricted workspace",
+              "lexical_ood": true,
+              "hard_negative": true,
+              "minimal_pair_id": "cal_v2_pair_credential"
+            },
+            "calibration_v2_access_reference_application": {
+              "phrase": "reference verified before a guarded application grants entry",
+              "lexical_ood": true,
+              "hard_negative": true,
+              "minimal_pair_id": "cal_v2_pair_reference"
+            },
+            "calibration_v2_access_identifier_gateway": {
+              "phrase": "identifier checked by a gateway before releasing protected content",
+              "lexical_ood": true,
+              "hard_negative": true,
+              "minimal_pair_id": "cal_v2_pair_identifier"
+            },
+            "calibration_v2_access_code_console": {
+              "phrase": "code supplied when a secure console challenges the entrant",
+              "lexical_ood": true,
+              "hard_negative": true,
+              "minimal_pair_id": "cal_v2_pair_code"
+            },
+            "calibration_v2_access_token_vault": {
+              "phrase": "token proving permission to open an encrypted vault",
+              "lexical_ood": true,
+              "hard_negative": true
+            },
+            "calibration_v2_access_key_portal": {
+              "phrase": "key authenticated before a private portal admits the requester",
+              "lexical_ood": true,
+              "hard_negative": true
+            },
+            "calibration_v2_access_serial_device": {
+              "phrase": "serial validated as a bearer secret by the protected device",
+              "lexical_ood": true,
+              "hard_negative": true
+            },
+            "calibration_v2_access_handle_session": {
+              "phrase": "handle required to begin an authorized login session",
+              "lexical_ood": true,
+              "hard_negative": true
+            }
+          }
+        },
+        "rejection_families": {
+          "ambiguous": {
+            "calibration_v2_ambiguous_identity_marker": {
+              "phrase": "identity marker without issuing context",
+              "lexical_ood": true,
+              "hard_negative": true
+            },
+            "calibration_v2_ambiguous_generic_key": {
+              "phrase": "generic key lacking a declared purpose",
+              "lexical_ood": true,
+              "hard_negative": true
+            },
+            "calibration_v2_ambiguous_allocated_symbol": {
+              "phrase": "allocated symbol with no target domain",
+              "lexical_ood": true,
+              "hard_negative": true
+            },
+            "calibration_v2_ambiguous_security_reference": {
+              "phrase": "security reference of unspecified function",
+              "lexical_ood": true,
+              "hard_negative": true
+            },
+            "calibration_v2_ambiguous_credential_use": {
+              "phrase": "credential whose operational use is unstated",
+              "lexical_ood": true,
+              "hard_negative": true
+            },
+            "calibration_v2_ambiguous_unnamed_token": {
+              "phrase": "token originating from an unnamed system",
+              "lexical_ood": true,
+              "hard_negative": true
+            },
+            "calibration_v2_ambiguous_namespace_serial": {
+              "phrase": "serial detached from a governing namespace",
+              "lexical_ood": true,
+              "hard_negative": true
+            },
+            "calibration_v2_ambiguous_schema_value": {
+              "phrase": "lookup value missing its schema",
+              "lexical_ood": true,
+              "hard_negative": true
+            }
+          },
+          "unrelated": {
+            "calibration_v2_unrelated_dividend_preference": {
+              "phrase": "annual dividend preference",
+              "lexical_ood": true
+            },
+            "calibration_v2_unrelated_warranty_expiry": {
+              "phrase": "equipment warranty expiry",
+              "lexical_ood": true
+            },
+            "calibration_v2_unrelated_inventory_quantity": {
+              "phrase": "warehouse inventory quantity",
+              "lexical_ood": true
+            },
+            "calibration_v2_unrelated_meeting_cadence": {
+              "phrase": "preferred meeting cadence",
+              "lexical_ood": true
+            },
+            "calibration_v2_unrelated_retention_duration": {
+              "phrase": "document retention duration",
+              "lexical_ood": true
+            },
+            "calibration_v2_unrelated_carrier_selection": {
+              "phrase": "shipping carrier selection",
+              "lexical_ood": true
+            },
+            "calibration_v2_unrelated_accessibility_setting": {
+              "phrase": "browser accessibility setting",
+              "lexical_ood": true
+            },
+            "calibration_v2_unrelated_energy_estimate": {
+              "phrase": "energy consumption estimate",
+              "lexical_ood": true
+            }
+          }
+        }
+      },
+      "public_locked_audit_v2": {
+        "entities": [
+          "kelp blind-review card",
+          "lagoon held-out folio",
+          "mica audit subject",
+          "nebula public record"
+        ],
+        "frames": [
+          "Blind-review item for {entity}: infer the supported relation from '{relation_phrase}'.",
+          "Classify the requested schema slot for {entity} using only this cue: {relation_phrase}.",
+          "An unseen request about {entity} contains the descriptor {relation_phrase}; route or abstain.",
+          "Select one relation or reject for {entity} after reading: {relation_phrase}."
+        ],
+        "known_families": {
+          "registry_id": {
+            "locked_v2_registry_gazette_custody_accession": {
+              "phrase": "gazette custody accession",
+              "lexical_ood": true
+            },
+            "locked_v2_registry_probate_archive_pointer": {
+              "phrase": "probate archive pointer",
+              "lexical_ood": true
+            },
+            "locked_v2_registry_land_title_docket_marker": {
+              "phrase": "land-title docket marker",
+              "lexical_ood": true
+            },
+            "locked_v2_registry_corporate_charter_folio": {
+              "phrase": "corporate charter folio",
+              "lexical_ood": true
+            },
+            "locked_v2_registry_museum_intake_register_token": {
+              "phrase": "museum intake register token",
+              "lexical_ood": true
+            },
+            "locked_v2_registry_electoral_roll_custody_tag": {
+              "phrase": "electoral roll custody tag",
+              "lexical_ood": true
+            },
+            "locked_v2_registry_patent_filing_bureau_handle": {
+              "phrase": "patent filing bureau handle",
+              "lexical_ood": true
+            },
+            "locked_v2_registry_vessel_enrollment_pointer": {
+              "phrase": "maritime vessel enrollment pointer",
+              "lexical_ood": true
+            }
+          },
+          "city_code": {
+            "locked_v2_city_borough_cartographic_glyph": {
+              "phrase": "borough cartographic glyph",
+              "lexical_ood": true
+            },
+            "locked_v2_city_hamlet_jurisdiction_cipher": {
+              "phrase": "hamlet jurisdiction cipher",
+              "lexical_ood": true
+            },
+            "locked_v2_city_metropolitan_ward_notation": {
+              "phrase": "metropolitan ward notation",
+              "lexical_ood": true
+            },
+            "locked_v2_city_civic_boundary_atlas_key": {
+              "phrase": "civic boundary atlas key",
+              "lexical_ood": true
+            },
+            "locked_v2_city_municipal_census_zone_symbol": {
+              "phrase": "municipal census zone symbol",
+              "lexical_ood": true
+            },
+            "locked_v2_city_town_planning_sector_tag": {
+              "phrase": "town planning sector tag",
+              "lexical_ood": true
+            },
+            "locked_v2_city_regional_locality_map_handle": {
+              "phrase": "regional locality map handle",
+              "lexical_ood": true
+            },
+            "locked_v2_city_urban_parish_geocode_marker": {
+              "phrase": "urban parish geocode marker",
+              "lexical_ood": true
+            }
+          },
+          "access_code": {
+            "locked_v2_access_workspace_entry_phrase": {
+              "phrase": "encrypted workspace entry phrase",
+              "lexical_ood": true
+            },
+            "locked_v2_access_terminal_bearer_value": {
+              "phrase": "restricted terminal bearer value",
+              "lexical_ood": true
+            },
+            "locked_v2_access_vault_authorization_response": {
+              "phrase": "vault authorization response",
+              "lexical_ood": true
+            },
+            "locked_v2_access_dashboard_login_token": {
+              "phrase": "protected dashboard login token",
+              "lexical_ood": true
+            },
+            "locked_v2_access_console_admission_secret": {
+              "phrase": "secured console admission secret",
+              "lexical_ood": true
+            },
+            "locked_v2_access_repository_unlock_string": {
+              "phrase": "guarded repository unlock string",
+              "lexical_ood": true
+            },
+            "locked_v2_access_portal_challenge_value": {
+              "phrase": "authenticated portal challenge value",
+              "lexical_ood": true
+            },
+            "locked_v2_access_gateway_numeric_response": {
+              "phrase": "private gateway numeric response",
+              "lexical_ood": true
+            }
+          }
+        },
+        "rejection_families": {
+          "ambiguous": {
+            "locked_v2_ambiguous_account_glyph": {
+              "phrase": "unscoped account glyph",
+              "lexical_ood": true
+            },
+            "locked_v2_ambiguous_dossier_handle": {
+              "phrase": "schema-free dossier handle",
+              "lexical_ood": true
+            },
+            "locked_v2_ambiguous_system_marker": {
+              "phrase": "unqualified system marker",
+              "lexical_ood": true
+            },
+            "locked_v2_ambiguous_namespace_locator": {
+              "phrase": "namespace-absent locator",
+              "lexical_ood": true
+            },
+            "locked_v2_ambiguous_authorization_value": {
+              "phrase": "purpose-free authorization value",
+              "lexical_ood": true
+            },
+            "locked_v2_ambiguous_serial_token": {
+              "phrase": "issuer-unknown serial token",
+              "lexical_ood": true
+            },
+            "locked_v2_ambiguous_lookup_reference": {
+              "phrase": "domainless lookup reference",
+              "lexical_ood": true
+            },
+            "locked_v2_ambiguous_profile_symbol": {
+              "phrase": "context-free profile symbol",
+              "lexical_ood": true
+            }
+          },
+          "unrelated": {
+            "locked_v2_unrelated_dietary_option": {
+              "phrase": "cafeteria dietary option",
+              "lexical_ood": true
+            },
+            "locked_v2_unrelated_maintenance_interval": {
+              "phrase": "vehicle maintenance interval",
+              "lexical_ood": true
+            },
+            "locked_v2_unrelated_budget_variance": {
+              "phrase": "quarterly budget variance",
+              "lexical_ood": true
+            },
+            "locked_v2_unrelated_seating_preference": {
+              "phrase": "office seating preference",
+              "lexical_ood": true
+            },
+            "locked_v2_unrelated_license_expiry": {
+              "phrase": "software license expiry",
+              "lexical_ood": true
+            },
+            "locked_v2_unrelated_delivery_window": {
+              "phrase": "parcel delivery window",
+              "lexical_ood": true
+            },
+            "locked_v2_unrelated_topic_category": {
+              "phrase": "research topic category",
+              "lexical_ood": true
+            },
+            "locked_v2_unrelated_temperature_reading": {
+              "phrase": "ambient temperature reading",
+              "lexical_ood": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

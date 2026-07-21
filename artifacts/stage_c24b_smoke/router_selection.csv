@@ -1,0 +1,6 @@
+router,selected,all_gates_passed,gate_count,known_coverage,accepted_relation_precision,singleton_acceptance_precision,safe_coverage,false_memory_access_rate,ambiguous_rejection_rate,unrelated_rejection_rate,ambiguous_false_memory_access_rate,unrelated_false_memory_access_rate,wrong_bucket_access_rate,worst_reject_family_false_accept_rate,family_macro_accuracy,worst_family_accuracy,true_relation_inclusion_rate,average_candidate_set_size,known_multi_relation_set_rate,known_empty_set_rate
+R0,False,True,17,1.0,1.0,0.6,1.0,1.0,0.0,0.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0
+R1,False,True,17,1.0,1.0,0.6,1.0,1.0,0.0,0.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0
+R2,False,True,17,1.0,1.0,0.6,1.0,1.0,0.0,0.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0
+R3,False,True,17,1.0,1.0,1.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0
+R4,True,True,17,1.0,1.0,1.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,0.6,0.0,0.0

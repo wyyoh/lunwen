@@ -1,0 +1,401 @@
+{
+  "schema_version": 2,
+  "stage": "C2.4b-selective-discrete-relation-router",
+  "variant": "R1",
+  "evaluation_scope": "synthetic_smoke_only_not_formal_evidence",
+  "protocol_role": "synthetic_integration_only",
+  "split": "public_locked_audit_v2",
+  "answer_free": true,
+  "contains_private_answers": false,
+  "git": {
+    "commit": "fe1d625b0da6173af7bd9c2ebd8b37a545fde13b",
+    "branch": "agent/stage-c21",
+    "dirty": true
+  },
+  "resolved_config_sha256": "0cae2384c715c9c472ba8b2a5023e808c8b31895a6e8b9ff2765bb06c143520c",
+  "data_sha256": "185d3dd0bed7c4546dd3d7602a853151e775f6b8ae63532d24358b5d1238e496",
+  "review_manifest_sha256": null,
+  "selection_protocol": {
+    "selection_split": "public_calibration_v2",
+    "development_used_for_selection": false,
+    "locked_audit_used_for_selection": false,
+    "synthetic_smoke_only": true
+  },
+  "model_metadata": {
+    "mode": "synthetic_no_external_model_load",
+    "configured_candidates": {
+      "R0": {
+        "implementation": "synthetic_frozen_argmax"
+      },
+      "R1": {
+        "implementation": "synthetic_definition_ensemble",
+        "query_view": "synthetic_mock"
+      },
+      "R2": {
+        "implementation": "synthetic_public_pairwise_ridge_evidence",
+        "query_view": "synthetic_mock",
+        "candidates": {
+          "small": {
+            "model_id": "synthetic-small",
+            "revision": "smoke-v1",
+            "file_sha256": "synthetic"
+          },
+          "upper": {
+            "model_id": "synthetic-upper",
+            "revision": "smoke-v1",
+            "file_sha256": "synthetic"
+          }
+        }
+      }
+    },
+    "model_revision": "smoke-v1",
+    "model_file_sha256": "synthetic-fixture-no-file"
+  },
+  "known_routing": {
+    "relation_micro_accuracy": 1.0,
+    "relation_family_macro_accuracy": 1.0,
+    "worst_family_accuracy": 1.0,
+    "per_family_accuracy": {
+      "smoke_locked_access_01": 1.0,
+      "smoke_locked_access_02": 1.0,
+      "smoke_locked_city_01": 1.0,
+      "smoke_locked_city_02": 1.0,
+      "smoke_locked_registry_01": 1.0,
+      "smoke_locked_registry_02": 1.0
+    },
+    "per_relation_accuracy": {
+      "registry_id": 1.0,
+      "city_code": 1.0,
+      "access_code": 1.0
+    },
+    "confusion_matrix": {
+      "class_order": [
+        "registry_id",
+        "city_code",
+        "access_code",
+        "reject"
+      ],
+      "rows": "target",
+      "columns": "accepted_prediction_or_reject",
+      "matrix": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0
+        ]
+      ]
+    },
+    "access_to_registry_error_rate": 0.0,
+    "registry_to_access_error_rate": 0.0,
+    "city_to_other_error_rate": 0.0,
+    "accepted_route_accuracy": 1.0,
+    "accepted_relation_precision": 1.0,
+    "known_coverage": 1.0,
+    "abstention_rate": 0.0,
+    "hard_negative_accuracy": 0.0,
+    "hard_negative_rejection_rate": 0.0,
+    "same_family_cross_frame_route_agreement": {
+      "macro_agreement": 1.0,
+      "pair_weighted_agreement": 1.0,
+      "num_cross_unit_pairs": 0,
+      "per_group_agreement": {
+        "smoke_locked_access_01": 1.0,
+        "smoke_locked_access_02": 1.0,
+        "smoke_locked_city_01": 1.0,
+        "smoke_locked_city_02": 1.0,
+        "smoke_locked_registry_01": 1.0,
+        "smoke_locked_registry_02": 1.0
+      }
+    },
+    "same_relation_cross_family_route_agreement": {
+      "macro_agreement": 1.0,
+      "pair_weighted_agreement": 1.0,
+      "num_cross_unit_pairs": 3,
+      "per_group_agreement": {
+        "access_code": 1.0,
+        "city_code": 1.0,
+        "registry_id": 1.0
+      }
+    },
+    "counts": {
+      "known": 6,
+      "accepted_known": 6,
+      "correct_accepted_known": 6,
+      "families": 6,
+      "hard_negative": 0,
+      "per_relation": {
+        "registry_id": 2,
+        "city_code": 2,
+        "access_code": 2
+      }
+    },
+    "denominators": {
+      "relation_micro_accuracy": 6,
+      "accepted_route_accuracy": 6,
+      "hard_negative_accuracy": 0,
+      "access_to_registry_error_rate": 2,
+      "registry_to_access_error_rate": 2,
+      "city_to_other_error_rate": 2
+    },
+    "empty_denominator_policy": "return_0.0_and_report_denominator"
+  },
+  "set_valued_routing": {
+    "average_candidate_set_size": 1.0,
+    "singleton_rate": 1.0,
+    "empty_set_rate": 0.0,
+    "multi_label_set_rate": 0.0,
+    "true_relation_inclusion_rate": 1.0,
+    "singleton_correctness": 1.0,
+    "ambiguous_set_rate": 0.0,
+    "unknown_set_rate": 0.0,
+    "set_coverage": 1.0,
+    "set_inefficiency": 1.0,
+    "known_singleton_rate": 1.0,
+    "known_empty_set_rate": 0.0,
+    "known_multi_relation_set_rate": 0.0,
+    "counts": {
+      "rows": 10,
+      "known": 6,
+      "ambiguous": 2,
+      "unrelated": 2,
+      "singleton": 10,
+      "empty": 0,
+      "multi": 0
+    },
+    "denominators": {
+      "known": 6,
+      "known_singletons": 6,
+      "ambiguous": 2,
+      "unrelated": 2
+    },
+    "empty_denominator_policy": "return_0.0_and_report_denominator"
+  },
+  "reject_quality": {
+    "by_group": {
+      "ambiguous": {
+        "count": 2,
+        "rejection_rate": 0.0,
+        "false_accept_rate": 1.0,
+        "accepted_error_rate": 1.0,
+        "accepted_count": 2,
+        "auroc": 1.0,
+        "auroc_defined": true,
+        "aupr": 1.0,
+        "aupr_defined": true
+      },
+      "unrelated": {
+        "count": 2,
+        "rejection_rate": 0.0,
+        "false_accept_rate": 1.0,
+        "accepted_error_rate": 1.0,
+        "accepted_count": 2,
+        "auroc": 1.0,
+        "auroc_defined": true,
+        "aupr": 1.0,
+        "aupr_defined": true
+      },
+      "combined": {
+        "count": 4,
+        "rejection_rate": 0.0,
+        "false_accept_rate": 1.0,
+        "accepted_error_rate": 1.0,
+        "accepted_count": 4,
+        "auroc": 1.0,
+        "auroc_defined": true,
+        "aupr": 1.0,
+        "aupr_defined": true
+      },
+      "known": {
+        "count": 6,
+        "coverage": 1.0,
+        "accepted_error_rate": 0.0,
+        "accepted_count": 6
+      }
+    },
+    "ambiguous_rejection_rate": 0.0,
+    "unrelated_rejection_rate": 0.0,
+    "combined_rejection_rate": 0.0,
+    "ambiguous_false_accept_rate": 1.0,
+    "unrelated_false_accept_rate": 1.0,
+    "combined_false_accept_rate": 1.0,
+    "worst_reject_family_false_accept_rate": 1.0,
+    "per_reject_family_false_accept_rate": {
+      "smoke_locked_ambiguous_01": 1.0,
+      "smoke_locked_ambiguous_02": 1.0,
+      "smoke_locked_unrelated_01": 1.0,
+      "smoke_locked_unrelated_02": 1.0
+    },
+    "per_reject_family_count": {
+      "smoke_locked_ambiguous_01": 1,
+      "smoke_locked_ambiguous_02": 1,
+      "smoke_locked_unrelated_01": 1,
+      "smoke_locked_unrelated_02": 1
+    },
+    "unknown_to_accept_rate": 1.0,
+    "ambiguous_to_accept_rate": 1.0,
+    "ambiguous_to_unknown_rate": 0.0,
+    "unrelated_to_ambiguous_rate": 0.0,
+    "fail_closed_rate": 1.0,
+    "risk_coverage": {
+      "aurc": 0.11261904761904762,
+      "curve": [
+        {
+          "coverage": 0.1,
+          "risk": 0.0,
+          "accuracy": 1.0,
+          "threshold": -0.0014156699180603027
+        },
+        {
+          "coverage": 0.2,
+          "risk": 0.0,
+          "accuracy": 1.0,
+          "threshold": -0.0014374852180480957
+        },
+        {
+          "coverage": 0.3,
+          "risk": 0.0,
+          "accuracy": 1.0,
+          "threshold": -0.0014636516571044922
+        },
+        {
+          "coverage": 0.4,
+          "risk": 0.0,
+          "accuracy": 1.0,
+          "threshold": -0.0015090107917785645
+        },
+        {
+          "coverage": 0.5,
+          "risk": 0.0,
+          "accuracy": 1.0,
+          "threshold": -0.0015150904655456543
+        },
+        {
+          "coverage": 0.6,
+          "risk": 0.0,
+          "accuracy": 1.0,
+          "threshold": -0.0015235543251037598
+        },
+        {
+          "coverage": 0.7,
+          "risk": 0.1428571428571429,
+          "accuracy": 0.8571428571428571,
+          "threshold": -0.29395246505737305
+        },
+        {
+          "coverage": 0.8,
+          "risk": 0.25,
+          "accuracy": 0.75,
+          "threshold": -0.2939649224281311
+        },
+        {
+          "coverage": 0.9,
+          "risk": 0.33333333333333337,
+          "accuracy": 0.6666666666666666,
+          "threshold": -0.9999771871898702
+        },
+        {
+          "coverage": 1.0,
+          "risk": 0.4,
+          "accuracy": 0.6,
+          "threshold": -1.0000224655886996
+        }
+      ],
+      "counts": {
+        "rows": 10
+      },
+      "empty_denominator_policy": "return_0.0_and_report_denominator"
+    },
+    "coverage_aurc": 0.11261904761904762,
+    "counts": {
+      "rows": 10,
+      "known": 6,
+      "ambiguous": 2,
+      "unrelated": 2,
+      "invalid": 0
+    },
+    "denominators": {
+      "accepted_known": 6,
+      "ambiguous": 2,
+      "unrelated": 2,
+      "combined_reject": 4,
+      "invalid": 0
+    },
+    "empty_denominator_policy": "return_0.0_and_report_denominator"
+  },
+  "risk_coverage_interpretation": "diagnostic_only_fixed_decisions; threshold-grid tradeoff is a separate artifact",
+  "access_control": {
+    "false_memory_access_rate": 1.0,
+    "ambiguous_false_memory_access_rate": 1.0,
+    "unrelated_false_memory_access_rate": 1.0,
+    "wrong_bucket_access_rate": 0.0,
+    "safe_coverage": 1.0,
+    "singleton_acceptance_precision": 0.6,
+    "counts": {
+      "known": 6,
+      "ambiguous": 2,
+      "unrelated": 2,
+      "false_memory_access": 4,
+      "wrong_bucket_access": 0,
+      "safe_known_access": 6,
+      "accepted_singleton": 10
+    },
+    "denominators": {
+      "false_memory_access_rate": 4,
+      "wrong_bucket_access_rate": 6,
+      "safe_coverage": 6,
+      "singleton_acceptance_precision": 10
+    },
+    "empty_denominator_policy": "return_0.0_and_report_denominator"
+  },
+  "fact_retrieval": {
+    "accepted_fact_top1": 1.0,
+    "all_query_fact_top1": 1.0,
+    "row_1nn": 1.0,
+    "mrr": 1.0,
+    "mean_centroid_margin": 1.0,
+    "oracle_gap": 0.0,
+    "relation_bucket_candidate_count": {
+      "mean": 2.0,
+      "min": 2,
+      "max": 2
+    },
+    "cross_relation_candidate_count": 0,
+    "cross_relation_candidate_count_max_per_query": 0,
+    "counts": {
+      "known": 6,
+      "accepted_known": 6,
+      "correct_fact_top1": 6
+    },
+    "denominators": {
+      "accepted_fact_top1": 6,
+      "all_query_fact_top1": 6,
+      "row_1nn_mrr_margin": 6
+    },
+    "empty_denominator_policy": "return_0.0_and_report_denominator"
+  },
+  "fact_retrieval_scope": "answer_free_public_entity_identity_prototypes",
+  "memory_contract": {
+    "typed_relation_id_only": true,
+    "single_bucket_per_accepted_route": true,
+    "rejected_route_memory_access_count": 0,
+    "cross_relation_candidate_count": 0,
+    "continuous_relation_reaches_memory": false,
+    "confidence_reaches_memory": false,
+    "semantic_embedding_reaches_memory": false,
+    "raw_text_reaches_memory": false,
+    "phrase_family_reaches_memory": false
+  }
+}
