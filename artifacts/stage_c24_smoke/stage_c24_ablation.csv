@@ -1,0 +1,5 @@
+variant,public_locked_family_macro_accuracy,public_locked_worst_family_accuracy,private_validation_relation_accuracy,development_relation_accuracy,validation_fact_centroid_top1,development_fact_centroid_top1,validation_mrr,development_mrr,mrr_status,max_oracle_gap,continuous_relation_values_exposed_to_memory,confidence_exposed_to_memory,cross_relation_candidate_count
+D0,0.8194444444444444,0.25,1.0,0.9166666666666666,0.9375,0.875,0.9519014550264551,0.9103628691059757,measured,0.03645833333333337,True,False,32
+D1,0.8194444444444444,0.25,1.0,0.9166666666666666,0.9375,0.8385416666666666,0.9603587962962963,0.8915526747557997,measured,0.07291666666666674,False,False,32
+D2,0.8194444444444444,0.25,1.0,0.9166666666666666,0.9375,0.8385416666666666,0.9609375,0.8697916666666666,measured,0.07291666666666674,False,False,0
+D3,0.8194444444444444,0.25,1.0,0.9166666666666666,0.9375,0.6145833333333334,,,not_evaluated_for_D3,0.296875,False,False,0
