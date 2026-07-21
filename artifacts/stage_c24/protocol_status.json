@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "stage": "C2.4-discrete-relation-contract-audit",
+  "provenance": {
+    "schema_version": 1,
+    "git": {
+      "commit": "86e81c3ee466fd2c13a0396bf9ffaa70d3bc45cb",
+      "dirty": false
+    },
+    "environment": {
+      "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "packages": {
+        "torch": "2.12.0+cu130",
+        "numpy": "2.2.6",
+        "PyYAML": "6.0.3",
+        "tqdm": "4.68.4",
+        "huggingface_hub": "1.23.0",
+        "datasets": "5.0.0",
+        "transformers": "5.13.1"
+      },
+      "torch_cuda_runtime": "13.0",
+      "cudnn_version": 92000,
+      "device": "cuda",
+      "dtype": "torch.float32",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+        "compute_capability": [
+          12,
+          0
+        ],
+        "total_memory_bytes": 8546484224,
+        "bf16_supported": true
+      },
+      "upstream_commit": "d07d62e9869c6a969a2306e755aba7a742c317fd"
+    },
+    "model": {
+      "id": "BAAI/bge-small-en-v1.5",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "manifest_sha256": "36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170",
+      "observed_manifest_sha256": "36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170"
+    },
+    "models": {
+      "S5_relation_head_encoder": {
+        "id": "BAAI/bge-small-en-v1.5",
+        "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+        "manifest_sha256": "36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170",
+        "observed_manifest_sha256": "36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170"
+      },
+      "G3_definition_encoder": {
+        "id": "sentence-transformers/all-MiniLM-L6-v2",
+        "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "manifest_sha256": "7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce",
+        "observed_manifest_sha256": "7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce",
+        "view": "phrase_only"
+      }
+    },
+    "config": {
+      "source_files": [
+        "configs\\stage_c24.yaml"
+      ],
+      "source_sha256": {
+        "configs\\stage_c24.yaml": "ff50656a0f3a0e3f69241b56a635a9e7627f18636bad5c70d9cc194a3ecf801e"
+      },
+      "resolved_config_sha256": "c8650377374c6c7ffcac573a34cdb02b3272122aeb457c6410179f183fc2ef79"
+    },
+    "data_sha256": {
+      "public": {
+        "public_train": "da5745cd2db65a3451a12a543a28276beac89134e19661350b07630630e347a3",
+        "public_calibration": "67eadc92bf0ce9b7bf51fa7c3e639fd546ad638b9fed01c60b0923bbb28e601b",
+        "public_locked_audit": "45f3253a477eddf83b321266b5b7b57597c99ee3960159dc2be1a56fb6615cb3"
+      },
+      "private_answer_free_cache": "8c7ef93bcbc335be772c5f4a3f172e99741b1dac756026eb503250d66e582e4a",
+      "entity_checkpoint": "09c74409cee941391ed7aaec1df8764219ecdf8b83f027a0d8980679b3399419",
+      "fixed_ridge_head": "808d8182ca3b1dbc957fc227bd3038fe59cf920aa2bdf72a0e3669b1ca880a22",
+      "protocol_incident": "eeb73a0b946f143d60120b88a72dfbb593f942e7bada46b2ca8df4373f5725cf"
+    },
+    "seed": 2401
+  },
+  "selection_order": [
+    "fixed_C2.3_S5_encoder_view_head",
+    "public_calibration_score_temperature_threshold",
+    "freeze_guard",
+    "development_evaluation_once",
+    "public_locked_audit_evaluation_once"
+  ],
+  "fixed_guard_sha256": "976314c732c7a37427e5ef9cafea010df4186ac7643e2c0e080463b87b094aa3",
+  "development_evaluation_count": 1,
+  "locked_audit_evaluation_count": 1,
+  "development_used_for_selection": false,
+  "locked_audit_used_for_selection": false,
+  "run_confirmation_data_read": false,
+  "stage_c24_confirmation_content_read_count": 0,
+  "historical_c23_retired_confirmation_template_read_count_from_incident": 1,
+  "historical_confirmation_count_source_only": true,
+  "confirmation_evaluation_count": 0,
+  "new_confirmation_pool_created_after_freeze": false,
+  "old_confirmation_seal_reused": false,
+  "public_benchmark_human_reviewed": false,
+  "private_value_memory_trained": false,
+  "private_answers_loaded": false,
+  "answer_injection_enabled": false,
+  "key_or_attack_experiments_run": false,
+  "core_integrity": {
+    "core_model_loaded": false,
+    "source_core_provenance_sha256": "b141f3c08fcc9c56a6ca6a6c14169fc001613efa7ca98905b8b642070a01d0cb",
+    "source_core_provenance_matches_expected": true,
+    "source_core_runtime_rehash_available": false,
+    "private_answer_free_cache_sha256_before": "8c7ef93bcbc335be772c5f4a3f172e99741b1dac756026eb503250d66e582e4a",
+    "private_answer_free_cache_sha256_after": "8c7ef93bcbc335be772c5f4a3f172e99741b1dac756026eb503250d66e582e4a",
+    "private_answer_free_cache_sha256_equal": true,
+    "entity_checkpoint_file_sha256_before": "09c74409cee941391ed7aaec1df8764219ecdf8b83f027a0d8980679b3399419",
+    "entity_checkpoint_file_sha256_after": "09c74409cee941391ed7aaec1df8764219ecdf8b83f027a0d8980679b3399419",
+    "entity_checkpoint_file_sha256_equal": true,
+    "r3_state_sha256_before": "1abea30d4c62bb33e47349c3165861e40ef250bf85dbb7672b3b90f0dbb7180d",
+    "r3_state_sha256_after": "1abea30d4c62bb33e47349c3165861e40ef250bf85dbb7672b3b90f0dbb7180d",
+    "r3_state_sha256_equal": true
+  },
+  "private_answer_free_row_counts": {
+    "train": 288,
+    "validation": 96,
+    "test": 192
+  },
+  "closed_set_discrete_contract_ready": false,
+  "open_set_reject_guard_ready": false,
+  "c3_eligible": false
+}
