@@ -2375,9 +2375,11 @@ def _run_stage_c24_audit(
         "development_used_for_selection": False,
         "locked_audit_used_for_selection": False,
         "run_confirmation_data_read": False,
-        "retired_confirmation_template_read_count": (
+        "stage_c24_confirmation_content_read_count": 0,
+        "historical_c23_retired_confirmation_template_read_count_from_incident": (
             protocol.retired_confirmation_template_read_count
         ),
+        "historical_confirmation_count_source_only": True,
         "confirmation_evaluation_count": protocol.confirmation_evaluation_count,
         "new_confirmation_pool_created_after_freeze": False,
         "old_confirmation_seal_reused": False,
