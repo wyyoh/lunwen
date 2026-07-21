@@ -1,12 +1,18 @@
 from __future__ import annotations
 
+import inspect
 from dataclasses import fields
 
 import pytest
 import torch
 
 import keyed_gram.stage_c24b_router as router_module
-from keyed_gram.stage_c24_contract import AcceptedRoute, RelationId, RetrievalResult
+from keyed_gram.stage_c24_contract import (
+    AcceptedRoute,
+    RelationId,
+    RetrievalResult,
+    retrieve_from_bucket,
+)
 from keyed_gram.stage_c24b_router import (
     RejectedRoute,
     candidate_set_from_scores,
@@ -24,6 +30,33 @@ def _scores(registry: float, city: float, access: float):
         RelationId.CITY_CODE: city,
         RelationId.ACCESS_CODE: access,
     }
+
+
+def test_accepted_route_and_memory_api_expose_only_the_discrete_contract():
+    route = AcceptedRoute(RelationId.REGISTRY_ID)
+    assert {item.name for item in fields(route)} == {"status", "relation_id"}
+    assert isinstance(route.relation_id, RelationId)
+    with pytest.raises(TypeError, match="RelationId"):
+        AcceptedRoute("registry_id")  # type: ignore[arg-type]
+
+    signature = inspect.signature(retrieve_from_bucket)
+    assert tuple(signature.parameters) == (
+        "entity_embedding",
+        "relation_id",
+        "bucket_prototypes",
+    )
+    forbidden = {
+        "confidence",
+        "logits",
+        "probabilities",
+        "margin",
+        "semantic_embedding",
+        "raw_text",
+        "relation_phrase",
+        "family_id",
+        "candidate_relation_set",
+    }
+    assert forbidden.isdisjoint(signature.parameters)
 
 
 def test_c24b_rejected_route_has_only_three_fail_closed_reasons():

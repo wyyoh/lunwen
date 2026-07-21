@@ -94,6 +94,18 @@ REVIEW_FIELDS = (
     "notes",
     "review_status",
 )
+REVIEW_STATIC_FIELDS = (
+    "row_id",
+    "split",
+    "phrase_family",
+    "phrase",
+    "frame",
+    "entity",
+    "proposed_label",
+    "sample_type",
+    "ambiguous_flag",
+    "unrelated_flag",
+)
 
 _BENCHMARK_FIELDS = frozenset(
     {
@@ -208,6 +220,16 @@ def sha256_file(path: str | Path) -> str:
 def sha256_json(value: Any) -> str:
     payload = (strict_json_dumps(value) + "\n").encode("utf-8")
     return hashlib.sha256(payload).hexdigest()
+
+
+def review_static_sha256(rows: Sequence[Mapping[str, Any]]) -> str:
+    """封存 reviewer 可编辑字段之外的完整审核任务内容。"""
+
+    canonical = [
+        {field: str(row.get(field, "")) for field in REVIEW_STATIC_FIELDS}
+        for row in sorted(rows, key=lambda item: str(item.get("row_id", "")))
+    ]
+    return sha256_json(canonical)
 
 
 def reject_sensitive_benchmark_inputs(value: Any, *, path: str = "benchmark") -> None:
@@ -495,36 +517,39 @@ def audit_phrase_collections_v2(
     right_name: str,
     lemma_bigram_threshold: float,
 ) -> dict[str, Any]:
-    """共享单词合法；完整短语、>=2 token containment、signature 和 lemma bigram 非法。"""
+    """逐层审计文本碰撞；共享单个词仍然合法。
+
+    五层记录彼此独立，因而同一文本对可以同时触发多个更强/更弱的碰撞
+    条件。这样 manifest 不会用一个较早的 ``continue`` 隐藏后续审计层。
+    """
 
     collisions: dict[str, list[dict[str, Any]]] = {
-        "exact": [],
+        "exact_text": [],
+        "normalized_text": [],
         "substring_containment": [],
-        "normalized_token_signature": [],
+        "token_signature": [],
         "lemma_bigram": [],
     }
     for left_id, left_phrase in left.items():
-        left_surface = _surface_text(left_phrase).casefold()
+        left_exact = str(left_phrase)
+        left_normalized = normalize_text(left_phrase)
         left_tokens = normalized_token_signature(left_phrase)
         left_bigrams = lemma_bigrams(left_phrase)
         for right_id, right_phrase in right.items():
             record = {"left_id": left_id, "right_id": right_id}
-            right_surface = _surface_text(right_phrase).casefold()
+            right_exact = str(right_phrase)
+            right_normalized = normalize_text(right_phrase)
             right_tokens = normalized_token_signature(right_phrase)
-            if left_surface == right_surface:
-                collisions["exact"].append(record)
-                continue
-            if left_tokens == right_tokens or (
-                left_tokens
-                and frozenset(left_tokens) == frozenset(right_tokens)
-            ):
-                collisions["normalized_token_signature"].append(record)
-                continue
+            if left_exact == right_exact:
+                collisions["exact_text"].append(record)
+            if left_normalized and left_normalized == right_normalized:
+                collisions["normalized_text"].append(record)
             if _token_sequence_contained(left_phrase, right_phrase) or _token_sequence_contained(
                 right_phrase, left_phrase
             ):
                 collisions["substring_containment"].append(record)
-                continue
+            if left_tokens and frozenset(left_tokens) == frozenset(right_tokens):
+                collisions["token_signature"].append(record)
             right_bigrams = lemma_bigrams(right_phrase)
             if left_bigrams and right_bigrams:
                 overlap = len(left_bigrams & right_bigrams) / min(
@@ -552,7 +577,22 @@ def audit_phrase_collections_v2(
 def _identity_audit(
     left: Mapping[str, str], right: Mapping[str, str], *, unit: str
 ) -> dict[str, Any]:
-    id_collisions = sorted(set(left) & set(right))
+    # 历史收集键带 source/path 前缀以免覆盖；审计 ID 时恢复末尾的原始 ID。
+    # v2 ID 本身不含冒号，因此同一逻辑也适用于 split-to-split 审计。
+    left_ids: dict[str, list[str]] = {}
+    right_ids: dict[str, list[str]] = {}
+    for key in left:
+        left_ids.setdefault(str(key).rsplit(":", 1)[-1], []).append(str(key))
+    for key in right:
+        right_ids.setdefault(str(key).rsplit(":", 1)[-1], []).append(str(key))
+    id_collisions = [
+        {
+            "id": value,
+            "left_ids": left_ids[value],
+            "right_ids": right_ids[value],
+        }
+        for value in sorted(set(left_ids) & set(right_ids))
+    ]
     left_values: dict[str, list[str]] = {}
     right_values: dict[str, list[str]] = {}
     for key, value in left.items():
@@ -697,13 +737,23 @@ def _collect_named_history_values(
     def visit(value: Any, path: str) -> None:
         if not isinstance(value, Mapping):
             return
-        candidate = value.get(key_name)
-        if isinstance(candidate, Mapping):
-            for key, item in candidate.items():
-                output[f"{prefix}:{path}:{key_name}:{key}"] = str(item)
-        elif isinstance(candidate, list):
-            for index, item in enumerate(candidate):
-                output[f"{prefix}:{path}:{key_name}:{index}"] = str(item)
+        matching_names = [
+            str(key)
+            for key in value
+            if str(key) == key_name or str(key).endswith(f"_{key_name}")
+        ]
+        for matching_name in matching_names:
+            candidate = value[matching_name]
+            if isinstance(candidate, Mapping):
+                for key, item in candidate.items():
+                    output[
+                        f"{prefix}:{path}:{matching_name}:{key}"
+                    ] = str(item)
+            elif isinstance(candidate, list):
+                for index, item in enumerate(candidate):
+                    output[
+                        f"{prefix}:{path}:{matching_name}:{index}"
+                    ] = str(item)
         for key, child in value.items():
             if isinstance(child, Mapping):
                 visit(child, f"{path}.{key}")
@@ -716,7 +766,9 @@ def _resolve_source_path(config_path: Path, raw_path: str) -> Path:
     path = Path(raw_path)
     if path.is_absolute():
         return path
-    candidates = [Path.cwd() / path, config_path.parent / path, config_path.parent.parent / path]
+    # 历史来源只能相对当前 protocol 的 repo root/config 目录解析；不得让
+    # 调用者 CWD 中的同名路径 shadow 已冻结来源。
+    candidates = [config_path.parent.parent / path, config_path.parent / path]
     for candidate in candidates:
         if candidate.exists():
             return candidate.resolve()
@@ -1154,6 +1206,37 @@ def _read_legacy_c24_source(
     return converted
 
 
+def _verify_legacy_c24_review_source(
+    path: Path, *, config_path: Path
+) -> dict[str, Any]:
+    """把旧 120 条审核源绑定到 C2.4 已提交的 benchmark manifest。"""
+
+    manifest_path = path.parent / "public_benchmark_manifest.json"
+    if not manifest_path.is_file():
+        raise ValueError("C2.4 public benchmark manifest is absent for legacy review")
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if not isinstance(manifest, Mapping):
+        raise ValueError("C2.4 public benchmark manifest is malformed")
+    sealed = manifest.get("human_review_file")
+    if not isinstance(sealed, Mapping):
+        raise ValueError("C2.4 manifest lacks its human-review source seal")
+    sealed_path = _resolve_output(config_path, str(sealed.get("path", "")))
+    if sealed_path != path.resolve():
+        raise ValueError("configured legacy C2.4 review source differs from its seal")
+    observed = sha256_file(path)
+    expected = str(sealed.get("sha256", ""))
+    if observed != expected:
+        raise ValueError("legacy C2.4 review source SHA-256 differs from its seal")
+    return {
+        "source_path": str(path.resolve()),
+        "source_sha256": observed,
+        "c24_manifest_path": str(manifest_path.resolve()),
+        "c24_manifest_sha256": sha256_file(manifest_path),
+        "c24_manifest_review_sha256": expected,
+        "source_matches_c24_manifest": True,
+    }
+
+
 def _git_provenance(cwd: Path) -> dict[str, Any]:
     try:
         commit = subprocess.run(
@@ -1199,6 +1282,16 @@ def prepare_public_benchmark_v2(
     rows, audit = build_public_benchmark_v2(
         benchmark_config, config_path=config_path, run_historical_audit=True
     )
+    model_provenance = raw.get("models", {})
+    if not isinstance(model_provenance, Mapping):
+        raise ValueError("stage C2.4b model provenance is malformed")
+    selection_protocol = {
+        "selection_split": PublicSplitV2.CALIBRATION.value,
+        "development_used_for_selection": False,
+        "locked_audit_used_for_selection": False,
+        "locked_audit_usage": "not_executed_by_prepare",
+        "router_selection_executed": False,
+    }
     data_dir = Path(public_data_dir).resolve() if public_data_dir else _resolve_output(
         config_path, benchmark_config.get("public_data_dir", "data/stage_c24b")
     )
@@ -1228,6 +1321,7 @@ def prepare_public_benchmark_v2(
         raise ValueError("generate_legacy_c24_review must be boolean")
     legacy_path: Path | None = None
     legacy_review: list[dict[str, Any]] = []
+    legacy_source_seal: dict[str, Any] | None = None
     if generate_legacy_review:
         legacy_path = _resolve_output(
             config_path,
@@ -1235,6 +1329,30 @@ def prepare_public_benchmark_v2(
                 "legacy_c24_locked_rows", "data/stage_c24/public_locked_audit.jsonl"
             ),
         )
+        legacy_source_seal = _verify_legacy_c24_review_source(
+            legacy_path, config_path=config_path
+        )
+        fixed_sources = raw.get("fixed_sources")
+        if not isinstance(fixed_sources, Mapping):
+            raise ValueError("stage C2.4b fixed source provenance is malformed")
+        expected_manifest_path = _resolve_output(
+            config_path,
+            str(fixed_sources.get("legacy_c24_benchmark_manifest", "")),
+        )
+        expected_review_path = _resolve_output(
+            config_path,
+            str(fixed_sources.get("legacy_c24_review_source", "")),
+        )
+        if (
+            expected_manifest_path
+            != Path(legacy_source_seal["c24_manifest_path"])
+            or expected_review_path != legacy_path.resolve()
+            or str(fixed_sources.get("legacy_c24_benchmark_manifest_sha256", ""))
+            != legacy_source_seal["c24_manifest_sha256"]
+            or str(fixed_sources.get("legacy_c24_review_source_sha256", ""))
+            != legacy_source_seal["source_sha256"]
+        ):
+            raise ValueError("legacy C2.4 review provenance differs from preregistration")
         legacy_rows = _read_legacy_c24_source(
             legacy_path, benchmark=validate_benchmark_config_v2(benchmark_config), config_path=config_path
         )
@@ -1251,6 +1369,11 @@ def prepare_public_benchmark_v2(
         PublicSplitV2.LOCKED_AUDIT.value: sha256_json(
             sorted(row["row_id"] for row in locked_review)
         ),
+    }
+    review_static_hashes = {
+        PublicSplitV2.TRAIN.value: review_static_sha256(train_review),
+        PublicSplitV2.CALIBRATION.value: review_static_sha256(calibration_review),
+        PublicSplitV2.LOCKED_AUDIT.value: review_static_sha256(locked_review),
     }
 
     split_audit_sha = sha256_json(audit["split_isolation"])
@@ -1295,14 +1418,12 @@ def prepare_public_benchmark_v2(
                 "row_sha256": sha256_json(list(split_rows)),
             },
             "source_config_sha256": sha256_file(config_path),
+            "config_sha256": sha256_file(config_path),
+            "model_provenance": dict(model_provenance),
+            "review_manifest_sha256": None,
             "split_isolation_audit_sha256": split_audit_sha,
             "historical_collision_audit_sha256": historical_audit_sha,
-            "selection_protocol": {
-                "selection_split": PublicSplitV2.CALIBRATION.value,
-                "development_used_for_selection": False,
-                "locked_audit_used_for_selection": False,
-                "locked_audit_usage": "not_executed_by_prepare",
-            },
+            "selection_protocol": selection_protocol,
             "provenance": {"git": git},
         }
         if split in review_paths:
@@ -1316,6 +1437,7 @@ def prepare_public_benchmark_v2(
                     PublicSplitV2.LOCKED_AUDIT.value: len(locked_review),
                 }[split],
                 "row_id_sha256": review_row_id_sha256[split],
+                "static_review_sha256": review_static_hashes[split],
                 "all_rows_pending": True,
             }
         split_manifests[split] = manifest
@@ -1336,6 +1458,13 @@ def prepare_public_benchmark_v2(
             split: dict(sorted(Counter(row["sample_type"] for row in split_rows).items()))
             for split, split_rows in rows.items()
         },
+        "data_sha256": {
+            split: sha256_file(data_paths[split]) for split in rows
+        },
+        "config_sha256": sha256_file(config_path),
+        "model_provenance": dict(model_provenance),
+        "review_manifest_sha256": None,
+        "selection_protocol": selection_protocol,
         "audit": audit,
         "split_manifests": {
             split: {
@@ -1350,6 +1479,9 @@ def prepare_public_benchmark_v2(
                 "sha256": sha256_file(train_review_path),
                 "row_count": len(train_review),
                 "row_id_sha256": review_row_id_sha256[PublicSplitV2.TRAIN.value],
+                "static_review_sha256": review_static_hashes[
+                    PublicSplitV2.TRAIN.value
+                ],
                 "all_rows_pending": True,
             },
             "public_calibration_v2": {
@@ -1359,6 +1491,9 @@ def prepare_public_benchmark_v2(
                 "row_id_sha256": review_row_id_sha256[
                     PublicSplitV2.CALIBRATION.value
                 ],
+                "static_review_sha256": review_static_hashes[
+                    PublicSplitV2.CALIBRATION.value
+                ],
                 "all_rows_pending": True,
             },
             "public_locked_audit_v2": {
@@ -1366,6 +1501,9 @@ def prepare_public_benchmark_v2(
                 "sha256": sha256_file(locked_review_path),
                 "row_count": len(locked_review),
                 "row_id_sha256": review_row_id_sha256[
+                    PublicSplitV2.LOCKED_AUDIT.value
+                ],
+                "static_review_sha256": review_static_hashes[
                     PublicSplitV2.LOCKED_AUDIT.value
                 ],
                 "all_rows_pending": True,
@@ -1381,15 +1519,16 @@ def prepare_public_benchmark_v2(
     }
     if generate_legacy_review:
         assert legacy_path is not None
+        assert legacy_source_seal is not None
         aggregate["review_files"]["legacy_c24_locked_audit"] = {
-            "source_path": str(legacy_path),
-            "source_sha256": sha256_file(legacy_path),
+            **legacy_source_seal,
             "path": str(legacy_review_path),
             "sha256": sha256_file(legacy_review_path),
             "row_count": len(legacy_review),
             "row_id_sha256": sha256_json(
                 sorted(row["row_id"] for row in legacy_review)
             ),
+            "static_review_sha256": review_static_sha256(legacy_review),
             "all_rows_pending": True,
             "changes_historical_c24_files": False,
         }

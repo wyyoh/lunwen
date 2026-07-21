@@ -22,6 +22,7 @@ from keyed_gram.stage_c24b_benchmark import (
     build_review_rows,
     prepare_public_benchmark_v2,
     reject_sensitive_benchmark_inputs,
+    review_static_sha256,
     sha256_file,
     sha256_json,
     strict_json_dumps,
@@ -149,6 +150,9 @@ def test_v2_split_and_c23_c24_historical_collision_audits_pass():
         "stage_c24_config",
     }
     assert historical["historical_phrase_count"] >= 100
+    # C2.3 使用 train_/validation_ 前缀；这些历史单位不得被收集器漏掉。
+    assert historical["historical_entity_count"] >= 25
+    assert historical["historical_frame_count"] >= 19
     for split in PublicSplitV2:
         assert historical["splits"][split.value]["passed"] is True
 
@@ -156,9 +160,10 @@ def test_v2_split_and_c23_c24_historical_collision_audits_pass():
 @pytest.mark.parametrize(
     ("left", "right", "collision_kind"),
     [
-        ("Alpha Record", "alpha record", "exact"),
+        ("Alpha Record", "Alpha Record", "exact_text"),
+        ("Alpha-Record", "alpha record", "normalized_text"),
         ("bureau enrollment", "new bureau enrollment locator", "substring_containment"),
-        ("registry-token", "registry token", "normalized_token_signature"),
+        ("registry token alpha", "alpha token registry", "token_signature"),
         ("official registries serials", "official registry serial", "lemma_bigram"),
     ],
 )
@@ -173,7 +178,7 @@ def test_collision_audit_rejects_all_preregistered_collision_levels(
         lemma_bigram_threshold=0.8,
     )
     assert audit["passed"] is False
-    assert audit["collision_count"] == 1
+    assert audit["collision_count"] >= 1
     assert audit["collisions"][collision_kind]
 
 
@@ -213,6 +218,23 @@ def test_historical_c24_phrase_reuse_fails_closed():
     config["splits"]["public_locked_audit_v2"]["known_families"]["registry_id"][first][
         "phrase"
     ] = "archival accession locator"
+    with pytest.raises(ValueError, match="historical C2.3/C2.4 collision"):
+        build_public_benchmark_v2(config, config_path=CONFIG_PATH)
+
+
+@pytest.mark.parametrize(
+    ("unit", "historical_value"),
+    [
+        ("entities", "amber public profile"),
+        (
+            "frames",
+            "Public relation request for {entity}: {relation_phrase}. Answer:",
+        ),
+    ],
+)
+def test_historical_c23_entity_and_frame_reuse_fails_closed(unit, historical_value):
+    config = _config()
+    config["splits"]["public_locked_audit_v2"][unit][0] = historical_value
     with pytest.raises(ValueError, match="historical C2.3/C2.4 collision"):
         build_public_benchmark_v2(config, config_path=CONFIG_PATH)
 
@@ -298,6 +320,9 @@ def test_prepare_writes_jsonl_manifests_hashes_and_four_blank_review_files(tmp_p
     assert manifest["audit"]["historical_collision_audit"]["passed"] is True
     assert sha256_file(LEGACY_LOCKED_PATH) == legacy_before
     assert manifest["review_files"]["legacy_c24_locked_audit"]["row_count"] == 120
+    legacy = manifest["review_files"]["legacy_c24_locked_audit"]
+    assert legacy["source_matches_c24_manifest"] is True
+    assert legacy["source_sha256"] == legacy["c24_manifest_review_sha256"]
     assert manifest["review_files"]["public_train_v2"]["row_count"] == 72
     assert (
         manifest["review_files"]["legacy_c24_locked_audit"][
@@ -324,6 +349,9 @@ def test_prepare_writes_jsonl_manifests_hashes_and_four_blank_review_files(tmp_p
         assert len(review_rows) == details["row_count"]
         assert details["row_id_sha256"] == sha256_json(
             sorted(row["row_id"] for row in review_rows)
+        )
+        assert details["static_review_sha256"] == review_static_sha256(
+            review_rows
         )
         assert {row["review_status"] for row in review_rows} == {"pending"}
         assert {row["reviewer_1_label"] for row in review_rows} == {""}

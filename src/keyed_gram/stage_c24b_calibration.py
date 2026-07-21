@@ -575,10 +575,13 @@ def fit_class_conditional_conformal(
         "open_set_rows_used_for_quantiles": False,
         "quantile_rule": "ceil((n+1)*(1-alpha)) higher empirical quantile, clipped at n",
         "finite_sample_scope": (
-            "class-conditional marginal coverage under exchangeability between "
-            "calibration and future known examples within each relation"
+            "class-conditional marginal coverage requires exchangeability and a "
+            "scorer/evidence source/alpha fixed independently before this calibration set"
         ),
+        "nominal_finite_sample_guarantee_claimed": False,
         "limitations": [
+            "selecting the evidence source or alpha on these same calibration rows "
+            "breaks the standard nominal split-conformal guarantee",
             "no strict coverage guarantee under lexical or semantic distribution shift",
             "no per-family conditional coverage guarantee",
             "independent evidence scores are not softmax probabilities",

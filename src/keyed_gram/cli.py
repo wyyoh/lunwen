@@ -43,6 +43,12 @@ from .stage_c23 import (
 from .stage_c23_audit import run_stage_c23_audit
 from .stage_c23_benchmark import prepare_public_lexical_benchmark
 from .stage_c24 import prepare_stage_c24, run_stage_c24_audit
+from .stage_c24b import (
+    calibrate_stage_c24b,
+    prepare_stage_c24b,
+    run_stage_c24b_audit,
+    validate_stage_c24b_reviews,
+)
 from .train import train_gram
 
 
@@ -521,6 +527,54 @@ def command_stage_c24_audit(args: argparse.Namespace) -> None:
     )
 
 
+def command_stage_c24b_prepare(args: argparse.Namespace) -> None:
+    _print(prepare_stage_c24b(args.config))
+
+
+def command_stage_c24b_validate_review(args: argparse.Namespace) -> None:
+    result = validate_stage_c24b_reviews(
+        args.config, require_complete=True, write_manifest=True
+    )
+    _print(
+        {
+            "stage": result["stage"],
+            "status": result["status"],
+            "public_benchmark_human_reviewed": result[
+                "public_benchmark_human_reviewed"
+            ],
+            "reviews": result["reviews"],
+        }
+    )
+
+
+def command_stage_c24b_calibrate(args: argparse.Namespace) -> None:
+    result = calibrate_stage_c24b(
+        args.config, args.output_dir, device_name=args.device
+    )
+    _print(result)
+
+
+def command_stage_c24b_audit(args: argparse.Namespace) -> None:
+    result = run_stage_c24b_audit(
+        args.config, args.output_dir, device_name=args.device
+    )
+    _print(
+        {
+            "stage": result["stage"],
+            "status": result["status"],
+            "protocol_role": result.get("protocol_role", "formal"),
+            "formal_locked_audit_executed": result[
+                "formal_locked_audit_executed"
+            ],
+            "public_benchmark_human_reviewed": result[
+                "public_benchmark_human_reviewed"
+            ],
+            "c3_eligible": result.get("readiness", {}).get("c3_eligible", False),
+            "results": str(Path(args.output_dir).resolve()),
+        }
+    )
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="keyed-gram",
@@ -783,6 +837,38 @@ def build_parser() -> argparse.ArgumentParser:
     stage_c24_audit.add_argument("--output-dir", required=True)
     stage_c24_audit.add_argument("--device")
     stage_c24_audit.set_defaults(func=command_stage_c24_audit)
+
+    stage_c24b_prepare = sub.add_parser(
+        "stage-c24b-prepare",
+        help="prepare v2 answer-free selective-router data and review templates",
+    )
+    stage_c24b_prepare.add_argument("--config", required=True)
+    stage_c24b_prepare.set_defaults(func=command_stage_c24b_prepare)
+
+    stage_c24b_review = sub.add_parser(
+        "stage-c24b-validate-review",
+        help="validate complete independent dual review without model predictions",
+    )
+    stage_c24b_review.add_argument("--config", required=True)
+    stage_c24b_review.set_defaults(func=command_stage_c24b_validate_review)
+
+    stage_c24b_calibrate = sub.add_parser(
+        "stage-c24b-calibrate",
+        help="calibrate and freeze R0-R4 using public train/calibration only",
+    )
+    stage_c24b_calibrate.add_argument("--config", required=True)
+    stage_c24b_calibrate.add_argument("--output-dir", required=True)
+    stage_c24b_calibrate.add_argument("--device")
+    stage_c24b_calibrate.set_defaults(func=command_stage_c24b_calibrate)
+
+    stage_c24b_audit = sub.add_parser(
+        "stage-c24b-audit",
+        help="run synthetic smoke or the gated one-shot formal locked audit",
+    )
+    stage_c24b_audit.add_argument("--config", required=True)
+    stage_c24b_audit.add_argument("--output-dir", required=True)
+    stage_c24b_audit.add_argument("--device")
+    stage_c24b_audit.set_defaults(func=command_stage_c24b_audit)
     return parser
 
 

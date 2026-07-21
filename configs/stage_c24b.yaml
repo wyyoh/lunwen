@@ -15,21 +15,30 @@ fixed_sources:
   source_core_sha256: b141f3c08fcc9c56a6ca6a6c14169fc001613efa7ca98905b8b642070a01d0cb
   protocol_incident: artifacts/stage_c23/protocol_incident.json
   protocol_incident_sha256: eeb73a0b946f143d60120b88a72dfbb593f942e7bada46b2ca8df4373f5725cf
+  legacy_c24_benchmark_manifest: artifacts/stage_c24/public_benchmark_manifest.json
+  legacy_c24_benchmark_manifest_sha256: 3d78b4659626359dbdffd87e7f28b6dea20c01f7c21f9d294bcd72ef9b186a05
+  legacy_c24_review_source: artifacts/stage_c24/public_locked_audit_review.csv
+  legacy_c24_review_source_sha256: 5439191a30228431985628ae4ab791698d24804df942e5c413880922f7c0fb63
 
 models:
   R0:
     model_id: BAAI/bge-small-en-v1.5
     revision: 5c38ec7c405ec4b44b94cc5a9bb96e735b38267a
+    model_manifest_sha256: 36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170
     model_safetensors_sha256: 3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad
     frozen_head_sha256: 808d8182ca3b1dbc957fc227bd3038fe59cf920aa2bdf72a0e3669b1ca880a22
+    query_view: entity_masked_strip_suffix
   R1:
     model_id: sentence-transformers/all-MiniLM-L6-v2
     revision: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+    model_manifest_sha256: 7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce
     model_safetensors_sha256: 53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db
+    query_view: entity_masked_strip_suffix
     aggregations: [mean, max, top_k_mean]
     top_k_values: [2, 3]
   R2:
     implementation: frozen_semantic_encoder_public_pairwise_ridge_head
+    query_view: entity_masked_strip_suffix
     candidates:
       small:
         model_id: sentence-transformers/all-MiniLM-L6-v2

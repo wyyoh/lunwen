@@ -10,9 +10,10 @@ fixed_sources:
 
 models:
   R0: {implementation: synthetic_frozen_argmax}
-  R1: {implementation: synthetic_definition_ensemble}
+  R1: {implementation: synthetic_definition_ensemble, query_view: synthetic_mock}
   R2:
     implementation: synthetic_public_pairwise_ridge_evidence
+    query_view: synthetic_mock
     candidates:
       small: {model_id: synthetic-small, revision: smoke-v1, file_sha256: synthetic}
       upper: {model_id: synthetic-upper, revision: smoke-v1, file_sha256: synthetic}
