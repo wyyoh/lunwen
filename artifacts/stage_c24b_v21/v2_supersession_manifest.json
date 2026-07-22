@@ -1,0 +1,17 @@
+{
+  "benchmark_role": "data_design_diagnostic_only",
+  "benchmark_version": "c24b-public-selective-router-v2",
+  "changes_superseded_files": false,
+  "formal_eligible": false,
+  "formal_locked_audit_executed": false,
+  "locked_used_for_selection": false,
+  "old_c24_readiness_changed": false,
+  "protocol_incident": false,
+  "reason": "pre-scoring semantic-label and construct-validity failure",
+  "router_predictions_observed": false,
+  "schema_version": 1,
+  "source_manifest": "artifacts/stage_c24b/public_benchmark_manifest.json",
+  "source_manifest_sha256": "7977b7a340478da8f3d4a4d8cd08e4ebeb16ae790e7de3808a3a77ce796ed977",
+  "status": "superseded_before_model_scoring",
+  "superseded_by": "c24b-public-selective-router-v2.1"
+}

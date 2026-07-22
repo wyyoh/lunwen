@@ -1,0 +1,25 @@
+{
+  "ai_review_task_path": "/home/liuyun/cloudcli-prod-data/workspaces/user_3/05136a23-3f5e-4efd-8adf-fcfff347cad1/lunwen/artifacts/stage_c24b_v21/public_train_v2_1_ai_review_task.csv",
+  "ai_review_task_payload_sha256": "d18b38caac588772395b96f3cc8cb58e2be66c825cb54fe45d24541cf6f9bde2",
+  "ai_review_task_sha256": "ee31ed6a33a9b50991bf69ad52a9891d945eace73ea66e38a02176384663e8df",
+  "benchmark_version": "c24b-public-selective-router-v2.1",
+  "config_sha256": "10e1a3ed9d7b0914d988ede695a2c9df81cba36eab783565bdc4e45531a5f62f",
+  "data_path": "/home/liuyun/cloudcli-prod-data/workspaces/user_3/05136a23-3f5e-4efd-8adf-fcfff347cad1/lunwen/data/stage_c24b_v21/public_train_v2_1.jsonl",
+  "data_sha256": "9165b6d69f88207638022796fe9aa0a39ab9207ab19b31011a5be49ddfd1b5f4",
+  "formal_calibration_allowed": false,
+  "formal_locked_audit_executed": false,
+  "git": {
+    "branch": "agent/stage-c21",
+    "commit": "b7d8df89de46856cc649b2909186b10f9bee5ca5",
+    "dirty": false
+  },
+  "public_benchmark_ai_reviewed": false,
+  "public_benchmark_human_reviewed": false,
+  "row_count": 72,
+  "sample_type_counts": {
+    "known": 72
+  },
+  "schema_version": 1,
+  "split": "public_train_v2_1",
+  "unique_family_count": 24
+}

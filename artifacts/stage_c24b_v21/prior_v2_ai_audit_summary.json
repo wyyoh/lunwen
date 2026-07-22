@@ -1,0 +1,101 @@
+{
+  "affected_rows": 16,
+  "ai_review_provenance_complete": false,
+  "ai_review_status": "failed_requires_revision",
+  "ambiguity_construct_validity": "failed",
+  "ambiguous_explicit_shortcut_count": 16,
+  "ambiguous_family_count": 16,
+  "audit_source": "user_supplied_single_ai_semantic_audit_summary",
+  "boundary_samples": [
+    {
+      "note": "credential leans toward access but may denote identity or qualification",
+      "phrase": "credential whose operational use is unstated",
+      "phrase_family": "calibration_v2_ambiguous_credential_use",
+      "retained_type": "ambiguous"
+    },
+    {
+      "note": "security leans toward access while reference may denote a registry or audit number",
+      "phrase": "security reference of unspecified function",
+      "phrase_family": "calibration_v2_ambiguous_security_reference",
+      "retained_type": "ambiguous"
+    }
+  ],
+  "consistent_families": 130,
+  "exceptions": [
+    {
+      "ai_confidence": 0.84,
+      "ai_suggested_label": "registry_id",
+      "ai_suggested_type": "known",
+      "phrase_family": "locked_v2_ambiguous_dossier_handle",
+      "rationale": "dossier handle strongly denotes a locator for an archival record"
+    },
+    {
+      "ai_confidence": 0.91,
+      "ai_suggested_label": "access_code",
+      "ai_suggested_type": "known",
+      "phrase_family": "locked_v2_ambiguous_authorization_value",
+      "rationale": "authorization value strongly denotes an access-control credential"
+    },
+    {
+      "ai_confidence": 0.8,
+      "ai_suggested_label": "registry_id",
+      "ai_suggested_type": "known",
+      "phrase_family": "locked_ambiguous_record_tag",
+      "rationale": "record tag denotes a record-system locator under the registered-subject definition"
+    },
+    {
+      "ai_confidence": 0.86,
+      "ai_suggested_label": "registry_id",
+      "ai_suggested_type": "known",
+      "phrase_family": "locked_ambiguous_subject_locator",
+      "rationale": "subject locator directly denotes a locator for an enrolled subject"
+    }
+  ],
+  "formal_calibration_allowed": false,
+  "formal_locked_audit_executed": false,
+  "independent_external_validation": false,
+  "independent_row_reviews_claimed": false,
+  "known_family_consistency": "passed",
+  "label_correctness": "failed_requires_revision",
+  "mapped_generated_rows": 512,
+  "model_id": "not_provided_by_user",
+  "model_revision": "not_provided_by_user",
+  "public_benchmark_ai_reviewed": true,
+  "public_benchmark_human_reviewed": false,
+  "relabel_families": 4,
+  "schema_version": 1,
+  "source_review_files": {
+    "legacy_c24_locked_audit": {
+      "human_review_fields_all_blank": true,
+      "path": "/home/liuyun/cloudcli-prod-data/workspaces/user_3/05136a23-3f5e-4efd-8adf-fcfff347cad1/lunwen/artifacts/stage_c24b/c24_locked_audit_independent_review.csv",
+      "row_count": 120,
+      "sha256": "a74187c6279753f203508ebc8bec3543b59a5d18062f938703fe9b489d41f1f4",
+      "unique_family_count": 30
+    },
+    "public_calibration_v2": {
+      "human_review_fields_all_blank": true,
+      "path": "/home/liuyun/cloudcli-prod-data/workspaces/user_3/05136a23-3f5e-4efd-8adf-fcfff347cad1/lunwen/artifacts/stage_c24b/public_calibration_v2_review.csv",
+      "row_count": 160,
+      "sha256": "f8016bdfe493c9847c5c910e1993cd9eb899160e2334be89f425d3455cc27adc",
+      "unique_family_count": 40
+    },
+    "public_locked_audit_v2": {
+      "human_review_fields_all_blank": true,
+      "path": "/home/liuyun/cloudcli-prod-data/workspaces/user_3/05136a23-3f5e-4efd-8adf-fcfff347cad1/lunwen/artifacts/stage_c24b/public_locked_audit_v2_review.csv",
+      "row_count": 160,
+      "sha256": "16ed91c8f95e35c238ec29b3b9cedca2aef1126ff05264665f3601ae420f3ece",
+      "unique_family_count": 40
+    },
+    "public_train_v2": {
+      "human_review_fields_all_blank": true,
+      "path": "/home/liuyun/cloudcli-prod-data/workspaces/user_3/05136a23-3f5e-4efd-8adf-fcfff347cad1/lunwen/artifacts/stage_c24b/public_train_v2_review.csv",
+      "row_count": 72,
+      "sha256": "a8c8d687497c7befcbc6dd53f37e0a17c9ff185075d083072e8430f4adedbdcb",
+      "unique_family_count": 24
+    }
+  },
+  "unique_family_decisions_reported": 134,
+  "unrelated_family_count": 16,
+  "unrelated_hardness": "insufficient",
+  "unrelated_shared_carrier_count": 0
+}

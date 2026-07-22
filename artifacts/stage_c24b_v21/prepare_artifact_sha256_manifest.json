@@ -1,0 +1,70 @@
+{
+  "config_sha256": "10e1a3ed9d7b0914d988ede695a2c9df81cba36eab783565bdc4e45531a5f62f",
+  "file_count": 11,
+  "files": [
+    {
+      "path": "prior_v2_ai_audit_summary.json",
+      "sha256": "523d21b888e0eea6df65a2d52a835f83ecd7a25d1954354d1cce7e22741fd85d",
+      "size_bytes": 4260
+    },
+    {
+      "path": "protocol_status.json",
+      "sha256": "12ecf11ffa6b556e182872007748e1c45cc611a89bd9f21bf5c1cd62f63dd3eb",
+      "size_bytes": 1381
+    },
+    {
+      "path": "public_benchmark_v2_1_manifest.json",
+      "sha256": "2c5815e43730a4900f1944fa7a59d28b21aef55ffed930df8722d22fcac4c2c2",
+      "size_bytes": 21790
+    },
+    {
+      "path": "public_calibration_v2_1_ai_review_task.csv",
+      "sha256": "7e7b9c5234271305d102cef238b78afb6c1b7ec1f78f00beb4478ac3c8276c34",
+      "size_bytes": 8251
+    },
+    {
+      "path": "public_calibration_v2_1_manifest.json",
+      "sha256": "34d4e8e2ba5a1971b1d5c8615656f1a55b2252b6a8a19b6a8e22eea4b465b798",
+      "size_bytes": 1275
+    },
+    {
+      "path": "public_locked_audit_v2_1_ai_review_task.csv",
+      "sha256": "d44378d495b1dd20717a54ce53042d37fdb872b3c49b0292170679bc7945a5d6",
+      "size_bytes": 7945
+    },
+    {
+      "path": "public_locked_audit_v2_1_manifest.json",
+      "sha256": "0e6f24223ac7ee53064f2d096446397a9a6cdf9a58eca3fdef3228230c042a9f",
+      "size_bytes": 1278
+    },
+    {
+      "path": "public_train_v2_1_ai_review_task.csv",
+      "sha256": "ee31ed6a33a9b50991bf69ad52a9891d945eace73ea66e38a02176384663e8df",
+      "size_bytes": 4591
+    },
+    {
+      "path": "public_train_v2_1_manifest.json",
+      "sha256": "6319159e1215fd1ddf8d4f57da82cc0f71054ba693d5ae7f3e6c340a86647046",
+      "size_bytes": 1214
+    },
+    {
+      "path": "stage_c24b_v21_summary.json",
+      "sha256": "fda5f7cc497d7a3ab4b99e3d5eb6a37efb004fe5057d76dc46ea6884dfc4a506",
+      "size_bytes": 7983
+    },
+    {
+      "path": "v2_supersession_manifest.json",
+      "sha256": "25b69beb8b75a4f996ad3723a0be120ebdf570a774e3ce85748669d8fedc4a24",
+      "size_bytes": 735
+    }
+  ],
+  "git": {
+    "branch": "agent/stage-c21",
+    "commit": "b7d8df89de46856cc649b2909186b10f9bee5ca5",
+    "dirty": false
+  },
+  "manifest_payload_sha256": "bb63aa62d7ced50efcdf13df49a2246c00b6596a1121625cba46c3c01814cf48",
+  "schema_version": 1,
+  "snapshot_role": "prepared_pending_ai_review",
+  "stage": "C2.4b-v2.1-ai-only-selective-router-benchmark"
+}

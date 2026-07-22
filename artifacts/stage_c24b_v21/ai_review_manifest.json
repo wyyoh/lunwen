@@ -1,0 +1,149 @@
+{
+  "ai_only_exploratory_calibration_allowed": true,
+  "ai_only_exploratory_locked_diagnostic_allowed": true,
+  "ai_review_attempt_manifest_sha256": "b765784e0529b7ba9e2fa2dc8cb0dbb9b05801221762b840add7fe35f2c6b818",
+  "ai_review_provenance_complete": false,
+  "audit_id": "c24b-v21-single-ai-semantic-audit-2026-07-22",
+  "audit_spec_path": "/home/liuyun/cloudcli-prod-data/workspaces/user_3/05136a23-3f5e-4efd-8adf-fcfff347cad1/lunwen/configs/stage_c24b_v21_ai_audit.yaml",
+  "audit_spec_sha256": "5140cd602e47ce4a723f68ac1dd64b245bc9e67d8dcfe4748e52b9af6c0f67ca",
+  "benchmark_config_sha256": "10e1a3ed9d7b0914d988ede695a2c9df81cba36eab783565bdc4e45531a5f62f",
+  "benchmark_manifest_sha256": "2c5815e43730a4900f1944fa7a59d28b21aef55ffed930df8722d22fcac4c2c2",
+  "boundary_retained_family_count": 37,
+  "boundary_retained_family_rate": 0.3557692307692308,
+  "c3_eligible": false,
+  "declared_limitation_flags": {
+    "domain_transfer_identifier": 1,
+    "non_target_tail_property": 15,
+    "synthetic_carrier_minimal_pair": 6,
+    "synthetic_compound_scope": 16
+  },
+  "definitions_sha256": "2215ad193df45dab928a06046bab79bcbfca456e021f1d083a3d04a025404016",
+  "design_quality": {
+    "combined": {
+      "ambiguous_explicit_shortcut_count": 0,
+      "ambiguous_explicit_shortcut_rate": 0.0,
+      "ambiguous_family_count": 16,
+      "ambiguous_shortcut_gate_maximum": 0.0,
+      "hard_unrelated_carrier_gate_minimum": 0.75,
+      "hard_unrelated_family_count": 16,
+      "hard_unrelated_shared_carrier_count": 16,
+      "hard_unrelated_shared_carrier_rate": 1.0,
+      "passed": true
+    },
+    "public_calibration_v2_1": {
+      "ambiguous_explicit_shortcut_count": 0,
+      "ambiguous_explicit_shortcut_rate": 0.0,
+      "ambiguous_family_count": 8,
+      "ambiguous_without_explicit_shortcut_count": 8,
+      "hard_unrelated_family_ids": [
+        "v21_cal_unrelated_warehouse_locator_code",
+        "v21_cal_unrelated_payment_authorization_amount",
+        "v21_cal_unrelated_software_enrollment_date",
+        "v21_cal_unrelated_product_key_language",
+        "v21_cal_unrelated_document_access_timestamp",
+        "v21_cal_unrelated_customer_identifier_format",
+        "v21_cal_unrelated_security_token_policy",
+        "v21_cal_unrelated_map_reference_scale"
+      ],
+      "hard_unrelated_shared_carrier_count": 8,
+      "hard_unrelated_shared_carrier_rate": 1.0,
+      "shortcut_family_ids": [],
+      "unrelated_family_count": 8
+    },
+    "public_locked_audit_v2_1": {
+      "ambiguous_explicit_shortcut_count": 0,
+      "ambiguous_explicit_shortcut_rate": 0.0,
+      "ambiguous_family_count": 8,
+      "ambiguous_without_explicit_shortcut_count": 8,
+      "hard_unrelated_family_ids": [
+        "v21_locked_unrelated_inventory_locator_color",
+        "v21_locked_unrelated_purchase_code_expiry",
+        "v21_locked_unrelated_credential_rotation",
+        "v21_locked_unrelated_archive_retention",
+        "v21_locked_unrelated_login_latency",
+        "v21_locked_unrelated_parcel_tracking",
+        "v21_locked_unrelated_zone_font",
+        "v21_locked_unrelated_serial_checksum"
+      ],
+      "hard_unrelated_shared_carrier_count": 8,
+      "hard_unrelated_shared_carrier_rate": 1.0,
+      "shortcut_family_ids": [],
+      "unrelated_family_count": 8
+    }
+  },
+  "family_task_sha256": {
+    "public_calibration_v2_1": "71e77254acd680fd85e0b1d3c183890c131392210b615388f76e9eedabd65fc2",
+    "public_locked_audit_v2_1": "798ce151357c960e65cad5dc032a057345d47ed4a9b46c76acd2bb110e3418f7",
+    "public_train_v2_1": "d18b38caac588772395b96f3cc8cb58e2be66c825cb54fe45d24541cf6f9bde2"
+  },
+  "formal_calibration_allowed": false,
+  "formal_calibration_executed": false,
+  "formal_locked_audit_executed": false,
+  "implementation_source_aggregate_sha256": "4d343dff959cdb27ef8b2ecbb70c3914cfbf15468baadcdd22ee885434245bee",
+  "independent_external_validation": false,
+  "limitations": [
+    "single-model same-project review is not human review",
+    "review is not independent external validation",
+    "family-level decisions map to generated rows and are not independent row reviews",
+    "locked text was visible to the same-project AI reviewer",
+    "reviewer model revision is unavailable from this runtime"
+  ],
+  "locked_router_predictions_seen": false,
+  "locked_text_seen_by_same_project_ai_reviewer": true,
+  "locked_used_for_router_selection": false,
+  "manifest_payload_sha256": "8c185f8915fc12c74d9a538cdc0cb05284a1c30cb227d334146c610f20fb6f0c",
+  "model_id": "OpenAI Codex (GPT-5 family)",
+  "model_revision": "unavailable_from_runtime",
+  "new_confirmation_pool_created_after_freeze": false,
+  "prediction_blind": true,
+  "prompt_path": "/home/liuyun/cloudcli-prod-data/workspaces/user_3/05136a23-3f5e-4efd-8adf-fcfff347cad1/lunwen/configs/stage_c24b_v21_ai_review_prompt.md",
+  "prompt_sha256": "39e796137f8adddcc2878514cb0069fadbd69cdf1c10e12e6966bc11678ecacc",
+  "public_benchmark_ai_reviewed": true,
+  "public_benchmark_human_reviewed": false,
+  "ready_to_create_new_confirmation_pool": false,
+  "review_independent_of_benchmark_authorship": false,
+  "review_mode": "single_ai_semantic_audit",
+  "reviewed_family_count": 104,
+  "schema_version": 1,
+  "selection_protocol": {
+    "development_used_for_selection": false,
+    "locked_audit_used_for_selection": false,
+    "locked_router_predictions_observed": false,
+    "router_selection_executed": false
+  },
+  "semantic_audit_outcome": "passed_exploratory_non_independent",
+  "splits": {
+    "public_calibration_v2_1": {
+      "boundary_retained_family_count": 21,
+      "complete": true,
+      "covered_row_count": 160,
+      "failed_family_count": 0,
+      "family_count": 40,
+      "passed_family_count": 19,
+      "path": "/home/liuyun/cloudcli-prod-data/workspaces/user_3/05136a23-3f5e-4efd-8adf-fcfff347cad1/lunwen/artifacts/stage_c24b_v21/public_calibration_v2_1_ai_review.csv",
+      "sha256": "a8af23cabc26d526c936b83b117c080090554728b11cf71d45c53bf99c755187"
+    },
+    "public_locked_audit_v2_1": {
+      "boundary_retained_family_count": 16,
+      "complete": true,
+      "covered_row_count": 160,
+      "failed_family_count": 0,
+      "family_count": 40,
+      "passed_family_count": 24,
+      "path": "/home/liuyun/cloudcli-prod-data/workspaces/user_3/05136a23-3f5e-4efd-8adf-fcfff347cad1/lunwen/artifacts/stage_c24b_v21/public_locked_audit_v2_1_ai_review.csv",
+      "sha256": "d069bab43c25967fce6d45e79b1a9672237d9218cdf2d53f88fc6a50d5ec8795"
+    },
+    "public_train_v2_1": {
+      "boundary_retained_family_count": 0,
+      "complete": true,
+      "covered_row_count": 72,
+      "failed_family_count": 0,
+      "family_count": 24,
+      "passed_family_count": 24,
+      "path": "/home/liuyun/cloudcli-prod-data/workspaces/user_3/05136a23-3f5e-4efd-8adf-fcfff347cad1/lunwen/artifacts/stage_c24b_v21/public_train_v2_1_ai_review.csv",
+      "sha256": "ad954a3240d2d947e2f6e314257a6fcce107813f23a6dec879f340615aa534cf"
+    }
+  },
+  "stage": "C2.4b-v2.1-ai-only-selective-router-benchmark",
+  "status": "completed_with_declared_boundaries_exploratory_non_independent"
+}

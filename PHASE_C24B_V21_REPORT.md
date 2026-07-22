@@ -146,6 +146,76 @@ c3_eligible = false。
 
 ## 工程运行记录
 
-本节将在代码冻结后记录正式 v2.1 prepare、AI review apply/validate、产物 SHA-256、
-全仓测试数、代码冻结提交和最终结果提交。正式 calibration 与 formal locked audit
-不会因单模型 AI 审核而解锁。
+代码/协议冻结提交为：
+
+```text
+b7d8df89de46856cc649b2909186b10f9bee5ca5
+```
+
+该提交已先推送到 `origin/agent/stage-c21`，随后才在 clean worktree 上执行一次
+`stage-c24b-v21-prepare`。prepare manifest 记录 `dirty=false`。AI apply 阶段的最终
+artifact manifest 如实记录 `dirty=true`，原因只是 prepare 新生成且尚未提交的
+`artifacts/stage_c24b_v21/`；实现源文件由独立 source snapshot 复验为冻结提交字节，
+没有在 prepare 与 apply 之间修改代码、配置或审核 spec。
+
+运行顺序及结果：
+
+1. `stage-c24b-v21-prepare`：成功，72/160/160 行；
+2. `stage-c24b-v21-apply-ai-review`：成功，104 family、392 行覆盖；
+3. `stage-c24b-v21-validate-ai-review`：成功；
+4. formal calibration：未执行且保持禁止；
+5. development：未执行；
+6. formal/exploratory locked 模型评分：均未执行；
+7. confirmation：未创建、未读取、未运行。
+
+审核 boundary 分布如下：
+
+| Split | family | passed | boundary | 覆盖行 |
+|---|---:|---:|---:|---:|
+| train | 24 | 24 | 0 | 72 |
+| calibration | 40 | 19 | 21 | 160 |
+| locked | 40 | 24 | 16 | 160 |
+| **合计** | **104** | **67** | **37** | **392** |
+
+声明的限制 flag 为：`synthetic_compound_scope=16`、
+`synthetic_carrier_minimal_pair=6`、`non_target_tail_property=15`、
+`domain_transfer_identifier=1`。这些 flag 是数据构造限制，不是 router 预测。
+
+关键 SHA-256：
+
+| 对象 | SHA-256 |
+|---|---|
+| v2.1 config | `10e1a3ed9d7b0914d988ede695a2c9df81cba36eab783565bdc4e45531a5f62f` |
+| relation definitions | `2215ad193df45dab928a06046bab79bcbfca456e021f1d083a3d04a025404016` |
+| public benchmark manifest | `2c5815e43730a4900f1944fa7a59d28b21aef55ffed930df8722d22fcac4c2c2` |
+| prepare artifact manifest | `6c0f5c6863ea244c2321c24b0b5b9bfd509d6183723a38dae42ab44b4ad2cf27` |
+| AI audit spec | `5140cd602e47ce4a723f68ac1dd64b245bc9e67d8dcfe4748e52b9af6c0f67ca` |
+| AI review prompt | `39e796137f8adddcc2878514cb0069fadbd69cdf1c10e12e6966bc11678ecacc` |
+| AI review attempt manifest | `b765784e0529b7ba9e2fa2dc8cb0dbb9b05801221762b840add7fe35f2c6b818` |
+| AI review manifest | `f7ce933cab973fcdc99deca57011317e2ba36517ec7934c8e07a0a85d784b5af` |
+| final artifact manifest | `f0d7a6e9baf1b2648050fa4dee28063d100b2250c6bf40b0d9e46d1151eac920` |
+
+三份 v2.1 JSONL SHA-256 分别为：train
+`9165b6d69f88207638022796fe9aa0a39ab9207ab19b31011a5be49ddfd1b5f4`、
+calibration `88bc6475de9ad83c1ab8ae9c3383a2d9e706717c3fd988355e512f18395effaf`、
+locked `42e2ca09238d0808480cadaec04b8996f547e1e0f8f8597ed7cf1a8db86936fe`。
+
+独立复算结果：12 个 JSON 均可严格解析且不含 NaN/Infinity；final manifest
+列出的 17 个先行文件 size/SHA-256 全部匹配，包含 manifest 自身时 artifact 目录
+精确为 18 个文件；3 份数据 SHA-256 全部匹配。原 v2 benchmark manifest 与 4 份
+review CSV 的 SHA-256 仍分别为 `7977b7a3…ed977`、`a8c8d687…dbcb`、
+`f8016bdf…adc`、`16ed91c8…3ece`、`a74187c6…f1f4`，没有填写旧真人字段。
+
+全仓测试结果为：
+
+```text
+215 passed in 59.14s
+```
+
+其中 v2.1 专项为 18 项，覆盖 namespace、历史碰撞、AI schema、稳定撤销门禁、
+完整 prepare/final seal、source/config/prompt/data 篡改、无部分写、非法/NaN/bool
+confidence、confirmation/private/router 字段拒绝和恒 false readiness。
+
+代码冻结提交已确认位于开放的 Draft PR #2（`agent/stage-c21`）。本报告和
+`artifacts/stage_c24b_v21/` 随结果提交推送到同一 Draft PR。正式 calibration 与
+formal locked audit 不会因单模型 AI 审核而解锁。

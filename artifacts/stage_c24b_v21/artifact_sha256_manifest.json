@@ -1,0 +1,105 @@
+{
+  "audit_spec_sha256": "5140cd602e47ce4a723f68ac1dd64b245bc9e67d8dcfe4748e52b9af6c0f67ca",
+  "config_sha256": "10e1a3ed9d7b0914d988ede695a2c9df81cba36eab783565bdc4e45531a5f62f",
+  "file_count": 17,
+  "files": [
+    {
+      "path": "ai_review_attempt_manifest.json",
+      "sha256": "b765784e0529b7ba9e2fa2dc8cb0dbb9b05801221762b840add7fe35f2c6b818",
+      "size_bytes": 1031
+    },
+    {
+      "path": "ai_review_manifest.json",
+      "sha256": "f7ce933cab973fcdc99deca57011317e2ba36517ec7934c8e07a0a85d784b5af",
+      "size_bytes": 7065
+    },
+    {
+      "path": "prepare_artifact_sha256_manifest.json",
+      "sha256": "6c0f5c6863ea244c2321c24b0b5b9bfd509d6183723a38dae42ab44b4ad2cf27",
+      "size_bytes": 2390
+    },
+    {
+      "path": "prior_v2_ai_audit_summary.json",
+      "sha256": "523d21b888e0eea6df65a2d52a835f83ecd7a25d1954354d1cce7e22741fd85d",
+      "size_bytes": 4260
+    },
+    {
+      "path": "protocol_status.json",
+      "sha256": "5263dcec17abd28cf3d90a498ff25ba6ca791956a70ca537fa456e9e26e9b39c",
+      "size_bytes": 1581
+    },
+    {
+      "path": "public_benchmark_v2_1_manifest.json",
+      "sha256": "2c5815e43730a4900f1944fa7a59d28b21aef55ffed930df8722d22fcac4c2c2",
+      "size_bytes": 21790
+    },
+    {
+      "path": "public_calibration_v2_1_ai_review.csv",
+      "sha256": "a8af23cabc26d526c936b83b117c080090554728b11cf71d45c53bf99c755187",
+      "size_bytes": 13252
+    },
+    {
+      "path": "public_calibration_v2_1_ai_review_task.csv",
+      "sha256": "7e7b9c5234271305d102cef238b78afb6c1b7ec1f78f00beb4478ac3c8276c34",
+      "size_bytes": 8251
+    },
+    {
+      "path": "public_calibration_v2_1_manifest.json",
+      "sha256": "34d4e8e2ba5a1971b1d5c8615656f1a55b2252b6a8a19b6a8e22eea4b465b798",
+      "size_bytes": 1275
+    },
+    {
+      "path": "public_locked_audit_v2_1_ai_review.csv",
+      "sha256": "d069bab43c25967fce6d45e79b1a9672237d9218cdf2d53f88fc6a50d5ec8795",
+      "size_bytes": 12400
+    },
+    {
+      "path": "public_locked_audit_v2_1_ai_review_task.csv",
+      "sha256": "d44378d495b1dd20717a54ce53042d37fdb872b3c49b0292170679bc7945a5d6",
+      "size_bytes": 7945
+    },
+    {
+      "path": "public_locked_audit_v2_1_manifest.json",
+      "sha256": "0e6f24223ac7ee53064f2d096446397a9a6cdf9a58eca3fdef3228230c042a9f",
+      "size_bytes": 1278
+    },
+    {
+      "path": "public_train_v2_1_ai_review.csv",
+      "sha256": "ad954a3240d2d947e2f6e314257a6fcce107813f23a6dec879f340615aa534cf",
+      "size_bytes": 6371
+    },
+    {
+      "path": "public_train_v2_1_ai_review_task.csv",
+      "sha256": "ee31ed6a33a9b50991bf69ad52a9891d945eace73ea66e38a02176384663e8df",
+      "size_bytes": 4591
+    },
+    {
+      "path": "public_train_v2_1_manifest.json",
+      "sha256": "6319159e1215fd1ddf8d4f57da82cc0f71054ba693d5ae7f3e6c340a86647046",
+      "size_bytes": 1214
+    },
+    {
+      "path": "stage_c24b_v21_summary.json",
+      "sha256": "c4be61a0f3c6743839c73397fd2fe23e31bd64f604d830e6e9c71b589d570366",
+      "size_bytes": 4116
+    },
+    {
+      "path": "v2_supersession_manifest.json",
+      "sha256": "25b69beb8b75a4f996ad3723a0be120ebdf570a774e3ce85748669d8fedc4a24",
+      "size_bytes": 735
+    }
+  ],
+  "formal_locked_audit_executed": false,
+  "git": {
+    "branch": "agent/stage-c21",
+    "commit": "b7d8df89de46856cc649b2909186b10f9bee5ca5",
+    "dirty": true
+  },
+  "manifest_payload_sha256": "2d4986e0d5383aeef8f525899934da1c3c38602398689be43f25977c8079efe4",
+  "prompt_sha256": "39e796137f8adddcc2878514cb0069fadbd69cdf1c10e12e6966bc11678ecacc",
+  "public_benchmark_ai_reviewed": true,
+  "public_benchmark_human_reviewed": false,
+  "schema_version": 1,
+  "snapshot_role": "ai_reviewed_exploratory_non_independent",
+  "stage": "C2.4b-v2.1-ai-only-selective-router-benchmark"
+}
