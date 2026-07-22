@@ -431,11 +431,17 @@ def validate_benchmark_config_v2(config: Mapping[str, Any]) -> ValidatedBenchmar
     if not math.isfinite(threshold) or not 0.0 < threshold <= 1.0:
         raise ValueError("lemma_bigram_threshold must be finite and in (0, 1]")
     raw_sources = config.get("historical_sources")
-    if not isinstance(raw_sources, Mapping) or set(raw_sources) != {
-        "stage_c23_config",
-        "stage_c24_config",
-    }:
-        raise ValueError("historical_sources must name stage_c23_config and stage_c24_config")
+    required_sources = {"stage_c23_config", "stage_c24_config"}
+    allowed_sources = {*required_sources, "stage_c24b_v2_config"}
+    if (
+        not isinstance(raw_sources, Mapping)
+        or not required_sources.issubset(raw_sources)
+        or not set(raw_sources).issubset(allowed_sources)
+    ):
+        raise ValueError(
+            "historical_sources must name stage_c23_config/stage_c24_config "
+            "and may additionally seal stage_c24b_v2_config"
+        )
     sources = {str(key): _surface_text(value) for key, value in raw_sources.items()}
     raw_splits = config.get("splits")
     required_splits = {split.value for split in PublicSplitV2}
@@ -801,6 +807,7 @@ def audit_historical_collisions(
         )
         source_hashes[source_name] = sha256_file(path)
 
+    history_label = "+".join(source_hashes)
     split_results: dict[str, Any] = {}
     failures: list[str] = []
     for split_name, split in benchmark.splits.items():
@@ -808,7 +815,7 @@ def audit_historical_collisions(
         phrase_audit = audit_phrase_collections_v2(
             history_phrases,
             phrases,
-            left_name="C2.3+C2.4 historical families",
+            left_name=f"{history_label} historical families",
             right_name=split_name.value,
             lemma_bigram_threshold=benchmark.lemma_bigram_threshold,
         )
@@ -843,7 +850,11 @@ def audit_historical_collisions(
         "passed": not failures,
     }
     if failures:
-        raise ValueError("historical C2.3/C2.4 collision detected: " + ", ".join(failures))
+        raise ValueError(
+            "historical C2.3/C2.4 collision detected "
+            "(including any additional sealed sources): "
+            + ", ".join(failures)
+        )
     return result
 
 

@@ -1,5 +1,16 @@
 # Stage C2.4b 报告：Selective Discrete Relation Router
 
+> **2026-07-22 协议修订：** 本文以下内容保留为原 v2 实现与 smoke 的历史记录。
+> 在任何 router/model 评分前，用户提供的单模型 AI 数据质量审核发现 4 个错标
+> family、16/16 ambiguous 显式提示捷径和过易 unrelated 构造，因此
+> `c24b-public-selective-router-v2` 已永久降级为 `diagnostic_only`，旧 v2 的
+> review validation、formal calibration 与 formal locked audit 入口均已撤销。
+> 项目不再等待或声称双人真人审核；替代协议是独立命名空间的 v2.1 单模型 AI
+> 探索性审核。它始终保持 `public_benchmark_human_reviewed=false`、
+> `independent_external_validation=false` 与 `formal_calibration_allowed=false`。
+> 当前权威状态与产物见 `PHASE_C24B_V21_REPORT.md`；本历史报告中的“后续真人审核”
+> 不再是现行计划。
+
 ## 当前结论
 
 Stage C2.4b 已实现新的选择性离散 relation router、v2 公共数据协议和人工审核门禁，并已完成正式 `prepare` 与独立 CPU synthetic smoke。但本报告生成时，真实双人独立审核尚未完成，正式 calibration、development 诊断和 `public_locked_audit_v2` 均未执行。因此目前只能报告协议、实现和 synthetic smoke 的工程状态，不能报告 R0–R4 的正式研究效果，也不能据此选择正式 router 或判断研究门槛通过。

@@ -49,6 +49,11 @@ from .stage_c24b import (
     run_stage_c24b_audit,
     validate_stage_c24b_reviews,
 )
+from .stage_c24b_v21 import (
+    apply_stage_c24b_v21_ai_review,
+    prepare_stage_c24b_v21,
+    validate_stage_c24b_v21_ai_review,
+)
 from .train import train_gram
 
 
@@ -575,6 +580,18 @@ def command_stage_c24b_audit(args: argparse.Namespace) -> None:
     )
 
 
+def command_stage_c24b_v21_prepare(args: argparse.Namespace) -> None:
+    _print(prepare_stage_c24b_v21(args.config))
+
+
+def command_stage_c24b_v21_apply_ai_review(args: argparse.Namespace) -> None:
+    _print(apply_stage_c24b_v21_ai_review(args.config, args.audit_spec))
+
+
+def command_stage_c24b_v21_validate_ai_review(args: argparse.Namespace) -> None:
+    _print(validate_stage_c24b_v21_ai_review(args.config, require_pass=True))
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="keyed-gram",
@@ -869,6 +886,28 @@ def build_parser() -> argparse.ArgumentParser:
     stage_c24b_audit.add_argument("--output-dir", required=True)
     stage_c24b_audit.add_argument("--device")
     stage_c24b_audit.set_defaults(func=command_stage_c24b_audit)
+
+    stage_c24b_v21_prepare = sub.add_parser(
+        "stage-c24b-v21-prepare",
+        help="prepare the independent v2.1 benchmark and single-AI review tasks",
+    )
+    stage_c24b_v21_prepare.add_argument("--config", required=True)
+    stage_c24b_v21_prepare.set_defaults(func=command_stage_c24b_v21_prepare)
+
+    stage_c24b_v21_apply = sub.add_parser(
+        "stage-c24b-v21-apply-ai-review",
+        help="apply a prediction-blind, non-human, non-independent AI review",
+    )
+    stage_c24b_v21_apply.add_argument("--config", required=True)
+    stage_c24b_v21_apply.add_argument("--audit-spec", required=True)
+    stage_c24b_v21_apply.set_defaults(func=command_stage_c24b_v21_apply_ai_review)
+
+    stage_c24b_v21_validate = sub.add_parser(
+        "stage-c24b-v21-validate-ai-review",
+        help="validate the sealed exploratory v2.1 AI review",
+    )
+    stage_c24b_v21_validate.add_argument("--config", required=True)
+    stage_c24b_v21_validate.set_defaults(func=command_stage_c24b_v21_validate_ai_review)
     return parser
 
 

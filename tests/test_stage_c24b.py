@@ -9,6 +9,7 @@ import pytest
 import torch
 import yaml
 
+import keyed_gram.stage_c24b as stage_c24b_module
 from keyed_gram.cli import build_parser, main
 from keyed_gram.stage_c24b import (
     ProtocolViolation,
@@ -33,6 +34,21 @@ from keyed_gram.stage_c24b_router import RejectedRoute
 
 ROOT = Path(__file__).resolve().parents[1]
 SMOKE_CONFIG = ROOT / "configs" / "stage_c24b_smoke.yaml"
+
+
+@pytest.fixture(autouse=True)
+def _allow_superseded_protocol_only_for_isolated_unit_fixtures(monkeypatch):
+    """旧生命周期测试只在 pytest 临时仓内绕过 production 撤销门禁。"""
+
+    original = stage_c24b_module._guard_formal_review_protocol
+
+    def guarded(config_path, *, operation):
+        source = Path(config_path).resolve()
+        if ROOT not in source.parents:
+            return None
+        return original(source, operation=operation)
+
+    monkeypatch.setattr(stage_c24b_module, "_guard_formal_review_protocol", guarded)
 
 
 def _formal_fixture(tmp_path: Path) -> Path:

@@ -1,0 +1,289 @@
+schema_version: 1
+stage: C2.4b-v2.1-ai-only-selective-router-benchmark
+
+base_protocol:
+  supersedes: c24b-public-selective-router-v2
+  source_manifest: artifacts/stage_c24b/public_benchmark_manifest.json
+  source_manifest_sha256: 7977b7a340478da8f3d4a4d8cd08e4ebeb16ae790e7de3808a3a77ce796ed977
+  disposition: superseded_before_model_scoring_diagnostic_only
+  changes_superseded_files: false
+
+review_protocol:
+  review_mode: single_ai_semantic_audit
+  public_benchmark_human_reviewed: false
+  public_benchmark_ai_reviewed: false
+  independent_external_validation: false
+  ai_review_status: pending_prediction_blind_single_ai_review
+  formal_calibration_allowed: false
+  formal_locked_audit_executed: false
+  new_confirmation_pool_created_after_freeze: false
+  c3_eligible: false
+
+paths:
+  public_data_dir: data/stage_c24b_v21
+  artifact_dir: artifacts/stage_c24b_v21
+
+legacy_v2_ai_audit:
+  source_review_files:
+    public_train_v2:
+      path: artifacts/stage_c24b/public_train_v2_review.csv
+      sha256: a8c8d687497c7befcbc6dd53f37e0a17c9ff185075d083072e8430f4adedbdcb
+      rows: 72
+      families: 24
+    public_calibration_v2:
+      path: artifacts/stage_c24b/public_calibration_v2_review.csv
+      sha256: f8016bdfe493c9847c5c910e1993cd9eb899160e2334be89f425d3455cc27adc
+      rows: 160
+      families: 40
+    public_locked_audit_v2:
+      path: artifacts/stage_c24b/public_locked_audit_v2_review.csv
+      sha256: 16ed91c8f95e35c238ec29b3b9cedca2aef1126ff05264665f3601ae420f3ece
+      rows: 160
+      families: 40
+    legacy_c24_locked_audit:
+      path: artifacts/stage_c24b/c24_locked_audit_independent_review.csv
+      sha256: a74187c6279753f203508ebc8bec3543b59a5d18062f938703fe9b489d41f1f4
+      rows: 120
+      families: 30
+  total_rows: 512
+  total_unique_families: 134
+  consistent_families: 130
+  relabel_families: 4
+  affected_rows: 16
+  exceptions:
+    - phrase_family: locked_v2_ambiguous_dossier_handle
+      ai_suggested_label: registry_id
+      ai_suggested_type: known
+      ai_confidence: 0.84
+      rationale: dossier handle strongly denotes a locator for an archival record
+    - phrase_family: locked_v2_ambiguous_authorization_value
+      ai_suggested_label: access_code
+      ai_suggested_type: known
+      ai_confidence: 0.91
+      rationale: authorization value strongly denotes an access-control credential
+    - phrase_family: locked_ambiguous_record_tag
+      ai_suggested_label: registry_id
+      ai_suggested_type: known
+      ai_confidence: 0.80
+      rationale: record tag denotes a record-system locator under the registered-subject definition
+    - phrase_family: locked_ambiguous_subject_locator
+      ai_suggested_label: registry_id
+      ai_suggested_type: known
+      ai_confidence: 0.86
+      rationale: subject locator directly denotes a locator for an enrolled subject
+  boundary_samples:
+    - phrase_family: calibration_v2_ambiguous_credential_use
+      phrase: credential whose operational use is unstated
+      retained_type: ambiguous
+      note: credential leans toward access but may denote identity or qualification
+    - phrase_family: calibration_v2_ambiguous_security_reference
+      phrase: security reference of unspecified function
+      retained_type: ambiguous
+      note: security leans toward access while reference may denote a registry or audit number
+  ambiguous_shortcut_tokens:
+    - without
+    - lacking
+    - no
+    - unspecified
+    - unstated
+    - unnamed
+    - detached
+    - missing
+    - unscoped
+    - schema-free
+    - unqualified
+    - namespace-absent
+    - purpose-free
+    - issuer-unknown
+    - domainless
+    - context-free
+  expected_ambiguous_family_count: 16
+
+benchmark:
+  version: c24b-public-selective-router-v2.1
+  preprocessing_version: c24b-preprocess-v2.1
+  answer_free: true
+  contains_private_answers: false
+  review_status: pending_single_ai_semantic_audit
+  lemma_bigram_threshold: 0.80
+  historical_sources:
+    stage_c23_config: configs/stage_c23.yaml
+    stage_c24_config: configs/stage_c24.yaml
+    stage_c24b_v2_config: artifacts/stage_c24b/resolved_config.json
+
+  definitions:
+    registry_id:
+      - A public locator assigned when an authority records a subject in a governed collection.
+      - Registry evidence concerns official intake, filing, custody, enrollment, or a maintained roll.
+      - The value distinguishes one recorded subject rather than granting entry or naming a place.
+      - Administrative record locators exclude geographic designators and protected-resource secrets.
+    city_code:
+      - A public designator for a municipality, district, borough, ward, town, or local territory.
+      - City evidence concerns civic geography, boundaries, zoning, cartography, or local planning.
+      - The value identifies a place rather than a registered subject or an entry credential.
+      - Geographic area designators exclude institutional record locators and access secrets.
+    access_code:
+      - A credential presented to enter a protected account, device, service, room, or facility.
+      - Access evidence concerns authentication, unlocking, admission, login, or a guarded challenge.
+      - The value grants entry rather than identifying a filed subject or a municipality.
+      - Protected-resource credentials exclude public record locators and geographic designators.
+
+  splits:
+    public_train_v2_1:
+      entities:
+        - quartz research ledger
+        - raven public schema
+        - saffron civic worksheet
+        - tundra open index
+        - umber relation card
+        - willow field catalog
+      frames:
+        - "Consider the answer-free record for {entity}; route the descriptor {relation_phrase}."
+        - "For {entity}, identify the relation named by the public phrase '{relation_phrase}'."
+        - "Choose the typed field requested of {entity} from this wording: {relation_phrase}."
+      known_families:
+        registry_id:
+          v21_train_registry_conservancy_accession: public conservancy accession number
+          v21_train_registry_estate_intake: court estate intake reference
+          v21_train_registry_professional_roll: professional roll entry number
+          v21_train_registry_vital_statistics: vital statistics subject index
+          v21_train_registry_land_deeds: land deeds registration marker
+          v21_train_registry_maritime_certificate: maritime certificate ledger number
+          v21_train_registry_charitable_register: charitable register enrollee tag
+          v21_train_registry_records_custody: public records custody identifier
+        city_code:
+          v21_train_city_council_area: local council area notation
+          v21_train_city_precinct_mapping: urban precinct mapping code
+          v21_train_city_township_boundary: township boundary designation
+          v21_train_city_planning_zone: community planning zone mark
+          v21_train_city_district_atlas: municipal district atlas symbol
+          v21_train_city_borough_survey: borough survey area label
+          v21_train_city_territory_chart: settlement territory chart code
+          v21_train_city_locality_sign: civic locality geographic sign
+        access_code:
+          v21_train_access_service_challenge: protected service login challenge
+          v21_train_access_workspace_entry: restricted workspace entry credential
+          v21_train_access_archive_unlock: secure archive unlock response
+          v21_train_access_account_authentication: account authentication passphrase
+          v21_train_access_terminal_admission: guarded terminal admission token
+          v21_train_access_console_secret: encrypted console access secret
+          v21_train_access_dashboard_signin: private dashboard sign-in code
+          v21_train_access_facility_keypad: controlled facility keypad value
+
+    public_calibration_v2_1:
+      entities:
+        - xenon calibration panel
+        - yarrow semantic card
+        - zephyr routing sheet
+        - acorn evidence folio
+      frames:
+        - "On calibration panel {entity}, decide which typed relation is supported by: {relation_phrase}."
+        - "Classify or reject the answer-free request for {entity}; its wording is '{relation_phrase}'."
+        - "Read the semantic cue {relation_phrase} for {entity}, then select a relation or abstain."
+        - "The public field query about {entity} says {relation_phrase}; return its route class."
+      known_families:
+        registry_id:
+          v21_cal_registry_credential_intake: {phrase: credential logged during public conservatorship intake, lexical_ood: true, hard_negative: true, minimal_pair_id: v21_pair_credential}
+          v21_cal_registry_reference_estate: {phrase: reference issued for a tribunal estate record, lexical_ood: true, hard_negative: true, minimal_pair_id: v21_pair_reference}
+          v21_cal_registry_identifier_roll: {phrase: identifier assigned to a licensed practitioner roll, lexical_ood: true, hard_negative: true, minimal_pair_id: v21_pair_identifier}
+          v21_cal_registry_code_deed: {phrase: code indexing a deposited land deed, lexical_ood: true, hard_negative: true, minimal_pair_id: v21_pair_code}
+          v21_cal_registry_token_charity: {phrase: token tied to a public charity registration entry, lexical_ood: true, hard_negative: true}
+          v21_cal_registry_key_vital_file: {phrase: key pointing to a vital-statistics subject file, lexical_ood: true, hard_negative: true}
+          v21_cal_registry_serial_merchant: {phrase: serial recorded for a merchant register enrolment, lexical_ood: true, hard_negative: true}
+          v21_cal_registry_handle_notary: {phrase: handle locating a notary custody record, lexical_ood: true, hard_negative: true}
+        city_code:
+          v21_cal_city_credential_township: {phrase: credential naming a township sector on a zoning chart, lexical_ood: true, hard_negative: true, minimal_pair_id: v21_pair_credential}
+          v21_cal_city_reference_precinct: {phrase: reference printed for a council precinct on a survey sheet, lexical_ood: true, hard_negative: true, minimal_pair_id: v21_pair_reference}
+          v21_cal_city_identifier_neighborhood: {phrase: identifier marking a neighborhood area in a civic diagram, lexical_ood: true, hard_negative: true, minimal_pair_id: v21_pair_identifier}
+          v21_cal_city_code_authority_zone: {phrase: code denoting a local authority zone, lexical_ood: true, hard_negative: true, minimal_pair_id: v21_pair_code}
+          v21_cal_city_token_parcel_map: {phrase: token attached to a borough parcel map, lexical_ood: true, hard_negative: true}
+          v21_cal_city_key_boundary_chart: {phrase: key selecting a community boundary on a planning chart, lexical_ood: true, hard_negative: true}
+          v21_cal_city_serial_region_table: {phrase: serial for a settlement region in a geographic table, lexical_ood: true, hard_negative: true}
+          v21_cal_city_handle_locality_map: {phrase: handle representing an urban locality on a territory map, lexical_ood: true, hard_negative: true}
+        access_code:
+          v21_cal_access_credential_portal: {phrase: credential presented at a controlled research portal, lexical_ood: true, hard_negative: true, minimal_pair_id: v21_pair_credential}
+          v21_cal_access_reference_workspace: {phrase: reference checked before a private workspace opens, lexical_ood: true, hard_negative: true, minimal_pair_id: v21_pair_reference}
+          v21_cal_access_identifier_gateway: {phrase: identifier challenged by a restricted account gateway, lexical_ood: true, hard_negative: true, minimal_pair_id: v21_pair_identifier}
+          v21_cal_access_code_document: {phrase: code entered to release a protected document service, lexical_ood: true, hard_negative: true, minimal_pair_id: v21_pair_code}
+          v21_cal_access_token_device: {phrase: token authorizing entry to a secured device panel, lexical_ood: true, hard_negative: true}
+          v21_cal_access_key_room: {phrase: key verified before an encrypted collaboration room opens, lexical_ood: true, hard_negative: true}
+          v21_cal_access_serial_signin: {phrase: serial acting as a temporary sign-in secret, lexical_ood: true, hard_negative: true}
+          v21_cal_access_handle_console: {phrase: handle required by a guarded console session, lexical_ood: true, hard_negative: true}
+      rejection_families:
+        ambiguous:
+          v21_cal_ambiguous_civic_portal_key: {phrase: civic profile token, lexical_ood: true, hard_negative: true}
+          v21_cal_ambiguous_bureau_gateway_token: {phrase: bureau record token, lexical_ood: true, hard_negative: true}
+          v21_cal_ambiguous_borough_dossier_reference: {phrase: borough dossier reference, lexical_ood: true, hard_negative: true}
+          v21_cal_ambiguous_resident_account_code: {phrase: resident account code, lexical_ood: true, hard_negative: true}
+          v21_cal_ambiguous_municipal_enrollment_identifier: {phrase: municipality roll code, lexical_ood: true, hard_negative: true}
+          v21_cal_ambiguous_registry_entry_credential: {phrase: registry entry credential, lexical_ood: true, hard_negative: true}
+          v21_cal_ambiguous_district_account_locator: {phrase: district register code, lexical_ood: true, hard_negative: true}
+          v21_cal_ambiguous_civic_authorization_serial: {phrase: civic authorization serial, lexical_ood: true, hard_negative: true}
+        unrelated:
+          v21_cal_unrelated_warehouse_locator_code: {phrase: warehouse aisle locator code, lexical_ood: true, hard_negative: true}
+          v21_cal_unrelated_payment_authorization_amount: {phrase: payment authorization fee amount, lexical_ood: true, hard_negative: true}
+          v21_cal_unrelated_software_enrollment_date: {phrase: software enrollment renewal date, lexical_ood: true, hard_negative: true}
+          v21_cal_unrelated_product_key_language: {phrase: product key packaging language, lexical_ood: true, hard_negative: true}
+          v21_cal_unrelated_document_access_timestamp: {phrase: document access timestamp, lexical_ood: true, hard_negative: true}
+          v21_cal_unrelated_customer_identifier_format: {phrase: customer identifier display format, lexical_ood: true, hard_negative: true}
+          v21_cal_unrelated_security_token_policy: {phrase: security token expiration policy, lexical_ood: true, hard_negative: true}
+          v21_cal_unrelated_map_reference_scale: {phrase: regional map reference scale, lexical_ood: true, hard_negative: true}
+
+    public_locked_audit_v2_1:
+      entities:
+        - birch sealed relation card
+        - coral heldback schema
+        - dune blind routing folio
+        - elm audit worksheet
+      frames:
+        - "Held-back relation item for {entity}: route or reject the phrase '{relation_phrase}'."
+        - "Using only {relation_phrase}, determine the typed field requested from {entity}."
+        - "For the unseen schema {entity}, classify this answer-free descriptor: {relation_phrase}."
+        - "Return one relation or an abstention for {entity} after reading {relation_phrase}."
+      known_families:
+        registry_id:
+          v21_locked_registry_heritage_deposit: {phrase: heritage archive deposit accession, lexical_ood: true}
+          v21_locked_registry_judicial_estate: {phrase: judicial estate register locator, lexical_ood: true}
+          v21_locked_registry_professional_license: {phrase: professional licensing roll entry, lexical_ood: true}
+          v21_locked_registry_property_deed: {phrase: property deed custody number, lexical_ood: true}
+          v21_locked_registry_public_trust: {phrase: public trust enrolment marker, lexical_ood: true}
+          v21_locked_registry_civil_certificate: {phrase: civil certificate archive handle, lexical_ood: true}
+          v21_locked_registry_voter_subject: {phrase: voter register subject index, lexical_ood: true}
+          v21_locked_registry_corporate_reception: {phrase: corporate filing reception reference, lexical_ood: true}
+        city_code:
+          v21_locked_city_township_zoning: {phrase: township zoning chart notation, lexical_ood: true}
+          v21_locked_city_neighborhood_survey: {phrase: neighborhood survey sector code, lexical_ood: true}
+          v21_locked_city_council_boundary: {phrase: local council boundary emblem, lexical_ood: true}
+          v21_locked_city_precinct_geography: {phrase: urban precinct geographic label, lexical_ood: true}
+          v21_locked_city_community_territory: {phrase: community territory map sign, lexical_ood: true}
+          v21_locked_city_borough_planning: {phrase: borough planning area cipher, lexical_ood: true}
+          v21_locked_city_parish_atlas: {phrase: municipal parish atlas marker, lexical_ood: true}
+          v21_locked_city_settlement_cartography: {phrase: settlement district cartography reference, lexical_ood: true}
+        access_code:
+          v21_locked_access_laboratory_portal: {phrase: restricted laboratory portal passphrase, lexical_ood: true}
+          v21_locked_access_workspace_challenge: {phrase: guarded workspace challenge response, lexical_ood: true}
+          v21_locked_access_device_admission: {phrase: encrypted device admission credential, lexical_ood: true}
+          v21_locked_access_account_unlock: {phrase: private account unlock token, lexical_ood: true}
+          v21_locked_access_facility_entry: {phrase: controlled facility entry secret, lexical_ood: true}
+          v21_locked_access_console_authentication: {phrase: secured console authentication string, lexical_ood: true}
+          v21_locked_access_dashboard_gate: {phrase: protected dashboard gate code, lexical_ood: true}
+          v21_locked_access_repository_login: {phrase: closed repository login value, lexical_ood: true}
+      rejection_families:
+        ambiguous:
+          v21_locked_ambiguous_borough_archive_token: {phrase: borough record token, lexical_ood: true, hard_negative: true}
+          v21_locked_ambiguous_civic_gateway_code: {phrase: civic account code, lexical_ood: true, hard_negative: true}
+          v21_locked_ambiguous_town_dossier_key: {phrase: town dossier entry key, lexical_ood: true, hard_negative: true}
+          v21_locked_ambiguous_protected_registry_reference: {phrase: protected subject key, lexical_ood: true, hard_negative: true}
+          v21_locked_ambiguous_municipality_ledger_marker: {phrase: municipality ledger key, lexical_ood: true, hard_negative: true}
+          v21_locked_ambiguous_authority_map_credential: {phrase: authority map token, lexical_ood: true, hard_negative: true}
+          v21_locked_ambiguous_district_roster_serial: {phrase: district resident code, lexical_ood: true, hard_negative: true}
+          v21_locked_ambiguous_city_filing_identifier: {phrase: municipal account key, lexical_ood: true, hard_negative: true}
+        unrelated:
+          v21_locked_unrelated_inventory_locator_color: {phrase: inventory bin locator color, lexical_ood: true, hard_negative: true}
+          v21_locked_unrelated_purchase_code_expiry: {phrase: purchase approval code expiry, lexical_ood: true, hard_negative: true}
+          v21_locked_unrelated_credential_rotation: {phrase: device credential rotation interval, lexical_ood: true, hard_negative: true}
+          v21_locked_unrelated_archive_retention: {phrase: archive filing retention period, lexical_ood: true, hard_negative: true}
+          v21_locked_unrelated_login_latency: {phrase: municipal website login latency, lexical_ood: true, hard_negative: true}
+          v21_locked_unrelated_parcel_tracking: {phrase: parcel registry tracking status, lexical_ood: true, hard_negative: true}
+          v21_locked_unrelated_zone_font: {phrase: geographic zone label font, lexical_ood: true, hard_negative: true}
+          v21_locked_unrelated_serial_checksum: {phrase: account serial checksum algorithm, lexical_ood: true, hard_negative: true}

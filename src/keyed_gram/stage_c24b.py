@@ -84,6 +84,10 @@ from .train import resolve_device
 
 SCHEMA_VERSION = 2
 STAGE_NAME = "C2.4b-selective-discrete-relation-router"
+SUPERSEDED_V2_BENCHMARK_VERSION = "c24b-public-selective-router-v2"
+SUPERSEDED_V2_BENCHMARK_FINGERPRINT = (
+    "f9a3451266e73a5f4f44ea1fc49318e1f6b3437ca01032cb3ab519958824fb4c"
+)
 FORMAL_SPLITS = tuple(split.value for split in PublicSplitV2)
 RELATION_ORDER = tuple(RelationId)
 REVIEW_LABELS = frozenset(
@@ -214,6 +218,54 @@ def load_stage_c24b_config(path: str | Path) -> tuple[dict[str, Any], dict[str, 
         "resolved_config_sha256": canonical_sha256(values),
     }
     return dict(values), metadata
+
+
+def _guard_formal_review_protocol(
+    config_path: str | Path, *, operation: str
+) -> None:
+    """在任何 review/data/model 读取前拒绝已降级或 AI-only 的 formal 入口。"""
+
+    source = Path(config_path).resolve()
+    raw = yaml.safe_load(source.read_text(encoding="utf-8")) or {}
+    if not isinstance(raw, Mapping):
+        raise ProtocolViolation("Stage C2.4b config must be a mapping")
+    benchmark = raw.get("benchmark")
+    version = str(benchmark.get("version", "")) if isinstance(benchmark, Mapping) else ""
+    fingerprint = ""
+    old_namespace = False
+    if isinstance(benchmark, Mapping):
+        fingerprint_payload = dict(benchmark)
+        fingerprint_payload.pop("version", None)
+        fingerprint = hashlib.sha256(
+            json.dumps(
+                fingerprint_payload,
+                ensure_ascii=False,
+                sort_keys=True,
+                separators=(",", ":"),
+                allow_nan=False,
+            ).encode("utf-8")
+        ).hexdigest()
+        old_namespace = (
+            benchmark.get("public_data_dir") == "data/stage_c24b"
+            and benchmark.get("artifact_dir") == "artifacts/stage_c24b"
+        )
+    if (
+        version == SUPERSEDED_V2_BENCHMARK_VERSION
+        or fingerprint == SUPERSEDED_V2_BENCHMARK_FINGERPRINT
+        or old_namespace
+    ):
+        raise ProtocolViolation(
+            f"{operation} is permanently disabled for superseded C2.4b v2; "
+            "the prepared benchmark is diagnostic-only and was replaced before model scoring"
+        )
+    review_protocol = raw.get("review_protocol")
+    if isinstance(review_protocol, Mapping) and review_protocol.get(
+        "review_mode"
+    ) == "single_ai_semantic_audit":
+        raise ProtocolViolation(
+            f"{operation} formal entry cannot consume a single-AI review; "
+            "use the separately labeled v2.1 exploratory protocol"
+        )
 
 
 def canonical_sha256(value: Any) -> str:
@@ -606,6 +658,7 @@ def validate_stage_c24b_reviews(
 ) -> dict[str, Any]:
     """校验双人审核；绝不根据模型预测写入或修复 reviewer 字段。"""
 
+    _guard_formal_review_protocol(config_path, operation="human-review validation")
     values, metadata = load_stage_c24b_config(config_path)
     sources = _review_sources(
         config_path, values, required_reviews=required_reviews
@@ -1013,6 +1066,7 @@ def _protocol_status(
 def prepare_stage_c24b(config_path: str | Path) -> dict[str, Any]:
     """生成全新的 v2 数据、碰撞审计和空白人工审核模板。"""
 
+    _guard_formal_review_protocol(config_path, operation="benchmark prepare")
     values, metadata = load_stage_c24b_config(config_path)
     if values["run"]["mode"] != "formal":
         raise ProtocolViolation("stage-c24b-prepare requires the formal config")
@@ -3195,6 +3249,7 @@ def calibrate_stage_c24b(
 ) -> dict[str, Any]:
     """正式 calibration 入口；严格不读取 public_locked_audit_v2。"""
 
+    _guard_formal_review_protocol(config_path, operation="formal calibration")
     values, metadata = load_stage_c24b_config(config_path)
     if values["run"]["mode"] != "formal":
         raise ProtocolViolation("stage-c24b-calibrate requires the formal config")
@@ -3260,6 +3315,7 @@ def audit_stage_c24b(
 ) -> dict[str, Any]:
     """运行 smoke，或在全部 seal 完成后进入正式 audit 的 fail-closed 门。"""
 
+    _guard_formal_review_protocol(config_path, operation="formal locked audit")
     values, metadata = load_stage_c24b_config(config_path)
     destination = Path(output_dir).resolve()
     if values["run"]["mode"] == "smoke":

@@ -15,3 +15,4 @@ artifacts/stage_c24_smoke/** -text whitespace=cr-at-eol
 # Stage C2.4b manifests likewise bind the exact generated JSON/CSV bytes.
 artifacts/stage_c24b/** -text whitespace=cr-at-eol
 artifacts/stage_c24b_smoke/** -text whitespace=cr-at-eol
+artifacts/stage_c24b_v21/** -text whitespace=cr-at-eol
