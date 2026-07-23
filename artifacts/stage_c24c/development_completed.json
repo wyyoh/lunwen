@@ -1,0 +1,12 @@
+{
+  "development_rows": 360,
+  "development_rows_sha256": "bbab1bd5ee9d1389c6fbfcaa2431a645ce6c89602243fbb2cd4022f83699db62",
+  "git_commit": "63fd9ba86f83aa121d18f3323ed902a58097d13e",
+  "locked_audit_opened": false,
+  "phase": "development",
+  "schema_version": 1,
+  "stage": "C2.4c-exploratory-selective-router-evaluation",
+  "status": "development_completed_once",
+  "used_for_selection": false,
+  "used_for_status": false
+}

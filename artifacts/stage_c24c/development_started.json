@@ -1,0 +1,10 @@
+{
+  "git_commit": "63fd9ba86f83aa121d18f3323ed902a58097d13e",
+  "phase": "development",
+  "router_freeze_manifest_sha256": "f440f9782b24d7c88b3bcea1d8d97aee9cc9b4544c94209071957af042aae134",
+  "schema_version": 1,
+  "scope": "historical_c23_public_validation_and_reject_diagnostic_once",
+  "stage": "C2.4c-exploratory-selective-router-evaluation",
+  "status": "development_started_once",
+  "used_for_selection": false
+}

@@ -1,0 +1,145 @@
+{
+  "benchmark": {
+    "ai_review_status": "completed_with_declared_boundaries_exploratory_non_independent",
+    "benchmark_version": "c24b-public-selective-router-v2.1",
+    "data": {
+      "public_calibration_v2_1": {
+        "path": "data/stage_c24b_v21/public_calibration_v2_1.jsonl",
+        "rows": 160,
+        "sha256": "88bc6475de9ad83c1ab8ae9c3383a2d9e706717c3fd988355e512f18395effaf",
+        "size_bytes": 306468
+      },
+      "public_locked_audit_v2_1": {
+        "path": "data/stage_c24b_v21/public_locked_audit_v2_1.jsonl",
+        "rows": 160,
+        "sha256": "42e2ca09238d0808480cadaec04b8996f547e1e0f8f8597ed7cf1a8db86936fe",
+        "size_bytes": 292600
+      },
+      "public_train_v2_1": {
+        "path": "data/stage_c24b_v21/public_train_v2_1.jsonl",
+        "rows": 72,
+        "sha256": "9165b6d69f88207638022796fe9aa0a39ab9207ab19b31011a5be49ddfd1b5f4",
+        "size_bytes": 124845
+      }
+    },
+    "data_revision_status": "frozen_for_exploratory_model_scoring",
+    "files": {
+      "ai_review_manifest": {
+        "path": "artifacts/stage_c24b_v21/ai_review_manifest.json",
+        "sha256": "f7ce933cab973fcdc99deca57011317e2ba36517ec7934c8e07a0a85d784b5af",
+        "size_bytes": 7065
+      },
+      "benchmark_manifest": {
+        "path": "artifacts/stage_c24b_v21/public_benchmark_v2_1_manifest.json",
+        "sha256": "2c5815e43730a4900f1944fa7a59d28b21aef55ffed930df8722d22fcac4c2c2",
+        "size_bytes": 21790
+      },
+      "config": {
+        "path": "configs/stage_c24b_v21.yaml",
+        "sha256": "10e1a3ed9d7b0914d988ede695a2c9df81cba36eab783565bdc4e45531a5f62f",
+        "size_bytes": 19844
+      },
+      "final_artifact_manifest": {
+        "path": "artifacts/stage_c24b_v21/artifact_sha256_manifest.json",
+        "sha256": "f0d7a6e9baf1b2648050fa4dee28063d100b2250c6bf40b0d9e46d1151eac920",
+        "size_bytes": 3744
+      },
+      "selective_router": {
+        "path": "src/keyed_gram/stage_c24b_router.py",
+        "sha256": "4c791aa1a594b7fadd64226ecdd19465aefb54500c3ee92339cf011c01a18175",
+        "size_bytes": 13226
+      },
+      "typed_memory_contract": {
+        "path": "src/keyed_gram/stage_c24_contract.py",
+        "sha256": "c8a3b5fd33621349659e504b1bd31502688896cf63207ae59f644849a0d96692",
+        "size_bytes": 14186
+      }
+    },
+    "independent_external_validation": false,
+    "public_benchmark_ai_reviewed": true,
+    "public_benchmark_human_reviewed": false
+  },
+  "config_sha256": "796d80f2b6d185d78b4719fb68efda46da74af87d7eab4b47df0f3dff5f65f91",
+  "definitions_sha256": "2215ad193df45dab928a06046bab79bcbfca456e021f1d083a3d04a025404016",
+  "development_source": {
+    "path": "configs/stage_c23.yaml",
+    "sha256": "dbc37bf59de64cdf0f2e2f59c3f34067e3f3d98e2213704938319216c1564067",
+    "size_bytes": 10540
+  },
+  "development_used_for_selection": false,
+  "evaluation_mode": "exploratory_non_independent",
+  "formal_calibration_allowed": false,
+  "git": {
+    "branch": "agent/stage-c21",
+    "commit": "63fd9ba86f83aa121d18f3323ed902a58097d13e",
+    "tracked_dirty": false
+  },
+  "independent_external_validation": false,
+  "locked_audit_used_for_selection": false,
+  "manifest_payload_sha256": "fa05a972a427273720e5976d88e978cdfc12557190d85c187281686bd9532a02",
+  "runtime_source_manifest": {
+    "files": [
+      {
+        "path": "configs/stage_c24c.yaml",
+        "sha256": "796d80f2b6d185d78b4719fb68efda46da74af87d7eab4b47df0f3dff5f65f91",
+        "size_bytes": 5950
+      },
+      {
+        "path": "src/keyed_gram/cli.py",
+        "sha256": "a62a95b423598a098c33b7ac801c86552f43410b93d4a50d182f23213f2d6d67",
+        "size_bytes": 36437
+      },
+      {
+        "path": "src/keyed_gram/stage_c23_benchmark.py",
+        "sha256": "7ebce93425b1c888465345df222adf736275c9f5b4bd7b202e40b3eba60a20a3",
+        "size_bytes": 28912
+      },
+      {
+        "path": "src/keyed_gram/stage_c23_semantic.py",
+        "sha256": "8bcf7f7134794477df6e00d25e9e134e0d434fc4d9e895b4830b49040509ee8b",
+        "size_bytes": 36775
+      },
+      {
+        "path": "src/keyed_gram/stage_c24_contract.py",
+        "sha256": "c8a3b5fd33621349659e504b1bd31502688896cf63207ae59f644849a0d96692",
+        "size_bytes": 14186
+      },
+      {
+        "path": "src/keyed_gram/stage_c24b_router.py",
+        "sha256": "4c791aa1a594b7fadd64226ecdd19465aefb54500c3ee92339cf011c01a18175",
+        "size_bytes": 13226
+      },
+      {
+        "path": "src/keyed_gram/stage_c24b_calibration.py",
+        "sha256": "5091fc8f5e9d8b0eaecb80486b6e8d16b6e68a9508a901322a191aec13143060",
+        "size_bytes": 40010
+      },
+      {
+        "path": "src/keyed_gram/stage_c24b_metrics.py",
+        "sha256": "2cd2a1d68a527e9d9df715f028c540f8ece399ec5ce85b4b1b2c396dc4326324",
+        "size_bytes": 37132
+      },
+      {
+        "path": "src/keyed_gram/stage_c24c.py",
+        "sha256": "17f7107683e644914294c85c7553955287120d7914989a8f939fa16755d649f6",
+        "size_bytes": 64687
+      },
+      {
+        "path": "src/keyed_gram/stage_c24c_models.py",
+        "sha256": "a94d11dafbb4508e8cd40f58ba571cfaa62ef7f568ec2fb6882ef9ff84deec62",
+        "size_bytes": 17873
+      },
+      {
+        "path": "src/keyed_gram/stage_c24c_protocol.py",
+        "sha256": "81e0454c33dc2bdeb5aa44a92eec944d33a732008475837b8f2a862151e207fc",
+        "size_bytes": 22000
+      }
+    ],
+    "manifest_payload_sha256": "0770b683622aa75d8822714968946622344bedf2bb9fa89fa9597e50d376d047",
+    "schema_version": 1
+  },
+  "schema_version": 1,
+  "selection_split": "public_calibration_v2_1",
+  "stage": "C2.4c-exploratory-selective-router-evaluation",
+  "status": "benchmark_and_code_frozen_before_exploratory_calibration"
+}

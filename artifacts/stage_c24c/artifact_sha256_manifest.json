@@ -1,0 +1,217 @@
+{
+  "data_sha256": {
+    "public_calibration_v2_1": "88bc6475de9ad83c1ab8ae9c3383a2d9e706717c3fd988355e512f18395effaf",
+    "public_locked_audit_v2_1": "42e2ca09238d0808480cadaec04b8996f547e1e0f8f8597ed7cf1a8db86936fe",
+    "public_train_v2_1": "9165b6d69f88207638022796fe9aa0a39ab9207ab19b31011a5be49ddfd1b5f4"
+  },
+  "evaluation_mode": "exploratory_non_independent",
+  "file_count": 31,
+  "files": [
+    {
+      "path": "R0/evaluation.json",
+      "sha256": "9f4e7308d688f1144acaf11ba1840d945e2eb27d2a243290c97f97f509c9a2c0",
+      "size_bytes": 39175
+    },
+    {
+      "path": "R1/evaluation.json",
+      "sha256": "270024dc9c6d375b94846d6b7069a1c754917122105f25d1b4d20e7d956b96ae",
+      "size_bytes": 38680
+    },
+    {
+      "path": "R2/evaluation.json",
+      "sha256": "b78d385eac9c3eb71d8aadec89bdcdb087fcdf9400f444119688d8fc23adae87",
+      "size_bytes": 37571
+    },
+    {
+      "path": "R3/evaluation.json",
+      "sha256": "a0206774697045bdca0b49f1aa137076aa47b9746cd0ae46ccf5658d7d533f7e",
+      "size_bytes": 37894
+    },
+    {
+      "path": "R4/evaluation.json",
+      "sha256": "a23b1ed6bc6c006324e149e5d836a681e5912882ccee6507bbaead3da50fa9c0",
+      "size_bytes": 37634
+    },
+    {
+      "path": "benchmark_freeze_manifest.json",
+      "sha256": "3582e68e411c868c8045fee35e6d2a11cebe6217c7cb73e2fa6d0e88b07f7e87",
+      "size_bytes": 5659
+    },
+    {
+      "path": "calibration_completed.json",
+      "sha256": "6e7b4960c1133bb67bc5ab0558efb1eeca9da2c5f1fd2e1856cea35fd304000e",
+      "size_bytes": 434
+    },
+    {
+      "path": "calibration_results.json",
+      "sha256": "b6b2c0d0b04c93a201e67c28c1eada97f92fd3c50c14e0dda1bd529f9f1bdbb9",
+      "size_bytes": 229231
+    },
+    {
+      "path": "calibration_started.json",
+      "sha256": "1465c07b48f04d51de51ef6c09f297ebd705070f2f1a2ce1e6478210df14b591",
+      "size_bytes": 2491
+    },
+    {
+      "path": "development/R0/evaluation.json",
+      "sha256": "d7c33bafd22f06ead1e709ed51b1de14e5651f31a69c6d2354273ed848dca4e2",
+      "size_bytes": 78186
+    },
+    {
+      "path": "development/R1/evaluation.json",
+      "sha256": "e580548a951fdf6687f5b4a9115e7fc986fb52113c20f30725aef443102b4b38",
+      "size_bytes": 76266
+    },
+    {
+      "path": "development/R2/evaluation.json",
+      "sha256": "13f7b080a20916dc1d96f54fdc91e126b9a5e35ad716fde99a06cb477c2b694a",
+      "size_bytes": 74651
+    },
+    {
+      "path": "development/R3/evaluation.json",
+      "sha256": "e1914ac12eec2650bbcfd6aed0613cce7643546c10fc347cdc15bc12b5b76f58",
+      "size_bytes": 75112
+    },
+    {
+      "path": "development/R4/evaluation.json",
+      "sha256": "5ce3628b61d1dd3f3ea0794df16d4fa855c04c40fb1e5c816694cb86329f202f",
+      "size_bytes": 75537
+    },
+    {
+      "path": "development/development_summary.json",
+      "sha256": "11ecf973716971f2a42c5a42c962b8ca3594a99c39b4d9db9f5b1d5682fa8d8a",
+      "size_bytes": 431512
+    },
+    {
+      "path": "development/retrieval_predictions.json",
+      "sha256": "f5f74abdbd06a8c4d5042f3a07dd04d40a3611a990f2ef8daa32bc3eb4f160a0",
+      "size_bytes": 686199
+    },
+    {
+      "path": "development/route_candidate_scores.csv",
+      "sha256": "f1c262ee962077873571e1ab8d160dfe0d5b63475062d894cff6ce1ed7df1168",
+      "size_bytes": 379155
+    },
+    {
+      "path": "development/route_predictions.csv",
+      "sha256": "fb3a18d8a4dadefc9881e4f312a0f22ab27850ac7242d79f5898780f95b4d279",
+      "size_bytes": 381670
+    },
+    {
+      "path": "development_completed.json",
+      "sha256": "c632fcb98b7f315e8f672dc588e9ae3e0c6e6f5cf3fc66f6ab7fb8f6e7124420",
+      "size_bytes": 429
+    },
+    {
+      "path": "development_started.json",
+      "sha256": "7b4f87602cb0fd714890bff8af5280bbf568ce4c1f3293ddf3b2c68e49973ca8",
+      "size_bytes": 420
+    },
+    {
+      "path": "error_analysis.csv",
+      "sha256": "e0f31686644506ad81c723925fa0571e58961d7b5f740946ddde736c5b6758a7",
+      "size_bytes": 67815
+    },
+    {
+      "path": "locked_scoring_completed.json",
+      "sha256": "686c572716e6c9e2cc52cc0d1f320e7322958233f9acd1fa90a29a3d51bc00f9",
+      "size_bytes": 364
+    },
+    {
+      "path": "locked_scoring_started.json",
+      "sha256": "ef806238e2691f75f5e6c03a683ce8ee5339f2b64947512391528ff72f1275d3",
+      "size_bytes": 499
+    },
+    {
+      "path": "protocol_status.json",
+      "sha256": "16f6949437c0c637d9bd55fcca4e803c4f64baf0f55ef4249323f3d9d9bae0a2",
+      "size_bytes": 1628
+    },
+    {
+      "path": "retrieval_predictions.json",
+      "sha256": "e75b49fe236e7e894e94ed7226050ff7c3b7d892b22f59bc9a66af5ba1ec749b",
+      "size_bytes": 328196
+    },
+    {
+      "path": "route_candidate_scores.csv",
+      "sha256": "4aa4b012737cb6afbc15968566deb57c78ae8e351d51bfc2335d7da468068d47",
+      "size_bytes": 191587
+    },
+    {
+      "path": "route_predictions.csv",
+      "sha256": "51fc8bee7ef4848fd29f090c10a1018b773cc42efce7eb0a5d32afdd71fbb2e2",
+      "size_bytes": 200816
+    },
+    {
+      "path": "router_freeze_manifest.json",
+      "sha256": "f440f9782b24d7c88b3bcea1d8d97aee9cc9b4544c94209071957af042aae134",
+      "size_bytes": 12158
+    },
+    {
+      "path": "router_selection.csv",
+      "sha256": "77e4821c5164f558cdeecbc8079f5eb4faf26d5a5fea704f424016aadc4aef6b",
+      "size_bytes": 3401551
+    },
+    {
+      "path": "stage_c24c_ablation.csv",
+      "sha256": "1b8da01283435d21526705047d23a9a13506b982c85e283f859d095494969b7b",
+      "size_bytes": 1054
+    },
+    {
+      "path": "stage_c24c_summary.json",
+      "sha256": "ef26074930d0ff9b94256c3cd9324cce55556c149f2bba0c5f64af4e97a89ac5",
+      "size_bytes": 273134
+    }
+  ],
+  "git": {
+    "branch": "agent/stage-c21",
+    "commit": "63fd9ba86f83aa121d18f3323ed902a58097d13e",
+    "tracked_dirty": false
+  },
+  "manifest_payload_sha256": "0795f17ae510a99263ea73e9fd68dc7b22e06313872ef128badf858009901adc",
+  "model_provenance": {
+    "R0_head": {
+      "baseline_fidelity": "deterministic_public_recipe_functional_reconstruction_not_byte_identical",
+      "byte_identical_to_historical_checkpoint": false,
+      "checkpoint_availability": "absent_from_repository_releases_actions_and_all_remote_refs",
+      "historical_frozen_head_sha256": "808d8182ca3b1dbc957fc227bd3038fe59cf920aa2bdf72a0e3669b1ca880a22",
+      "historical_public_validation_accuracy": 0.9953703703703703,
+      "new_input_logits_identical_to_historical_checkpoint_claimed": false,
+      "observed_public_validation_errors": [
+        {
+          "family_id": "registry_subject_docket_reference",
+          "frame_id": "validation-f5",
+          "predicted_relation": "city_code",
+          "target_relation": "registry_id"
+        }
+      ],
+      "public_validation_prediction_pattern_reproduced": true,
+      "reconstructed_head_sha256": "fecde5c86f39246dec94ee45a1bd9e5a1e94b6692e366421255e77c57603c33b",
+      "reconstructed_public_validation_accuracy": 0.9953703703703703
+    },
+    "bge-small": {
+      "license": "mit",
+      "manifest_sha256": "36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170",
+      "model_id": "BAAI/bge-small-en-v1.5",
+      "model_safetensors_sha256": "3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a"
+    },
+    "e5-base": {
+      "license": "mit",
+      "manifest_sha256": "65f8d8b336328cad989147d890809c94b8eeba3a5309466d6385aeff03d0a375",
+      "model_id": "intfloat/e5-base-v2",
+      "model_safetensors_sha256": "d0d559c47d5f71b1d280b13b62a2657f3e3bc70c0786f9ab91a36545e6a8f693",
+      "revision": "f52bf8ec8c7124536f0efb74aca902b2995e5bcd"
+    },
+    "minilm": {
+      "license": "apache-2.0",
+      "manifest_sha256": "7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce",
+      "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "model_safetensors_sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+    }
+  },
+  "router_freeze_manifest_sha256": "f440f9782b24d7c88b3bcea1d8d97aee9cc9b4544c94209071957af042aae134",
+  "schema_version": 1,
+  "stage": "C2.4c-exploratory-selective-router-evaluation"
+}
