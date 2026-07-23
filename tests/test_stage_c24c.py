@@ -82,6 +82,16 @@ def test_config_keeps_private_confirmation_and_c3_paths_closed() -> None:
     assert protocol["execute_key_attack"] is False
 
 
+def test_r0_reconstruction_is_not_mislabeled_byte_identical() -> None:
+    r0 = load_config(CONFIG)["models"]["R0"]
+    assert r0["baseline_fidelity"].endswith("not_byte_identical")
+    assert r0["reconstructed_head_sha256"] != r0["historical_frozen_head_sha256"]
+    assert r0["checkpoint_availability"].startswith("absent_from_repository")
+    assert r0["historical_public_validation_accuracy"] == pytest.approx(
+        r0["reconstructed_public_validation_expected_accuracy"]
+    )
+
+
 def test_v21_frozen_bytes_and_ai_review_validate() -> None:
     result = verify_frozen_benchmark(CONFIG)
     assert result["benchmark_version"] == BENCHMARK_VERSION

@@ -166,7 +166,7 @@ def _r0_head_state_json(head: RidgeLinearHead) -> dict[str, Any]:
 def reconstruct_r0_head(
     config_path: str | Path,
     encoder: LoadedSemanticEncoder,
-) -> tuple[RidgeLinearHead, str, str]:
+) -> tuple[RidgeLinearHead, str, str, dict[str, Any]]:
     values = load_config(config_path)
     declaration = values["models"]["R0"]
     c23_rows = build_c23_public_rows(config_path)["train"]
@@ -192,11 +192,74 @@ def reconstruct_r0_head(
         path = Path(temporary) / "ridge_relation_head.pt"
         torch.save(_r0_head_payload(head), path)
         file_sha = sha256_file(path)
-    if file_sha != declaration["frozen_head_sha256"]:
+    if file_sha != declaration["reconstructed_head_sha256"]:
         raise C24CProtocolError(
-            "R0 公开数据重建 head 未匹配 C2.4 frozen head SHA-256"
+            "R0 公开数据确定性重建 head SHA-256 漂移"
         )
-    return head, file_sha, canonical_sha256(_r0_head_state_json(head))
+    if file_sha == declaration["historical_frozen_head_sha256"]:
+        raise C24CProtocolError(
+            "R0 配置声明为非 byte-identical 重建，但观察到历史 checkpoint SHA"
+        )
+    if (
+        declaration.get("baseline_fidelity")
+        != "deterministic_public_recipe_functional_reconstruction_not_byte_identical"
+        or declaration.get("checkpoint_availability")
+        != "absent_from_repository_releases_actions_and_all_remote_refs"
+    ):
+        raise C24CProtocolError("R0 reconstruction limitation 声明不完整")
+
+    validation_rows = build_c23_public_rows(config_path)["validation"]
+    validation_embeddings = encode_semantic_texts(
+        encoder,
+        [
+            str(row["input_views"][declaration["view"]])
+            for row in validation_rows
+        ],
+        batch_size=int(values["models"]["batch_size"]),
+        e5_input_type="query",
+    )
+    logits = head.logits(validation_embeddings)
+    predictions = [
+        head.classes[index] for index in logits.argmax(dim=1).tolist()
+    ]
+    observed_errors = [
+        {
+            "family_id": row["family_id"],
+            "frame_id": row["frame_id"],
+            "predicted_relation": prediction,
+            "target_relation": row["attribute"],
+        }
+        for row, prediction in zip(validation_rows, predictions)
+        if prediction != row["attribute"]
+    ]
+    accuracy = 1.0 - len(observed_errors) / len(validation_rows)
+    if (
+        accuracy
+        != float(declaration["reconstructed_public_validation_expected_accuracy"])
+        or observed_errors
+        != declaration["reconstructed_public_validation_expected_errors"]
+        or accuracy != float(declaration["historical_public_validation_accuracy"])
+    ):
+        raise C24CProtocolError(
+            "R0 reconstruction 未功能复现历史 C2.3 public validation"
+        )
+    fidelity = {
+        "baseline_fidelity": declaration["baseline_fidelity"],
+        "checkpoint_availability": declaration["checkpoint_availability"],
+        "historical_frozen_head_sha256": declaration[
+            "historical_frozen_head_sha256"
+        ],
+        "reconstructed_head_sha256": file_sha,
+        "byte_identical_to_historical_checkpoint": False,
+        "historical_public_validation_accuracy": float(
+            declaration["historical_public_validation_accuracy"]
+        ),
+        "reconstructed_public_validation_accuracy": accuracy,
+        "public_validation_prediction_pattern_reproduced": True,
+        "observed_public_validation_errors": observed_errors,
+        "new_input_logits_identical_to_historical_checkpoint_claimed": False,
+    }
+    return head, file_sha, canonical_sha256(_r0_head_state_json(head)), fidelity
 
 
 def _head_sha(head: PairwiseRidgeEvidenceHead) -> str:
@@ -243,7 +306,7 @@ def build_public_model_context(
                 e5_input_type="passage",
             )
 
-    r0_head, r0_file_sha, r0_state_sha = reconstruct_r0_head(
+    r0_head, r0_file_sha, r0_state_sha, r0_fidelity = reconstruct_r0_head(
         config_path, encoders["bge-small"]
     )
 
@@ -285,6 +348,7 @@ def build_public_model_context(
         }
         for name, manifest in manifests.items()
     }
+    provenance["R0_head"] = r0_fidelity
     return PublicModelContext(
         encoders=encoders,
         manifests=manifests,
