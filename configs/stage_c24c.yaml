@@ -1,0 +1,132 @@
+schema_version: 1
+stage: C2.4c-exploratory-selective-router-evaluation
+
+protocol:
+  evaluation_mode: exploratory_non_independent
+  benchmark_version: c24b-public-selective-router-v2.1
+  data_revision_status: frozen_for_exploratory_model_scoring
+  exploratory_calibration_allowed: true
+  exploratory_locked_scoring_allowed: true
+  formal_calibration_allowed: false
+  independent_external_validation: false
+  public_benchmark_human_reviewed: false
+  public_benchmark_ai_reviewed: true
+  create_confirmation: false
+  train_private_memory: false
+  load_private_answers: false
+  execute_answer_injection: false
+  execute_key_attack: false
+
+frozen_benchmark:
+  config:
+    path: configs/stage_c24b_v21.yaml
+    sha256: 10e1a3ed9d7b0914d988ede695a2c9df81cba36eab783565bdc4e45531a5f62f
+  data:
+    public_train_v2_1:
+      path: data/stage_c24b_v21/public_train_v2_1.jsonl
+      sha256: 9165b6d69f88207638022796fe9aa0a39ab9207ab19b31011a5be49ddfd1b5f4
+      rows: 72
+    public_calibration_v2_1:
+      path: data/stage_c24b_v21/public_calibration_v2_1.jsonl
+      sha256: 88bc6475de9ad83c1ab8ae9c3383a2d9e706717c3fd988355e512f18395effaf
+      rows: 160
+    public_locked_audit_v2_1:
+      path: data/stage_c24b_v21/public_locked_audit_v2_1.jsonl
+      sha256: 42e2ca09238d0808480cadaec04b8996f547e1e0f8f8597ed7cf1a8db86936fe
+      rows: 160
+  ai_review_manifest:
+    path: artifacts/stage_c24b_v21/ai_review_manifest.json
+    sha256: f7ce933cab973fcdc99deca57011317e2ba36517ec7934c8e07a0a85d784b5af
+  final_artifact_manifest:
+    path: artifacts/stage_c24b_v21/artifact_sha256_manifest.json
+    sha256: f0d7a6e9baf1b2648050fa4dee28063d100b2250c6bf40b0d9e46d1151eac920
+  benchmark_manifest:
+    path: artifacts/stage_c24b_v21/public_benchmark_v2_1_manifest.json
+    sha256: 2c5815e43730a4900f1944fa7a59d28b21aef55ffed930df8722d22fcac4c2c2
+  typed_memory_contract:
+    path: src/keyed_gram/stage_c24_contract.py
+    sha256: c8a3b5fd33621349659e504b1bd31502688896cf63207ae59f644849a0d96692
+  selective_router:
+    path: src/keyed_gram/stage_c24b_router.py
+    sha256: 4c791aa1a594b7fadd64226ecdd19465aefb54500c3ee92339cf011c01a18175
+
+development:
+  role: historical_c23_public_validation_and_reject_diagnostic_once
+  source_config:
+    path: configs/stage_c23.yaml
+    sha256: dbc37bf59de64cdf0f2e2f59c3f34067e3f3d98e2213704938319216c1564067
+  used_for_selection: false
+  used_for_status: false
+
+models:
+  cache_dir: .downloads/hf
+  batch_size: 64
+  R0:
+    semantic_encoder: bge-small
+    model_id: BAAI/bge-small-en-v1.5
+    revision: 5c38ec7c405ec4b44b94cc5a9bb96e735b38267a
+    model_manifest_sha256: 36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170
+    model_safetensors_sha256: 3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad
+    frozen_head_sha256: 808d8182ca3b1dbc957fc227bd3038fe59cf920aa2bdf72a0e3669b1ca880a22
+    view: entity_masked_strip_suffix
+    classes: [access_code, city_code, registry_id]
+    ridge_strength: 0.01
+    public_train_semantic_text_sha256: b564e4e7f114bb726da992130d8ab4eeaa49167766fde8cd091062a8a7a722e5
+  R1:
+    semantic_encoder: minilm
+    model_id: sentence-transformers/all-MiniLM-L6-v2
+    revision: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+    model_manifest_sha256: 7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce
+    model_safetensors_sha256: 53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db
+    view: phrase_only
+    aggregations: [mean, max, top_k_mean_2, top_k_mean_3]
+  R2:
+    view: phrase_only
+    candidates:
+      minilm:
+        semantic_encoder: minilm
+        model_id: sentence-transformers/all-MiniLM-L6-v2
+        revision: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+        model_manifest_sha256: 7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce
+        model_safetensors_sha256: 53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db
+      e5_base:
+        semantic_encoder: e5-base
+        model_id: intfloat/e5-base-v2
+        revision: f52bf8ec8c7124536f0efb74aca902b2995e5bcd
+        model_manifest_sha256: 65f8d8b336328cad989147d890809c94b8eeba3a5309466d6385aeff03d0a375
+        model_safetensors_sha256: d0d559c47d5f71b1d280b13b62a2657f3e3bc70c0786f9ab91a36545e6a8f693
+
+selection:
+  split: public_calibration_v2_1
+  ridge_strength_grid: [0.001, 0.01, 0.1]
+  threshold_grid: [-0.5, -0.25, 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.25]
+  minimum_margin_grid: [0.0, 0.05, 0.1]
+  conformal_alpha_grid: [0.05, 0.1, 0.15, 0.2, 0.25]
+  r3_evidence_sources: [R1, R2]
+  r4_evidence_sources: [R1, R2]
+  final_router_preference: [R3, R4, R2, R1, R0]
+  development_used_for_selection: false
+  locked_audit_used_for_selection: false
+  parameters_frozen_before_development: true
+
+exploratory_gates:
+  effective:
+    ambiguous_fmar_relative_reduction_from_r0: 0.50
+    false_memory_access_rate: 0.20
+    wrong_bucket_access_rate: 0.10
+    accepted_route_accuracy: 0.90
+    known_coverage: 0.75
+    safe_coverage: 0.70
+    cross_relation_candidate_count: 0
+  strong:
+    ambiguous_rejection_rate: 0.75
+    unrelated_rejection_rate: 0.90
+    false_memory_access_rate: 0.10
+    accepted_route_accuracy: 0.95
+    known_coverage: 0.85
+    safe_coverage: 0.82
+    worst_family_accuracy: 0.70
+
+outputs:
+  artifact_dir: artifacts/stage_c24c
+  runtime_dir: .runs/stage_c24c

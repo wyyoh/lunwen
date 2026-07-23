@@ -1,0 +1,149 @@
+{
+  "rows": [
+    {
+      "cross_relation_candidate_count": 0,
+      "memory_access_count": 1,
+      "relation_id": "registry_id",
+      "route_status": "accept",
+      "row_id": "smoke-known-0",
+      "sample_type": "known"
+    },
+    {
+      "cross_relation_candidate_count": 0,
+      "memory_access_count": 1,
+      "relation_id": "city_code",
+      "route_status": "accept",
+      "row_id": "smoke-known-1",
+      "sample_type": "known"
+    },
+    {
+      "cross_relation_candidate_count": 0,
+      "memory_access_count": 1,
+      "relation_id": "access_code",
+      "route_status": "accept",
+      "row_id": "smoke-known-2",
+      "sample_type": "known"
+    },
+    {
+      "cross_relation_candidate_count": 0,
+      "memory_access_count": 1,
+      "relation_id": "registry_id",
+      "route_status": "accept",
+      "row_id": "smoke-known-3",
+      "sample_type": "known"
+    },
+    {
+      "cross_relation_candidate_count": 0,
+      "memory_access_count": 1,
+      "relation_id": "city_code",
+      "route_status": "accept",
+      "row_id": "smoke-known-4",
+      "sample_type": "known"
+    },
+    {
+      "cross_relation_candidate_count": 0,
+      "memory_access_count": 1,
+      "relation_id": "access_code",
+      "route_status": "accept",
+      "row_id": "smoke-known-5",
+      "sample_type": "known"
+    },
+    {
+      "cross_relation_candidate_count": 0,
+      "memory_access_count": 0,
+      "relation_id": "",
+      "route_status": "reject",
+      "row_id": "smoke-ambiguous-0",
+      "sample_type": "ambiguous"
+    },
+    {
+      "cross_relation_candidate_count": 0,
+      "memory_access_count": 0,
+      "relation_id": "",
+      "route_status": "reject",
+      "row_id": "smoke-ambiguous-1",
+      "sample_type": "ambiguous"
+    },
+    {
+      "cross_relation_candidate_count": 0,
+      "memory_access_count": 0,
+      "relation_id": "",
+      "route_status": "reject",
+      "row_id": "smoke-ambiguous-2",
+      "sample_type": "ambiguous"
+    },
+    {
+      "cross_relation_candidate_count": 0,
+      "memory_access_count": 0,
+      "relation_id": "",
+      "route_status": "reject",
+      "row_id": "smoke-ambiguous-3",
+      "sample_type": "ambiguous"
+    },
+    {
+      "cross_relation_candidate_count": 0,
+      "memory_access_count": 0,
+      "relation_id": "",
+      "route_status": "reject",
+      "row_id": "smoke-ambiguous-4",
+      "sample_type": "ambiguous"
+    },
+    {
+      "cross_relation_candidate_count": 0,
+      "memory_access_count": 0,
+      "relation_id": "",
+      "route_status": "reject",
+      "row_id": "smoke-ambiguous-5",
+      "sample_type": "ambiguous"
+    },
+    {
+      "cross_relation_candidate_count": 0,
+      "memory_access_count": 0,
+      "relation_id": "",
+      "route_status": "reject",
+      "row_id": "smoke-unrelated-0",
+      "sample_type": "unrelated"
+    },
+    {
+      "cross_relation_candidate_count": 0,
+      "memory_access_count": 0,
+      "relation_id": "",
+      "route_status": "reject",
+      "row_id": "smoke-unrelated-1",
+      "sample_type": "unrelated"
+    },
+    {
+      "cross_relation_candidate_count": 0,
+      "memory_access_count": 0,
+      "relation_id": "",
+      "route_status": "reject",
+      "row_id": "smoke-unrelated-2",
+      "sample_type": "unrelated"
+    },
+    {
+      "cross_relation_candidate_count": 0,
+      "memory_access_count": 0,
+      "relation_id": "",
+      "route_status": "reject",
+      "row_id": "smoke-unrelated-3",
+      "sample_type": "unrelated"
+    },
+    {
+      "cross_relation_candidate_count": 0,
+      "memory_access_count": 0,
+      "relation_id": "",
+      "route_status": "reject",
+      "row_id": "smoke-unrelated-4",
+      "sample_type": "unrelated"
+    },
+    {
+      "cross_relation_candidate_count": 0,
+      "memory_access_count": 0,
+      "relation_id": "",
+      "route_status": "reject",
+      "row_id": "smoke-unrelated-5",
+      "sample_type": "unrelated"
+    }
+  ],
+  "schema_version": 1
+}

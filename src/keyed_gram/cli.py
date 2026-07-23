@@ -54,6 +54,13 @@ from .stage_c24b_v21 import (
     prepare_stage_c24b_v21,
     validate_stage_c24b_v21_ai_review,
 )
+from .stage_c24c import (
+    calibrate_exploratory as calibrate_stage_c24c,
+    run_development_once as run_stage_c24c_development,
+    run_locked_once as run_stage_c24c_locked,
+    run_smoke as run_stage_c24c_smoke,
+    seal_benchmark as seal_stage_c24c_benchmark,
+)
 from .train import train_gram
 
 
@@ -592,6 +599,38 @@ def command_stage_c24b_v21_validate_ai_review(args: argparse.Namespace) -> None:
     _print(validate_stage_c24b_v21_ai_review(args.config, require_pass=True))
 
 
+def command_stage_c24c_seal(args: argparse.Namespace) -> None:
+    _print(seal_stage_c24c_benchmark(args.config, output_dir=args.output_dir))
+
+
+def command_stage_c24c_calibrate(args: argparse.Namespace) -> None:
+    _print(
+        calibrate_stage_c24c(
+            args.config, output_dir=args.output_dir, device=args.device
+        )
+    )
+
+
+def command_stage_c24c_development(args: argparse.Namespace) -> None:
+    _print(
+        run_stage_c24c_development(
+            args.config, output_dir=args.output_dir, device=args.device
+        )
+    )
+
+
+def command_stage_c24c_locked(args: argparse.Namespace) -> None:
+    _print(
+        run_stage_c24c_locked(
+            args.config, output_dir=args.output_dir, device=args.device
+        )
+    )
+
+
+def command_stage_c24c_smoke(args: argparse.Namespace) -> None:
+    _print(run_stage_c24c_smoke(args.config, output_dir=args.output_dir))
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="keyed-gram",
@@ -908,6 +947,49 @@ def build_parser() -> argparse.ArgumentParser:
     )
     stage_c24b_v21_validate.add_argument("--config", required=True)
     stage_c24b_v21_validate.set_defaults(func=command_stage_c24b_v21_validate_ai_review)
+
+    stage_c24c_seal = sub.add_parser(
+        "stage-c24c-seal",
+        help="freeze v2.1 bytes, AI review, definitions, code and git commit",
+    )
+    stage_c24c_seal.add_argument("--config", required=True)
+    stage_c24c_seal.add_argument("--output-dir")
+    stage_c24c_seal.set_defaults(func=command_stage_c24c_seal)
+
+    stage_c24c_calibrate = sub.add_parser(
+        "stage-c24c-calibrate",
+        help="fit public components and select/freeze R0-R4 on calibration only",
+    )
+    stage_c24c_calibrate.add_argument("--config", required=True)
+    stage_c24c_calibrate.add_argument("--output-dir")
+    stage_c24c_calibrate.add_argument("--device", default="cpu")
+    stage_c24c_calibrate.set_defaults(func=command_stage_c24c_calibrate)
+
+    stage_c24c_development = sub.add_parser(
+        "stage-c24c-development",
+        help="run the historical C2.3 public diagnostic exactly once",
+    )
+    stage_c24c_development.add_argument("--config", required=True)
+    stage_c24c_development.add_argument("--output-dir")
+    stage_c24c_development.add_argument("--device", default="cpu")
+    stage_c24c_development.set_defaults(func=command_stage_c24c_development)
+
+    stage_c24c_locked = sub.add_parser(
+        "stage-c24c-locked",
+        help="score frozen public_locked_audit_v2_1 exactly once as exploratory",
+    )
+    stage_c24c_locked.add_argument("--config", required=True)
+    stage_c24c_locked.add_argument("--output-dir")
+    stage_c24c_locked.add_argument("--device", default="cpu")
+    stage_c24c_locked.set_defaults(func=command_stage_c24c_locked)
+
+    stage_c24c_smoke = sub.add_parser(
+        "stage-c24c-smoke",
+        help="run synthetic selective-routing smoke without opening v2.1 locked",
+    )
+    stage_c24c_smoke.add_argument("--config", required=True)
+    stage_c24c_smoke.add_argument("--output-dir")
+    stage_c24c_smoke.set_defaults(func=command_stage_c24c_smoke)
     return parser
 
 
