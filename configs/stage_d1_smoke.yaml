@@ -1,0 +1,23 @@
+schema_version: 1
+stage: D1-trusted-capability-contract-smoke
+protocol:
+  evaluation_mode: in_memory_smoke
+  private_value_memory_allowed: false
+  private_answers_allowed: false
+  lm_answer_injection_allowed: false
+  key_attack_allowed: false
+  confirmation_allowed: false
+  original_c3_allowed: false
+  c3_eligible: false
+capability:
+  algorithm: HMAC-SHA-256
+  key_bytes: 32
+  nonce_bytes: 32
+  max_token_bytes: 4096
+  max_ttl_seconds: 60
+  single_use: true
+  required_permission: retrieve
+  policy_version: d1-smoke-policy-v1
+outputs:
+  artifact_dir: artifacts/stage_d1_smoke
+  runtime_dir: .runs/stage_d1_smoke

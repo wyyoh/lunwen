@@ -1,0 +1,93 @@
+schema_version: 1
+stage: D1-trusted-capability-contract
+
+governance:
+  research_status:
+    path: configs/research_status.yaml
+    sha256: ad1a5ee7d1ad4111bac92a8149cc6fd9428ac1450170e56a7500b39543f7487f
+  selective_router_research_status: stopped_external_validation_failed
+  additional_router_complexity_allowed: false
+  semantic_router_in_tcb: false
+  suggested_relation_authorizes_memory: false
+
+trust_boundary:
+  untrusted_components:
+    - natural_language_router
+    - relation_proposal
+  trusted_components:
+    - subject_identity_provider
+    - capability_policy
+    - capability_authority
+    - hmac_keyring
+    - capability_verifier
+    - trusted_capability_gateway
+    - typed_keyed_memory
+  subject_identity_provider_implemented: false
+  process_isolation_implemented: false
+  verifier_can_mint_with_symmetric_key: true
+
+protocol:
+  evaluation_mode: deterministic_contract_attack_matrix
+  private_value_memory_allowed: false
+  private_answers_allowed: false
+  lm_answer_injection_allowed: false
+  key_attack_allowed: false
+  confirmation_allowed: false
+  original_c3_allowed: false
+  c3_eligible: false
+  token_material_persisted: false
+  hmac_key_material_persisted: false
+
+capability:
+  token_format: KG-CAP compact v1
+  algorithm: HMAC-SHA-256
+  standard_reference: RFC 2104
+  key_bytes: 32
+  nonce_bytes: 32
+  max_token_bytes: 4096
+  max_ttl_seconds: 300
+  clock_skew_seconds: 0
+  single_use: true
+  required_permission: retrieve
+  policy_version: d1-policy-v1
+  entity_scope_mode: explicit_exact_ids_only
+  wildcard_scope_allowed: false
+
+required_positive_scenarios:
+  - valid_registry_capability
+  - valid_city_capability
+  - valid_access_capability
+  - rotated_key_capability
+  - replay_first_use
+
+required_negative_scenarios:
+  - wrong_relation
+  - wrong_entity
+  - wrong_subject
+  - expired_token
+  - not_yet_valid_token
+  - revoked_token
+  - replay_second_use
+  - unknown_key_id
+  - revoked_key
+  - tampered_payload
+  - tampered_signature
+  - algorithm_confusion
+  - malformed_token
+  - oversized_token
+  - missing_scope
+  - missing_permission
+  - old_policy_version
+  - unauthorized_router_proposal
+  - cross_relation_use
+  - cross_entity_use
+
+required_metrics:
+  unauthorized_memory_access_count: 0
+  cross_relation_access_count: 0
+  cross_entity_access_count: 0
+  rejected_request_memory_access_count: 0
+
+outputs:
+  artifact_dir: artifacts/stage_d1
+  runtime_dir: .runs/stage_d1
