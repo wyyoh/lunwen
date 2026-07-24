@@ -1,0 +1,26 @@
+{
+  "calibration_results_sha256": "e7cc39b3b4aa2cd1e6b2f6ab6f179d6d6a2db7fc30ec9877fc6c6fc64eae3a92",
+  "calibration_selection_sha256": "1293728361000780ca0889f5adbf492577b644cba755ba58579a63654bc34790",
+  "code_freeze_manifest_sha256": "1467c6f5445c34514ae28bef02930a7e52a9a850c1c9462da33bf65e7e6647a7",
+  "model": {
+    "license": "mit",
+    "manifest_sha256": "65f8d8b336328cad989147d890809c94b8eeba3a5309466d6385aeff03d0a375",
+    "model_id": "intfloat/e5-base-v2",
+    "model_safetensors_sha256": "d0d559c47d5f71b1d280b13b62a2657f3e3bc70c0786f9ab91a36545e6a8f693",
+    "revision": "f52bf8ec8c7124536f0efb74aca902b2995e5bcd"
+  },
+  "partition_count": 30,
+  "r4_deferred": true,
+  "schema_version": 1,
+  "seed_count": 10,
+  "stage": "C2.5-router-freeze-before-test",
+  "test_predictions_executed": false,
+  "test_rows_loaded": false,
+  "test_used_for_selection": false,
+  "variants": [
+    "R0",
+    "R2",
+    "MAX_THRESHOLD",
+    "R3"
+  ]
+}
