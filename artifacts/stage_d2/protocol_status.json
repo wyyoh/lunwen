@@ -1,0 +1,17 @@
+{
+  "c3_eligible": false,
+  "capability_gated_keyed_memory_status": "passed",
+  "capability_hmac_key_persisted": false,
+  "capability_token_persisted": false,
+  "confirmation_created_or_read": false,
+  "data_encryption_key_persisted": false,
+  "key_attack_executed": false,
+  "lm_answer_injection_executed": false,
+  "original_c3_allowed": false,
+  "plaintext_persisted_in_artifacts": false,
+  "private_answers_loaded": false,
+  "private_value_memory_ready": false,
+  "private_value_memory_trained": false,
+  "ready_for_d2_1_public_generation_probe": true,
+  "semantic_router_in_tcb": false
+}

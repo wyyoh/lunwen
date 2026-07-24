@@ -1,0 +1,92 @@
+{
+  "cryptography_version": "49.0.0",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "3ea641df1643ff0cd55b9ecb6b299930659725dc3763320af1528a737df2b3a6",
+      "size_bytes": 1001
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "aebd3a8fcb7f3d0bd99f3b01bc8a2b1e8ca34b4c490894df84bc4ba0812bcde7",
+      "size_bytes": 734
+    },
+    {
+      "path": "configs/stage_d2.yaml",
+      "sha256": "de101add68c867b86a7db523666ac7b3b2d078e1f000608872080470efa5d06e",
+      "size_bytes": 4075
+    },
+    {
+      "path": "artifacts/stage_d1/stage_d1_summary.json",
+      "sha256": "de5ceeb280097c5bb5625327e739a9b6365d65eace1a0ccaad7639435d19b3a1",
+      "size_bytes": 2470
+    },
+    {
+      "path": "artifacts/stage_d1/artifact_sha256_manifest.json",
+      "sha256": "c43e75262d56846072f9484ca870ae4bd981d8d03427ebc545ed6c93499d6eef",
+      "size_bytes": 1456
+    },
+    {
+      "path": "src/keyed_gram/cli.py",
+      "sha256": "250202fc62da9c43849c52c9a605e993432e04624c2e805a28f2f15e05e0e1be",
+      "size_bytes": 41547
+    },
+    {
+      "path": "src/keyed_gram/stage_c24_contract.py",
+      "sha256": "c8a3b5fd33621349659e504b1bd31502688896cf63207ae59f644849a0d96692",
+      "size_bytes": 14186
+    },
+    {
+      "path": "src/keyed_gram/stage_d1_contract.py",
+      "sha256": "3c65fbec2dd750d86b13ac1b61fe6117725ce071c0713fc2e32630176801e0ba",
+      "size_bytes": 10364
+    },
+    {
+      "path": "src/keyed_gram/stage_d1_gateway.py",
+      "sha256": "32695487da1eacbe7daaa5805bf9d5ea511d41e0de91fe52064a7a49b35b8124",
+      "size_bytes": 6151
+    },
+    {
+      "path": "src/keyed_gram/stage_d1_policy.py",
+      "sha256": "b2cbbc7cfd10b240e35f2c0913fb3c32c671623b760e35236e3c15b1f2dc00ea",
+      "size_bytes": 6014
+    },
+    {
+      "path": "src/keyed_gram/stage_d1_token.py",
+      "sha256": "ee7604973866d827b5455ce560abb852796aa14f1e489e10ff89f23113a0873b",
+      "size_bytes": 8755
+    },
+    {
+      "path": "src/keyed_gram/stage_d2.py",
+      "sha256": "9a0218633f6386c526840217f844d1e5cf981ea99fead83c8f0cf845d037f806",
+      "size_bytes": 45065
+    },
+    {
+      "path": "src/keyed_gram/stage_d2_contract.py",
+      "sha256": "70c0e82d6f6668b4fb515163f7a603334f01578f814950d57d5048ec3a33bad9",
+      "size_bytes": 7227
+    },
+    {
+      "path": "src/keyed_gram/stage_d2_crypto.py",
+      "sha256": "65a4093856a21898ceeeeefe3f0488c9669cc80af5462dc97aaaa9019ab2de51",
+      "size_bytes": 5753
+    },
+    {
+      "path": "src/keyed_gram/stage_d2_identity.py",
+      "sha256": "cee3ad6db34fd608ace391bd4a29c17649b81f0cf7d6d9592da0b8b8592f85c6",
+      "size_bytes": 2534
+    },
+    {
+      "path": "src/keyed_gram/stage_d2_memory.py",
+      "sha256": "e9fa106c19d094c5957322836d168d18fe5f424f49ffb18320ce8a5380083859",
+      "size_bytes": 11352
+    },
+    {
+      "path": "src/keyed_gram/stage_d2_protocol.py",
+      "sha256": "852f629622086937300a1026a5c9d8d90e789899b43d13656b93c83ea7eaa412",
+      "size_bytes": 9476
+    }
+  ],
+  "manifest_payload_sha256": "c727fb5780f356d48b427090467832e0ba45717eae16aec759495cf1b6b85cec",
+  "schema_version": 1
+}

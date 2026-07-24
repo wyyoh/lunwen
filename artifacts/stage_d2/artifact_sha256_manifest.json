@@ -1,0 +1,46 @@
+{
+  "capability_hmac_key_present": false,
+  "capability_token_present": false,
+  "data_encryption_key_present": false,
+  "dataset_present": false,
+  "files": [
+    {
+      "path": "artifacts/stage_d2/capability_memory_attack_matrix.csv",
+      "sha256": "245717e5135d410f950c81aa87c2bb1cbacaa6b6401906300d8823cfb0aef005",
+      "size_bytes": 5162
+    },
+    {
+      "path": "artifacts/stage_d2/protocol_status.json",
+      "sha256": "cd9f41df4dbc70d583fab1e1671fa09796f58cf7790805ee5902d61af4b88758",
+      "size_bytes": 593
+    },
+    {
+      "path": "artifacts/stage_d2/resolved_config.json",
+      "sha256": "3a3f2d5d7b1cf6e9749ec38f24557c630772e89d82eedacf2df5afcf95487bc8",
+      "size_bytes": 5215
+    },
+    {
+      "path": "artifacts/stage_d2/source_sha256_manifest.json",
+      "sha256": "2367ad82834e36173ae98fd4300efbf28e3b958fff6032f19ea8764ee165ad74",
+      "size_bytes": 3085
+    },
+    {
+      "path": "artifacts/stage_d2/stage_d2_summary.json",
+      "sha256": "60e5dd2381920ea82152236504992e5fb423a11a62d9f4bb7db69e4abd1b4a75",
+      "size_bytes": 3342
+    },
+    {
+      "path": "PHASE_D2_REPORT.md",
+      "sha256": "6c1095791a1d879bd1074cd461edbc96b2d63b80d5e635114288437fde8e8a9a",
+      "size_bytes": 10992
+    }
+  ],
+  "manifest_payload_sha256": "6fccf3afe44ea6959dfee5c8f01b8cd462d2a32dbe39730902b33db084012a7d",
+  "model_checkpoint_present": false,
+  "plaintext_value_present": false,
+  "private_answer_present": false,
+  "private_value_present": false,
+  "schema_version": 1,
+  "session_credential_present": false,
+  "stage": "D2-final-artifact-manifest"
+}
