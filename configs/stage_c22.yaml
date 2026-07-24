@@ -1,0 +1,125 @@
+checkpoint: artifacts/checkpoints/main/gram_original.pt
+tokenizer: SimpleStories/SimpleStories-1.25M
+private_feature_cache: artifacts/stage_c2/canonicalizer_features.pt
+base_canonicalizer: artifacts/stage_c21/R3/canonicalizer.pt
+public_data_dir: data/stage_c22
+public_feature_cache: artifacts/stage_c22/public_relation_features.pt
+public_manifest: artifacts/stage_c22/public_corpus_manifest.json
+public_confirmation_seal: artifacts/stage_c21/confirmation_seal.json
+
+extraction:
+  batch_size: 64
+  dtype: bfloat16
+
+public_corpus:
+  entities:
+    train:
+      - atlas sample
+      - beacon sample
+      - cedar sample
+      - delta sample
+      - ember sample
+      - fable sample
+      - grove sample
+      - harbor sample
+    validation:
+      - juno sample
+      - kepler sample
+      - lumen sample
+      - mosaic sample
+  frames:
+    train:
+      - "Public schema lookup for {entity}; requested field: {relation_phrase}. Output:"
+      - "In the public sample {entity}, return its {relation_phrase}:"
+      - "Field request - {relation_phrase} for {entity}. Response:"
+    validation:
+      - "Which {relation_phrase} is associated with public record {entity}? Reply:"
+      - "Read {entity}'s {relation_phrase} from the public schema:"
+  phrases:
+    train:
+      registry_id:
+        - membership number
+        - filing code
+        - directory key
+        - ledger tag
+      city_code:
+        - district number
+        - town key
+        - metro tag
+        - civic code
+      access_code:
+        - security key
+        - login code
+        - clearance tag
+        - authentication number
+    validation:
+      registry_id:
+        - catalog identifier
+        - registration marker
+      city_code:
+        - regional identifier
+        - settlement marker
+      access_code:
+        - protective identifier
+        - safety pass
+  # Exact reserved phrases cover private train/validation, development, and all
+  # confirmation candidates. Public train/validation phrases must not match any.
+  forbidden_phrases:
+    registry_id:
+      - registry number
+      - registered number
+      - registry identifier
+      - enrollment identifier
+      - archival locator
+      - census reference
+      - record locator
+    city_code:
+      - city code
+      - location code
+      - city identifier
+      - municipal identifier
+      - geographic locator
+      - urban reference
+      - locality marker
+    access_code:
+      - access code
+      - private credential
+      - access identifier
+      - authorization token
+      - entry marker
+      - admission secret
+      - permission token
+
+training:
+  seed: 0
+  steps: 1000
+  learning_rate: 0.0002
+  weight_decay: 0.01
+  warmup_fraction: 0.05
+  evaluation_interval: 50
+  temperature: 0.07
+  batch_facts: 8
+  templates_per_fact: 3
+  public_relation_ce_weight: 0.5
+  public_relation_supcon_weight: 0.2
+  public_template_adversary_weight: 0.05
+  private_fact_supcon_weight: 1.0
+  private_relation_ce_weight: 0.5
+  private_relation_supcon_weight: 0.2
+  private_template_adversary_weight: 0.05
+
+variants:
+  P0:
+    import_base: true
+    private_replay_weight: 0.0
+  P1:
+    import_base: false
+    private_replay_weight: 0.0
+  P2:
+    import_base: false
+    private_replay_weight: 1.0
+
+evaluation:
+  batch_size: 128
+  ridge_strength: 0.01
+  template_probe_seed: 91

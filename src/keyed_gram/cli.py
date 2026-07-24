@@ -30,6 +30,44 @@ from .phase_a import run_phase_a
 from .stage_b import run_stage_b
 from .stage_c1 import run_stage_c1
 from .stage_c2 import run_stage_c2
+from .stage_c21 import (
+    run_relation_source_audit_from_config,
+    run_stage_c21,
+    seal_confirmation_from_config,
+)
+from .stage_c22 import prepare_public_relation_features, run_stage_c22
+from .stage_c23 import (
+    prepare_answer_free_private_feature_cache_from_config,
+    run_stage_c23_oracle_from_config,
+)
+from .stage_c23_audit import run_stage_c23_audit
+from .stage_c23_benchmark import prepare_public_lexical_benchmark
+from .stage_c24 import prepare_stage_c24, run_stage_c24_audit
+from .stage_c24b import (
+    calibrate_stage_c24b,
+    prepare_stage_c24b,
+    run_stage_c24b_audit,
+    validate_stage_c24b_reviews,
+)
+from .stage_c24b_v21 import (
+    apply_stage_c24b_v21_ai_review,
+    prepare_stage_c24b_v21,
+    validate_stage_c24b_v21_ai_review,
+)
+from .stage_c24c import (
+    calibrate_exploratory as calibrate_stage_c24c,
+    run_development_once as run_stage_c24c_development,
+    run_locked_once as run_stage_c24c_locked,
+    run_smoke as run_stage_c24c_smoke,
+    seal_benchmark as seal_stage_c24c_benchmark,
+)
+from .stage_c25 import (
+    calibrate_external as calibrate_stage_c25,
+    finalize_artifacts as finalize_stage_c25,
+    prepare_external_audit as prepare_stage_c25,
+    run_external_audit as audit_stage_c25,
+    run_smoke as run_stage_c25_smoke,
+)
 from .train import train_gram
 
 
@@ -339,6 +377,287 @@ def command_stage_c2(args: argparse.Namespace) -> None:
     )
 
 
+def command_stage_c21_audit(args: argparse.Namespace) -> None:
+    result = run_relation_source_audit_from_config(args.config, args.output_dir)
+    _print(
+        {
+            "stage": result["stage"],
+            "selected_residual_anchor": result["selected_residual_anchor"],
+            "selected_metrics": result["selected_metrics"],
+            "interpretation": result["interpretation"],
+            "results": str(Path(args.output_dir).resolve()),
+        }
+    )
+
+
+def command_stage_c21_seal(args: argparse.Namespace) -> None:
+    _print(seal_confirmation_from_config(args.config))
+
+
+def command_stage_c21(args: argparse.Namespace) -> None:
+    result = run_stage_c21(
+        args.config,
+        args.output_dir,
+        device_name=args.device,
+    )
+    _print(
+        {
+            "status": result["status"],
+            "selected_variant": result["selected_variant"],
+            "development_ready_for_confirmation": result[
+                "development_ready_for_confirmation"
+            ],
+            "c3_eligible": result["c3_eligible"],
+            "recommended_next_step": result["recommended_next_step"],
+            "results": str(Path(args.output_dir).resolve()),
+        }
+    )
+
+
+def command_stage_c22_prepare(args: argparse.Namespace) -> None:
+    result = prepare_public_relation_features(
+        args.config,
+        args.output_dir,
+        device_name=args.device,
+    )
+    _print(
+        {
+            "stage": result["stage"],
+            "answer_free": result["answer_free"],
+            "row_counts": result["row_counts"],
+            "public_feature_cache": result["public_feature_cache"],
+        }
+    )
+
+
+def command_stage_c22(args: argparse.Namespace) -> None:
+    result = run_stage_c22(
+        args.config,
+        args.output_dir,
+        device_name=args.device,
+    )
+    _print(
+        {
+            "status": result["status"],
+            "selected_variant": result["selected_variant"],
+            "development_relation_ready": result[
+                "development_relation_ready"
+            ],
+            "development_ready_for_confirmation": result[
+                "development_ready_for_confirmation"
+            ],
+            "c3_eligible": result["c3_eligible"],
+            "recommended_next_step": result["recommended_next_step"],
+            "results": str(Path(args.output_dir).resolve()),
+        }
+    )
+
+
+def command_stage_c23_prepare(args: argparse.Namespace) -> None:
+    result = prepare_public_lexical_benchmark(args.config)
+    private_cache = prepare_answer_free_private_feature_cache_from_config(args.config)
+    _print(
+        {
+            "stage": result["stage"],
+            "answer_free": result["answer_free"],
+            "review_status": result["review_status"],
+            "row_counts": result["row_counts"],
+            "family_counts": result["family_counts"],
+            "benchmark_total": result["benchmark_total"],
+            "private_feature_cache": private_cache["output"],
+            "private_feature_cache_answer_free": private_cache[
+                "runtime_cache_answer_free"
+            ],
+        }
+    )
+
+
+def command_stage_c23_oracle(args: argparse.Namespace) -> None:
+    result = run_stage_c23_oracle_from_config(
+        args.config,
+        args.output_dir,
+        device_name=args.device,
+    )
+    _print(
+        {
+            "stage": result["stage"],
+            "status": result["status"],
+            "selected_alpha": result["selected_alpha"],
+            "c3_eligible": result["c3_eligible"],
+            "results": str(Path(args.output_dir).resolve()),
+        }
+    )
+
+
+def command_stage_c23_audit(args: argparse.Namespace) -> None:
+    result = run_stage_c23_audit(
+        args.config,
+        args.output_dir,
+        variants=_csv_strings(args.variants),
+        model_cache_dir=args.model_cache_dir,
+        embedding_cache_dir=args.embedding_cache_dir,
+        device_name=args.device,
+    )
+    _print(
+        {
+            "stage": result["stage"],
+            "status": result["status"],
+            "selected_candidate": result["selected_candidate"],
+            "validation_only_readiness": result["s5"][
+                "validation_only_readiness"
+            ],
+            "strict_readiness": result["s5"]["strict_readiness"],
+            "s6_status": result["s6_status"],
+            "c3_eligible": result["c3_eligible"],
+            "results": str(Path(args.output_dir).resolve()),
+        }
+    )
+
+
+def command_stage_c24_prepare(args: argparse.Namespace) -> None:
+    result = prepare_stage_c24(args.config)
+    _print(
+        {
+            "stage": result["stage"],
+            "answer_free": result["answer_free"],
+            "row_counts": result["row_counts"],
+            "review_status": result["review_status"],
+            "public_benchmark_human_reviewed": result[
+                "public_benchmark_human_reviewed"
+            ],
+        }
+    )
+
+
+def command_stage_c24_audit(args: argparse.Namespace) -> None:
+    result = run_stage_c24_audit(
+        args.config,
+        args.output_dir,
+        device_name=args.device,
+    )
+    _print(
+        {
+            "stage": result["stage"],
+            "status": result["status"],
+            "selected_reject_score": result["reject_guard"]["selected_score"],
+            **result["eligibility"],
+            "results": str(Path(args.output_dir).resolve()),
+        }
+    )
+
+
+def command_stage_c24b_prepare(args: argparse.Namespace) -> None:
+    _print(prepare_stage_c24b(args.config))
+
+
+def command_stage_c24b_validate_review(args: argparse.Namespace) -> None:
+    result = validate_stage_c24b_reviews(
+        args.config, require_complete=True, write_manifest=True
+    )
+    _print(
+        {
+            "stage": result["stage"],
+            "status": result["status"],
+            "public_benchmark_human_reviewed": result[
+                "public_benchmark_human_reviewed"
+            ],
+            "reviews": result["reviews"],
+        }
+    )
+
+
+def command_stage_c24b_calibrate(args: argparse.Namespace) -> None:
+    result = calibrate_stage_c24b(
+        args.config, args.output_dir, device_name=args.device
+    )
+    _print(result)
+
+
+def command_stage_c24b_audit(args: argparse.Namespace) -> None:
+    result = run_stage_c24b_audit(
+        args.config, args.output_dir, device_name=args.device
+    )
+    _print(
+        {
+            "stage": result["stage"],
+            "status": result["status"],
+            "protocol_role": result.get("protocol_role", "formal"),
+            "formal_locked_audit_executed": result[
+                "formal_locked_audit_executed"
+            ],
+            "public_benchmark_human_reviewed": result[
+                "public_benchmark_human_reviewed"
+            ],
+            "c3_eligible": result.get("readiness", {}).get("c3_eligible", False),
+            "results": str(Path(args.output_dir).resolve()),
+        }
+    )
+
+
+def command_stage_c24b_v21_prepare(args: argparse.Namespace) -> None:
+    _print(prepare_stage_c24b_v21(args.config))
+
+
+def command_stage_c24b_v21_apply_ai_review(args: argparse.Namespace) -> None:
+    _print(apply_stage_c24b_v21_ai_review(args.config, args.audit_spec))
+
+
+def command_stage_c24b_v21_validate_ai_review(args: argparse.Namespace) -> None:
+    _print(validate_stage_c24b_v21_ai_review(args.config, require_pass=True))
+
+
+def command_stage_c24c_seal(args: argparse.Namespace) -> None:
+    _print(seal_stage_c24c_benchmark(args.config, output_dir=args.output_dir))
+
+
+def command_stage_c24c_calibrate(args: argparse.Namespace) -> None:
+    _print(
+        calibrate_stage_c24c(
+            args.config, output_dir=args.output_dir, device=args.device
+        )
+    )
+
+
+def command_stage_c24c_development(args: argparse.Namespace) -> None:
+    _print(
+        run_stage_c24c_development(
+            args.config, output_dir=args.output_dir, device=args.device
+        )
+    )
+
+
+def command_stage_c24c_locked(args: argparse.Namespace) -> None:
+    _print(
+        run_stage_c24c_locked(
+            args.config, output_dir=args.output_dir, device=args.device
+        )
+    )
+
+
+def command_stage_c24c_smoke(args: argparse.Namespace) -> None:
+    _print(run_stage_c24c_smoke(args.config, output_dir=args.output_dir))
+
+
+def command_stage_c25_prepare(args: argparse.Namespace) -> None:
+    _print(prepare_stage_c25(args.config))
+
+
+def command_stage_c25_calibrate(args: argparse.Namespace) -> None:
+    _print(calibrate_stage_c25(args.config, device=args.device))
+
+
+def command_stage_c25_audit(args: argparse.Namespace) -> None:
+    _print(audit_stage_c25(args.config, device=args.device))
+
+
+def command_stage_c25_smoke(args: argparse.Namespace) -> None:
+    _print(run_stage_c25_smoke(args.config, output_dir=args.output_dir))
+
+
+def command_stage_c25_finalize(args: argparse.Namespace) -> None:
+    _print(finalize_stage_c25(args.config))
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="keyed-gram",
@@ -512,6 +831,230 @@ def build_parser() -> argparse.ArgumentParser:
     stage_c2.add_argument("--output-dir", required=True)
     stage_c2.add_argument("--device")
     stage_c2.set_defaults(func=command_stage_c2)
+
+    stage_c21_audit = sub.add_parser(
+        "stage-c21-audit",
+        help="audit frozen-core relation sources before C2.1 training",
+    )
+    stage_c21_audit.add_argument("--config", required=True)
+    stage_c21_audit.add_argument("--output-dir", required=True)
+    stage_c21_audit.set_defaults(func=command_stage_c21_audit)
+
+    stage_c21_seal = sub.add_parser(
+        "stage-c21-seal-confirmation",
+        help="create an immutable local confirmation set and publish only its hashes",
+    )
+    stage_c21_seal.add_argument("--config", required=True)
+    stage_c21_seal.set_defaults(func=command_stage_c21_seal)
+
+    stage_c21 = sub.add_parser(
+        "stage-c21",
+        help="run R0-R4 relation-preserving canonicalizer ablations",
+    )
+    stage_c21.add_argument("--config", required=True)
+    stage_c21.add_argument("--output-dir", required=True)
+    stage_c21.add_argument("--device")
+    stage_c21.set_defaults(func=command_stage_c21)
+
+    stage_c22_prepare = sub.add_parser(
+        "stage-c22-prepare",
+        help="build answer-free public relation prompts and frozen-core features",
+    )
+    stage_c22_prepare.add_argument("--config", required=True)
+    stage_c22_prepare.add_argument("--output-dir", required=True)
+    stage_c22_prepare.add_argument("--device")
+    stage_c22_prepare.set_defaults(func=command_stage_c22_prepare)
+
+    stage_c22 = sub.add_parser(
+        "stage-c22",
+        help="run public relation supervision with and without private replay",
+    )
+    stage_c22.add_argument("--config", required=True)
+    stage_c22.add_argument("--output-dir", required=True)
+    stage_c22.add_argument("--device")
+    stage_c22.set_defaults(func=command_stage_c22)
+
+    stage_c23_prepare = sub.add_parser(
+        "stage-c23-prepare",
+        help="build the answer-free expanded public lexical benchmark",
+    )
+    stage_c23_prepare.add_argument("--config", required=True)
+    stage_c23_prepare.set_defaults(func=command_stage_c23_prepare)
+
+    stage_c23_oracle = sub.add_parser(
+        "stage-c23-oracle",
+        help="run the S0 ground-truth-relation upper bound",
+    )
+    stage_c23_oracle.add_argument("--config", required=True)
+    stage_c23_oracle.add_argument("--output-dir", required=True)
+    stage_c23_oracle.add_argument("--device")
+    stage_c23_oracle.set_defaults(func=command_stage_c23_oracle)
+
+    stage_c23_audit = sub.add_parser(
+        "stage-c23-audit",
+        help="audit pinned public semantic encoders without private answers",
+    )
+    stage_c23_audit.add_argument("--config", required=True)
+    stage_c23_audit.add_argument("--output-dir", required=True)
+    stage_c23_audit.add_argument("--variants", default="S2,S3,S4")
+    stage_c23_audit.add_argument("--model-cache-dir", default=".downloads/hf")
+    stage_c23_audit.add_argument(
+        "--embedding-cache-dir",
+        default="artifacts/stage_c23/semantic_embedding_cache",
+    )
+    stage_c23_audit.add_argument("--device")
+    stage_c23_audit.set_defaults(func=command_stage_c23_audit)
+
+    stage_c24_prepare = sub.add_parser(
+        "stage-c24-prepare",
+        help="prepare the answer-free C2.4 train/calibration/locked-audit protocol",
+    )
+    stage_c24_prepare.add_argument("--config", required=True)
+    stage_c24_prepare.set_defaults(func=command_stage_c24_prepare)
+
+    stage_c24_audit = sub.add_parser(
+        "stage-c24-audit",
+        help="run the frozen D0-D3 discrete relation-contract audit",
+    )
+    stage_c24_audit.add_argument("--config", required=True)
+    stage_c24_audit.add_argument("--output-dir", required=True)
+    stage_c24_audit.add_argument("--device")
+    stage_c24_audit.set_defaults(func=command_stage_c24_audit)
+
+    stage_c24b_prepare = sub.add_parser(
+        "stage-c24b-prepare",
+        help="prepare v2 answer-free selective-router data and review templates",
+    )
+    stage_c24b_prepare.add_argument("--config", required=True)
+    stage_c24b_prepare.set_defaults(func=command_stage_c24b_prepare)
+
+    stage_c24b_review = sub.add_parser(
+        "stage-c24b-validate-review",
+        help="validate complete independent dual review without model predictions",
+    )
+    stage_c24b_review.add_argument("--config", required=True)
+    stage_c24b_review.set_defaults(func=command_stage_c24b_validate_review)
+
+    stage_c24b_calibrate = sub.add_parser(
+        "stage-c24b-calibrate",
+        help="calibrate and freeze R0-R4 using public train/calibration only",
+    )
+    stage_c24b_calibrate.add_argument("--config", required=True)
+    stage_c24b_calibrate.add_argument("--output-dir", required=True)
+    stage_c24b_calibrate.add_argument("--device")
+    stage_c24b_calibrate.set_defaults(func=command_stage_c24b_calibrate)
+
+    stage_c24b_audit = sub.add_parser(
+        "stage-c24b-audit",
+        help="run synthetic smoke or the gated one-shot formal locked audit",
+    )
+    stage_c24b_audit.add_argument("--config", required=True)
+    stage_c24b_audit.add_argument("--output-dir", required=True)
+    stage_c24b_audit.add_argument("--device")
+    stage_c24b_audit.set_defaults(func=command_stage_c24b_audit)
+
+    stage_c24b_v21_prepare = sub.add_parser(
+        "stage-c24b-v21-prepare",
+        help="prepare the independent v2.1 benchmark and single-AI review tasks",
+    )
+    stage_c24b_v21_prepare.add_argument("--config", required=True)
+    stage_c24b_v21_prepare.set_defaults(func=command_stage_c24b_v21_prepare)
+
+    stage_c24b_v21_apply = sub.add_parser(
+        "stage-c24b-v21-apply-ai-review",
+        help="apply a prediction-blind, non-human, non-independent AI review",
+    )
+    stage_c24b_v21_apply.add_argument("--config", required=True)
+    stage_c24b_v21_apply.add_argument("--audit-spec", required=True)
+    stage_c24b_v21_apply.set_defaults(func=command_stage_c24b_v21_apply_ai_review)
+
+    stage_c24b_v21_validate = sub.add_parser(
+        "stage-c24b-v21-validate-ai-review",
+        help="validate the sealed exploratory v2.1 AI review",
+    )
+    stage_c24b_v21_validate.add_argument("--config", required=True)
+    stage_c24b_v21_validate.set_defaults(func=command_stage_c24b_v21_validate_ai_review)
+
+    stage_c24c_seal = sub.add_parser(
+        "stage-c24c-seal",
+        help="freeze v2.1 bytes, AI review, definitions, code and git commit",
+    )
+    stage_c24c_seal.add_argument("--config", required=True)
+    stage_c24c_seal.add_argument("--output-dir")
+    stage_c24c_seal.set_defaults(func=command_stage_c24c_seal)
+
+    stage_c24c_calibrate = sub.add_parser(
+        "stage-c24c-calibrate",
+        help="fit public components and select/freeze R0-R4 on calibration only",
+    )
+    stage_c24c_calibrate.add_argument("--config", required=True)
+    stage_c24c_calibrate.add_argument("--output-dir")
+    stage_c24c_calibrate.add_argument("--device", default="cpu")
+    stage_c24c_calibrate.set_defaults(func=command_stage_c24c_calibrate)
+
+    stage_c24c_development = sub.add_parser(
+        "stage-c24c-development",
+        help="run the historical C2.3 public diagnostic exactly once",
+    )
+    stage_c24c_development.add_argument("--config", required=True)
+    stage_c24c_development.add_argument("--output-dir")
+    stage_c24c_development.add_argument("--device", default="cpu")
+    stage_c24c_development.set_defaults(func=command_stage_c24c_development)
+
+    stage_c24c_locked = sub.add_parser(
+        "stage-c24c-locked",
+        help="score frozen public_locked_audit_v2_1 exactly once as exploratory",
+    )
+    stage_c24c_locked.add_argument("--config", required=True)
+    stage_c24c_locked.add_argument("--output-dir")
+    stage_c24c_locked.add_argument("--device", default="cpu")
+    stage_c24c_locked.set_defaults(func=command_stage_c24c_locked)
+
+    stage_c24c_smoke = sub.add_parser(
+        "stage-c24c-smoke",
+        help="run synthetic selective-routing smoke without opening v2.1 locked",
+    )
+    stage_c24c_smoke.add_argument("--config", required=True)
+    stage_c24c_smoke.add_argument("--output-dir")
+    stage_c24c_smoke.set_defaults(func=command_stage_c24c_smoke)
+
+    stage_c25_prepare = sub.add_parser(
+        "stage-c25-prepare",
+        help="download/verify official sources and freeze partitions/code before scoring",
+    )
+    stage_c25_prepare.add_argument("--config", required=True)
+    stage_c25_prepare.set_defaults(func=command_stage_c25_prepare)
+
+    stage_c25_calibrate = sub.add_parser(
+        "stage-c25-calibrate",
+        help="fit/select external routers on official train/validation only",
+    )
+    stage_c25_calibrate.add_argument("--config", required=True)
+    stage_c25_calibrate.add_argument("--device", default="cpu")
+    stage_c25_calibrate.set_defaults(func=command_stage_c25_calibrate)
+
+    stage_c25_audit = sub.add_parser(
+        "stage-c25-audit",
+        help="score frozen CLINC150/BANKING77 test partitions exactly once",
+    )
+    stage_c25_audit.add_argument("--config", required=True)
+    stage_c25_audit.add_argument("--device", default="cpu")
+    stage_c25_audit.set_defaults(func=command_stage_c25_audit)
+
+    stage_c25_smoke = sub.add_parser(
+        "stage-c25-smoke",
+        help="run synthetic tensor smoke without reading official test data",
+    )
+    stage_c25_smoke.add_argument("--config", required=True)
+    stage_c25_smoke.add_argument("--output-dir")
+    stage_c25_smoke.set_defaults(func=command_stage_c25_smoke)
+
+    stage_c25_finalize = sub.add_parser(
+        "stage-c25-finalize",
+        help="seal final C2.5 artifacts and report SHA-256 without overwriting",
+    )
+    stage_c25_finalize.add_argument("--config", required=True)
+    stage_c25_finalize.set_defaults(func=command_stage_c25_finalize)
     return parser
 
 

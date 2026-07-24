@@ -1,0 +1,296 @@
+{
+  "schema_version": 1,
+  "stage": "C2.4-public-discrete-relation-contract-benchmark",
+  "benchmark_version": "c24-public-discrete-contract-v1",
+  "preprocessing_version": "c24-preprocess-v1",
+  "review_status": "curated_draft_pending_independent_human_review",
+  "answer_free": true,
+  "contains_private_answers": false,
+  "public_benchmark_human_reviewed": false,
+  "provisional_locked_audit": true,
+  "row_counts": {
+    "public_train": 54,
+    "public_calibration": 90,
+    "public_locked_audit": 120
+  },
+  "row_counts_by_kind": {
+    "public_train": {
+      "known": 54
+    },
+    "public_calibration": {
+      "ambiguous": 18,
+      "known": 54,
+      "unrelated": 18
+    },
+    "public_locked_audit": {
+      "ambiguous": 24,
+      "known": 72,
+      "unrelated": 24
+    }
+  },
+  "family_counts": {
+    "public_train": 18,
+    "public_calibration": 30,
+    "public_locked_audit": 30
+  },
+  "audit": {
+    "schema_version": 1,
+    "strict_schema": true,
+    "balanced_family_frame_entity_design": true,
+    "answer_free": true,
+    "contains_private_answers": false,
+    "public_benchmark_human_reviewed": false,
+    "split_isolation": {
+      "schema_version": 1,
+      "normalization": "NFKC+casefold+punctuation/hyphen-to-space",
+      "normalized_token_collision_definition": "equality of the complete ordered normalized-token sequence or complete unique-token set; ordinary partial token reuse is not itself a collision",
+      "pairs": {
+        "public_train__vs__public_calibration": {
+          "phrases": {
+            "left": "public_train",
+            "right": "public_calibration",
+            "left_phrase_count": 54,
+            "right_phrase_count": 30,
+            "definitions": {
+              "exact": "NFKC + whitespace collapse + casefold surface equality",
+              "substring_containment": "contiguous normalized token sequence with minimum length 2",
+              "normalized_token_signature": "complete ordered sequence equality or complete unique-token-set equality after NFKC/casefold/punctuation normalization",
+              "lemma_bigram": "overlap coefficient on simple-lemma bigram sets"
+            },
+            "lemma_bigram_threshold": 0.8,
+            "collisions": {
+              "exact": [],
+              "substring_containment": [],
+              "normalized_token_signature": [],
+              "lemma_bigram": []
+            },
+            "collision_count": 0,
+            "passed": true
+          },
+          "phrase_family_id": {
+            "collisions": [],
+            "collision_count": 0,
+            "passed": true
+          },
+          "entity": {
+            "unit": "entity",
+            "id_collisions": [],
+            "normalized_value_collisions": [],
+            "collision_count": 0,
+            "passed": true
+          },
+          "frame": {
+            "unit": "frame",
+            "id_collisions": [],
+            "normalized_value_collisions": [],
+            "collision_count": 0,
+            "passed": true
+          },
+          "passed": true
+        },
+        "public_train__vs__public_locked_audit": {
+          "phrases": {
+            "left": "public_train",
+            "right": "public_locked_audit",
+            "left_phrase_count": 54,
+            "right_phrase_count": 30,
+            "definitions": {
+              "exact": "NFKC + whitespace collapse + casefold surface equality",
+              "substring_containment": "contiguous normalized token sequence with minimum length 1",
+              "normalized_token_signature": "complete ordered sequence equality or complete unique-token-set equality after NFKC/casefold/punctuation normalization",
+              "lemma_bigram": "overlap coefficient on simple-lemma bigram sets"
+            },
+            "lemma_bigram_threshold": 0.8,
+            "collisions": {
+              "exact": [],
+              "substring_containment": [],
+              "normalized_token_signature": [],
+              "lemma_bigram": []
+            },
+            "collision_count": 0,
+            "passed": true
+          },
+          "phrase_family_id": {
+            "collisions": [],
+            "collision_count": 0,
+            "passed": true
+          },
+          "entity": {
+            "unit": "entity",
+            "id_collisions": [],
+            "normalized_value_collisions": [],
+            "collision_count": 0,
+            "passed": true
+          },
+          "frame": {
+            "unit": "frame",
+            "id_collisions": [],
+            "normalized_value_collisions": [],
+            "collision_count": 0,
+            "passed": true
+          },
+          "passed": true
+        },
+        "public_calibration__vs__public_locked_audit": {
+          "phrases": {
+            "left": "public_calibration",
+            "right": "public_locked_audit",
+            "left_phrase_count": 30,
+            "right_phrase_count": 30,
+            "definitions": {
+              "exact": "NFKC + whitespace collapse + casefold surface equality",
+              "substring_containment": "contiguous normalized token sequence with minimum length 1",
+              "normalized_token_signature": "complete ordered sequence equality or complete unique-token-set equality after NFKC/casefold/punctuation normalization",
+              "lemma_bigram": "overlap coefficient on simple-lemma bigram sets"
+            },
+            "lemma_bigram_threshold": 0.8,
+            "collisions": {
+              "exact": [],
+              "substring_containment": [],
+              "normalized_token_signature": [],
+              "lemma_bigram": []
+            },
+            "collision_count": 0,
+            "passed": true
+          },
+          "phrase_family_id": {
+            "collisions": [],
+            "collision_count": 0,
+            "passed": true
+          },
+          "entity": {
+            "unit": "entity",
+            "id_collisions": [],
+            "normalized_value_collisions": [],
+            "collision_count": 0,
+            "passed": true
+          },
+          "frame": {
+            "unit": "frame",
+            "id_collisions": [],
+            "normalized_value_collisions": [],
+            "collision_count": 0,
+            "passed": true
+          },
+          "passed": true
+        }
+      },
+      "passed": true
+    }
+  },
+  "historical_c23_novelty_audit": {
+    "schema_version": 1,
+    "historical_source": "configs/stage_c23.yaml",
+    "historical_source_sha256": "dbc37bf59de64cdf0f2e2f59c3f34067e3f3d98e2213704938319216c1564067",
+    "phrase_audit": {
+      "left": "all_C2.3_public_and_private_phrase_views",
+      "right": "C2.4_public_locked_audit",
+      "left_phrase_count": 114,
+      "right_phrase_count": 30,
+      "definitions": {
+        "exact": "NFKC + whitespace collapse + casefold surface equality",
+        "substring_containment": "contiguous normalized token sequence with minimum length 1",
+        "normalized_token_signature": "complete ordered sequence equality or complete unique-token-set equality after NFKC/casefold/punctuation normalization",
+        "lemma_bigram": "overlap coefficient on simple-lemma bigram sets"
+      },
+      "lemma_bigram_threshold": 0.8,
+      "collisions": {
+        "exact": [],
+        "substring_containment": [],
+        "normalized_token_signature": [],
+        "lemma_bigram": []
+      },
+      "collision_count": 0,
+      "passed": true
+    },
+    "phrase_family_id_collisions": [],
+    "entity_collisions": [],
+    "frame_collisions": [],
+    "passed": true
+  },
+  "files": {
+    "public_calibration": {
+      "path": "data/stage_c24/public_calibration.jsonl",
+      "sha256": "67eadc92bf0ce9b7bf51fa7c3e639fd546ad638b9fed01c60b0923bbb28e601b",
+      "row_sha256": "67eadc92bf0ce9b7bf51fa7c3e639fd546ad638b9fed01c60b0923bbb28e601b"
+    },
+    "public_locked_audit": {
+      "path": "data/stage_c24/public_locked_audit.jsonl",
+      "sha256": "45f3253a477eddf83b321266b5b7b57597c99ee3960159dc2be1a56fb6615cb3",
+      "row_sha256": "45f3253a477eddf83b321266b5b7b57597c99ee3960159dc2be1a56fb6615cb3"
+    },
+    "public_train": {
+      "path": "data/stage_c24/public_train.jsonl",
+      "sha256": "da5745cd2db65a3451a12a543a28276beac89134e19661350b07630630e347a3",
+      "row_sha256": "da5745cd2db65a3451a12a543a28276beac89134e19661350b07630630e347a3"
+    }
+  },
+  "human_review_file": {
+    "path": "artifacts/stage_c24/public_locked_audit_review.csv",
+    "sha256": "5439191a30228431985628ae4ab791698d24804df942e5c413880922f7c0fb63",
+    "row_count": 120,
+    "all_rows_pending": true
+  },
+  "provenance": {
+    "schema_version": 1,
+    "git": {
+      "commit": "7c523868dafcacf1cd43c2d82cafc629061c45b9",
+      "dirty": false
+    },
+    "environment": {
+      "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "packages": {
+        "torch": "2.12.0+cu130",
+        "numpy": "2.2.6",
+        "PyYAML": "6.0.3",
+        "tqdm": "4.68.4",
+        "huggingface_hub": "1.23.0",
+        "datasets": "5.0.0",
+        "transformers": "5.13.1"
+      },
+      "torch_cuda_runtime": "13.0",
+      "cudnn_version": 92000,
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "gpu": null,
+      "upstream_commit": "d07d62e9869c6a969a2306e755aba7a742c317fd"
+    },
+    "model": {
+      "id": "BAAI/bge-small-en-v1.5",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "manifest_sha256": "36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170",
+      "observed_manifest_sha256": null
+    },
+    "models": {
+      "S5_relation_head_encoder": {
+        "id": "BAAI/bge-small-en-v1.5",
+        "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+        "manifest_sha256": "36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170",
+        "observed_manifest_sha256": null
+      },
+      "G3_definition_encoder": {
+        "id": "sentence-transformers/all-MiniLM-L6-v2",
+        "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "manifest_sha256": "7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce",
+        "observed_manifest_sha256": null,
+        "view": "phrase_only"
+      }
+    },
+    "config": {
+      "source_files": [
+        "configs\\stage_c24.yaml"
+      ],
+      "source_sha256": {
+        "configs\\stage_c24.yaml": "ff50656a0f3a0e3f69241b56a635a9e7627f18636bad5c70d9cc194a3ecf801e"
+      },
+      "resolved_config_sha256": "c8650377374c6c7ffcac573a34cdb02b3272122aeb457c6410179f183fc2ef79"
+    },
+    "data_sha256": {
+      "public_train": "da5745cd2db65a3451a12a543a28276beac89134e19661350b07630630e347a3",
+      "public_calibration": "67eadc92bf0ce9b7bf51fa7c3e639fd546ad638b9fed01c60b0923bbb28e601b",
+      "public_locked_audit": "45f3253a477eddf83b321266b5b7b57597c99ee3960159dc2be1a56fb6615cb3"
+    },
+    "seed": 2401
+  }
+}

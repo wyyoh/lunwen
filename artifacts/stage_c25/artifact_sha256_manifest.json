@@ -1,0 +1,76 @@
+{
+  "dataset_files_present": false,
+  "files": [
+    {
+      "path": "artifacts/stage_c25/aggregate_metrics.csv",
+      "sha256": "41ae7ce872a1c61d8d3b39fb4cfdefa1525c5738ffb061fa7398e525411ea561",
+      "size_bytes": 15041
+    },
+    {
+      "path": "artifacts/stage_c25/calibration_results.json",
+      "sha256": "e7cc39b3b4aa2cd1e6b2f6ab6f179d6d6a2db7fc30ec9877fc6c6fc64eae3a92",
+      "size_bytes": 323757
+    },
+    {
+      "path": "artifacts/stage_c25/calibration_selection.csv",
+      "sha256": "1293728361000780ca0889f5adbf492577b644cba755ba58579a63654bc34790",
+      "size_bytes": 783855
+    },
+    {
+      "path": "artifacts/stage_c25/code_freeze_manifest.json",
+      "sha256": "1467c6f5445c34514ae28bef02930a7e52a9a850c1c9462da33bf65e7e6647a7",
+      "size_bytes": 3903
+    },
+    {
+      "path": "artifacts/stage_c25/error_analysis.csv",
+      "sha256": "3d2265b603865ea2c0d08726651d206ae9745a6cb8b23526f5c42bf7c2b8a73a",
+      "size_bytes": 367427
+    },
+    {
+      "path": "artifacts/stage_c25/partition_manifest.json",
+      "sha256": "f219f4f7c0363754780d88408a6e9901d376f40dee7984fdc39096068c55351d",
+      "size_bytes": 95972
+    },
+    {
+      "path": "artifacts/stage_c25/per_seed_metrics.csv",
+      "sha256": "a975bfa413a7643ddc86dc2de26414ea4cfffb0ee40420eef3c1be161ba937d7",
+      "size_bytes": 30527
+    },
+    {
+      "path": "artifacts/stage_c25/protocol_status.json",
+      "sha256": "ca798c81b05749f2f6430a39cb5b063fdddfe3c1db199204c5b39ba77c90ea35",
+      "size_bytes": 643
+    },
+    {
+      "path": "artifacts/stage_c25/risk_coverage.csv",
+      "sha256": "f942555f7dbc5709272c247caac78276fcc762c38e997001f0fc9cf4f238c5ac",
+      "size_bytes": 95465
+    },
+    {
+      "path": "artifacts/stage_c25/router_freeze_manifest.json",
+      "sha256": "3b625e7ffebb8ec75ccf7c305bb56ff2c16cb405a803bf2e284af4eafd85ec15",
+      "size_bytes": 945
+    },
+    {
+      "path": "artifacts/stage_c25/source_manifest.json",
+      "sha256": "1d7a6a429b6c4351bd8602b5575c9426f03cec5ae615198dbe18679bf374f913",
+      "size_bytes": 3272
+    },
+    {
+      "path": "artifacts/stage_c25/test_results.json",
+      "sha256": "4dc177a1dec97533e86273405dece626828f055eb159b35e530079859ceaca99",
+      "size_bytes": 151583
+    },
+    {
+      "path": "PHASE_C25_REPORT.md",
+      "sha256": "d226d2ed1571f7b2ac6ee761988641fbbe115e282c6f2e10e00fae333ab20efa",
+      "size_bytes": 18535
+    }
+  ],
+  "manifest_payload_sha256": "78ba878cc350c6ea5b216b86be06c51079343589226ded6cbfd441c7a5622dd4",
+  "model_checkpoint_present": false,
+  "private_data_present": false,
+  "schema_version": 1,
+  "stage": "C2.5-final-artifact-manifest",
+  "test_predictions_executed_once": true
+}

@@ -1,0 +1,97 @@
+{
+  "answer_free": true,
+  "benchmark_version": "c24b-public-selective-router-v2",
+  "config_sha256": "f245b4c1b9fb7530511610b46cf3b0c73c31a7e2a468b055d310bae8460f9a6d",
+  "contains_private_answers": false,
+  "data_file": {
+    "path": "/home/liuyun/cloudcli-prod-data/workspaces/user_3/05136a23-3f5e-4efd-8adf-fcfff347cad1/lunwen/data/stage_c24b/public_train_v2.jsonl",
+    "row_sha256": "9c17bdd7be7716954ab48c124287a1cddb57e5a71360c2f63b9bd1e03316de80",
+    "sha256": "e808f5461413fec9721d34aadc35a83eaa41bffe96cc7828cdc7aaa127620276"
+  },
+  "family_count": 24,
+  "family_count_by_relation": {
+    "access_code": 8,
+    "city_code": 8,
+    "registry_id": 8
+  },
+  "formal_locked_audit_executed": false,
+  "historical_collision_audit_sha256": "c1af22a98fdb8e13025d3b01d59fe2b26d5abf31a78fce7a5f918fc735f59cc3",
+  "model_provenance": {
+    "R0": {
+      "frozen_head_sha256": "808d8182ca3b1dbc957fc227bd3038fe59cf920aa2bdf72a0e3669b1ca880a22",
+      "model_id": "BAAI/bge-small-en-v1.5",
+      "model_manifest_sha256": "36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170",
+      "model_safetensors_sha256": "3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad",
+      "query_view": "entity_masked_strip_suffix",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a"
+    },
+    "R1": {
+      "aggregations": [
+        "mean",
+        "max",
+        "top_k_mean"
+      ],
+      "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "model_manifest_sha256": "7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce",
+      "model_safetensors_sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+      "query_view": "entity_masked_strip_suffix",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "top_k_values": [
+        2,
+        3
+      ]
+    },
+    "R2": {
+      "candidates": {
+        "small": {
+          "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+          "model_manifest_sha256": "7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce",
+          "model_safetensors_sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+          "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+        },
+        "upper": {
+          "model_id": "intfloat/e5-base-v2",
+          "model_manifest_sha256": "65f8d8b336328cad989147d890809c94b8eeba3a5309466d6385aeff03d0a375",
+          "model_safetensors_sha256": "d0d559c47d5f71b1d280b13b62a2657f3e3bc70c0786f9ab91a36545e6a8f693",
+          "revision": "f52bf8ec8c7124536f0efb74aca902b2995e5bcd"
+        }
+      },
+      "implementation": "frozen_semantic_encoder_public_pairwise_ridge_head",
+      "query_view": "entity_masked_strip_suffix"
+    }
+  },
+  "preprocessing_version": "c24b-preprocess-v2",
+  "provenance": {
+    "git": {
+      "commit": "fec7b232cea863c2df814914e2e02c6400efaaf4",
+      "dirty": false
+    }
+  },
+  "public_benchmark_human_reviewed": false,
+  "review_file": {
+    "all_rows_pending": true,
+    "path": "/home/liuyun/cloudcli-prod-data/workspaces/user_3/05136a23-3f5e-4efd-8adf-fcfff347cad1/lunwen/artifacts/stage_c24b/public_train_v2_review.csv",
+    "row_count": 72,
+    "row_id_sha256": "1281de57bf0e4c48c46564562739f4f5067923035f8b6d1aae70a23f1ef8c864",
+    "sha256": "a8c8d687497c7befcbc6dd53f37e0a17c9ff185075d083072e8430f4adedbdcb",
+    "static_review_sha256": "54ecab2b2e0e06ddea4addc0142458700d3557ae8c385defbe1062584c2e75b0"
+  },
+  "review_manifest_sha256": null,
+  "row_count": 72,
+  "row_counts_by_sample_type": {
+    "known": 72
+  },
+  "schema_version": 2,
+  "selection_protocol": {
+    "development_used_for_selection": false,
+    "locked_audit_usage": "not_executed_by_prepare",
+    "locked_audit_used_for_selection": false,
+    "router_selection_executed": false,
+    "selection_split": "public_calibration_v2"
+  },
+  "source_config_sha256": "f245b4c1b9fb7530511610b46cf3b0c73c31a7e2a468b055d310bae8460f9a6d",
+  "split": "public_train_v2",
+  "split_isolation_audit_sha256": "d9c9a8e1596829ba6774aeba1d4a2b5713433d713aeb4d84fe4be31ecf5ea155",
+  "stage": "C2.4b-selective-discrete-relation-router",
+  "status": "prepared_pending_human_review"
+}

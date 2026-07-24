@@ -1,0 +1,132 @@
+{
+  "config_sha256": "4779526541c619657e294eea5fe8d4972e35eede14ae7a11a2f34656c8ace35b",
+  "frozen_task_specific_contract": {
+    "c24c_report": {
+      "path": "PHASE_C24C_REPORT.md",
+      "sha256": "ac3437693b659a989f9fb723582132cabec25feda48451f2032b591c10f418b1",
+      "size_bytes": 9871
+    },
+    "selective_router": {
+      "path": "src/keyed_gram/stage_c24b_router.py",
+      "sha256": "4c791aa1a594b7fadd64226ecdd19465aefb54500c3ee92339cf011c01a18175",
+      "size_bytes": 13226
+    },
+    "typed_memory_contract": {
+      "path": "src/keyed_gram/stage_c24_contract.py",
+      "sha256": "c8a3b5fd33621349659e504b1bd31502688896cf63207ae59f644849a0d96692",
+      "size_bytes": 14186
+    }
+  },
+  "git": {
+    "branch": "agent/stage-c21",
+    "commit": "6f47ffd7ab8816f7873fd2228ae07dad9ff42ffd",
+    "tracked_dirty": false
+  },
+  "labels_modified": false,
+  "partition_manifest_file_sha256": "f219f4f7c0363754780d88408a6e9901d376f40dee7984fdc39096068c55351d",
+  "runtime_sources": {
+    "files": [
+      {
+        "path": "configs/stage_c25.yaml",
+        "sha256": "4779526541c619657e294eea5fe8d4972e35eede14ae7a11a2f34656c8ace35b",
+        "size_bytes": 5035
+      },
+      {
+        "path": "src/keyed_gram/cli.py",
+        "sha256": "0d9669b50e257a104bef862aad0a20bfedaf5ebd49e248d5abb566775e7da2ba",
+        "size_bytes": 38905
+      },
+      {
+        "path": "src/keyed_gram/stage_c23_semantic.py",
+        "sha256": "8bcf7f7134794477df6e00d25e9e134e0d434fc4d9e895b4830b49040509ee8b",
+        "size_bytes": 36775
+      },
+      {
+        "path": "src/keyed_gram/stage_c25.py",
+        "sha256": "1b1575c95e8ff91054edb1ce214e274089c9aaf5184ac5f1c0c060d7ce45cbb4",
+        "size_bytes": 45385
+      },
+      {
+        "path": "src/keyed_gram/stage_c25_data.py",
+        "sha256": "0dc442114f2c446e544073b52cb42f5fd62e74932448f35a94794a1fdf25cf1e",
+        "size_bytes": 13838
+      },
+      {
+        "path": "src/keyed_gram/stage_c25_metrics.py",
+        "sha256": "e2fcb94c307f68d64267cde2e0a0160c3db06d711447d39cb19c5fa2529ecf01",
+        "size_bytes": 9159
+      },
+      {
+        "path": "src/keyed_gram/stage_c25_protocol.py",
+        "sha256": "1f34597eeaeda9db8b512ee53826b77c1a6d39235aa01c9a87aa57ab50e2ab4d",
+        "size_bytes": 10214
+      },
+      {
+        "path": "src/keyed_gram/stage_c25_router.py",
+        "sha256": "7491108c2a2dde5b323037bcc7f950cc69e359747375e8b602a9ec26ebffd37d",
+        "size_bytes": 15330
+      }
+    ],
+    "manifest_payload_sha256": "bb92b1bc813e6a8691482b387d89be1fcd044d41a10333ef2287b24edcd19fc6",
+    "schema_version": 1
+  },
+  "schema_version": 1,
+  "selection_protocol": {
+    "global_threshold_grid": [
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8
+    ],
+    "minimum_margin_grid": [
+      0.0,
+      0.025,
+      0.05,
+      0.075,
+      0.1,
+      0.15
+    ],
+    "r0_ridge_strength_grid": [
+      0.001,
+      0.01,
+      0.1
+    ],
+    "r0_selection": "known_accuracy_then_lower_regularization",
+    "r2_ridge_strength_grid": [
+      0.0001,
+      0.001,
+      0.01,
+      0.1
+    ],
+    "r2_selection": "known_accuracy_then_oos_auroc_then_lower_regularization",
+    "r4_deferred": true,
+    "selective_selection": {
+      "minimum_accepted_route_accuracy": 0.9,
+      "minimum_known_coverage": 0.8,
+      "minimum_safe_coverage": 0.75,
+      "objective": "gates_then_lower_fmar_then_safe_coverage"
+    },
+    "split": "official_train_and_validation_only",
+    "test_used_for_selection": false,
+    "variants": [
+      "R0",
+      "R2",
+      "MAX_THRESHOLD",
+      "R3"
+    ]
+  },
+  "source_manifest_file_sha256": "1d7a6a429b6c4351bd8602b5575c9426f03cec5ae615198dbe18679bf374f913",
+  "stage": "C2.5-code-and-data-freeze",
+  "synthetic_oos_used": false,
+  "test_predictions_executed": false,
+  "test_used_for_selection": false
+}

@@ -1,0 +1,160 @@
+schema_version: 2
+stage: C2.4b-selective-discrete-relation-router-smoke
+
+fixed_sources:
+  stage_c23_config: configs/stage_c23.yaml
+  stage_c24_config: configs/stage_c24.yaml
+  entity_checkpoint: artifacts/stage_c21/R3/canonicalizer.pt
+  entity_checkpoint_sha256: 09c74409cee941391ed7aaec1df8764219ecdf8b83f027a0d8980679b3399419
+  source_core_sha256: b141f3c08fcc9c56a6ca6a6c14169fc001613efa7ca98905b8b642070a01d0cb
+
+models:
+  R0: {implementation: synthetic_frozen_argmax}
+  R1: {implementation: synthetic_definition_ensemble, query_view: synthetic_mock}
+  R2:
+    implementation: synthetic_public_pairwise_ridge_evidence
+    query_view: synthetic_mock
+    candidates:
+      small: {model_id: synthetic-small, revision: smoke-v1, file_sha256: synthetic}
+      upper: {model_id: synthetic-upper, revision: smoke-v1, file_sha256: synthetic}
+
+run:
+  mode: smoke
+  seed: 2442
+  batch_size: 8
+  device: cpu
+  selection_split: public_calibration_v2
+  development_usage: disabled_in_smoke
+  locked_audit_usage: synthetic_mock_only
+  development_used_for_selection: false
+  locked_audit_used_for_selection: false
+  create_confirmation: false
+  train_private_memory: false
+  load_private_answers: false
+  calibrators: [threshold, class_conditional_conformal]
+  conformal_alpha_grid: [0.10, 0.20]
+  evidence_aggregations: [mean, max, top_k_mean]
+  threshold_grid: [0.20, 0.40, 0.60, 0.80]
+  minimum_margin_grid: [0.00, 0.05]
+  ridge_strength_grid: [0.01]
+
+gates:
+  closed_set: {known_coverage: 0.0}
+  open_set: {false_memory_access_rate: 1.0}
+  conformal: {target_coverage: 0.80, coverage_tolerance: 0.20}
+
+benchmark:
+  version: c24b-synthetic-smoke-v2
+  preprocessing_version: c24b-preprocess-v2
+  answer_free: true
+  contains_private_answers: false
+  review_status: pending_independent_dual_review
+  public_data_dir: data/stage_c24b_smoke
+  artifact_dir: artifacts/stage_c24b_smoke
+  aggregate_manifest: artifacts/stage_c24b_smoke/public_benchmark_manifest.json
+  split_manifest_paths:
+    public_train_v2: artifacts/stage_c24b_smoke/public_train_v2_manifest.json
+    public_calibration_v2: artifacts/stage_c24b_smoke/public_calibration_v2_manifest.json
+    public_locked_audit_v2: artifacts/stage_c24b_smoke/public_locked_audit_v2_manifest.json
+  train_review_csv: artifacts/stage_c24b_smoke/public_train_v2_review.csv
+  calibration_review_csv: artifacts/stage_c24b_smoke/public_calibration_v2_review.csv
+  locked_review_csv: artifacts/stage_c24b_smoke/public_locked_audit_v2_review.csv
+  legacy_c24_review_csv: artifacts/stage_c24b_smoke/c24_locked_audit_independent_review.csv
+  legacy_c24_locked_rows: artifacts/stage_c24/public_locked_audit_review.csv
+  generate_legacy_c24_review: false
+  historical_sources:
+    stage_c23_config: configs/stage_c23.yaml
+    stage_c24_config: configs/stage_c24.yaml
+  lemma_bigram_threshold: 0.80
+
+  definitions:
+    registry_id:
+      - Synthetic smoke evidence for an enrolled record locator.
+      - Synthetic smoke evidence for an authority-maintained filing pointer.
+      - Synthetic smoke evidence for a subject position in a governed archive.
+    city_code:
+      - Synthetic smoke evidence for a local geographic designation.
+      - Synthetic smoke evidence for a place symbol in a civic atlas.
+      - Synthetic smoke evidence for a municipality position on a map.
+    access_code:
+      - Synthetic smoke evidence for a protected-resource entry secret.
+      - Synthetic smoke evidence for a gateway authentication value.
+      - Synthetic smoke evidence for permission to unlock a guarded service.
+
+  splits:
+    public_train_v2:
+      entities: [smoke alder object, smoke birch object]
+      frames:
+        - "Synthetic train cue for {entity}: {relation_phrase}."
+      known_families:
+        registry_id:
+          smoke_train_registry_01: synthetic ravel archive alpha
+          smoke_train_registry_02: synthetic ravel archive beta
+          smoke_train_registry_03: synthetic ravel archive gamma
+          smoke_train_registry_04: synthetic ravel archive delta
+          smoke_train_registry_05: synthetic ravel archive epsilon
+          smoke_train_registry_06: synthetic ravel archive zeta
+          smoke_train_registry_07: synthetic ravel archive eta
+          smoke_train_registry_08: synthetic ravel archive theta
+        city_code:
+          smoke_train_city_01: synthetic umber geography alpha
+          smoke_train_city_02: synthetic umber geography beta
+          smoke_train_city_03: synthetic umber geography gamma
+          smoke_train_city_04: synthetic umber geography delta
+          smoke_train_city_05: synthetic umber geography epsilon
+          smoke_train_city_06: synthetic umber geography zeta
+          smoke_train_city_07: synthetic umber geography eta
+          smoke_train_city_08: synthetic umber geography theta
+        access_code:
+          smoke_train_access_01: synthetic zephyr entry alpha
+          smoke_train_access_02: synthetic zephyr entry beta
+          smoke_train_access_03: synthetic zephyr entry gamma
+          smoke_train_access_04: synthetic zephyr entry delta
+          smoke_train_access_05: synthetic zephyr entry epsilon
+          smoke_train_access_06: synthetic zephyr entry zeta
+          smoke_train_access_07: synthetic zephyr entry eta
+          smoke_train_access_08: synthetic zephyr entry theta
+
+    public_calibration_v2:
+      entities: [smoke copper object, smoke dune object]
+      frames:
+        - "Synthetic calibration cue for {entity}: {relation_phrase}."
+      known_families:
+        registry_id:
+          smoke_cal_registry_01: {phrase: mock cedar enrollment probe, lexical_ood: true, hard_negative: true, minimal_pair_id: smoke_pair_probe}
+          smoke_cal_registry_02: {phrase: mock willow dossier signal, lexical_ood: true, hard_negative: true}
+        city_code:
+          smoke_cal_city_01: {phrase: mock cobalt territory probe, lexical_ood: true, hard_negative: true, minimal_pair_id: smoke_pair_probe}
+          smoke_cal_city_02: {phrase: mock azure cartography signal, lexical_ood: true, hard_negative: true}
+        access_code:
+          smoke_cal_access_01: {phrase: mock crimson gateway probe, lexical_ood: true, hard_negative: true, minimal_pair_id: smoke_pair_probe}
+          smoke_cal_access_02: {phrase: mock violet unlock signal, lexical_ood: true, hard_negative: true}
+      rejection_families:
+        ambiguous:
+          smoke_cal_ambiguous_01: {phrase: mock neutral contextless probe, lexical_ood: true, hard_negative: true}
+          smoke_cal_ambiguous_02: {phrase: mock gray unscoped signal, lexical_ood: true, hard_negative: true}
+        unrelated:
+          smoke_cal_unrelated_01: {phrase: mock orange weather probe, lexical_ood: true}
+          smoke_cal_unrelated_02: {phrase: mock yellow inventory signal, lexical_ood: true}
+
+    public_locked_audit_v2:
+      entities: [smoke ember object, smoke frost object]
+      frames:
+        - "Synthetic locked fixture for {entity}: {relation_phrase}."
+      known_families:
+        registry_id:
+          smoke_locked_registry_01: {phrase: fixture quartz folio beacon, lexical_ood: true}
+          smoke_locked_registry_02: {phrase: fixture nickel archive lamp, lexical_ood: true}
+        city_code:
+          smoke_locked_city_01: {phrase: fixture jade borough beacon, lexical_ood: true}
+          smoke_locked_city_02: {phrase: fixture silver atlas lamp, lexical_ood: true}
+        access_code:
+          smoke_locked_access_01: {phrase: fixture ruby portal beacon, lexical_ood: true}
+          smoke_locked_access_02: {phrase: fixture bronze gateway lamp, lexical_ood: true}
+      rejection_families:
+        ambiguous:
+          smoke_locked_ambiguous_01: {phrase: fixture neutral unknown beacon, lexical_ood: true}
+          smoke_locked_ambiguous_02: {phrase: fixture gray unspecified lamp, lexical_ood: true}
+        unrelated:
+          smoke_locked_unrelated_01: {phrase: fixture orange climate beacon, lexical_ood: true}
+          smoke_locked_unrelated_02: {phrase: fixture yellow stockroom lamp, lexical_ood: true}

@@ -20,7 +20,10 @@ documented in `PHASE1_REPORT.md`. The controlled synthetic-fact follow-up is
 documented in `PHASE_A_REPORT.md`; the B0-B3 residualization ablation is in
 `PHASE_B_REPORT.md`. The no-training frozen-core representation diagnostic is
 in `PHASE_C1_REPORT.md`; the Q0-Q4 query-canonicalization ablation is in
-`PHASE_C2_REPORT.md`.
+`PHASE_C2_REPORT.md`. The relation-preserving C2.1 audit is in
+`PHASE_C21_REPORT.md`, the answer-free public lexical transfer experiment is in
+`PHASE_C22_REPORT.md`, and the frozen public semantic encoder audit is in
+`PHASE_C23_REPORT.md`.
 
 ## Reproducible environment
 
@@ -185,6 +188,85 @@ memory, LM answer injection, public objective, or key is present in this stage.
 Run the complete Q0-Q4 ablation:
 
     keyed-gram stage-c2 --config configs/stage_c2.yaml --output-dir artifacts/stage_c2 --device cuda
+
+The C2.1/C2.2 zero-access statements below describe their original runs only.
+On 2026-07-20, a later read-only audit accessed the old confirmation-template
+selection file once. It did not read rows or private answers and did not run an
+evaluation or compute/access confirmation metrics. The old seal is retired,
+and no replacement confirmation set has been created. See
+`artifacts/stage_c23/protocol_incident.json` and
+`artifacts/stage_c21/confirmation_retirement.json`.
+
+Before C2.1 changes the objective, run the zero-training relation-source audit.
+It compares every selected-layer combination of the non-entity question pool,
+answer-position pool, their concatenation, and the learned Q3 relation input and
+output. The current test split is explicitly treated as development; sealed
+confirmation data was not read by this command in the original C2.1 audit.
+
+    keyed-gram stage-c21-audit --config configs/stage_c21.yaml --output-dir artifacts/stage_c21/audit
+
+The original C2.1 workflow sealed confirmation templates once before model
+selection. The command is retained for historical reproducibility, but its old
+seal is now retired and must not be reused for future confirmation claims. The
+selected prompts, private answers, and random selection seed stayed under
+ignored `data/`; only their hashes and the original-run protocol record were
+versioned.
+
+    keyed-gram stage-c21-seal-confirmation --config configs/stage_c21.yaml
+
+Run the fixed R0-R4 C2.1 ablation after the audit and seal are present:
+
+    keyed-gram stage-c21 --config configs/stage_c21.yaml --output-dir artifacts/stage_c21 --device cuda
+
+R0 imports Q3 exactly. R1 adds strict cross-entity/cross-template relation
+SupCon, R2 moves a 0.05 template adversary to normalized `z_r`, R3 adds the
+relation-first curriculum, and R4 adds normalized gated fusion. The command
+records relation geometry, an entity/relation/template information matrix for
+both branches, fusion contribution norms, and the ten strict C3 readiness
+gates. Validation alone selects checkpoints and the final variant; the legacy
+test split is development-only. During the original C2.1 run, local
+confirmation rows remained unread.
+
+The completed first-round results are documented in `PHASE_C21_REPORT.md`. No
+variant passed the development gates, so C3 remains disabled and the next
+experiment is answer-free public relation-paraphrase supervision.
+
+Prepare the lexically isolated, answer-free public relation corpus and its
+frozen-core feature cache, then run the P0-P2 C2.2 ablation:
+
+    keyed-gram stage-c22-prepare --config configs/stage_c22.yaml --output-dir artifacts/stage_c22 --device cuda
+    keyed-gram stage-c22 --config configs/stage_c22.yaml --output-dir artifacts/stage_c22 --device cuda
+
+P0 imports the validation-selected C2.1 R3 checkpoint. P1 tunes only the
+relation encoder/heads on public relation phrases; P2 adds private fact replay
+without ever using private answers as targets. Public train and validation use
+disjoint placeholder entities, frames, and phrase families, while all legacy
+development and confirmation phrases are forbidden. `PHASE_C22_REPORT.md`
+records the result: train phrases are linearly memorized, but public lexical-OOD
+validation remains below the relation gate, so a stronger public semantic
+encoder is required before confirmation or C3.
+
+Stage C2.3 separates public relation semantics from private entity/fact
+geometry. First build the 360-row public validation/reject benchmark and a
+derived answer-free private feature cache. This prepare step is the only C2.3
+step that deserializes the old answer-bearing Stage-C2 cache; all C2.3 runtimes
+reject that old cache directly.
+
+    keyed-gram stage-c23-prepare --config configs/stage_c23.yaml
+    keyed-gram stage-c23-oracle --config configs/stage_c23.yaml --output-dir artifacts/stage_c23/S0 --device cuda
+    keyed-gram stage-c23-audit --config configs/stage_c23.yaml --output-dir artifacts/stage_c23/semantic_audit --variants S2,S3,S4 --device cuda
+    keyed-gram stage-c23-audit --config configs/stage_c23.yaml --output-dir artifacts/stage_c23/s6_upper_bound --variants S6 --device cuda
+
+S0 passes all 10 validation and development upper-bound gates at `alpha=0.5`.
+The small-model S5 selection chooses BGE-small with the masked-and-suffix-
+stripped view; E5-base is then run as the preregistered capacity candidate.
+Both pass 6/7 strict gates and fail only the relation-conditioned projected
+family-leakage gate: 26.39% and 33.33% versus a maximum of 18.33%. Therefore
+C3 remains disabled, the replacement confirmation set remains uncreated, and
+model expansion stops. `PHASE_C23_REPORT.md` contains the metrics, pinned model
+revisions, protocol accounting, and the proposed C2.4 discrete-relation-
+contract audit. The public lexical benchmark is still a curated draft pending
+independent human review.
 
 Q0 reproduces the best C1 last-token baseline. Q1 uses fact-level supervised
 contrastive learning; Q2 adds factorized entity/relation branches and relation

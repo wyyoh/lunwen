@@ -1,0 +1,12 @@
+schema_version: 1
+stage: C2.4c-exploratory-selective-router-evaluation-smoke
+mode: smoke
+seed: 2443
+rows_per_type: 6
+output_dir: artifacts/stage_c24c_smoke
+touches_frozen_v21_locked_audit: false
+formal_calibration_allowed: false
+independent_external_validation: false
+create_confirmation: false
+train_private_memory: false
+load_private_answers: false

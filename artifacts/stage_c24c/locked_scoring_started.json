@@ -1,0 +1,12 @@
+{
+  "development_used_for_selection": false,
+  "evaluation_mode": "exploratory_non_independent",
+  "git_commit": "63fd9ba86f83aa121d18f3323ed902a58097d13e",
+  "locked_audit_used_for_selection": false,
+  "phase": "locked_scoring",
+  "router_freeze_manifest_sha256": "f440f9782b24d7c88b3bcea1d8d97aee9cc9b4544c94209071957af042aae134",
+  "schema_version": 1,
+  "split": "public_locked_audit_v2_1",
+  "stage": "C2.4c-exploratory-selective-router-evaluation",
+  "status": "locked_scoring_started_once"
+}

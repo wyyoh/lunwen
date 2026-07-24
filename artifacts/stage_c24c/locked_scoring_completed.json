@@ -1,0 +1,11 @@
+{
+  "benchmark_bytes_unchanged_after_scoring": true,
+  "git_commit": "63fd9ba86f83aa121d18f3323ed902a58097d13e",
+  "locked_audit_used_for_selection": false,
+  "locked_rows": 160,
+  "phase": "locked_scoring",
+  "schema_version": 1,
+  "selected_router": "R3",
+  "stage": "C2.4c-exploratory-selective-router-evaluation",
+  "status": "locked_scoring_completed_once"
+}

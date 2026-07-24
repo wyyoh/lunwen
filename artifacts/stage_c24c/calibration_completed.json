@@ -1,0 +1,12 @@
+{
+  "calibration_rows": 160,
+  "development_opened": false,
+  "git_commit": "63fd9ba86f83aa121d18f3323ed902a58097d13e",
+  "locked_audit_opened": false,
+  "phase": "calibration",
+  "router_freeze_manifest_sha256": "f440f9782b24d7c88b3bcea1d8d97aee9cc9b4544c94209071957af042aae134",
+  "schema_version": 1,
+  "selected_router": "R3",
+  "stage": "C2.4c-exploratory-selective-router-evaluation",
+  "status": "calibration_completed_once"
+}

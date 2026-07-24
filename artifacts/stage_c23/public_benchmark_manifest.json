@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "stage": "C2.3-public-lexical-benchmark",
+  "benchmark_version": "c23-public-lexical-v1",
+  "preprocessing_version": "c23-preprocess-v1",
+  "review_status": "curated_draft_pending_independent_human_review",
+  "answer_free": true,
+  "contains_private_answers": false,
+  "row_counts": {
+    "train": 54,
+    "validation": 216,
+    "reject": 144
+  },
+  "benchmark_total": 360,
+  "family_counts": {
+    "train_known": 18,
+    "validation_known": 36,
+    "reject": 24
+  },
+  "input_views": [
+    "phrase_only",
+    "entity_masked",
+    "entity_masked_strip_suffix"
+  ],
+  "audit": {
+    "lexical_disjointness": {
+      "train_phrase_count": 54,
+      "validation_phrase_count": 36,
+      "normalization": "NFKC+casefold+punctuation/hyphen-to-space",
+      "lemma_bigram_threshold": 0.8,
+      "collision_count": 0,
+      "collisions": {
+        "exact": [],
+        "containment": [],
+        "lemma_bigram": []
+      },
+      "passed": true
+    },
+    "strict_schema": true,
+    "balanced_family_frame_entity_design": true,
+    "answer_free": true,
+    "contains_private_answers": false
+  },
+  "source_config_sha256": "dbc37bf59de64cdf0f2e2f59c3f34067e3f3d98e2213704938319216c1564067",
+  "files": {
+    "train": {
+      "path": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\data\\stage_c23\\train.jsonl",
+      "sha256": "d0ab533c5645851a48e2637d9b4701eecbfd321eac85a46fde9ddb89ebf55b81"
+    },
+    "validation": {
+      "path": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\data\\stage_c23\\validation.jsonl",
+      "sha256": "da6ac959507c2c561ab859e5fa10eac4952c5a1a561537dd51c4ddcfa2931ba3"
+    },
+    "reject": {
+      "path": "C:\\论文\\基于遗忘的细粒度权限控制\\keyed_gram_mvp\\data\\stage_c23\\reject.jsonl",
+      "sha256": "07aaaf9a14209bc9fea21f6fc17af9d6b8938be111922e59df99de6ba2184d3c"
+    }
+  }
+}

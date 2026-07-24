@@ -1,0 +1,230 @@
+schema_version: 1
+stage: C2.3-public-semantic-encoder-audit
+
+# The prepare command is the only C2.3 step that opens the answer-bearing C2
+# cache. S0 and S2-S6 accept only the derived metadata-whitelisted cache.
+private_feature_cache_source: artifacts/stage_c2/canonicalizer_features.pt
+private_feature_cache: artifacts/stage_c23/private_answer_free_features.pt
+private_feature_cache_manifest: artifacts/stage_c23/private_answer_free_feature_manifest.json
+entity_checkpoint: artifacts/stage_c21/R3/canonicalizer.pt
+protocol_incident: artifacts/stage_c23/protocol_incident.json
+
+oracle:
+  alpha_grid: [0.0, 0.125, 0.25, 0.5, 1.0, 2.0, 4.0]
+  evaluation_batch_size: 128
+  ridge_strength: 0.01
+  template_probe_seed: 91
+  gates:
+    fact_centroid_top1: 0.90
+    row_1nn: 0.75
+    centroid_mrr: 0.85
+    mean_centroid_margin: 0.10
+    fact_silhouette: 0.40
+    fact_template_margin: 0.30
+    entity_probe: 0.90
+    oracle_relation_probe: 1.00
+    oracle_template_probe_chance_margin: 0.10
+
+benchmark:
+  version: c23-public-lexical-v1
+  preprocessing_version: c23-preprocess-v1
+  review_status: curated_draft_pending_independent_human_review
+  answer_free: true
+  contains_private_answers: false
+  public_data_dir: data/stage_c23
+  manifest: artifacts/stage_c23/public_benchmark_manifest.json
+  train_entities:
+    - amber public profile
+    - birch public profile
+    - cobalt public profile
+    - dune public profile
+    - elm public profile
+    - frost public profile
+  validation_entities:
+    - glade public profile
+    - heather public profile
+    - iris public profile
+    - juniper public profile
+    - kite public profile
+    - larch public profile
+  train_frames:
+    - "Public relation request for {entity}: {relation_phrase}. Answer:"
+    - "The public profile field for {entity} is described as {relation_phrase}. Response:"
+    - "Retrieve {relation_phrase} for public subject {entity}."
+  validation_frames:
+    - "Regarding {entity}, what is the value described as {relation_phrase}? Answer:"
+    - "From {entity}'s profile, retrieve the field meaning {relation_phrase}. Response:"
+    - "For {entity}, the requested attribute is {relation_phrase}; provide its value. Output:"
+    - "Please look up the value corresponding to {relation_phrase} for {entity}."
+    - "Which value in {entity}'s profile matches {relation_phrase}? Reply:"
+    - "I am asking about {relation_phrase} in the profile of {entity}."
+  train_families:
+    registry_id:
+      train_registry_number: registry number
+      train_registration_identifier: registration identifier
+      train_official_record_id: official record ID
+      train_register_entry_number: register entry number
+      train_recordkeeping_identifier: recordkeeping identifier
+      train_registry_serial: registry-assigned serial
+    city_code:
+      train_city_code: city code
+      train_municipality_identifier: municipality identifier
+      train_locality_code: locality code
+      train_geographic_area_identifier: geographic area identifier
+      train_urban_area_code: urban area code
+      train_municipal_id: municipal ID
+    access_code:
+      train_access_code: access code
+      train_access_credential: access credential
+      train_service_password: protected-service password
+      train_entry_passcode: entry passcode
+      train_account_unlock_secret: account unlock secret
+      train_secure_login_credential: secure login credential
+  validation_families:
+    registry_id:
+      registry_official_register_identifier: identifier issued by an official register
+      registry_registration_database_number: number recorded in a registration database
+      registry_entry_serial: serial attached to a register entry
+      registry_records_office_id: ID allocated by a records office
+      registry_recordkeeping_index: index used by a recordkeeping system
+      registry_formal_filing_reference: reference assigned when a subject is formally filed
+      registry_master_roster_serial: serial shown on a master roster
+      registry_official_roll_index: index printed on an official roll
+      registry_catalogue_accession: accession assigned by an institutional catalogue
+      registry_master_list_folio: folio used in a master list
+      registry_subject_docket_reference: docket reference attached to the subject
+      registry_official_listing_index: official listing index for the subject
+    city_code:
+      city_named_municipality_code: code representing the named municipality
+      city_populated_place_identifier: identifier for the populated place
+      city_local_jurisdiction_number: number assigned to the local jurisdiction
+      city_administrative_area_id: ID for the city-level administrative area
+      city_named_locality_code: code denoting the named locality
+      city_local_government_identifier: identifier for the local government area
+      city_town_geocode: geocode for the town
+      city_metropolitan_designation: designation of the metropolitan area
+      city_urban_district_number: number for the urban district
+      city_civic_region_label: label for the civic region
+      city_town_place_code: place code for the town
+      city_community_area_identifier: identifier of the community area
+    access_code:
+      access_required_credential: credential required to gain access
+      access_protected_account_password: password for the protected account
+      access_service_unlock_passcode: passcode used to unlock the service
+      access_subject_signon_secret: sign-on secret for the subject
+      access_resource_authentication_secret: authentication secret for the protected resource
+      access_lock_screen_code: code required by the lock screen
+      access_secure_gate_pin: PIN required at a secure gate
+      access_resource_unlock_combination: unlock combination for the resource
+      access_account_keyphrase: secret keyphrase for opening the account
+      access_secured_area_keypad_sequence: keypad sequence for the secured area
+      access_lock_bearer_secret: bearer secret accepted by the lock
+      access_service_challenge_response: challenge response used to enter the service
+  rejection_families:
+    ambiguous:
+      ambiguous_identifier: identifier
+      ambiguous_reference_number: reference number
+      ambiguous_assigned_code: assigned code
+      ambiguous_profile_key: profile key
+      ambiguous_record_value: record value
+      ambiguous_account_number: account number
+      ambiguous_internal_tag: internal tag
+      ambiguous_service_code: service code
+      ambiguous_subject_marker: subject marker
+      ambiguous_database_key: database key
+      ambiguous_lookup_handle: lookup handle
+      ambiguous_verification_value: verification value
+    unrelated:
+      unrelated_birth_date: birth date
+      unrelated_contact_email: contact email
+      unrelated_telephone_number: telephone number
+      unrelated_postal_address: postal address
+      unrelated_account_balance: account balance
+      unrelated_favorite_color: favorite color
+      unrelated_preferred_language: preferred language
+      unrelated_owner_name: owner name
+      unrelated_creation_timestamp: creation timestamp
+      unrelated_current_status: current status
+      unrelated_category_description: category description
+      unrelated_last_update_date: last update date
+  definitions:
+    registry_id:
+      - An identifier assigned by an official registry or recordkeeping system.
+      - A serial number used to locate a subject's entry in an official register.
+      - A reference issued when a subject or item is enrolled in a formal record.
+      - A code linking a subject to its listing in a registry database.
+    city_code:
+      - A code or identifier representing a city, municipality, locality, or geographic area.
+      - A designation used to identify the local jurisdiction assigned to a subject.
+      - A geographic code for a town or city-level administrative area.
+      - A reference that denotes a populated place or municipal region.
+    access_code:
+      - A secret credential or code used to authorize access to a protected resource.
+      - A password or passcode required to unlock an account, service, or secured area.
+      - A private authentication value accepted by an access-control system.
+      - A secret sequence used to gain entry to a protected service.
+
+  # Phrase-only views of the private prompts. Values are public relation wording;
+  # they contain neither the entity-to-value mapping nor any private answer.
+  private_phrase_views:
+    train:
+      registry_id: [registry number, registry number, registry number, registry number, registry number, registry number]
+      city_code: [city code, city code, city code, city code, city code, city code]
+      access_code: [access code, access code, access code, access code, access code, access code]
+    validation:
+      registry_id: [registry number, registry number]
+      city_code: [city code, city code]
+      access_code: [access code, access code]
+    development:
+      registry_id: [registered number, registry identifier, registry number, registered number]
+      city_code: [location code, city identifier, city code, city code]
+      access_code: [private credential, access identifier, private access code, access code]
+
+models:
+  S2:
+    model_id: sentence-transformers/all-MiniLM-L6-v2
+    revision: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+    license: Apache-2.0
+    dimension: 384
+    pooling: attention_mask_mean
+    prefix: ""
+  S3:
+    model_id: intfloat/e5-small-v2
+    revision: ffb93f3bd4047442299a41ebb6fa998a38507c52
+    license: MIT
+    dimension: 384
+    pooling: attention_mask_mean
+    prefix: "query: "
+  S4:
+    model_id: BAAI/bge-small-en-v1.5
+    revision: 5c38ec7c405ec4b44b94cc5a9bb96e735b38267a
+    license: MIT
+    dimension: 384
+    pooling: cls
+    prefix: ""
+  S6:
+    model_id: intfloat/e5-base-v2
+    revision: f52bf8ec8c7124536f0efb74aca902b2995e5bcd
+    license: MIT
+    dimension: 768
+    pooling: attention_mask_mean
+    prefix: "query: "
+
+semantic_audit:
+  input_views: [phrase_only, entity_masked, entity_masked_strip_suffix]
+  batch_size: 64
+  max_length: 256
+  bootstrap_samples: 10000
+  bootstrap_seed: 2301
+  ridge_strength: 0.01
+  oracle_alpha: 0.5
+  small_variants: [S2, S3, S4]
+  upper_bound_variant: S6
+  gates:
+    public_family_macro_accuracy: 0.85
+    private_validation_relation_accuracy: 0.85
+    development_relation_accuracy: 0.85
+    relation_family_margin: 0.15
+    projected_family_probe_chance_margin: 0.10
+    encoder_fact_centroid_top1: 0.80
+    entity_probe: 0.90

@@ -1,0 +1,162 @@
+{
+  "schema_version": 2,
+  "stage": "C2.4b-selective-discrete-relation-router",
+  "protocol_role": "synthetic_integration_only",
+  "git": {
+    "commit": "fe1d625b0da6173af7bd9c2ebd8b37a545fde13b",
+    "branch": "agent/stage-c21",
+    "dirty": true
+  },
+  "model_metadata": {
+    "mode": "synthetic_no_external_model_load",
+    "configured_candidates": {
+      "R0": {
+        "implementation": "synthetic_frozen_argmax"
+      },
+      "R1": {
+        "implementation": "synthetic_definition_ensemble",
+        "query_view": "synthetic_mock"
+      },
+      "R2": {
+        "implementation": "synthetic_public_pairwise_ridge_evidence",
+        "query_view": "synthetic_mock",
+        "candidates": {
+          "small": {
+            "model_id": "synthetic-small",
+            "revision": "smoke-v1",
+            "file_sha256": "synthetic"
+          },
+          "upper": {
+            "model_id": "synthetic-upper",
+            "revision": "smoke-v1",
+            "file_sha256": "synthetic"
+          }
+        }
+      }
+    },
+    "model_revision": "smoke-v1",
+    "model_file_sha256": "synthetic-fixture-no-file"
+  },
+  "resolved_config_sha256": "0cae2384c715c9c472ba8b2a5023e808c8b31895a6e8b9ff2765bb06c143520c",
+  "data_sha256": {
+    "public_train_v2": "60479b409bd881dccdfd7cd2b418c470197397a339d558db273008a03893ce67",
+    "public_calibration_v2": "da6f6eb830e9103bc324157eaf908d83f44520286804a030e8b281e6ecf2ccd1",
+    "public_locked_audit_v2": "185d3dd0bed7c4546dd3d7602a853151e775f6b8ae63532d24358b5d1238e496"
+  },
+  "review_manifest_sha256": null,
+  "selection_protocol": {
+    "selection_split": "public_calibration_v2",
+    "development_used_for_selection": false,
+    "locked_audit_used_for_selection": false,
+    "parameters_frozen_before_synthetic_locked_evaluation": true
+  },
+  "file_count": 21,
+  "files": [
+    {
+      "path": "R0/evaluation.json",
+      "size_bytes": 11066,
+      "sha256": "fd9550b53def5413872c860ce491d5b02e30305aaad6155614e82074226adb3a"
+    },
+    {
+      "path": "R1/evaluation.json",
+      "size_bytes": 11066,
+      "sha256": "4081e6ce3db39e09a0b78a51c67882a6e6194a514822ed4950d4c86189c8b7b4"
+    },
+    {
+      "path": "R2/evaluation.json",
+      "size_bytes": 11062,
+      "sha256": "023e9a4494fad44ac9406e8f8e386bd5479ab0a6b13207cbcabfb3b40d9d94b2"
+    },
+    {
+      "path": "R3/evaluation.json",
+      "size_bytes": 11060,
+      "sha256": "5b34d7d1daca8c10d36e74a2ccc7cddab1a631e944cc7bdcc9fb9b421ae97179"
+    },
+    {
+      "path": "R4/evaluation.json",
+      "size_bytes": 11083,
+      "sha256": "22c699fb392723bd8ae38a0c6b9e21a069d09b58a81aa96bef2de53a740e97c8"
+    },
+    {
+      "path": "calibration_results.json",
+      "size_bytes": 34216,
+      "sha256": "eba922fe0c3dc4428894fbf60ddafb9d28e686995188251e889f857aec9ff613"
+    },
+    {
+      "path": "error_analysis.csv",
+      "size_bytes": 4169,
+      "sha256": "ce79382b96c4c4ff94dfe3c928aacceb479ceec9bf01b603b106554729df0aca"
+    },
+    {
+      "path": "frozen_router_selection.json",
+      "size_bytes": 5459,
+      "sha256": "ee6b44a28d890a61dacdd0391f6ad31cff0db637c6efe7544a2133edb17a2b7b"
+    },
+    {
+      "path": "protocol_status.json",
+      "size_bytes": 2690,
+      "sha256": "ec040f110791d7d33404f588b5c26d9d7269e09743dc00c70d65dc26084a8ad0"
+    },
+    {
+      "path": "public_benchmark_manifest.json",
+      "size_bytes": 6272,
+      "sha256": "cf886c5aea1b831461fafedb0d102007739dc7399589c92811c52fba9485fa45"
+    },
+    {
+      "path": "public_calibration_v2_manifest.json",
+      "size_bytes": 2078,
+      "sha256": "8c6b92854571ebcc4cf23931d7ede71ea751685a0c68a0c305622fd1f5bd3485"
+    },
+    {
+      "path": "public_locked_audit_v2_manifest.json",
+      "size_bytes": 2079,
+      "sha256": "36518764589ebb892030c6fc37c2b33923ad1523ca03cde99ce2a36360faa601"
+    },
+    {
+      "path": "public_train_v2_manifest.json",
+      "size_bytes": 2072,
+      "sha256": "3bd3cb67341358855b79152017875e9b5a8e211b540bd3006e555996ad64a6af"
+    },
+    {
+      "path": "resolved_config.json",
+      "size_bytes": 10796,
+      "sha256": "e7f9e5dd17d0d0d12886d3652688feb957b5c994445932ec1b253eb95879b2f0"
+    },
+    {
+      "path": "retrieval_predictions.json",
+      "size_bytes": 27688,
+      "sha256": "59159d8a80affe895e0e3c7939b1fa6f86897448d48ddd77c5d6229e9d90605d"
+    },
+    {
+      "path": "risk_coverage.csv",
+      "size_bytes": 2237,
+      "sha256": "d93b4734e8ab4b9b906de7e77db53b3145b7cb1f7ec2fd30d2d2ef6568d8e4e1"
+    },
+    {
+      "path": "route_candidate_scores.csv",
+      "size_bytes": 22702,
+      "sha256": "319db821f8075ad6a7033fc977976f7777bf8a89a1b579934644a5c1da2481c7"
+    },
+    {
+      "path": "route_predictions.csv",
+      "size_bytes": 11035,
+      "sha256": "bef2276b7ea8ad3f3c446b073b210498bacd370032436421268608b5245e2c67"
+    },
+    {
+      "path": "router_selection.csv",
+      "size_bytes": 921,
+      "sha256": "02118bd12bcd2649a18fb1eea97ea30c2a8d78e4dd2d4dd78cd497ee1c6eace4"
+    },
+    {
+      "path": "stage_c24b_ablation.csv",
+      "size_bytes": 752,
+      "sha256": "231eac28930d331f6427829017a7bed652c1a88053a5ac86aa0d4c710cee0611"
+    },
+    {
+      "path": "stage_c24b_summary.json",
+      "size_bytes": 20572,
+      "sha256": "5561a28bf081ed1580097694f6e5c9bdc0d58aa147452e5daef392ef74992669"
+    }
+  ],
+  "manifest_payload_sha256": "1115b9d43c215e2560406d8cfe1c0fd842284364be598749c16928f05e696c9a"
+}

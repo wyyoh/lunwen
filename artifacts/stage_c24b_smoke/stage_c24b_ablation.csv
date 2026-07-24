@@ -1,0 +1,6 @@
+variant,protocol_role,selected_on_calibration,known_coverage,accepted_route_accuracy,family_macro_accuracy,worst_family_accuracy,ambiguous_rejection_rate,unrelated_rejection_rate,false_memory_access_rate,wrong_bucket_access_rate,safe_coverage,accepted_fact_top1,all_query_fact_top1,mrr,cross_relation_candidate_count
+R0,synthetic_integration_only,False,1.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,1.0,0
+R1,synthetic_integration_only,False,1.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,1.0,0
+R2,synthetic_integration_only,False,1.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,1.0,0
+R3,synthetic_integration_only,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,0
+R4,synthetic_integration_only,True,0.5,1.0,0.5,0.0,1.0,1.0,0.0,0.0,0.5,1.0,0.5,1.0,0

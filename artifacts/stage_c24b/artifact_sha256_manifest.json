@@ -1,0 +1,133 @@
+{
+  "schema_version": 2,
+  "stage": "C2.4b-selective-discrete-relation-router",
+  "status": "prepared_pending_human_review_snapshot",
+  "git": {
+    "commit": "fec7b232cea863c2df814914e2e02c6400efaaf4",
+    "dirty": false
+  },
+  "model_revisions": {
+    "R0": {
+      "model_id": "BAAI/bge-small-en-v1.5",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "model_manifest_sha256": "36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170",
+      "model_safetensors_sha256": "3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad",
+      "frozen_head_sha256": "808d8182ca3b1dbc957fc227bd3038fe59cf920aa2bdf72a0e3669b1ca880a22",
+      "query_view": "entity_masked_strip_suffix"
+    },
+    "R1": {
+      "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "model_manifest_sha256": "7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce",
+      "model_safetensors_sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+      "query_view": "entity_masked_strip_suffix",
+      "aggregations": [
+        "mean",
+        "max",
+        "top_k_mean"
+      ],
+      "top_k_values": [
+        2,
+        3
+      ]
+    },
+    "R2": {
+      "implementation": "frozen_semantic_encoder_public_pairwise_ridge_head",
+      "query_view": "entity_masked_strip_suffix",
+      "candidates": {
+        "small": {
+          "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+          "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+          "model_manifest_sha256": "7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce",
+          "model_safetensors_sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db"
+        },
+        "upper": {
+          "model_id": "intfloat/e5-base-v2",
+          "revision": "f52bf8ec8c7124536f0efb74aca902b2995e5bcd",
+          "model_manifest_sha256": "65f8d8b336328cad989147d890809c94b8eeba3a5309466d6385aeff03d0a375",
+          "model_safetensors_sha256": "d0d559c47d5f71b1d280b13b62a2657f3e3bc70c0786f9ab91a36545e6a8f693"
+        }
+      }
+    }
+  },
+  "resolved_config_sha256": "1549bb88578f310aac2b0ec230c419823ef9c3b3fe728105c295087dfe5c69f7",
+  "data_sha256": {
+    "public_train_v2": "e808f5461413fec9721d34aadc35a83eaa41bffe96cc7828cdc7aaa127620276",
+    "public_calibration_v2": "0eaa0f41b6c50f26f69862364be8f982ea3bb9149b768628729e31400f722e9e",
+    "public_locked_audit_v2": "17b679d9fee66a738dcccaca3e5b8e391ce729751a6d5fe084c6e4ec8fde8d48"
+  },
+  "review_manifest_sha256": "bf5ee9528fe77469adf81dab8d3b32a8f23a72a665acf2b70dd7bb0035f19394",
+  "selection_protocol": {
+    "selection_split": "public_calibration_v2",
+    "development_used_for_selection": false,
+    "locked_audit_used_for_selection": false,
+    "locked_audit_usage": "not_executed_by_prepare",
+    "router_selection_executed": false
+  },
+  "formal_locked_audit_executed": false,
+  "public_benchmark_human_reviewed": false,
+  "file_count": 12,
+  "files": [
+    {
+      "path": "c24_locked_audit_independent_review.csv",
+      "size_bytes": 50236,
+      "sha256": "a74187c6279753f203508ebc8bec3543b59a5d18062f938703fe9b489d41f1f4"
+    },
+    {
+      "path": "protocol_status.json",
+      "size_bytes": 3974,
+      "sha256": "6164e5bb1af4674b8a5dc325936ab551dceddb8e320bef9816ac769a85d2747a"
+    },
+    {
+      "path": "public_benchmark_manifest.json",
+      "size_bytes": 15994,
+      "sha256": "7977b7a340478da8f3d4a4d8cd08e4ebeb16ae790e7de3808a3a77ce796ed977"
+    },
+    {
+      "path": "public_calibration_v2_manifest.json",
+      "size_bytes": 4230,
+      "sha256": "53404b39f56e0c294a45413feef1cf6cbbeff75a17f540da87c37fc3bcdb80ec"
+    },
+    {
+      "path": "public_calibration_v2_review.csv",
+      "size_bytes": 72026,
+      "sha256": "f8016bdfe493c9847c5c910e1993cd9eb899160e2334be89f425d3455cc27adc"
+    },
+    {
+      "path": "public_locked_audit_v2_manifest.json",
+      "size_bytes": 4233,
+      "sha256": "91899bd2f321085ec0e9687d7b43a7236b0589c1d8d80a4ca037b86d18c663f7"
+    },
+    {
+      "path": "public_locked_audit_v2_review.csv",
+      "size_bytes": 64930,
+      "sha256": "16ed91c8f95e35c238ec29b3b9cedca2aef1126ff05264665f3601ae420f3ece"
+    },
+    {
+      "path": "public_train_v2_manifest.json",
+      "size_bytes": 4168,
+      "sha256": "496e6db9c9a2328f488aaa4287d7c2f0bd5a352f7907c65143c4edf3e5ea02d5"
+    },
+    {
+      "path": "public_train_v2_review.csv",
+      "size_bytes": 26650,
+      "sha256": "a8c8d687497c7befcbc6dd53f37e0a17c9ff185075d083072e8430f4adedbdcb"
+    },
+    {
+      "path": "resolved_config.json",
+      "size_bytes": 28235,
+      "sha256": "e1317831dcb8141ea5d87ed55d54e949a33b236ae7994febf14fcab5033e421c"
+    },
+    {
+      "path": "review_manifest.json",
+      "size_bytes": 5951,
+      "sha256": "bf5ee9528fe77469adf81dab8d3b32a8f23a72a665acf2b70dd7bb0035f19394"
+    },
+    {
+      "path": "stage_c24b_summary.json",
+      "size_bytes": 4456,
+      "sha256": "25cbbde69b4cac4a1673a3861135201f2a213fa841b1aee4e6a71391c5ad8f1c"
+    }
+  ],
+  "manifest_payload_sha256": "e14269e970c89d3c9a76a7903fdfd6d620ea2f94b1853b7795e2cf790445b028"
+}

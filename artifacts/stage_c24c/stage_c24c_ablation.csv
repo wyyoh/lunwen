@@ -1,0 +1,6 @@
+accepted_fact_top1_contract_probe,accepted_route_accuracy,access_to_registry_error_rate,all_query_fact_top1_contract_probe,ambiguous_false_memory_access_rate,ambiguous_rejection_rate,city_to_other_error_rate,cross_relation_candidate_count,false_memory_access_rate,family_macro_accuracy,hard_minimal_pair_accuracy,known_coverage,registry_to_access_error_rate,safe_coverage,unrelated_false_memory_access_rate,unrelated_rejection_rate,variant,worst_family_accuracy,wrong_bucket_access_rate
+0.8020833333333334,0.8020833333333334,0.0,0.8020833333333334,1.0,0.0,0.03125,0,1.0,0.8020833333333334,0.0,1.0,0.25,0.8020833333333334,1.0,0.0,R0,0.0,0.19791666666666666
+0.875,0.875,0.0,0.875,1.0,0.0,0.0,0,1.0,0.875,0.0,1.0,0.375,0.875,1.0,0.0,R1,0.0,0.125
+1.0,1.0,0.0,1.0,1.0,0.0,0.0,0,1.0,1.0,0.0,1.0,0.0,1.0,1.0,0.0,R2,1.0,0.0
+1.0,1.0,0.0,0.9583333333333334,0.125,0.875,0.0,0,0.25,0.9583333333333334,0.0,0.9583333333333334,0.0,0.9583333333333334,0.375,0.625,R3,0.0,0.0
+1.0,1.0,0.0,0.875,0.125,0.875,0.0,0,0.1875,0.875,0.0,0.875,0.0,0.875,0.25,0.75,R4,0.0,0.0

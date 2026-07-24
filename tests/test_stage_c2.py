@@ -59,6 +59,35 @@ def test_structured_sampler_contains_both_hard_negative_types():
     )
 
 
+def test_aligned_structured_sampler_contains_same_template_different_relations():
+    rows = []
+    for entity in ("alice", "bob", "carol", "dave"):
+        for relation in ("city", "code", "registry"):
+            for template in range(3):
+                rows.append(
+                    {
+                        "entity": entity,
+                        "attribute": relation,
+                        "fact_id": f"{entity}|{relation}",
+                        "template_id": f"train-{template}",
+                    }
+                )
+    sampler = StructuredFactBatchSampler(
+        rows,
+        batch_facts=4,
+        templates_per_fact=2,
+        seed=7,
+        aligned_templates=True,
+    )
+    batch = [rows[index] for index in sampler.sample_indices()]
+    templates = {row["template_id"] for row in batch}
+    assert len(templates) == 2
+    for template in templates:
+        subset = [row for row in batch if row["template_id"] == template]
+        assert len({row["attribute"] for row in subset}) == 2
+        assert len({row["entity"] for row in subset}) == 2
+
+
 def test_supervised_contrastive_loss_rewards_fact_clusters():
     labels = torch.tensor([0, 0, 1, 1])
     clustered = torch.tensor([[1.0, 0.0], [0.99, 0.01], [0.0, 1.0], [0.01, 0.99]])
@@ -91,6 +120,35 @@ def test_factorized_canonicalizer_outputs_unit_queries():
     assert output["query"].shape == (5, 4)
     assert torch.allclose(output["query"].norm(dim=-1), torch.ones(5), atol=1e-6)
     assert output["layer_weights"].shape == (3, 3)
+
+
+def test_normalized_gated_fusion_exposes_branch_contributions():
+    config = CanonicalizerConfig(
+        architecture="factorized",
+        num_input_layers=3,
+        core_hidden_size=8,
+        query_dim=4,
+        mlp_hidden_size=12,
+        dropout=0.0,
+        num_entities=4,
+        num_relations=2,
+        num_templates=3,
+        template_adversary_source="relation",
+        normalized_gated_fusion=True,
+    )
+    system = CanonicalizerSystem(config)
+    output = system(torch.randn(5, 3, 3, 8), adversary_strength=1.0)
+    assert torch.allclose(output["entity_unit"].norm(dim=-1), torch.ones(5))
+    assert torch.allclose(output["relation_unit"].norm(dim=-1), torch.ones(5))
+    assert torch.equal(output["template_source"], output["relation_unit"])
+    assert output["fusion_scales"].shape == (3,)
+    assert bool(output["fusion_scales"].gt(0).all())
+    for name in (
+        "entity_contribution",
+        "relation_contribution",
+        "interaction_contribution",
+    ):
+        assert output[name].shape == (5, 4)
 
 
 def test_canonicalizer_checkpoint_round_trip(tmp_path):

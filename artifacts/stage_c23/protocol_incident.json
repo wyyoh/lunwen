@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "stage": "C2.3-public-semantic-encoder-audit",
+  "recorded_date": "2026-07-20",
+  "incident": "local_confirmation_template_selection_read_during_read_only_audit",
+  "scope": {
+    "templates_read": true,
+    "rows_read": false,
+    "private_answers_read": false,
+    "model_evaluation_run": false,
+    "metrics_computed": false
+  },
+  "old_seal": {
+    "path": "artifacts/stage_c21/confirmation_seal.json",
+    "sha256": "3055da6bba43ffd7ef02c487dc7e228afe21389062bc726711dc5899f96de8ec",
+    "status": "retired_compromised_for_future_confirmation"
+  },
+  "access_accounting": {
+    "confirmation_template_read_count": 1,
+    "confirmation_template_access_event_count": 1,
+    "confirmation_template_read_count_unit": "access_event; the number of templates observed is intentionally not recorded",
+    "confirmation_evaluation_count": 0,
+    "confirmation_metric_access_count": 0
+  },
+  "containment": [
+    "stopped all further reads of the retired confirmation files",
+    "excluded the retired confirmation set from C2.3 implementation and selection",
+    "prohibited disclosure or reuse of the observed selected templates",
+    "required a new independent confirmation pool after the C2.3 protocol and selection rule are frozen"
+  ],
+  "c2_3_selection_data": [
+    "public_train",
+    "expanded_public_validation",
+    "private_validation"
+  ],
+  "diagnostic_only_data": [
+    "current_development"
+  ],
+  "new_confirmation_status": "not_created",
+  "notes": "Historical C2.1/C2.2 zero-access claims describe their original runs and are not rewritten. C2.3 must not claim confirmation_access_count=0 for the retired seal."
+}

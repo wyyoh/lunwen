@@ -1,0 +1,55 @@
+schema_version: 1
+status_name: c25_router_research_stop
+effective_after_commit: 2a566cc4ca3a213d6d5135c41225c6e78c572ff9
+
+router_research:
+  selective_router_research_status: stopped_external_validation_failed
+  pairwise_evidence_branch_status: stopped
+  set_valued_ambiguity_branch_status: stopped
+  additional_router_complexity_allowed: false
+  task_specific_router_ready: false
+  exploratory_c3_allowed: false
+  c3_eligible: false
+
+prohibited_followups:
+  - R4_or_R5_router
+  - larger_semantic_encoder
+  - cross_encoder_router
+  - additional_threshold_search
+  - additional_conformal_variant
+  - CLINC150_or_BANKING77_retuning
+  - synthetic_router_benchmark_v2_2_or_later
+  - MASSIVE_router_extension
+  - lowered_coverage_gate
+  - original_C3_with_learned_router_as_authorization_boundary
+
+preserved_findings:
+  typed_memory_contract_structural_isolation: true
+  learned_semantic_router_is_authorization_boundary: false
+  semantic_router_in_trusted_computing_base: false
+  cross_relation_candidate_count: 0
+
+next_architecture:
+  stage: D1
+  name: Trusted Capability Contract
+  natural_language_router_role: untrusted_suggestion_only
+  authorization_mechanism: typed_authenticated_capability
+  private_value_memory_allowed: false
+  lm_answer_injection_allowed: false
+  key_attack_allowed: false
+
+evidence:
+  code_and_result_commit: 2a566cc4ca3a213d6d5135c41225c6e78c572ff9
+  test_results:
+    path: artifacts/stage_c25/test_results.json
+    sha256: 4dc177a1dec97533e86273405dece626828f055eb159b35e530079859ceaca99
+  protocol_status:
+    path: artifacts/stage_c25/protocol_status.json
+    sha256: ca798c81b05749f2f6430a39cb5b063fdddfe3c1db199204c5b39ba77c90ea35
+  report:
+    path: PHASE_C25_REPORT.md
+    sha256: d226d2ed1571f7b2ac6ee761988641fbbe115e282c6f2e10e00fae333ab20efa
+  artifact_manifest:
+    path: artifacts/stage_c25/artifact_sha256_manifest.json
+    sha256: e23b75cf12d5b02e076b23756425552090b3858d0fa163967c8af79ea8d15cee
+

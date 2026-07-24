@@ -1,0 +1,13 @@
+schema_version: 1
+stage: C2.4-discrete-relation-contract-audit-smoke
+extends: configs/stage_c24.yaml
+
+run:
+  mode: smoke
+  batch_size: 32
+  embedding_cache_dir: artifacts/stage_c24_smoke/embedding_cache
+
+benchmark:
+  public_data_dir: data/stage_c24_smoke
+  manifest: artifacts/stage_c24_smoke/public_benchmark_manifest.json
+  review_csv: artifacts/stage_c24_smoke/public_locked_audit_review.csv

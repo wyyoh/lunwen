@@ -1,0 +1,17 @@
+{
+  "audit_id": "c24b-v21-single-ai-semantic-audit-2026-07-22",
+  "audit_spec_sha256": "5140cd602e47ce4a723f68ac1dd64b245bc9e67d8dcfe4748e52b9af6c0f67ca",
+  "benchmark_config_sha256": "10e1a3ed9d7b0914d988ede695a2c9df81cba36eab783565bdc4e45531a5f62f",
+  "benchmark_manifest_sha256": "2c5815e43730a4900f1944fa7a59d28b21aef55ffed930df8722d22fcac4c2c2",
+  "different_audit_spec_retry_allowed": false,
+  "manifest_payload_sha256": "88978343b0f4ed99d8d456a816c6fd1d72dfacb96068a41ca819d904825ef326",
+  "prompt_sha256": "39e796137f8adddcc2878514cb0069fadbd69cdf1c10e12e6966bc11678ecacc",
+  "review_output_sha256": {
+    "public_calibration_v2_1": "a8af23cabc26d526c936b83b117c080090554728b11cf71d45c53bf99c755187",
+    "public_locked_audit_v2_1": "d069bab43c25967fce6d45e79b1a9672237d9218cdf2d53f88fc6a50d5ec8795",
+    "public_train_v2_1": "ad954a3240d2d947e2f6e314257a6fcce107813f23a6dec879f340615aa534cf"
+  },
+  "schema_version": 1,
+  "stage": "C2.4b-v2.1-ai-only-selective-router-benchmark",
+  "status": "validated_attempt_started"
+}

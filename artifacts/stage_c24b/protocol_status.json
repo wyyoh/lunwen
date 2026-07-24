@@ -1,0 +1,89 @@
+{
+  "schema_version": 2,
+  "stage": "C2.4b-selective-discrete-relation-router",
+  "private_value_memory_trained": false,
+  "private_answers_loaded": false,
+  "lm_answer_injection_executed": false,
+  "bounded_orthogonal_injection_executed": false,
+  "key_or_attack_experiments_run": false,
+  "confirmation_created_or_read": false,
+  "old_c24_locked_audit_used_for_selection": false,
+  "development_used_for_selection": false,
+  "locked_audit_used_for_selection": false,
+  "public_benchmark_human_reviewed": false,
+  "calibration_executed": false,
+  "development_executed_once": false,
+  "formal_locked_audit_executed": false,
+  "new_confirmation_pool_created_after_freeze": false,
+  "c3_eligible": false,
+  "status": "prepared_waiting_for_independent_human_review",
+  "resolved_config_sha256": "1549bb88578f310aac2b0ec230c419823ef9c3b3fe728105c295087dfe5c69f7",
+  "legacy_c24_negative_result_unchanged": true,
+  "legacy_c24_readiness_changed_by_review": false,
+  "fixed_source_hashes_verified_before_prepare": {
+    "stage_c23_config": "dbc37bf59de64cdf0f2e2f59c3f34067e3f3d98e2213704938319216c1564067",
+    "stage_c24_config": "ff50656a0f3a0e3f69241b56a635a9e7627f18636bad5c70d9cc194a3ecf801e",
+    "protocol_incident": "eeb73a0b946f143d60120b88a72dfbb593f942e7bada46b2ca8df4373f5725cf"
+  },
+  "git": {
+    "commit": "fec7b232cea863c2df814914e2e02c6400efaaf4",
+    "dirty": false
+  },
+  "model_revisions": {
+    "R0": {
+      "model_id": "BAAI/bge-small-en-v1.5",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "model_manifest_sha256": "36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170",
+      "model_safetensors_sha256": "3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad",
+      "frozen_head_sha256": "808d8182ca3b1dbc957fc227bd3038fe59cf920aa2bdf72a0e3669b1ca880a22",
+      "query_view": "entity_masked_strip_suffix"
+    },
+    "R1": {
+      "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "model_manifest_sha256": "7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce",
+      "model_safetensors_sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+      "query_view": "entity_masked_strip_suffix",
+      "aggregations": [
+        "mean",
+        "max",
+        "top_k_mean"
+      ],
+      "top_k_values": [
+        2,
+        3
+      ]
+    },
+    "R2": {
+      "implementation": "frozen_semantic_encoder_public_pairwise_ridge_head",
+      "query_view": "entity_masked_strip_suffix",
+      "candidates": {
+        "small": {
+          "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+          "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+          "model_manifest_sha256": "7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce",
+          "model_safetensors_sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db"
+        },
+        "upper": {
+          "model_id": "intfloat/e5-base-v2",
+          "revision": "f52bf8ec8c7124536f0efb74aca902b2995e5bcd",
+          "model_manifest_sha256": "65f8d8b336328cad989147d890809c94b8eeba3a5309466d6385aeff03d0a375",
+          "model_safetensors_sha256": "d0d559c47d5f71b1d280b13b62a2657f3e3bc70c0786f9ab91a36545e6a8f693"
+        }
+      }
+    }
+  },
+  "data_sha256": {
+    "public_train_v2": "e808f5461413fec9721d34aadc35a83eaa41bffe96cc7828cdc7aaa127620276",
+    "public_calibration_v2": "0eaa0f41b6c50f26f69862364be8f982ea3bb9149b768628729e31400f722e9e",
+    "public_locked_audit_v2": "17b679d9fee66a738dcccaca3e5b8e391ce729751a6d5fe084c6e4ec8fde8d48"
+  },
+  "review_manifest_sha256": "bf5ee9528fe77469adf81dab8d3b32a8f23a72a665acf2b70dd7bb0035f19394",
+  "selection_protocol": {
+    "selection_split": "public_calibration_v2",
+    "development_used_for_selection": false,
+    "locked_audit_used_for_selection": false,
+    "locked_audit_usage": "not_executed_by_prepare",
+    "router_selection_executed": false
+  }
+}

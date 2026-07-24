@@ -26,10 +26,19 @@ class CanonicalizerConfig:
     num_entities: int = 16
     num_relations: int = 3
     num_templates: int = 6
+    template_adversary_source: str = "query"
+    normalized_gated_fusion: bool = False
 
     def validate(self) -> None:
         if self.architecture not in {"joint", "factorized"}:
             raise ValueError("architecture must be joint or factorized")
+        if self.template_adversary_source not in {"query", "relation"}:
+            raise ValueError("template_adversary_source must be query or relation")
+        if (
+            self.template_adversary_source == "relation"
+            and self.architecture != "factorized"
+        ):
+            raise ValueError("relation template adversary needs factorized architecture")
         for name in (
             "num_input_layers",
             "core_hidden_size",
@@ -70,6 +79,7 @@ class QueryCanonicalizer(nn.Module):
             self.entity_projection = None
             self.relation_projection = None
             self.interaction_projection = None
+            self.register_parameter("fusion_log_scales", None)
         else:
             self.joint = None
             self.entity_encoder = nn.Sequential(
@@ -87,6 +97,10 @@ class QueryCanonicalizer(nn.Module):
             self.entity_projection = nn.Linear(query, query, bias=False)
             self.relation_projection = nn.Linear(query, query, bias=False)
             self.interaction_projection = nn.Linear(query, query, bias=False)
+            if config.normalized_gated_fusion:
+                self.fusion_log_scales = nn.Parameter(torch.zeros(3))
+            else:
+                self.register_parameter("fusion_log_scales", None)
 
     def mixed_pools(self, features: Tensor) -> Tensor:
         if features.ndim != 4:
@@ -122,17 +136,49 @@ class QueryCanonicalizer(nn.Module):
             relation = self.relation_encoder(
                 torch.cat([pools[:, 1], pools[:, 2]], dim=-1)
             )
-            raw_query = (
-                self.entity_projection(entity)
-                + self.relation_projection(relation)
-                + self.interaction_projection(entity * relation)
+            entity_unit = F.normalize(entity, dim=-1)
+            relation_unit = F.normalize(relation, dim=-1)
+            if self.config.normalized_gated_fusion:
+                fusion_entity = entity_unit
+                fusion_relation = relation_unit
+                assert self.fusion_log_scales is not None
+                fusion_scales = self.fusion_log_scales.exp()
+            else:
+                fusion_entity = entity
+                fusion_relation = relation
+                fusion_scales = torch.ones(3, device=entity.device)
+            entity_contribution = fusion_scales[0] * self.entity_projection(
+                fusion_entity
             )
-        return {
+            relation_contribution = fusion_scales[1] * self.relation_projection(
+                fusion_relation
+            )
+            interaction_contribution = fusion_scales[2] * self.interaction_projection(
+                fusion_entity * fusion_relation
+            )
+            raw_query = (
+                entity_contribution
+                + relation_contribution
+                + interaction_contribution
+            )
+        output = {
             "query": F.normalize(raw_query, dim=-1),
             "entity": entity,
             "relation": relation,
             "layer_weights": self.layer_logits.softmax(dim=-1),
         }
+        if self.config.architecture == "factorized":
+            output.update(
+                {
+                    "entity_unit": entity_unit,
+                    "relation_unit": relation_unit,
+                    "entity_contribution": entity_contribution,
+                    "relation_contribution": relation_contribution,
+                    "interaction_contribution": interaction_contribution,
+                    "fusion_scales": fusion_scales,
+                }
+            )
+        return output
 
 
 class CanonicalizerSystem(nn.Module):
@@ -151,15 +197,21 @@ class CanonicalizerSystem(nn.Module):
         # The joint Q1 baseline has no query-sized branch latents, so its unused
         # auxiliary heads remain attached to the final query for shape stability.
         if self.config.architecture == "factorized":
-            relation_source = F.normalize(output["relation"], dim=-1)
-            entity_source = F.normalize(output["entity"], dim=-1)
+            relation_source = output["relation_unit"]
+            entity_source = output["entity_unit"]
         else:
             relation_source = query
             entity_source = query
         output["relation_logits"] = self.relation_head(relation_source)
         output["entity_logits"] = self.entity_head(entity_source)
+        template_source = (
+            relation_source
+            if self.config.template_adversary_source == "relation"
+            else query
+        )
+        output["template_source"] = template_source
         output["template_logits"] = self.template_head(
-            gradient_reverse(query, adversary_strength)
+            gradient_reverse(template_source, adversary_strength)
         )
         return output
 
@@ -209,6 +261,7 @@ class StructuredFactBatchSampler:
         batch_facts: int,
         templates_per_fact: int,
         seed: int,
+        aligned_templates: bool = False,
     ) -> None:
         if batch_facts < 4 or batch_facts % 2:
             raise ValueError("batch_facts must be an even number of at least four")
@@ -216,12 +269,19 @@ class StructuredFactBatchSampler:
             raise ValueError("templates_per_fact must be at least two")
         self.batch_facts = batch_facts
         self.templates_per_fact = templates_per_fact
+        self.aligned_templates = bool(aligned_templates)
         self.rng = np.random.default_rng(seed)
         self.by_entity_relation: dict[tuple[str, str], list[int]] = {}
+        self.by_fact_template: dict[tuple[str, str], dict[str, int]] = {}
         grouped: dict[tuple[str, str], list[int]] = {}
         for index, row in enumerate(rows):
             key = (str(row["entity"]), str(row["attribute"]))
             grouped.setdefault(key, []).append(index)
+            template = str(row["template_id"])
+            by_template = self.by_fact_template.setdefault(key, {})
+            if template in by_template:
+                raise ValueError("a fact contains a duplicate template ID")
+            by_template[template] = index
         if any(len(indices) < templates_per_fact for indices in grouped.values()):
             raise ValueError("a fact has too few templates for a structured batch")
         self.by_entity_relation = grouped
@@ -236,18 +296,40 @@ class StructuredFactBatchSampler:
             available = {relation for current, relation in grouped if current == entity}
             if set(self.relations).difference(available):
                 raise ValueError("every entity must expose the same relation set")
+        common_templates = set.intersection(
+            *(set(values) for values in self.by_fact_template.values())
+        )
+        self.common_templates = sorted(common_templates)
+        if self.aligned_templates and len(self.common_templates) < templates_per_fact:
+            raise ValueError(
+                "aligned structured batches need shared template IDs across facts"
+            )
 
     def sample_indices(self) -> list[int]:
         entity_count = self.batch_facts // 2
         entities = self.rng.choice(self.entities, size=entity_count, replace=False)
         relations = self.rng.choice(self.relations, size=2, replace=False)
+        aligned = None
+        if self.aligned_templates:
+            aligned = self.rng.choice(
+                self.common_templates,
+                size=self.templates_per_fact,
+                replace=False,
+            )
         indices: list[int] = []
         for entity in entities:
             for relation in relations:
-                candidates = self.by_entity_relation[(str(entity), str(relation))]
-                selected = self.rng.choice(
-                    candidates, size=self.templates_per_fact, replace=False
-                )
+                key = (str(entity), str(relation))
+                if aligned is None:
+                    candidates = self.by_entity_relation[key]
+                    selected = self.rng.choice(
+                        candidates, size=self.templates_per_fact, replace=False
+                    )
+                else:
+                    selected = [
+                        self.by_fact_template[key][str(template)]
+                        for template in aligned
+                    ]
                 indices.extend(int(value) for value in selected)
         return indices
 

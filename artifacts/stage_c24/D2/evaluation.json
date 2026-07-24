@@ -1,0 +1,467 @@
+{
+  "schema_version": 1,
+  "stage": "C2.4-discrete-relation-contract-audit",
+  "provenance": {
+    "schema_version": 1,
+    "git": {
+      "commit": "86e81c3ee466fd2c13a0396bf9ffaa70d3bc45cb",
+      "dirty": false
+    },
+    "environment": {
+      "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "packages": {
+        "torch": "2.12.0+cu130",
+        "numpy": "2.2.6",
+        "PyYAML": "6.0.3",
+        "tqdm": "4.68.4",
+        "huggingface_hub": "1.23.0",
+        "datasets": "5.0.0",
+        "transformers": "5.13.1"
+      },
+      "torch_cuda_runtime": "13.0",
+      "cudnn_version": 92000,
+      "device": "cuda",
+      "dtype": "torch.float32",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+        "compute_capability": [
+          12,
+          0
+        ],
+        "total_memory_bytes": 8546484224,
+        "bf16_supported": true
+      },
+      "upstream_commit": "d07d62e9869c6a969a2306e755aba7a742c317fd"
+    },
+    "model": {
+      "id": "BAAI/bge-small-en-v1.5",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "manifest_sha256": "36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170",
+      "observed_manifest_sha256": "36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170"
+    },
+    "models": {
+      "S5_relation_head_encoder": {
+        "id": "BAAI/bge-small-en-v1.5",
+        "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+        "manifest_sha256": "36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170",
+        "observed_manifest_sha256": "36890fe5bc3f12bef855640e0061d20e2306441eb35df874d4a0812e57f66170"
+      },
+      "G3_definition_encoder": {
+        "id": "sentence-transformers/all-MiniLM-L6-v2",
+        "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "manifest_sha256": "7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce",
+        "observed_manifest_sha256": "7ebdaa89c925b7d74093aefb63af4b0d137d2cc8a8e35ede8ee35f8ceb0040ce",
+        "view": "phrase_only"
+      }
+    },
+    "config": {
+      "source_files": [
+        "configs\\stage_c24.yaml"
+      ],
+      "source_sha256": {
+        "configs\\stage_c24.yaml": "ff50656a0f3a0e3f69241b56a635a9e7627f18636bad5c70d9cc194a3ecf801e"
+      },
+      "resolved_config_sha256": "c8650377374c6c7ffcac573a34cdb02b3272122aeb457c6410179f183fc2ef79"
+    },
+    "data_sha256": {
+      "public": {
+        "public_train": "da5745cd2db65a3451a12a543a28276beac89134e19661350b07630630e347a3",
+        "public_calibration": "67eadc92bf0ce9b7bf51fa7c3e639fd546ad638b9fed01c60b0923bbb28e601b",
+        "public_locked_audit": "45f3253a477eddf83b321266b5b7b57597c99ee3960159dc2be1a56fb6615cb3"
+      },
+      "private_answer_free_cache": "8c7ef93bcbc335be772c5f4a3f172e99741b1dac756026eb503250d66e582e4a",
+      "entity_checkpoint": "09c74409cee941391ed7aaec1df8764219ecdf8b83f027a0d8980679b3399419",
+      "fixed_ridge_head": "808d8182ca3b1dbc957fc227bd3038fe59cf920aa2bdf72a0e3669b1ca880a22",
+      "protocol_incident": "eeb73a0b946f143d60120b88a72dfbb593f942e7bada46b2ca8df4373f5725cf"
+    },
+    "seed": 2401
+  },
+  "evaluation": {
+    "variant": "D2",
+    "contract": "exact_relation_bucket_retrieval",
+    "route_metrics": {
+      "public_train": {
+        "relation_micro_accuracy": 1.0,
+        "relation_family_macro_accuracy": 1.0,
+        "worst_family_accuracy": 1.0,
+        "num_families": 18,
+        "per_family_accuracy": {
+          "train_access_code": 1.0,
+          "train_access_credential": 1.0,
+          "train_account_unlock_secret": 1.0,
+          "train_city_code": 1.0,
+          "train_entry_passcode": 1.0,
+          "train_geographic_area_identifier": 1.0,
+          "train_locality_code": 1.0,
+          "train_municipal_id": 1.0,
+          "train_municipality_identifier": 1.0,
+          "train_official_record_id": 1.0,
+          "train_recordkeeping_identifier": 1.0,
+          "train_register_entry_number": 1.0,
+          "train_registration_identifier": 1.0,
+          "train_registry_number": 1.0,
+          "train_registry_serial": 1.0,
+          "train_secure_login_credential": 1.0,
+          "train_service_password": 1.0,
+          "train_urban_area_code": 1.0
+        },
+        "confusion_matrix": {
+          "class_order": [
+            "access_code",
+            "city_code",
+            "registry_id"
+          ],
+          "rows": "target",
+          "columns": "prediction",
+          "matrix": [
+            [
+              18,
+              0,
+              0
+            ],
+            [
+              0,
+              18,
+              0
+            ],
+            [
+              0,
+              0,
+              18
+            ]
+          ]
+        },
+        "same_family_cross_frame_route_agreement": {
+          "macro_agreement": 1.0,
+          "pair_weighted_agreement": 1.0,
+          "num_cross_unit_pairs": 54,
+          "per_group_agreement": {
+            "train_access_code": 1.0,
+            "train_access_credential": 1.0,
+            "train_account_unlock_secret": 1.0,
+            "train_city_code": 1.0,
+            "train_entry_passcode": 1.0,
+            "train_geographic_area_identifier": 1.0,
+            "train_locality_code": 1.0,
+            "train_municipal_id": 1.0,
+            "train_municipality_identifier": 1.0,
+            "train_official_record_id": 1.0,
+            "train_recordkeeping_identifier": 1.0,
+            "train_register_entry_number": 1.0,
+            "train_registration_identifier": 1.0,
+            "train_registry_number": 1.0,
+            "train_registry_serial": 1.0,
+            "train_secure_login_credential": 1.0,
+            "train_service_password": 1.0,
+            "train_urban_area_code": 1.0
+          }
+        },
+        "same_relation_cross_phrase_family_route_agreement": {
+          "macro_agreement": 1.0,
+          "pair_weighted_agreement": 1.0,
+          "num_cross_unit_pairs": 405,
+          "per_group_agreement": {
+            "access_code": 1.0,
+            "city_code": 1.0,
+            "registry_id": 1.0
+          }
+        }
+      },
+      "public_calibration": {
+        "relation_micro_accuracy": 1.0,
+        "relation_family_macro_accuracy": 1.0,
+        "worst_family_accuracy": 1.0,
+        "num_families": 18,
+        "per_family_accuracy": {
+          "calibration_administrative_area_id": 1.0,
+          "calibration_filing_reference": 1.0,
+          "calibration_local_government_identifier": 1.0,
+          "calibration_local_jurisdiction_number": 1.0,
+          "calibration_lock_screen_code": 1.0,
+          "calibration_named_locality_code": 1.0,
+          "calibration_named_municipality_code": 1.0,
+          "calibration_populated_place_identifier": 1.0,
+          "calibration_protected_account_password": 1.0,
+          "calibration_recordkeeping_index": 1.0,
+          "calibration_records_office_id": 1.0,
+          "calibration_registry_database_number": 1.0,
+          "calibration_registry_entry_serial": 1.0,
+          "calibration_registry_official_identifier": 1.0,
+          "calibration_required_credential": 1.0,
+          "calibration_resource_authentication_secret": 1.0,
+          "calibration_service_unlock_passcode": 1.0,
+          "calibration_subject_signon_secret": 1.0
+        },
+        "confusion_matrix": {
+          "class_order": [
+            "access_code",
+            "city_code",
+            "registry_id"
+          ],
+          "rows": "target",
+          "columns": "prediction",
+          "matrix": [
+            [
+              18,
+              0,
+              0
+            ],
+            [
+              0,
+              18,
+              0
+            ],
+            [
+              0,
+              0,
+              18
+            ]
+          ]
+        },
+        "same_family_cross_frame_route_agreement": {
+          "macro_agreement": 1.0,
+          "pair_weighted_agreement": 1.0,
+          "num_cross_unit_pairs": 54,
+          "per_group_agreement": {
+            "calibration_administrative_area_id": 1.0,
+            "calibration_filing_reference": 1.0,
+            "calibration_local_government_identifier": 1.0,
+            "calibration_local_jurisdiction_number": 1.0,
+            "calibration_lock_screen_code": 1.0,
+            "calibration_named_locality_code": 1.0,
+            "calibration_named_municipality_code": 1.0,
+            "calibration_populated_place_identifier": 1.0,
+            "calibration_protected_account_password": 1.0,
+            "calibration_recordkeeping_index": 1.0,
+            "calibration_records_office_id": 1.0,
+            "calibration_registry_database_number": 1.0,
+            "calibration_registry_entry_serial": 1.0,
+            "calibration_registry_official_identifier": 1.0,
+            "calibration_required_credential": 1.0,
+            "calibration_resource_authentication_secret": 1.0,
+            "calibration_service_unlock_passcode": 1.0,
+            "calibration_subject_signon_secret": 1.0
+          }
+        },
+        "same_relation_cross_phrase_family_route_agreement": {
+          "macro_agreement": 1.0,
+          "pair_weighted_agreement": 1.0,
+          "num_cross_unit_pairs": 405,
+          "per_group_agreement": {
+            "access_code": 1.0,
+            "city_code": 1.0,
+            "registry_id": 1.0
+          }
+        }
+      },
+      "public_locked_audit": {
+        "relation_micro_accuracy": 0.8194444444444444,
+        "relation_family_macro_accuracy": 0.8194444444444444,
+        "worst_family_accuracy": 0.25,
+        "num_families": 18,
+        "per_family_accuracy": {
+          "locked_account_opening_secret_phrase": 0.5,
+          "locked_archival_accession_locator": 0.75,
+          "locked_authorization_challenge_token": 0.75,
+          "locked_civic_locality_marker": 1.0,
+          "locked_enrollment_roll_marker": 0.75,
+          "locked_enrolment_folio_marker": 0.75,
+          "locked_filing_ledger_locator": 0.75,
+          "locked_guarded_service_signin_value": 0.25,
+          "locked_institutional_catalog_token": 0.75,
+          "locked_metropolitan_locale_designation": 1.0,
+          "locked_municipal_zone_designation": 1.0,
+          "locked_protected_entry_authenticator": 1.0,
+          "locked_restricted_entry_credential": 1.0,
+          "locked_secure_resource_admission_token": 1.0,
+          "locked_settlement_area_tag": 0.75,
+          "locked_statutory_roster_reference": 0.75,
+          "locked_township_geography_reference": 1.0,
+          "locked_urban_jurisdiction_locator": 1.0
+        },
+        "confusion_matrix": {
+          "class_order": [
+            "access_code",
+            "city_code",
+            "registry_id"
+          ],
+          "rows": "target",
+          "columns": "prediction",
+          "matrix": [
+            [
+              18,
+              0,
+              6
+            ],
+            [
+              0,
+              23,
+              1
+            ],
+            [
+              6,
+              0,
+              18
+            ]
+          ]
+        },
+        "same_family_cross_frame_route_agreement": {
+          "macro_agreement": 0.7129629629629629,
+          "pair_weighted_agreement": 0.7129629629629629,
+          "num_cross_unit_pairs": 108,
+          "per_group_agreement": {
+            "locked_account_opening_secret_phrase": 0.3333333333333333,
+            "locked_archival_accession_locator": 0.5,
+            "locked_authorization_challenge_token": 0.5,
+            "locked_civic_locality_marker": 1.0,
+            "locked_enrollment_roll_marker": 0.5,
+            "locked_enrolment_folio_marker": 0.5,
+            "locked_filing_ledger_locator": 0.5,
+            "locked_guarded_service_signin_value": 0.5,
+            "locked_institutional_catalog_token": 0.5,
+            "locked_metropolitan_locale_designation": 1.0,
+            "locked_municipal_zone_designation": 1.0,
+            "locked_protected_entry_authenticator": 1.0,
+            "locked_restricted_entry_credential": 1.0,
+            "locked_secure_resource_admission_token": 1.0,
+            "locked_settlement_area_tag": 0.5,
+            "locked_statutory_roster_reference": 0.5,
+            "locked_township_geography_reference": 1.0,
+            "locked_urban_jurisdiction_locator": 1.0
+          }
+        },
+        "same_relation_cross_phrase_family_route_agreement": {
+          "macro_agreement": 0.7111111111111111,
+          "pair_weighted_agreement": 0.7111111111111111,
+          "num_cross_unit_pairs": 720,
+          "per_group_agreement": {
+            "access_code": 0.5916666666666667,
+            "city_code": 0.9166666666666666,
+            "registry_id": 0.625
+          }
+        }
+      },
+      "private_validation": {
+        "relation_accuracy": 1.0,
+        "num_rows": 96,
+        "class_order": [
+          "access_code",
+          "city_code",
+          "registry_id"
+        ]
+      },
+      "development": {
+        "relation_accuracy": 0.9166666666666666,
+        "num_rows": 192,
+        "class_order": [
+          "access_code",
+          "city_code",
+          "registry_id"
+        ]
+      }
+    },
+    "fact_retrieval": {
+      "validation": {
+        "summary": {
+          "fact_centroid_top1": 0.9375,
+          "row_1nn": 0.9375,
+          "mrr": 0.9609375,
+          "mean_centroid_margin": 0.28741290668646496,
+          "fact_silhouette": 0.7966696818669637,
+          "fact_over_template_margin": 0.7951528156797091,
+          "entity_probe": 0.9479166865348816,
+          "oracle_gap": 0.0
+        },
+        "retrieval": {
+          "num_database_facts": 48,
+          "num_queries": 96,
+          "centroid_top1_accuracy": 0.9375,
+          "row_1nn_accuracy": 0.9375,
+          "centroid_mrr": 0.9609375,
+          "mean_centroid_margin": 0.28741290668646496,
+          "mean_true_centroid_similarity": 0.9072786647205552,
+          "mean_best_wrong_centroid_similarity": 0.6198657580340902,
+          "misrouted_query_count": 0,
+          "misrouted_query_rate": 0.0,
+          "memory_access_count": 96,
+          "candidate_count_min": 16,
+          "candidate_count_max": 16,
+          "cross_relation_candidate_count": 0
+        },
+        "geometry": {
+          "scope": "evaluation_only_true_relation_partitions_outside_memory_contract",
+          "fact_silhouette": 0.7966696818669637,
+          "fact_over_template_margin": 0.7951528156797091,
+          "per_relation_fact_silhouette": {
+            "registry_id": 0.785990834236145,
+            "city_code": 0.817764163017273,
+            "access_code": 0.7862540483474731
+          },
+          "per_relation_fact_over_template_margin": {
+            "registry_id": 0.7944977581501007,
+            "city_code": 0.8385819792747498,
+            "access_code": 0.7523787096142769
+          }
+        }
+      },
+      "development": {
+        "summary": {
+          "fact_centroid_top1": 0.8385416666666666,
+          "row_1nn": 0.84375,
+          "mrr": 0.8697916666666666,
+          "mean_centroid_margin": 0.1046707893256098,
+          "fact_silhouette": 0.7302983403205872,
+          "fact_over_template_margin": 0.7455816492438316,
+          "entity_probe": 0.9427083134651184,
+          "oracle_gap": 0.07291666666666674
+        },
+        "retrieval": {
+          "num_database_facts": 48,
+          "num_queries": 192,
+          "centroid_top1_accuracy": 0.8385416666666666,
+          "row_1nn_accuracy": 0.84375,
+          "centroid_mrr": 0.8697916666666666,
+          "mean_centroid_margin": 0.1046707893256098,
+          "mean_true_centroid_similarity": 0.7399781395215541,
+          "mean_best_wrong_centroid_similarity": 0.6353073501959443,
+          "misrouted_query_count": 16,
+          "misrouted_query_rate": 0.08333333333333333,
+          "memory_access_count": 192,
+          "candidate_count_min": 16,
+          "candidate_count_max": 16,
+          "cross_relation_candidate_count": 0
+        },
+        "geometry": {
+          "scope": "evaluation_only_true_relation_partitions_outside_memory_contract",
+          "fact_silhouette": 0.7302983403205872,
+          "fact_over_template_margin": 0.7455816492438316,
+          "per_relation_fact_silhouette": {
+            "registry_id": 0.7443077564239502,
+            "city_code": 0.7410710453987122,
+            "access_code": 0.7055162191390991
+          },
+          "per_relation_fact_over_template_margin": {
+            "registry_id": 0.7803087159991264,
+            "city_code": 0.7544952929019928,
+            "access_code": 0.7019409388303757
+          }
+        }
+      }
+    },
+    "contract_metrics": {
+      "continuous_relation_values_exposed_to_memory": false,
+      "confidence_exposed_to_memory": false,
+      "semantic_embedding_exposed_to_memory": false,
+      "raw_text_exposed_to_memory": false,
+      "phrase_family_exposed_to_memory": false,
+      "cross_relation_candidate_count": 0,
+      "rejected_query_memory_access_count": 0,
+      "memory_input_fields": [
+        "entity_embedding",
+        "relation_id"
+      ],
+      "bucket_mapping_entries_visible_per_call": 1
+    }
+  }
+}

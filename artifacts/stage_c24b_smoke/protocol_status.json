@@ -1,0 +1,74 @@
+{
+  "schema_version": 2,
+  "stage": "C2.4b-selective-discrete-relation-router",
+  "private_value_memory_trained": false,
+  "private_answers_loaded": false,
+  "lm_answer_injection_executed": false,
+  "bounded_orthogonal_injection_executed": false,
+  "key_or_attack_experiments_run": false,
+  "confirmation_created_or_read": false,
+  "old_c24_locked_audit_used_for_selection": false,
+  "development_used_for_selection": false,
+  "locked_audit_used_for_selection": false,
+  "public_benchmark_human_reviewed": false,
+  "calibration_executed": false,
+  "development_executed_once": false,
+  "formal_locked_audit_executed": false,
+  "new_confirmation_pool_created_after_freeze": false,
+  "c3_eligible": false,
+  "status": "smoke_completed_formal_readiness_not_assessed",
+  "smoke_synthetic_audit_executed": true,
+  "formal_readiness_assessed": false,
+  "git": {
+    "commit": "fe1d625b0da6173af7bd9c2ebd8b37a545fde13b",
+    "branch": "agent/stage-c21",
+    "dirty": true
+  },
+  "model_metadata": {
+    "mode": "synthetic_no_external_model_load",
+    "configured_candidates": {
+      "R0": {
+        "implementation": "synthetic_frozen_argmax"
+      },
+      "R1": {
+        "implementation": "synthetic_definition_ensemble",
+        "query_view": "synthetic_mock"
+      },
+      "R2": {
+        "implementation": "synthetic_public_pairwise_ridge_evidence",
+        "query_view": "synthetic_mock",
+        "candidates": {
+          "small": {
+            "model_id": "synthetic-small",
+            "revision": "smoke-v1",
+            "file_sha256": "synthetic"
+          },
+          "upper": {
+            "model_id": "synthetic-upper",
+            "revision": "smoke-v1",
+            "file_sha256": "synthetic"
+          }
+        }
+      }
+    },
+    "model_revision": "smoke-v1",
+    "model_file_sha256": "synthetic-fixture-no-file"
+  },
+  "resolved_config_sha256": "0cae2384c715c9c472ba8b2a5023e808c8b31895a6e8b9ff2765bb06c143520c",
+  "data_sha256": {
+    "public_train_v2": "60479b409bd881dccdfd7cd2b418c470197397a339d558db273008a03893ce67",
+    "public_calibration_v2": "da6f6eb830e9103bc324157eaf908d83f44520286804a030e8b281e6ecf2ccd1",
+    "public_locked_audit_v2": "185d3dd0bed7c4546dd3d7602a853151e775f6b8ae63532d24358b5d1238e496"
+  },
+  "review_manifest_sha256": null,
+  "selection_protocol": {
+    "selection_split": "public_calibration_v2",
+    "development_used_for_selection": false,
+    "locked_audit_used_for_selection": false,
+    "parameters_frozen_before_synthetic_locked_evaluation": true
+  },
+  "closed_set_selective_router_ready": false,
+  "open_set_abstention_ready": false,
+  "discrete_memory_contract_preserved": true,
+  "ready_to_create_new_confirmation_pool": false
+}

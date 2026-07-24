@@ -1,0 +1,19 @@
+{
+  "answer_injection_executed": false,
+  "c3_eligible": false,
+  "confirmation_created_or_read": false,
+  "exploratory_c3_allowed": false,
+  "external_oos_validation_status": "failed",
+  "external_pairwise_evidence_validated": false,
+  "external_selective_abstention_validated": false,
+  "key_attack_executed": false,
+  "labels_modified": false,
+  "private_answers_loaded": false,
+  "private_value_memory_trained": false,
+  "schema_version": 1,
+  "stage": "C2.5-external-oos-generalization-audit",
+  "synthetic_oos_used": false,
+  "task_specific_router_ready": false,
+  "test_predictions_executed": true,
+  "test_used_for_selection": false
+}

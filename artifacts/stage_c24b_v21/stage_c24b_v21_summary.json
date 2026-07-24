@@ -1,0 +1,98 @@
+{
+  "ai_only_exploratory_calibration_allowed": true,
+  "ai_only_exploratory_calibration_executed": false,
+  "ai_only_exploratory_locked_diagnostic_allowed": true,
+  "ai_only_exploratory_locked_diagnostic_executed": false,
+  "ai_review_manifest_sha256": "f7ce933cab973fcdc99deca57011317e2ba36517ec7934c8e07a0a85d784b5af",
+  "ai_review_provenance_complete": false,
+  "ai_review_status": "completed_with_declared_boundaries_exploratory_non_independent",
+  "answer_injection_executed": false,
+  "c3_eligible": false,
+  "confirmation_created_or_read": false,
+  "design_quality": {
+    "combined": {
+      "ambiguous_explicit_shortcut_count": 0,
+      "ambiguous_explicit_shortcut_rate": 0.0,
+      "ambiguous_family_count": 16,
+      "ambiguous_shortcut_gate_maximum": 0.0,
+      "hard_unrelated_carrier_gate_minimum": 0.75,
+      "hard_unrelated_family_count": 16,
+      "hard_unrelated_shared_carrier_count": 16,
+      "hard_unrelated_shared_carrier_rate": 1.0,
+      "passed": true
+    },
+    "public_calibration_v2_1": {
+      "ambiguous_explicit_shortcut_count": 0,
+      "ambiguous_explicit_shortcut_rate": 0.0,
+      "ambiguous_family_count": 8,
+      "ambiguous_without_explicit_shortcut_count": 8,
+      "hard_unrelated_family_ids": [
+        "v21_cal_unrelated_warehouse_locator_code",
+        "v21_cal_unrelated_payment_authorization_amount",
+        "v21_cal_unrelated_software_enrollment_date",
+        "v21_cal_unrelated_product_key_language",
+        "v21_cal_unrelated_document_access_timestamp",
+        "v21_cal_unrelated_customer_identifier_format",
+        "v21_cal_unrelated_security_token_policy",
+        "v21_cal_unrelated_map_reference_scale"
+      ],
+      "hard_unrelated_shared_carrier_count": 8,
+      "hard_unrelated_shared_carrier_rate": 1.0,
+      "shortcut_family_ids": [],
+      "unrelated_family_count": 8
+    },
+    "public_locked_audit_v2_1": {
+      "ambiguous_explicit_shortcut_count": 0,
+      "ambiguous_explicit_shortcut_rate": 0.0,
+      "ambiguous_family_count": 8,
+      "ambiguous_without_explicit_shortcut_count": 8,
+      "hard_unrelated_family_ids": [
+        "v21_locked_unrelated_inventory_locator_color",
+        "v21_locked_unrelated_purchase_code_expiry",
+        "v21_locked_unrelated_credential_rotation",
+        "v21_locked_unrelated_archive_retention",
+        "v21_locked_unrelated_login_latency",
+        "v21_locked_unrelated_parcel_tracking",
+        "v21_locked_unrelated_zone_font",
+        "v21_locked_unrelated_serial_checksum"
+      ],
+      "hard_unrelated_shared_carrier_count": 8,
+      "hard_unrelated_shared_carrier_rate": 1.0,
+      "shortcut_family_ids": [],
+      "unrelated_family_count": 8
+    }
+  },
+  "discrete_memory_contract_preserved": true,
+  "entity_checkpoint_hash_status": "not_applicable_ai_data_review_only",
+  "entity_checkpoint_hash_verified": false,
+  "entity_checkpoint_loaded": false,
+  "formal_calibration_allowed": false,
+  "formal_calibration_executed": false,
+  "formal_locked_audit_executed": false,
+  "formal_research_thresholds_assessed": false,
+  "independent_external_validation": false,
+  "key_or_attack_experiments_run": false,
+  "new_confirmation_pool_created_after_freeze": false,
+  "prior_v2_status": "diagnostic_only_failed_requires_revision",
+  "private_answers_loaded": false,
+  "private_value_memory_trained": false,
+  "public_benchmark_ai_reviewed": true,
+  "public_benchmark_human_reviewed": false,
+  "ready_to_create_new_confirmation_pool": false,
+  "review_mode": "single_ai_semantic_audit",
+  "row_counts": {
+    "public_calibration_v2_1": 160,
+    "public_locked_audit_v2_1": 160,
+    "public_train_v2_1": 72
+  },
+  "schema_version": 1,
+  "selective_router_source_sha256": "4c791aa1a594b7fadd64226ecdd19465aefb54500c3ee92339cf011c01a18175",
+  "stage": "C2.4b-v2.1-ai-only-selective-router-benchmark",
+  "status": "ai_review_completed_with_declared_boundaries",
+  "typed_memory_contract_source_sha256": "c8a3b5fd33621349659e504b1bd31502688896cf63207ae59f644849a0d96692",
+  "unique_family_counts": {
+    "public_calibration_v2_1": 40,
+    "public_locked_audit_v2_1": 40,
+    "public_train_v2_1": 24
+  }
+}

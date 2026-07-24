@@ -1,0 +1,1323 @@
+{
+  "access_control": {
+    "ambiguous_false_memory_access_rate": 0.125,
+    "counts": {
+      "accepted_singleton": 96,
+      "ambiguous": 32,
+      "false_memory_access": 12,
+      "known": 96,
+      "safe_known_access": 84,
+      "unrelated": 32,
+      "wrong_bucket_access": 0
+    },
+    "denominators": {
+      "false_memory_access_rate": 64,
+      "safe_coverage": 96,
+      "singleton_acceptance_precision": 96,
+      "wrong_bucket_access_rate": 96
+    },
+    "empty_denominator_policy": "return_0.0_and_report_denominator",
+    "false_memory_access_rate": 0.1875,
+    "safe_coverage": 0.875,
+    "singleton_acceptance_precision": 0.875,
+    "unrelated_false_memory_access_rate": 0.25,
+    "wrong_bucket_access_rate": 0.0
+  },
+  "evaluation_mode": "exploratory_non_independent",
+  "fact_retrieval": {
+    "accepted_fact_top1": 1.0,
+    "all_query_fact_top1": 0.875,
+    "counts": {
+      "accepted_known": 84,
+      "correct_fact_top1": 84,
+      "known": 96
+    },
+    "cross_relation_candidate_count": 0,
+    "cross_relation_candidate_count_max_per_query": 0,
+    "denominators": {
+      "accepted_fact_top1": 84,
+      "all_query_fact_top1": 96,
+      "row_1nn_mrr_margin": 84
+    },
+    "empty_denominator_policy": "return_0.0_and_report_denominator",
+    "fact_metrics_are_route_equivalent": true,
+    "independent_fact_retrieval_claimed": false,
+    "mean_centroid_margin": 1.0,
+    "mrr": 1.0,
+    "oracle_gap": 0.125,
+    "private_value_memory_used": false,
+    "relation_bucket_candidate_count": {
+      "max": 4,
+      "mean": 4.0,
+      "min": 4
+    },
+    "row_1nn": 1.0,
+    "scope": "deterministic_public_answer_free_typed_bucket_contract_probe"
+  },
+  "formal_result": false,
+  "independent_external_validation": false,
+  "known_routing": {
+    "abstention_rate": 0.125,
+    "accepted_relation_precision": 1.0,
+    "accepted_route_accuracy": 1.0,
+    "access_to_registry_error_rate": 0.0,
+    "city_to_other_error_rate": 0.0,
+    "confusion_matrix": {
+      "class_order": [
+        "registry_id",
+        "city_code",
+        "access_code",
+        "reject"
+      ],
+      "columns": "accepted_prediction_or_reject",
+      "matrix": [
+        [
+          28,
+          0,
+          0,
+          4
+        ],
+        [
+          0,
+          24,
+          0,
+          8
+        ],
+        [
+          0,
+          0,
+          32,
+          0
+        ]
+      ],
+      "rows": "target"
+    },
+    "counts": {
+      "accepted_known": 84,
+      "correct_accepted_known": 84,
+      "families": 24,
+      "hard_negative": 0,
+      "known": 96,
+      "per_relation": {
+        "access_code": 32,
+        "city_code": 32,
+        "registry_id": 32
+      }
+    },
+    "denominators": {
+      "accepted_route_accuracy": 84,
+      "access_to_registry_error_rate": 32,
+      "city_to_other_error_rate": 32,
+      "hard_negative_accuracy": 0,
+      "registry_to_access_error_rate": 32,
+      "relation_micro_accuracy": 96
+    },
+    "empty_denominator_policy": "return_0.0_and_report_denominator",
+    "hard_negative_accuracy": 0.0,
+    "hard_negative_rejection_rate": 0.0,
+    "known_coverage": 0.875,
+    "per_family_accuracy": {
+      "v21_locked_access_account_unlock": 1.0,
+      "v21_locked_access_console_authentication": 1.0,
+      "v21_locked_access_dashboard_gate": 1.0,
+      "v21_locked_access_device_admission": 1.0,
+      "v21_locked_access_facility_entry": 1.0,
+      "v21_locked_access_laboratory_portal": 1.0,
+      "v21_locked_access_repository_login": 1.0,
+      "v21_locked_access_workspace_challenge": 1.0,
+      "v21_locked_city_borough_planning": 1.0,
+      "v21_locked_city_community_territory": 1.0,
+      "v21_locked_city_council_boundary": 1.0,
+      "v21_locked_city_neighborhood_survey": 0.0,
+      "v21_locked_city_parish_atlas": 0.0,
+      "v21_locked_city_precinct_geography": 1.0,
+      "v21_locked_city_settlement_cartography": 1.0,
+      "v21_locked_city_township_zoning": 1.0,
+      "v21_locked_registry_civil_certificate": 1.0,
+      "v21_locked_registry_corporate_reception": 1.0,
+      "v21_locked_registry_heritage_deposit": 0.0,
+      "v21_locked_registry_judicial_estate": 1.0,
+      "v21_locked_registry_professional_license": 1.0,
+      "v21_locked_registry_property_deed": 1.0,
+      "v21_locked_registry_public_trust": 1.0,
+      "v21_locked_registry_voter_subject": 1.0
+    },
+    "per_relation_accuracy": {
+      "access_code": 1.0,
+      "city_code": 0.75,
+      "registry_id": 0.875
+    },
+    "registry_to_access_error_rate": 0.0,
+    "relation_family_macro_accuracy": 0.875,
+    "relation_micro_accuracy": 0.875,
+    "same_family_cross_frame_route_agreement": {
+      "macro_agreement": 1.0,
+      "num_cross_unit_pairs": 144,
+      "pair_weighted_agreement": 1.0,
+      "per_group_agreement": {
+        "v21_locked_access_account_unlock": 1.0,
+        "v21_locked_access_console_authentication": 1.0,
+        "v21_locked_access_dashboard_gate": 1.0,
+        "v21_locked_access_device_admission": 1.0,
+        "v21_locked_access_facility_entry": 1.0,
+        "v21_locked_access_laboratory_portal": 1.0,
+        "v21_locked_access_repository_login": 1.0,
+        "v21_locked_access_workspace_challenge": 1.0,
+        "v21_locked_city_borough_planning": 1.0,
+        "v21_locked_city_community_territory": 1.0,
+        "v21_locked_city_council_boundary": 1.0,
+        "v21_locked_city_neighborhood_survey": 1.0,
+        "v21_locked_city_parish_atlas": 1.0,
+        "v21_locked_city_precinct_geography": 1.0,
+        "v21_locked_city_settlement_cartography": 1.0,
+        "v21_locked_city_township_zoning": 1.0,
+        "v21_locked_registry_civil_certificate": 1.0,
+        "v21_locked_registry_corporate_reception": 1.0,
+        "v21_locked_registry_heritage_deposit": 1.0,
+        "v21_locked_registry_judicial_estate": 1.0,
+        "v21_locked_registry_professional_license": 1.0,
+        "v21_locked_registry_property_deed": 1.0,
+        "v21_locked_registry_public_trust": 1.0,
+        "v21_locked_registry_voter_subject": 1.0
+      }
+    },
+    "same_relation_cross_family_route_agreement": {
+      "macro_agreement": 0.7738095238095237,
+      "num_cross_unit_pairs": 1344,
+      "pair_weighted_agreement": 0.7738095238095238,
+      "per_group_agreement": {
+        "access_code": 1.0,
+        "city_code": 0.5714285714285714,
+        "registry_id": 0.75
+      }
+    },
+    "worst_family_accuracy": 0.0
+  },
+  "memory_contract": {
+    "confidence_reaches_memory": false,
+    "continuous_relation_reaches_memory": false,
+    "cross_relation_candidate_count": 0,
+    "phrase_family_reaches_memory": false,
+    "raw_text_reaches_memory": false,
+    "rejected_route_memory_access_count": 0,
+    "semantic_embedding_reaches_memory": false,
+    "single_bucket_per_accepted_route": true,
+    "typed_relation_id_only": true
+  },
+  "minimal_pairs": {
+    "hard_minimal_pair_accuracy": 0.0,
+    "pair_ids": [],
+    "row_count": 0
+  },
+  "reject_quality": {
+    "ambiguous_false_accept_rate": 0.125,
+    "ambiguous_rejection_rate": 0.875,
+    "ambiguous_to_accept_rate": 0.125,
+    "ambiguous_to_unknown_rate": 0.875,
+    "by_group": {
+      "ambiguous": {
+        "accepted_count": 4,
+        "accepted_error_rate": 1.0,
+        "aupr": 0.921875,
+        "aupr_defined": true,
+        "auroc": 0.953125,
+        "auroc_defined": true,
+        "count": 32,
+        "false_accept_rate": 0.125,
+        "rejection_rate": 0.875
+      },
+      "combined": {
+        "accepted_count": 12,
+        "accepted_error_rate": 1.0,
+        "aupr": 0.9277388915432394,
+        "aupr_defined": true,
+        "auroc": 0.9348958333333334,
+        "auroc_defined": true,
+        "count": 64,
+        "false_accept_rate": 0.1875,
+        "rejection_rate": 0.8125
+      },
+      "known": {
+        "accepted_count": 84,
+        "accepted_error_rate": 0.0,
+        "count": 96,
+        "coverage": 0.875
+      },
+      "unrelated": {
+        "accepted_count": 8,
+        "accepted_error_rate": 1.0,
+        "aupr": 0.8582740788623141,
+        "aupr_defined": true,
+        "auroc": 0.9166666666666666,
+        "auroc_defined": true,
+        "count": 32,
+        "false_accept_rate": 0.25,
+        "rejection_rate": 0.75
+      }
+    },
+    "combined_false_accept_rate": 0.1875,
+    "combined_rejection_rate": 0.8125,
+    "counts": {
+      "ambiguous": 32,
+      "invalid": 0,
+      "known": 96,
+      "rows": 160,
+      "unrelated": 32
+    },
+    "coverage_aurc": 0.15607353915891614,
+    "denominators": {
+      "accepted_known": 84,
+      "ambiguous": 32,
+      "combined_reject": 64,
+      "invalid": 0,
+      "unrelated": 32
+    },
+    "empty_denominator_policy": "return_0.0_and_report_denominator",
+    "fail_closed_rate": 1.0,
+    "per_reject_family_count": {
+      "v21_locked_ambiguous_authority_map_credential": 4,
+      "v21_locked_ambiguous_borough_archive_token": 4,
+      "v21_locked_ambiguous_city_filing_identifier": 4,
+      "v21_locked_ambiguous_civic_gateway_code": 4,
+      "v21_locked_ambiguous_district_roster_serial": 4,
+      "v21_locked_ambiguous_municipality_ledger_marker": 4,
+      "v21_locked_ambiguous_protected_registry_reference": 4,
+      "v21_locked_ambiguous_town_dossier_key": 4,
+      "v21_locked_unrelated_archive_retention": 4,
+      "v21_locked_unrelated_credential_rotation": 4,
+      "v21_locked_unrelated_inventory_locator_color": 4,
+      "v21_locked_unrelated_login_latency": 4,
+      "v21_locked_unrelated_parcel_tracking": 4,
+      "v21_locked_unrelated_purchase_code_expiry": 4,
+      "v21_locked_unrelated_serial_checksum": 4,
+      "v21_locked_unrelated_zone_font": 4
+    },
+    "per_reject_family_false_accept_rate": {
+      "v21_locked_ambiguous_authority_map_credential": 0.0,
+      "v21_locked_ambiguous_borough_archive_token": 0.0,
+      "v21_locked_ambiguous_city_filing_identifier": 0.0,
+      "v21_locked_ambiguous_civic_gateway_code": 0.0,
+      "v21_locked_ambiguous_district_roster_serial": 0.0,
+      "v21_locked_ambiguous_municipality_ledger_marker": 0.0,
+      "v21_locked_ambiguous_protected_registry_reference": 1.0,
+      "v21_locked_ambiguous_town_dossier_key": 0.0,
+      "v21_locked_unrelated_archive_retention": 0.0,
+      "v21_locked_unrelated_credential_rotation": 0.0,
+      "v21_locked_unrelated_inventory_locator_color": 0.0,
+      "v21_locked_unrelated_login_latency": 0.0,
+      "v21_locked_unrelated_parcel_tracking": 1.0,
+      "v21_locked_unrelated_purchase_code_expiry": 0.0,
+      "v21_locked_unrelated_serial_checksum": 0.0,
+      "v21_locked_unrelated_zone_font": 1.0
+    },
+    "risk_coverage": {
+      "aurc": 0.15607353915891614,
+      "counts": {
+        "rows": 160
+      },
+      "curve": [
+        {
+          "accuracy": 1.0,
+          "coverage": 0.00625,
+          "risk": 0.0,
+          "threshold": 0.7508999705314636
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.0125,
+          "risk": 0.0,
+          "threshold": 0.7508999705314636
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.01875,
+          "risk": 0.0,
+          "threshold": 0.7508999705314636
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.025,
+          "risk": 0.0,
+          "threshold": 0.7508999705314636
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.03125,
+          "risk": 0.0,
+          "threshold": 0.6953091621398926
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.0375,
+          "risk": 0.0,
+          "threshold": 0.6953091621398926
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.04375,
+          "risk": 0.0,
+          "threshold": 0.6953091621398926
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.05,
+          "risk": 0.0,
+          "threshold": 0.6953091621398926
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.05625,
+          "risk": 0.0,
+          "threshold": 0.6870992183685303
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.0625,
+          "risk": 0.0,
+          "threshold": 0.6870992183685303
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.06875,
+          "risk": 0.0,
+          "threshold": 0.6870992183685303
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.075,
+          "risk": 0.0,
+          "threshold": 0.6870992183685303
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.08125,
+          "risk": 0.0,
+          "threshold": 0.6852079629898071
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.0875,
+          "risk": 0.0,
+          "threshold": 0.6852079629898071
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.09375,
+          "risk": 0.0,
+          "threshold": 0.6852079629898071
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.1,
+          "risk": 0.0,
+          "threshold": 0.6852079629898071
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.10625,
+          "risk": 0.0,
+          "threshold": 0.6828019618988037
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.1125,
+          "risk": 0.0,
+          "threshold": 0.6828019618988037
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.11875,
+          "risk": 0.0,
+          "threshold": 0.6828019618988037
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.125,
+          "risk": 0.0,
+          "threshold": 0.6828019618988037
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.13125,
+          "risk": 0.0,
+          "threshold": 0.6709546446800232
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.1375,
+          "risk": 0.0,
+          "threshold": 0.6709546446800232
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.14375,
+          "risk": 0.0,
+          "threshold": 0.6709546446800232
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.15,
+          "risk": 0.0,
+          "threshold": 0.6709546446800232
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.15625,
+          "risk": 0.0,
+          "threshold": 0.6651325821876526
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.1625,
+          "risk": 0.0,
+          "threshold": 0.6651325821876526
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.16875,
+          "risk": 0.0,
+          "threshold": 0.6651325821876526
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.175,
+          "risk": 0.0,
+          "threshold": 0.6651325821876526
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.18125,
+          "risk": 0.0,
+          "threshold": 0.6629868149757385
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.1875,
+          "risk": 0.0,
+          "threshold": 0.6629868149757385
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.19375,
+          "risk": 0.0,
+          "threshold": 0.6629868149757385
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.2,
+          "risk": 0.0,
+          "threshold": 0.6629868149757385
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.20625,
+          "risk": 0.0,
+          "threshold": 0.6496421098709106
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.2125,
+          "risk": 0.0,
+          "threshold": 0.6496421098709106
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.21875,
+          "risk": 0.0,
+          "threshold": 0.6496421098709106
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.225,
+          "risk": 0.0,
+          "threshold": 0.6496421098709106
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.23125,
+          "risk": 0.0,
+          "threshold": 0.6253529787063599
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.2375,
+          "risk": 0.0,
+          "threshold": 0.6253529787063599
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.24375,
+          "risk": 0.0,
+          "threshold": 0.6253529787063599
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.25,
+          "risk": 0.0,
+          "threshold": 0.6253529787063599
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.25625,
+          "risk": 0.0,
+          "threshold": 0.6223445534706116
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.2625,
+          "risk": 0.0,
+          "threshold": 0.6223445534706116
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.26875,
+          "risk": 0.0,
+          "threshold": 0.6223445534706116
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.275,
+          "risk": 0.0,
+          "threshold": 0.6223445534706116
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.28125,
+          "risk": 0.0,
+          "threshold": 0.5983527898788452
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.2875,
+          "risk": 0.0,
+          "threshold": 0.5983527898788452
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.29375,
+          "risk": 0.0,
+          "threshold": 0.5983527898788452
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.3,
+          "risk": 0.0,
+          "threshold": 0.5983527898788452
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.30625,
+          "risk": 0.0,
+          "threshold": 0.5736324787139893
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.3125,
+          "risk": 0.0,
+          "threshold": 0.5736324787139893
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.31875,
+          "risk": 0.0,
+          "threshold": 0.5736324787139893
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.325,
+          "risk": 0.0,
+          "threshold": 0.5736324787139893
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.33125,
+          "risk": 0.0,
+          "threshold": 0.5523825287818909
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.3375,
+          "risk": 0.0,
+          "threshold": 0.5523825287818909
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.34375,
+          "risk": 0.0,
+          "threshold": 0.5523825287818909
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.35,
+          "risk": 0.0,
+          "threshold": 0.5523825287818909
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.35625,
+          "risk": 0.0,
+          "threshold": 0.5470237135887146
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.3625,
+          "risk": 0.0,
+          "threshold": 0.5470237135887146
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.36875,
+          "risk": 0.0,
+          "threshold": 0.5470237135887146
+        },
+        {
+          "accuracy": 1.0,
+          "coverage": 0.375,
+          "risk": 0.0,
+          "threshold": 0.5470237135887146
+        },
+        {
+          "accuracy": 0.9836065573770492,
+          "coverage": 0.38125,
+          "risk": 0.016393442622950838,
+          "threshold": 0.5317865014076233
+        },
+        {
+          "accuracy": 0.967741935483871,
+          "coverage": 0.3875,
+          "risk": 0.032258064516129004,
+          "threshold": 0.5317865014076233
+        },
+        {
+          "accuracy": 0.9523809523809523,
+          "coverage": 0.39375,
+          "risk": 0.04761904761904767,
+          "threshold": 0.5317865014076233
+        },
+        {
+          "accuracy": 0.9375,
+          "coverage": 0.4,
+          "risk": 0.0625,
+          "threshold": 0.5317865014076233
+        },
+        {
+          "accuracy": 0.9384615384615385,
+          "coverage": 0.40625,
+          "risk": 0.06153846153846154,
+          "threshold": 0.5244396924972534
+        },
+        {
+          "accuracy": 0.9393939393939394,
+          "coverage": 0.4125,
+          "risk": 0.06060606060606055,
+          "threshold": 0.5244396924972534
+        },
+        {
+          "accuracy": 0.9402985074626866,
+          "coverage": 0.41875,
+          "risk": 0.05970149253731338,
+          "threshold": 0.5244396924972534
+        },
+        {
+          "accuracy": 0.9411764705882353,
+          "coverage": 0.425,
+          "risk": 0.05882352941176472,
+          "threshold": 0.5244396924972534
+        },
+        {
+          "accuracy": 0.927536231884058,
+          "coverage": 0.43125,
+          "risk": 0.07246376811594202,
+          "threshold": 0.49306019954383373
+        },
+        {
+          "accuracy": 0.9142857142857143,
+          "coverage": 0.4375,
+          "risk": 0.08571428571428574,
+          "threshold": 0.49306019954383373
+        },
+        {
+          "accuracy": 0.9014084507042254,
+          "coverage": 0.44375,
+          "risk": 0.09859154929577463,
+          "threshold": 0.49306019954383373
+        },
+        {
+          "accuracy": 0.8888888888888888,
+          "coverage": 0.45,
+          "risk": 0.11111111111111116,
+          "threshold": 0.49306019954383373
+        },
+        {
+          "accuracy": 0.8904109589041096,
+          "coverage": 0.45625,
+          "risk": 0.1095890410958904,
+          "threshold": 0.49083635956048965
+        },
+        {
+          "accuracy": 0.8918918918918919,
+          "coverage": 0.4625,
+          "risk": 0.10810810810810811,
+          "threshold": 0.49083635956048965
+        },
+        {
+          "accuracy": 0.8933333333333333,
+          "coverage": 0.46875,
+          "risk": 0.10666666666666669,
+          "threshold": 0.49083635956048965
+        },
+        {
+          "accuracy": 0.8947368421052632,
+          "coverage": 0.475,
+          "risk": 0.10526315789473684,
+          "threshold": 0.49083635956048965
+        },
+        {
+          "accuracy": 0.8961038961038961,
+          "coverage": 0.48125,
+          "risk": 0.10389610389610393,
+          "threshold": 0.4513162076473236
+        },
+        {
+          "accuracy": 0.8974358974358975,
+          "coverage": 0.4875,
+          "risk": 0.10256410256410253,
+          "threshold": 0.4513162076473236
+        },
+        {
+          "accuracy": 0.8987341772151899,
+          "coverage": 0.49375,
+          "risk": 0.10126582278481011,
+          "threshold": 0.4513162076473236
+        },
+        {
+          "accuracy": 0.9,
+          "coverage": 0.5,
+          "risk": 0.09999999999999998,
+          "threshold": 0.4513162076473236
+        },
+        {
+          "accuracy": 0.8888888888888888,
+          "coverage": 0.50625,
+          "risk": 0.11111111111111116,
+          "threshold": 0.43278640508651733
+        },
+        {
+          "accuracy": 0.8780487804878049,
+          "coverage": 0.5125,
+          "risk": 0.12195121951219512,
+          "threshold": 0.43278640508651733
+        },
+        {
+          "accuracy": 0.8674698795180723,
+          "coverage": 0.51875,
+          "risk": 0.1325301204819277,
+          "threshold": 0.43278640508651733
+        },
+        {
+          "accuracy": 0.8571428571428571,
+          "coverage": 0.525,
+          "risk": 0.1428571428571429,
+          "threshold": 0.43278640508651733
+        },
+        {
+          "accuracy": 0.8588235294117647,
+          "coverage": 0.53125,
+          "risk": 0.14117647058823535,
+          "threshold": 0.4199955463409424
+        },
+        {
+          "accuracy": 0.8604651162790697,
+          "coverage": 0.5375,
+          "risk": 0.13953488372093026,
+          "threshold": 0.4199955463409424
+        },
+        {
+          "accuracy": 0.8620689655172413,
+          "coverage": 0.54375,
+          "risk": 0.13793103448275867,
+          "threshold": 0.4199955463409424
+        },
+        {
+          "accuracy": 0.8636363636363636,
+          "coverage": 0.55,
+          "risk": 0.13636363636363635,
+          "threshold": 0.4199955463409424
+        },
+        {
+          "accuracy": 0.8651685393258427,
+          "coverage": 0.55625,
+          "risk": 0.1348314606741573,
+          "threshold": 0.4033001959323883
+        },
+        {
+          "accuracy": 0.8666666666666667,
+          "coverage": 0.5625,
+          "risk": 0.1333333333333333,
+          "threshold": 0.4033001959323883
+        },
+        {
+          "accuracy": 0.8681318681318682,
+          "coverage": 0.56875,
+          "risk": 0.13186813186813184,
+          "threshold": 0.4033001959323883
+        },
+        {
+          "accuracy": 0.8695652173913043,
+          "coverage": 0.575,
+          "risk": 0.13043478260869568,
+          "threshold": 0.4033001959323883
+        },
+        {
+          "accuracy": 0.8709677419354839,
+          "coverage": 0.58125,
+          "risk": 0.12903225806451613,
+          "threshold": 0.38445818051695824
+        },
+        {
+          "accuracy": 0.8723404255319149,
+          "coverage": 0.5875,
+          "risk": 0.12765957446808507,
+          "threshold": 0.38445818051695824
+        },
+        {
+          "accuracy": 0.8736842105263158,
+          "coverage": 0.59375,
+          "risk": 0.12631578947368416,
+          "threshold": 0.38445818051695824
+        },
+        {
+          "accuracy": 0.875,
+          "coverage": 0.6,
+          "risk": 0.125,
+          "threshold": 0.38445818051695824
+        },
+        {
+          "accuracy": 0.865979381443299,
+          "coverage": 0.60625,
+          "risk": 0.134020618556701,
+          "threshold": 0.354860857129097
+        },
+        {
+          "accuracy": 0.8571428571428571,
+          "coverage": 0.6125,
+          "risk": 0.1428571428571429,
+          "threshold": 0.354860857129097
+        },
+        {
+          "accuracy": 0.8484848484848485,
+          "coverage": 0.61875,
+          "risk": 0.1515151515151515,
+          "threshold": 0.354860857129097
+        },
+        {
+          "accuracy": 0.84,
+          "coverage": 0.625,
+          "risk": 0.16000000000000003,
+          "threshold": 0.354860857129097
+        },
+        {
+          "accuracy": 0.8316831683168316,
+          "coverage": 0.63125,
+          "risk": 0.16831683168316836,
+          "threshold": 0.33861955255270004
+        },
+        {
+          "accuracy": 0.8235294117647058,
+          "coverage": 0.6375,
+          "risk": 0.17647058823529416,
+          "threshold": 0.33861955255270004
+        },
+        {
+          "accuracy": 0.8155339805825242,
+          "coverage": 0.64375,
+          "risk": 0.18446601941747576,
+          "threshold": 0.33861955255270004
+        },
+        {
+          "accuracy": 0.8076923076923077,
+          "coverage": 0.65,
+          "risk": 0.1923076923076923,
+          "threshold": 0.33861955255270004
+        },
+        {
+          "accuracy": 0.8,
+          "coverage": 0.65625,
+          "risk": 0.19999999999999996,
+          "threshold": 0.28460145089775324
+        },
+        {
+          "accuracy": 0.7924528301886793,
+          "coverage": 0.6625,
+          "risk": 0.2075471698113207,
+          "threshold": 0.28460145089775324
+        },
+        {
+          "accuracy": 0.7850467289719626,
+          "coverage": 0.66875,
+          "risk": 0.2149532710280374,
+          "threshold": 0.28460145089775324
+        },
+        {
+          "accuracy": 0.7777777777777778,
+          "coverage": 0.675,
+          "risk": 0.2222222222222222,
+          "threshold": 0.28460145089775324
+        },
+        {
+          "accuracy": 0.7706422018348624,
+          "coverage": 0.68125,
+          "risk": 0.22935779816513757,
+          "threshold": 0.251069862395525
+        },
+        {
+          "accuracy": 0.7636363636363637,
+          "coverage": 0.6875,
+          "risk": 0.23636363636363633,
+          "threshold": 0.251069862395525
+        },
+        {
+          "accuracy": 0.7567567567567568,
+          "coverage": 0.69375,
+          "risk": 0.2432432432432432,
+          "threshold": 0.251069862395525
+        },
+        {
+          "accuracy": 0.75,
+          "coverage": 0.7,
+          "risk": 0.25,
+          "threshold": 0.251069862395525
+        },
+        {
+          "accuracy": 0.7433628318584071,
+          "coverage": 0.70625,
+          "risk": 0.2566371681415929,
+          "threshold": 0.2371262013912201
+        },
+        {
+          "accuracy": 0.7368421052631579,
+          "coverage": 0.7125,
+          "risk": 0.26315789473684215,
+          "threshold": 0.2371262013912201
+        },
+        {
+          "accuracy": 0.7304347826086957,
+          "coverage": 0.71875,
+          "risk": 0.26956521739130435,
+          "threshold": 0.2371262013912201
+        },
+        {
+          "accuracy": 0.7241379310344828,
+          "coverage": 0.725,
+          "risk": 0.27586206896551724,
+          "threshold": 0.2371262013912201
+        },
+        {
+          "accuracy": 0.717948717948718,
+          "coverage": 0.73125,
+          "risk": 0.28205128205128205,
+          "threshold": 0.20090533047914505
+        },
+        {
+          "accuracy": 0.711864406779661,
+          "coverage": 0.7375,
+          "risk": 0.288135593220339,
+          "threshold": 0.20090533047914505
+        },
+        {
+          "accuracy": 0.7058823529411765,
+          "coverage": 0.74375,
+          "risk": 0.2941176470588235,
+          "threshold": 0.20090533047914505
+        },
+        {
+          "accuracy": 0.7,
+          "coverage": 0.75,
+          "risk": 0.30000000000000004,
+          "threshold": 0.20090533047914505
+        },
+        {
+          "accuracy": 0.6942148760330579,
+          "coverage": 0.75625,
+          "risk": 0.30578512396694213,
+          "threshold": 0.19535163044929504
+        },
+        {
+          "accuracy": 0.6885245901639344,
+          "coverage": 0.7625,
+          "risk": 0.3114754098360656,
+          "threshold": 0.19535163044929504
+        },
+        {
+          "accuracy": 0.6829268292682927,
+          "coverage": 0.76875,
+          "risk": 0.31707317073170727,
+          "threshold": 0.19535163044929504
+        },
+        {
+          "accuracy": 0.6774193548387096,
+          "coverage": 0.775,
+          "risk": 0.32258064516129037,
+          "threshold": 0.19535163044929504
+        },
+        {
+          "accuracy": 0.672,
+          "coverage": 0.78125,
+          "risk": 0.32799999999999996,
+          "threshold": 0.1858266070485115
+        },
+        {
+          "accuracy": 0.6666666666666666,
+          "coverage": 0.7875,
+          "risk": 0.33333333333333337,
+          "threshold": 0.1858266070485115
+        },
+        {
+          "accuracy": 0.6614173228346457,
+          "coverage": 0.79375,
+          "risk": 0.3385826771653543,
+          "threshold": 0.1858266070485115
+        },
+        {
+          "accuracy": 0.65625,
+          "coverage": 0.8,
+          "risk": 0.34375,
+          "threshold": 0.1858266070485115
+        },
+        {
+          "accuracy": 0.6511627906976745,
+          "coverage": 0.80625,
+          "risk": 0.34883720930232553,
+          "threshold": 0.16516416519880295
+        },
+        {
+          "accuracy": 0.6461538461538462,
+          "coverage": 0.8125,
+          "risk": 0.3538461538461538,
+          "threshold": 0.16516416519880295
+        },
+        {
+          "accuracy": 0.6412213740458015,
+          "coverage": 0.81875,
+          "risk": 0.3587786259541985,
+          "threshold": 0.16516416519880295
+        },
+        {
+          "accuracy": 0.6363636363636364,
+          "coverage": 0.825,
+          "risk": 0.36363636363636365,
+          "threshold": 0.16516416519880295
+        },
+        {
+          "accuracy": 0.631578947368421,
+          "coverage": 0.83125,
+          "risk": 0.368421052631579,
+          "threshold": 0.15066293999552727
+        },
+        {
+          "accuracy": 0.6268656716417911,
+          "coverage": 0.8375,
+          "risk": 0.3731343283582089,
+          "threshold": 0.15066293999552727
+        },
+        {
+          "accuracy": 0.6222222222222222,
+          "coverage": 0.84375,
+          "risk": 0.37777777777777777,
+          "threshold": 0.15066293999552727
+        },
+        {
+          "accuracy": 0.6176470588235294,
+          "coverage": 0.85,
+          "risk": 0.38235294117647056,
+          "threshold": 0.15066293999552727
+        },
+        {
+          "accuracy": 0.6131386861313869,
+          "coverage": 0.85625,
+          "risk": 0.3868613138686131,
+          "threshold": 0.0979924201965332
+        },
+        {
+          "accuracy": 0.6086956521739131,
+          "coverage": 0.8625,
+          "risk": 0.3913043478260869,
+          "threshold": 0.0979924201965332
+        },
+        {
+          "accuracy": 0.60431654676259,
+          "coverage": 0.86875,
+          "risk": 0.39568345323741005,
+          "threshold": 0.0979924201965332
+        },
+        {
+          "accuracy": 0.6,
+          "coverage": 0.875,
+          "risk": 0.4,
+          "threshold": 0.0979924201965332
+        },
+        {
+          "accuracy": 0.5957446808510638,
+          "coverage": 0.88125,
+          "risk": 0.4042553191489362,
+          "threshold": 0.07180893421173096
+        },
+        {
+          "accuracy": 0.5915492957746479,
+          "coverage": 0.8875,
+          "risk": 0.4084507042253521,
+          "threshold": 0.07180893421173096
+        },
+        {
+          "accuracy": 0.5874125874125874,
+          "coverage": 0.89375,
+          "risk": 0.4125874125874126,
+          "threshold": 0.07180893421173096
+        },
+        {
+          "accuracy": 0.5833333333333334,
+          "coverage": 0.9,
+          "risk": 0.41666666666666663,
+          "threshold": 0.07180893421173096
+        },
+        {
+          "accuracy": 0.5793103448275863,
+          "coverage": 0.90625,
+          "risk": 0.42068965517241375,
+          "threshold": 0.037422843277454376
+        },
+        {
+          "accuracy": 0.5753424657534246,
+          "coverage": 0.9125,
+          "risk": 0.4246575342465754,
+          "threshold": 0.037422843277454376
+        },
+        {
+          "accuracy": 0.5714285714285714,
+          "coverage": 0.91875,
+          "risk": 0.4285714285714286,
+          "threshold": 0.037422843277454376
+        },
+        {
+          "accuracy": 0.5675675675675675,
+          "coverage": 0.925,
+          "risk": 0.43243243243243246,
+          "threshold": 0.037422843277454376
+        },
+        {
+          "accuracy": 0.5637583892617449,
+          "coverage": 0.93125,
+          "risk": 0.43624161073825507,
+          "threshold": 0.03272731602191925
+        },
+        {
+          "accuracy": 0.56,
+          "coverage": 0.9375,
+          "risk": 0.43999999999999995,
+          "threshold": 0.03272731602191925
+        },
+        {
+          "accuracy": 0.5562913907284768,
+          "coverage": 0.94375,
+          "risk": 0.4437086092715232,
+          "threshold": 0.03272731602191925
+        },
+        {
+          "accuracy": 0.5526315789473685,
+          "coverage": 0.95,
+          "risk": 0.4473684210526315,
+          "threshold": 0.03272731602191925
+        },
+        {
+          "accuracy": 0.5490196078431373,
+          "coverage": 0.95625,
+          "risk": 0.4509803921568627,
+          "threshold": 0.020588628947734833
+        },
+        {
+          "accuracy": 0.5454545454545454,
+          "coverage": 0.9625,
+          "risk": 0.4545454545454546,
+          "threshold": 0.020588628947734833
+        },
+        {
+          "accuracy": 0.5419354838709678,
+          "coverage": 0.96875,
+          "risk": 0.4580645161290322,
+          "threshold": 0.020588628947734833
+        },
+        {
+          "accuracy": 0.5384615384615384,
+          "coverage": 0.975,
+          "risk": 0.46153846153846156,
+          "threshold": 0.020588628947734833
+        },
+        {
+          "accuracy": 0.535031847133758,
+          "coverage": 0.98125,
+          "risk": 0.46496815286624205,
+          "threshold": 0.008979283273220062
+        },
+        {
+          "accuracy": 0.5316455696202531,
+          "coverage": 0.9875,
+          "risk": 0.4683544303797469,
+          "threshold": 0.008979283273220062
+        },
+        {
+          "accuracy": 0.5283018867924528,
+          "coverage": 0.99375,
+          "risk": 0.4716981132075472,
+          "threshold": 0.008979283273220062
+        },
+        {
+          "accuracy": 0.525,
+          "coverage": 1.0,
+          "risk": 0.475,
+          "threshold": 0.008979283273220062
+        }
+      ],
+      "empty_denominator_policy": "return_0.0_and_report_denominator"
+    },
+    "unknown_to_accept_rate": 0.25,
+    "unrelated_false_accept_rate": 0.25,
+    "unrelated_rejection_rate": 0.75,
+    "unrelated_to_ambiguous_rate": 0.0,
+    "worst_reject_family_false_accept_rate": 1.0
+  },
+  "schema_version": 1,
+  "set_valued_routing": {
+    "ambiguous_set_rate": 0.0,
+    "average_candidate_set_size": 0.6,
+    "counts": {
+      "ambiguous": 32,
+      "empty": 64,
+      "known": 96,
+      "multi": 0,
+      "rows": 160,
+      "singleton": 96,
+      "unrelated": 32
+    },
+    "denominators": {
+      "ambiguous": 32,
+      "known": 96,
+      "known_singletons": 84,
+      "unrelated": 32
+    },
+    "empty_denominator_policy": "return_0.0_and_report_denominator",
+    "empty_set_rate": 0.4,
+    "known_empty_set_rate": 0.125,
+    "known_multi_relation_set_rate": 0.0,
+    "known_singleton_rate": 0.875,
+    "multi_label_set_rate": 0.0,
+    "set_coverage": 0.875,
+    "set_inefficiency": 0.875,
+    "singleton_correctness": 1.0,
+    "singleton_rate": 0.6,
+    "true_relation_inclusion_rate": 0.875,
+    "unknown_set_rate": 0.75
+  },
+  "split": "public_locked_audit_v2_1",
+  "stage": "C2.4c-exploratory-selective-router-evaluation",
+  "variant": "R4"
+}

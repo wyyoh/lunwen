@@ -1,0 +1,66 @@
+{
+  "datasets_committed_to_repository": false,
+  "manifest_payload_sha256": "4182e77865d4e2941a8a66d13e28ae9e15c40a9060bb37b2df0d3a9078077ccd",
+  "schema_version": 1,
+  "sources": {
+    "banking77": {
+      "files": {
+        "LICENSE": {
+          "path": ".downloads/external_c25/banking77/LICENSE",
+          "sha256": "7e7170e3cebf88a9f60c7b8421418323c09304da1af4d5e90f4da1dc1c8a2661",
+          "size_bytes": 18650,
+          "url": "https://raw.githubusercontent.com/PolyAI-LDN/task-specific-datasets/57ec275d8078af65b7731c2a98be812d844a6d6b/LICENSE"
+        },
+        "categories.json": {
+          "path": ".downloads/external_c25/banking77/categories.json",
+          "sha256": "53261da888122daf2d120d925458631d9619e15d82e56052e7a42e535ce32b63",
+          "size_bytes": 2036,
+          "url": "https://raw.githubusercontent.com/PolyAI-LDN/task-specific-datasets/57ec275d8078af65b7731c2a98be812d844a6d6b/banking_data/categories.json"
+        },
+        "test.csv": {
+          "path": ".downloads/external_c25/banking77/test.csv",
+          "sha256": "d12d6e3bc4c3103966ae786dc435913c0c563dfa328f5a3646d0e62cfeeb474d",
+          "size_bytes": 239961,
+          "url": "https://raw.githubusercontent.com/PolyAI-LDN/task-specific-datasets/57ec275d8078af65b7731c2a98be812d844a6d6b/banking_data/test.csv"
+        },
+        "train.csv": {
+          "path": ".downloads/external_c25/banking77/train.csv",
+          "sha256": "b06e26ac675513959a63135f11b94ea7786ed02da65db93a5650d8838cbc664b",
+          "size_bytes": 839073,
+          "url": "https://raw.githubusercontent.com/PolyAI-LDN/task-specific-datasets/57ec275d8078af65b7731c2a98be812d844a6d6b/banking_data/train.csv"
+        }
+      },
+      "license": "CC-BY-4.0",
+      "paper": "https://aclanthology.org/2020.nlp4convai-1.5/",
+      "repository": "https://github.com/PolyAI-LDN/task-specific-datasets",
+      "revision": "57ec275d8078af65b7731c2a98be812d844a6d6b"
+    },
+    "clinc150": {
+      "files": {
+        "LICENSE": {
+          "path": ".downloads/external_c25/clinc150/LICENSE",
+          "sha256": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76",
+          "size_bytes": 19467,
+          "url": "https://raw.githubusercontent.com/clinc/oos-eval/828f8093932c8fe6ca7936c3d2e52903b1c523de/LICENSE"
+        },
+        "data_full.json": {
+          "path": ".downloads/external_c25/clinc150/data_full.json",
+          "sha256": "36923c3705a59e08fe9c3883d8bc2dd966ef93e22cb78ac41171782a698d56e0",
+          "size_bytes": 2495390,
+          "url": "https://raw.githubusercontent.com/clinc/oos-eval/828f8093932c8fe6ca7936c3d2e52903b1c523de/data/data_full.json"
+        },
+        "domains.json": {
+          "path": ".downloads/external_c25/clinc150/domains.json",
+          "sha256": "b947b579d3b8e74b06f93b01083d8efaff2888b43a3e362533bd88a6e1211b3a",
+          "size_bytes": 3818,
+          "url": "https://raw.githubusercontent.com/clinc/oos-eval/828f8093932c8fe6ca7936c3d2e52903b1c523de/data/domains.json"
+        }
+      },
+      "license": "CC-BY-3.0",
+      "paper": "https://aclanthology.org/D19-1131/",
+      "repository": "https://github.com/clinc/oos-eval",
+      "revision": "828f8093932c8fe6ca7936c3d2e52903b1c523de"
+    }
+  },
+  "stage": "C2.5-external-source-freeze"
+}

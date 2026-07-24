@@ -1,0 +1,3982 @@
+{
+  "continuation_gate_results": {
+    "pairwise": {
+      "banking77_closed": {
+        "mean_known_accuracy_delta_r2_minus_r0": -0.03834415584415586,
+        "nonnegative_seed_fraction": 0.0,
+        "passed": false
+      },
+      "banking77_open": {
+        "mean_known_accuracy_delta_r2_minus_r0": -0.03333333333333334,
+        "nonnegative_seed_fraction": 0.0,
+        "passed": false
+      },
+      "clinc150": {
+        "mean_known_accuracy_delta_r2_minus_r0": -0.015733333333333342,
+        "nonnegative_seed_fraction": 0.1,
+        "passed": false
+      }
+    },
+    "selective": {
+      "banking77_open": {
+        "mean_relative_fmar_reduction": 0.9967105263157896,
+        "passed": false,
+        "seed_pass_fraction": 0.0,
+        "seeds": [
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.9986842105263158,
+            "seed": 2501
+          },
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.9986842105263158,
+            "seed": 2502
+          },
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.9947368421052631,
+            "seed": 2503
+          },
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.9973684210526316,
+            "seed": 2504
+          },
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.9907894736842106,
+            "seed": 2505
+          },
+          {
+            "passed": false,
+            "relative_fmar_reduction": 1.0,
+            "seed": 2506
+          },
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.9960526315789474,
+            "seed": 2507
+          },
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.9986842105263158,
+            "seed": 2508
+          },
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.9947368421052631,
+            "seed": 2509
+          },
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.9973684210526316,
+            "seed": 2510
+          }
+        ]
+      },
+      "clinc150": {
+        "mean_relative_fmar_reduction": 0.987825,
+        "passed": false,
+        "seed_pass_fraction": 0.0,
+        "seeds": [
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.999,
+            "seed": 2501
+          },
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.9985,
+            "seed": 2502
+          },
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.999,
+            "seed": 2503
+          },
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.99425,
+            "seed": 2504
+          },
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.9135,
+            "seed": 2505
+          },
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.999,
+            "seed": 2506
+          },
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.99575,
+            "seed": 2507
+          },
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.98625,
+            "seed": 2508
+          },
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.997,
+            "seed": 2509
+          },
+          {
+            "passed": false,
+            "relative_fmar_reduction": 0.996,
+            "seed": 2510
+          }
+        ]
+      }
+    }
+  },
+  "evaluation_mode": "external_public_benchmark_test_once",
+  "labels_modified": false,
+  "limitations": [
+    "每个 accepted external intent 仅计为一次假想 bucket access；未训练或访问 private memory",
+    "CLINC heldout intents 的 validation 文本作为 OOS calibration，只有 test 文本未参与选择",
+    "BANKING77 test-only OOS intents 在 calibration 中完全不可见",
+    "外部方法验证不等于 registry/city/access task-specific readiness",
+    "未声称部署级安全或分布迁移下的 conformal 保证"
+  ],
+  "model": {
+    "license": "mit",
+    "manifest_sha256": "65f8d8b336328cad989147d890809c94b8eeba3a5309466d6385aeff03d0a375",
+    "model_id": "intfloat/e5-base-v2",
+    "model_safetensors_sha256": "d0d559c47d5f71b1d280b13b62a2657f3e3bc70c0786f9ab91a36545e6a8f693",
+    "revision": "f52bf8ec8c7124536f0efb74aca902b2995e5bcd"
+  },
+  "per_partition": [
+    {
+      "benchmark": "clinc150",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.6850909090909091,
+          "accepted_relation_precision": 0.6893764434180139,
+          "accepted_route_accuracy": 0.9529130087789306,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.47691781489039003,
+          "average_candidate_set_size": 0.3149090909090909,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.6850909090909091,
+          "false_memory_access_rate": 0.11975,
+          "intent_macro_accuracy": 0.796,
+          "known_accuracy": 0.796,
+          "known_coverage": 0.8353333333333334,
+          "known_row_count": 1500,
+          "memory_access_count": 1732,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9709677580468157,
+          "oos_auroc": 0.9327469166666666,
+          "oos_f1": 0.9065396498455202,
+          "oos_precision": 0.934447983014862,
+          "oos_recall": 0.88025,
+          "row_count": 5500,
+          "safe_coverage": 0.796,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.15033333333333335,
+              "rejection_rate": 0.8496666666666667,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.028,
+              "rejection_rate": 0.972,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.6850909090909091,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.03933333333333333
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.2649090909090909,
+          "accepted_route_accuracy": 0.9713333333333334,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.4161937655511089,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9713333333333334,
+          "known_accuracy": 0.9713333333333334,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9775179715965537,
+          "oos_auroc": 0.946736,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.9713333333333334,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.7,
+          "wrong_bucket_access_rate": 0.028666666666666667
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.25581818181818183,
+          "accepted_route_accuracy": 0.938,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.44632092917839317,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9380000000000001,
+          "known_accuracy": 0.938,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9709677580468157,
+          "oos_auroc": 0.9327469166666666,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.938,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.4,
+          "wrong_bucket_access_rate": 0.062
+        },
+        "R3": {
+          "abstention_rate": 0.9530909090909091,
+          "accepted_relation_precision": 0.9573643410852714,
+          "accepted_route_accuracy": 0.9724409448818898,
+          "ambiguous_reject_reason_rate": 0.0007272727272727272,
+          "aurc": 0.8174436226542998,
+          "average_candidate_set_size": 0.048363636363636366,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.9523636363636364,
+          "false_memory_access_rate": 0.001,
+          "intent_macro_accuracy": 0.16466666666666666,
+          "known_accuracy": 0.16466666666666666,
+          "known_coverage": 0.16933333333333334,
+          "known_row_count": 1500,
+          "memory_access_count": 258,
+          "multi_candidate_set_rate": 0.0007272727272727272,
+          "oos_aupr": 0.9709677580468157,
+          "oos_auroc": 0.9327469166666666,
+          "oos_f1": 0.864747890067085,
+          "oos_precision": 0.7623044639450591,
+          "oos_recall": 0.999,
+          "row_count": 5500,
+          "safe_coverage": 0.16466666666666666,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.0013333333333333333,
+              "rejection_rate": 0.9986666666666667,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.0,
+              "rejection_rate": 1.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.9523636363636364,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.004666666666666667
+        }
+      },
+      "seed": 2501,
+      "test_row_count": 5500
+    },
+    {
+      "benchmark": "banking77_open",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.35129310344827586,
+          "accepted_relation_precision": 0.8172757475083057,
+          "accepted_route_accuracy": 0.9410864575363428,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.16364502295263914,
+          "average_candidate_set_size": 0.6487068965517241,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.35129310344827586,
+          "false_memory_access_rate": 0.26052631578947366,
+          "intent_macro_accuracy": 0.7884615384615384,
+          "known_accuracy": 0.7884615384615384,
+          "known_coverage": 0.8378205128205128,
+          "known_row_count": 1560,
+          "memory_access_count": 1505,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7518387192158189,
+          "oos_auroc": 0.8725463900134953,
+          "oos_f1": 0.7136507936507936,
+          "oos_precision": 0.6895705521472393,
+          "oos_recall": 0.7394736842105263,
+          "row_count": 2320,
+          "safe_coverage": 0.7884615384615384,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.26052631578947366,
+              "rejection_rate": 0.7394736842105263,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.35129310344827586,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.525,
+          "wrong_bucket_access_rate": 0.04935897435897436
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.6314655172413793,
+          "accepted_route_accuracy": 0.9391025641025641,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.10955745834153466,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9391025641025641,
+          "known_accuracy": 0.9391025641025641,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7573657992031843,
+          "oos_auroc": 0.8876307354925776,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.9391025641025641,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.7,
+          "wrong_bucket_access_rate": 0.060897435897435896
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.6172413793103448,
+          "accepted_route_accuracy": 0.9179487179487179,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.14071250221251475,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9179487179487179,
+          "known_accuracy": 0.9179487179487179,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7518387192158189,
+          "oos_auroc": 0.8725463900134953,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.9179487179487179,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.65,
+          "wrong_bucket_access_rate": 0.08205128205128205
+        },
+        "R3": {
+          "abstention_rate": 0.8982758620689655,
+          "accepted_relation_precision": 0.9915254237288136,
+          "accepted_route_accuracy": 0.9957446808510638,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.6679913748924804,
+          "average_candidate_set_size": 0.10172413793103448,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.8982758620689655,
+          "false_memory_access_rate": 0.0013157894736842105,
+          "intent_macro_accuracy": 0.15,
+          "known_accuracy": 0.15,
+          "known_coverage": 0.15064102564102563,
+          "known_row_count": 1560,
+          "memory_access_count": 236,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7518387192158189,
+          "oos_auroc": 0.8725463900134953,
+          "oos_f1": 0.5337552742616034,
+          "oos_precision": 0.3642034548944338,
+          "oos_recall": 0.9986842105263158,
+          "row_count": 2320,
+          "safe_coverage": 0.15,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.0013157894736842105,
+              "rejection_rate": 0.9986842105263158,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.8982758620689655,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.000641025641025641
+        }
+      },
+      "seed": 2501,
+      "test_row_count": 2320
+    },
+    {
+      "benchmark": "banking77_closed",
+      "evaluations": {
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8915584415584416,
+          "accepted_route_accuracy": 0.8915584415584416,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.021481308500420886,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8915584415584416,
+          "known_accuracy": 0.8915584415584416,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8915584415584416,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.3,
+          "wrong_bucket_access_rate": 0.10844155844155844
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8525974025974026,
+          "accepted_route_accuracy": 0.8525974025974026,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.06843852070383392,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8525974025974026,
+          "known_accuracy": 0.8525974025974026,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8525974025974026,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.425,
+          "wrong_bucket_access_rate": 0.1474025974025974
+        }
+      },
+      "seed": 2501,
+      "test_row_count": 3080
+    },
+    {
+      "benchmark": "clinc150",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.68,
+          "accepted_relation_precision": 0.7159090909090909,
+          "accepted_route_accuracy": 0.9820732657833203,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.4539169255143895,
+          "average_candidate_set_size": 0.32,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.68,
+          "false_memory_access_rate": 0.11925,
+          "intent_macro_accuracy": 0.84,
+          "known_accuracy": 0.84,
+          "known_coverage": 0.8553333333333333,
+          "known_row_count": 1500,
+          "memory_access_count": 1760,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9785417786099986,
+          "oos_auroc": 0.9457835,
+          "oos_f1": 0.9103359173126616,
+          "oos_precision": 0.9419786096256685,
+          "oos_recall": 0.88075,
+          "row_count": 5500,
+          "safe_coverage": 0.84,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.151,
+              "rejection_rate": 0.849,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.024,
+              "rejection_rate": 0.976,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.68,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.2,
+          "wrong_bucket_access_rate": 0.015333333333333332
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.2690909090909091,
+          "accepted_route_accuracy": 0.9866666666666667,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.41554408045619706,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9866666666666667,
+          "known_accuracy": 0.9866666666666667,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9831180849623566,
+          "oos_auroc": 0.9559523333333333,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.9866666666666667,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.9,
+          "wrong_bucket_access_rate": 0.013333333333333334
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.26527272727272727,
+          "accepted_route_accuracy": 0.9726666666666667,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.42210237522944616,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9726666666666667,
+          "known_accuracy": 0.9726666666666667,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9785417786099986,
+          "oos_auroc": 0.9457835,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.9726666666666667,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.8,
+          "wrong_bucket_access_rate": 0.027333333333333334
+        },
+        "R3": {
+          "abstention_rate": 0.9290909090909091,
+          "accepted_relation_precision": 0.982051282051282,
+          "accepted_route_accuracy": 0.9973958333333334,
+          "ambiguous_reject_reason_rate": 0.0005454545454545455,
+          "aurc": 0.7467071900090989,
+          "average_candidate_set_size": 0.07181818181818182,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.9285454545454546,
+          "false_memory_access_rate": 0.0015,
+          "intent_macro_accuracy": 0.25533333333333336,
+          "known_accuracy": 0.25533333333333336,
+          "known_coverage": 0.256,
+          "known_row_count": 1500,
+          "memory_access_count": 390,
+          "multi_candidate_set_rate": 0.0003636363636363636,
+          "oos_aupr": 0.9785417786099986,
+          "oos_auroc": 0.9457835,
+          "oos_f1": 0.8768386388583973,
+          "oos_precision": 0.7816046966731898,
+          "oos_recall": 0.9985,
+          "row_count": 5500,
+          "safe_coverage": 0.25533333333333336,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.002,
+              "rejection_rate": 0.998,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.0,
+              "rejection_rate": 1.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.9285454545454546,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.0006666666666666666
+        }
+      },
+      "seed": 2502,
+      "test_row_count": 5500
+    },
+    {
+      "benchmark": "banking77_open",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.35301724137931034,
+          "accepted_relation_precision": 0.8001332445036642,
+          "accepted_route_accuracy": 0.9295665634674922,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.1799289807736969,
+          "average_candidate_set_size": 0.6469827586206897,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.35301724137931034,
+          "false_memory_access_rate": 0.275,
+          "intent_macro_accuracy": 0.7698717948717949,
+          "known_accuracy": 0.7698717948717949,
+          "known_coverage": 0.8282051282051283,
+          "known_row_count": 1560,
+          "memory_access_count": 1501,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7474606722142738,
+          "oos_auroc": 0.861993927125506,
+          "oos_f1": 0.6979100696643447,
+          "oos_precision": 0.6727716727716728,
+          "oos_recall": 0.725,
+          "row_count": 2320,
+          "safe_coverage": 0.7698717948717949,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.275,
+              "rejection_rate": 0.725,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.35301724137931034,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.3,
+          "wrong_bucket_access_rate": 0.058333333333333334
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.6306034482758621,
+          "accepted_route_accuracy": 0.9378205128205128,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.12052536415250169,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9378205128205128,
+          "known_accuracy": 0.9378205128205128,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7514939508395707,
+          "oos_auroc": 0.8781553643724697,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.9378205128205128,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.775,
+          "wrong_bucket_access_rate": 0.06217948717948718
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.6030172413793103,
+          "accepted_route_accuracy": 0.8967948717948718,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.1566164033297824,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.8967948717948718,
+          "known_accuracy": 0.8967948717948718,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7474606722142738,
+          "oos_auroc": 0.861993927125506,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.8967948717948718,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.55,
+          "wrong_bucket_access_rate": 0.1032051282051282
+        },
+        "R3": {
+          "abstention_rate": 0.8995689655172414,
+          "accepted_relation_precision": 0.9871244635193133,
+          "accepted_route_accuracy": 0.9913793103448276,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.6723849596760687,
+          "average_candidate_set_size": 0.10043103448275863,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.8995689655172414,
+          "false_memory_access_rate": 0.0013157894736842105,
+          "intent_macro_accuracy": 0.14743589743589744,
+          "known_accuracy": 0.14743589743589744,
+          "known_coverage": 0.14871794871794872,
+          "known_row_count": 1560,
+          "memory_access_count": 233,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7474606722142738,
+          "oos_auroc": 0.861993927125506,
+          "oos_f1": 0.5331928345626976,
+          "oos_precision": 0.36367992333493054,
+          "oos_recall": 0.9986842105263158,
+          "row_count": 2320,
+          "safe_coverage": 0.14743589743589744,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.0013157894736842105,
+              "rejection_rate": 0.9986842105263158,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.8995689655172414,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.001282051282051282
+        }
+      },
+      "seed": 2502,
+      "test_row_count": 2320
+    },
+    {
+      "benchmark": "banking77_closed",
+      "evaluations": {
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8938311688311689,
+          "accepted_route_accuracy": 0.8938311688311689,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.02093374500780816,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8938311688311689,
+          "known_accuracy": 0.8938311688311689,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8938311688311689,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.25,
+          "wrong_bucket_access_rate": 0.10616883116883116
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.85,
+          "accepted_route_accuracy": 0.85,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.06694357927646805,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.85,
+          "known_accuracy": 0.85,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.85,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.45,
+          "wrong_bucket_access_rate": 0.15
+        }
+      },
+      "seed": 2502,
+      "test_row_count": 3080
+    },
+    {
+      "benchmark": "clinc150",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.6307272727272727,
+          "accepted_relation_precision": 0.6292466765140325,
+          "accepted_route_accuracy": 0.9609022556390977,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.4651199609953484,
+          "average_candidate_set_size": 0.36927272727272725,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.6307272727272727,
+          "false_memory_access_rate": 0.17525,
+          "intent_macro_accuracy": 0.852,
+          "known_accuracy": 0.852,
+          "known_coverage": 0.8866666666666667,
+          "known_row_count": 1500,
+          "memory_access_count": 2031,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9711224009736901,
+          "oos_auroc": 0.928892,
+          "oos_f1": 0.8833846565805328,
+          "oos_precision": 0.9509945229172673,
+          "oos_recall": 0.82475,
+          "row_count": 5500,
+          "safe_coverage": 0.852,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.22033333333333333,
+              "rejection_rate": 0.7796666666666666,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.04,
+              "rejection_rate": 0.96,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.6307272727272727,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.43333333333333335,
+          "wrong_bucket_access_rate": 0.034666666666666665
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.2661818181818182,
+          "accepted_route_accuracy": 0.976,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.4089671332006715,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.976,
+          "known_accuracy": 0.976,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9791326405231499,
+          "oos_auroc": 0.95407,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.976,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.7333333333333333,
+          "wrong_bucket_access_rate": 0.024
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.25945454545454544,
+          "accepted_route_accuracy": 0.9513333333333334,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.44469884788286906,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9513333333333334,
+          "known_accuracy": 0.9513333333333334,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9711224009736901,
+          "oos_auroc": 0.928892,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.9513333333333334,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.7,
+          "wrong_bucket_access_rate": 0.048666666666666664
+        },
+        "R3": {
+          "abstention_rate": 0.9561818181818181,
+          "accepted_relation_precision": 0.983402489626556,
+          "accepted_route_accuracy": 1.0,
+          "ambiguous_reject_reason_rate": 0.0007272727272727272,
+          "aurc": 0.8224293529637527,
+          "average_candidate_set_size": 0.04490909090909091,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.9554545454545454,
+          "false_memory_access_rate": 0.001,
+          "intent_macro_accuracy": 0.158,
+          "known_accuracy": 0.158,
+          "known_coverage": 0.158,
+          "known_row_count": 1500,
+          "memory_access_count": 241,
+          "multi_candidate_set_rate": 0.0003636363636363636,
+          "oos_aupr": 0.9711224009736901,
+          "oos_auroc": 0.928892,
+          "oos_f1": 0.8631601684847175,
+          "oos_precision": 0.7598402738163149,
+          "oos_recall": 0.999,
+          "row_count": 5500,
+          "safe_coverage": 0.158,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.0013333333333333333,
+              "rejection_rate": 0.9986666666666667,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.0,
+              "rejection_rate": 1.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.9554545454545454,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.0
+        }
+      },
+      "seed": 2503,
+      "test_row_count": 5500
+    },
+    {
+      "benchmark": "banking77_open",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.28879310344827586,
+          "accepted_relation_precision": 0.7781818181818182,
+          "accepted_route_accuracy": 0.9392831016825165,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.16577488992545444,
+          "average_candidate_set_size": 0.7112068965517241,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.28879310344827586,
+          "false_memory_access_rate": 0.37236842105263157,
+          "intent_macro_accuracy": 0.823076923076923,
+          "known_accuracy": 0.823076923076923,
+          "known_coverage": 0.8762820512820513,
+          "known_row_count": 1560,
+          "memory_access_count": 1650,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7335882270518479,
+          "oos_auroc": 0.8512246963562753,
+          "oos_f1": 0.6671328671328671,
+          "oos_precision": 0.7119402985074627,
+          "oos_recall": 0.6276315789473684,
+          "row_count": 2320,
+          "safe_coverage": 0.823076923076923,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.37236842105263157,
+              "rejection_rate": 0.6276315789473684,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.28879310344827586,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.55,
+          "wrong_bucket_access_rate": 0.0532051282051282
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.6344827586206897,
+          "accepted_route_accuracy": 0.9435897435897436,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.13156180306250567,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9435897435897436,
+          "known_accuracy": 0.9435897435897436,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.6976403745753484,
+          "oos_auroc": 0.8459159919028341,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.9435897435897436,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.825,
+          "wrong_bucket_access_rate": 0.05641025641025641
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.6172413793103448,
+          "accepted_route_accuracy": 0.9179487179487179,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.15162309022973666,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9179487179487179,
+          "known_accuracy": 0.9179487179487179,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7335882270518479,
+          "oos_auroc": 0.8512246963562753,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.9179487179487179,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.7,
+          "wrong_bucket_access_rate": 0.08205128205128205
+        },
+        "R3": {
+          "abstention_rate": 0.8711206896551724,
+          "accepted_relation_precision": 0.9866220735785953,
+          "accepted_route_accuracy": 1.0,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.6111756752480141,
+          "average_candidate_set_size": 0.12887931034482758,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.8711206896551724,
+          "false_memory_access_rate": 0.005263157894736842,
+          "intent_macro_accuracy": 0.1891025641025641,
+          "known_accuracy": 0.1891025641025641,
+          "known_coverage": 0.1891025641025641,
+          "known_row_count": 1560,
+          "memory_access_count": 299,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7335882270518479,
+          "oos_auroc": 0.8512246963562753,
+          "oos_f1": 0.5436893203883495,
+          "oos_precision": 0.3740722414646215,
+          "oos_recall": 0.9947368421052631,
+          "row_count": 2320,
+          "safe_coverage": 0.1891025641025641,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.005263157894736842,
+              "rejection_rate": 0.9947368421052631,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.8711206896551724,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.0
+        }
+      },
+      "seed": 2503,
+      "test_row_count": 2320
+    },
+    {
+      "benchmark": "banking77_closed",
+      "evaluations": {
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8938311688311689,
+          "accepted_route_accuracy": 0.8938311688311689,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.02115620420568379,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8938311688311689,
+          "known_accuracy": 0.8938311688311689,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8938311688311689,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.3,
+          "wrong_bucket_access_rate": 0.10616883116883116
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8574675324675325,
+          "accepted_route_accuracy": 0.8574675324675325,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.06598835266888017,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8574675324675325,
+          "known_accuracy": 0.8574675324675325,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8574675324675325,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.475,
+          "wrong_bucket_access_rate": 0.14253246753246754
+        }
+      },
+      "seed": 2503,
+      "test_row_count": 3080
+    },
+    {
+      "benchmark": "clinc150",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.6423636363636364,
+          "accepted_relation_precision": 0.6456532791052364,
+          "accepted_route_accuracy": 0.98145285935085,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.4657884318404386,
+          "average_candidate_set_size": 0.35763636363636364,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.6423636363636364,
+          "false_memory_access_rate": 0.16825,
+          "intent_macro_accuracy": 0.8466666666666667,
+          "known_accuracy": 0.8466666666666667,
+          "known_coverage": 0.8626666666666667,
+          "known_row_count": 1500,
+          "memory_access_count": 1967,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9680887193672585,
+          "oos_auroc": 0.9221166666666667,
+          "oos_f1": 0.8833134209478296,
+          "oos_precision": 0.9416926125106142,
+          "oos_recall": 0.83175,
+          "row_count": 5500,
+          "safe_coverage": 0.8466666666666667,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.216,
+              "rejection_rate": 0.784,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.025,
+              "rejection_rate": 0.975,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.6423636363636364,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.016
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.26636363636363636,
+          "accepted_route_accuracy": 0.9766666666666667,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.4192869618200877,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9766666666666667,
+          "known_accuracy": 0.9766666666666667,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9810826919418848,
+          "oos_auroc": 0.9538538333333333,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.9766666666666667,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.7,
+          "wrong_bucket_access_rate": 0.023333333333333334
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.26581818181818184,
+          "accepted_route_accuracy": 0.9746666666666667,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.43985068563204477,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9746666666666667,
+          "known_accuracy": 0.9746666666666667,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9680887193672585,
+          "oos_auroc": 0.9221166666666667,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.9746666666666667,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.7333333333333333,
+          "wrong_bucket_access_rate": 0.025333333333333333
+        },
+        "R3": {
+          "abstention_rate": 0.9412727272727273,
+          "accepted_relation_precision": 0.9287925696594427,
+          "accepted_route_accuracy": 1.0,
+          "ambiguous_reject_reason_rate": 0.0007272727272727272,
+          "aurc": 0.7895117011525743,
+          "average_candidate_set_size": 0.05963636363636363,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.9405454545454546,
+          "false_memory_access_rate": 0.00575,
+          "intent_macro_accuracy": 0.19999999999999998,
+          "known_accuracy": 0.2,
+          "known_coverage": 0.2,
+          "known_row_count": 1500,
+          "memory_access_count": 323,
+          "multi_candidate_set_rate": 0.0001818181818181818,
+          "oos_aupr": 0.9680887193672585,
+          "oos_auroc": 0.9221166666666667,
+          "oos_f1": 0.8667320475100796,
+          "oos_precision": 0.768205524435001,
+          "oos_recall": 0.99425,
+          "row_count": 5500,
+          "safe_coverage": 0.2,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.007666666666666666,
+              "rejection_rate": 0.9923333333333333,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.0,
+              "rejection_rate": 1.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.9405454545454546,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.0
+        }
+      },
+      "seed": 2504,
+      "test_row_count": 5500
+    },
+    {
+      "benchmark": "banking77_open",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.3724137931034483,
+          "accepted_relation_precision": 0.8358516483516484,
+          "accepted_route_accuracy": 0.9463452566096423,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.16548689491374646,
+          "average_candidate_set_size": 0.6275862068965518,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.3724137931034483,
+          "false_memory_access_rate": 0.2236842105263158,
+          "intent_macro_accuracy": 0.7801282051282051,
+          "known_accuracy": 0.7801282051282051,
+          "known_coverage": 0.8243589743589743,
+          "known_row_count": 1560,
+          "memory_access_count": 1456,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7421692323158454,
+          "oos_auroc": 0.876373987854251,
+          "oos_f1": 0.7266009852216748,
+          "oos_precision": 0.6828703703703703,
+          "oos_recall": 0.7763157894736842,
+          "row_count": 2320,
+          "safe_coverage": 0.7801282051282051,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.2236842105263158,
+              "rejection_rate": 0.7763157894736842,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.3724137931034483,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.5,
+          "wrong_bucket_access_rate": 0.04423076923076923
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.6405172413793103,
+          "accepted_route_accuracy": 0.9525641025641025,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.12546884108217407,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9525641025641025,
+          "known_accuracy": 0.9525641025641025,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7683328674046775,
+          "oos_auroc": 0.8618092105263158,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.9525641025641025,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.825,
+          "wrong_bucket_access_rate": 0.047435897435897434
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.6150862068965517,
+          "accepted_route_accuracy": 0.9147435897435897,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.14040261438867657,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9147435897435897,
+          "known_accuracy": 0.9147435897435897,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7421692323158454,
+          "oos_auroc": 0.876373987854251,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.9147435897435897,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.55,
+          "wrong_bucket_access_rate": 0.08525641025641026
+        },
+        "R3": {
+          "abstention_rate": 0.8487068965517242,
+          "accepted_relation_precision": 0.9829059829059829,
+          "accepted_route_accuracy": 0.9885386819484241,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.568448815911863,
+          "average_candidate_set_size": 0.15129310344827587,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.8487068965517242,
+          "false_memory_access_rate": 0.002631578947368421,
+          "intent_macro_accuracy": 0.22115384615384615,
+          "known_accuracy": 0.22115384615384615,
+          "known_coverage": 0.22371794871794873,
+          "known_row_count": 1560,
+          "memory_access_count": 351,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7421692323158454,
+          "oos_auroc": 0.876373987854251,
+          "oos_f1": 0.5555148406009527,
+          "oos_precision": 0.3849669883189436,
+          "oos_recall": 0.9973684210526316,
+          "row_count": 2320,
+          "safe_coverage": 0.22115384615384615,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.002631578947368421,
+              "rejection_rate": 0.9973684210526316,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.8487068965517242,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.025,
+          "wrong_bucket_access_rate": 0.002564102564102564
+        }
+      },
+      "seed": 2504,
+      "test_row_count": 2320
+    },
+    {
+      "benchmark": "banking77_closed",
+      "evaluations": {
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8941558441558441,
+          "accepted_route_accuracy": 0.8941558441558441,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.02122642069797947,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8941558441558441,
+          "known_accuracy": 0.8941558441558441,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8941558441558441,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.25,
+          "wrong_bucket_access_rate": 0.10584415584415584
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8480519480519481,
+          "accepted_route_accuracy": 0.8480519480519481,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.06879691757159957,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8480519480519481,
+          "known_accuracy": 0.8480519480519481,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8480519480519481,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.375,
+          "wrong_bucket_access_rate": 0.15194805194805194
+        }
+      },
+      "seed": 2504,
+      "test_row_count": 3080
+    },
+    {
+      "benchmark": "clinc150",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.6798181818181818,
+          "accepted_relation_precision": 0.7223168654173765,
+          "accepted_route_accuracy": 0.9960845732184808,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.4469009240522852,
+          "average_candidate_set_size": 0.3201818181818182,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.6798181818181818,
+          "false_memory_access_rate": 0.121,
+          "intent_macro_accuracy": 0.848,
+          "known_accuracy": 0.848,
+          "known_coverage": 0.8513333333333334,
+          "known_row_count": 1500,
+          "memory_access_count": 1761,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9758452851677841,
+          "oos_auroc": 0.9420698333333334,
+          "oos_f1": 0.9086445277167594,
+          "oos_precision": 0.9403583845948115,
+          "oos_recall": 0.879,
+          "row_count": 5500,
+          "safe_coverage": 0.848,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.15333333333333332,
+              "rejection_rate": 0.8466666666666667,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.024,
+              "rejection_rate": 0.976,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.6798181818181818,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.0033333333333333335
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.27054545454545453,
+          "accepted_route_accuracy": 0.992,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.39281922521728285,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.992,
+          "known_accuracy": 0.992,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9882490369920277,
+          "oos_auroc": 0.9720403333333333,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.992,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.9,
+          "wrong_bucket_access_rate": 0.008
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.27,
+          "accepted_route_accuracy": 0.99,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.41482998895457734,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.99,
+          "known_accuracy": 0.99,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9758452851677841,
+          "oos_auroc": 0.9420698333333334,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.99,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.8666666666666667,
+          "wrong_bucket_access_rate": 0.01
+        },
+        "R3": {
+          "abstention_rate": 0.7310909090909091,
+          "accepted_relation_precision": 0.7660581473968898,
+          "accepted_route_accuracy": 1.0,
+          "ambiguous_reject_reason_rate": 0.051272727272727275,
+          "aurc": 0.5175271577010774,
+          "average_candidate_set_size": 0.36527272727272725,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.6798181818181818,
+          "false_memory_access_rate": 0.0865,
+          "intent_macro_accuracy": 0.7553333333333333,
+          "known_accuracy": 0.7553333333333333,
+          "known_coverage": 0.7553333333333333,
+          "known_row_count": 1500,
+          "memory_access_count": 1479,
+          "multi_candidate_set_rate": 0.036727272727272726,
+          "oos_aupr": 0.9758452851677841,
+          "oos_auroc": 0.9420698333333334,
+          "oos_f1": 0.9111083406059094,
+          "oos_precision": 0.908729171847799,
+          "oos_recall": 0.9135,
+          "row_count": 5500,
+          "safe_coverage": 0.7553333333333333,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.10933333333333334,
+              "rejection_rate": 0.8906666666666667,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.018,
+              "rejection_rate": 0.982,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.6798181818181818,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.0
+        }
+      },
+      "seed": 2505,
+      "test_row_count": 5500
+    },
+    {
+      "benchmark": "banking77_open",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.3474137931034483,
+          "accepted_relation_precision": 0.8236459709379128,
+          "accepted_route_accuracy": 0.9526355996944232,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.16501597064747311,
+          "average_candidate_set_size": 0.6525862068965518,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.3474137931034483,
+          "false_memory_access_rate": 0.26973684210526316,
+          "intent_macro_accuracy": 0.7993589743589744,
+          "known_accuracy": 0.7993589743589744,
+          "known_coverage": 0.8391025641025641,
+          "known_row_count": 1560,
+          "memory_access_count": 1514,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7518480186087608,
+          "oos_auroc": 0.8661032388663967,
+          "oos_f1": 0.7088122605363985,
+          "oos_precision": 0.6885856079404467,
+          "oos_recall": 0.7302631578947368,
+          "row_count": 2320,
+          "safe_coverage": 0.7993589743589744,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.26973684210526316,
+              "rejection_rate": 0.7302631578947368,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.3474137931034483,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.5,
+          "wrong_bucket_access_rate": 0.03974358974358974
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.6413793103448275,
+          "accepted_route_accuracy": 0.9538461538461539,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.1273727044223056,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9538461538461538,
+          "known_accuracy": 0.9538461538461539,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7473846921001501,
+          "oos_auroc": 0.8570546558704454,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.9538461538461539,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.85,
+          "wrong_bucket_access_rate": 0.046153846153846156
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.6262931034482758,
+          "accepted_route_accuracy": 0.9314102564102564,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.14201683889751962,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9314102564102564,
+          "known_accuracy": 0.9314102564102564,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7518480186087608,
+          "oos_auroc": 0.8661032388663967,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.9314102564102564,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.65,
+          "wrong_bucket_access_rate": 0.0685897435897436
+        },
+        "R3": {
+          "abstention_rate": 0.843103448275862,
+          "accepted_relation_precision": 0.978021978021978,
+          "accepted_route_accuracy": 0.9971988795518207,
+          "ambiguous_reject_reason_rate": 0.001293103448275862,
+          "aurc": 0.5637853400559464,
+          "average_candidate_set_size": 0.15948275862068967,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.8418103448275862,
+          "false_memory_access_rate": 0.009210526315789473,
+          "intent_macro_accuracy": 0.2282051282051282,
+          "known_accuracy": 0.2282051282051282,
+          "known_coverage": 0.22884615384615384,
+          "known_row_count": 1560,
+          "memory_access_count": 364,
+          "multi_candidate_set_rate": 0.001293103448275862,
+          "oos_aupr": 0.7518480186087608,
+          "oos_auroc": 0.8661032388663967,
+          "oos_f1": 0.5544918998527245,
+          "oos_precision": 0.38496932515337423,
+          "oos_recall": 0.9907894736842106,
+          "row_count": 2320,
+          "safe_coverage": 0.2282051282051282,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.009210526315789473,
+              "rejection_rate": 0.9907894736842106,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.8418103448275862,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.05,
+          "wrong_bucket_access_rate": 0.000641025641025641
+        }
+      },
+      "seed": 2505,
+      "test_row_count": 2320
+    },
+    {
+      "benchmark": "banking77_closed",
+      "evaluations": {
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8922077922077922,
+          "accepted_route_accuracy": 0.8922077922077922,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.02139359707008886,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8922077922077922,
+          "known_accuracy": 0.8922077922077922,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8922077922077922,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.3,
+          "wrong_bucket_access_rate": 0.10779220779220779
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8597402597402597,
+          "accepted_route_accuracy": 0.8597402597402597,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.06425191927380028,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8597402597402597,
+          "known_accuracy": 0.8597402597402597,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8597402597402597,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.425,
+          "wrong_bucket_access_rate": 0.14025974025974025
+        }
+      },
+      "seed": 2505,
+      "test_row_count": 3080
+    },
+    {
+      "benchmark": "clinc150",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.6658181818181819,
+          "accepted_relation_precision": 0.6719260065288357,
+          "accepted_route_accuracy": 0.971675845790716,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.464762848578747,
+          "average_candidate_set_size": 0.3341818181818182,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.6658181818181819,
+          "false_memory_access_rate": 0.14175,
+          "intent_macro_accuracy": 0.8233333333333334,
+          "known_accuracy": 0.8233333333333334,
+          "known_coverage": 0.8473333333333334,
+          "known_row_count": 1500,
+          "memory_access_count": 1838,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9716126068727157,
+          "oos_auroc": 0.9315661666666667,
+          "oos_f1": 0.896110676063691,
+          "oos_precision": 0.9374658656471874,
+          "oos_recall": 0.85825,
+          "row_count": 5500,
+          "safe_coverage": 0.8233333333333334,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.18266666666666667,
+              "rejection_rate": 0.8173333333333334,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.019,
+              "rejection_rate": 0.981,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.6658181818181819,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.024
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.26745454545454544,
+          "accepted_route_accuracy": 0.9806666666666667,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.4081084597112316,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9806666666666667,
+          "known_accuracy": 0.9806666666666667,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9797194379547969,
+          "oos_auroc": 0.9545241666666666,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.9806666666666667,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.8333333333333334,
+          "wrong_bucket_access_rate": 0.019333333333333334
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.26145454545454544,
+          "accepted_route_accuracy": 0.9586666666666667,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.43566485909932956,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9586666666666667,
+          "known_accuracy": 0.9586666666666667,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9716126068727157,
+          "oos_auroc": 0.9315661666666667,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.9586666666666667,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.6666666666666666,
+          "wrong_bucket_access_rate": 0.04133333333333333
+        },
+        "R3": {
+          "abstention_rate": 0.9512727272727273,
+          "accepted_relation_precision": 0.9850746268656716,
+          "accepted_route_accuracy": 1.0,
+          "ambiguous_reject_reason_rate": 0.0009090909090909091,
+          "aurc": 0.8075210812985446,
+          "average_candidate_set_size": 0.050545454545454546,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.9503636363636364,
+          "false_memory_access_rate": 0.001,
+          "intent_macro_accuracy": 0.176,
+          "known_accuracy": 0.176,
+          "known_coverage": 0.176,
+          "known_row_count": 1500,
+          "memory_access_count": 268,
+          "multi_candidate_set_rate": 0.0009090909090909091,
+          "oos_aupr": 0.9716126068727157,
+          "oos_auroc": 0.9315661666666667,
+          "oos_f1": 0.8656845753899479,
+          "oos_precision": 0.7637614678899083,
+          "oos_recall": 0.999,
+          "row_count": 5500,
+          "safe_coverage": 0.176,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.0013333333333333333,
+              "rejection_rate": 0.9986666666666667,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.0,
+              "rejection_rate": 1.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.9503636363636364,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.0
+        }
+      },
+      "seed": 2506,
+      "test_row_count": 5500
+    },
+    {
+      "benchmark": "banking77_open",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.29224137931034483,
+          "accepted_relation_precision": 0.7831912302070646,
+          "accepted_route_accuracy": 0.9265129682997119,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.15716536280341817,
+          "average_candidate_set_size": 0.7077586206896552,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.29224137931034483,
+          "false_memory_access_rate": 0.33421052631578946,
+          "intent_macro_accuracy": 0.8243589743589743,
+          "known_accuracy": 0.8243589743589743,
+          "known_coverage": 0.8897435897435897,
+          "known_row_count": 1560,
+          "memory_access_count": 1642,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7733768810034425,
+          "oos_auroc": 0.8828711201079622,
+          "oos_f1": 0.7037552155771906,
+          "oos_precision": 0.7463126843657817,
+          "oos_recall": 0.6657894736842105,
+          "row_count": 2320,
+          "safe_coverage": 0.8243589743589743,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.33421052631578946,
+              "rejection_rate": 0.6657894736842105,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.29224137931034483,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.425,
+          "wrong_bucket_access_rate": 0.06538461538461539
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.6288793103448276,
+          "accepted_route_accuracy": 0.9352564102564103,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.13749634766155344,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9352564102564103,
+          "known_accuracy": 0.9352564102564103,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7580728957292582,
+          "oos_auroc": 0.859498987854251,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.9352564102564103,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.725,
+          "wrong_bucket_access_rate": 0.06474358974358975
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.603448275862069,
+          "accepted_route_accuracy": 0.8974358974358975,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.14620617005865003,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.8974358974358975,
+          "known_accuracy": 0.8974358974358975,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7733768810034425,
+          "oos_auroc": 0.8828711201079622,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.8974358974358975,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.575,
+          "wrong_bucket_access_rate": 0.10256410256410256
+        },
+        "R3": {
+          "abstention_rate": 0.9103448275862069,
+          "accepted_relation_precision": 0.9951923076923077,
+          "accepted_route_accuracy": 0.9951923076923077,
+          "ambiguous_reject_reason_rate": 0.0004310344827586207,
+          "aurc": 0.6964662334339929,
+          "average_candidate_set_size": 0.09051724137931035,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.9099137931034482,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.1326923076923077,
+          "known_accuracy": 0.1326923076923077,
+          "known_coverage": 0.13333333333333333,
+          "known_row_count": 1560,
+          "memory_access_count": 208,
+          "multi_candidate_set_rate": 0.0004310344827586207,
+          "oos_aupr": 0.7733768810034425,
+          "oos_auroc": 0.8828711201079622,
+          "oos_f1": 0.5292479108635098,
+          "oos_precision": 0.35984848484848486,
+          "oos_recall": 1.0,
+          "row_count": 2320,
+          "safe_coverage": 0.1326923076923077,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.0,
+              "rejection_rate": 1.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.9099137931034482,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.000641025641025641
+        }
+      },
+      "seed": 2506,
+      "test_row_count": 2320
+    },
+    {
+      "benchmark": "banking77_closed",
+      "evaluations": {
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8967532467532467,
+          "accepted_route_accuracy": 0.8967532467532467,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.020798204333591013,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8967532467532467,
+          "known_accuracy": 0.8967532467532467,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8967532467532467,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.375,
+          "wrong_bucket_access_rate": 0.10324675324675325
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8558441558441559,
+          "accepted_route_accuracy": 0.8558441558441559,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.06445348208460595,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8558441558441559,
+          "known_accuracy": 0.8558441558441559,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8558441558441559,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.5,
+          "wrong_bucket_access_rate": 0.14415584415584415
+        }
+      },
+      "seed": 2506,
+      "test_row_count": 3080
+    },
+    {
+      "benchmark": "clinc150",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.6970909090909091,
+          "accepted_relation_precision": 0.7250900360144058,
+          "accepted_route_accuracy": 0.9861224489795918,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.47231452040223487,
+          "average_candidate_set_size": 0.3029090909090909,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.6970909090909091,
+          "false_memory_access_rate": 0.11025,
+          "intent_macro_accuracy": 0.8053333333333333,
+          "known_accuracy": 0.8053333333333333,
+          "known_coverage": 0.8166666666666667,
+          "known_row_count": 1500,
+          "memory_access_count": 1666,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9746787208971411,
+          "oos_auroc": 0.9362826666666667,
+          "oos_f1": 0.9086035231044167,
+          "oos_precision": 0.9282733437663016,
+          "oos_recall": 0.88975,
+          "row_count": 5500,
+          "safe_coverage": 0.8053333333333333,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.14133333333333334,
+              "rejection_rate": 0.8586666666666667,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.017,
+              "rejection_rate": 0.983,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.6970909090909091,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.1,
+          "wrong_bucket_access_rate": 0.011333333333333334
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.2661818181818182,
+          "accepted_route_accuracy": 0.976,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.4040448571172137,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.976,
+          "known_accuracy": 0.976,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9837698713566921,
+          "oos_auroc": 0.9612385,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.976,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.8,
+          "wrong_bucket_access_rate": 0.024
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.2670909090909091,
+          "accepted_route_accuracy": 0.9793333333333333,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.428948103054629,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9793333333333334,
+          "known_accuracy": 0.9793333333333333,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9746787208971411,
+          "oos_auroc": 0.9362826666666667,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.9793333333333333,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.8666666666666667,
+          "wrong_bucket_access_rate": 0.020666666666666667
+        },
+        "R3": {
+          "abstention_rate": 0.9354545454545454,
+          "accepted_relation_precision": 0.9492957746478873,
+          "accepted_route_accuracy": 0.9970414201183432,
+          "ambiguous_reject_reason_rate": 0.0009090909090909091,
+          "aurc": 0.770263042211179,
+          "average_candidate_set_size": 0.06563636363636363,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.9345454545454546,
+          "false_memory_access_rate": 0.00425,
+          "intent_macro_accuracy": 0.22466666666666665,
+          "known_accuracy": 0.22466666666666665,
+          "known_coverage": 0.22533333333333333,
+          "known_row_count": 1500,
+          "memory_access_count": 355,
+          "multi_candidate_set_rate": 0.0001818181818181818,
+          "oos_aupr": 0.9746787208971411,
+          "oos_auroc": 0.9362826666666667,
+          "oos_f1": 0.871077091306725,
+          "oos_precision": 0.7741496598639456,
+          "oos_recall": 0.99575,
+          "row_count": 5500,
+          "safe_coverage": 0.22466666666666665,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.005666666666666667,
+              "rejection_rate": 0.9943333333333333,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.0,
+              "rejection_rate": 1.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.9345454545454546,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.0006666666666666666
+        }
+      },
+      "seed": 2507,
+      "test_row_count": 5500
+    },
+    {
+      "benchmark": "banking77_open",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.3767241379310345,
+          "accepted_relation_precision": 0.822268326417704,
+          "accepted_route_accuracy": 0.9391785150078988,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.18164823772223726,
+          "average_candidate_set_size": 0.6232758620689656,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.3767241379310345,
+          "false_memory_access_rate": 0.23684210526315788,
+          "intent_macro_accuracy": 0.7621794871794871,
+          "known_accuracy": 0.7621794871794871,
+          "known_coverage": 0.8115384615384615,
+          "known_row_count": 1560,
+          "memory_access_count": 1446,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7465308984611003,
+          "oos_auroc": 0.8596002024291498,
+          "oos_f1": 0.7099143206854345,
+          "oos_precision": 0.6636155606407322,
+          "oos_recall": 0.7631578947368421,
+          "row_count": 2320,
+          "safe_coverage": 0.7621794871794871,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.23684210526315788,
+              "rejection_rate": 0.7631578947368421,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.3767241379310345,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.375,
+          "wrong_bucket_access_rate": 0.04935897435897436
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.6297413793103448,
+          "accepted_route_accuracy": 0.9365384615384615,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.143580999697634,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9365384615384615,
+          "known_accuracy": 0.9365384615384615,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.6751081677509455,
+          "oos_auroc": 0.83,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.9365384615384615,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.675,
+          "wrong_bucket_access_rate": 0.06346153846153846
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.6103448275862069,
+          "accepted_route_accuracy": 0.9076923076923077,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.15300411075979703,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9076923076923077,
+          "known_accuracy": 0.9076923076923077,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7465308984611003,
+          "oos_auroc": 0.8596002024291498,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.9076923076923077,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.625,
+          "wrong_bucket_access_rate": 0.09230769230769231
+        },
+        "R3": {
+          "abstention_rate": 0.8650862068965517,
+          "accepted_relation_precision": 0.9808306709265175,
+          "accepted_route_accuracy": 0.9903225806451613,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.6012090056836344,
+          "average_candidate_set_size": 0.13491379310344828,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.8650862068965517,
+          "false_memory_access_rate": 0.003947368421052632,
+          "intent_macro_accuracy": 0.1967948717948718,
+          "known_accuracy": 0.1967948717948718,
+          "known_coverage": 0.1987179487179487,
+          "known_row_count": 1560,
+          "memory_access_count": 313,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7465308984611003,
+          "oos_auroc": 0.8596002024291498,
+          "oos_f1": 0.547162992410553,
+          "oos_precision": 0.37717987045341306,
+          "oos_recall": 0.9960526315789474,
+          "row_count": 2320,
+          "safe_coverage": 0.1967948717948718,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.003947368421052632,
+              "rejection_rate": 0.9960526315789474,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.8650862068965517,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.025,
+          "wrong_bucket_access_rate": 0.0019230769230769232
+        }
+      },
+      "seed": 2507,
+      "test_row_count": 2320
+    },
+    {
+      "benchmark": "banking77_closed",
+      "evaluations": {
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8931818181818182,
+          "accepted_route_accuracy": 0.8931818181818182,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.02066391254369772,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8931818181818182,
+          "known_accuracy": 0.8931818181818182,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8931818181818182,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.325,
+          "wrong_bucket_access_rate": 0.10681818181818181
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8564935064935065,
+          "accepted_route_accuracy": 0.8564935064935065,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.06717297407449031,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8564935064935065,
+          "known_accuracy": 0.8564935064935065,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8564935064935065,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.475,
+          "wrong_bucket_access_rate": 0.1435064935064935
+        }
+      },
+      "seed": 2507,
+      "test_row_count": 3080
+    },
+    {
+      "benchmark": "clinc150",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.6998181818181818,
+          "accepted_relation_precision": 0.705632949727438,
+          "accepted_route_accuracy": 0.9814658803706824,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.49338676241641044,
+          "average_candidate_set_size": 0.30018181818181816,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.6998181818181818,
+          "false_memory_access_rate": 0.116,
+          "intent_macro_accuracy": 0.7766666666666667,
+          "known_accuracy": 0.7766666666666666,
+          "known_coverage": 0.7913333333333333,
+          "known_row_count": 1500,
+          "memory_access_count": 1651,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9643655766838642,
+          "oos_auroc": 0.9156199166666666,
+          "oos_f1": 0.9010064976430119,
+          "oos_precision": 0.9186801766692647,
+          "oos_recall": 0.884,
+          "row_count": 5500,
+          "safe_coverage": 0.7766666666666666,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.14633333333333334,
+              "rejection_rate": 0.8536666666666667,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.025,
+              "rejection_rate": 0.975,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.6998181818181818,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.014666666666666666
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.2667272727272727,
+          "accepted_route_accuracy": 0.978,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.40718067996889884,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.978,
+          "known_accuracy": 0.978,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9799325293971899,
+          "oos_auroc": 0.9566428333333333,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.978,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.7333333333333333,
+          "wrong_bucket_access_rate": 0.022
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.262,
+          "accepted_route_accuracy": 0.9606666666666667,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.4493165090714161,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9606666666666667,
+          "known_accuracy": 0.9606666666666667,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9643655766838642,
+          "oos_auroc": 0.9156199166666666,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.9606666666666667,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.7,
+          "wrong_bucket_access_rate": 0.03933333333333333
+        },
+        "R3": {
+          "abstention_rate": 0.9190909090909091,
+          "accepted_relation_precision": 0.8764044943820225,
+          "accepted_route_accuracy": 1.0,
+          "ambiguous_reject_reason_rate": 0.0012727272727272728,
+          "aurc": 0.7465913944808354,
+          "average_candidate_set_size": 0.0829090909090909,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.9178181818181819,
+          "false_memory_access_rate": 0.01375,
+          "intent_macro_accuracy": 0.26,
+          "known_accuracy": 0.26,
+          "known_coverage": 0.26,
+          "known_row_count": 1500,
+          "memory_access_count": 445,
+          "multi_candidate_set_rate": 0.0007272727272727272,
+          "oos_aupr": 0.9643655766838642,
+          "oos_auroc": 0.9156199166666666,
+          "oos_f1": 0.8713418001104362,
+          "oos_precision": 0.7804154302670623,
+          "oos_recall": 0.98625,
+          "row_count": 5500,
+          "safe_coverage": 0.26,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.018,
+              "rejection_rate": 0.982,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.001,
+              "rejection_rate": 0.999,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.9178181818181819,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.0
+        }
+      },
+      "seed": 2508,
+      "test_row_count": 5500
+    },
+    {
+      "benchmark": "banking77_open",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.3913793103448276,
+          "accepted_relation_precision": 0.8526912181303116,
+          "accepted_route_accuracy": 0.9517786561264822,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.1686252331470488,
+          "average_candidate_set_size": 0.6086206896551725,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.3913793103448276,
+          "false_memory_access_rate": 0.19342105263157894,
+          "intent_macro_accuracy": 0.7717948717948718,
+          "known_accuracy": 0.7717948717948718,
+          "known_coverage": 0.8108974358974359,
+          "known_row_count": 1560,
+          "memory_access_count": 1412,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7437839837607234,
+          "oos_auroc": 0.8803972672064777,
+          "oos_f1": 0.7350119904076738,
+          "oos_precision": 0.6751101321585903,
+          "oos_recall": 0.8065789473684211,
+          "row_count": 2320,
+          "safe_coverage": 0.7717948717948718,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.19342105263157894,
+              "rejection_rate": 0.8065789473684211,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.3913793103448276,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.35,
+          "wrong_bucket_access_rate": 0.0391025641025641
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.6314655172413793,
+          "accepted_route_accuracy": 0.9391025641025641,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.10341289285116655,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9391025641025641,
+          "known_accuracy": 0.9391025641025641,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.8365569527467389,
+          "oos_auroc": 0.9220580296896086,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.9391025641025641,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.825,
+          "wrong_bucket_access_rate": 0.060897435897435896
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.6137931034482759,
+          "accepted_route_accuracy": 0.9128205128205128,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.14137663050534371,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9128205128205128,
+          "known_accuracy": 0.9128205128205128,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7437839837607234,
+          "oos_auroc": 0.8803972672064777,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.9128205128205128,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.7,
+          "wrong_bucket_access_rate": 0.08717948717948718
+        },
+        "R3": {
+          "abstention_rate": 0.8814655172413793,
+          "accepted_relation_precision": 0.9672727272727273,
+          "accepted_route_accuracy": 0.9708029197080292,
+          "ambiguous_reject_reason_rate": 0.0004310344827586207,
+          "aurc": 0.6391751923975056,
+          "average_candidate_set_size": 0.11939655172413793,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.8810344827586207,
+          "false_memory_access_rate": 0.0013157894736842105,
+          "intent_macro_accuracy": 0.17051282051282052,
+          "known_accuracy": 0.17051282051282052,
+          "known_coverage": 0.17564102564102563,
+          "known_row_count": 1560,
+          "memory_access_count": 275,
+          "multi_candidate_set_rate": 0.0004310344827586207,
+          "oos_aupr": 0.7437839837607234,
+          "oos_auroc": 0.8803972672064777,
+          "oos_f1": 0.5411764705882354,
+          "oos_precision": 0.37114914425427875,
+          "oos_recall": 0.9986842105263158,
+          "row_count": 2320,
+          "safe_coverage": 0.17051282051282052,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.0013157894736842105,
+              "rejection_rate": 0.9986842105263158,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.8810344827586207,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.005128205128205128
+        }
+      },
+      "seed": 2508,
+      "test_row_count": 2320
+    },
+    {
+      "benchmark": "banking77_closed",
+      "evaluations": {
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8938311688311689,
+          "accepted_route_accuracy": 0.8938311688311689,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.02104270631006902,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8938311688311689,
+          "known_accuracy": 0.8938311688311689,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8938311688311689,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.375,
+          "wrong_bucket_access_rate": 0.10616883116883116
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8564935064935065,
+          "accepted_route_accuracy": 0.8564935064935065,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.060656199737606775,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8564935064935065,
+          "known_accuracy": 0.8564935064935065,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8564935064935065,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.525,
+          "wrong_bucket_access_rate": 0.1435064935064935
+        }
+      },
+      "seed": 2508,
+      "test_row_count": 3080
+    },
+    {
+      "benchmark": "clinc150",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.6725454545454546,
+          "accepted_relation_precision": 0.6574125485841199,
+          "accepted_route_accuracy": 0.9736842105263158,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.48306494326684557,
+          "average_candidate_set_size": 0.32745454545454544,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.6725454545454546,
+          "false_memory_access_rate": 0.14625,
+          "intent_macro_accuracy": 0.7893333333333333,
+          "known_accuracy": 0.7893333333333333,
+          "known_coverage": 0.8106666666666666,
+          "known_row_count": 1500,
+          "memory_access_count": 1801,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9647390700781237,
+          "oos_auroc": 0.9161233333333333,
+          "oos_f1": 0.8871281984673334,
+          "oos_precision": 0.9232224925655582,
+          "oos_recall": 0.85375,
+          "row_count": 5500,
+          "safe_coverage": 0.7893333333333333,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.18766666666666668,
+              "rejection_rate": 0.8123333333333334,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.022,
+              "rejection_rate": 0.978,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.6725454545454546,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.26666666666666666,
+          "wrong_bucket_access_rate": 0.021333333333333333
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.2670909090909091,
+          "accepted_route_accuracy": 0.9793333333333333,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.4304271278296082,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9793333333333334,
+          "known_accuracy": 0.9793333333333333,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.973726154814112,
+          "oos_auroc": 0.93813,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.9793333333333333,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.7,
+          "wrong_bucket_access_rate": 0.020666666666666667
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.26072727272727275,
+          "accepted_route_accuracy": 0.956,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.4463513861054075,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.956,
+          "known_accuracy": 0.956,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9647390700781237,
+          "oos_auroc": 0.9161233333333333,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.956,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.7,
+          "wrong_bucket_access_rate": 0.044
+        },
+        "R3": {
+          "abstention_rate": 0.9445454545454546,
+          "accepted_relation_precision": 0.9606557377049181,
+          "accepted_route_accuracy": 1.0,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.7912124183544805,
+          "average_candidate_set_size": 0.05545454545454546,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.9445454545454546,
+          "false_memory_access_rate": 0.003,
+          "intent_macro_accuracy": 0.19533333333333333,
+          "known_accuracy": 0.19533333333333333,
+          "known_coverage": 0.19533333333333333,
+          "known_row_count": 1500,
+          "memory_access_count": 305,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9647390700781237,
+          "oos_auroc": 0.9161233333333333,
+          "oos_f1": 0.8674279499728114,
+          "oos_precision": 0.7676612127045236,
+          "oos_recall": 0.997,
+          "row_count": 5500,
+          "safe_coverage": 0.19533333333333333,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.004,
+              "rejection_rate": 0.996,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.0,
+              "rejection_rate": 1.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.9445454545454546,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.0
+        }
+      },
+      "seed": 2509,
+      "test_row_count": 5500
+    },
+    {
+      "benchmark": "banking77_open",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.3103448275862069,
+          "accepted_relation_precision": 0.7775,
+          "accepted_route_accuracy": 0.924907063197026,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.1787390737329021,
+          "average_candidate_set_size": 0.6896551724137931,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.3103448275862069,
+          "false_memory_access_rate": 0.3355263157894737,
+          "intent_macro_accuracy": 0.7974358974358975,
+          "known_accuracy": 0.7974358974358975,
+          "known_coverage": 0.8621794871794872,
+          "known_row_count": 1560,
+          "memory_access_count": 1600,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7326889503535392,
+          "oos_auroc": 0.8518766869095816,
+          "oos_f1": 0.6824324324324325,
+          "oos_precision": 0.7013888888888888,
+          "oos_recall": 0.6644736842105263,
+          "row_count": 2320,
+          "safe_coverage": 0.7974358974358975,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.3355263157894737,
+              "rejection_rate": 0.6644736842105263,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.3103448275862069,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.425,
+          "wrong_bucket_access_rate": 0.06474358974358975
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.6267241379310344,
+          "accepted_route_accuracy": 0.9320512820512821,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.14880449179281308,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9320512820512821,
+          "known_accuracy": 0.9320512820512821,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.6493343134367014,
+          "oos_auroc": 0.8085247975708502,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.9320512820512821,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.8,
+          "wrong_bucket_access_rate": 0.06794871794871794
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.5991379310344828,
+          "accepted_route_accuracy": 0.8910256410256411,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.16449824870707105,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.8910256410256411,
+          "known_accuracy": 0.8910256410256411,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7326889503535392,
+          "oos_auroc": 0.8518766869095816,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.8910256410256411,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.6,
+          "wrong_bucket_access_rate": 0.10897435897435898
+        },
+        "R3": {
+          "abstention_rate": 0.8745689655172414,
+          "accepted_relation_precision": 0.979381443298969,
+          "accepted_route_accuracy": 0.9930313588850174,
+          "ambiguous_reject_reason_rate": 0.0004310344827586207,
+          "aurc": 0.6223516357616908,
+          "average_candidate_set_size": 0.12629310344827585,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.8741379310344828,
+          "false_memory_access_rate": 0.005263157894736842,
+          "intent_macro_accuracy": 0.18269230769230768,
+          "known_accuracy": 0.18269230769230768,
+          "known_coverage": 0.183974358974359,
+          "known_row_count": 1560,
+          "memory_access_count": 291,
+          "multi_candidate_set_rate": 0.0004310344827586207,
+          "oos_aupr": 0.7326889503535392,
+          "oos_auroc": 0.8518766869095816,
+          "oos_f1": 0.5421297956256723,
+          "oos_precision": 0.37259733859043864,
+          "oos_recall": 0.9947368421052631,
+          "row_count": 2320,
+          "safe_coverage": 0.18269230769230768,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.005263157894736842,
+              "rejection_rate": 0.9947368421052631,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.8741379310344828,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.001282051282051282
+        }
+      },
+      "seed": 2509,
+      "test_row_count": 2320
+    },
+    {
+      "benchmark": "banking77_closed",
+      "evaluations": {
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8899350649350649,
+          "accepted_route_accuracy": 0.8899350649350649,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.022398738869213074,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8899350649350649,
+          "known_accuracy": 0.8899350649350649,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8899350649350649,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.275,
+          "wrong_bucket_access_rate": 0.11006493506493506
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8525974025974026,
+          "accepted_route_accuracy": 0.8525974025974026,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.06906295572178721,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8525974025974026,
+          "known_accuracy": 0.8525974025974026,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8525974025974026,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.475,
+          "wrong_bucket_access_rate": 0.1474025974025974
+        }
+      },
+      "seed": 2509,
+      "test_row_count": 3080
+    },
+    {
+      "benchmark": "clinc150",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.624,
+          "accepted_relation_precision": 0.5996131528046421,
+          "accepted_route_accuracy": 0.9771473601260835,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.47786179899174974,
+          "average_candidate_set_size": 0.376,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.624,
+          "false_memory_access_rate": 0.19975,
+          "intent_macro_accuracy": 0.8266666666666667,
+          "known_accuracy": 0.8266666666666667,
+          "known_coverage": 0.846,
+          "known_row_count": 1500,
+          "memory_access_count": 2068,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9634510163277915,
+          "oos_auroc": 0.909887,
+          "oos_f1": 0.8614101184068892,
+          "oos_precision": 0.9326923076923077,
+          "oos_recall": 0.80025,
+          "row_count": 5500,
+          "safe_coverage": 0.8266666666666667,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.25266666666666665,
+              "rejection_rate": 0.7473333333333333,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.041,
+              "rejection_rate": 0.959,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.624,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.019333333333333334
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.26854545454545453,
+          "accepted_route_accuracy": 0.9846666666666667,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.41489324739492484,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9846666666666667,
+          "known_accuracy": 0.9846666666666667,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9749270242791327,
+          "oos_auroc": 0.9432643333333334,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.9846666666666667,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.8666666666666667,
+          "wrong_bucket_access_rate": 0.015333333333333332
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.2625454545454545,
+          "accepted_route_accuracy": 0.9626666666666667,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.4516550303446076,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9626666666666667,
+          "known_accuracy": 0.9626666666666667,
+          "known_coverage": 1.0,
+          "known_row_count": 1500,
+          "memory_access_count": 5500,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.9634510163277915,
+          "oos_auroc": 0.909887,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 5500,
+          "safe_coverage": 0.9626666666666667,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.6666666666666666,
+          "wrong_bucket_access_rate": 0.037333333333333336
+        },
+        "R3": {
+          "abstention_rate": 0.9441818181818182,
+          "accepted_relation_precision": 0.9446254071661238,
+          "accepted_route_accuracy": 0.9965635738831615,
+          "ambiguous_reject_reason_rate": 0.001090909090909091,
+          "aurc": 0.794810698942964,
+          "average_candidate_set_size": 0.05763636363636364,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.9430909090909091,
+          "false_memory_access_rate": 0.004,
+          "intent_macro_accuracy": 0.19333333333333333,
+          "known_accuracy": 0.19333333333333333,
+          "known_coverage": 0.194,
+          "known_row_count": 1500,
+          "memory_access_count": 307,
+          "multi_candidate_set_rate": 0.0007272727272727272,
+          "oos_aupr": 0.9634510163277915,
+          "oos_auroc": 0.909887,
+          "oos_f1": 0.8667464375067988,
+          "oos_precision": 0.7671865973425765,
+          "oos_recall": 0.996,
+          "row_count": 5500,
+          "safe_coverage": 0.19333333333333333,
+          "unknown_kind_metrics": {
+            "heldout_intent": {
+              "false_memory_access_rate": 0.005333333333333333,
+              "rejection_rate": 0.9946666666666667,
+              "row_count": 3000.0
+            },
+            "official_oos": {
+              "false_memory_access_rate": 0.0,
+              "rejection_rate": 1.0,
+              "row_count": 1000.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.9430909090909091,
+          "unknown_row_count": 4000,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.0006666666666666666
+        }
+      },
+      "seed": 2510,
+      "test_row_count": 5500
+    },
+    {
+      "benchmark": "banking77_open",
+      "evaluations": {
+        "MAX_THRESHOLD": {
+          "abstention_rate": 0.3245689655172414,
+          "accepted_relation_precision": 0.774728781110402,
+          "accepted_route_accuracy": 0.912781954887218,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.18348934421932503,
+          "average_candidate_set_size": 0.6754310344827587,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.3245689655172414,
+          "false_memory_access_rate": 0.3118421052631579,
+          "intent_macro_accuracy": 0.7782051282051282,
+          "known_accuracy": 0.7782051282051282,
+          "known_coverage": 0.8525641025641025,
+          "known_row_count": 1560,
+          "memory_access_count": 1567,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7680222326391534,
+          "oos_auroc": 0.868983636977058,
+          "oos_f1": 0.6913417052214145,
+          "oos_precision": 0.6945551128818062,
+          "oos_recall": 0.6881578947368421,
+          "row_count": 2320,
+          "safe_coverage": 0.7782051282051282,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.3118421052631579,
+              "rejection_rate": 0.6881578947368421,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.3245689655172414,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.275,
+          "wrong_bucket_access_rate": 0.07435897435897436
+        },
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.6310344827586207,
+          "accepted_route_accuracy": 0.9384615384615385,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.1431548137897945,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.9384615384615385,
+          "known_accuracy": 0.9384615384615385,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7172513810872103,
+          "oos_auroc": 0.8455651147098515,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.9384615384615385,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.825,
+          "wrong_bucket_access_rate": 0.06153846153846154
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.596551724137931,
+          "accepted_route_accuracy": 0.8871794871794871,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.16535777935977072,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 1.0,
+          "intent_macro_accuracy": 0.8871794871794871,
+          "known_accuracy": 0.8871794871794871,
+          "known_coverage": 1.0,
+          "known_row_count": 1560,
+          "memory_access_count": 2320,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7680222326391534,
+          "oos_auroc": 0.868983636977058,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 2320,
+          "safe_coverage": 0.8871794871794871,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 1.0,
+              "rejection_rate": 0.0,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.475,
+          "wrong_bucket_access_rate": 0.11282051282051282
+        },
+        "R3": {
+          "abstention_rate": 0.8931034482758621,
+          "accepted_relation_precision": 0.9798387096774194,
+          "accepted_route_accuracy": 0.9878048780487805,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.6617046446058374,
+          "average_candidate_set_size": 0.10689655172413794,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.8931034482758621,
+          "false_memory_access_rate": 0.002631578947368421,
+          "intent_macro_accuracy": 0.15576923076923077,
+          "known_accuracy": 0.15576923076923077,
+          "known_coverage": 0.1576923076923077,
+          "known_row_count": 1560,
+          "memory_access_count": 248,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.7680222326391534,
+          "oos_auroc": 0.868983636977058,
+          "oos_f1": 0.5353107344632769,
+          "oos_precision": 0.3658301158301158,
+          "oos_recall": 0.9973684210526316,
+          "row_count": 2320,
+          "safe_coverage": 0.15576923076923077,
+          "unknown_kind_metrics": {
+            "test_only_oos_intent": {
+              "false_memory_access_rate": 0.002631578947368421,
+              "rejection_rate": 0.9973684210526316,
+              "row_count": 760.0
+            }
+          },
+          "unknown_reject_reason_rate": 0.8931034482758621,
+          "unknown_row_count": 760,
+          "worst_intent_accuracy": 0.0,
+          "wrong_bucket_access_rate": 0.0019230769230769232
+        }
+      },
+      "seed": 2510,
+      "test_row_count": 2320
+    },
+    {
+      "benchmark": "banking77_closed",
+      "evaluations": {
+        "R0": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8931818181818182,
+          "accepted_route_accuracy": 0.8931818181818182,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.02132026817513762,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8931818181818182,
+          "known_accuracy": 0.8931818181818182,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8931818181818182,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.35,
+          "wrong_bucket_access_rate": 0.10681818181818181
+        },
+        "R2": {
+          "abstention_rate": 0.0,
+          "accepted_relation_precision": 0.8597402597402597,
+          "accepted_route_accuracy": 0.8597402597402597,
+          "ambiguous_reject_reason_rate": 0.0,
+          "aurc": 0.06458337436655381,
+          "average_candidate_set_size": 1,
+          "cross_intent_candidate_access_count": 0,
+          "empty_candidate_set_rate": 0.0,
+          "false_memory_access_rate": 0.0,
+          "intent_macro_accuracy": 0.8597402597402597,
+          "known_accuracy": 0.8597402597402597,
+          "known_coverage": 1.0,
+          "known_row_count": 3080,
+          "memory_access_count": 3080,
+          "multi_candidate_set_rate": 0.0,
+          "oos_aupr": 0.0,
+          "oos_auroc": 0.0,
+          "oos_f1": 0.0,
+          "oos_precision": 0.0,
+          "oos_recall": 0.0,
+          "row_count": 3080,
+          "safe_coverage": 0.8597402597402597,
+          "unknown_kind_metrics": {},
+          "unknown_reject_reason_rate": 0.0,
+          "unknown_row_count": 0,
+          "worst_intent_accuracy": 0.375,
+          "wrong_bucket_access_rate": 0.14025974025974025
+        }
+      },
+      "seed": 2510,
+      "test_row_count": 3080
+    }
+  ],
+  "r3_vs_max_threshold": {
+    "banking77_open": {
+      "mean_fmar_r3_minus_max": -0.2780263157894737,
+      "mean_safe_coverage_r3_minus_max": -0.6120512820512821,
+      "r3_strictly_better_fmar_seed_fraction": 1.0
+    },
+    "clinc150": {
+      "mean_fmar_r3_minus_max": -0.129575,
+      "mean_safe_coverage_r3_minus_max": -0.5621333333333334,
+      "r3_strictly_better_fmar_seed_fraction": 1.0
+    }
+  },
+  "r4_deferred": true,
+  "schema_version": 1,
+  "stage": "C2.5-external-test-once-audit",
+  "status": {
+    "answer_injection_executed": false,
+    "c3_eligible": false,
+    "confirmation_created_or_read": false,
+    "exploratory_c3_allowed": false,
+    "external_oos_validation_status": "failed",
+    "external_pairwise_evidence_validated": false,
+    "external_selective_abstention_validated": false,
+    "key_attack_executed": false,
+    "labels_modified": false,
+    "private_answers_loaded": false,
+    "private_value_memory_trained": false,
+    "schema_version": 1,
+    "stage": "C2.5-external-oos-generalization-audit",
+    "synthetic_oos_used": false,
+    "task_specific_router_ready": false,
+    "test_predictions_executed": true,
+    "test_used_for_selection": false
+  },
+  "synthetic_oos_used": false,
+  "test_predictions_executed_once": true,
+  "test_used_for_selection": false
+}
