@@ -1,0 +1,25 @@
+schema_version: 1
+stage: C2.5-external-oos-generalization-audit-smoke
+protocol:
+  evaluation_mode: synthetic_smoke_only
+  seeds: [25]
+  synthetic_oos_allowed: true
+  test_predictions_once: false
+  create_confirmation: false
+  train_private_memory: false
+  load_private_answers: false
+  execute_answer_injection: false
+  execute_key_attack: false
+  task_specific_router_ready: false
+  c3_eligible: false
+selection:
+  global_threshold_grid: [0.40, 0.60]
+  minimum_margin_grid: [0.00, 0.10]
+  selective_selection:
+    minimum_accepted_route_accuracy: 0.50
+    minimum_known_coverage: 0.50
+    minimum_safe_coverage: 0.50
+outputs:
+  artifact_dir: artifacts/stage_c25_smoke
+  runtime_dir: .runs/stage_c25_smoke
+

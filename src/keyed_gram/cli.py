@@ -61,6 +61,13 @@ from .stage_c24c import (
     run_smoke as run_stage_c24c_smoke,
     seal_benchmark as seal_stage_c24c_benchmark,
 )
+from .stage_c25 import (
+    calibrate_external as calibrate_stage_c25,
+    finalize_artifacts as finalize_stage_c25,
+    prepare_external_audit as prepare_stage_c25,
+    run_external_audit as audit_stage_c25,
+    run_smoke as run_stage_c25_smoke,
+)
 from .train import train_gram
 
 
@@ -631,6 +638,26 @@ def command_stage_c24c_smoke(args: argparse.Namespace) -> None:
     _print(run_stage_c24c_smoke(args.config, output_dir=args.output_dir))
 
 
+def command_stage_c25_prepare(args: argparse.Namespace) -> None:
+    _print(prepare_stage_c25(args.config))
+
+
+def command_stage_c25_calibrate(args: argparse.Namespace) -> None:
+    _print(calibrate_stage_c25(args.config, device=args.device))
+
+
+def command_stage_c25_audit(args: argparse.Namespace) -> None:
+    _print(audit_stage_c25(args.config, device=args.device))
+
+
+def command_stage_c25_smoke(args: argparse.Namespace) -> None:
+    _print(run_stage_c25_smoke(args.config, output_dir=args.output_dir))
+
+
+def command_stage_c25_finalize(args: argparse.Namespace) -> None:
+    _print(finalize_stage_c25(args.config))
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="keyed-gram",
@@ -990,6 +1017,44 @@ def build_parser() -> argparse.ArgumentParser:
     stage_c24c_smoke.add_argument("--config", required=True)
     stage_c24c_smoke.add_argument("--output-dir")
     stage_c24c_smoke.set_defaults(func=command_stage_c24c_smoke)
+
+    stage_c25_prepare = sub.add_parser(
+        "stage-c25-prepare",
+        help="download/verify official sources and freeze partitions/code before scoring",
+    )
+    stage_c25_prepare.add_argument("--config", required=True)
+    stage_c25_prepare.set_defaults(func=command_stage_c25_prepare)
+
+    stage_c25_calibrate = sub.add_parser(
+        "stage-c25-calibrate",
+        help="fit/select external routers on official train/validation only",
+    )
+    stage_c25_calibrate.add_argument("--config", required=True)
+    stage_c25_calibrate.add_argument("--device", default="cpu")
+    stage_c25_calibrate.set_defaults(func=command_stage_c25_calibrate)
+
+    stage_c25_audit = sub.add_parser(
+        "stage-c25-audit",
+        help="score frozen CLINC150/BANKING77 test partitions exactly once",
+    )
+    stage_c25_audit.add_argument("--config", required=True)
+    stage_c25_audit.add_argument("--device", default="cpu")
+    stage_c25_audit.set_defaults(func=command_stage_c25_audit)
+
+    stage_c25_smoke = sub.add_parser(
+        "stage-c25-smoke",
+        help="run synthetic tensor smoke without reading official test data",
+    )
+    stage_c25_smoke.add_argument("--config", required=True)
+    stage_c25_smoke.add_argument("--output-dir")
+    stage_c25_smoke.set_defaults(func=command_stage_c25_smoke)
+
+    stage_c25_finalize = sub.add_parser(
+        "stage-c25-finalize",
+        help="seal final C2.5 artifacts and report SHA-256 without overwriting",
+    )
+    stage_c25_finalize.add_argument("--config", required=True)
+    stage_c25_finalize.set_defaults(func=command_stage_c25_finalize)
     return parser
 
 
