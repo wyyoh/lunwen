@@ -1,0 +1,141 @@
+schema_version: 1
+stage: D2-capability-gated-authenticated-keyed-memory
+
+governance:
+  d1_summary:
+    path: artifacts/stage_d1/stage_d1_summary.json
+    sha256: de5ceeb280097c5bb5625327e739a9b6365d65eace1a0ccaad7639435d19b3a1
+  d1_artifact_manifest:
+    path: artifacts/stage_d1/artifact_sha256_manifest.json
+    sha256: c43e75262d56846072f9484ca870ae4bd981d8d03427ebc545ed6c93499d6eef
+  trusted_capability_contract_status: passed
+  ready_for_stage_d2_public_synthetic_values: true
+  selective_router_research_status: stopped_external_validation_failed
+  semantic_router_in_tcb: false
+  suggested_relation_authorizes_memory: false
+
+trust_boundary:
+  identity_mode: trusted_in_process_mock
+  caller_supplied_principal_allowed: false
+  principal_seal_required: true
+  subject_identity_provider_externalized_in_production: true
+  process_isolation_implemented: false
+  distributed_replay_store_implemented: false
+  capability_authority_verifier_separated: false
+
+protocol:
+  evaluation_mode: deterministic_contract_attack_matrix
+  values: runtime_random_synthetic_bytes
+  plaintext_in_artifacts_allowed: false
+  capability_token_in_artifacts_allowed: false
+  capability_hmac_key_in_artifacts_allowed: false
+  data_encryption_key_in_artifacts_allowed: false
+  private_value_memory_allowed: false
+  private_answers_allowed: false
+  lm_answer_injection_allowed: false
+  natural_language_router_allowed: false
+  confirmation_allowed: false
+  key_attack_allowed: false
+  original_c3_allowed: false
+  c3_eligible: false
+
+capability:
+  inherited_from_stage: D1
+  algorithm: HMAC-SHA-256
+  policy_version: d2-capability-policy-v1
+  single_use: true
+  max_ttl_seconds: 300
+
+data_memory:
+  algorithm: AES-256-GCM
+  standard_reference: NIST-SP-800-38D
+  implementation: cryptography
+  implementation_version: 49.0.0
+  key_bytes: 32
+  nonce_bytes: 12
+  tag_bytes: 16
+  nonce_generation: secrets.token_bytes
+  unique_nonce_per_key_required: true
+  independent_from_capability_key: true
+  explicit_key_id: true
+  key_rotation_enabled: true
+  record_migration_enabled: true
+  schema_version: 1
+  algorithm_field: AES-256-GCM
+  aad_fields:
+    - schema_version
+    - algorithm
+    - record_id
+    - entity_id
+    - relation_id
+    - data_key_id
+    - record_version
+
+required_positive_scenarios:
+  - valid_registry_release
+  - valid_city_release
+  - valid_access_release
+  - new_active_data_key_record
+  - retained_old_data_key_record
+  - migrated_record
+  - multi_scope_entity_a
+  - multi_scope_entity_d
+  - single_use_first_release
+
+required_authorization_negative_scenarios:
+  - invalid_session
+  - wrong_principal
+  - wrong_subject
+  - wrong_entity
+  - wrong_relation
+  - insufficient_permission
+  - expired_capability
+  - not_yet_valid_capability
+  - revoked_capability
+  - replayed_capability
+  - revoked_signing_key
+  - unauthorized_router_proposal
+  - forged_verified_capability
+
+required_record_negative_scenarios:
+  - unknown_data_key
+  - revoked_data_key
+  - wrong_data_key
+  - ciphertext_bit_flip
+  - authentication_tag_tamper
+  - nonce_tamper
+  - aad_record_id_tamper
+  - entity_metadata_swap
+  - relation_metadata_swap
+  - cross_bucket_ciphertext_swap
+  - record_version_rollback
+  - algorithm_confusion
+  - malformed_record
+  - duplicate_record_id
+
+required_concurrency_scenario:
+  scenario_id: concurrent_single_use_capability
+  successful_release_count: 1
+  replay_rejection_count: 1
+  concurrent_double_release_count: 0
+
+required_zero_metrics:
+  unauthorized_plaintext_release_count: 0
+  unauthorized_memory_lookup_count: 0
+  unauthorized_decrypt_attempt_count: 0
+  cross_relation_plaintext_release_count: 0
+  cross_entity_plaintext_release_count: 0
+  cross_subject_plaintext_release_count: 0
+  tampered_record_plaintext_release_count: 0
+  wrong_key_plaintext_release_count: 0
+  revoked_key_plaintext_release_count: 0
+  replayed_token_plaintext_release_count: 0
+  concurrent_double_release_count: 0
+
+required_success_metrics:
+  successful_key_rotation_count: 1
+  successful_record_migration_count: 1
+
+outputs:
+  artifact_dir: artifacts/stage_d2
+  runtime_dir: .runs/stage_d2

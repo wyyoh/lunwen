@@ -73,6 +73,11 @@ from .stage_d1 import (
     run_d1_audit,
     run_d1_smoke,
 )
+from .stage_d2 import (
+    finalize_d2_artifacts,
+    run_d2_audit,
+    run_d2_smoke,
+)
 from .train import train_gram
 
 
@@ -675,6 +680,18 @@ def command_stage_d1_finalize(args: argparse.Namespace) -> None:
     _print(finalize_d1_artifacts(args.config))
 
 
+def command_stage_d2_audit(args: argparse.Namespace) -> None:
+    _print(run_d2_audit(args.config))
+
+
+def command_stage_d2_smoke(args: argparse.Namespace) -> None:
+    _print(run_d2_smoke(args.config, output_dir=args.output_dir))
+
+
+def command_stage_d2_finalize(args: argparse.Namespace) -> None:
+    _print(finalize_d2_artifacts(args.config))
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="keyed-gram",
@@ -1094,6 +1111,28 @@ def build_parser() -> argparse.ArgumentParser:
     )
     stage_d1_finalize.add_argument("--config", required=True)
     stage_d1_finalize.set_defaults(func=command_stage_d1_finalize)
+
+    stage_d2_audit = sub.add_parser(
+        "stage-d2-audit",
+        help="run the frozen principal/capability/AEAD attack matrix exactly once",
+    )
+    stage_d2_audit.add_argument("--config", required=True)
+    stage_d2_audit.set_defaults(func=command_stage_d2_audit)
+
+    stage_d2_smoke = sub.add_parser(
+        "stage-d2-smoke",
+        help="run an ephemeral synthetic-value D2 smoke without formal artifacts",
+    )
+    stage_d2_smoke.add_argument("--config", required=True)
+    stage_d2_smoke.add_argument("--output-dir")
+    stage_d2_smoke.set_defaults(func=command_stage_d2_smoke)
+
+    stage_d2_finalize = sub.add_parser(
+        "stage-d2-finalize",
+        help="seal the D2 report and artifact SHA-256 manifest without rerunning",
+    )
+    stage_d2_finalize.add_argument("--config", required=True)
+    stage_d2_finalize.set_defaults(func=command_stage_d2_finalize)
     return parser
 
 

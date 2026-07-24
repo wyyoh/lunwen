@@ -8,6 +8,7 @@ version = "0.1.0"
 description = "Single-capability structural locking and key-aware training for GRAM-style language models."
 requires-python = ">=3.10"
 dependencies = [
+  "cryptography==49.0.0",
   "torch==2.12.0",
   "numpy>=2.0",
   "PyYAML>=6.0",

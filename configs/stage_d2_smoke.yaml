@@ -1,0 +1,29 @@
+schema_version: 1
+stage: D2-capability-gated-authenticated-keyed-memory-smoke
+protocol:
+  values: ephemeral_synthetic_bytes
+  plaintext_in_artifacts_allowed: false
+  private_value_memory_allowed: false
+  private_answers_allowed: false
+  lm_answer_injection_allowed: false
+  natural_language_router_allowed: false
+  confirmation_allowed: false
+  key_attack_allowed: false
+  original_c3_allowed: false
+  c3_eligible: false
+capability:
+  algorithm: HMAC-SHA-256
+  policy_version: d2-smoke-policy-v1
+  single_use: true
+  max_ttl_seconds: 60
+data_memory:
+  algorithm: AES-256-GCM
+  implementation: cryptography
+  implementation_version: 49.0.0
+  key_bytes: 32
+  nonce_bytes: 12
+  tag_bytes: 16
+  independent_from_capability_key: true
+outputs:
+  artifact_dir: artifacts/stage_d2_smoke
+  runtime_dir: .runs/stage_d2_smoke
