@@ -1,0 +1,23 @@
+{
+  "canary_count": 16,
+  "canary_or_plaintext_recorded": false,
+  "metrics": {
+    "plaintext_artifact_occurrence_count": 0,
+    "plaintext_exception_occurrence_count": 0,
+    "plaintext_log_occurrence_count": 0,
+    "plaintext_repr_occurrence_count": 0,
+    "plaintext_temp_cache_occurrence_count": 0
+  },
+  "scan_variants": [
+    "raw",
+    "lowercase",
+    "uppercase",
+    "hex",
+    "standard_base64",
+    "urlsafe_base64",
+    "character_spaced",
+    "hyphen_stripped"
+  ],
+  "schema_version": 1,
+  "scope_limit": "application artifacts/stdout/stderr/exceptions/repr/temporary directory/model cache; no process-memory clearing claim"
+}

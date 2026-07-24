@@ -1,0 +1,59 @@
+{
+  "capability_hmac_key_present": false,
+  "capability_token_present": false,
+  "data_encryption_key_present": false,
+  "dataset_present": false,
+  "files": [
+    {
+      "path": "artifacts/stage_d21/generation_attack_matrix.csv",
+      "sha256": "72c559e60250eef5e092fc6718740ad16fe816e69e9e26f5024712fb4efa9138",
+      "size_bytes": 6989
+    },
+    {
+      "path": "artifacts/stage_d21/leakage_scan.json",
+      "sha256": "15b7aa1ab6a0a68e61fc5f3169b342704253b5ccbcc140ab0641681350e03c3f",
+      "size_bytes": 643
+    },
+    {
+      "path": "artifacts/stage_d21/model_sha256_manifest.json",
+      "sha256": "da39f1010fe690c67f0ac4cbf997bae3171a4512141fc3367629942c1e1a87fb",
+      "size_bytes": 1640
+    },
+    {
+      "path": "artifacts/stage_d21/protocol_status.json",
+      "sha256": "883e82178bf401a3db2b045af542b45518ec62fc4f9f21858f28b9585c57e27c",
+      "size_bytes": 762
+    },
+    {
+      "path": "artifacts/stage_d21/resolved_config.json",
+      "sha256": "372115b9d40692b495e8e621656fbb12aa00edf283959e6153de39a5209c669f",
+      "size_bytes": 7382
+    },
+    {
+      "path": "artifacts/stage_d21/source_sha256_manifest.json",
+      "sha256": "7055a495d566851b3335de23bb6438aa7a6e4171f74e756ef42f9a762b67777a",
+      "size_bytes": 3993
+    },
+    {
+      "path": "artifacts/stage_d21/stage_d21_summary.json",
+      "sha256": "2aed3f2cb8897a4df57af96b0e4d0ddec098949f604c541460eec6462dff82f4",
+      "size_bytes": 4905
+    },
+    {
+      "path": "PHASE_D21_REPORT.md",
+      "sha256": "c25d22f4176834263ed11208beebbde93032486490fb4f1894a3825bd3a9576c",
+      "size_bytes": 11021
+    }
+  ],
+  "manifest_payload_sha256": "9d8609252f42b122ce33ca273984c87ea4d177cb1dac89fd9c50de3969c62854",
+  "model_checkpoint_present": false,
+  "optimizer_state_present": false,
+  "plaintext_value_present": false,
+  "private_answer_present": false,
+  "private_value_present": false,
+  "runtime_canary_present": false,
+  "schema_version": 1,
+  "session_credential_present": false,
+  "stage": "D2.1-final-artifact-manifest",
+  "tensor_cache_present": false
+}

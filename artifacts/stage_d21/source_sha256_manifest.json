@@ -1,0 +1,118 @@
+{
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "06fb409e54e6c01993f33ecc8df520c2b78061efc0b85c3366208764a8af5fa3",
+      "size_bytes": 1107
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "aebd3a8fcb7f3d0bd99f3b01bc8a2b1e8ca34b4c490894df84bc4ba0812bcde7",
+      "size_bytes": 734
+    },
+    {
+      "path": "configs/stage_d21.yaml",
+      "sha256": "d31274f640a84f0da53e2d7c4c194ab9f5092671846909aeb87e330931633017",
+      "size_bytes": 5707
+    },
+    {
+      "path": "artifacts/stage_d2/stage_d2_summary.json",
+      "sha256": "60e5dd2381920ea82152236504992e5fb423a11a62d9f4bb7db69e4abd1b4a75",
+      "size_bytes": 3342
+    },
+    {
+      "path": "artifacts/stage_d2/artifact_sha256_manifest.json",
+      "sha256": "fa7c626172dfccf4b283e6361ea4fd87b127ac69a03bed019a272360a1078138",
+      "size_bytes": 1583
+    },
+    {
+      "path": "src/keyed_gram/cli.py",
+      "sha256": "c4c6da15d2ea388e524cc5979d235b4de8731a41dec0948565dcdad7c3c7b31d",
+      "size_bytes": 43420
+    },
+    {
+      "path": "src/keyed_gram/stage_c24_contract.py",
+      "sha256": "c8a3b5fd33621349659e504b1bd31502688896cf63207ae59f644849a0d96692",
+      "size_bytes": 14186
+    },
+    {
+      "path": "src/keyed_gram/stage_d1_contract.py",
+      "sha256": "3c65fbec2dd750d86b13ac1b61fe6117725ce071c0713fc2e32630176801e0ba",
+      "size_bytes": 10364
+    },
+    {
+      "path": "src/keyed_gram/stage_d1_gateway.py",
+      "sha256": "32695487da1eacbe7daaa5805bf9d5ea511d41e0de91fe52064a7a49b35b8124",
+      "size_bytes": 6151
+    },
+    {
+      "path": "src/keyed_gram/stage_d1_policy.py",
+      "sha256": "b2cbbc7cfd10b240e35f2c0913fb3c32c671623b760e35236e3c15b1f2dc00ea",
+      "size_bytes": 6014
+    },
+    {
+      "path": "src/keyed_gram/stage_d1_token.py",
+      "sha256": "ee7604973866d827b5455ce560abb852796aa14f1e489e10ff89f23113a0873b",
+      "size_bytes": 8755
+    },
+    {
+      "path": "src/keyed_gram/stage_d2.py",
+      "sha256": "9a0218633f6386c526840217f844d1e5cf981ea99fead83c8f0cf845d037f806",
+      "size_bytes": 45065
+    },
+    {
+      "path": "src/keyed_gram/stage_d2_contract.py",
+      "sha256": "70c0e82d6f6668b4fb515163f7a603334f01578f814950d57d5048ec3a33bad9",
+      "size_bytes": 7227
+    },
+    {
+      "path": "src/keyed_gram/stage_d2_crypto.py",
+      "sha256": "65a4093856a21898ceeeeefe3f0488c9669cc80af5462dc97aaaa9019ab2de51",
+      "size_bytes": 5753
+    },
+    {
+      "path": "src/keyed_gram/stage_d2_identity.py",
+      "sha256": "cee3ad6db34fd608ace391bd4a29c17649b81f0cf7d6d9592da0b8b8592f85c6",
+      "size_bytes": 2534
+    },
+    {
+      "path": "src/keyed_gram/stage_d2_memory.py",
+      "sha256": "e9fa106c19d094c5957322836d168d18fe5f424f49ffb18320ce8a5380083859",
+      "size_bytes": 11352
+    },
+    {
+      "path": "src/keyed_gram/stage_d21.py",
+      "sha256": "c2a9678ba00d4b0c5ec55fc519f2df144eca5fc5ced03c282abe351196c7343c",
+      "size_bytes": 59043
+    },
+    {
+      "path": "src/keyed_gram/stage_d21_contract.py",
+      "sha256": "8bd87075b4190de74402ecaf1761f5829e52cc1f19cb1bfa12108fb34a7f3228",
+      "size_bytes": 4468
+    },
+    {
+      "path": "src/keyed_gram/stage_d21_generator.py",
+      "sha256": "3498c6c5cb3aa495e68488b852daf96454f4dd3ee0c28ac97825390b47051a97",
+      "size_bytes": 11478
+    },
+    {
+      "path": "src/keyed_gram/stage_d21_leakage.py",
+      "sha256": "180d887713bedc660c4e13537ca370975e1605f12e49f49408b86b2ae965d3a4",
+      "size_bytes": 2116
+    },
+    {
+      "path": "src/keyed_gram/stage_d21_protocol.py",
+      "sha256": "f63d1c5767ce11202cb6039d5984c7517a579d6d7b35d066e8d38d8b4561efe9",
+      "size_bytes": 11783
+    },
+    {
+      "path": "src/keyed_gram/stage_d21_service.py",
+      "sha256": "263c66ff697c49304adf50c9139e5e9a03e723f857177e3e04c75a6e26d3da8d",
+      "size_bytes": 4613
+    }
+  ],
+  "manifest_payload_sha256": "bbde5c92ef6fcab3a47a8d4a7a27559c109f413300b0a4816b807b722a3976b2",
+  "schema_version": 1,
+  "torch_version": "2.12.0+cpu",
+  "transformers_version": "5.14.1"
+}

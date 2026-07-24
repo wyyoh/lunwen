@@ -1,0 +1,20 @@
+{
+  "c3_eligible": false,
+  "capability_gated_ephemeral_generation_status": "passed",
+  "confirmation_created_or_read": false,
+  "generator_in_authorization_tcb": false,
+  "generator_in_request_data_confidentiality_boundary": true,
+  "key_attack_executed": false,
+  "lm_answer_injection_executed": false,
+  "lm_fine_tuning_executed": false,
+  "original_c3_allowed": false,
+  "plaintext_persisted_in_artifacts": false,
+  "plaintext_persisted_in_exceptions": false,
+  "plaintext_persisted_in_logs": false,
+  "private_answers_loaded": false,
+  "private_value_memory_ready": false,
+  "private_value_memory_trained": false,
+  "public_synthetic_generation_boundary_validated": true,
+  "ready_for_d2_2_isolated_service_probe": true,
+  "semantic_router_in_tcb": false
+}
