@@ -78,6 +78,12 @@ from .stage_d2 import (
     run_d2_audit,
     run_d2_smoke,
 )
+from .stage_d21 import (
+    finalize_d21_artifacts,
+    run_d21_audit,
+    run_d21_smoke,
+)
+from .stage_d21_protocol import prepare_model as prepare_d21_model
 from .train import train_gram
 
 
@@ -692,6 +698,22 @@ def command_stage_d2_finalize(args: argparse.Namespace) -> None:
     _print(finalize_d2_artifacts(args.config))
 
 
+def command_stage_d21_prepare(args: argparse.Namespace) -> None:
+    _print(prepare_d21_model(args.config))
+
+
+def command_stage_d21_audit(args: argparse.Namespace) -> None:
+    _print(run_d21_audit(args.config, output_dir=args.output_dir))
+
+
+def command_stage_d21_smoke(args: argparse.Namespace) -> None:
+    _print(run_d21_smoke(args.config, output_dir=args.output_dir))
+
+
+def command_stage_d21_finalize(args: argparse.Namespace) -> None:
+    _print(finalize_d21_artifacts(args.config))
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="keyed-gram",
@@ -1133,6 +1155,36 @@ def build_parser() -> argparse.ArgumentParser:
     )
     stage_d2_finalize.add_argument("--config", required=True)
     stage_d2_finalize.set_defaults(func=command_stage_d2_finalize)
+
+    stage_d21_prepare = sub.add_parser(
+        "stage-d21-prepare",
+        help="download and verify the frozen D2.1 probe model outside the repository",
+    )
+    stage_d21_prepare.add_argument("--config", required=True)
+    stage_d21_prepare.set_defaults(func=command_stage_d21_prepare)
+
+    stage_d21_audit = sub.add_parser(
+        "stage-d21-audit",
+        help="run the frozen ephemeral-generation attack matrix exactly once",
+    )
+    stage_d21_audit.add_argument("--config", required=True)
+    stage_d21_audit.add_argument("--output-dir")
+    stage_d21_audit.set_defaults(func=command_stage_d21_audit)
+
+    stage_d21_smoke = sub.add_parser(
+        "stage-d21-smoke",
+        help="run an in-memory D2.1 mock smoke without loading a model",
+    )
+    stage_d21_smoke.add_argument("--config", required=True)
+    stage_d21_smoke.add_argument("--output-dir")
+    stage_d21_smoke.set_defaults(func=command_stage_d21_smoke)
+
+    stage_d21_finalize = sub.add_parser(
+        "stage-d21-finalize",
+        help="seal the D2.1 report and artifact hashes without rerunning audit",
+    )
+    stage_d21_finalize.add_argument("--config", required=True)
+    stage_d21_finalize.set_defaults(func=command_stage_d21_finalize)
     return parser
 
 

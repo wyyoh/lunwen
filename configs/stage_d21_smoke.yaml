@@ -1,0 +1,28 @@
+schema_version: 1
+stage: D2.1-capability-gated-ephemeral-generation-probe-smoke
+protocol:
+  values: ephemeral_128_bit_synthetic_canaries
+  plaintext_in_artifacts_allowed: false
+  conversation_history_allowed: false
+  cross_request_kv_cache_allowed: false
+  generator_memory_tools_allowed: false
+  generator_capability_tools_allowed: false
+  private_value_memory_allowed: false
+  private_answers_allowed: false
+  confirmation_allowed: false
+  fine_tuning_allowed: false
+  key_attack_allowed: false
+  original_c3_allowed: false
+  c3_eligible: false
+generators:
+  G0:
+    type: deterministic_renderer
+    model_used: false
+    tools: []
+  G1:
+    type: frozen_mock_copy_for_smoke_only
+    real_pretrained_model_loaded: false
+    tools: []
+outputs:
+  artifact_dir: artifacts/stage_d21_smoke
+  runtime_dir: .runs/stage_d21_smoke

@@ -23,3 +23,5 @@ artifacts/stage_d1/** -text whitespace=cr-at-eol
 artifacts/stage_d1_smoke/** -text whitespace=cr-at-eol
 artifacts/stage_d2/** -text whitespace=cr-at-eol
 artifacts/stage_d2_smoke/** -text whitespace=cr-at-eol
+artifacts/stage_d21/** -text whitespace=cr-at-eol
+artifacts/stage_d21_smoke/** -text whitespace=cr-at-eol
