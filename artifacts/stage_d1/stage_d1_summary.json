@@ -1,0 +1,59 @@
+{
+  "authenticated_capability_integrity_passed": true,
+  "c3_eligible": false,
+  "confirmation_created_or_read": false,
+  "cryptographic_primitive": {
+    "algorithm": "HMAC-SHA-256",
+    "constant_time_comparison": "hmac.compare_digest",
+    "implementation": "Python standard library hmac.digest",
+    "key_generation": "secrets.token_bytes",
+    "new_cryptographic_algorithm_claimed": false,
+    "standard": "RFC 2104"
+  },
+  "expiration_revocation_replay_passed": true,
+  "git": {
+    "branch": "agent/stage-d1",
+    "commit": "d92b699d44bc5ba7f88c16eaa4d854ea5255e572",
+    "tracked_dirty": false
+  },
+  "hmac_key_material_persisted": false,
+  "key_attack_executed": false,
+  "key_rotation_passed": true,
+  "limitations": [
+    "token payload 仅认证完整性，不提供机密性",
+    "subject_id 绑定不替代外部会话/IAM 对调用者身份的认证",
+    "replay/revocation store 仅为单进程内存实现，不具备分布式持久性",
+    "HMAC key ring 未接 KMS/HSM，进程内 TCB 仍需独立加固",
+    "对称 HMAC verifier 持有签名 key，因此本原型未实现签发方与验证方密码学隔离",
+    "Python 原型未实现 router 与 gateway/memory 的进程级隔离",
+    "clock 为注入式可信时钟测试，不覆盖真实分布式 clock skew",
+    "memory 是不含 value 的 typed access probe，不是 private memory",
+    "本结果不是部署级安全认证，也不证明机器遗忘"
+  ],
+  "lm_answer_injection_executed": false,
+  "metrics": {
+    "authorized_memory_access_count": 5,
+    "cross_entity_access_count": 0,
+    "cross_relation_access_count": 0,
+    "failed_scenario_count": 0,
+    "negative_scenario_count": 20,
+    "passed_scenario_count": 25,
+    "positive_scenario_count": 5,
+    "rejected_request_memory_access_count": 0,
+    "unauthorized_memory_access_count": 0
+  },
+  "original_c3_allowed": false,
+  "private_answers_loaded": false,
+  "private_value_memory_ready": false,
+  "private_value_memory_trained": false,
+  "ready_for_stage_d2_public_synthetic_values": true,
+  "schema_version": 1,
+  "scope_enforcement_passed": true,
+  "semantic_router_in_tcb": false,
+  "source_manifest_payload_sha256": "9a8d1324e08234a463176c0da729772b3b0728a841ad9c7e13622eb57cee8431",
+  "stage": "D1-trusted-capability-contract-audit",
+  "suggested_relation_authorizes_memory": false,
+  "task_specific_router_ready": false,
+  "token_material_persisted": false,
+  "trusted_capability_contract_status": "passed"
+}

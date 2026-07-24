@@ -1,0 +1,43 @@
+{
+  "dataset_present": false,
+  "files": [
+    {
+      "path": "artifacts/stage_d1/capability_attack_matrix.csv",
+      "sha256": "813b3b4d5167c7cdb30efbdf3a9462a9f7bac25e5e8df7815517ede2094051ed",
+      "size_bytes": 2155
+    },
+    {
+      "path": "artifacts/stage_d1/protocol_status.json",
+      "sha256": "a95054e6be687146e52f66369c6568695498929d64e83174816f534c5085deae",
+      "size_bytes": 592
+    },
+    {
+      "path": "artifacts/stage_d1/resolved_config.json",
+      "sha256": "a7c1dadc5e1de6f1ea56a2f10f10dd5e4aa434335f084b31428e3625b6b0c9dd",
+      "size_bytes": 3209
+    },
+    {
+      "path": "artifacts/stage_d1/source_sha256_manifest.json",
+      "sha256": "dbd7d7fbe024f1900e2e6b97b45148764925d618f778c15e922764048ec847a2",
+      "size_bytes": 1999
+    },
+    {
+      "path": "artifacts/stage_d1/stage_d1_summary.json",
+      "sha256": "de5ceeb280097c5bb5625327e739a9b6365d65eace1a0ccaad7639435d19b3a1",
+      "size_bytes": 2470
+    },
+    {
+      "path": "PHASE_D1_REPORT.md",
+      "sha256": "d7576f61c06c14ec9de67850b86e45245dd68b85962a1d768f85bb631469bca2",
+      "size_bytes": 8975
+    }
+  ],
+  "hmac_key_material_present": false,
+  "manifest_payload_sha256": "f7e28f9eb7945061b35b2173801d3eea69bee33605c6bf059fbc07441a641f88",
+  "model_checkpoint_present": false,
+  "private_answer_present": false,
+  "private_value_present": false,
+  "schema_version": 1,
+  "stage": "D1-final-artifact-manifest",
+  "token_material_present": false
+}

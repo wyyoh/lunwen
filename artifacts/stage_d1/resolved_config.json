@@ -1,0 +1,103 @@
+{
+  "config": {
+    "capability": {
+      "algorithm": "HMAC-SHA-256",
+      "clock_skew_seconds": 0,
+      "entity_scope_mode": "explicit_exact_ids_only",
+      "key_bytes": 32,
+      "max_token_bytes": 4096,
+      "max_ttl_seconds": 300,
+      "nonce_bytes": 32,
+      "policy_version": "d1-policy-v1",
+      "required_permission": "retrieve",
+      "single_use": true,
+      "standard_reference": "RFC 2104",
+      "token_format": "KG-CAP compact v1",
+      "wildcard_scope_allowed": false
+    },
+    "governance": {
+      "additional_router_complexity_allowed": false,
+      "research_status": {
+        "path": "configs/research_status.yaml",
+        "sha256": "ad1a5ee7d1ad4111bac92a8149cc6fd9428ac1450170e56a7500b39543f7487f"
+      },
+      "selective_router_research_status": "stopped_external_validation_failed",
+      "semantic_router_in_tcb": false,
+      "suggested_relation_authorizes_memory": false
+    },
+    "outputs": {
+      "artifact_dir": "artifacts/stage_d1",
+      "runtime_dir": ".runs/stage_d1"
+    },
+    "protocol": {
+      "c3_eligible": false,
+      "confirmation_allowed": false,
+      "evaluation_mode": "deterministic_contract_attack_matrix",
+      "hmac_key_material_persisted": false,
+      "key_attack_allowed": false,
+      "lm_answer_injection_allowed": false,
+      "original_c3_allowed": false,
+      "private_answers_allowed": false,
+      "private_value_memory_allowed": false,
+      "token_material_persisted": false
+    },
+    "required_metrics": {
+      "cross_entity_access_count": 0,
+      "cross_relation_access_count": 0,
+      "rejected_request_memory_access_count": 0,
+      "unauthorized_memory_access_count": 0
+    },
+    "required_negative_scenarios": [
+      "wrong_relation",
+      "wrong_entity",
+      "wrong_subject",
+      "expired_token",
+      "not_yet_valid_token",
+      "revoked_token",
+      "replay_second_use",
+      "unknown_key_id",
+      "revoked_key",
+      "tampered_payload",
+      "tampered_signature",
+      "algorithm_confusion",
+      "malformed_token",
+      "oversized_token",
+      "missing_scope",
+      "missing_permission",
+      "old_policy_version",
+      "unauthorized_router_proposal",
+      "cross_relation_use",
+      "cross_entity_use"
+    ],
+    "required_positive_scenarios": [
+      "valid_registry_capability",
+      "valid_city_capability",
+      "valid_access_capability",
+      "rotated_key_capability",
+      "replay_first_use"
+    ],
+    "schema_version": 1,
+    "stage": "D1-trusted-capability-contract",
+    "trust_boundary": {
+      "process_isolation_implemented": false,
+      "subject_identity_provider_implemented": false,
+      "trusted_components": [
+        "subject_identity_provider",
+        "capability_policy",
+        "capability_authority",
+        "hmac_keyring",
+        "capability_verifier",
+        "trusted_capability_gateway",
+        "typed_keyed_memory"
+      ],
+      "untrusted_components": [
+        "natural_language_router",
+        "relation_proposal"
+      ],
+      "verifier_can_mint_with_symmetric_key": true
+    }
+  },
+  "config_sha256": "548e85dcb7e93130f20920e195da600a0c947cdcf6e2b4a9c114b90c172fa2d7",
+  "schema_version": 1,
+  "secret_or_token_material_present": false
+}

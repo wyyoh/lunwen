@@ -1,0 +1,61 @@
+{
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "fe8eadfd333db5f19c87e39fee4999b5bf4f849068594a98b86b6907edfb9d7e",
+      "size_bytes": 897
+    },
+    {
+      "path": "configs/research_status.yaml",
+      "sha256": "ad1a5ee7d1ad4111bac92a8149cc6fd9428ac1450170e56a7500b39543f7487f",
+      "size_bytes": 1939
+    },
+    {
+      "path": "configs/stage_d1.yaml",
+      "sha256": "548e85dcb7e93130f20920e195da600a0c947cdcf6e2b4a9c114b90c172fa2d7",
+      "size_bytes": 2405
+    },
+    {
+      "path": "src/keyed_gram/cli.py",
+      "sha256": "d85c972a0495761d15ff7b3d33656f0fab70e8c3dd69f9691df3c162d778edf8",
+      "size_bytes": 40229
+    },
+    {
+      "path": "src/keyed_gram/stage_c24_contract.py",
+      "sha256": "c8a3b5fd33621349659e504b1bd31502688896cf63207ae59f644849a0d96692",
+      "size_bytes": 14186
+    },
+    {
+      "path": "src/keyed_gram/stage_d1.py",
+      "sha256": "1628f91a913f0c19b35fb3e3e4c7e4ccd332d433a883f8c4556b83479449e3fd",
+      "size_bytes": 30755
+    },
+    {
+      "path": "src/keyed_gram/stage_d1_contract.py",
+      "sha256": "3c65fbec2dd750d86b13ac1b61fe6117725ce071c0713fc2e32630176801e0ba",
+      "size_bytes": 10364
+    },
+    {
+      "path": "src/keyed_gram/stage_d1_gateway.py",
+      "sha256": "32695487da1eacbe7daaa5805bf9d5ea511d41e0de91fe52064a7a49b35b8124",
+      "size_bytes": 6151
+    },
+    {
+      "path": "src/keyed_gram/stage_d1_policy.py",
+      "sha256": "b2cbbc7cfd10b240e35f2c0913fb3c32c671623b760e35236e3c15b1f2dc00ea",
+      "size_bytes": 6014
+    },
+    {
+      "path": "src/keyed_gram/stage_d1_protocol.py",
+      "sha256": "3d0912053298746ce048c98e62f101bfbb7787aecd8940984a1bd5068c1ac621",
+      "size_bytes": 10096
+    },
+    {
+      "path": "src/keyed_gram/stage_d1_token.py",
+      "sha256": "ee7604973866d827b5455ce560abb852796aa14f1e489e10ff89f23113a0873b",
+      "size_bytes": 8755
+    }
+  ],
+  "manifest_payload_sha256": "9a8d1324e08234a463176c0da729772b3b0728a841ad9c7e13622eb57cee8431",
+  "schema_version": 1
+}

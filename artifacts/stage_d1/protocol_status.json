@@ -1,0 +1,17 @@
+{
+  "c3_eligible": false,
+  "confirmation_created_or_read": false,
+  "hmac_key_material_persisted": false,
+  "key_attack_executed": false,
+  "lm_answer_injection_executed": false,
+  "original_c3_allowed": false,
+  "private_answers_loaded": false,
+  "private_value_memory_ready": false,
+  "private_value_memory_trained": false,
+  "ready_for_stage_d2_public_synthetic_values": true,
+  "semantic_router_in_tcb": false,
+  "suggested_relation_authorizes_memory": false,
+  "task_specific_router_ready": false,
+  "token_material_persisted": false,
+  "trusted_capability_contract_status": "passed"
+}
