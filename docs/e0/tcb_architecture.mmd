@@ -1,0 +1,66 @@
+flowchart LR
+    subgraph U["授权 TCB 外：不可信交互层"]
+        USER["User / Client"]
+        PROMPT["Natural-language prompt"]
+        ROUTER["Learned semantic router"]
+        SUGGEST["SuggestedRelation<br/>non-authoritative"]
+        USER --> PROMPT --> ROUTER --> SUGGEST
+    end
+
+    subgraph I["身份与授权 TCB"]
+        IDP["Trusted identity provider<br/>(prototype: mock)"]
+        POLICY["Explicit policy"]
+        AUTH["Capability authority"]
+        VERIFY["Capability verifier"]
+        REPLAY["Replay / revocation state"]
+        GATEWAY["Capability gateway"]
+
+        IDP --> GATEWAY
+        POLICY --> AUTH
+        POLICY --> VERIFY
+        AUTH -->|"Authenticated capability"| GATEWAY
+        VERIFY <--> REPLAY
+        GATEWAY --> VERIFY
+    end
+
+    subgraph M["数据访问 TCB"]
+        EPOCH["Lifecycle + epoch state"]
+        TICKET["Epoch-bound release ticket"]
+        MEMORY["Typed keyed memory<br/>(entity_id, RelationId)"]
+        DATAKEY["Independent data-key ring"]
+        AEAD["AES-256-GCM<br/>AAD-bound decrypt"]
+
+        GATEWAY -->|"Minimal internal request"| TICKET
+        EPOCH --> TICKET
+        TICKET --> MEMORY
+        MEMORY --> AEAD
+        DATAKEY --> AEAD
+    end
+
+    subgraph G["单次请求数据处理边界"]
+        ADAPTER["Minimal trusted generation adapter"]
+        WORKER["Frozen copy/generation worker<br/>no memory/capability tools"]
+        COMMIT["Output validation + commit"]
+        RESPONSE["Response delivery"]
+
+        AEAD -->|"One ephemeral value"| ADAPTER
+        ADAPTER --> WORKER --> COMMIT --> RESPONSE
+    end
+
+    subgraph O["可观测性边界"]
+        FILTER["Sensitive-field filter<br/>inside minimal TCB"]
+        BACKEND["Logs / metrics / traces backend<br/>after safe projection"]
+        FILTER --> BACKEND
+    end
+
+    SUGGEST -. "interaction aid only" .-> GATEWAY
+    GATEWAY --> FILTER
+    MEMORY --> FILTER
+    ADAPTER --> FILTER
+
+    KMS["External IAM / KMS / trusted counter<br/>not implemented"]:::future
+    KMS -. "future trust anchor" .-> IDP
+    KMS -. "future key isolation" .-> DATAKEY
+    KMS -. "future monotonic epoch" .-> EPOCH
+
+    classDef future fill:#f4f4f4,stroke:#777,stroke-dasharray:5 5,color:#444;

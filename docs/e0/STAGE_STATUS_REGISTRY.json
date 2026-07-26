@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "registry": "keyed-gram-research-stage-status",
+  "source_base_commit": "df4d8bf31eec2fdb52f8ad332658c554611ec284",
+  "global_status": {
+    "additional_d_series_stages_allowed": false,
+    "c3_eligible": false,
+    "d_series_status": "completed",
+    "d_series_system_audit_complete": true,
+    "original_c3_allowed": false,
+    "private_data_experiment_allowed": false,
+    "private_value_memory_ready": false,
+    "semantic_router_authorization_research": "stopped_external_validation_failed"
+  },
+  "synthesis": {
+    "stage": "E0",
+    "status": "completed_document_synthesis",
+    "new_experiment_executed": false,
+    "new_system_functionality_added": false,
+    "frozen_code_modified": false,
+    "frozen_artifact_modified": false,
+    "readiness_gate_changed": false
+  },
+  "stages": [
+    {
+      "stage": "C2",
+      "status": "structural_partial_success_relation_gate_failed",
+      "evidence_scope": "internal_synthetic_query_geometry",
+      "primary_result": "fact-over-template geometry improved; relation probe remained below gate",
+      "report": "PHASE_C2_REPORT.md",
+      "c3_eligible": false
+    },
+    {
+      "stage": "C2.1",
+      "status": "lexical_ood_gate_failed",
+      "evidence_scope": "internal_relation_canonicalization_ablation",
+      "primary_result": "relation SupCon/adversary produced limited improvements without stable unseen-family generalization",
+      "report": "PHASE_C21_REPORT.md",
+      "c3_eligible": false
+    },
+    {
+      "stage": "C2.2",
+      "status": "public_paraphrase_generalization_failed",
+      "evidence_scope": "answer_free_public_paraphrase",
+      "primary_result": "train-family memorization did not transfer to isolated public validation families",
+      "report": "PHASE_C22_REPORT.md",
+      "c3_eligible": false
+    },
+    {
+      "stage": "C2.3",
+      "status": "oracle_passed_continuous_output_contract_failed",
+      "evidence_scope": "answer_free_semantic_encoder_audit",
+      "primary_result": "relation oracle passed while continuous relation output retained projected phrase-family signal",
+      "report": "PHASE_C23_REPORT.md",
+      "summary": "artifacts/stage_c23/semantic_audit/stage_c23_audit_summary.json",
+      "c3_eligible": false
+    },
+    {
+      "stage": "C2.4",
+      "status": "typed_memory_contract_passed_router_readiness_failed",
+      "evidence_scope": "provisional_locked_discrete_contract_audit",
+      "primary_result": "single typed bucket and zero cross-relation candidates; closed/open routing gates failed",
+      "report": "PHASE_C24_REPORT.md",
+      "summary": "artifacts/stage_c24/stage_c24_summary.json",
+      "public_benchmark_human_reviewed": false,
+      "c3_eligible": false
+    },
+    {
+      "stage": "C2.4b-v2.1",
+      "status": "exploratory_ai_review_completed_no_model_scoring",
+      "evidence_scope": "synthetic_benchmark_design",
+      "primary_result": "single-model AI audit with declared synthetic boundary families",
+      "report": "PHASE_C24B_V21_REPORT.md",
+      "public_benchmark_human_reviewed": false,
+      "formal_locked_audit_executed": false,
+      "c3_eligible": false
+    },
+    {
+      "stage": "C2.4c",
+      "status": "exploratory_non_independent_partial_mechanism_result",
+      "evidence_scope": "ai_revised_synthetic_stress_test",
+      "primary_result": "pairwise evidence improved known routing and thresholding reduced FMAR, but multi-candidate ambiguity mechanism was absent",
+      "report": "PHASE_C24C_REPORT.md",
+      "summary": "artifacts/stage_c24c/stage_c24c_summary.json",
+      "independent_external_validation": false,
+      "formal_calibration_allowed": false,
+      "c3_eligible": false
+    },
+    {
+      "stage": "C2.5",
+      "status": "external_oos_validation_failed_branch_stopped",
+      "evidence_scope": "clinc150_banking77_official_test_once",
+      "primary_result": "R2 underperformed R0 and R3 reduced FMAR through known-coverage collapse",
+      "report": "PHASE_C25_REPORT.md",
+      "summary": "artifacts/stage_c25/test_results.json",
+      "external_pairwise_evidence_validated": false,
+      "external_selective_abstention_validated": false,
+      "additional_router_complexity_allowed": false,
+      "c3_eligible": false
+    },
+    {
+      "stage": "D1",
+      "status": "passed_scoped_prototype_audit",
+      "evidence_scope": "typed_authenticated_capability_without_values",
+      "scenario_count": 25,
+      "report": "PHASE_D1_REPORT.md",
+      "summary": "artifacts/stage_d1/stage_d1_summary.json",
+      "private_value_memory_ready": false,
+      "c3_eligible": false
+    },
+    {
+      "stage": "D2",
+      "status": "passed_scoped_prototype_audit",
+      "evidence_scope": "public_synthetic_capability_gated_aead_memory",
+      "scenario_count": 37,
+      "report": "PHASE_D2_REPORT.md",
+      "summary": "artifacts/stage_d2/stage_d2_summary.json",
+      "private_value_memory_ready": false,
+      "c3_eligible": false
+    },
+    {
+      "stage": "D2.1",
+      "status": "passed_scoped_prototype_audit",
+      "evidence_scope": "single_process_ephemeral_generation",
+      "scenario_count": 40,
+      "report": "PHASE_D21_REPORT.md",
+      "summary": "artifacts/stage_d21/stage_d21_summary.json",
+      "private_value_memory_ready": false,
+      "c3_eligible": false
+    },
+    {
+      "stage": "D2.2",
+      "status": "passed_scoped_prototype_audit",
+      "evidence_scope": "single_host_multiprocess_af_unix_sqlite",
+      "scenario_count": 35,
+      "report": "PHASE_D22_REPORT.md",
+      "summary": "artifacts/stage_d22/stage_d22_summary.json",
+      "private_value_memory_ready": false,
+      "c3_eligible": false
+    },
+    {
+      "stage": "D2.3",
+      "status": "passed_final_d_series_scoped_prototype_audit",
+      "evidence_scope": "single_host_fault_observability_ipc_lifecycle_rollback",
+      "scenario_count": 51,
+      "report": "PHASE_D23_REPORT.md",
+      "summary": "artifacts/stage_d23/stage_d23_summary.json",
+      "d_series_system_audit_complete": true,
+      "private_value_memory_ready": false,
+      "c3_eligible": false
+    },
+    {
+      "stage": "E0",
+      "status": "completed_document_synthesis",
+      "evidence_scope": "existing_frozen_reports_and_artifacts_only",
+      "primary_result": "unified threat model, TCB, claim-evidence matrix, paper outline, experiment table and reproducibility checklist",
+      "new_experiment_executed": false,
+      "c3_eligible": false
+    }
+  ]
+}

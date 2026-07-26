@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "algorithm": "SHA-256",
+  "source_base_commit": "df4d8bf31eec2fdb52f8ad332658c554611ec284",
+  "purpose": "Bind the frozen reports and summaries used by Stage E0 without rerunning experiments.",
+  "files": [
+    {
+      "path": "PHASE_C2_REPORT.md",
+      "sha256": "f3ca3d68b68976089d5fdacdb2be149b351842af04302ccaa11f949b8c16ac8f"
+    },
+    {
+      "path": "PHASE_C21_REPORT.md",
+      "sha256": "c1363db3da0e9c0dde0ea1bd17884c301a3b21172559ba8709033285aea9c2a1"
+    },
+    {
+      "path": "PHASE_C22_REPORT.md",
+      "sha256": "97bb6ddd547088d251381fc10b213e0a93d0c05d793afd39568ff1be4b6e95bd"
+    },
+    {
+      "path": "PHASE_C23_REPORT.md",
+      "sha256": "36d8891ea28745a6aadbf862e3e08e9cb04938cd4b6d397dde91fdd84116e8a4"
+    },
+    {
+      "path": "PHASE_C24_REPORT.md",
+      "sha256": "545b939dd31ed19bf131a31280b1dadbd691d84ba2ff595496bb4ccc63fba988"
+    },
+    {
+      "path": "PHASE_C24B_V21_REPORT.md",
+      "sha256": "0b4ff7ae33d5ec0760a1e23f793467c19ede06fdd6eb64fc92d49a5fa187d2b7"
+    },
+    {
+      "path": "PHASE_C24C_REPORT.md",
+      "sha256": "ac3437693b659a989f9fb723582132cabec25feda48451f2032b591c10f418b1"
+    },
+    {
+      "path": "PHASE_C25_REPORT.md",
+      "sha256": "d226d2ed1571f7b2ac6ee761988641fbbe115e282c6f2e10e00fae333ab20efa"
+    },
+    {
+      "path": "PHASE_D1_REPORT.md",
+      "sha256": "d7576f61c06c14ec9de67850b86e45245dd68b85962a1d768f85bb631469bca2"
+    },
+    {
+      "path": "PHASE_D2_REPORT.md",
+      "sha256": "6c1095791a1d879bd1074cd461edbc96b2d63b80d5e635114288437fde8e8a9a"
+    },
+    {
+      "path": "PHASE_D21_REPORT.md",
+      "sha256": "c25d22f4176834263ed11208beebbde93032486490fb4f1894a3825bd3a9576c"
+    },
+    {
+      "path": "PHASE_D22_REPORT.md",
+      "sha256": "d10e1c522c084799b2d71f4f44e97a19937394f52250cd33e390f1fd10e4f66c"
+    },
+    {
+      "path": "PHASE_D23_REPORT.md",
+      "sha256": "a7045c8f11aaf475a3f3d0783b7bbc9d745601424411bfce43033df8ef45afa9"
+    },
+    {
+      "path": "artifacts/stage_c23/semantic_audit/stage_c23_audit_summary.json",
+      "sha256": "45a877d6672b9e2b50830dc52b7ff4349f064bdf960d7e26b46a693dff6d9a60"
+    },
+    {
+      "path": "artifacts/stage_c24/stage_c24_summary.json",
+      "sha256": "4aa27f98830cc55b0a59968691fcff82f122a354e05fc33d8f12802ef0d4db57"
+    },
+    {
+      "path": "artifacts/stage_c24c/stage_c24c_summary.json",
+      "sha256": "ef26074930d0ff9b94256c3cd9324cce55556c149f2bba0c5f64af4e97a89ac5"
+    },
+    {
+      "path": "artifacts/stage_c25/test_results.json",
+      "sha256": "4dc177a1dec97533e86273405dece626828f055eb159b35e530079859ceaca99"
+    },
+    {
+      "path": "artifacts/stage_d1/stage_d1_summary.json",
+      "sha256": "de5ceeb280097c5bb5625327e739a9b6365d65eace1a0ccaad7639435d19b3a1"
+    },
+    {
+      "path": "artifacts/stage_d2/stage_d2_summary.json",
+      "sha256": "60e5dd2381920ea82152236504992e5fb423a11a62d9f4bb7db69e4abd1b4a75"
+    },
+    {
+      "path": "artifacts/stage_d21/stage_d21_summary.json",
+      "sha256": "2aed3f2cb8897a4df57af96b0e4d0ddec098949f604c541460eec6462dff82f4"
+    },
+    {
+      "path": "artifacts/stage_d22/stage_d22_summary.json",
+      "sha256": "9837c6065cbb9164d5976ef0c7b1d2ce6468749145f8ba1f78a6e0b55287a5e3"
+    },
+    {
+      "path": "artifacts/stage_d23/stage_d23_summary.json",
+      "sha256": "bbb9bacad1bc8f49977532498838eaa09a9790644bee1aebe7aba9ec7d2a1c7b"
+    }
+  ],
+  "frozen_experiment_code_modified_by_e0": false,
+  "frozen_experiment_artifact_modified_by_e0": false
+}
