@@ -1,0 +1,16 @@
+{
+  "application_layer_only": true,
+  "physical_disk_full_performed": false,
+  "plaintext_all_runtime_file_occurrence_count": 0,
+  "plaintext_artifact_occurrence_count": 0,
+  "plaintext_backup_occurrence_count": 0,
+  "plaintext_observability_occurrence_count": 0,
+  "process_memory_zeroization_proven": false,
+  "raw_ipc_capture_persisted": false,
+  "raw_ipc_persisted_count": 0,
+  "runtime_canary_count": 7,
+  "runtime_canary_variant_count": 49,
+  "scanned_location_count": 73,
+  "schema_version": 1,
+  "secret_all_runtime_file_occurrence_count": 0
+}

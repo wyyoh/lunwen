@@ -1,0 +1,196 @@
+{
+  "config": {
+    "canary": {
+      "entropy_bits": 128,
+      "scan_variants": [
+        "raw",
+        "lowercase",
+        "uppercase",
+        "hex",
+        "standard_base64",
+        "urlsafe_base64",
+        "character_spaced",
+        "hyphen_stripped"
+      ],
+      "unique_per_record_scenario_run": true
+    },
+    "epochs": {
+      "gateway_instance_epoch_initial": 1,
+      "monotonic_anchor_separate_from_state_database": true,
+      "policy_epoch_initial": 1,
+      "rollback_fail_closed": true,
+      "state_epoch_initial": 1,
+      "ticket_binds": [
+        "state_epoch",
+        "policy_epoch",
+        "gateway_instance_epoch"
+      ]
+    },
+    "governance": {
+      "c3_eligible": false,
+      "d22_artifact_manifest": {
+        "path": "artifacts/stage_d22/artifact_sha256_manifest.json",
+        "sha256": "70c1aea11679d7b0df653bd1cda70fe077b935c324daac0b796e40cdcfbe18e6"
+      },
+      "d22_report": {
+        "path": "PHASE_D22_REPORT.md",
+        "sha256": "d10e1c522c084799b2d71f4f44e97a19937394f52250cd33e390f1fd10e4f66c"
+      },
+      "d22_summary": {
+        "path": "artifacts/stage_d22/stage_d22_summary.json",
+        "sha256": "9837c6065cbb9164d5976ef0c7b1d2ce6468749145f8ba1f78a6e0b55287a5e3"
+      },
+      "isolated_service_generation_status": "passed",
+      "original_c3_allowed": false,
+      "ready_for_d2_3_fault_and_observability_probe": true,
+      "semantic_router_in_tcb": false,
+      "service_boundary_validated_with_public_synthetic_values": true
+    },
+    "ipc": {
+      "frame_header_bytes": 4,
+      "max_json_depth": 16,
+      "max_message_bytes": 65536,
+      "socket_parent_mode": "0700",
+      "socket_peer_uid_required": true,
+      "stale_non_socket_replacement_allowed": false,
+      "symlink_replacement_allowed": false
+    },
+    "observability": {
+      "channels": [
+        "structured_log",
+        "metric",
+        "trace",
+        "error_report",
+        "retry_queue",
+        "profile",
+        "supervisor",
+        "health",
+        "debug",
+        "audit"
+      ],
+      "debug_endpoint_disabled": true,
+      "health_endpoint_fixed_schema": true,
+      "sensitive_values_allowed_in_metric_labels": false,
+      "sensitive_values_allowed_in_trace_attributes": false,
+      "sensitive_values_allowed_in_trace_baggage": false
+    },
+    "outputs": {
+      "artifact_dir": "artifacts/stage_d23",
+      "runtime_dir": ".runs/stage_d23"
+    },
+    "protocol": {
+      "byte_level_capture": "memory_only_digest_projection",
+      "c3_eligible": false,
+      "command_line_secret_allowed": false,
+      "confirmation_allowed": false,
+      "deterministic_fault_injection_allowed": true,
+      "environment_secret_allowed": false,
+      "evaluation_mode": "single_host_fault_observability_lifecycle_matrix",
+      "fine_tuning_allowed": false,
+      "ipc_family": "AF_UNIX",
+      "key_attack_allowed": false,
+      "natural_language_router_authorization_allowed": false,
+      "network_socket_allowed": false,
+      "original_c3_allowed": false,
+      "persistent_state": "sqlite_begin_immediate_full_sync_delete_journal",
+      "physical_disk_exhaustion_allowed": false,
+      "plaintext_in_artifacts_allowed": false,
+      "plaintext_in_config_allowed": false,
+      "plaintext_in_source_allowed": false,
+      "private_answers_allowed": false,
+      "private_value_memory_allowed": false,
+      "process_start_method": "spawn",
+      "raw_ipc_capture_persistence_allowed": false,
+      "remote_model_allowed": false,
+      "rollback_detection": "separate_monotonic_anchor_and_hmac_metadata",
+      "values": "runtime_unique_128_bit_synthetic_canaries"
+    },
+    "required_endpoint_ipc_scenarios": [
+      "stale_socket_file",
+      "socket_symlink_replacement",
+      "wrong_socket_directory_permissions",
+      "wrong_local_peer_uid",
+      "overlong_message",
+      "deeply_nested_json",
+      "duplicate_json_key",
+      "fragmented_message",
+      "truncated_message",
+      "out_of_order_request",
+      "stale_release_ticket",
+      "cross_gateway_ticket",
+      "slow_sender_budget",
+      "invalid_connection_flood",
+      "malformed_frame_prefix"
+    ],
+    "required_exact_metrics": {
+      "authorized_end_to_end_delivery_accuracy": 1.0
+    },
+    "required_fault_scenarios": [
+      "injected_disk_full",
+      "sqlite_locked_busy",
+      "truncated_state_database",
+      "corrupted_state_database",
+      "partial_socket_write",
+      "crash_before_response_write",
+      "client_timeout_retry",
+      "generator_completed_gateway_missing_response",
+      "supervisor_automatic_restart",
+      "host_clock_forward_drift",
+      "host_clock_backward_drift",
+      "concurrent_key_rotation_read",
+      "concurrent_record_migration_read"
+    ],
+    "required_observability_scenarios": [
+      "structured_log_redaction",
+      "metric_label_redaction",
+      "trace_attribute_redaction",
+      "trace_baggage_redaction",
+      "error_report_redaction",
+      "retry_queue_redaction",
+      "profiling_output_redaction",
+      "sqlite_backup_redaction",
+      "supervisor_log_redaction",
+      "health_endpoint_redaction",
+      "debug_endpoint_redaction",
+      "audit_event_redaction"
+    ],
+    "required_positive_scenarios": [
+      "authorized_registry_lifecycle_delivery",
+      "authorized_city_lifecycle_delivery",
+      "authorized_access_lifecycle_delivery"
+    ],
+    "required_state_recovery_scenarios": [
+      "backup_contains_no_sensitive_material",
+      "replay_rejected_after_backup_restore",
+      "old_backup_does_not_revive_revocation",
+      "policy_epoch_invalidates_ticket",
+      "state_rollback_detected",
+      "database_replacement_detected",
+      "old_ticket_rejected_in_new_state_epoch",
+      "old_ticket_rejected_in_new_gateway_epoch"
+    ],
+    "required_zero_metrics": {
+      "cross_epoch_ticket_acceptance_count": 0,
+      "malformed_ipc_plaintext_release_count": 0,
+      "plaintext_artifact_occurrence_count": 0,
+      "plaintext_observability_occurrence_count": 0,
+      "post_crash_double_release_count": 0,
+      "post_restore_replay_success_count": 0,
+      "post_timeout_double_release_count": 0,
+      "raw_ipc_persisted_count": 0,
+      "secret_error_report_occurrence_count": 0,
+      "secret_metric_label_occurrence_count": 0,
+      "secret_trace_attribute_occurrence_count": 0,
+      "stale_ticket_acceptance_count": 0,
+      "state_rollback_acceptance_count": 0,
+      "unauthorized_local_socket_connection_count": 0
+    },
+    "schema_version": 1,
+    "stage": "D2.3-fault-observability-lifecycle-audit"
+  },
+  "config_sha256": "1df0c083f5b1f8a9b39a9f8f93b54ed9aa10610952577058a6397a6d94386f69",
+  "contains_raw_ipc": false,
+  "contains_runtime_secret": false,
+  "contains_synthetic_plaintext": false,
+  "schema_version": 1
+}

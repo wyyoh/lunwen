@@ -1,0 +1,58 @@
+{
+  "external_files": [
+    {
+      "path": "PHASE_D23_REPORT.md",
+      "sha256": "a7045c8f11aaf475a3f3d0783b7bbc9d745601424411bfce43033df8ef45afa9",
+      "size_bytes": 4335
+    }
+  ],
+  "files": [
+    {
+      "path": "fault_observability_matrix.csv",
+      "sha256": "f27b4acd24e4e9d071ec07a13a8dc46fc70e4952d9163f63ee04cb49789328fd",
+      "size_bytes": 5373
+    },
+    {
+      "path": "ipc_byte_audit.json",
+      "sha256": "852f0ff5d737c8ee7ec98b59ad99e1f4d14d60989b5d86692e2c804681b107da",
+      "size_bytes": 384
+    },
+    {
+      "path": "leakage_scan.json",
+      "sha256": "344b60f10db1b8b1cfcd752b7021944551e32d34b12ec23824d5a9121b0bdf1b",
+      "size_bytes": 552
+    },
+    {
+      "path": "lifecycle_state_manifest.json",
+      "sha256": "d3ef04608361657dc9576edf704f40f1ba2560e7425c22087511ed459b084fbc",
+      "size_bytes": 20682
+    },
+    {
+      "path": "observability_audit.csv",
+      "sha256": "ac7c8035f1fdd5ef55a8dfc57dab0e2e5b965b9f4ecf527df21928fa9c41594e",
+      "size_bytes": 1003
+    },
+    {
+      "path": "protocol_status.json",
+      "sha256": "6bfcdb839f29f77f35b209839aa0cf97c6f45c826306ccab807a4ba51e10c1b5",
+      "size_bytes": 530
+    },
+    {
+      "path": "resolved_config.json",
+      "sha256": "a9be7f6c75ae3b261ab63612e8bf60b0de4ae6e7717a5632385b05aabd511b90",
+      "size_bytes": 6765
+    },
+    {
+      "path": "source_sha256_manifest.json",
+      "sha256": "caa39b691898728e6ff216bae3f80785fa83dc5acbdffca58539d0be5e302a29",
+      "size_bytes": 6001
+    },
+    {
+      "path": "stage_d23_summary.json",
+      "sha256": "bbb9bacad1bc8f49977532498838eaa09a9790644bee1aebe7aba9ec7d2a1c7b",
+      "size_bytes": 3498
+    }
+  ],
+  "manifest_payload_sha256": "960218974d4f84164f0aec5b19b0c266fea50cb72205e205581282afd0b93bfe",
+  "schema_version": 1
+}

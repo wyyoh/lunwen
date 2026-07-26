@@ -1,0 +1,176 @@
+{
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "8d9d7fae6cadf549e5bef51ae7c61bee85a188619bf6dcfa0030792ab4c2e814",
+      "size_bytes": 1319
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "aebd3a8fcb7f3d0bd99f3b01bc8a2b1e8ca34b4c490894df84bc4ba0812bcde7",
+      "size_bytes": 734
+    },
+    {
+      "path": "configs/stage_d23.yaml",
+      "sha256": "1df0c083f5b1f8a9b39a9f8f93b54ed9aa10610952577058a6397a6d94386f69",
+      "size_bytes": 5331
+    },
+    {
+      "path": "artifacts/stage_d22/stage_d22_summary.json",
+      "sha256": "9837c6065cbb9164d5976ef0c7b1d2ce6468749145f8ba1f78a6e0b55287a5e3",
+      "size_bytes": 3841
+    },
+    {
+      "path": "artifacts/stage_d22/artifact_sha256_manifest.json",
+      "sha256": "70c1aea11679d7b0df653bd1cda70fe077b935c324daac0b796e40cdcfbe18e6",
+      "size_bytes": 2316
+    },
+    {
+      "path": "PHASE_D22_REPORT.md",
+      "sha256": "d10e1c522c084799b2d71f4f44e97a19937394f52250cd33e390f1fd10e4f66c",
+      "size_bytes": 6009
+    },
+    {
+      "path": "src/keyed_gram/__init__.py",
+      "sha256": "56cdf52459caca131b2ab2803be5354be9bea6ae462f087153be68b161b5e3e6",
+      "size_bytes": 1072
+    },
+    {
+      "path": "src/keyed_gram/cli.py",
+      "sha256": "fbb70bab78b10de780d9a7fa31b36a10d7fd48bb7d172330d1442450f77ed7d0",
+      "size_bytes": 46426
+    },
+    {
+      "path": "src/keyed_gram/stage_c24_contract.py",
+      "sha256": "c8a3b5fd33621349659e504b1bd31502688896cf63207ae59f644849a0d96692",
+      "size_bytes": 14186
+    },
+    {
+      "path": "src/keyed_gram/stage_d1_contract.py",
+      "sha256": "3c65fbec2dd750d86b13ac1b61fe6117725ce071c0713fc2e32630176801e0ba",
+      "size_bytes": 10364
+    },
+    {
+      "path": "src/keyed_gram/stage_d1_gateway.py",
+      "sha256": "32695487da1eacbe7daaa5805bf9d5ea511d41e0de91fe52064a7a49b35b8124",
+      "size_bytes": 6151
+    },
+    {
+      "path": "src/keyed_gram/stage_d1_policy.py",
+      "sha256": "b2cbbc7cfd10b240e35f2c0913fb3c32c671623b760e35236e3c15b1f2dc00ea",
+      "size_bytes": 6014
+    },
+    {
+      "path": "src/keyed_gram/stage_d1_token.py",
+      "sha256": "ee7604973866d827b5455ce560abb852796aa14f1e489e10ff89f23113a0873b",
+      "size_bytes": 8755
+    },
+    {
+      "path": "src/keyed_gram/stage_d2_contract.py",
+      "sha256": "70c0e82d6f6668b4fb515163f7a603334f01578f814950d57d5048ec3a33bad9",
+      "size_bytes": 7227
+    },
+    {
+      "path": "src/keyed_gram/stage_d2_crypto.py",
+      "sha256": "65a4093856a21898ceeeeefe3f0488c9669cc80af5462dc97aaaa9019ab2de51",
+      "size_bytes": 5753
+    },
+    {
+      "path": "src/keyed_gram/stage_d2_identity.py",
+      "sha256": "cee3ad6db34fd608ace391bd4a29c17649b81f0cf7d6d9592da0b8b8592f85c6",
+      "size_bytes": 2534
+    },
+    {
+      "path": "src/keyed_gram/stage_d2_memory.py",
+      "sha256": "e9fa106c19d094c5957322836d168d18fe5f424f49ffb18320ce8a5380083859",
+      "size_bytes": 11352
+    },
+    {
+      "path": "src/keyed_gram/stage_d21_leakage.py",
+      "sha256": "180d887713bedc660c4e13537ca370975e1605f12e49f49408b86b2ae965d3a4",
+      "size_bytes": 2116
+    },
+    {
+      "path": "src/keyed_gram/stage_d22.py",
+      "sha256": "72fdc6f46087244eb61fbf14c27d5a61058e4318ba5290dd6bba4dfa2cef05c8",
+      "size_bytes": 56354
+    },
+    {
+      "path": "src/keyed_gram/stage_d22_contract.py",
+      "sha256": "6dfd56c992fe9bccb4c1e065b8e3cbfee04f9cfb048387e75010bc3f659a3b9c",
+      "size_bytes": 6664
+    },
+    {
+      "path": "src/keyed_gram/stage_d22_ipc.py",
+      "sha256": "435b0dff0a292882e02549208cbdb012ec3e8873029f26b24eea3828c599cf63",
+      "size_bytes": 6132
+    },
+    {
+      "path": "src/keyed_gram/stage_d22_metrics.py",
+      "sha256": "3978842c4bd5708e7fb24daea85274c8f99139fd2a7a4d7ec700ae23a7375f6f",
+      "size_bytes": 11870
+    },
+    {
+      "path": "src/keyed_gram/stage_d22_protocol.py",
+      "sha256": "a429bbec3f27107f7e23b13128d42694919d792931d0977d70ea39a075b10f5b",
+      "size_bytes": 12876
+    },
+    {
+      "path": "src/keyed_gram/stage_d22_runtime.py",
+      "sha256": "8870156e0906f3b7a0dae2accb9bbdae1ca0ce942652ebe701dceacda88cb405",
+      "size_bytes": 20397
+    },
+    {
+      "path": "src/keyed_gram/stage_d22_services.py",
+      "sha256": "126e466df7972234bc8e46f1db3ff68c65f5cff5993302a02391cf7faaa55190",
+      "size_bytes": 27922
+    },
+    {
+      "path": "src/keyed_gram/stage_d22_state.py",
+      "sha256": "52782d1c2aaa579d476fe607f59463daf4d44cf9905df0e9ac74c297044f245c",
+      "size_bytes": 8500
+    },
+    {
+      "path": "src/keyed_gram/stage_d22_ticket.py",
+      "sha256": "c54fa4fcc8671d128d585609fc33fffbf5ca714813e47083abc3542a365a681e",
+      "size_bytes": 5890
+    },
+    {
+      "path": "src/keyed_gram/stage_d23.py",
+      "sha256": "e701ca6b163c3dd88eaac9a9153d67a174e649fe8f6eacb96cc9ae1202edbe5e",
+      "size_bytes": 48227
+    },
+    {
+      "path": "src/keyed_gram/stage_d23_contract.py",
+      "sha256": "5a9b1b9bcd5143e3b9e2e7f3422d74c463cf2e04ff59cc78f2f75c60367f004b",
+      "size_bytes": 5664
+    },
+    {
+      "path": "src/keyed_gram/stage_d23_ipc.py",
+      "sha256": "19fb0e163a321501694811e6a26dcfedfeba43ed3915351b0dbcf6182b6c35c0",
+      "size_bytes": 6201
+    },
+    {
+      "path": "src/keyed_gram/stage_d23_metrics.py",
+      "sha256": "3517adf7797a2cd4651fdb307ad08399ef846f04d491a53d16141fd675def355",
+      "size_bytes": 7519
+    },
+    {
+      "path": "src/keyed_gram/stage_d23_observability.py",
+      "sha256": "e44875dbb247cb6d8bb1d1c0b49de983cf275092543181afa2fb7f6e69a79d50",
+      "size_bytes": 4781
+    },
+    {
+      "path": "src/keyed_gram/stage_d23_protocol.py",
+      "sha256": "bd61b6383a5dd916a6f5454efa5b2e446596f86d8e6bf7ed0a6479347b1d5ebd",
+      "size_bytes": 11553
+    },
+    {
+      "path": "src/keyed_gram/stage_d23_state.py",
+      "sha256": "250e0c893eb5eb380778bc0d425e7c38f84b74ed7d31b86541429145a2a99ef2",
+      "size_bytes": 20217
+    }
+  ],
+  "manifest_payload_sha256": "96f735ed144af946f2ed8b616a902d80b1308e0c5ff1e447df59a92fa323f794",
+  "schema_version": 1
+}

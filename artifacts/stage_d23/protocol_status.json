@@ -1,0 +1,16 @@
+{
+  "c3_eligible": false,
+  "confirmation_created_or_read": false,
+  "d_series_system_audit_complete": true,
+  "fault_observability_lifecycle_status": "passed",
+  "key_attack_executed": false,
+  "lm_fine_tuning_executed": false,
+  "network_socket_used": false,
+  "original_c3_allowed": false,
+  "private_answers_loaded": false,
+  "private_value_memory_ready": false,
+  "private_value_memory_trained": false,
+  "public_synthetic_service_prototype_validated": true,
+  "remote_model_used": false,
+  "semantic_router_in_tcb": false
+}

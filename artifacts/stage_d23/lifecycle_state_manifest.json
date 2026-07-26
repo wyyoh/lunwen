@@ -1,0 +1,822 @@
+{
+  "database_count": 48,
+  "database_files_committed_to_repository": false,
+  "databases": [
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "8cbd0ac558527af33093ae14b41f48307dad98b42e0ce91d54a6be050921d72a",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 1
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 2
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "4d8b7afa22301d394f8a7657f058296f1ff86bbbbe8fbb36ff3b9ce0da12f1f7",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": false,
+      "sha256": "cdf2b5e9b9a3b3ea3da8fc08174164b2c1ab5c89b30c8aca4ce5f8b83b6fb25b",
+      "size_bytes": 24576,
+      "tables": []
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "f0b4ffafa0519705821e6760d4cf0eb78e9b154a92234a7f0fc769effdbb46a4",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "cb9e88308ab7c56fce59f8406ef97fcb8802bf3ff545ee84e42292b24671dfd1",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 1
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 4
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "647ac0dd95b95122e936842c9a469424f49e04521fc59e4d567b874d36f0c0b6",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "d425f18c31c9c9b81d3e74becd8b5fddd0079c515f5ac34dbb4cc32474804373",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "d2838d88fb7017e46c0755bfde64e0ad9e31ffbf9aa27a7612121f04aae73bfb",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "f0b4ffafa0519705821e6760d4cf0eb78e9b154a92234a7f0fc769effdbb46a4",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "d425f18c31c9c9b81d3e74becd8b5fddd0079c515f5ac34dbb4cc32474804373",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "tickets.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "4a8bbd3aad91ece188bd89c4735f24dcc69df7e2c9d874196b003ba6671648f3",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "8b78eeab3ae99717d164caa2ece2e195768f7a6ecf99fac6bad7e87b9886307f",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "f0b4ffafa0519705821e6760d4cf0eb78e9b154a92234a7f0fc769effdbb46a4",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "7763c704051059e05350875f6a73b95b4c7ce0484b187d2dd860768181c1aa76",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "f0b4ffafa0519705821e6760d4cf0eb78e9b154a92234a7f0fc769effdbb46a4",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "d2049a4bf4b2e738cedf6fb1d3eb45edef28d97e3344db1bba7e8202373bb01a",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 1
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 4
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "647ac0dd95b95122e936842c9a469424f49e04521fc59e4d567b874d36f0c0b6",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "6e2406a149e0cf870de4afd9484d3a5fcd2154a41517db1e4f3442408f62c054",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "64fb0280e64f68dd610e77b995cf20b3ca0c6811cf89941aed5d99e6cdc61049",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "74034d11aa6adadd809aa25cced35a770ccdbff36624b364f7635273b806f823",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "64fb0280e64f68dd610e77b995cf20b3ca0c6811cf89941aed5d99e6cdc61049",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "45be2860bce67a1cf90e9ea7afd890f08649b5b11e36b3e3aa887ba7d7ccc59b",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 1
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "64fb0280e64f68dd610e77b995cf20b3ca0c6811cf89941aed5d99e6cdc61049",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "state-backup.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "a441af74c9ba3563fb1e436c46464715fc8e2b33d017e10b846f957df6151984",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 1
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "52b27d3382ca6ef98a5e92358c69c8004a74a44304eaee2559e5e36a4c31c929",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "64fb0280e64f68dd610e77b995cf20b3ca0c6811cf89941aed5d99e6cdc61049",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "old-backup.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "52b27d3382ca6ef98a5e92358c69c8004a74a44304eaee2559e5e36a4c31c929",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "d73bbb7073d78b950766b7b46a1af0d1c9b0222d0ece931b55dce2c2669e942f",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "b187434f288aacc67b5c1c9047a18893fa330f8789dace8bab0ea982d7d69b55",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "99186b3b8df15133ac98b4905c581ba06d0d05669b132a21205482fbf93f3c94",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "d2838d88fb7017e46c0755bfde64e0ad9e31ffbf9aa27a7612121f04aae73bfb",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "6b02b4ab27ae3f6bf7d480472d60a8af9e36efaa9fa0168d60517ccb9d79a5b2",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "7aa3eae66997bec1f51aba63e093fd47ae7aa9cc8f21ef127142fa9698deac62",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "540bd4d3cc5f693b21f46eea9dc8f430c3321e7b115a692ca1d0eb16132ce65c",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 3
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "ccf6985751846b7510aac89cd5aee66adddfc8558bc21344de1036b817bd2781",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 3
+        }
+      ]
+    },
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "5b1008ba013c8193cec0679678a0ea64cb014298f312fe0402286727812844be",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "64fb0280e64f68dd610e77b995cf20b3ca0c6811cf89941aed5d99e6cdc61049",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "old-backup.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "5b1008ba013c8193cec0679678a0ea64cb014298f312fe0402286727812844be",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "backup.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "a817437448c056354e6f9e4cc17dd1732c0cd6e3fe6c8a75a5f9528cd234c087",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 1
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "6ab760201d7fb857233ce20a3d2c650740486c45f0cb2477ebd90218778fe156",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 1
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "64fb0280e64f68dd610e77b995cf20b3ca0c6811cf89941aed5d99e6cdc61049",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "e5722441b3a43c6874063c69f507822a4a55b91593e14c398f2f24ab31ec8420",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "d2838d88fb7017e46c0755bfde64e0ad9e31ffbf9aa27a7612121f04aae73bfb",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "old-backup.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "e5722441b3a43c6874063c69f507822a4a55b91593e14c398f2f24ab31ec8420",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "0b78f32101d83aa72e27b6d2e8c13bf937debf7df558ed955bd16295ba296f0d",
+      "size_bytes": 24576,
+      "tables": [
+        {
+          "name": "capability_state",
+          "row_count": 1
+        },
+        {
+          "name": "lifecycle_events",
+          "row_count": 0
+        },
+        {
+          "name": "lifecycle_metadata",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "64fb0280e64f68dd610e77b995cf20b3ca0c6811cf89941aed5d99e6cdc61049",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "lifecycle-state.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": false,
+      "sha256": "510bc978589429f032d1192a7e3d85ff4ee31045af664c3111758e895a8be532",
+      "size_bytes": 64,
+      "tables": []
+    },
+    {
+      "kind": "monotonic-anchor.sqlite3",
+      "plaintext_or_secret_stored": false,
+      "readable": true,
+      "sha256": "f0b4ffafa0519705821e6760d4cf0eb78e9b154a92234a7f0fc769effdbb46a4",
+      "size_bytes": 8192,
+      "tables": [
+        {
+          "name": "monotonic_anchor",
+          "row_count": 1
+        }
+      ]
+    }
+  ],
+  "journal_mode": "DELETE",
+  "manifest_payload_sha256": "e9525b7842ebbebc30d4e82c14d2063779f1cb1b07e6151b3de5004ee4e54a78",
+  "rollback_detection": "separate monotonic anchor + HMAC metadata",
+  "schema_version": 1,
+  "synchronous": "FULL",
+  "transaction_mode": "BEGIN IMMEDIATE"
+}

@@ -1,0 +1,14 @@
+{
+  "frame_count": 1,
+  "frames": [
+    {
+      "frame_index": 0,
+      "raw_bytes_persisted": false,
+      "sha256": "3944b1b4f8997ab91478b4fcf23f23d7aa1b7ea4884e312a8020b56866d09d52",
+      "wire_size_bytes": 36
+    }
+  ],
+  "manifest_payload_sha256": "802f7633a15da28e87a29f5006aa0b61736c3222944e51e1e780bccd417fff14",
+  "raw_frame_bytes_persisted": false,
+  "schema_version": 1
+}
