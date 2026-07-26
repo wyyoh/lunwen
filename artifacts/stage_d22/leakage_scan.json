@@ -1,0 +1,21 @@
+{
+  "application_layer_only": true,
+  "core_dump_files_found": false,
+  "persisted_output_digest_count": 0,
+  "plaintext_all_runtime_file_occurrence_count": 0,
+  "plaintext_artifact_occurrence_count": 0,
+  "plaintext_crash_recovery_occurrence_count": 0,
+  "plaintext_gateway_log_occurrence_count": 0,
+  "plaintext_generator_log_occurrence_count": 0,
+  "plaintext_ipc_persistence_count": 0,
+  "plaintext_memory_log_occurrence_count": 0,
+  "plaintext_persistent_state_occurrence_count": 0,
+  "process_surface_canary_occurrence_count": 0,
+  "process_surface_secret_occurrence_count": 0,
+  "python_or_accelerator_memory_zeroization_proven": false,
+  "raw_ipc_packet_capture_performed": false,
+  "runtime_canary_count": 104,
+  "runtime_canary_variant_count": 728,
+  "scanned_location_count": 302,
+  "schema_version": 1
+}

@@ -1,0 +1,215 @@
+{
+  "config": {
+    "canary": {
+      "entropy_bits": 128,
+      "persisted_output_digest_count_field": "persisted_output_digest_count",
+      "runtime_canary_count_field": "runtime_canary_count",
+      "runtime_canary_variant_count_field": "runtime_canary_variant_count",
+      "scan_variants": [
+        "raw",
+        "lowercase",
+        "uppercase",
+        "hex",
+        "standard_base64",
+        "urlsafe_base64",
+        "character_spaced",
+        "hyphen_stripped"
+      ],
+      "scanned_location_count_field": "scanned_location_count",
+      "unique_per_record_scenario_run": true
+    },
+    "capability": {
+      "algorithm": "HMAC-SHA-256",
+      "key_bytes": 32,
+      "key_id": "capability-key-d22",
+      "max_ttl_seconds": 300,
+      "policy_version": "d22-capability-policy-v1",
+      "single_use": true
+    },
+    "data_memory": {
+      "algorithm": "AES-256-GCM",
+      "key_bytes": 32,
+      "key_id": "data-key-d22",
+      "nonce_bytes": 12,
+      "schema_version": 1,
+      "tag_bytes": 16
+    },
+    "governance": {
+      "c3_eligible": false,
+      "capability_gated_ephemeral_generation_status": "passed",
+      "d21_artifact_manifest": {
+        "path": "artifacts/stage_d21/artifact_sha256_manifest.json",
+        "sha256": "cc6ecf7c035e75e95a673121135e1a9730f2ea1a7fe5e744ee55b1b9358d3a5b"
+      },
+      "d21_report": {
+        "path": "PHASE_D21_REPORT.md",
+        "sha256": "c25d22f4176834263ed11208beebbde93032486490fb4f1894a3825bd3a9576c"
+      },
+      "d21_summary": {
+        "path": "artifacts/stage_d21/stage_d21_summary.json",
+        "sha256": "2aed3f2cb8897a4df57af96b0e4d0ddec098949f604c541460eec6462dff82f4"
+      },
+      "original_c3_allowed": false,
+      "public_synthetic_generation_boundary_validated": true,
+      "ready_for_d2_2_isolated_service_probe": true,
+      "semantic_router_in_tcb": false
+    },
+    "outputs": {
+      "artifact_dir": "artifacts/stage_d22",
+      "runtime_dir": ".runs/stage_d22"
+    },
+    "protocol": {
+      "c3_eligible": false,
+      "command_line_secret_allowed": false,
+      "confirmation_allowed": false,
+      "environment_secret_allowed": false,
+      "evaluation_mode": "local_spawned_process_unix_socket_attack_matrix",
+      "fine_tuning_allowed": false,
+      "ipc_authentication": "multiprocessing_connection_hmac_challenge",
+      "ipc_family": "AF_UNIX",
+      "ipc_serialization": "strict_json_send_bytes",
+      "key_attack_allowed": false,
+      "natural_language_router_authorization_allowed": false,
+      "network_socket_allowed": false,
+      "original_c3_allowed": false,
+      "plaintext_in_artifacts_allowed": false,
+      "plaintext_in_config_allowed": false,
+      "plaintext_in_source_allowed": false,
+      "private_answers_allowed": false,
+      "private_value_memory_allowed": false,
+      "process_start_method": "spawn",
+      "raw_ipc_capture_persistence_allowed": false,
+      "remote_model_allowed": false,
+      "replay_store": "sqlite_begin_immediate_full_sync_delete_journal",
+      "values": "runtime_unique_128_bit_synthetic_canaries"
+    },
+    "release_ticket": {
+      "algorithm": "HMAC-SHA-256",
+      "allowed_gateway_ids": [
+        "gateway-a",
+        "gateway-b"
+      ],
+      "binds": [
+        "gateway_id",
+        "ticket_id",
+        "request_nonce",
+        "subject_id",
+        "entity_id",
+        "relation_id",
+        "permission",
+        "instruction_id",
+        "sequence",
+        "issued_at",
+        "expires_at"
+      ],
+      "key_bytes": 32,
+      "key_id": "release-ticket-key-d22",
+      "ttl_seconds": 30
+    },
+    "required_authorization_negative_scenarios": [
+      "wrong_subject",
+      "wrong_entity",
+      "wrong_relation",
+      "expired_capability",
+      "revoked_capability",
+      "replayed_capability"
+    ],
+    "required_crash_scenarios": [
+      "crash_before_capability_consume",
+      "crash_after_capability_consume_before_lookup",
+      "crash_after_decrypt_before_generator",
+      "crash_after_generator_receive_before_output",
+      "crash_after_output_before_response"
+    ],
+    "required_exact_metrics": {
+      "authorized_end_to_end_delivery_accuracy": 1.0
+    },
+    "required_false_metrics": {
+      "capability_key_exposed_to_memory_or_generator": false,
+      "capability_token_exposed_to_generator": false,
+      "core_dump_enabled_in_service": false,
+      "data_key_exposed_to_gateway_or_generator": false
+    },
+    "required_ipc_minimization_scenarios": [
+      "client_to_gateway_minimal_schema",
+      "gateway_to_memory_minimal_schema",
+      "memory_to_generator_minimal_schema"
+    ],
+    "required_multi_instance_scenarios": [
+      "two_gateways_same_capability",
+      "two_memories_same_ticket",
+      "generator_crash_requires_new_capability",
+      "post_restart_replay_rejected",
+      "post_restart_revocation_preserved"
+    ],
+    "required_positive_scenarios": [
+      "authorized_registry_delivery",
+      "authorized_city_delivery",
+      "authorized_access_delivery",
+      "multi_scope_entity_a_delivery",
+      "multi_scope_entity_d_delivery",
+      "authorized_after_generator_restart"
+    ],
+    "required_service_boundary_scenarios": [
+      "client_direct_memory",
+      "generator_identity_to_memory",
+      "generator_has_no_capability_authority_channel",
+      "unregistered_gateway_ticket",
+      "forged_ticket_signature",
+      "forged_ipc_message",
+      "wrong_service_identity",
+      "expired_internal_ticket",
+      "duplicate_internal_ticket",
+      "out_of_order_internal_ticket"
+    ],
+    "required_zero_metrics": {
+      "cross_instance_replay_success_count": 0,
+      "cross_process_double_release_count": 0,
+      "generator_to_memory_connection_count": 0,
+      "plaintext_crash_recovery_occurrence_count": 0,
+      "plaintext_gateway_log_occurrence_count": 0,
+      "plaintext_generator_log_occurrence_count": 0,
+      "plaintext_ipc_persistence_count": 0,
+      "plaintext_memory_log_occurrence_count": 0,
+      "post_restart_replay_success_count": 0,
+      "unauthorized_memory_service_access_count": 0,
+      "unauthorized_service_call_count": 0
+    },
+    "schema_version": 1,
+    "service_roles": {
+      "gateway": {
+        "accepts_external_capability": true,
+        "connects_to_generator": false,
+        "connects_to_memory": true,
+        "holds_capability_hmac_key": true,
+        "holds_data_encryption_key": false,
+        "holds_release_ticket_key": true
+      },
+      "generator": {
+        "accepts_capability_token": false,
+        "connects_to_gateway": false,
+        "connects_to_memory": false,
+        "conversation_history": false,
+        "holds_capability_hmac_key": false,
+        "holds_data_encryption_key": false,
+        "holds_release_ticket_key": false,
+        "persistent_kv_cache": false,
+        "tools": [],
+        "type": "deterministic_ephemeral_copy_worker"
+      },
+      "memory": {
+        "accepts_external_capability": false,
+        "accepts_natural_language": false,
+        "connects_to_generator": true,
+        "holds_capability_hmac_key": false,
+        "holds_data_encryption_key": true,
+        "holds_release_ticket_key": true
+      }
+    },
+    "stage": "D2.2-isolated-service-generation-probe"
+  },
+  "config_sha256": "4c174fd4aaa8295a348bad400e5a0ba06d0be1e251a93eb06c054537fb8c2b48",
+  "contains_runtime_secret": false,
+  "contains_synthetic_plaintext": false,
+  "schema_version": 1
+}

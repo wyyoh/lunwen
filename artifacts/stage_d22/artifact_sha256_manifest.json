@@ -1,0 +1,71 @@
+{
+  "capability_hmac_key_present": false,
+  "capability_token_present": false,
+  "data_encryption_key_present": false,
+  "dataset_present": false,
+  "files": [
+    {
+      "path": "ipc_schema_audit.csv",
+      "sha256": "bacd676c4095c7f0bbfea53f822005d866a580a4cbd8276e52d1ed1d3c3e0692",
+      "size_bytes": 732
+    },
+    {
+      "path": "leakage_scan.json",
+      "sha256": "1691cd2ac5eb354d51f7cfc4255701ebb05f7e662f9fe0627649d88d7cfd2186",
+      "size_bytes": 816
+    },
+    {
+      "path": "persistent_state_manifest.json",
+      "sha256": "ef07c90a1f06336e7463230e86dd82762c81e02317e5a50a5a4ae9e3f415b3a4",
+      "size_bytes": 21035
+    },
+    {
+      "path": "process_role_manifest.csv",
+      "sha256": "cbf8b8aa4765585572123878bea9c50db922d0ad4ec037978395b7a8e1a6a65d",
+      "size_bytes": 5817
+    },
+    {
+      "path": "protocol_status.json",
+      "sha256": "3031ef5386823de72292feac87c706493c5646fc3c1b4202c7aa8abfe871da5b",
+      "size_bytes": 553
+    },
+    {
+      "path": "resolved_config.json",
+      "sha256": "2d184c381290c2cab2b82267454f4cb8b8fdefd5fc787d098789aa7b9262a691",
+      "size_bytes": 7392
+    },
+    {
+      "path": "service_attack_matrix.csv",
+      "sha256": "f97dd3be09e9b9826ed2b3b0377c39b29869a8c30a00194d3aa83309db644bbe",
+      "size_bytes": 4660
+    },
+    {
+      "path": "source_sha256_manifest.json",
+      "sha256": "3ded08c0ba5c22d49ba408e9556e290b8376390daf47a3f63bab5b1ba4c36289",
+      "size_bytes": 4780
+    },
+    {
+      "path": "stage_d22_summary.json",
+      "sha256": "9837c6065cbb9164d5976ef0c7b1d2ce6468749145f8ba1f78a6e0b55287a5e3",
+      "size_bytes": 3841
+    }
+  ],
+  "manifest_payload_sha256": "c3851519cc6b3d71f8c3924ff5c405328987cef7a5a5bacb566b63cdeee97fe6",
+  "model_checkpoint_present": false,
+  "optimizer_state_present": false,
+  "plaintext_value_present": false,
+  "private_answer_present": false,
+  "private_value_present": false,
+  "release_ticket_key_present": false,
+  "report": {
+    "path": "PHASE_D22_REPORT.md",
+    "sha256": "d10e1c522c084799b2d71f4f44e97a19937394f52250cd33e390f1fd10e4f66c",
+    "size_bytes": 6009
+  },
+  "runtime_canary_present": false,
+  "schema_version": 1,
+  "session_credential_present": false,
+  "sqlite_runtime_state_present": false,
+  "stage": "D2.2-final-artifact-manifest",
+  "tensor_cache_present": false
+}

@@ -1,0 +1,843 @@
+{
+  "database_count": 52,
+  "database_files_committed_to_repository": false,
+  "databases": [
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "575f81de3e71b6387d842eab60569a4422bc3e71fc00030739d1d409a14a6243",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 1
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "b8d44614d556b2be344a889e033c90d9bc07a66c85eae355fce8122631cc2d96",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "2431bab1b0095f4c2994bfd3a279b9edda0bd426081465d47236c8f544d2d23d",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 1
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "a0933206aee16f5b6d5decf4de41b1779ae781f95750b65fed3b228a24d11818",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "aa6b4f08ca3cdcce4e4381e49c4592fea5f9553975205105cae4096252d73597",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 1
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "c433c7543c69beac7aa619f340bae476ebfb6d54402b0b23ed59ae075d0e9884",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "f5f8d184972aa6404c586c662132d89fb35ff120fef8bb2ee9f28f8ac6f45a33",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 1
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "dbce3e85bf15928ff8c8057e60e448a196ea7ad94b6d718fec3278bcf0247284",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "1fd96383d9f9a77c957012de438d8253337474bc3f1ca0903fb5746e245c4e12",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 1
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "bff953c9062da1fd341e71497ecce615a36a096eaf0978b4e014c779576b1f31",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "eb0b3d0f9b7f98050ddeec36ffb061f4d411c2550364183f011b309d9f4e8f3f",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 1
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "13c6e3a086985b54249206b2c6471614b866c1c64814554a1cf5f007afe26905",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "2ea72e8dda10c894016bc1fd634818b94dca93aa58e6ec90ef68934330b012fd",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 0
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "b3c12d715d4dbcb3227e7d75ce462a66cff7c1e9f32e078f0bd0e28dc7f447da",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 0
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "2ea72e8dda10c894016bc1fd634818b94dca93aa58e6ec90ef68934330b012fd",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 0
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "b3c12d715d4dbcb3227e7d75ce462a66cff7c1e9f32e078f0bd0e28dc7f447da",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 0
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "2ea72e8dda10c894016bc1fd634818b94dca93aa58e6ec90ef68934330b012fd",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 0
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "b3c12d715d4dbcb3227e7d75ce462a66cff7c1e9f32e078f0bd0e28dc7f447da",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 0
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "2ea72e8dda10c894016bc1fd634818b94dca93aa58e6ec90ef68934330b012fd",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 0
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "b3c12d715d4dbcb3227e7d75ce462a66cff7c1e9f32e078f0bd0e28dc7f447da",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 0
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "6f3c321afad706d69d6b15a51646fd352aec210491a9e4aa58e3a053cad36486",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 1
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "b3c12d715d4dbcb3227e7d75ce462a66cff7c1e9f32e078f0bd0e28dc7f447da",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 0
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "31e10f912303ebb1390dbcbdc2168a14de7b49836a77c85b390be27ecea1b81b",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 1
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "30c844e66154b1a96649368a8179937bb6eb00206925b91292ee91877af6c1d5",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "2ea72e8dda10c894016bc1fd634818b94dca93aa58e6ec90ef68934330b012fd",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 0
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "b3c12d715d4dbcb3227e7d75ce462a66cff7c1e9f32e078f0bd0e28dc7f447da",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 0
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "2ea72e8dda10c894016bc1fd634818b94dca93aa58e6ec90ef68934330b012fd",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 0
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "ee3cedd317024d06daef41fb872525529daccd2f962063d1b8689a0e16e173fa",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "2ea72e8dda10c894016bc1fd634818b94dca93aa58e6ec90ef68934330b012fd",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 0
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "1903744d69cd382cb93cad3447c0e9d4b3bb449d3fa37f63989c98003fe3e4c1",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "b25060b309a101022037f2503a690d9d7ec9849417d74295bdb45f569038bb4a",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 1
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "372505f7caefc86b2e628ad0f09f549faec12cc21d97706fe2a01443e4056b5e",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "e8b97cd0cb29df815799f0cef197a1305d1ae3b3bbc4ee398a606d141756912f",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 1
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "b3c12d715d4dbcb3227e7d75ce462a66cff7c1e9f32e078f0bd0e28dc7f447da",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 0
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "b281c4f45aff540e5bb7e1db94852794b78ae4ecab84b1c1a640b10b50976e36",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 1
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "b3c12d715d4dbcb3227e7d75ce462a66cff7c1e9f32e078f0bd0e28dc7f447da",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 0
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "8f925cebab47d540efd50badbd9c793dae037c8a1fca82d1eb362c4f98a151bb",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 1
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "286556f0ae85b3634e6ff0c2321881d1aee470715525be11f0171dc9a78bfbd6",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "b0b6994456c3f1c564def5cf60caf66978205f8cd7c9082c08ccb32e19aa2c6b",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 1
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "697148e9af8149512181cfd8a96ff1f009bd3effdae1abe72c47b0c9234a1c4a",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "e5337dbf1744e67d717e48de75d9be66dc6368d7e06ae5d432ec99f5fd09d47f",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 1
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "621941d3e5f9c32a4686ff46ce6029254f351c6fc9408b69d3d224196c57a2ea",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "b99ed4bb48b18ee29072b5bf9b833c59ec43d1729d039286fa267a108067c728",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 1
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "d15517cd5f98372fa2519931ef2141455b46c8006e718633349678a38d891eb7",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "2ea72e8dda10c894016bc1fd634818b94dca93aa58e6ec90ef68934330b012fd",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 0
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "338fed16a63213b58b9fa0c136378dabd91c411a6e162e22601c37a17e45d32d",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "d094f3d2b3f65d6e2f4fd49f880df146f0b33047986d24bcc34e60e82e80129c",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 2
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "eca4893315df64853719a35379555c632cc9a3766da670f7f998e2092ea282c9",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 2
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "736dffe75cca312b707a2a9d33a5ae8045372ff662184fe7829d46f29ec69126",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 1
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "dc139a33fbfb43e95743702b9dd52f1ab57f710ff76f835dc7a46bba8a3fef5c",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 1
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 1
+        }
+      ]
+    },
+    {
+      "kind": "capability-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "a8c46ed6ebc26abf62d8061dd91ad866edc63e119feb8da22a84ac527f35417e",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "capability_nonces",
+          "row_count": 1
+        },
+        {
+          "name": "gateway_sequences",
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "kind": "ticket-state.sqlite3",
+      "plaintext_value_stored": false,
+      "sha256": "b3c12d715d4dbcb3227e7d75ce462a66cff7c1e9f32e078f0bd0e28dc7f447da",
+      "size_bytes": 20480,
+      "tables": [
+        {
+          "name": "gateway_ticket_order",
+          "row_count": 0
+        },
+        {
+          "name": "release_tickets",
+          "row_count": 0
+        }
+      ]
+    }
+  ],
+  "journal_mode": "DELETE",
+  "manifest_payload_sha256": "e6a7708b34a4f1d5fd51774398a603e59d1c015d9d95999f3f6c0c26b1386fa7",
+  "schema_version": 1,
+  "synchronous": "FULL",
+  "transaction_mode": "BEGIN IMMEDIATE"
+}

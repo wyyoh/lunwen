@@ -1,0 +1,5 @@
+contains_capability_hmac_key_field,contains_capability_token_field,contains_data_encryption_key_field,contains_natural_language_prompt_field,contains_release_ticket_field,contains_value_field,edge,nested_fields,scenario_root,top_level_fields
+False,True,False,False,False,False,client_to_gateway,"request:capability_token_b64,entity_id,relation_id,subject_id",s00,instruction_id|op|request|schema_version|session_credential_b64
+False,False,False,False,True,False,gateway_to_memory,,s00,op|release_ticket_b64|schema_version
+False,False,False,False,False,True,memory_to_generator,,s00,instruction_id|op|request_nonce|schema_version|value_b64
+False,False,False,False,False,False,gateway_to_memory,,s12,op|schema_version|unexpected
