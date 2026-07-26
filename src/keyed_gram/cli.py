@@ -56,16 +56,32 @@ from .stage_c24b_v21 import (
 )
 from .stage_c24c import (
     calibrate_exploratory as calibrate_stage_c24c,
+)
+from .stage_c24c import (
     run_development_once as run_stage_c24c_development,
+)
+from .stage_c24c import (
     run_locked_once as run_stage_c24c_locked,
+)
+from .stage_c24c import (
     run_smoke as run_stage_c24c_smoke,
+)
+from .stage_c24c import (
     seal_benchmark as seal_stage_c24c_benchmark,
 )
 from .stage_c25 import (
     calibrate_external as calibrate_stage_c25,
+)
+from .stage_c25 import (
     finalize_artifacts as finalize_stage_c25,
+)
+from .stage_c25 import (
     prepare_external_audit as prepare_stage_c25,
+)
+from .stage_c25 import (
     run_external_audit as audit_stage_c25,
+)
+from .stage_c25 import (
     run_smoke as run_stage_c25_smoke,
 )
 from .stage_d1 import (
@@ -88,6 +104,11 @@ from .stage_d22 import (
     finalize_d22_artifacts,
     run_d22_audit,
     run_d22_smoke,
+)
+from .stage_d23 import (
+    finalize_d23_artifacts,
+    run_d23_audit,
+    run_d23_smoke,
 )
 from .train import train_gram
 
@@ -731,6 +752,18 @@ def command_stage_d22_finalize(args: argparse.Namespace) -> None:
     _print(finalize_d22_artifacts(args.config))
 
 
+def command_stage_d23_audit(args: argparse.Namespace) -> None:
+    _print(run_d23_audit(args.config, output_dir=args.output_dir))
+
+
+def command_stage_d23_smoke(args: argparse.Namespace) -> None:
+    _print(run_d23_smoke(args.config, output_dir=args.output_dir))
+
+
+def command_stage_d23_finalize(args: argparse.Namespace) -> None:
+    _print(finalize_d23_artifacts(args.config))
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="keyed-gram",
@@ -1225,6 +1258,29 @@ def build_parser() -> argparse.ArgumentParser:
     )
     stage_d22_finalize.add_argument("--config", required=True)
     stage_d22_finalize.set_defaults(func=command_stage_d22_finalize)
+
+    stage_d23_audit = sub.add_parser(
+        "stage-d23-audit",
+        help="run the frozen final D-series fault/observability audit once",
+    )
+    stage_d23_audit.add_argument("--config", required=True)
+    stage_d23_audit.add_argument("--output-dir")
+    stage_d23_audit.set_defaults(func=command_stage_d23_audit)
+
+    stage_d23_smoke = sub.add_parser(
+        "stage-d23-smoke",
+        help="run an ephemeral D2.3 lifecycle/IPC/observability smoke",
+    )
+    stage_d23_smoke.add_argument("--config", required=True)
+    stage_d23_smoke.add_argument("--output-dir")
+    stage_d23_smoke.set_defaults(func=command_stage_d23_smoke)
+
+    stage_d23_finalize = sub.add_parser(
+        "stage-d23-finalize",
+        help="seal the D2.3 report and artifact hashes without rerunning",
+    )
+    stage_d23_finalize.add_argument("--config", required=True)
+    stage_d23_finalize.set_defaults(func=command_stage_d23_finalize)
     return parser
 
 

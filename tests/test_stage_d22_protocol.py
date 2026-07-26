@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import subprocess
 from pathlib import Path
 
 import pytest
@@ -58,7 +59,12 @@ def test_source_manifest_preserves_upstream_and_d22_sources() -> None:
 
 def test_git_state_supports_repository_git_version() -> None:
     state = git_state(ROOT / "configs/stage_d22.yaml")
-    assert state["branch"] == "agent/stage-d22"
+    expected_branch = subprocess.check_output(
+        ("git", "symbolic-ref", "--short", "HEAD"),
+        cwd=ROOT,
+        text=True,
+    ).strip()
+    assert state["branch"] == expected_branch
     assert len(state["commit"]) == 40
 
 

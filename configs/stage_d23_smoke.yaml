@@ -1,0 +1,26 @@
+schema_version: 1
+stage: D2.3-fault-observability-lifecycle-audit-smoke
+
+protocol:
+  evaluation_mode: ephemeral_component_smoke
+  physical_disk_exhaustion_allowed: false
+  raw_ipc_capture_persistence_allowed: false
+  remote_model_allowed: false
+  network_socket_allowed: false
+  plaintext_in_source_allowed: false
+  plaintext_in_config_allowed: false
+  plaintext_in_artifacts_allowed: false
+  command_line_secret_allowed: false
+  environment_secret_allowed: false
+  private_value_memory_allowed: false
+  private_answers_allowed: false
+  natural_language_router_authorization_allowed: false
+  confirmation_allowed: false
+  fine_tuning_allowed: false
+  key_attack_allowed: false
+  original_c3_allowed: false
+  c3_eligible: false
+
+outputs:
+  artifact_dir: artifacts/stage_d23_smoke
+  runtime_dir: .runs/stage_d23_smoke
