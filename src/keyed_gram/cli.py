@@ -84,6 +84,11 @@ from .stage_d21 import (
     run_d21_smoke,
 )
 from .stage_d21_protocol import prepare_model as prepare_d21_model
+from .stage_d22 import (
+    finalize_d22_artifacts,
+    run_d22_audit,
+    run_d22_smoke,
+)
 from .train import train_gram
 
 
@@ -714,6 +719,18 @@ def command_stage_d21_finalize(args: argparse.Namespace) -> None:
     _print(finalize_d21_artifacts(args.config))
 
 
+def command_stage_d22_audit(args: argparse.Namespace) -> None:
+    _print(run_d22_audit(args.config, output_dir=args.output_dir))
+
+
+def command_stage_d22_smoke(args: argparse.Namespace) -> None:
+    _print(run_d22_smoke(args.config, output_dir=args.output_dir))
+
+
+def command_stage_d22_finalize(args: argparse.Namespace) -> None:
+    _print(finalize_d22_artifacts(args.config))
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="keyed-gram",
@@ -1185,6 +1202,29 @@ def build_parser() -> argparse.ArgumentParser:
     )
     stage_d21_finalize.add_argument("--config", required=True)
     stage_d21_finalize.set_defaults(func=command_stage_d21_finalize)
+
+    stage_d22_audit = sub.add_parser(
+        "stage-d22-audit",
+        help="run the frozen local isolated-service attack matrix exactly once",
+    )
+    stage_d22_audit.add_argument("--config", required=True)
+    stage_d22_audit.add_argument("--output-dir")
+    stage_d22_audit.set_defaults(func=command_stage_d22_audit)
+
+    stage_d22_smoke = sub.add_parser(
+        "stage-d22-smoke",
+        help="run an ephemeral local multi-process D2.2 smoke",
+    )
+    stage_d22_smoke.add_argument("--config", required=True)
+    stage_d22_smoke.add_argument("--output-dir")
+    stage_d22_smoke.set_defaults(func=command_stage_d22_smoke)
+
+    stage_d22_finalize = sub.add_parser(
+        "stage-d22-finalize",
+        help="seal the D2.2 report and artifact hashes without rerunning",
+    )
+    stage_d22_finalize.add_argument("--config", required=True)
+    stage_d22_finalize.set_defaults(func=command_stage_d22_finalize)
     return parser
 
 

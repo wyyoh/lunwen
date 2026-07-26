@@ -1,0 +1,57 @@
+schema_version: 1
+stage: D2.2-isolated-service-generation-probe-smoke
+protocol:
+  process_start_method: spawn
+  ipc_family: AF_UNIX
+  ipc_serialization: strict_json_send_bytes
+  replay_store: sqlite_begin_immediate_full_sync_delete_journal
+  remote_model_allowed: false
+  network_socket_allowed: false
+  plaintext_in_source_allowed: false
+  plaintext_in_config_allowed: false
+  plaintext_in_artifacts_allowed: false
+  raw_ipc_capture_persistence_allowed: false
+  command_line_secret_allowed: false
+  environment_secret_allowed: false
+  private_value_memory_allowed: false
+  private_answers_allowed: false
+  natural_language_router_authorization_allowed: false
+  confirmation_allowed: false
+  fine_tuning_allowed: false
+  key_attack_allowed: false
+  original_c3_allowed: false
+  c3_eligible: false
+service_roles:
+  gateway:
+    holds_capability_hmac_key: true
+    holds_release_ticket_key: true
+    holds_data_encryption_key: false
+  memory:
+    holds_capability_hmac_key: false
+    holds_release_ticket_key: true
+    holds_data_encryption_key: true
+    accepts_external_capability: false
+    accepts_natural_language: false
+  generator:
+    holds_capability_hmac_key: false
+    holds_release_ticket_key: false
+    holds_data_encryption_key: false
+    accepts_capability_token: false
+    connects_to_memory: false
+    tools: []
+    conversation_history: false
+    persistent_kv_cache: false
+capability:
+  algorithm: HMAC-SHA-256
+  key_bytes: 32
+  single_use: true
+release_ticket:
+  algorithm: HMAC-SHA-256
+  key_bytes: 32
+data_memory:
+  algorithm: AES-256-GCM
+  key_bytes: 32
+  nonce_bytes: 12
+outputs:
+  artifact_dir: artifacts/stage_d22_smoke
+  runtime_dir: .runs/stage_d22_smoke
