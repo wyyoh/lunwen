@@ -1,0 +1,59 @@
+{
+  "schema_version": "stage-e1-paper-sha256-v1",
+  "base_git_commit": "b0805e19c7ad5dac57d225f9cffa524afd5bc1ab",
+  "manifest_self_excluded": true,
+  "files": [
+    {
+      "path": "paper/APPENDIX_MAP.md",
+      "sha256": "b1a341af61eb22c86648f091752a15e7609b19fe2204e749b0b4c9ac13b3c07a"
+    },
+    {
+      "path": "paper/MANUSCRIPT_STATUS.json",
+      "sha256": "6cb4634bf85200c4afbe255d7a53eade447bd7c5a43667d30f960ab5069d5768"
+    },
+    {
+      "path": "paper/MANUSCRIPT_V1.md",
+      "sha256": "6f63ccbd9b21ff70dbd7d8a74cafeddf6d1e62a6095b1a790bc8a03432967095"
+    },
+    {
+      "path": "paper/README.md",
+      "sha256": "f3564d7a7fe4146c10025b9038c2ffdd98bb39ce4ca7dd5a448c2fea4e49572e"
+    },
+    {
+      "path": "paper/REFERENCES.bib",
+      "sha256": "2548858ffba6b2ded4ce771e7911bae925dd173efaf93671c5df10e5842a7ccc"
+    },
+    {
+      "path": "paper/RELATED_WORK_AUDIT.md",
+      "sha256": "743331ac8ec19e7d701fbbd6c076c915a98ec6db618193e63d5505951283fd4e"
+    },
+    {
+      "path": "paper/REVIEW_RISK_REGISTER.md",
+      "sha256": "c9bd1315c1bd2136000ed0b1b80531cee191642e73f7680b4d96c8a9583fea85"
+    },
+    {
+      "path": "paper/figures/evidence_chain.mmd",
+      "sha256": "a7f01d3c00d2cf6c15838eed4e101138ff441fb260c62ea210dffb52b33188d0"
+    },
+    {
+      "path": "paper/figures/lifecycle.mmd",
+      "sha256": "83b1d799738afbe73b2636dc4564a7ac529b1fad7a2b3555d538569a89186372"
+    },
+    {
+      "path": "paper/figures/tcb_architecture.mmd",
+      "sha256": "774c00847ead577cba75c24d7586f71f5dd19d495ff9e7c11bb0834d08e374d0"
+    },
+    {
+      "path": "paper/tables/c25_external_results.csv",
+      "sha256": "a8ad405c90f1a004616359f5044a87f1203ca27ffcd4f5e53d818037db1ee38d"
+    },
+    {
+      "path": "paper/tables/claim_boundaries.csv",
+      "sha256": "331f7ba260caa5818d25563e46fdb85f65378090eec3258e15cfc2bc6b206bb4"
+    },
+    {
+      "path": "paper/tables/d_series_audit.csv",
+      "sha256": "40e230024d03bb258042dd9791b2d5b919f2bbe95c78664a0c19e4bdc553bce8"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+claim_id,supported_claim,evidence_scope,explicit_nonclaim
+C1,"learned semantic routing did not provide a stable authorization-quality safety/coverage trade-off","CLINC150 and BANKING77; ten frozen partitions","formal impossibility for every semantic router"
+C2,"typed RelationId and one-bucket retrieval remove the continuous relation channel from the memory API","source contract and frozen C2.4 audits","all information leakage is eliminated"
+C3,"typed authenticated capabilities move semantic routing outside the authorization TCB","D1 typed contract and preregistered prototype matrix","production IAM or cryptographic novelty"
+C4,"authorization precedes lookup, decrypt and generation in the frozen prototype","D2–D2.3 source invariants and matrices","private-data readiness or deployment security"
+C5,"single-use fail-closed behavior survived tested concurrency, crash, timeout, restart and rollback cases","single-host AF_UNIX and SQLite prototype","distributed exactly-once semantics"
+C6,"no protected values were observed in the scanned application-level persistence surfaces","synthetic canaries and registered transformations","secure memory erasure, GPU secrecy or third-party log guarantees"

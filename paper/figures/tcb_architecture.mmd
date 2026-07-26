@@ -1,0 +1,36 @@
+flowchart LR
+    subgraph OUT["Outside the authorization TCB"]
+        USER["User / untrusted prompt"]
+        ROUTER["Learned semantic router"]
+        PROPOSAL["SuggestedRelation"]
+        USER --> ROUTER --> PROPOSAL
+    end
+
+    subgraph AUTH["Identity and authorization TCB"]
+        IDP["Trusted principal"]
+        POLICY["Policy / capability authority"]
+        REPLAY["Replay, revocation,<br/>lifecycle and epoch state"]
+        GATEWAY["Capability gateway"]
+        IDP --> GATEWAY
+        POLICY --> GATEWAY
+        REPLAY <--> GATEWAY
+    end
+
+    subgraph DATA["Data-access TCB"]
+        MEMORY["Exact typed keyed memory"]
+        DATAKEY["Independent data-key ring"]
+        AEAD["AEAD verification / decrypt"]
+        MEMORY --> AEAD
+        DATAKEY --> AEAD
+    end
+
+    subgraph REQUEST["Per-request confidentiality boundary"]
+        ADAPTER["Minimal generation adapter"]
+        WORKER["One-shot worker / model<br/>no tools or history"]
+        COMMIT["Output commit and delivery"]
+        ADAPTER --> WORKER --> COMMIT
+    end
+
+    PROPOSAL -. "may assist; cannot authorize" .-> GATEWAY
+    GATEWAY -->|"epoch-bound release ticket"| MEMORY
+    AEAD -->|"one ephemeral value"| ADAPTER

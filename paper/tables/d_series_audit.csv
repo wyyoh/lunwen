@@ -1,0 +1,6 @@
+stage,prototype_boundary,preregistered_scenarios,authorized_positive_events,representative_zero_violation,next_state
+D1,typed authenticated capability,25,5,"unauthorized/cross-entity/cross-relation/rejected memory access",ready_for_synthetic_d2
+D2,capability-gated AES-GCM keyed memory,37,10,"unauthorized lookup/decrypt/plaintext release; concurrent double release",ready_for_d21
+D2.1,ephemeral generation adapter,40,23,"unauthorized invocation/exposure; cross-request leak",ready_for_d22
+D2.2,AF_UNIX multiprocess services and SQLite replay state,35,6,"unauthorized service access; restart replay; cross-process double release",ready_for_d23
+D2.3,fault observability IPC lifecycle and rollback,51,3,"observability leakage; post-restore replay; rollback acceptance",d_series_complete

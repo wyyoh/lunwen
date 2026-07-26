@@ -1,0 +1,20 @@
+stateDiagram-v2
+    [*] --> RequestReceived
+    RequestReceived --> Rejected: identity / capability / scope failure
+    RequestReceived --> CapabilityConsumed: all authorization checks pass
+    CapabilityConsumed --> RecordDecrypted: exact lookup + AEAD pass
+    CapabilityConsumed --> Rejected: lookup / AEAD / crash / timeout
+    RecordDecrypted --> GeneratorInvoked
+    RecordDecrypted --> Rejected: crash before generation
+    GeneratorInvoked --> OutputCommitted: exact output validation
+    GeneratorInvoked --> Rejected: timeout / exception / validation failure
+    OutputCommitted --> ResponseDelivered
+    OutputCommitted --> UncertainDelivery: response-path crash
+    Rejected --> [*]
+    ResponseDelivered --> [*]
+    UncertainDelivery --> [*]
+
+    note right of CapabilityConsumed
+      The original capability is never restored.
+      Retry requires a newly authorized capability.
+    end note

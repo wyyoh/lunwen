@@ -1,0 +1,19 @@
+{
+  "schema_version": "stage-e1-manuscript-status-v1",
+  "manuscript_version": "v1",
+  "base_branch": "agent/research-synthesis",
+  "base_git_commit": "b0805e19c7ad5dac57d225f9cffa524afd5bc1ab",
+  "new_experiment_executed": false,
+  "frozen_experiment_code_modified": false,
+  "frozen_config_modified": false,
+  "frozen_artifact_modified": false,
+  "related_work_primary_sources_checked": true,
+  "venue_template_selected": false,
+  "additional_d_series_stages_allowed": false,
+  "d_series_status": "completed",
+  "semantic_router_authorization_research": "stopped",
+  "private_data_experiment_allowed": false,
+  "private_value_memory_ready": false,
+  "original_c3_allowed": false,
+  "c3_eligible": false
+}
