@@ -1,0 +1,19 @@
+{
+  "development_score_count": 1,
+  "development_used_for_selection": false,
+  "formal_build_repeat_allowed": false,
+  "locked_content_read_before_freeze": false,
+  "locked_test_score_count": 1,
+  "locked_test_scored": true,
+  "locked_test_scored_once": true,
+  "locked_test_used_for_selection": false,
+  "phase_order": [
+    "calibration",
+    "development",
+    "freeze",
+    "locked_test",
+    "prepare"
+  ],
+  "schema_version": 1,
+  "status": "completed"
+}

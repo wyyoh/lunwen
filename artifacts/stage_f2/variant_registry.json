@@ -1,0 +1,37 @@
+{
+  "final_variant": "A1",
+  "schema_version": 1,
+  "selected_before_development": true,
+  "variants": [
+    {
+      "final_method": false,
+      "name": "TRUST_PROPOSAL",
+      "variant": "B0"
+    },
+    {
+      "final_method": false,
+      "name": "DENY_ALL",
+      "variant": "B1"
+    },
+    {
+      "final_method": false,
+      "name": "REJECT_ON_EXCESS",
+      "variant": "B2"
+    },
+    {
+      "final_method": false,
+      "name": "SILENT_INTERSECTION",
+      "variant": "B3"
+    },
+    {
+      "final_method": false,
+      "name": "AUTHCAP_SINGLE_STEP",
+      "variant": "A0"
+    },
+    {
+      "final_method": true,
+      "name": "AUTHCAP_WORKFLOW",
+      "variant": "A1"
+    }
+  ]
+}

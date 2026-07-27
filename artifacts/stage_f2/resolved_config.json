@@ -1,0 +1,158 @@
+{
+  "benchmark_version": "authzroutebench-v1",
+  "calibration": {
+    "capability_ttl_seconds_candidates": [
+      60,
+      300,
+      900
+    ],
+    "confirmation_reason_grouping": "scope_mismatch",
+    "fixed_capability_ttl_seconds": 300,
+    "fixed_maximum_capability_bytes": 8192,
+    "maximum_capability_bytes_candidates": [
+      4096,
+      8192
+    ],
+    "safety_invariant_tuning_allowed": false
+  },
+  "compiler_version": "authcap-compiler-v1",
+  "evaluation": {
+    "issued_at": "2026-07-01T12:00:00Z",
+    "performance_warmup_cases": 5,
+    "store_capability_token": false,
+    "store_natural_language": false,
+    "store_private_key": false,
+    "verification_time": "2026-07-01T12:00:01Z"
+  },
+  "f1_frozen": {
+    "artifact_manifest": {
+      "path": "artifacts/stage_f1/artifact_sha256_manifest.json",
+      "sha256": "0b84fbb000a3ac39efeab9476b96a81c0d9cf980e2fb3f3b0d0b497d24e60ff2"
+    },
+    "benchmark_manifest": {
+      "path": "artifacts/stage_f1/benchmark_split_manifest.json",
+      "sha256": "7447b6e0784a02c9c6bc2ca0e855221e28913e301ee13c0d7c19600b1f4c1148"
+    },
+    "collision_audit": {
+      "path": "artifacts/stage_f1/collision_audit.json",
+      "sha256": "43aeed4b7b13395de6a802fe3aa7ccc1ff832d18705ffab7da72b72a80da8b3b"
+    },
+    "oracle_manifest": {
+      "path": "artifacts/stage_f1/oracle_manifest.json",
+      "sha256": "55a4347b15fbda5148ec0ba2e13b9420a980b5fe89f406e34f6b60f455393a1d"
+    },
+    "policy_manifest": {
+      "path": "artifacts/stage_f1/policy_manifest.json",
+      "sha256": "eaabeca22b113bd86e00123bbbec09ea6adaefd484ad89fec425aeaaff170fbb"
+    },
+    "report": {
+      "path": "PHASE_F1_REPORT.md",
+      "sha256": "28e9956192b20704589ecfc71baa37ed8d0f2b35567de32a8167b8fb6e7a51c9"
+    },
+    "source_manifest": {
+      "path": "artifacts/stage_f1/source_sha256_manifest.json",
+      "sha256": "2b8840da95948fd7a6652563de6754bbf1ecbd9b73d533c624ace2c3b528cb0a"
+    },
+    "splits": {
+      "calibration": {
+        "path": "data/authzroutebench/generated/calibration.jsonl",
+        "sha256": "2306842b13f9b55b6fc5b29e9a8484acad932b92809b9171568ff6bc09ece33f"
+      },
+      "development": {
+        "path": "data/authzroutebench/generated/development.jsonl",
+        "sha256": "55840ba1da4fadd7c074a038226ba88194f08639d3095020b07e199ebf27eac0"
+      },
+      "locked_test": {
+        "path": "data/authzroutebench/generated/locked_test.jsonl",
+        "sha256": "91cc61ec7cdee4083baa1881787829dbbea1004437bcbb6de1b5395737e1e13a"
+      },
+      "train": {
+        "path": "data/authzroutebench/generated/train.jsonl",
+        "sha256": "f3aa1ca06d03d56f16d55da76470f0be76abaa65b7bf49c8f253cd5fc1c4df0c"
+      }
+    },
+    "summary": {
+      "path": "artifacts/stage_f1/stage_f1_summary.json",
+      "sha256": "029ada9518498ffd66730be41aef13745a1f35120501dc07420c5d92060e8130"
+    }
+  },
+  "final_status": {
+    "c3_eligible": false,
+    "formal_model_completed": false,
+    "original_c3_allowed": false,
+    "private_value_memory_ready": false,
+    "real_agent_integration_completed": false,
+    "semantic_proposal_authorizes_execution": false
+  },
+  "formal_evaluation_mode": "frozen_sequential_once",
+  "outputs": {
+    "artifact_dir": "artifacts/stage_f2",
+    "report_path": "PHASE_F2_REPORT.md",
+    "runtime_dir": ".runs/stage_f2"
+  },
+  "protocol": {
+    "base_branch": "agent/stage-f1-authzroutebench",
+    "development_before_freeze_allowed": false,
+    "development_repeat_allowed": false,
+    "development_used_for_selection": false,
+    "expected_base_commit": "ed0864b6931b779ce7eb4acb060f5662dea95bd6",
+    "final_variant": "A1",
+    "formal_proof_claim_allowed": false,
+    "locked_before_freeze_allowed": false,
+    "locked_test_repeat_allowed": false,
+    "locked_test_scoring_allowed": true,
+    "locked_test_used_for_selection": false,
+    "memory_access_allowed": false,
+    "prepare_repeat_allowed": false,
+    "private_answer_allowed": false,
+    "private_data_allowed": false,
+    "private_value_allowed": false,
+    "real_agent_allowed": false,
+    "remote_model_allowed": false,
+    "required_branch": "agent/stage-f2-authcap-compiler",
+    "semantic_proposal_direct_authorization_allowed": false,
+    "tool_execution_allowed": false,
+    "tracked_worktree_must_be_clean": true
+  },
+  "readiness_gates": {
+    "authority_amplification_count": 0,
+    "capability_verification_failure_on_valid_count": 0,
+    "clean_allow_exact_execution_rate": 1.0,
+    "compiler_determinism_failure_count": 0,
+    "compositional_authority_amplification_count": 0,
+    "cross_scope_capability_count": 0,
+    "deny_precision": 1.0,
+    "deny_recall": 1.0,
+    "explicit_deny_bypass_count": 0,
+    "forged_signature_acceptance_count": 0,
+    "invalid_witness_acceptance_count": 0,
+    "minimum_recoverable_safe_utility": 0.95,
+    "multi_step_forbidden_effect_acceptance_count": 0,
+    "partial_execution_without_confirmation_count": 0,
+    "semantic_proposal_direct_execution_count": 0,
+    "silent_scope_narrowing_count": 0,
+    "stale_policy_acceptance_count": 0,
+    "tampered_capability_acceptance_count": 0,
+    "unauthorized_action_count": 0,
+    "workflow_state_fork_acceptance_count": 0,
+    "workflow_state_replay_acceptance_count": 0
+  },
+  "schema_version": 1,
+  "stage": "F2-authcap-compiler",
+  "variant_names": {
+    "A0": "AUTHCAP_SINGLE_STEP",
+    "A1": "AUTHCAP_WORKFLOW",
+    "B0": "TRUST_PROPOSAL",
+    "B1": "DENY_ALL",
+    "B2": "REJECT_ON_EXCESS",
+    "B3": "SILENT_INTERSECTION"
+  },
+  "variants": [
+    "B0",
+    "B1",
+    "B2",
+    "B3",
+    "A0",
+    "A1"
+  ]
+}

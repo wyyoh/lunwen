@@ -1,0 +1,17 @@
+{
+  "capability_ttl_seconds": 300,
+  "code_freeze_commit": "12debcd4fc6f92ad676dd0195fd1180ca280e51c",
+  "compiler_version": "authcap-compiler-v1",
+  "config_sha256": "1e84c83bdcb16fd3667a76e34d24bfb59f028b82e9208421dcda573ade7c075c",
+  "confirmation_reason_grouping": "scope_mismatch",
+  "development_used_for_selection": false,
+  "final_variant": "A1",
+  "locked_test_used_for_selection": false,
+  "manifest_payload_sha256": "d7cf382c1a062ae457a90d28c3edb4fe76ced976ed95eb6cc9ab03557a146255",
+  "maximum_capability_bytes": 8192,
+  "private_key_persisted_in_artifacts": false,
+  "public_verifier_manifest_sha256": "2ee29ec37f44b5b59464a449a0835dfc7913161cec5ec11dc31a97091610f767",
+  "safety_invariant_tuned": false,
+  "schema_version": 1,
+  "source_manifest_payload_sha256": "d459b5c8e1ca3770bdf15b980ba6787a7bc77560ad09d8c2b85e117b7a633876"
+}

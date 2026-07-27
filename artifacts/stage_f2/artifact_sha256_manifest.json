@@ -1,0 +1,106 @@
+{
+  "capability_token_present": false,
+  "external_files": [
+    {
+      "path": "PHASE_F2_REPORT.md",
+      "sha256": "ffb3eb2f093a51792cb877e46df2de5bbe83234716f608cffc6eb938dd7d8121",
+      "size_bytes": 4730
+    }
+  ],
+  "files": [
+    {
+      "path": "aggregate_metrics.csv",
+      "sha256": "6fe1cd57ad7252aa90820e0f5116b95af0fc20fcb5d63a629d77cd846bcf33ca",
+      "size_bytes": 3369
+    },
+    {
+      "path": "calibration_results.csv",
+      "sha256": "b5375b32af5a2a7ab71b12c2373c05339ebc6f04cbf68faee8711c8c96caa4fe",
+      "size_bytes": 3601
+    },
+    {
+      "path": "compiler_freeze_manifest.json",
+      "sha256": "bdb9d31c794b4b7ba304f394bf04f94acc1d61d3face84a75b027d61fc95c99c",
+      "size_bytes": 846
+    },
+    {
+      "path": "development_results.csv",
+      "sha256": "9f4851ac8dcf88acb3dfa5a919281afe0fa473a5a385414839a841740e40b914",
+      "size_bytes": 588681
+    },
+    {
+      "path": "locked_test_results.csv",
+      "sha256": "3f9e138f49efa032a312ee38f7424b207a504e5b9551e22072d01cbd1c82df8d",
+      "size_bytes": 588689
+    },
+    {
+      "path": "per_category_metrics.csv",
+      "sha256": "fb9cca52588eeebf267dce8f456bcf5e64aa5f0ccb1aa6ce62cd8c0b471fbc50",
+      "size_bytes": 27971
+    },
+    {
+      "path": "performance_metrics.csv",
+      "sha256": "1f2122cf13c2d748e2f91f0e48c962f4d93b8de53750bad6bb51661c2c034bed",
+      "size_bytes": 1031
+    },
+    {
+      "path": "prepare_manifest.json",
+      "sha256": "36738739140958daba2a501e774036342b1cbeded2effedf8f6d7fc89ec780ef",
+      "size_bytes": 361
+    },
+    {
+      "path": "private_material_scan.json",
+      "sha256": "8531fe54ba7954c0b15793b23db3969f28e3157e9afa9a0bae4a2a3745335159",
+      "size_bytes": 96
+    },
+    {
+      "path": "protocol_status.json",
+      "sha256": "ba32cf49447c2a0fea078b8e824848cf5eb0987855392a2a084b9725d64a6df9",
+      "size_bytes": 461
+    },
+    {
+      "path": "public_verifier_manifest.json",
+      "sha256": "2ee29ec37f44b5b59464a449a0835dfc7913161cec5ec11dc31a97091610f767",
+      "size_bytes": 292
+    },
+    {
+      "path": "resolved_config.json",
+      "sha256": "3aee8df1059d11e6d812ce1bd654905e2047b7b260f6637434602bcda0b03175",
+      "size_bytes": 5556
+    },
+    {
+      "path": "security_violation_matrix.csv",
+      "sha256": "e1dc25c74692ac4ff4b1c36fe6cc38840e237042e1a6c1b89ec7331aa86df271",
+      "size_bytes": 1544
+    },
+    {
+      "path": "source_sha256_manifest.json",
+      "sha256": "ebe92e5487afbc25671984d3b02bc194d0175a00b2ab07bbdafdae4ec1d3f94d",
+      "size_bytes": 3863
+    },
+    {
+      "path": "stage_f2_summary.json",
+      "sha256": "a555c990e6a9274afb29fe7788026154066f62e2a02f544d1b26cdbc71d2b388",
+      "size_bytes": 6969
+    },
+    {
+      "path": "upstream_frozen_sha256.json",
+      "sha256": "a3c5d46cc9f19f148517f8f6c083bfa0bff785d107b95213a23300f00de169d6",
+      "size_bytes": 1952
+    },
+    {
+      "path": "variant_registry.json",
+      "sha256": "df2174ec81a4abc78085966d1b2b902bd996734874822010a60e3a7aa03afe48",
+      "size_bytes": 693
+    },
+    {
+      "path": "workflow_metrics.csv",
+      "sha256": "11be2ae66d2d2744eb7f7886ea79763c85a0ca5c82e4e09f9248bc690dfa07e8",
+      "size_bytes": 28790
+    }
+  ],
+  "manifest_payload_sha256": "1c0f167cb75928a573864912853f26ac7de61af27f1e8b1bff37d0517d0312aa",
+  "private_data_present": false,
+  "private_key_present": false,
+  "schema_version": 1
+}

@@ -1,0 +1,13 @@
+split,variant,authority_amplification_count,unauthorized_action_count,cross_subject_capability_count,cross_tenant_capability_count,cross_resource_capability_count,cross_action_capability_count,cross_relation_capability_count,cross_purpose_capability_count,explicit_deny_bypass_count,stale_policy_acceptance_count,invalid_witness_acceptance_count,tampered_capability_acceptance_count,forged_signature_acceptance_count,compositional_authority_amplification_count,multi_step_forbidden_effect_acceptance_count,workflow_state_replay_acceptance_count,workflow_state_fork_acceptance_count,semantic_proposal_direct_execution_count,silent_scope_narrowing_count,partial_execution_without_confirmation_count,compiler_determinism_failure_count,capability_verification_failure_on_valid_count
+development,A0,0,0,0,0,0,0,0,0,0,0,0,0,0,30,30,0,0,0,0,0,0,0
+development,A1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+development,B0,360,360,0,30,216,198,0,0,192,30,0,0,0,30,30,0,0,360,0,0,0,0
+development,B1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+development,B2,0,0,0,0,0,0,0,0,0,0,0,0,0,30,30,0,0,0,0,0,0,0
+development,B3,0,0,0,0,0,0,0,0,0,0,0,0,0,30,30,0,0,0,0,0,0,0
+locked_test,A0,0,0,0,0,0,0,0,0,0,0,0,0,0,30,30,0,0,0,0,0,0,0
+locked_test,A1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+locked_test,B0,360,360,0,30,216,198,0,0,192,30,0,0,0,30,30,0,0,360,0,0,0,0
+locked_test,B1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+locked_test,B2,0,0,0,0,0,0,0,0,0,0,0,0,0,30,30,0,0,0,0,0,0,0
+locked_test,B3,0,0,0,0,0,0,0,0,0,0,0,0,0,30,30,0,0,0,0,0,0,0

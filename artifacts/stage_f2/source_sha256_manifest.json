@@ -1,0 +1,116 @@
+{
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "2e88394ad1a60cf49e6708c7dcaaa77fbff3e4480d5e148e89151a8f3eaabd3f",
+      "size_bytes": 1527
+    },
+    {
+      "path": "configs/stage_f2.yaml",
+      "sha256": "1e84c83bdcb16fd3667a76e34d24bfb59f028b82e9208421dcda573ade7c075c",
+      "size_bytes": 4668
+    },
+    {
+      "path": "configs/stage_f2_smoke.yaml",
+      "sha256": "53b17ac8fa4573bf4470f8a451732a7709f6d3a7cee81acdb23c24c198d549fa",
+      "size_bytes": 675
+    },
+    {
+      "path": "src/keyed_gram/authcap_atoms.py",
+      "sha256": "039bba65cd67bc93e12eb7ab18bc7261f49eef016fddb441750ecdcfaae3b47d",
+      "size_bytes": 12617
+    },
+    {
+      "path": "src/keyed_gram/authcap_compiler.py",
+      "sha256": "88c776cba8a3e2828286894cbb415bff18ae5b8842183c673d7924e2eb613114",
+      "size_bytes": 14164
+    },
+    {
+      "path": "src/keyed_gram/authcap_witness.py",
+      "sha256": "87bfd8205554be3e758974340497b80e7b3f16dd3cf845951b41fbd774169631",
+      "size_bytes": 5331
+    },
+    {
+      "path": "src/keyed_gram/authcap_capability.py",
+      "sha256": "39c9cd5b7873fb7043f4b8c204ba5b67921f4d2324c62138b2c7c85250bd6e64",
+      "size_bytes": 14061
+    },
+    {
+      "path": "src/keyed_gram/authcap_workflow.py",
+      "sha256": "309a048d08cda02b289e489b3d6be860e34f7b186966e2a0c7b838538f8792af",
+      "size_bytes": 8512
+    },
+    {
+      "path": "src/keyed_gram/authcap_verifier.py",
+      "sha256": "bc16fb740517fa80b7e1d4e38b389fba7e17c52255968e63058ba24766860661",
+      "size_bytes": 5622
+    },
+    {
+      "path": "src/keyed_gram/stage_f2.py",
+      "sha256": "c3ef2720f40cbbe004be4a85b293df35d826246d23008c5663b9a51881581946",
+      "size_bytes": 47617
+    },
+    {
+      "path": "src/keyed_gram/stage_f2_metrics.py",
+      "sha256": "747a28a70f01b36dcc0e63bf0877c8fd390f2bee3d7bac3559b376f9ce7fbdb3",
+      "size_bytes": 6810
+    },
+    {
+      "path": "src/keyed_gram/stage_f2_protocol.py",
+      "sha256": "3afdfd1081011decd141dc1c3b714af080f02479862a37441ae45da273900b08",
+      "size_bytes": 18918
+    },
+    {
+      "path": "src/keyed_gram/cli.py",
+      "sha256": "f4d117f53c31e102c194d1ae09ef97b9992cb27f19e0850f71241519df4fe0dc",
+      "size_bytes": 49909
+    },
+    {
+      "path": "tests/test_authcap_atoms.py",
+      "sha256": "f3f393b794f12dce71aac04d91bf510e2a19d04fdfba993a6fb1c3e200a8089f",
+      "size_bytes": 4540
+    },
+    {
+      "path": "tests/test_authcap_compiler.py",
+      "sha256": "a6f54956693016be845d17849dd1719ecbcd3285de6d3d882aed85f8c6b611ab",
+      "size_bytes": 5155
+    },
+    {
+      "path": "tests/test_authcap_witness.py",
+      "sha256": "87295280b8010051335c21d2bbee5c32a1da5bb809c3f2245c3c51ff3c28a00c",
+      "size_bytes": 2948
+    },
+    {
+      "path": "tests/test_authcap_capability.py",
+      "sha256": "040a57a278567e8f3e1e5da8c36e2c0ff7a50c70535586053f71fa0d12b388e7",
+      "size_bytes": 5322
+    },
+    {
+      "path": "tests/test_authcap_workflow.py",
+      "sha256": "eb61febc7c7dd755b9f011840aeef8666202efd3bc945a0751e2c509032fe6ba",
+      "size_bytes": 6070
+    },
+    {
+      "path": "tests/test_authcap_verifier.py",
+      "sha256": "5b4e33e4d8431b426baaed18d6044631b4faa1209ddfa968c24796c28201fb57",
+      "size_bytes": 3726
+    },
+    {
+      "path": "tests/test_stage_f2_metrics.py",
+      "sha256": "c6c5d6da47960aaca9a9ff7fc52f3ecd8a917a399ebc6ffd136c4dd7353e37d4",
+      "size_bytes": 2840
+    },
+    {
+      "path": "tests/test_stage_f2_protocol.py",
+      "sha256": "2a6a19eea306ae7aa4b512fff4384d9427b507e2969311b37a9d2fea56bc53f1",
+      "size_bytes": 4624
+    },
+    {
+      "path": "tests/f2_helpers.py",
+      "sha256": "c54edbfe3bb82da263967e70bb59bf27696ab77527e5e6e2902c69e918cd4963",
+      "size_bytes": 2219
+    }
+  ],
+  "manifest_payload_sha256": "d459b5c8e1ca3770bdf15b980ba6787a7bc77560ad09d8c2b85e117b7a633876",
+  "schema_version": 1
+}

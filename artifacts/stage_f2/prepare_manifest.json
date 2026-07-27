@@ -1,0 +1,16 @@
+{
+  "development_content_read": false,
+  "development_sha256_verified_without_parsing": true,
+  "locked_test_content_read": false,
+  "locked_test_sha256_verified_without_parsing": true,
+  "parsed_case_counts": {
+    "calibration": 360,
+    "train": 360
+  },
+  "parsed_splits": [
+    "train",
+    "calibration"
+  ],
+  "schema_version": 1,
+  "status": "passed"
+}

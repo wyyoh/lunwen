@@ -1,0 +1,11 @@
+{
+  "algorithm": "Ed25519",
+  "keys": [
+    {
+      "key_id": "f2-ed25519-2026-01",
+      "public_key_base64url": "IE00nU2zK0_JkVSPOfEzM7jMllAXs2oen3cqD-EhxtY"
+    }
+  ],
+  "manifest_payload_sha256": "512b33b28f857f964a62280387e0c1fe04d2c8376d3e7ae30dd0dbe8efb4dc68",
+  "schema_version": 1
+}
