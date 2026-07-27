@@ -111,6 +111,15 @@ from .stage_d23 import (
     run_d23_smoke,
 )
 from .stage_f1 import run_stage_f1_build, run_stage_f1_smoke
+from .stage_f2 import (
+    run_stage_f2_calibration,
+    run_stage_f2_development,
+    run_stage_f2_finalize,
+    run_stage_f2_freeze,
+    run_stage_f2_locked,
+    run_stage_f2_prepare,
+    run_stage_f2_smoke,
+)
 from .train import train_gram
 
 
@@ -773,6 +782,34 @@ def command_stage_f1_smoke(args: argparse.Namespace) -> None:
     _print(run_stage_f1_smoke(args.config, output_dir=args.output_dir))
 
 
+def command_stage_f2_prepare(args: argparse.Namespace) -> None:
+    _print(run_stage_f2_prepare(args.config))
+
+
+def command_stage_f2_calibrate(args: argparse.Namespace) -> None:
+    _print(run_stage_f2_calibration(args.config))
+
+
+def command_stage_f2_freeze(args: argparse.Namespace) -> None:
+    _print(run_stage_f2_freeze(args.config))
+
+
+def command_stage_f2_development(args: argparse.Namespace) -> None:
+    _print(run_stage_f2_development(args.config))
+
+
+def command_stage_f2_locked(args: argparse.Namespace) -> None:
+    _print(run_stage_f2_locked(args.config))
+
+
+def command_stage_f2_finalize(args: argparse.Namespace) -> None:
+    _print(run_stage_f2_finalize(args.config))
+
+
+def command_stage_f2_smoke(args: argparse.Namespace) -> None:
+    _print(run_stage_f2_smoke(args.config, output_dir=args.output_dir))
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="keyed-gram",
@@ -1305,6 +1342,50 @@ def build_parser() -> argparse.ArgumentParser:
     stage_f1_smoke.add_argument("--config", required=True)
     stage_f1_smoke.add_argument("--output-dir")
     stage_f1_smoke.set_defaults(func=command_stage_f1_smoke)
+
+    for name, help_text, handler in (
+        (
+            "stage-f2-prepare",
+            "verify F1 and prepare F2 without opening development/locked content",
+            command_stage_f2_prepare,
+        ),
+        (
+            "stage-f2-calibrate",
+            "run train/calibration variant sanity without tuning safety invariants",
+            command_stage_f2_calibrate,
+        ),
+        (
+            "stage-f2-freeze",
+            "freeze A1 compiler, config and public Ed25519 verifier",
+            command_stage_f2_freeze,
+        ),
+        (
+            "stage-f2-development",
+            "score F2 development exactly once after compiler freeze",
+            command_stage_f2_development,
+        ),
+        (
+            "stage-f2-locked",
+            "score F2 locked_test exactly once after development",
+            command_stage_f2_locked,
+        ),
+        (
+            "stage-f2-finalize",
+            "seal F2 metrics, report and artifact hashes without rescoring",
+            command_stage_f2_finalize,
+        ),
+    ):
+        stage_f2_command = sub.add_parser(name, help=help_text)
+        stage_f2_command.add_argument("--config", required=True)
+        stage_f2_command.set_defaults(func=handler)
+
+    stage_f2_smoke = sub.add_parser(
+        "stage-f2-smoke",
+        help="run a train-only AuthCap compiler smoke without locked data",
+    )
+    stage_f2_smoke.add_argument("--config", required=True)
+    stage_f2_smoke.add_argument("--output-dir")
+    stage_f2_smoke.set_defaults(func=command_stage_f2_smoke)
     return parser
 
 

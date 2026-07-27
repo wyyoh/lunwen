@@ -1,0 +1,24 @@
+schema_version: 1
+stage: F2-authcap-compiler-smoke
+compiler_version: authcap-compiler-v1
+protocol:
+  formal: false
+  locked_test_allowed: false
+  private_data_allowed: false
+  memory_access_allowed: false
+  tool_execution_allowed: false
+variants: [B0, B1, B2, B3, A0, A1]
+calibration:
+  fixed_capability_ttl_seconds: 60
+  fixed_maximum_capability_bytes: 4096
+evaluation:
+  issued_at: "2026-07-01T12:00:00Z"
+  verification_time: "2026-07-01T12:00:01Z"
+outputs:
+  artifact_dir: artifacts/stage_f2_smoke
+final_status:
+  formal_model_completed: false
+  real_agent_integration_completed: false
+  private_value_memory_ready: false
+  original_c3_allowed: false
+  c3_eligible: false
