@@ -110,6 +110,7 @@ from .stage_d23 import (
     run_d23_audit,
     run_d23_smoke,
 )
+from .stage_f1 import run_stage_f1_build, run_stage_f1_smoke
 from .train import train_gram
 
 
@@ -764,6 +765,14 @@ def command_stage_d23_finalize(args: argparse.Namespace) -> None:
     _print(finalize_d23_artifacts(args.config))
 
 
+def command_stage_f1_build(args: argparse.Namespace) -> None:
+    _print(run_stage_f1_build(args.config))
+
+
+def command_stage_f1_smoke(args: argparse.Namespace) -> None:
+    _print(run_stage_f1_smoke(args.config, output_dir=args.output_dir))
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="keyed-gram",
@@ -1281,6 +1290,21 @@ def build_parser() -> argparse.ArgumentParser:
     )
     stage_d23_finalize.add_argument("--config", required=True)
     stage_d23_finalize.set_defaults(func=command_stage_d23_finalize)
+
+    stage_f1_build = sub.add_parser(
+        "stage-f1-build",
+        help="construct and seal AuthZRouteBench exactly once without locked scoring",
+    )
+    stage_f1_build.add_argument("--config", required=True)
+    stage_f1_build.set_defaults(func=command_stage_f1_build)
+
+    stage_f1_smoke = sub.add_parser(
+        "stage-f1-smoke",
+        help="run a train-only deterministic oracle smoke without locked data",
+    )
+    stage_f1_smoke.add_argument("--config", required=True)
+    stage_f1_smoke.add_argument("--output-dir")
+    stage_f1_smoke.set_defaults(func=command_stage_f1_smoke)
     return parser
 
 

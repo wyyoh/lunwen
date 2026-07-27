@@ -1,0 +1,40 @@
+schema_version: 1
+stage: F0-authcap-preregistration
+research_name: AuthCap / Intent-Authority Separation
+base_branch: agent/research-synthesis
+base_commit: b0805e19c7ad5dac57d225f9cffa524afd5bc1ab
+
+research_question: >-
+  Can an untrusted learned semantic proposal ever amplify authority beyond a
+  deterministic policy grant, and can policy-grounded authority be represented
+  as an explicit, comparable and witness-bound set?
+
+properties:
+  - proposal_non_authority
+  - authority_non_amplification
+  - explicit_deny_dominance
+  - scope_integrity
+  - policy_freshness
+  - compositional_non_amplification
+
+frozen_status:
+  additional_d_series_stages_allowed: false
+  d_series_status: completed
+  semantic_router_authorization_research: stopped
+  private_data_experiment_allowed: false
+  private_value_memory_ready: false
+  original_c3_allowed: false
+  c3_eligible: false
+
+f1_scope:
+  final_compiler_training_allowed: false
+  learned_baseline_allowed: false
+  locked_test_scoring_allowed: false
+  private_data_allowed: false
+  capability_issuance_allowed: false
+  tool_execution_allowed: false
+  memory_access_allowed: false
+
+e0_evidence_registry:
+  path: docs/e0/EVIDENCE_SHA256.json
+  sha256: 545728ae4ce2b74986f0a0bd0c27d9448c3eb2b5217f1626a9c3b540700b8998

@@ -1,0 +1,28 @@
+schema_version: 1
+stage: F1-authzroutebench-smoke
+benchmark_version: authzroutebench-v1-smoke
+protocol:
+  locked_test_generation_allowed: false
+  locked_test_scoring_allowed: false
+  learned_baseline_allowed: false
+  final_compiler_allowed: false
+  capability_issuance_allowed: false
+  memory_access_allowed: false
+  tool_execution_allowed: false
+  private_data_allowed: false
+  private_answer_allowed: false
+  private_value_allowed: false
+  confirmation_allowed: false
+  key_attack_allowed: false
+  lm_answer_injection_allowed: false
+  natural_language_router_authorization_allowed: false
+outputs:
+  artifact_dir: artifacts/stage_f1_smoke
+  runtime_dir: .runs/stage_f1_smoke
+final_status:
+  authority_non_amplification_implemented: false
+  formal_model_completed: false
+  real_agent_integration_completed: false
+  private_value_memory_ready: false
+  original_c3_allowed: false
+  c3_eligible: false
