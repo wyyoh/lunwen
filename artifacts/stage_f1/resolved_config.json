@@ -1,0 +1,147 @@
+{
+  "benchmark": {
+    "attack_categories": [
+      "semantic_ambiguity",
+      "indirect_prompt_injection",
+      "confused_deputy",
+      "cross_tenant_reference",
+      "purpose_laundering",
+      "policy_staleness",
+      "multi_step_privilege_amplification",
+      "over_broad_retrieval",
+      "action_confusion",
+      "resource_alias_confusion",
+      "delegation_chain_misuse",
+      "deny_override_attempt"
+    ],
+    "benchmark_text_generation": "AI_assisted",
+    "cases_per_family": 10,
+    "domains": [
+      "enterprise_knowledge",
+      "agent_tools",
+      "multitenant_memory"
+    ],
+    "families_per_domain_category": 4,
+    "independent_human_validation": false,
+    "policy_ground_truth": "deterministic_oracle",
+    "public_or_synthetic_only": true,
+    "splits": [
+      "train",
+      "calibration",
+      "development",
+      "locked_test"
+    ]
+  },
+  "benchmark_version": "authzroutebench-v1",
+  "code_freeze_commit": "559c5e54302fd16c3c12af55389412b0166f9d69",
+  "config_sha256": "b77ab1065e24cdd1ebd5be51d6a5f569f7d075142d35d29950ca7918cfe39417",
+  "final_status": {
+    "authority_non_amplification_implemented": false,
+    "c3_eligible": false,
+    "formal_model_completed": false,
+    "original_c3_allowed": false,
+    "private_value_memory_ready": false,
+    "real_agent_integration_completed": false
+  },
+  "formal_build_mode": "one_shot_preregistered_construction",
+  "frozen_upstream": [
+    {
+      "path": "E0_RESEARCH_SYNTHESIS.md",
+      "sha256": "702ff8f0602d87208c993dce85c87082054ad0e28a078264c0de16347c1ee164"
+    },
+    {
+      "path": "docs/e0/EVIDENCE_SHA256.json",
+      "sha256": "545728ae4ce2b74986f0a0bd0c27d9448c3eb2b5217f1626a9c3b540700b8998"
+    },
+    {
+      "path": "docs/e0/STAGE_STATUS_REGISTRY.json",
+      "sha256": "d3c9bb5b3ec47cea2708a474bb0388881b95375771ac450ec8737fd9785005e7"
+    },
+    {
+      "path": "configs/research_status.yaml",
+      "sha256": "ad1a5ee7d1ad4111bac92a8149cc6fd9428ac1450170e56a7500b39543f7487f"
+    },
+    {
+      "path": "artifacts/stage_c25/artifact_sha256_manifest.json",
+      "sha256": "e23b75cf12d5b02e076b23756425552090b3858d0fa163967c8af79ea8d15cee"
+    },
+    {
+      "path": "artifacts/stage_d1/artifact_sha256_manifest.json",
+      "sha256": "c43e75262d56846072f9484ca870ae4bd981d8d03427ebc545ed6c93499d6eef"
+    },
+    {
+      "path": "artifacts/stage_d2/artifact_sha256_manifest.json",
+      "sha256": "fa7c626172dfccf4b283e6361ea4fd87b127ac69a03bed019a272360a1078138"
+    },
+    {
+      "path": "artifacts/stage_d21/artifact_sha256_manifest.json",
+      "sha256": "cc6ecf7c035e75e95a673121135e1a9730f2ea1a7fe5e744ee55b1b9358d3a5b"
+    },
+    {
+      "path": "artifacts/stage_d22/artifact_sha256_manifest.json",
+      "sha256": "70c1aea11679d7b0df653bd1cda70fe077b935c324daac0b796e40cdcfbe18e6"
+    },
+    {
+      "path": "artifacts/stage_d23/artifact_sha256_manifest.json",
+      "sha256": "bf5a9414220a594767827fb9295ca5b21617d4727d773a6443eec1bd594ab6b4"
+    }
+  ],
+  "outputs": {
+    "artifact_dir": "artifacts/stage_f1",
+    "data_dir": "data/authzroutebench/generated",
+    "report_path": "PHASE_F1_REPORT.md",
+    "runtime_dir": ".runs/stage_f1"
+  },
+  "policy_language": {
+    "canonical_serialization": "RFC8785_style_sorted_compact_JSON_subset",
+    "default_decision": "deny",
+    "digest": "SHA-256",
+    "duplicate_policy_id_allowed": false,
+    "nan_or_infinity_allowed": false,
+    "resolution_order": [
+      "priority_descending",
+      "specificity_descending",
+      "explicit_deny_within_winning_tier",
+      "policy_id_canonical_order"
+    ],
+    "schema_version": 1,
+    "unknown_field_allowed": false,
+    "wildcard_allowed": false
+  },
+  "protocol": {
+    "capability_issuance_allowed": false,
+    "confirmation_allowed": false,
+    "final_compiler_allowed": false,
+    "formal_build_repeat_allowed": false,
+    "key_attack_allowed": false,
+    "learned_baseline_allowed": false,
+    "lm_answer_injection_allowed": false,
+    "locked_test_generation_allowed": true,
+    "locked_test_scoring_allowed": false,
+    "memory_access_allowed": false,
+    "natural_language_router_authorization_allowed": false,
+    "private_answer_allowed": false,
+    "private_data_allowed": false,
+    "private_value_allowed": false,
+    "required_branch": "agent/stage-f1-authzroutebench",
+    "tool_execution_allowed": false,
+    "tracked_worktree_must_be_clean": true
+  },
+  "readiness_gates": {
+    "maximum_authority_subset_failure_count": 0,
+    "maximum_cross_split_collision_count": 0,
+    "maximum_oracle_determinism_failure_count": 0,
+    "maximum_oracle_schema_failure_count": 0,
+    "maximum_policy_hash_mismatch_count": 0,
+    "minimum_attack_category_count": 10,
+    "minimum_cross_tenant_case_count": 100,
+    "minimum_domain_count": 3,
+    "minimum_explicit_deny_case_count": 150,
+    "minimum_family_count": 60,
+    "minimum_multi_step_workflow_count": 100,
+    "minimum_stale_policy_case_count": 100,
+    "minimum_total_case_count": 1200
+  },
+  "schema_version": 1,
+  "stage": "F1-authzroutebench"
+}

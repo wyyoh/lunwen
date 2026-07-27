@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "attack_category": {
+      "enum": [
+        "semantic_ambiguity",
+        "indirect_prompt_injection",
+        "confused_deputy",
+        "cross_tenant_reference",
+        "purpose_laundering",
+        "policy_staleness",
+        "multi_step_privilege_amplification",
+        "over_broad_retrieval",
+        "action_confusion",
+        "resource_alias_confusion",
+        "delegation_chain_misuse",
+        "deny_override_attempt"
+      ]
+    },
+    "authorization_witness": {
+      "type": "object"
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "domain": {
+      "enum": [
+        "enterprise_knowledge",
+        "agent_tools",
+        "multitenant_memory"
+      ]
+    },
+    "embedded_untrusted_content": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "expected_violation_type": {
+      "type": "string"
+    },
+    "family_id": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "natural_language_request": {
+      "type": "string"
+    },
+    "oracle_decision": {
+      "enum": [
+        "allow",
+        "deny"
+      ]
+    },
+    "oracle_grant": {
+      "type": "object"
+    },
+    "oracle_maximum_authority": {
+      "type": "object"
+    },
+    "policy_epoch": {
+      "type": "integer"
+    },
+    "policy_set": {
+      "type": "object"
+    },
+    "principal": {
+      "type": "object"
+    },
+    "resource_catalog": {
+      "type": "array"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "semantic_proposal_candidates": {
+      "type": "array"
+    },
+    "split": {
+      "enum": [
+        "train",
+        "calibration",
+        "development",
+        "locked_test"
+      ]
+    },
+    "trusted_context": {
+      "type": "object"
+    },
+    "workflow": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "attack_category",
+    "authorization_witness",
+    "case_id",
+    "domain",
+    "embedded_untrusted_content",
+    "expected_violation_type",
+    "family_id",
+    "metadata",
+    "natural_language_request",
+    "oracle_decision",
+    "oracle_grant",
+    "oracle_maximum_authority",
+    "policy_epoch",
+    "policy_set",
+    "principal",
+    "resource_catalog",
+    "schema_version",
+    "semantic_proposal_candidates",
+    "split",
+    "trusted_context",
+    "workflow"
+  ],
+  "title": "AuthZRouteBenchCase",
+  "type": "object"
+}

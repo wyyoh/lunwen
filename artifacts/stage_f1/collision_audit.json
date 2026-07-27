@@ -1,0 +1,50 @@
+{
+  "cross_split_collision_count": 0,
+  "schema_version": 1,
+  "units": {
+    "alias_family": {
+      "collision_count": 0,
+      "collisions": {}
+    },
+    "attack_family": {
+      "collision_count": 0,
+      "collisions": {}
+    },
+    "exact_text": {
+      "collision_count": 0,
+      "collisions": {}
+    },
+    "normalized_text": {
+      "collision_count": 0,
+      "collisions": {}
+    },
+    "policy_template": {
+      "collision_count": 0,
+      "collisions": {}
+    },
+    "principal_attribute_tuple": {
+      "collision_count": 0,
+      "collisions": {}
+    },
+    "purpose_template": {
+      "collision_count": 0,
+      "collisions": {}
+    },
+    "resource_action_tuple": {
+      "collision_count": 0,
+      "collisions": {}
+    },
+    "tenant": {
+      "collision_count": 0,
+      "collisions": {}
+    },
+    "token_signature": {
+      "collision_count": 0,
+      "collisions": {}
+    },
+    "workflow_graph": {
+      "collision_count": 0,
+      "collisions": {}
+    }
+  }
+}

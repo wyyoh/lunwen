@@ -1,0 +1,58 @@
+{
+  "files": [
+    {
+      "path": "E0_RESEARCH_SYNTHESIS.md",
+      "sha256": "702ff8f0602d87208c993dce85c87082054ad0e28a078264c0de16347c1ee164",
+      "size_bytes": 12434
+    },
+    {
+      "path": "docs/e0/EVIDENCE_SHA256.json",
+      "sha256": "545728ae4ce2b74986f0a0bd0c27d9448c3eb2b5217f1626a9c3b540700b8998",
+      "size_bytes": 3493
+    },
+    {
+      "path": "docs/e0/STAGE_STATUS_REGISTRY.json",
+      "sha256": "d3c9bb5b3ec47cea2708a474bb0388881b95375771ac450ec8737fd9785005e7",
+      "size_bytes": 6438
+    },
+    {
+      "path": "configs/research_status.yaml",
+      "sha256": "ad1a5ee7d1ad4111bac92a8149cc6fd9428ac1450170e56a7500b39543f7487f",
+      "size_bytes": 1939
+    },
+    {
+      "path": "artifacts/stage_c25/artifact_sha256_manifest.json",
+      "sha256": "e23b75cf12d5b02e076b23756425552090b3858d0fa163967c8af79ea8d15cee",
+      "size_bytes": 2676
+    },
+    {
+      "path": "artifacts/stage_d1/artifact_sha256_manifest.json",
+      "sha256": "c43e75262d56846072f9484ca870ae4bd981d8d03427ebc545ed6c93499d6eef",
+      "size_bytes": 1456
+    },
+    {
+      "path": "artifacts/stage_d2/artifact_sha256_manifest.json",
+      "sha256": "fa7c626172dfccf4b283e6361ea4fd87b127ac69a03bed019a272360a1078138",
+      "size_bytes": 1583
+    },
+    {
+      "path": "artifacts/stage_d21/artifact_sha256_manifest.json",
+      "sha256": "cc6ecf7c035e75e95a673121135e1a9730f2ea1a7fe5e744ee55b1b9358d3a5b",
+      "size_bytes": 2051
+    },
+    {
+      "path": "artifacts/stage_d22/artifact_sha256_manifest.json",
+      "sha256": "70c1aea11679d7b0df653bd1cda70fe077b935c324daac0b796e40cdcfbe18e6",
+      "size_bytes": 2316
+    },
+    {
+      "path": "artifacts/stage_d23/artifact_sha256_manifest.json",
+      "sha256": "bf5a9414220a594767827fb9295ca5b21617d4727d773a6443eec1bd594ab6b4",
+      "size_bytes": 1790
+    }
+  ],
+  "frozen_upstream_code_modified": false,
+  "manifest_payload_sha256": "72a2d249bcf4331277db34aef6308e0cfd2ed73cfe5e527bcb267011db3ddd20",
+  "schema_version": 1,
+  "status": "passed"
+}

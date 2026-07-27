@@ -1,0 +1,96 @@
+{
+  "capability_or_key_material_present": false,
+  "external_files": [
+    {
+      "path": "PHASE_F1_REPORT.md",
+      "sha256": "28e9956192b20704589ecfc71baa37ed8d0f2b35567de32a8167b8fb6e7a51c9",
+      "size_bytes": 3597
+    }
+  ],
+  "files": [
+    {
+      "path": "benchmark_case_schema.json",
+      "sha256": "f9834250354957be871ac7e3539003a2797a7fe72eb9e2f963d011f67c5e125c",
+      "size_bytes": 2476
+    },
+    {
+      "path": "benchmark_distribution.csv",
+      "sha256": "492f43765917e8e6241d49b2a38a31b3b71827220dc554324b3d465f2fc5de13",
+      "size_bytes": 3174
+    },
+    {
+      "path": "benchmark_quality.json",
+      "sha256": "36d85c48513ecfe22f1de46cb72de056120ceca9d1ca91a3204b269c3b6fa509",
+      "size_bytes": 4171
+    },
+    {
+      "path": "benchmark_split_manifest.json",
+      "sha256": "7447b6e0784a02c9c6bc2ca0e855221e28913e301ee13c0d7c19600b1f4c1148",
+      "size_bytes": 2908
+    },
+    {
+      "path": "collision_audit.json",
+      "sha256": "43aeed4b7b13395de6a802fe3aa7ccc1ff832d18705ffab7da72b72a80da8b3b",
+      "size_bytes": 989
+    },
+    {
+      "path": "oracle_manifest.json",
+      "sha256": "55a4347b15fbda5148ec0ba2e13b9420a980b5fe89f406e34f6b60f455393a1d",
+      "size_bytes": 498936
+    },
+    {
+      "path": "policy_manifest.json",
+      "sha256": "eaabeca22b113bd86e00123bbbec09ea6adaefd484ad89fec425aeaaff170fbb",
+      "size_bytes": 200337
+    },
+    {
+      "path": "protocol_status.json",
+      "sha256": "f27da8d7aaf5e18ecab15f561949f670845030fe1846ab529cdb2243bed6266c",
+      "size_bytes": 387
+    },
+    {
+      "path": "resolved_config.json",
+      "sha256": "7105585f954a8ce3e28fdde22eb101113019bf17a9dad08a6bce97ce496cc4f7",
+      "size_bytes": 5026
+    },
+    {
+      "path": "source_sha256_manifest.json",
+      "sha256": "2b8840da95948fd7a6652563de6754bbf1ecbd9b73d533c624ace2c3b528cb0a",
+      "size_bytes": 4013
+    },
+    {
+      "path": "split_manifests/calibration.json",
+      "sha256": "135735564bd2acd7e736063633e464955115565af36bab5394dd1e00191f2d85",
+      "size_bytes": 555
+    },
+    {
+      "path": "split_manifests/development.json",
+      "sha256": "6e9877adafb1a17f6e76e40cba311356885b32735fc55855712c837a69d7b08b",
+      "size_bytes": 555
+    },
+    {
+      "path": "split_manifests/locked_test.json",
+      "sha256": "e5e8a2a3b107cdfd7361b6abbed98007b9688d635192bdc320566272a2df159c",
+      "size_bytes": 555
+    },
+    {
+      "path": "split_manifests/train.json",
+      "sha256": "913e7256a6607800fc8197a54daf64c4c639c689e989b7c5add239555ba642c3",
+      "size_bytes": 543
+    },
+    {
+      "path": "stage_f1_summary.json",
+      "sha256": "029ada9518498ffd66730be41aef13745a1f35120501dc07420c5d92060e8130",
+      "size_bytes": 5956
+    },
+    {
+      "path": "upstream_frozen_sha256.json",
+      "sha256": "2ef6bff25c823bbf9ee98f31aa35eaf2789ec91e81e634a3e20b07834583e528",
+      "size_bytes": 2011
+    }
+  ],
+  "manifest_payload_sha256": "9b227e6bda894c8369be49017cb57a1f7bfd8dc09732f20037f0c3ae7b14ffd6",
+  "model_or_optimizer_present": false,
+  "private_data_present": false,
+  "schema_version": 1
+}

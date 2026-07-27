@@ -1,0 +1,16 @@
+{
+  "allow_case_count": 108,
+  "attack_category_count": 12,
+  "benchmark_version": "authzroutebench-v1",
+  "case_count": 360,
+  "data_path": "authzroutebench/generated/development.jsonl",
+  "data_sha256": "55840ba1da4fadd7c074a038226ba88194f08639d3095020b07e199ebf27eac0",
+  "data_size_bytes": 1793986,
+  "deny_case_count": 252,
+  "domain_count": 3,
+  "family_count": 36,
+  "learned_baseline_scored": false,
+  "manifest_payload_sha256": "8b41754a2c50a7b014b2397a4e26c0169266ac2edb57af81092d43d7e34f6a79",
+  "schema_version": 1,
+  "split": "development"
+}

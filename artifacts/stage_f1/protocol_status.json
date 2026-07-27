@@ -1,0 +1,12 @@
+{
+  "code_freeze_commit": "559c5e54302fd16c3c12af55389412b0166f9d69",
+  "compiler_trained_or_evaluated": false,
+  "formal_build_executed_once": true,
+  "formal_build_status": "completed",
+  "learned_baseline_executed": false,
+  "locked_test_generated": true,
+  "locked_test_scored": false,
+  "private_data_used": false,
+  "schema_version": 1,
+  "tracked_worktree_clean_at_start": true
+}

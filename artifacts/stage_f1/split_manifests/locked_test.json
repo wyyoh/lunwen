@@ -1,0 +1,16 @@
+{
+  "allow_case_count": 108,
+  "attack_category_count": 12,
+  "benchmark_version": "authzroutebench-v1",
+  "case_count": 360,
+  "data_path": "authzroutebench/generated/locked_test.jsonl",
+  "data_sha256": "91cc61ec7cdee4083baa1881787829dbbea1004437bcbb6de1b5395737e1e13a",
+  "data_size_bytes": 1796866,
+  "deny_case_count": 252,
+  "domain_count": 3,
+  "family_count": 36,
+  "learned_baseline_scored": false,
+  "manifest_payload_sha256": "cbbf88c0ef5fdeb4acaa432064558b72eb7b876145b13e17f2bb5365f093fb23",
+  "schema_version": 1,
+  "split": "locked_test"
+}

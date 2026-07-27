@@ -1,0 +1,121 @@
+{
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "ce6520eee51c5bae5d46af220702896bf92421ef5a4f935558c670b31634b388",
+      "size_bytes": 1423
+    },
+    {
+      "path": "AUTHCAP_RESEARCH_PLAN.md",
+      "sha256": "9047bf2c87b161230a7933aedfa7f0ded0973ab1c161b44e40b8bdf0c4f165d2",
+      "size_bytes": 2622
+    },
+    {
+      "path": "PHASE_F0_REPORT.md",
+      "sha256": "17341be3e9b6a5e11c8627877c606822655b3cf6650265ae52f9553a487766cd",
+      "size_bytes": 1616
+    },
+    {
+      "path": "configs/stage_f0.yaml",
+      "sha256": "6fa1add80fc0f9b71f341d38337399b9b135678fb14636040e2f7f3ab877159a",
+      "size_bytes": 1259
+    },
+    {
+      "path": "configs/stage_f1.yaml",
+      "sha256": "b77ab1065e24cdd1ebd5be51d6a5f569f7d075142d35d29950ca7918cfe39417",
+      "size_bytes": 4093
+    },
+    {
+      "path": "configs/stage_f1_smoke.yaml",
+      "sha256": "4daa1a5eb238b1303b535e1a022085d7800a8edb3c1492b49a85f86ddc401a87",
+      "size_bytes": 899
+    },
+    {
+      "path": "src/keyed_gram/authcap_types.py",
+      "sha256": "748d20fad54c86bd30c60cbdad88fc3947fbccc9f620eba6711478beb4e00aec",
+      "size_bytes": 10966
+    },
+    {
+      "path": "src/keyed_gram/authcap_authority.py",
+      "sha256": "b7d7813dad6c9e02cbfeacb76544c3a846065f758a2afe4f1f9d16dfa8004e10",
+      "size_bytes": 3141
+    },
+    {
+      "path": "src/keyed_gram/authcap_policy.py",
+      "sha256": "fd05a8f1317d0bad9f0f73ba4d0eb2fd38a549523ed72a93fde41d6f269870dd",
+      "size_bytes": 12481
+    },
+    {
+      "path": "src/keyed_gram/authcap_oracle.py",
+      "sha256": "d985c1769c7cd94edd9daaf3f5571cc4a2c885cbe5399c886be686d77c15d2e4",
+      "size_bytes": 6718
+    },
+    {
+      "path": "src/keyed_gram/authcap_benchmark.py",
+      "sha256": "0a146cacb212888a12c7e2bce3bdba7dd1015b5efd6d2f3c590b33fe95e3b16d",
+      "size_bytes": 18894
+    },
+    {
+      "path": "src/keyed_gram/authcap_collision.py",
+      "sha256": "a7f5b9b329a69e2543f428619bb84f2c8dd81cf972accce07937dd582809fcdc",
+      "size_bytes": 3315
+    },
+    {
+      "path": "src/keyed_gram/stage_f1.py",
+      "sha256": "a9e53152c5453129087700ea6876245fd623b118ad0015e2c5f756c6bc9ee18b",
+      "size_bytes": 17966
+    },
+    {
+      "path": "src/keyed_gram/stage_f1_protocol.py",
+      "sha256": "26a1644ff51cf2f2a7bd92330cfb4a1dbc36d21547d8deb27d15453b11eafa39",
+      "size_bytes": 13971
+    },
+    {
+      "path": "src/keyed_gram/stage_f1_metrics.py",
+      "sha256": "0d148b4acc238dcc6e52411e12f063c144dff5d692e9044001f28e752b0ee373",
+      "size_bytes": 7738
+    },
+    {
+      "path": "src/keyed_gram/cli.py",
+      "sha256": "953f525a6376c62fd60902641052d5ca6e08eefc478ee631df09c804a0955f81",
+      "size_bytes": 47326
+    },
+    {
+      "path": "tests/test_authcap_types.py",
+      "sha256": "8b4848679879b6981c9fec2601b0ae5c53faab0d3032669e750a2fdb2a69bba3",
+      "size_bytes": 2447
+    },
+    {
+      "path": "tests/test_authcap_authority.py",
+      "sha256": "6a0b10271af264c081228e630ed6aa3ab57cd50f04a197f53cf28d2209b7c2b9",
+      "size_bytes": 3093
+    },
+    {
+      "path": "tests/test_authcap_policy.py",
+      "sha256": "c6a3a2129e0a561ec63605b5bbd1a2ea9c2fa7c101f915217e8c1dff53aafdd2",
+      "size_bytes": 2066
+    },
+    {
+      "path": "tests/test_authcap_oracle.py",
+      "sha256": "1d651602f10c09fd6e73aae3ed330fbcb975579aff60ef8c99198497887f9392",
+      "size_bytes": 3796
+    },
+    {
+      "path": "tests/test_authcap_benchmark.py",
+      "sha256": "9183c70dce7d0b3f38e4519e06c789c70fc54458f1741f2fcadb12705ac4faa6",
+      "size_bytes": 2672
+    },
+    {
+      "path": "tests/test_authcap_collision.py",
+      "sha256": "85a381573d3a2f1348f08451cf531d2efcef352e79d8b9ef60e0da7a2d4ede1b",
+      "size_bytes": 1072
+    },
+    {
+      "path": "tests/test_stage_f1_protocol.py",
+      "sha256": "01b2e65319cfb4af66053a517cffa038a3a86fd1327bbe9f766cc6f0aa4a9de7",
+      "size_bytes": 4979
+    }
+  ],
+  "manifest_payload_sha256": "39611e739dbac7bc9f76d945fa33357bccd05ab2c31b0a6c0060ca4ea9910d18",
+  "schema_version": 1
+}
