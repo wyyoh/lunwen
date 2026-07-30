@@ -1,0 +1,19 @@
+{
+  "base_branch": "agent/stage-f1-authzroutebench",
+  "base_commit": "ed0864b6931b779ce7eb4acb060f5662dea95bd6",
+  "f1_artifact_inventory_verified": true,
+  "f1_artifact_manifest_sha256": "0b84fbb000a3ac39efeab9476b96a81c0d9cf980e2fb3f3b0d0b497d24e60ff2",
+  "f1_source_files_verified": 23,
+  "f1_source_manifest_sha256": "2b8840da95948fd7a6652563de6754bbf1ecbd9b73d533c624ace2c3b528cb0a",
+  "f1_source_mismatch_count": 0,
+  "f1_split_manifest_sha256": "7447b6e0784a02c9c6bc2ca0e855221e28913e301ee13c0d7c19600b1f4c1148",
+  "locked_test_case_content_read": false,
+  "locked_test_scored": false,
+  "schema_version": 1,
+  "split_data_sha256": {
+    "calibration": "2306842b13f9b55b6fc5b29e9a8484acad932b92809b9171568ff6bc09ece33f",
+    "development": "55840ba1da4fadd7c074a038226ba88194f08639d3095020b07e199ebf27eac0",
+    "locked_test": "91cc61ec7cdee4083baa1881787829dbbea1004437bcbb6de1b5395737e1e13a",
+    "train": "f3aa1ca06d03d56f16d55da76470f0be76abaa65b7bf49c8f253cd5fc1c4df0c"
+  }
+}

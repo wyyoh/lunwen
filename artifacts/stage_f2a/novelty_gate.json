@@ -1,0 +1,21 @@
+{
+  "authority_conservation_property_defined": true,
+  "authority_origination_property_defined": true,
+  "bounded_model_counterexample_for_authority_laundering": true,
+  "bounded_model_counterexample_for_naive_merge": true,
+  "ccf_b_novelty_established": false,
+  "counterexamples_not_reducible_to_plain_data_taint": true,
+  "counterexamples_not_reducible_to_token_subset_check": true,
+  "data_and_authority_semantically_distinct": true,
+  "distinguishing_counterexample_count": 6,
+  "f1_frozen_assets_modified": false,
+  "locked_test_scored": false,
+  "merge_confinement_property_defined": true,
+  "new_semantic_object_defined": true,
+  "non_malleable_authority_property_defined": true,
+  "novelty_gate_status": "conditional_pass_high_prior_work_overlap",
+  "prior_work_overlap_risk": "high",
+  "ready_for_executable_authority_calculus": true,
+  "required_positioning": "不得声称 authority、线性授权、IFC+authorization 或 merge confinement本身为首次提出；后续贡献必须落在 LLM Agent 的双轨 influence/authority运行语义、攻击者不塑造 authority trace 的 hyperproperty 与线性分支重组。",
+  "schema_version": 1
+}

@@ -1,0 +1,47 @@
+{
+  "capability_or_key_material_present": false,
+  "external_files": [
+    {
+      "path": "PHASE_F2A_REPORT.md",
+      "sha256": "cc521c5b0e6c59f787d3704b9e3ab402a0dc09b62933b9bd0f755183534c79f7",
+      "size_bytes": 6913
+    }
+  ],
+  "files": [
+    {
+      "path": "bounded_model_results.json",
+      "sha256": "2d732bceb7fd4f7ced337443cc363afc6995603c0856598606207deadd3b62b2",
+      "size_bytes": 972
+    },
+    {
+      "path": "counterexample_matrix.json",
+      "sha256": "70a14a735553e65e0206ffd3b5dc4ff4bd552d52a3b52a4341af8c11a1f0a23d",
+      "size_bytes": 6497
+    },
+    {
+      "path": "novelty_gate.json",
+      "sha256": "8a6683fc9eca9c59cb1873aec46cdbd46f91a76b36d61a2714ff503f6f9a1924",
+      "size_bytes": 1158
+    },
+    {
+      "path": "source_sha256_manifest.json",
+      "sha256": "1f794917570603eecb539ebd85bf5828efae3ed4850b18149fb101c9f6fae5ca",
+      "size_bytes": 3411
+    },
+    {
+      "path": "stage_f2a_summary.json",
+      "sha256": "1f0d1fd89fe68e69acd590110dffc84188cb0c788b6299f2676a416e79da637a",
+      "size_bytes": 1170
+    },
+    {
+      "path": "upstream_f1_sha256.json",
+      "sha256": "fe98bafcdc884dbaca4135bdc9af8cc83d9d14309c176374223091997c75f564",
+      "size_bytes": 989
+    }
+  ],
+  "locked_case_content_present": false,
+  "manifest_payload_sha256": "3ff6b3e9199d2a81aa91892600a4769b41da86711dc94b6925c6022229b61a73",
+  "model_or_optimizer_present": false,
+  "private_data_present": false,
+  "schema_version": 1
+}

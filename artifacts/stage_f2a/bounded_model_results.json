@@ -1,0 +1,36 @@
+{
+  "bounded_model_counterexample_for_authority_laundering": true,
+  "bounded_model_counterexample_for_naive_merge": true,
+  "exploration_bound": 4,
+  "results": [
+    {
+      "bound": 4,
+      "property_name": "authority_origination",
+      "safe_counterexample_found": false,
+      "safe_trace": [],
+      "safe_visited_state_count": 3,
+      "unsafe_counterexample_found": true,
+      "unsafe_trace": [
+        "llm_summary",
+        "trusted_tool_echo_marks_trusted",
+        "derive_authority_from_integrity"
+      ],
+      "unsafe_visited_state_count": 4
+    },
+    {
+      "bound": 4,
+      "property_name": "merge_confinement",
+      "safe_counterexample_found": false,
+      "safe_trace": [],
+      "safe_visited_state_count": 4,
+      "unsafe_counterexample_found": true,
+      "unsafe_trace": [
+        "naive_branch_copy",
+        "branch_0_consume",
+        "branch_1_consume"
+      ],
+      "unsafe_visited_state_count": 7
+    }
+  ],
+  "schema_version": 1
+}

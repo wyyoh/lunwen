@@ -1,0 +1,30 @@
+{
+  "bounded_model_counterexample_for_authority_laundering": true,
+  "bounded_model_counterexample_for_naive_merge": true,
+  "c3_eligible": false,
+  "ccf_b_novelty_established": false,
+  "data_and_authority_semantically_distinct": true,
+  "distinguishing_counterexample_count": 6,
+  "executable_capability_signed": false,
+  "f1_frozen_assets_modified": false,
+  "formal_model_completed": false,
+  "git": {
+    "audit_commit": "a9f7dcdc1b2a48de9f1c0ebd6b5bc49fb7557f13",
+    "base_commit": "ed0864b6931b779ce7eb4acb060f5662dea95bd6",
+    "branch": "agent/stage-f2a-authority-calculus"
+  },
+  "locked_test_scored": false,
+  "new_semantic_object_defined": true,
+  "novelty_gate_status": "conditional_pass_high_prior_work_overlap",
+  "original_c3_allowed": false,
+  "original_f2_capability_compiler_plan": "superseded_by_dual_data_authority_flow_research",
+  "original_f2_implementation_evidence_preserved": true,
+  "private_data_used": false,
+  "private_value_memory_ready": false,
+  "ready_for_executable_authority_calculus": true,
+  "real_agent_used": false,
+  "real_llm_used": false,
+  "schema_version": 1,
+  "stage": "F2A",
+  "status": "passed_formal_problem_freeze"
+}
