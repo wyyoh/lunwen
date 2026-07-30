@@ -1,0 +1,51 @@
+"""Stage F2A 的双轨 Data–Authority Flow 最小形式内核。"""
+
+from .authority import (
+    AuthorityAtom,
+    AuthorityBudget,
+    AuthorityEffect,
+    AuthorityFlowError,
+    AuthorityOrigin,
+    AuthorityResource,
+    BranchState,
+    ForbiddenEffectCombination,
+    InfluenceGuard,
+    LinearAuthorityContext,
+    consume,
+    delegate,
+    issue_authenticated,
+    merge_branches,
+    split,
+)
+from .labels import (
+    Confidentiality,
+    DataLabel,
+    InfluenceOrigin,
+    Integrity,
+    TrustedEndorsement,
+    endorse,
+)
+
+__all__ = [
+    "AuthorityAtom",
+    "AuthorityBudget",
+    "AuthorityEffect",
+    "AuthorityFlowError",
+    "AuthorityOrigin",
+    "AuthorityResource",
+    "BranchState",
+    "Confidentiality",
+    "DataLabel",
+    "ForbiddenEffectCombination",
+    "InfluenceGuard",
+    "InfluenceOrigin",
+    "Integrity",
+    "LinearAuthorityContext",
+    "TrustedEndorsement",
+    "consume",
+    "delegate",
+    "endorse",
+    "issue_authenticated",
+    "merge_branches",
+    "split",
+]

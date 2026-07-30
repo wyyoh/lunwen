@@ -1,0 +1,66 @@
+schema_version: 1
+stage: F2A
+research_name: dual_data_authority_flow_calculus
+
+base:
+  branch: agent/stage-f1-authzroutebench
+  commit: ed0864b6931b779ce7eb4acb060f5662dea95bd6
+  f1_source_manifest: artifacts/stage_f1/source_sha256_manifest.json
+  f1_artifact_manifest: artifacts/stage_f1/artifact_sha256_manifest.json
+  f1_split_manifest: artifacts/stage_f1/benchmark_split_manifest.json
+
+protocol:
+  required_branch: agent/stage-f2a-authority-calculus
+  f1_assets_read_only: true
+  f1_locked_case_content_access_allowed: false
+  f1_locked_test_scored: false
+  real_llm_allowed: false
+  real_agent_allowed: false
+  executable_capability_signing_allowed: false
+  private_data_allowed: false
+  bounded_exploration_depth: 4
+
+research_status:
+  original_f2_capability_compiler_plan: superseded_by_dual_data_authority_flow_research
+  original_f2_implementation_evidence_preserved: true
+  original_f2_branch: agent/stage-f2-authcap-compiler
+  original_f2_final_commit: ab8d314d99d025f29b47c7133a92fea05778573a
+  semantic_router_authorization_research: stopped
+  additional_d_series_stages_allowed: false
+  d_series_status: completed
+  private_data_experiment_allowed: false
+  private_value_memory_ready: false
+  original_c3_allowed: false
+  c3_eligible: false
+
+novelty_gate:
+  minimum_distinguishing_counterexamples: 6
+  require_naive_merge_counterexample: true
+  require_authority_laundering_counterexample: true
+  require_data_authority_separation: true
+  ccf_b_novelty_claim_allowed: false
+
+outputs:
+  artifact_dir: artifacts/stage_f2a
+  report_path: PHASE_F2A_REPORT.md
+
+source_files:
+  - AUTHORITY_FLOW_RESEARCH_PLAN.md
+  - PHASE_F2A_REPORT.md
+  - configs/stage_f2a.yaml
+  - docs/f2a/RELATED_WORK_GAP.md
+  - docs/f2a/FORMAL_CORE.md
+  - docs/f2a/ATTACK_SEMANTICS.md
+  - docs/f2a/THEOREM_OBLIGATIONS.md
+  - docs/f2a/BENCHMARK_MAPPING.md
+  - docs/f2a/COUNTEREXAMPLES.md
+  - src/keyed_gram/authority_flow/__init__.py
+  - src/keyed_gram/authority_flow/labels.py
+  - src/keyed_gram/authority_flow/authority.py
+  - src/keyed_gram/authority_flow/explorer.py
+  - src/keyed_gram/authority_flow/counterexamples.py
+  - src/keyed_gram/stage_f2a.py
+  - tests/test_authority_flow_labels.py
+  - tests/test_authority_flow_authority.py
+  - tests/test_authority_flow_explorer.py
+  - tests/test_stage_f2a.py
