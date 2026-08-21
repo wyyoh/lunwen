@@ -164,7 +164,9 @@ def test_instrumentation_or_quiescence_gap_returns_unknown() -> None:
     }
 
 
-def test_version_drift_invalidates_completeness() -> None:
+def test_version_drift_invalidates_old_certificate_then_rebinds_consistent_version() -> (
+    None
+):
     case = base_case()
     read = event("observed-read", "call-1", "read")
     write = event("observed-write", "call-2", "write")
@@ -176,8 +178,9 @@ def test_version_drift_invalidates_completeness() -> None:
     )
     outcome = BlindCGARAnalyzer().analyze(case, replay)
     assert outcome.drift_detected is True
-    assert outcome.status == AnalysisStatus.UNKNOWN
-    assert outcome.complete_claim_made is False
+    assert outcome.status == AnalysisStatus.VERIFIED_COMPLETE
+    assert outcome.complete_claim_made is True
+    assert "implementation_version_drift" in outcome.reason_codes
 
 
 def test_absent_high_level_safety_spec_cannot_be_called_policy_discovery() -> None:

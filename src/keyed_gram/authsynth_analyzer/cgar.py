@@ -80,6 +80,7 @@ class BlindCGARAnalyzer:
         iterations: list[RefinementIteration] = []
         real_count = spurious_count = policy_count = composition_count = 0
         drift = False
+        observed_versions: set[str] = set()
         reason_codes: set[str] = set()
 
         def priority(query: QuerySpec) -> tuple[int, str]:
@@ -108,6 +109,7 @@ class BlindCGARAnalyzer:
             if result.query_id != query.query_id:
                 raise RuntimeError("replay result/query 不匹配")
             actual = result.events
+            observed_versions.add(result.observed_version_digest)
             observed[query.query_id] = actual
             model.traces[query.query_id] = actual
             model.unknown_queries.discard(query.query_id)
@@ -125,10 +127,10 @@ class BlindCGARAnalyzer:
                 finding = FindingKind.IMPLEMENTATION_DRIFT
                 drift = True
                 reason_codes.add("implementation_version_drift")
-                model.unknown_queries.add(query.query_id)
                 patch = {
-                    "operation": "invalidate_version_certificate",
+                    "operation": "invalidate_and_rebind_version_after_full_coverage",
                     "query_id": query.query_id,
+                    "observed_version_digest": result.observed_version_digest,
                 }
                 real_count += 1
             elif not result.bounded_quiescence_reached:
@@ -229,6 +231,9 @@ class BlindCGARAnalyzer:
 
         if model.unknown_queries:
             reason_codes.add("finite_query_domain_not_fully_observed")
+        version_consistent = len(observed_versions) == 1
+        if not version_consistent:
+            reason_codes.add("observed_version_domain_inconsistent")
         trace_complete = not model.unknown_queries and all(
             _event_keys(model.traces[query_id]) == _event_keys(events)
             for query_id, events in observed.items()
@@ -238,7 +243,9 @@ class BlindCGARAnalyzer:
             case, observed, frozenset(model.unknown_queries)
         )
         composition_complete = (
-            call_complete and case.trusted_safety_spec is not None and not drift
+            call_complete
+            and case.trusted_safety_spec is not None
+            and version_consistent
         )
         verified = call_complete and trace_complete and composition_complete
         status = (
@@ -259,7 +266,11 @@ class BlindCGARAnalyzer:
                 "contract": refined,
                 "shield_digest": shield_digest,
                 "status": status.value,
-                "expected_version_digest": case.expected_version_digest,
+                "effective_version_digest": (
+                    next(iter(observed_versions))
+                    if version_consistent
+                    else "inconsistent"
+                ),
             }
         )
         return AnalysisOutcome(
