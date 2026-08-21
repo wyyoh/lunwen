@@ -1,0 +1,136 @@
+{
+  "files": [
+    {
+      "path": "AUTHSYNTH_F2B_RESEARCH_PLAN.md",
+      "sha256": "bff19874318d943884ed526804642e1aa55cb1cdfdc4afdf0818ca1873106467",
+      "size_bytes": 2643
+    },
+    {
+      "path": "configs/stage_f2b.yaml",
+      "sha256": "8879d554fa3c910329072a9aee41c0bd35078c6c4d66a6f471eee633fae519ae",
+      "size_bytes": 4587
+    },
+    {
+      "path": "docs/f2b/CGAR_ALGORITHM.md",
+      "sha256": "839cf3f569c2b82fb5632099abd92c9c933e2241224be08f4a5aa3f0528300ba",
+      "size_bytes": 1107
+    },
+    {
+      "path": "docs/f2b/COMPLETENESS_DEFINITIONS.md",
+      "sha256": "4bd0b284eb8ad5da233f45252f31ef2ab9657a5efe647d5959dd4c613942f196",
+      "size_bytes": 1123
+    },
+    {
+      "path": "docs/f2b/EXPERIMENT_PROTOCOL.md",
+      "sha256": "88346d63015e61cfd022dc87014f11169a514b056bde4b6558e1e11bc8a92d10",
+      "size_bytes": 1036
+    },
+    {
+      "path": "docs/f2b/F2A_REINTERPRETATION.md",
+      "sha256": "0a9a4613870f3879031b5caaddcc2ac77bfdfbd04bc52cdc718cf9c2c13aefd9",
+      "size_bytes": 721
+    },
+    {
+      "path": "docs/f2b/INFORMATION_BOUNDARY.md",
+      "sha256": "27f14600395788201228e1379a52e66e53520e9d947d1e1d9a9acc02c3dd09e1",
+      "size_bytes": 1249
+    },
+    {
+      "path": "src/keyed_gram/authsynth_shared/__init__.py",
+      "sha256": "c3c71dee3604926dc8b9536d3713e1d08161f7576646cca57935806f419b0d2f",
+      "size_bytes": 666
+    },
+    {
+      "path": "src/keyed_gram/authsynth_shared/schema.py",
+      "sha256": "de6f5ee8cab931bc1c6ccb980d16efbe37a83ad24950dd184e9fc6329904c78c",
+      "size_bytes": 14981
+    },
+    {
+      "path": "src/keyed_gram/authsynth_analyzer/__init__.py",
+      "sha256": "21a6a4b9389443cc2593ff568a36a1aac31d6fa1c8e4995221f6d322c75e6f6f",
+      "size_bytes": 304
+    },
+    {
+      "path": "src/keyed_gram/authsynth_analyzer/cgar.py",
+      "sha256": "cf6c11fbd6dc9d83b4e33c1fc846cc3fadc6b807eb69f9f3fa8fd701faf53609",
+      "size_bytes": 11887
+    },
+    {
+      "path": "src/keyed_gram/authsynth_analyzer/models.py",
+      "sha256": "be3bfa62c0ccecfe6457a5c2421773675b7ff2b3b9fd35e8b8b6da59f63e067e",
+      "size_bytes": 3006
+    },
+    {
+      "path": "src/keyed_gram/authsynth_analyzer/replay.py",
+      "sha256": "135d0518085266086234d178cc338a60199b8eddfefc3d4c261c76be83764e5e",
+      "size_bytes": 381
+    },
+    {
+      "path": "src/keyed_gram/authsynth_analyzer/shield.py",
+      "sha256": "02bde3a82054149045467f7013fd2766f343c000df13806b89aae7b03eee8ccf",
+      "size_bytes": 4405
+    },
+    {
+      "path": "src/keyed_gram/authsynth_evaluator/__init__.py",
+      "sha256": "e3a7dc9672ae13fd52e257497185c5bc1af00c4fd5cf44df6fea025bd55c07d6",
+      "size_bytes": 345
+    },
+    {
+      "path": "src/keyed_gram/authsynth_evaluator/benchmark.py",
+      "sha256": "94d53723d9318db262ae545a9f793a8947d99693ecc533f1dab4097c45bcdc08",
+      "size_bytes": 15154
+    },
+    {
+      "path": "src/keyed_gram/authsynth_evaluator/cases.py",
+      "sha256": "275dce9f22ead7496ffc803a12acd89b5aeacfd6940dfeb9cee2bbfc4e86e53b",
+      "size_bytes": 2668
+    },
+    {
+      "path": "src/keyed_gram/authsynth_evaluator/evaluate.py",
+      "sha256": "90d8ca814ac5f0c6c2037aa50a171c1ac1201682b7c79c19b9d3266af5d4f4db",
+      "size_bytes": 16489
+    },
+    {
+      "path": "src/keyed_gram/authsynth_evaluator/replay_service.py",
+      "sha256": "35d5ac0383fbf3fa0262ec7a595da4a7ff9dba31026a554bf97827a9f12c67bb",
+      "size_bytes": 1183
+    },
+    {
+      "path": "src/keyed_gram/stage_f2b.py",
+      "sha256": "763792f2b76942f0e3a917b8b5c2cf88e9002b8f99f3696efe221054cdbef0fc",
+      "size_bytes": 24422
+    },
+    {
+      "path": "src/keyed_gram/stage_f2b_protocol.py",
+      "sha256": "2062ea797063abb584075823b416a2e9046a79ce0e2f2d8af42a8a304b390610",
+      "size_bytes": 12280
+    },
+    {
+      "path": "tests/test_authsynth_blind_cgar.py",
+      "sha256": "3c40f4d72949888fe490d5ad5636914984db8165a3a189a6fbc48cc397f450be",
+      "size_bytes": 7803
+    },
+    {
+      "path": "tests/test_authsynth_dependency_boundary.py",
+      "sha256": "44cf677b0201bf28941a72a5a33cf8e3f6f61f174258cf091362155069dbbf74",
+      "size_bytes": 1124
+    },
+    {
+      "path": "tests/test_authsynth_evaluator.py",
+      "sha256": "6bcb1ccc4d20851fe0cac2d7b58ee0b7b4a254383f30cc4fd9686b3a7ccbd160",
+      "size_bytes": 3956
+    },
+    {
+      "path": "tests/test_authsynth_shared_schema.py",
+      "sha256": "b3035b8d8187a63565a31a7698952d3b836e8f9702d64efda19360dea8e8b61b",
+      "size_bytes": 3223
+    },
+    {
+      "path": "tests/test_stage_f2b_protocol.py",
+      "sha256": "55f72b6d2e58731e2a272e3eebd9251b8d90526669ded6959fe9c7711f9bbc72",
+      "size_bytes": 2594
+    }
+  ],
+  "manifest_payload_sha256": "a63ade2e67a2b25abd9097dfdb8b7e0fdf2833a24661cc01d8cc11036fd9227b",
+  "schema_version": 1
+}

@@ -1,0 +1,10 @@
+{
+  "convergence_rate": 0.9111111111111111,
+  "false_completeness_rate": 0.0,
+  "gold_gap": 0.04347826086956519,
+  "refinement_precision": 1.0,
+  "replay_query_efficiency": 0.3472222222222222,
+  "schema_version": 1,
+  "unknown_expected_precision": 1.0,
+  "unknown_rate": 0.08888888888888889
+}

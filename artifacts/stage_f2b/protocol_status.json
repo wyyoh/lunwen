@@ -1,0 +1,14 @@
+{
+  "calibration_runs": 1,
+  "code_freeze_commit": "5db7b85f619cb3f28c80d9c805b2eb50c78e4f48",
+  "configuration_changed_after_development": false,
+  "configuration_changed_after_locked": false,
+  "development_runs": 1,
+  "f1_locked_test_scored": false,
+  "f2a_locked_test_rerun": false,
+  "f2b_locked_test_scored_once": true,
+  "formal_build": "completed",
+  "locked_test_runs": 1,
+  "prepare_runs": 1,
+  "schema_version": 1
+}

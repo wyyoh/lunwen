@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "selected_method": "AuthSynth-CGAR",
+  "variants": [
+    {
+      "method": "DenyAll",
+      "official_external_implementation_used": false,
+      "oracle_upper_bound": false
+    },
+    {
+      "method": "Declared-Contract Monitor",
+      "official_external_implementation_used": false,
+      "oracle_upper_bound": false
+    },
+    {
+      "method": "Multi-Evidence Characterizer",
+      "official_external_implementation_used": false,
+      "oracle_upper_bound": false
+    },
+    {
+      "method": "AuthSynth-NoCEGAR",
+      "official_external_implementation_used": false,
+      "oracle_upper_bound": false
+    },
+    {
+      "method": "AuthSynth-CGAR",
+      "official_external_implementation_used": false,
+      "oracle_upper_bound": false
+    },
+    {
+      "method": "Full-Semantics AuthSynth Upper Bound",
+      "official_external_implementation_used": false,
+      "oracle_upper_bound": true
+    }
+  ]
+}

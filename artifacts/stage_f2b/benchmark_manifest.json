@@ -1,0 +1,77 @@
+{
+  "benchmark": {
+    "benchmark_seed_digest": "f2ac6ae96079db7b94d5ed72778f3a02f2043b9d758918211cf2baf1666a8f77",
+    "blind_compound_case_count": 120,
+    "case_count": 270,
+    "compatibility_shape_case_count": 150,
+    "drift_case_count": 52,
+    "expected_evidence_gap_case_count": 24,
+    "mutation_category_counts": {
+      "clean_control": 6,
+      "composition_omission": 24,
+      "compound": 120,
+      "delayed_effect": 24,
+      "hidden_effect": 24,
+      "implementation_drift": 24,
+      "parameter_role_omission": 24,
+      "state_dependent_effect": 24
+    },
+    "policy_omission_case_count": 264,
+    "split_case_counts": {
+      "calibration": 68,
+      "development": 68,
+      "locked_test": 66,
+      "train": 68
+    },
+    "tool_family_count": 8
+  },
+  "evaluator_manifest_digest": "8e7a4051656cf8ac578da41059e71e4522ca6dc0850aa9658e5ab18cf8439741",
+  "hidden_concrete_semantics_persisted": false,
+  "schema_version": 1,
+  "splits": {
+    "calibration": {
+      "analyzer_input_only": true,
+      "case_count": 68,
+      "case_id_digest": "ba39c46a8c2cc71502a0b4a9893e59b795e667a57da30a1f3b4895d82bc95651",
+      "data_sha256": "e5232df1b4d6feaa805ac51d7d9ec6f07d9a952c701ee70f76fcf0dff4f039f5",
+      "data_size_bytes": 277618,
+      "hidden_concrete_semantics_persisted": false,
+      "manifest_payload_sha256": "c94d3b77187d719dfe3e4c255095eb6e18d91e808cb5b81df7f90f3bd0ba3fd3",
+      "schema_version": 1,
+      "split": "calibration"
+    },
+    "development": {
+      "analyzer_input_only": true,
+      "case_count": 68,
+      "case_id_digest": "56c37891ede59900f8078a4bf5d98a6c63fa0822a91f3a9676fef300d4486853",
+      "data_sha256": "175eba09c6d041d974e7bf5b6e723cc9b0d5f09b716028f32d234bc317f45c31",
+      "data_size_bytes": 277997,
+      "hidden_concrete_semantics_persisted": false,
+      "manifest_payload_sha256": "3bde32e7f36d993507e82333852148074f0a354d8ccf8aaf7f76acb8798968b2",
+      "schema_version": 1,
+      "split": "development"
+    },
+    "locked_test": {
+      "analyzer_input_only": true,
+      "case_count": 66,
+      "case_id_digest": "9c9e473aeb3f11a98b0ad0fd2a97a9c34b4f663608fb1fad71b0c2d65cacff19",
+      "data_sha256": "e38c451591a8d1612adf809c33201f89728b6a669ff11f16de6242bfc2c4c968",
+      "data_size_bytes": 270063,
+      "hidden_concrete_semantics_persisted": false,
+      "manifest_payload_sha256": "9eedce22949cb4ee6e4ac8f866efc7e803534d44c38b5e0c6203377c645a4393",
+      "schema_version": 1,
+      "split": "locked_test"
+    },
+    "train": {
+      "analyzer_input_only": true,
+      "case_count": 68,
+      "case_id_digest": "b4c28fe3abe9beaa66403e16840942d82b9913ebfd965ec9a613bd0c6da8e4e9",
+      "data_sha256": "c60f54aabd45745163d17bd715bdb3b26efaca06866cd94827b4ae2d1054ab25",
+      "data_size_bytes": 257208,
+      "hidden_concrete_semantics_persisted": false,
+      "manifest_payload_sha256": "14f16c6e3e23f5727101385bd137dd74630b6d9d6d61c9a4074e608cffd4037e",
+      "schema_version": 1,
+      "split": "train"
+    }
+  }
+}

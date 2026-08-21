@@ -1,0 +1,25 @@
+{
+  "analyzer_freeze_commit": "6878989773a67b7eafead7bcfa45a4dc1bec3bf0",
+  "analyzer_modified_after_freeze": false,
+  "analyzer_source_hashes": [
+    {
+      "path": "AUTHSYNTH_F2B_RESEARCH_PLAN.md",
+      "sha256": "bff19874318d943884ed526804642e1aa55cb1cdfdc4afdf0818ca1873106467"
+    },
+    {
+      "path": "src/keyed_gram/authsynth_shared/schema.py",
+      "sha256": "de6f5ee8cab931bc1c6ccb980d16efbe37a83ad24950dd184e9fc6329904c78c"
+    },
+    {
+      "path": "src/keyed_gram/authsynth_analyzer/cgar.py",
+      "sha256": "cf6c11fbd6dc9d83b4e33c1fc846cc3fadc6b807eb69f9f3fa8fd701faf53609"
+    },
+    {
+      "path": "src/keyed_gram/authsynth_analyzer/shield.py",
+      "sha256": "02bde3a82054149045467f7013fd2766f343c000df13806b89aae7b03eee8ccf"
+    }
+  ],
+  "code_freeze_commit": "5db7b85f619cb3f28c80d9c805b2eb50c78e4f48",
+  "locked_test_opened_before_code_freeze": false,
+  "schema_version": 1
+}

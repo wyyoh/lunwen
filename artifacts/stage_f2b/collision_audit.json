@@ -1,0 +1,17 @@
+{
+  "collisions": {
+    "mutation_family": [],
+    "public_case_id": [],
+    "tool_family": [],
+    "version_lineage": [],
+    "workflow_template": []
+  },
+  "cross_split_collision_count": 0,
+  "schema_version": 1,
+  "split_case_counts": {
+    "calibration": 68,
+    "development": 68,
+    "locked_test": 66,
+    "train": 68
+  }
+}

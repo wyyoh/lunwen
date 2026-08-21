@@ -1,0 +1,11 @@
+{
+  "analyzer_input_only": true,
+  "case_count": 68,
+  "case_id_digest": "ba39c46a8c2cc71502a0b4a9893e59b795e667a57da30a1f3b4895d82bc95651",
+  "data_sha256": "e5232df1b4d6feaa805ac51d7d9ec6f07d9a952c701ee70f76fcf0dff4f039f5",
+  "data_size_bytes": 277618,
+  "hidden_concrete_semantics_persisted": false,
+  "manifest_payload_sha256": "c94d3b77187d719dfe3e4c255095eb6e18d91e808cb5b81df7f90f3bd0ba3fd3",
+  "schema_version": 1,
+  "split": "calibration"
+}

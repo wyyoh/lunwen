@@ -1,0 +1,7 @@
+analysis_latency_mean_ms,case_count,contract_effect_recall,convergence_rate,counterexample_count,counterexample_precision,drift_detection_recall,false_verified_complete_count,forbidden_trace_acceptance_rate,gold_gap,maximal_permissiveness_ratio,method,policy_omission_discovery_recall,refinement_precision,replay_query_efficiency,safe_utility,spurious_counterexample_count,unknown_expected_precision,unknown_rate,validated_counterexample_count
+0.1915251470588235,68,0.0,0.0,0,1.0,0.0,0,0.0,1.0,0.0,DenyAll,0.0,1.0,0.0,0.0,0,1.0,0.0,0
+0.2525332205882353,68,0.8209876543209876,0.0,0,1.0,0.0,0,1.0,0.0,1.0,Declared-Contract Monitor,0.0,1.0,0.0,1.0,0,1.0,0.0,0
+0.24626938235294116,68,0.8765432098765432,0.0,0,1.0,0.0,0,1.0,0.0071428571428571175,0.9928571428571429,Multi-Evidence Characterizer,0.0,1.0,0.0,0.9852941176470589,0,1.0,0.0,0
+0.21496070588235294,68,0.8765432098765432,0.0,0,1.0,0.0,0,0.3939393939393939,0.16428571428571426,0.8357142857142857,AuthSynth-NoCEGAR,0.0,1.0,0.0,0.7941176470588235,0,1.0,0.0,0
+2.0286304264705883,68,1.0,0.9117647058823529,123,0.8943089430894309,1.0,0,0.0,0.042857142857142816,0.9571428571428572,AuthSynth-CGAR,0.9393939393939394,1.0,0.40441176470588236,0.9558823529411765,13,1.0,0.08823529411764706,110
+0.1817374411764706,68,1.0,0.0,0,1.0,0.0,0,0.0,0.0,1.0,Full-Semantics AuthSynth Upper Bound,0.0,1.0,0.0,1.0,0,1.0,0.0,0

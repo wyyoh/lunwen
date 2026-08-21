@@ -1,0 +1,11 @@
+{
+  "analyzer_input_only": true,
+  "case_count": 68,
+  "case_id_digest": "b4c28fe3abe9beaa66403e16840942d82b9913ebfd965ec9a613bd0c6da8e4e9",
+  "data_sha256": "c60f54aabd45745163d17bd715bdb3b26efaca06866cd94827b4ae2d1054ab25",
+  "data_size_bytes": 257208,
+  "hidden_concrete_semantics_persisted": false,
+  "manifest_payload_sha256": "14f16c6e3e23f5727101385bd137dd74630b6d9d6d61c9a4074e608cffd4037e",
+  "schema_version": 1,
+  "split": "train"
+}

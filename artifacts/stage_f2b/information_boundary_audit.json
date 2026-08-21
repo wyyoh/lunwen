@@ -1,0 +1,12 @@
+{
+  "analyzer_concrete_implementation_access": false,
+  "analyzer_evaluator_import_failure_count": 0,
+  "analyzer_forbidden_symbol_failure_count": 0,
+  "analyzer_gold_contract_access": false,
+  "analyzer_gold_policy_access": false,
+  "analyzer_mutation_label_access": false,
+  "public_schema_forbidden_field_failure_count": 0,
+  "replay_returns_unexecuted_path_effects": false,
+  "schema_version": 1,
+  "status": "passed"
+}

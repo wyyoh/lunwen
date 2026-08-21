@@ -1,0 +1,56 @@
+{
+  "analyzer_freeze_commit": "6878989773a67b7eafead7bcfa45a4dc1bec3bf0",
+  "f1_frozen_assets_modified": false,
+  "f1_locked_test_scored": false,
+  "f2a_frozen_assets_modified": false,
+  "f2a_locked_test_rerun": false,
+  "files": [
+    {
+      "path": "AUTHCAP_RESEARCH_PLAN.md",
+      "sha256": "9047bf2c87b161230a7933aedfa7f0ded0973ab1c161b44e40b8bdf0c4f165d2"
+    },
+    {
+      "path": "PHASE_F1_REPORT.md",
+      "sha256": "28e9956192b20704589ecfc71baa37ed8d0f2b35567de32a8167b8fb6e7a51c9"
+    },
+    {
+      "path": "artifacts/stage_f1/stage_f1_summary.json",
+      "sha256": "029ada9518498ffd66730be41aef13745a1f35120501dc07420c5d92060e8130"
+    },
+    {
+      "path": "PHASE_F2A_REPORT.md",
+      "sha256": "3f7d4a24ff0bfd1a185c34069257fb1cae863de34095e5825fd7b809cf365d31"
+    },
+    {
+      "path": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "sha256": "47d242053634648b75d2fbcb780787a04d483e3d74c96b52d0b1bb7d5955077b"
+    },
+    {
+      "path": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "sha256": "f05522f082ef4320e957edd60c394e5086afe0a5b3c6b2e66898dbb29ec07c77"
+    },
+    {
+      "path": "artifacts/stage_f2a_autheffect/stage_f2a_summary.json",
+      "sha256": "561a9ccafc1f4c8e0b14a97f94b277801e697991f5692f1efcf3444b366dec4d"
+    },
+    {
+      "path": "AUTHSYNTH_F2B_RESEARCH_PLAN.md",
+      "sha256": "bff19874318d943884ed526804642e1aa55cb1cdfdc4afdf0818ca1873106467"
+    },
+    {
+      "path": "src/keyed_gram/authsynth_shared/schema.py",
+      "sha256": "de6f5ee8cab931bc1c6ccb980d16efbe37a83ad24950dd184e9fc6329904c78c"
+    },
+    {
+      "path": "src/keyed_gram/authsynth_analyzer/cgar.py",
+      "sha256": "cf6c11fbd6dc9d83b4e33c1fc846cc3fadc6b807eb69f9f3fa8fd701faf53609"
+    },
+    {
+      "path": "src/keyed_gram/authsynth_analyzer/shield.py",
+      "sha256": "02bde3a82054149045467f7013fd2766f343c000df13806b89aae7b03eee8ccf"
+    }
+  ],
+  "manifest_payload_sha256": "539dfaa4ff1834610cb116c7dcec8f2d023d0dca6b29e87348208d4a66c5a21e",
+  "schema_version": 1,
+  "status": "passed"
+}

@@ -1,0 +1,154 @@
+{
+  "benchmark": {
+    "analyzer_input_excludes": [
+      "concrete_implementation",
+      "hidden_transition",
+      "mutation_category",
+      "omission_type",
+      "expected_spurious_counterexample",
+      "attack_trace_is_forbidden",
+      "gold_contract",
+      "gold_shield"
+    ],
+    "blind_compound_case_count": 120,
+    "compatibility_shape_case_count": 150,
+    "expected_case_count": 270,
+    "expected_unknown_case_count": 24,
+    "finite_query_count_per_case": 4,
+    "ground_truth": "hidden_finite_transition_replay_and_final_state_oracle",
+    "public_or_synthetic_only": true,
+    "splits": [
+      "train",
+      "calibration",
+      "development",
+      "locked_test"
+    ]
+  },
+  "benchmark_version": "autheffectbench-blind-cgar-v1",
+  "final_status": {
+    "blind_cgar_status": "not_evaluated",
+    "c3_eligible": false,
+    "f1_frozen_assets_modified": false,
+    "f1_locked_test_scored": false,
+    "f2a_frozen_assets_modified": false,
+    "f2a_locked_test_rerun": false,
+    "false_verified_complete_count": null,
+    "formal_model_completed": false,
+    "original_c3_allowed": false,
+    "private_value_memory_ready": false,
+    "ready_for_stage_f2c": false,
+    "real_tool_completeness_validated": false
+  },
+  "formal_build_mode": "one_shot_blind_analyzer_audit",
+  "frozen_analyzer": [
+    {
+      "path": "AUTHSYNTH_F2B_RESEARCH_PLAN.md",
+      "sha256": "bff19874318d943884ed526804642e1aa55cb1cdfdc4afdf0818ca1873106467"
+    },
+    {
+      "path": "src/keyed_gram/authsynth_shared/schema.py",
+      "sha256": "de6f5ee8cab931bc1c6ccb980d16efbe37a83ad24950dd184e9fc6329904c78c"
+    },
+    {
+      "path": "src/keyed_gram/authsynth_analyzer/cgar.py",
+      "sha256": "cf6c11fbd6dc9d83b4e33c1fc846cc3fadc6b807eb69f9f3fa8fd701faf53609"
+    },
+    {
+      "path": "src/keyed_gram/authsynth_analyzer/shield.py",
+      "sha256": "02bde3a82054149045467f7013fd2766f343c000df13806b89aae7b03eee8ccf"
+    }
+  ],
+  "frozen_upstream": [
+    {
+      "path": "AUTHCAP_RESEARCH_PLAN.md",
+      "sha256": "9047bf2c87b161230a7933aedfa7f0ded0973ab1c161b44e40b8bdf0c4f165d2"
+    },
+    {
+      "path": "PHASE_F1_REPORT.md",
+      "sha256": "28e9956192b20704589ecfc71baa37ed8d0f2b35567de32a8167b8fb6e7a51c9"
+    },
+    {
+      "path": "artifacts/stage_f1/stage_f1_summary.json",
+      "sha256": "029ada9518498ffd66730be41aef13745a1f35120501dc07420c5d92060e8130"
+    },
+    {
+      "path": "PHASE_F2A_REPORT.md",
+      "sha256": "3f7d4a24ff0bfd1a185c34069257fb1cae863de34095e5825fd7b809cf365d31"
+    },
+    {
+      "path": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "sha256": "47d242053634648b75d2fbcb780787a04d483e3d74c96b52d0b1bb7d5955077b"
+    },
+    {
+      "path": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "sha256": "f05522f082ef4320e957edd60c394e5086afe0a5b3c6b2e66898dbb29ec07c77"
+    },
+    {
+      "path": "artifacts/stage_f2a_autheffect/stage_f2a_summary.json",
+      "sha256": "561a9ccafc1f4c8e0b14a97f94b277801e697991f5692f1efcf3444b366dec4d"
+    }
+  ],
+  "method_name": "AuthSynth-CGAR",
+  "methods": {
+    "external_official_implementations_used": false,
+    "selected_method": "AuthSynth-CGAR",
+    "variants": [
+      "DenyAll",
+      "Declared-Contract Monitor",
+      "Multi-Evidence Characterizer",
+      "AuthSynth-NoCEGAR",
+      "AuthSynth-CGAR",
+      "Full-Semantics AuthSynth Upper Bound"
+    ]
+  },
+  "outputs": {
+    "artifact_dir": "artifacts/stage_f2b",
+    "data_dir": "data/autheffectbench_f2b/generated",
+    "report_path": "PHASE_F2B_REPORT.md",
+    "runtime_dir": ".runs/stage_f2b"
+  },
+  "protocol": {
+    "analyzer_freeze_commit": "6878989773a67b7eafead7bcfa45a4dc1bec3bf0",
+    "benchmark_regeneration_after_audit_allowed": false,
+    "development_runs": 1,
+    "f1_locked_test_scoring_allowed": false,
+    "f2a_locked_test_rerun_allowed": false,
+    "f2b_locked_test_scoring_allowed_after_freeze": true,
+    "formal_build_repeat_allowed": false,
+    "locked_test_runs": 1,
+    "required_branch": "agent/stage-f2b-blind-cgar",
+    "required_f1_commit": "ed0864b6931b779ce7eb4acb060f5662dea95bd6",
+    "required_f2a_commit": "9f79ef6d2c46a6639e14e213bf4900431927a48f",
+    "safety_threshold_change_after_development_allowed": false,
+    "safety_threshold_change_after_locked_allowed": false,
+    "tracked_worktree_must_be_clean": true
+  },
+  "readiness_gates": {
+    "maximum_cross_split_collision_count": 0,
+    "maximum_false_verified_complete_count": 0,
+    "maximum_forbidden_trace_acceptance_rate": 0.0,
+    "maximum_unknown_rate": 0.25,
+    "minimum_contract_effect_recall": 0.9,
+    "minimum_counterexample_precision": 0.75,
+    "minimum_drift_detection_recall": 1.0,
+    "minimum_maximal_permissiveness_ratio": 0.9,
+    "minimum_policy_omission_discovery_recall": 0.8,
+    "minimum_safe_utility": 0.85
+  },
+  "research_boundary": {
+    "analyzer_concrete_implementation_access": false,
+    "analyzer_gold_contract_access": false,
+    "analyzer_gold_policy_access": false,
+    "analyzer_mutation_label_access": false,
+    "arbitrary_program_completeness_claimed": false,
+    "external_baseline_superiority_claimed": false,
+    "f1_role": "frozen_policy_oracle_and_schema_seed",
+    "f2a_role": "full_semantics_oracle_feasibility_only",
+    "llm_judge_used": false,
+    "private_data_used": false,
+    "real_agent_used": false,
+    "real_tool_execution_used": false
+  },
+  "schema_version": 1,
+  "stage": "F2B-blind-cgar"
+}
