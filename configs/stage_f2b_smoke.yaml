@@ -1,0 +1,6 @@
+schema_version: 1
+stage: F2B-blind-cgar-smoke
+case_limit: 8
+allowed_splits: [train, calibration]
+locked_test_scored: false
+private_data_used: false
