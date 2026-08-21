@@ -17,7 +17,7 @@ from keyed_gram.authsynth_shared import (
 
 from .models import AnalysisOutcome, RefinementIteration
 from .replay import ReplayClient
-from .shield import synthesize_blind_shield
+from .shield import cumulative_violation_states, synthesize_blind_shield
 
 
 @dataclass
@@ -123,17 +123,14 @@ class BlindCGARAnalyzer:
                 "operation": "confirm_trace",
                 "query_id": query.query_id,
             }
-            if result.observed_version_digest != case.expected_version_digest:
-                finding = FindingKind.IMPLEMENTATION_DRIFT
+            version_mismatch = (
+                result.observed_version_digest != case.expected_version_digest
+            )
+            if version_mismatch:
                 drift = True
                 reason_codes.add("implementation_version_drift")
-                patch = {
-                    "operation": "invalidate_and_rebind_version_after_full_coverage",
-                    "query_id": query.query_id,
-                    "observed_version_digest": result.observed_version_digest,
-                }
                 real_count += 1
-            elif not result.bounded_quiescence_reached:
+            if not result.bounded_quiescence_reached:
                 finding = FindingKind.QUIESCENCE_UNKNOWN
                 reason_codes.add("bounded_quiescence_not_reached")
                 model.unknown_queries.add(query.query_id)
@@ -148,6 +145,13 @@ class BlindCGARAnalyzer:
                 patch = {
                     "operation": "retain_unknown_coverage_edge",
                     "query_id": query.query_id,
+                }
+            elif version_mismatch:
+                finding = FindingKind.IMPLEMENTATION_DRIFT
+                patch = {
+                    "operation": "invalidate_and_rebind_version_after_full_coverage",
+                    "query_id": query.query_id,
+                    "observed_version_digest": result.observed_version_digest,
                 }
             elif missing:
                 finding = FindingKind.REAL_CONTRACT_OMISSION
@@ -189,23 +193,15 @@ class BlindCGARAnalyzer:
 
             # 组合 violation 只能在累计路径上发现；逐调用均安全时单独标注。
             if case.trusted_safety_spec is not None:
-                shield_now, _, _ = synthesize_blind_shield(
-                    case, observed, frozenset(model.unknown_queries)
-                )
                 individually_safe = not case.trusted_safety_spec.violation_codes(actual)
-                denied_states = {
-                    item.state
-                    for item in shield_now
-                    if not item.allowed_actions
-                    and item.state not in case.terminal_states
-                }
-                if individually_safe and denied_states and not model.unknown_queries:
+                violation_states = cumulative_violation_states(case, observed)
+                if individually_safe and violation_states and not model.unknown_queries:
                     composition_count += 1
                     finding = FindingKind.REAL_COMPOSITION_OMISSION
                     patch = {
                         "operation": "add_composition_guard",
                         "denied_state_digests": sorted(
-                            canonical_digest(item) for item in denied_states
+                            canonical_digest(item) for item in violation_states
                         ),
                     }
 

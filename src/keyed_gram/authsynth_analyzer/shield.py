@@ -97,3 +97,18 @@ def synthesize_blind_shield(
     initial_safe = case.initial_states.issubset(shield.winning_states)
     digest = canonical_digest([item.to_dict() for item in decisions])
     return decisions, digest, initial_safe
+
+
+def cumulative_violation_states(
+    case: AnalyzerCaseInput,
+    traces: Mapping[str, tuple[EventRecord, ...]],
+) -> frozenset[str]:
+    """返回只有累计 trace 语义才能识别的 forbidden workflow states。"""
+
+    if case.trusted_safety_spec is None:
+        return frozenset()
+    return frozenset(
+        state
+        for state, prefixes in _state_event_prefixes(case, traces).items()
+        if any(case.trusted_safety_spec.violation_codes(events) for events in prefixes)
+    )

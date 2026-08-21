@@ -183,6 +183,32 @@ def test_version_drift_invalidates_old_certificate_then_rebinds_consistent_versi
     assert "implementation_version_drift" in outcome.reason_codes
 
 
+def test_drift_does_not_mask_incomplete_instrumentation() -> None:
+    case = base_case()
+    read = event("observed-read", "call-1", "read")
+    write = event("observed-write", "call-2", "write")
+    replay = FakeReplay(
+        {
+            "q1": result("q1", (read,), version="version-digest-2"),
+            "q2": result("q2", (write,), coverage=0.5, version="version-digest-2"),
+        }
+    )
+    outcome = BlindCGARAnalyzer().analyze(case, replay)
+    assert outcome.drift_detected is True
+    assert outcome.status == AnalysisStatus.UNKNOWN
+    assert outcome.complete_claim_made is False
+
+
+def test_safe_individual_steps_with_forbidden_combination_are_detected() -> None:
+    case = base_case()
+    read = event("observed-read", "call-1", "read")
+    send = event("observed-send", "call-2", "send")
+    replay = FakeReplay({"q1": result("q1", (read,)), "q2": result("q2", (send,))})
+    outcome = BlindCGARAnalyzer().analyze(case, replay)
+    assert outcome.status == AnalysisStatus.VERIFIED_COMPLETE
+    assert outcome.composition_omission_count == 1
+
+
 def test_absent_high_level_safety_spec_cannot_be_called_policy_discovery() -> None:
     case = replace(base_case(), trusted_safety_spec=None)
     read = event("observed-read", "call-1", "read")
