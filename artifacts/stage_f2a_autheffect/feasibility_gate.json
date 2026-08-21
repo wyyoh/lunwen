@@ -1,0 +1,104 @@
+{
+  "checks": {
+    "development": {
+      "development": {
+        "contract_effect_recall": true,
+        "counterexample_precision": true,
+        "distinguishing_counterexample_types": true,
+        "drift_detection_recall": true,
+        "forbidden_trace_acceptance_rate": true,
+        "maximal_permissiveness_ratio": true,
+        "policy_omission_discovery_recall": true,
+        "safe_utility": true
+      },
+      "overall": {
+        "contract_effect_recall": true,
+        "counterexample_precision": true,
+        "distinguishing_counterexample_types": true,
+        "drift_detection_recall": true,
+        "forbidden_trace_acceptance_rate": true,
+        "maximal_permissiveness_ratio": true,
+        "policy_omission_discovery_recall": true,
+        "safe_utility": true
+      }
+    },
+    "locked_test": {
+      "locked_test": {
+        "contract_effect_recall": true,
+        "counterexample_precision": true,
+        "distinguishing_counterexample_types": true,
+        "drift_detection_recall": true,
+        "forbidden_trace_acceptance_rate": true,
+        "maximal_permissiveness_ratio": true,
+        "policy_omission_discovery_recall": true,
+        "safe_utility": true
+      },
+      "overall": {
+        "contract_effect_recall": true,
+        "counterexample_precision": true,
+        "distinguishing_counterexample_types": true,
+        "drift_detection_recall": true,
+        "forbidden_trace_acceptance_rate": true,
+        "maximal_permissiveness_ratio": true,
+        "policy_omission_discovery_recall": true,
+        "safe_utility": true
+      }
+    },
+    "overall": {
+      "calibration": {
+        "contract_effect_recall": true,
+        "counterexample_precision": true,
+        "distinguishing_counterexample_types": true,
+        "drift_detection_recall": true,
+        "forbidden_trace_acceptance_rate": true,
+        "maximal_permissiveness_ratio": true,
+        "policy_omission_discovery_recall": true,
+        "safe_utility": true
+      },
+      "development": {
+        "contract_effect_recall": true,
+        "counterexample_precision": true,
+        "distinguishing_counterexample_types": true,
+        "drift_detection_recall": true,
+        "forbidden_trace_acceptance_rate": true,
+        "maximal_permissiveness_ratio": true,
+        "policy_omission_discovery_recall": true,
+        "safe_utility": true
+      },
+      "locked_test": {
+        "contract_effect_recall": true,
+        "counterexample_precision": true,
+        "distinguishing_counterexample_types": true,
+        "drift_detection_recall": true,
+        "forbidden_trace_acceptance_rate": true,
+        "maximal_permissiveness_ratio": true,
+        "policy_omission_discovery_recall": true,
+        "safe_utility": true
+      },
+      "overall": {
+        "contract_effect_recall": true,
+        "counterexample_precision": true,
+        "distinguishing_counterexample_types": true,
+        "drift_detection_recall": true,
+        "forbidden_trace_acceptance_rate": true,
+        "maximal_permissiveness_ratio": true,
+        "policy_omission_discovery_recall": true,
+        "safe_utility": true
+      },
+      "train": {
+        "contract_effect_recall": true,
+        "counterexample_precision": true,
+        "distinguishing_counterexample_types": true,
+        "drift_detection_recall": true,
+        "forbidden_trace_acceptance_rate": true,
+        "maximal_permissiveness_ratio": true,
+        "policy_omission_discovery_recall": true,
+        "safe_utility": true
+      }
+    }
+  },
+  "exact_maximal_permissiveness": true,
+  "exact_shield_safety": true,
+  "schema_version": 1,
+  "status": "passed"
+}

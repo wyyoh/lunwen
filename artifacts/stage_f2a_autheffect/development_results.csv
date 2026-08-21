@@ -1,0 +1,8 @@
+method,case_count,contract_effect_recall,contract_overapproximation_ratio,forbidden_trace_acceptance_rate,forbidden_trace_accepted_count,policy_omission_discovery_recall,counterexample_precision,counterexample_count,validated_counterexample_count,safe_utility,maximal_permissiveness_ratio,drift_detection_recall,unknown_rate,analysis_time_mean_ms,analysis_time_p95_ms,cegar_iterations_mean,certificate_size_mean_bytes,exact_shield_match_rate
+DenyAll,38,0.0,0.0,0.0,0,0.0,1.0,0,0,0.0,0.0,0.0,0.0,0.23846531578947366,0.31695,0.0,0.0,0.0
+Solver-Policy,38,0.65,0.13333333333333333,1.0,36,0.0,1.0,0,0,1.0,1.0,0.0,0.0,0.3840625,0.478599,0.0,0.0,0.05263157894736842
+ToolGate-Declared,38,0.65,0.13333333333333333,1.0,36,0.0,1.0,0,0,1.0,1.0,0.0,0.0,0.38000294736842105,0.443758,0.0,0.0,0.05263157894736842
+ToolGuardian-Style,38,0.8,0.09859154929577464,0.6666666666666666,24,0.0,1.0,0,0,0.9210526315789473,0.925,0.0,0.0,0.38343397368421056,0.46142,0.0,0.0,0.2894736842105263
+AuthSynth-NoCEGAR,38,0.8,0.09859154929577464,0.4444444444444444,16,0.0,1.0,0,0,0.9210526315789473,0.925,0.0,0.0,0.3891408947368421,0.448532,0.0,0.0,0.5
+AuthSynth-CGAR,38,1.0,0.0,0.0,0,1.0,0.9473684210526315,38,36,1.0,1.0,1.0,0.0,0.4708976578947368,0.553342,1.9473684210526316,285.10526315789474,1.0
+Gold-Contract,38,1.0,0.0,0.0,0,0.0,1.0,0,0,1.0,1.0,0.0,0.0,0.3399473947368421,0.383872,0.0,0.0,1.0

@@ -1,0 +1,126 @@
+{
+  "files": [
+    {
+      "path": "analyzer_freeze_manifest.json",
+      "sha256": "81dd13147ede7625022a6640e8fc15870864a244419621e477d2da4ddbdd4781",
+      "size_bytes": 1091
+    },
+    {
+      "path": "benchmark_manifest.json",
+      "sha256": "09d2f52e3624a1ddc53f2e4eec6b20467487a3ffa953008699a3f08d424bae1a",
+      "size_bytes": 4107
+    },
+    {
+      "path": "calibration_sanity.csv",
+      "sha256": "e2ddd6e2dfd81641cefb5ff13daae6cf2be2c4276df0126cf859190d1934baf4",
+      "size_bytes": 1392
+    },
+    {
+      "path": "case_results.csv",
+      "sha256": "959658965e5edb119a2a67555aca489362dd75416e29c949509461c1c13115d3",
+      "size_bytes": 203564
+    },
+    {
+      "path": "cgar_refinement_summary.json",
+      "sha256": "e7e1bd58c575082ebdec4eeb9a8e82ada4cbfcd06c27911b158443cfff7116cc",
+      "size_bytes": 435
+    },
+    {
+      "path": "collision_audit.json",
+      "sha256": "f1637a8fbc1e7a6463d5d63623990bb121b4411640d64d11da574635cf08fe55",
+      "size_bytes": 279
+    },
+    {
+      "path": "development_results.csv",
+      "sha256": "bdb62061616859c5373cdf9fe6934a8bb30a0e6d1820dba707a41eb77a2ee433",
+      "size_bytes": 1363
+    },
+    {
+      "path": "exact_shield_summary.json",
+      "sha256": "43f7c7cc97a96f936e52a935af26d42eccb4967bab78f6d2ff7b8fc3c91ca6a9",
+      "size_bytes": 195
+    },
+    {
+      "path": "feasibility_gate.json",
+      "sha256": "793f6728b8b97edb04b7501c6cd50b95cdea6108476d0dfd7c064f8c418ffb36",
+      "size_bytes": 3625
+    },
+    {
+      "path": "locked_test_results.csv",
+      "sha256": "5a694f3204c637969bff0f33deb63cf37dd14ca7e47ea18b9a2f96eb21767836",
+      "size_bytes": 1408
+    },
+    {
+      "path": "method_metrics.csv",
+      "sha256": "6126346115d1bc812c9ea978fdb0e59162fbcf747011cc78e184c0e205783c1b",
+      "size_bytes": 1407
+    },
+    {
+      "path": "per_category_metrics.csv",
+      "sha256": "4576a51825579b2add3a97f77720072bbaeb9bbcd938b78bf543727fd032655d",
+      "size_bytes": 13595
+    },
+    {
+      "path": "protocol_status.json",
+      "sha256": "e2348154ef5d4ace328e43bdfdded2bb0bb377decae7f542e381dd88b0fab632",
+      "size_bytes": 447
+    },
+    {
+      "path": "resolved_config.json",
+      "sha256": "912f2f3ad1168468d45c43a76cdc9e5d058cbf02ff4009d5b01f6c1a579942a0",
+      "size_bytes": 5549
+    },
+    {
+      "path": "sensitive_material_scan.json",
+      "sha256": "6713c433146de2f25746b3c4d05137e27ef92f4fa8da8d50648b5def15b0fafe",
+      "size_bytes": 75
+    },
+    {
+      "path": "source_sha256_manifest.json",
+      "sha256": "f05522f082ef4320e957edd60c394e5086afe0a5b3c6b2e66898dbb29ec07c77",
+      "size_bytes": 3965
+    },
+    {
+      "path": "split_manifests/calibration.json",
+      "sha256": "7fd8ef6063bf381f1382e104fae9e8f09ec674b3fa226ab9925d84756cb47a0e",
+      "size_bytes": 759
+    },
+    {
+      "path": "split_manifests/development.json",
+      "sha256": "056033622813dce26ec09b3528b69578f6c9c333ba8dd0165070abbcca9faee7",
+      "size_bytes": 759
+    },
+    {
+      "path": "split_manifests/locked_test.json",
+      "sha256": "1ff8ddefea4fe4163d344426972e22af136a463377566a42534f1589a9ca199a",
+      "size_bytes": 759
+    },
+    {
+      "path": "split_manifests/train.json",
+      "sha256": "cb90ed9f7c223895ef58d11ebaea089755a5aed38e8aab52918a5de490e68937",
+      "size_bytes": 747
+    },
+    {
+      "path": "stage_f2a_summary.json",
+      "sha256": "561a9ccafc1f4c8e0b14a97f94b277801e697991f5692f1efcf3444b366dec4d",
+      "size_bytes": 22985
+    },
+    {
+      "path": "upstream_f1_sha256.json",
+      "sha256": "5913b7cebe7ebecb833668a7d58d54cfc0626fc1443d443e8e39063e5674b819",
+      "size_bytes": 2188
+    },
+    {
+      "path": "variant_registry.json",
+      "sha256": "4cb5722c317faf00a5d1d9be82ed2ff9e631881fff45d32853d0f6c8aa0a64fa",
+      "size_bytes": 1553
+    }
+  ],
+  "manifest_payload_sha256": "dc276db749122b733577035b70a1e41450bac17a57eb819130b19677f6408e11",
+  "report": {
+    "path": "PHASE_F2A_REPORT.md",
+    "sha256": "3f7d4a24ff0bfd1a185c34069257fb1cae863de34095e5825fd7b809cf365d31",
+    "size_bytes": 3653
+  },
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "files": [
+    {
+      "path": "AUTHSYNTH_RESEARCH_PLAN.md",
+      "sha256": "a2b36de53c178526c6c49a032712f09c7e801f268c9ec3d1f94effdcd52410bc",
+      "size_bytes": 1924
+    },
+    {
+      "path": "configs/stage_f2a.yaml",
+      "sha256": "e681992cfa968e8954767581be661a789e958144799b594ad8dc0f2ce23b895c",
+      "size_bytes": 4691
+    },
+    {
+      "path": "docs/f2a/COUNTEREXAMPLES.md",
+      "sha256": "5c91aab5787b62ee5ea6e8f1469d46872d6c650a7ebbde55d106fb1a38ed8e90",
+      "size_bytes": 2141
+    },
+    {
+      "path": "docs/f2a/EXPERIMENT_PROTOCOL.md",
+      "sha256": "e64a27e18970d88c22005ffc692566b53e9d83b45fab6b9b071deedb74f9c5c2",
+      "size_bytes": 2795
+    },
+    {
+      "path": "docs/f2a/FORMAL_MODEL.md",
+      "sha256": "465d79576ef6f4c9adeb084b90e19db4b52a1394d46b58b16e12b0fd45b1eafb",
+      "size_bytes": 2869
+    },
+    {
+      "path": "docs/f2a/RELATED_WORK_GAP.md",
+      "sha256": "534b6f470f3aeee3c2ee3bdc02a32a720cb4aaec01f076565caba8fc8ae667dd",
+      "size_bytes": 2949
+    },
+    {
+      "path": "src/keyed_gram/tool_effects/__init__.py",
+      "sha256": "def4a2810c4ad1598167331ce029dc3a98ec7c24370a4ed55f9c634c561c9b22",
+      "size_bytes": 968
+    },
+    {
+      "path": "src/keyed_gram/tool_effects/benchmark.py",
+      "sha256": "c43f63ab4a1f571c149369c0d565d06ca4c103ccfec7490ba1515ba5bbcf4d2a",
+      "size_bytes": 23224
+    },
+    {
+      "path": "src/keyed_gram/tool_effects/contracts.py",
+      "sha256": "f4d387b1a3a86095b4936842e8e6b7543b1938f62836853aee6f1609ae80b14d",
+      "size_bytes": 3254
+    },
+    {
+      "path": "src/keyed_gram/tool_effects/ir.py",
+      "sha256": "f0d42a2a146cbb4aea636694c8c79048f3974f349b6b01b4d5b6813bd5724823",
+      "size_bytes": 2874
+    },
+    {
+      "path": "src/keyed_gram/tool_effects/methods.py",
+      "sha256": "4a1d1024aabe815291641f9ee73ed5d790bf737505c023a15ff44b76dbe2f626",
+      "size_bytes": 14288
+    },
+    {
+      "path": "src/keyed_gram/tool_effects/metrics.py",
+      "sha256": "ba0bb1bbc862fab28de84aa00d0fe52ac664bc7e4e4a6bab32b70aeded3fea44",
+      "size_bytes": 5694
+    },
+    {
+      "path": "src/keyed_gram/tool_effects/shield.py",
+      "sha256": "5f2f9f98a1b2aa5096eccb6994db3174f679b73188635b5582fb40a02b063592",
+      "size_bytes": 3148
+    },
+    {
+      "path": "src/keyed_gram/tool_effects/types.py",
+      "sha256": "2a8677992526ed3eb5aceeab9ee0023f7ac3aef83f37d6c353f3bb7878b39128",
+      "size_bytes": 14441
+    },
+    {
+      "path": "src/keyed_gram/stage_f2a_autheffect.py",
+      "sha256": "37abd30b1cf90340c09496373a1dbf1930abf98073ac443ff63607916c8ec4c7",
+      "size_bytes": 26295
+    },
+    {
+      "path": "src/keyed_gram/stage_f2a_autheffect_protocol.py",
+      "sha256": "edc6eeac82416d4b057eb9bb047b69907486f3cf558ea0e6f1974dcc579e839a",
+      "size_bytes": 21435
+    },
+    {
+      "path": "tests/test_stage_f2a_autheffect.py",
+      "sha256": "4f955e0f58299c2061ceb0bb59c4377055f52b6ddd69cb049b45eb844179617c",
+      "size_bytes": 5258
+    },
+    {
+      "path": "tests/test_tool_effect_benchmark.py",
+      "sha256": "02bbfcd739a25a109534c339bab3588b33f09fcffe260b00f087631bd418a3c0",
+      "size_bytes": 2856
+    },
+    {
+      "path": "tests/test_tool_effect_contracts.py",
+      "sha256": "83096ee225675a59d433cbaec3cf6d8ffea69e42bff9994f4719b7c0e9f38dc0",
+      "size_bytes": 3629
+    },
+    {
+      "path": "tests/test_tool_effect_ir.py",
+      "sha256": "47f17b4407a89c4650a33b5b279dbf7f1e8daf599b9c94692d581856edef443d",
+      "size_bytes": 3433
+    },
+    {
+      "path": "tests/test_tool_effect_methods.py",
+      "sha256": "4b21e73aa74dabb23efc34754969d0edd21a6b224abcc8ca079d4404fee68c2f",
+      "size_bytes": 2598
+    },
+    {
+      "path": "tests/test_tool_effect_shield.py",
+      "sha256": "8fe67adab71a4c8633b3c6fd544d07bd2f69247be529907140fdf5b9e5615d63",
+      "size_bytes": 2196
+    }
+  ],
+  "manifest_payload_sha256": "42af0757a3401561374a68b82485effa8c6934fa9aa697db3c1f1fbb6f9a7912",
+  "schema_version": 1
+}

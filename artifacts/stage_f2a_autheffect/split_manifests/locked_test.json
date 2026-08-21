@@ -1,0 +1,18 @@
+{
+  "base_tool_family_count": 2,
+  "benchmark_version": "autheffectbench-feasibility-v1",
+  "case_count": 36,
+  "clean_control_count": 0,
+  "data_path": "data/autheffectbench_feasibility/generated/locked_test.jsonl",
+  "data_sha256": "70bb803882e44ee73f22f3776038fcf6b3936751a0cb47aa5bc07c05337ef668",
+  "data_size_bytes": 48548,
+  "forbidden_trace_count": 36,
+  "generation_seed_digest": "223bb2b4265097c0476dcf5fde317cca422b6424c6cab499d5cda847fe70d68c",
+  "generation_seed_source": "code_freeze_commit",
+  "ground_truth": "finite_transition_system",
+  "llm_judge_used": false,
+  "manifest_payload_sha256": "0e9141fbcc69ed19efc66d5647c9d9f293f55eb59610b6d02aa3c4ff123524c6",
+  "mutation_category_count": 6,
+  "schema_version": 1,
+  "split": "locked_test"
+}

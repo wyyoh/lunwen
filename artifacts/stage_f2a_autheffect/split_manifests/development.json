@@ -1,0 +1,18 @@
+{
+  "base_tool_family_count": 2,
+  "benchmark_version": "autheffectbench-feasibility-v1",
+  "case_count": 38,
+  "clean_control_count": 2,
+  "data_path": "data/autheffectbench_feasibility/generated/development.jsonl",
+  "data_sha256": "62689d7c1131fd2b97bf1ee8992c02c42cfc7be6cc5b14680ec89cf2e942cc70",
+  "data_size_bytes": 50882,
+  "forbidden_trace_count": 36,
+  "generation_seed_digest": "223bb2b4265097c0476dcf5fde317cca422b6424c6cab499d5cda847fe70d68c",
+  "generation_seed_source": "code_freeze_commit",
+  "ground_truth": "finite_transition_system",
+  "llm_judge_used": false,
+  "manifest_payload_sha256": "6a954f61fa0a40f05d4742406932b946968726c2978285c35161637240e97eec",
+  "mutation_category_count": 7,
+  "schema_version": 1,
+  "split": "development"
+}

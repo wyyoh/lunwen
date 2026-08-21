@@ -1,0 +1,101 @@
+{
+  "benchmark": {
+    "base_tool_count": 8,
+    "case_count": 150,
+    "clean_control_count": 6,
+    "domain_count": 4,
+    "forbidden_trace_count": 144,
+    "generation_seed_digest": "223bb2b4265097c0476dcf5fde317cca422b6424c6cab499d5cda847fe70d68c",
+    "generation_seed_source": "code_freeze_commit",
+    "mutation_category_count": 6,
+    "omission_type_counts": {
+      "composition_omission": 24,
+      "contract_omission": 88,
+      "implementation_drift": 24,
+      "none": 6,
+      "policy_omission": 8
+    },
+    "split_case_counts": {
+      "calibration": 38,
+      "development": 38,
+      "locked_test": 36,
+      "train": 38
+    }
+  },
+  "f1_locked_test_case_content_read": false,
+  "schema_version": 1,
+  "splits": {
+    "calibration": {
+      "base_tool_family_count": 2,
+      "benchmark_version": "autheffectbench-feasibility-v1",
+      "case_count": 38,
+      "clean_control_count": 2,
+      "data_path": "data/autheffectbench_feasibility/generated/calibration.jsonl",
+      "data_sha256": "8d91969088ccc2f067af374fb3344b22b841b47dd5c4e866cd86dccdd0cc514e",
+      "data_size_bytes": 50103,
+      "forbidden_trace_count": 36,
+      "generation_seed_digest": "223bb2b4265097c0476dcf5fde317cca422b6424c6cab499d5cda847fe70d68c",
+      "generation_seed_source": "code_freeze_commit",
+      "ground_truth": "finite_transition_system",
+      "llm_judge_used": false,
+      "manifest_payload_sha256": "8480179c73212a7e6e9b5e36886d6f6956d2e0a046b6875fe06c21db1ac478be",
+      "mutation_category_count": 7,
+      "schema_version": 1,
+      "split": "calibration"
+    },
+    "development": {
+      "base_tool_family_count": 2,
+      "benchmark_version": "autheffectbench-feasibility-v1",
+      "case_count": 38,
+      "clean_control_count": 2,
+      "data_path": "data/autheffectbench_feasibility/generated/development.jsonl",
+      "data_sha256": "62689d7c1131fd2b97bf1ee8992c02c42cfc7be6cc5b14680ec89cf2e942cc70",
+      "data_size_bytes": 50882,
+      "forbidden_trace_count": 36,
+      "generation_seed_digest": "223bb2b4265097c0476dcf5fde317cca422b6424c6cab499d5cda847fe70d68c",
+      "generation_seed_source": "code_freeze_commit",
+      "ground_truth": "finite_transition_system",
+      "llm_judge_used": false,
+      "manifest_payload_sha256": "6a954f61fa0a40f05d4742406932b946968726c2978285c35161637240e97eec",
+      "mutation_category_count": 7,
+      "schema_version": 1,
+      "split": "development"
+    },
+    "locked_test": {
+      "base_tool_family_count": 2,
+      "benchmark_version": "autheffectbench-feasibility-v1",
+      "case_count": 36,
+      "clean_control_count": 0,
+      "data_path": "data/autheffectbench_feasibility/generated/locked_test.jsonl",
+      "data_sha256": "70bb803882e44ee73f22f3776038fcf6b3936751a0cb47aa5bc07c05337ef668",
+      "data_size_bytes": 48548,
+      "forbidden_trace_count": 36,
+      "generation_seed_digest": "223bb2b4265097c0476dcf5fde317cca422b6424c6cab499d5cda847fe70d68c",
+      "generation_seed_source": "code_freeze_commit",
+      "ground_truth": "finite_transition_system",
+      "llm_judge_used": false,
+      "manifest_payload_sha256": "0e9141fbcc69ed19efc66d5647c9d9f293f55eb59610b6d02aa3c4ff123524c6",
+      "mutation_category_count": 6,
+      "schema_version": 1,
+      "split": "locked_test"
+    },
+    "train": {
+      "base_tool_family_count": 2,
+      "benchmark_version": "autheffectbench-feasibility-v1",
+      "case_count": 38,
+      "clean_control_count": 2,
+      "data_path": "data/autheffectbench_feasibility/generated/train.jsonl",
+      "data_sha256": "5180add761b652bdfe9bc0dbd894544fcb42a9408b6f56464705014ba9baf297",
+      "data_size_bytes": 48894,
+      "forbidden_trace_count": 36,
+      "generation_seed_digest": "223bb2b4265097c0476dcf5fde317cca422b6424c6cab499d5cda847fe70d68c",
+      "generation_seed_source": "code_freeze_commit",
+      "ground_truth": "finite_transition_system",
+      "llm_judge_used": false,
+      "manifest_payload_sha256": "c386bbfe24613432e36240ee5427b5972c099ccef933f6b461814db8e2fcc8cc",
+      "mutation_category_count": 7,
+      "schema_version": 1,
+      "split": "train"
+    }
+  }
+}

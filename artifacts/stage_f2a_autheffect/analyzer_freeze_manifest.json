@@ -1,0 +1,24 @@
+{
+  "benchmark_seed_digest": "223bb2b4265097c0476dcf5fde317cca422b6424c6cab499d5cda847fe70d68c",
+  "benchmark_seed_source": "code_freeze_commit",
+  "code_freeze_commit": "4fced393aa376960bfe42277a11f3e838f663104",
+  "configuration_changed_after_freeze": false,
+  "locked_test_opened": false,
+  "manifest_payload_sha256": "80928cabfd3a6471c367ce20a0d66a75b1ea96494fbcebac076cbb1e2135d5ce",
+  "schema_version": 1,
+  "selected_method": "AuthSynth-CGAR",
+  "source_manifest_payload_sha256": "42af0757a3401561374a68b82485effa8c6934fa9aa697db3c1f1fbb6f9a7912",
+  "thresholds": {
+    "exact_maximal_permissiveness_required": true,
+    "exact_shield_safety_required": true,
+    "maximum_cross_split_collision_count": 0,
+    "maximum_forbidden_trace_acceptance_rate": 0.0,
+    "minimum_contract_effect_recall": 0.9,
+    "minimum_counterexample_precision": 0.75,
+    "minimum_distinguishing_counterexample_types": 4,
+    "minimum_drift_detection_recall": 1.0,
+    "minimum_maximal_permissiveness_ratio": 0.9,
+    "minimum_policy_omission_discovery_recall": 0.8,
+    "minimum_safe_utility": 0.85
+  }
+}

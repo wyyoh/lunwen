@@ -1,0 +1,18 @@
+{
+  "base_tool_family_count": 2,
+  "benchmark_version": "autheffectbench-feasibility-v1",
+  "case_count": 38,
+  "clean_control_count": 2,
+  "data_path": "data/autheffectbench_feasibility/generated/calibration.jsonl",
+  "data_sha256": "8d91969088ccc2f067af374fb3344b22b841b47dd5c4e866cd86dccdd0cc514e",
+  "data_size_bytes": 50103,
+  "forbidden_trace_count": 36,
+  "generation_seed_digest": "223bb2b4265097c0476dcf5fde317cca422b6424c6cab499d5cda847fe70d68c",
+  "generation_seed_source": "code_freeze_commit",
+  "ground_truth": "finite_transition_system",
+  "llm_judge_used": false,
+  "manifest_payload_sha256": "8480179c73212a7e6e9b5e36886d6f6956d2e0a046b6875fe06c21db1ac478be",
+  "mutation_category_count": 7,
+  "schema_version": 1,
+  "split": "calibration"
+}

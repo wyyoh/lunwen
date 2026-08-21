@@ -1,0 +1,14 @@
+{
+  "calibration_runs": 1,
+  "code_freeze_commit": "4fced393aa376960bfe42277a11f3e838f663104",
+  "configuration_changed_after_development": false,
+  "configuration_changed_after_locked": false,
+  "development_runs": 1,
+  "exact_artifact_inventory_validated": true,
+  "f1_locked_test_scored": false,
+  "formal_build": "completed",
+  "locked_test_runs": 1,
+  "prepare_runs": 1,
+  "schema_version": 1,
+  "strict_json_serialization_validated": true
+}

@@ -1,0 +1,13 @@
+{
+  "collisions": [],
+  "cross_split_collision_count": 0,
+  "dimensions": [
+    "base_tool_family",
+    "mutation_family_id",
+    "workflow_template_id",
+    "policy_template_id",
+    "implementation_version_lineage",
+    "hidden_effect_combination"
+  ],
+  "schema_version": 1
+}

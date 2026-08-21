@@ -1,0 +1,16 @@
+{
+  "counterexample_count": 152,
+  "counterexample_precision": 0.9473684210526315,
+  "drift_detection_recall": 1.0,
+  "policy_omission_discovery_recall": 1.0,
+  "refinement_outputs": [
+    "effect_contract_patch",
+    "parameter_role_patch",
+    "policy_restriction_patch",
+    "composition_restriction",
+    "version_invalidation_rule",
+    "runtime_shield_guard"
+  ],
+  "schema_version": 1,
+  "validated_counterexample_count": 144
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "selected_method": "AuthSynth-CGAR",
+  "variants": [
+    {
+      "description": "拒绝全部 workflow 的安全但无效用下界",
+      "method": "DenyAll",
+      "official_external_implementation_used": false,
+      "real_tool_execution": false
+    },
+    {
+      "description": "基于已声明 effect/policy 的 SMT-style 机制模拟",
+      "method": "Solver-Policy",
+      "official_external_implementation_used": false,
+      "real_tool_execution": false
+    },
+    {
+      "description": "基于给定 Hoare contract 的机制模拟",
+      "method": "ToolGate-Declared",
+      "official_external_implementation_used": false,
+      "real_tool_execution": false
+    },
+    {
+      "description": "多证据 effect characterization + 声明策略模拟",
+      "method": "ToolGuardian-Style",
+      "official_external_implementation_used": false,
+      "real_tool_execution": false
+    },
+    {
+      "description": "一次 evidence fusion 后直接合成 Shield",
+      "method": "AuthSynth-NoCEGAR",
+      "official_external_implementation_used": false,
+      "real_tool_execution": false
+    },
+    {
+      "description": "replay、分类 refinement 与 Shield 重合成",
+      "method": "AuthSynth-CGAR",
+      "official_external_implementation_used": false,
+      "real_tool_execution": false
+    },
+    {
+      "description": "使用具体 transition system 的理想上界",
+      "method": "Gold-Contract",
+      "official_external_implementation_used": false,
+      "real_tool_execution": false
+    }
+  ]
+}

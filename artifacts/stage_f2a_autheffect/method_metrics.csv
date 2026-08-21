@@ -1,0 +1,8 @@
+method,case_count,contract_effect_recall,contract_overapproximation_ratio,forbidden_trace_acceptance_rate,forbidden_trace_accepted_count,policy_omission_discovery_recall,counterexample_precision,counterexample_count,validated_counterexample_count,safe_utility,maximal_permissiveness_ratio,drift_detection_recall,unknown_rate,analysis_time_mean_ms,analysis_time_p95_ms,cegar_iterations_mean,certificate_size_mean_bytes,exact_shield_match_rate
+DenyAll,150,0.0,0.0,0.0,0,0.0,1.0,0,0,0.0,0.0,0.0,0.0,0.22450299333333334,0.295452,0.0,0.0,0.0
+Solver-Policy,150,0.6477987421383647,0.1271186440677966,1.0,144,0.0,1.0,0,0,1.0,1.0,0.0,0.0,0.3515916866666667,0.460943,0.0,0.0,0.04
+ToolGate-Declared,150,0.6477987421383647,0.1271186440677966,1.0,144,0.0,1.0,0,0,1.0,1.0,0.0,0.0,0.45433806000000004,0.650419,0.0,0.0,0.04
+ToolGuardian-Style,150,0.7987421383647799,0.09929078014184398,0.6666666666666666,96,0.0,1.0,0,0,0.9333333333333333,0.9358974358974359,0.0,0.0,0.42856708666666665,0.689976,0.0,0.0,0.29333333333333333
+AuthSynth-NoCEGAR,150,0.7987421383647799,0.09929078014184398,0.4444444444444444,64,0.0,1.0,0,0,0.92,0.9230769230769231,0.0,0.0,0.3752188066666667,0.447728,0.0,0.0,0.49333333333333335
+AuthSynth-CGAR,150,1.0,0.0,0.0,0,1.0,0.9473684210526315,152,144,1.0,1.0,1.0,0.0,0.47948855333333334,0.576432,1.96,281.56,1.0
+Gold-Contract,150,1.0,0.0,0.0,0,0.0,1.0,0,0,1.0,1.0,0.0,0.0,0.33972964,0.401946,0.0,0.0,1.0
