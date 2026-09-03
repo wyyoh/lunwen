@@ -1,0 +1,58 @@
+{
+  "audit": {
+    "formal_locked_audit_rerun": false,
+    "frozen_source_modified": false,
+    "host_glibc_unchanged": true,
+    "networkless_runtime_verified": true,
+    "private_credentials_in_image": false
+  },
+  "builder": {
+    "architecture": "x86_64",
+    "docker_api": "1.55",
+    "docker_buildx": "0.37.0",
+    "docker_compose": "5.5.0",
+    "docker_engine": "29.7.2",
+    "kernel": "6.18.33.2-microsoft-standard-WSL2",
+    "os": "Ubuntu 24.04.4 LTS under WSL2"
+  },
+  "container": {
+    "architecture": "amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.12-slim-bookworm",
+    "base_image_digest": "sha256:782412e85d0f0984994c290652577d4018aff08145c85b262bb63dc0c7522254",
+    "cpu_only": true,
+    "created": "2026-09-03T20:54:38.602372944+08:00",
+    "glibc": "2.36",
+    "image_id": "sha256:b89ea8a6918ad5a06f04119cbe745178be48801c0c8e192faf28b74e39d14d4b",
+    "numpy": "2.5.2",
+    "os": "linux",
+    "project_import_ok": true,
+    "python": "3.12.14",
+    "repo_digest_available": true,
+    "repo_digests": [
+      "lunwen-torch212-cpu@sha256:b89ea8a6918ad5a06f04119cbe745178be48801c0c8e192faf28b74e39d14d4b"
+    ],
+    "size_bytes": 506470919,
+    "torch": "2.12.0+cpu",
+    "torch_cpu_operation_ok": true,
+    "torch_cuda_available": false,
+    "torch_cuda_version": null,
+    "z3": "4.15.3"
+  },
+  "files": {
+    "Dockerfile": "160522ce590d930e0233b5abeb195ace9a42083d72c217b484a7066fb73e288d",
+    "ENVIRONMENT.md": "4e5bb3cd6c154ad0aae217a5a886d0640aa27b075aefb869b91badc8b656bb36",
+    "apptainer.def": "2343e94e9ea94c364c43ca1875d071ed159f86b205ec7e12c2924450ebe56906",
+    "generate_environment_manifest.py": "6bd228a25c2c452616561243d2c834e1f5fc5d1f363b37175e715a96c99e1f95",
+    "requirements.lock": "1c4c8c49aae59996f750f56cd37665ee166b320d1188d988f585717ade034402",
+    "run_f2c.sh": "8c1caa776aa55c52d034feff35f8b79223c85d6aad4305066b16fd65b76d41db",
+    "run_tests.sh": "505abac96311294b0c16558961d1ac3ebe3c4226d36883b6087a2a6f3725ce13",
+    "verify_environment.py": "fca73f6174316f6bedc5f6ef9e3b0ec6361db6b8cb832a21f421f0cd1cc218e4"
+  },
+  "host": {
+    "architecture": "x86_64",
+    "glibc": "2.17",
+    "kernel": "3.10.0-1160.el7.x86_64",
+    "os": "CentOS Linux 7"
+  },
+  "schema_version": 1
+}
