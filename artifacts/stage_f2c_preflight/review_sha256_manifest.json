@@ -1,0 +1,54 @@
+{
+  "audit_kind": "nonformal_prefreeze_review",
+  "base_commit": "1c01a24fe8cdc123e405591a0ced0a5ee50aa5d6",
+  "code_freeze_commit": null,
+  "files": [
+    {
+      "path": "scripts/audit_f2c_prefreeze.py",
+      "sha256": "65ff357bfb0463cb24252c5b1c114d30432ba561b160f9720244ad93845ef0d7",
+      "size_bytes": 1319
+    },
+    {
+      "path": "tests/test_symbolic_collisions.py",
+      "sha256": "30526da091ff8001dfda682bc7953f771477976983d1e554739f012d12f3fef0",
+      "size_bytes": 1792
+    },
+    {
+      "path": "tests/test_symbolic_verifier.py",
+      "sha256": "f345c194fc0a7c280b952ebb99f0de4f888fba88b5b24e7ab7bf3579403575fe",
+      "size_bytes": 3162
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_verifier/__init__.py",
+      "sha256": "59d66e1b79f1abac7724652465d692238ab190dd2a53111f5eebf35a6c5f31f6",
+      "size_bytes": 795
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_verifier/benchmark.py",
+      "sha256": "fcc497d5b7ade8323416050d24b9f1e3a92b429197f5cd1f372812c06724dfae",
+      "size_bytes": 25174
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_verifier/equivalence.py",
+      "sha256": "73cf76bb951fb14464c42e142d7d1d9f5d9b9dbeb571a7368658a9f2a3812e0b",
+      "size_bytes": 10899
+    },
+    {
+      "path": "src/keyed_gram/stage_f2c.py",
+      "sha256": "02cbaf8f6fc9af6ad88883241721c78dad633fbcd5e1cbd56fc415f9682ca485",
+      "size_bytes": 28435
+    },
+    {
+      "path": "docs/f2c/PREFREEZE_REVIEW.md",
+      "sha256": "10d9fd378549af647ee9d5f155d76975fec64600ea35268d0b1d58d3ec04105e",
+      "size_bytes": 5285
+    },
+    {
+      "path": "artifacts/stage_f2c_preflight/content_isolation_audit.json",
+      "sha256": "08e7ca7c117e4a1d0b496a70dd60c4b8c73e9803bec80dd1056c7474884f6d50",
+      "size_bytes": 4526
+    }
+  ],
+  "formal_audit_started": false,
+  "schema_version": 1
+}
