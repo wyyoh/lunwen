@@ -36,28 +36,33 @@ def main() -> int:
             train, replay_budget=16, solver_timeout_ms=3000, methods=(method,)
         )
         result = dict(bundle["metrics"][0])
-        # 当前指标把 patch 类型当作 omission atom；不传播这个错误命名。
-        result.pop("omission_atom_discovery_recall", None)
         metrics.append(result)
         with (args.output / f"method_{len(metrics):02d}.json").open(
             "x", encoding="utf-8"
         ) as handle:
-            json.dump(result, handle, ensure_ascii=False, sort_keys=True, allow_nan=False)
+            json.dump(
+                result, handle, ensure_ascii=False, sort_keys=True, allow_nan=False
+            )
             handle.write("\n")
         print(json.dumps(result, sort_keys=True, allow_nan=False), flush=True)
     summary = {
-        "schema_version": 1,
+        "schema_version": 2,
+        "patch_metric_semantics": "location_component_atoms_v1",
         "run_kind": "nonformal_train_only_pilot",
         "case_count": len(train),
         "domain_counts": dict(Counter(case.domain for case in train)),
         "evaluated_splits": ["train"],
         "method_metrics": metrics,
-        "settings": {"replay_budget": 16, "solver_timeout_ms": 3000,
-                     "max_disjuncts": 4, "max_literals_per_conjunction": 5,
-                     "max_total_literals": 16},
+        "settings": {
+            "replay_budget": 16,
+            "solver_timeout_ms": 3000,
+            "max_disjuncts": 4,
+            "max_literals_per_conjunction": 5,
+            "max_total_literals": 16,
+        },
         "runner_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         "metric_limitations": [
-            "omission atoms 尚未实现，故不报告该项",
+            "atom 按效果签名/字段组件定位，不代表合成公式本身已正确修复",
             "Safe Utility 与 MPR 在当前 unary evaluator 中使用相同计数",
             "指标仍属待审查草稿；train 结果不支持 unseen-family 泛化结论",
         ],
@@ -70,8 +75,14 @@ def main() -> int:
         "private_data_used": False,
     }
     with (args.output / "train_summary.json").open("x", encoding="utf-8") as handle:
-        json.dump(summary, handle, ensure_ascii=False, sort_keys=True,
-                  indent=2, allow_nan=False)
+        json.dump(
+            summary,
+            handle,
+            ensure_ascii=False,
+            sort_keys=True,
+            indent=2,
+            allow_nan=False,
+        )
         handle.write("\n")
     return 0
 

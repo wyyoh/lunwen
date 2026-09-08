@@ -11,6 +11,7 @@ from keyed_gram.authsynth_symbolic_shared import (
     CertificateStatus,
     ConcreteAssignment,
     ContractStatus,
+    PatchAtom,
     PatchRecord,
     ShieldStatus,
     SymbolicEffectContract,
@@ -64,6 +65,7 @@ class SymbolicAnalysisOutcome:
     reason_codes: tuple[str, ...]
     synthesis_time_ms: float
     verification_time_ms: float
+    discovered_atoms: tuple[PatchAtom, ...] = ()
 
     @property
     def complete_claim_made(self) -> bool:
@@ -71,6 +73,7 @@ class SymbolicAnalysisOutcome:
 
     def to_artifact_dict(self) -> dict[str, Any]:
         return {
+            "discovered_atom_digests": [atom.digest for atom in self.discovered_atoms],
             "public_case_id": self.public_case_id,
             "contract_status": self.contract_status.value,
             "shield_status": self.shield_status.value,

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from functools import cached_property
 from typing import Any
 
 from keyed_gram.authsynth_symbolic_shared import (
@@ -10,6 +11,7 @@ from keyed_gram.authsynth_symbolic_shared import (
     BoundedSchema,
     ConcreteAssignment,
     ConcreteEffect,
+    PatchAtom,
     SymbolicAnalyzerInput,
     SymbolicEffectContract,
     SymbolicEffectTemplate,
@@ -106,9 +108,14 @@ class HiddenSymbolicCase:
     ast_shape_family: str
     implementation: HiddenSymbolicImplementation
     reference_contract: SymbolicEffectContract
-    omission_atoms: frozenset[str]
     expected_unknown: bool
     clean_control: bool
+
+    @cached_property
+    def omission_atoms(self) -> frozenset[PatchAtom]:
+        from .omission_oracle import expected_omission_atoms
+
+        return expected_omission_atoms(self)
 
     @property
     def public_case_id(self) -> str:
@@ -131,7 +138,7 @@ class HiddenSymbolicCase:
             "ast_shape_family_digest": canonical_digest(self.ast_shape_family),
             "mutation_category": self.mutation_category,
             "omission_atom_digests": sorted(
-                canonical_digest(item) for item in self.omission_atoms
+                item.digest for item in self.omission_atoms
             ),
             "implementation_digest": self.implementation.digest,
             "reference_contract_digest": self.reference_contract.digest,

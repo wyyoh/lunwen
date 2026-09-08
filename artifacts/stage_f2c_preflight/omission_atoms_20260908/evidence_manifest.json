@@ -1,0 +1,53 @@
+{
+  "analyzer_frozen": false,
+  "archive_sha256": "50102ef2138946722e4cf0a015a71cef0087dc9d3ed53b7bcec6de2759edb4cb",
+  "draft_parent_commit": "a688264c468aa3baa6f0335f380fce76b02d5944",
+  "exact_inventory_validated": true,
+  "files": [
+    {
+      "path": "container_execution.json",
+      "sha256": "7098eb628c0519de0a05e2592b282211d17cae649cd0868dca133d6200fc7943",
+      "size_bytes": 1321
+    },
+    {
+      "path": "container_execution_final.json",
+      "sha256": "bfeec61f698a19b6722403c4de0a5d0e74ea0ba94574daf196f7ac3dbe14d9e4",
+      "size_bytes": 1327
+    },
+    {
+      "path": "source_sha256_manifest.json",
+      "sha256": "1dae097e9daa3b52a0675ab8c93369e74bc34c8c38bd334a5dcb0dd1f8c58b9d",
+      "size_bytes": 8403
+    },
+    {
+      "path": "upstream_integrity_audit.json",
+      "sha256": "22f94b385774e390ea626b54f4e044c9bab4bf885c2f56285183a7a68fa65a47",
+      "size_bytes": 36647
+    },
+    {
+      "path": "validation.json",
+      "sha256": "72270252bace79a13362588d0502238f3b54a198cd5bd049224a4a729eb51c8e",
+      "size_bytes": 8699
+    },
+    {
+      "path": "validation_final.json",
+      "sha256": "ef6f95c1196925e7cd6f6782a2f7ac895f060c8d7bf9f0aad2e7b8a0a2635401",
+      "size_bytes": 8843
+    }
+  ],
+  "formal_calibration_started": false,
+  "formal_development_started": false,
+  "formal_locked_started": false,
+  "full_repository_tests_run": false,
+  "kind": "nonformal_patch_atom_unit_validation",
+  "networkless_runtime_verified": true,
+  "private_data_used": false,
+  "private_key_and_github_token_pattern_scan_passed": true,
+  "ready_for_formal_f2c_audit": false,
+  "ready_for_stage_f2d_relational_contracts": false,
+  "schema_version": 1,
+  "source_sha256_verified_count": 44,
+  "strict_json_validated": true,
+  "upstream_current_hash_match_count": 152,
+  "upstream_historical_snapshot_match_count": 1
+}

@@ -10,6 +10,7 @@ from keyed_gram.authsynth_symbolic_shared import (
     BoundedCompletenessCertificate,
     CertificateStatus,
     ContractStatus,
+    PatchAtom,
     PatchRecord,
     ShieldStatus,
     SymbolicAnalyzerInput,
@@ -19,6 +20,7 @@ from keyed_gram.authsynth_symbolic_shared import (
     canonical_digest,
 )
 
+from .diagnostics import diagnose_replay
 from .learner import SymbolicContractLearner
 from .models import SymbolicAnalysisOutcome, SymbolicRefinementIteration
 from .query_generator import request_counterexample
@@ -32,35 +34,6 @@ _PATCH_TYPES = {
     VerificationKind.VERSION_MISMATCH: "version_invalidation",
     VerificationKind.UNKNOWN: "unsupported_region",
 }
-
-
-def _derive_patch_types(
-    candidate: SymbolicEffectContract,
-    observed: Any,
-) -> tuple[str, ...]:
-    predicted_events, predicted_updates = candidate.predict(observed.assignment)
-    actual_by_signature = {item.signature: item for item in observed.events}
-    predicted_by_signature = {item.signature: item for item in predicted_events}
-    declared_signatures = {item.effect.signature for item in candidate.clauses}
-    values: set[str] = set()
-    for signature, actual in actual_by_signature.items():
-        predicted = predicted_by_signature.get(signature)
-        if predicted is None:
-            values.add(
-                "guard_patch" if signature in declared_signatures else "effect_patch"
-            )
-        elif predicted.semantic_key != actual.semantic_key:
-            values.add("field_binding_patch")
-    if set(predicted_by_signature) - set(actual_by_signature):
-        values.add("guard_patch")
-    expected_state = dict(observed.assignment.state)
-    for change in observed.state_diff.changes:
-        expected_state[change.field] = change.after
-    predicted_state = dict(observed.assignment.state)
-    predicted_state.update(predicted_updates)
-    if predicted_state != expected_state:
-        values.add("state_update_patch")
-    return tuple(sorted(values))
 
 
 def _merge_initial(case: SymbolicAnalyzerInput) -> SymbolicEffectContract:
@@ -93,6 +66,8 @@ class AuthSynthSymbolicAnalyzer:
         replay: SymbolicReplayClient,
     ) -> SymbolicAnalysisOutcome:
         candidate = _merge_initial(case)
+        diagnostic_basis = candidate
+        discovered_atoms: set[PatchAtom] = set()
         candidate.validate(case.schema, case.grammar_limits)
         active_version = case.expected_version_digest
         evidence: list[AnalyzerEvidence] = []
@@ -149,6 +124,12 @@ class AuthSynthSymbolicAnalyzer:
                     canonical_digest(
                         {"reason": result.reason_code or "verifier_unknown"}
                     ),
+                    PatchAtom(
+                        "unsupported_region",
+                        "tool",
+                        case.tool_id,
+                        result.reason_code or "verifier_unknown",
+                    ),
                 )
                 patches.append(patch)
                 reason_codes.add(result.reason_code or "verifier_unknown")
@@ -177,8 +158,11 @@ class AuthSynthSymbolicAnalyzer:
                 patch = PatchRecord(
                     "version_invalidation",
                     canonical_digest({"old": active_version, "new": observed}),
+                    PatchAtom("version_invalidation", "tool", case.tool_id, "version"),
                 )
                 patches.append(patch)
+                assert patch.atom is not None
+                discovered_atoms.add(patch.atom)
                 active_version = observed
                 evidence.clear()
                 # 漂移清除旧证据，但不能恢复已经消耗的总 replay 预算。
@@ -241,6 +225,8 @@ class AuthSynthSymbolicAnalyzer:
                     observed_version_digest=observed.observed_version_digest,
                 )
             )
+            # 原始遗漏发现与中间候选的修补分开，避免把 learner 自己造成的缺口算成原始遗漏。
+            discovered_atoms.update(diagnose_replay(diagnostic_basis, observed))
             started_synthesis = time.perf_counter_ns()
             learned = self._learner.fit(
                 tool_id=case.tool_id,
@@ -253,11 +239,11 @@ class AuthSynthSymbolicAnalyzer:
                 timeout_ms=case.solver_timeout_ms,
             )
             synthesis_ms += (time.perf_counter_ns() - started_synthesis) / 1_000_000
-            derived = _derive_patch_types(candidate, observed)
-            patch_types = derived or (_PATCH_TYPES[result.kind],)
+            atoms = diagnose_replay(candidate, observed)
             iteration_patches = tuple(
-                PatchRecord(item, result.counterexample_digest) for item in patch_types
-            )
+                PatchRecord(atom.patch_type, result.counterexample_digest, atom)
+                for atom in atoms
+            ) or (PatchRecord(_PATCH_TYPES[result.kind], result.counterexample_digest),)
             patches.extend(iteration_patches)
             patch = iteration_patches[0]
             if learned is None:
@@ -321,4 +307,5 @@ class AuthSynthSymbolicAnalyzer:
             reason_codes=tuple(sorted(reason_codes)),
             synthesis_time_ms=synthesis_ms,
             verification_time_ms=verification_ms,
+            discovered_atoms=tuple(sorted(discovered_atoms)),
         )

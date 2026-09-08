@@ -382,22 +382,6 @@ def _declared_contract(
     return base
 
 
-def _omission_atoms(category: str) -> frozenset[str]:
-    values = {
-        "hidden_guarded_effect": {"effect_patch", "guard_patch"},
-        "parameter_role_alias": {"field_binding_patch"},
-        "state_dependent_effect": {"effect_patch", "state_update_patch"},
-        "threshold_effect": {"guard_patch"},
-        "bounded_delayed_effect": {"effect_patch", "guard_patch"},
-        "implementation_drift": {"version_invalidation", "effect_patch"},
-        "alias_redirect_effect": {"field_binding_patch"},
-        "multi_branch_effect": {"effect_patch", "guard_patch"},
-        "exact_declared_control": set(),
-        "conservative_control": {"guard_patch"},
-    }
-    return frozenset(values[category])
-
-
 def _make_case(
     seed: str,
     *,
@@ -467,7 +451,6 @@ def _make_case(
         ast_shape_family=f"ast-{family}",
         implementation=implementation,
         reference_contract=reference,
-        omission_atoms=_omission_atoms(category),
         expected_unknown=unknown,
         clean_control=category in CONTROLS,
     )

@@ -9,6 +9,7 @@ from typing import Any, Protocol
 from .contracts import SymbolicEffectContract, TrustedSafetySpecification
 from .effects import ConcreteEffect
 from .formulas import GrammarLimits
+from .patches import PatchAtom
 from .schema import (
     BoundedSchema,
     ConcreteAssignment,
@@ -192,12 +193,19 @@ class SymbolicReplayClient(Protocol):
 class PatchRecord:
     patch_type: str
     target_digest: str
+    atom: PatchAtom | None = None
 
     def __post_init__(self) -> None:
         restricted_token(self.patch_type, "patch type")
+        if self.atom is not None and self.patch_type != self.atom.patch_type:
+            raise ValueError("patch record 与 atom 类型不一致")
 
-    def to_dict(self) -> dict[str, str]:
-        return {"patch_type": self.patch_type, "target_digest": self.target_digest}
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "patch_type": self.patch_type,
+            "target_digest": self.target_digest,
+            "atom": None if self.atom is None else self.atom.to_dict(),
+        }
 
 
 @dataclass(frozen=True)

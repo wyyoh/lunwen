@@ -37,6 +37,7 @@ from .interfaces import (
     VerificationKind,
     VerificationResult,
 )
+from .patches import PatchAtom
 from .schema import (
     BoundedSchema,
     ConcreteAssignment,
@@ -64,6 +65,7 @@ __all__ = [
     "GrammarLimits",
     "Literal",
     "LiteralOperator",
+    "PatchAtom",
     "PatchRecord",
     "Scalar",
     "ShieldStatus",

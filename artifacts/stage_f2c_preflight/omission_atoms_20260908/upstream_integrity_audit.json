@@ -1,0 +1,819 @@
+{
+  "f2b_base_commit": "1c01a24fe8cdc123e405591a0ced0a5ee50aa5d6",
+  "formal_audits_rerun": false,
+  "frozen_assets_modified_in_this_change": false,
+  "historical_exceptions": [
+    {
+      "actual_base_sha256": "e6a3c69a0668d6d3d4c215cc72c0dedee8d16eed2b672eccb48d94984a75f88e",
+      "expected_f1_sha256": "ce6520eee51c5bae5d46af220702896bf92421ef5a4f935558c670b31634b388",
+      "historical_f1_snapshot_verified": true,
+      "path": ".gitattributes",
+      "unchanged_from_f2b_base": true
+    }
+  ],
+  "manifest_files": [
+    {
+      "path": "artifacts/stage_f1/source_sha256_manifest.json",
+      "sha256": "2b8840da95948fd7a6652563de6754bbf1ecbd9b73d533c624ace2c3b528cb0a",
+      "size_bytes": 4013
+    },
+    {
+      "path": "artifacts/stage_f1/artifact_sha256_manifest.json",
+      "sha256": "0b84fbb000a3ac39efeab9476b96a81c0d9cf980e2fb3f3b0d0b497d24e60ff2",
+      "size_bytes": 3081
+    },
+    {
+      "path": "artifacts/stage_f1/upstream_frozen_sha256.json",
+      "sha256": "2ef6bff25c823bbf9ee98f31aa35eaf2789ec91e81e634a3e20b07834583e528",
+      "size_bytes": 2011
+    },
+    {
+      "path": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "sha256": "f05522f082ef4320e957edd60c394e5086afe0a5b3c6b2e66898dbb29ec07c77",
+      "size_bytes": 3965
+    },
+    {
+      "path": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "sha256": "47d242053634648b75d2fbcb780787a04d483e3d74c96b52d0b1bb7d5955077b",
+      "size_bytes": 4068
+    },
+    {
+      "path": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "sha256": "d0465a0032b1b32674aaa8e0db1aa1d7c12d962db0f80ab3501c7bcbfc5e0e96",
+      "size_bytes": 4765
+    },
+    {
+      "path": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "sha256": "85b2b481d23e3d4582a372dd3c62d98c0390f055a0c2c3c6350ce0bb0de8cac6",
+      "size_bytes": 3926
+    },
+    {
+      "path": "artifacts/stage_f2b/upstream_frozen_sha256.json",
+      "sha256": "847625bc99263a0c7194e5f5fafe6be5ac10635329e74d768c7e86f7ce8f49b5",
+      "size_bytes": 2060
+    }
+  ],
+  "schema_version": 1,
+  "verified_records": [
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "AUTHCAP_RESEARCH_PLAN.md",
+      "sha256": "9047bf2c87b161230a7933aedfa7f0ded0973ab1c161b44e40b8bdf0c4f165d2"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "PHASE_F0_REPORT.md",
+      "sha256": "17341be3e9b6a5e11c8627877c606822655b3cf6650265ae52f9553a487766cd"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "configs/stage_f0.yaml",
+      "sha256": "6fa1add80fc0f9b71f341d38337399b9b135678fb14636040e2f7f3ab877159a"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "configs/stage_f1.yaml",
+      "sha256": "b77ab1065e24cdd1ebd5be51d6a5f569f7d075142d35d29950ca7918cfe39417"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "configs/stage_f1_smoke.yaml",
+      "sha256": "4daa1a5eb238b1303b535e1a022085d7800a8edb3c1492b49a85f86ddc401a87"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "src/keyed_gram/authcap_types.py",
+      "sha256": "748d20fad54c86bd30c60cbdad88fc3947fbccc9f620eba6711478beb4e00aec"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "src/keyed_gram/authcap_authority.py",
+      "sha256": "b7d7813dad6c9e02cbfeacb76544c3a846065f758a2afe4f1f9d16dfa8004e10"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "src/keyed_gram/authcap_policy.py",
+      "sha256": "fd05a8f1317d0bad9f0f73ba4d0eb2fd38a549523ed72a93fde41d6f269870dd"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "src/keyed_gram/authcap_oracle.py",
+      "sha256": "d985c1769c7cd94edd9daaf3f5571cc4a2c885cbe5399c886be686d77c15d2e4"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "src/keyed_gram/authcap_benchmark.py",
+      "sha256": "0a146cacb212888a12c7e2bce3bdba7dd1015b5efd6d2f3c590b33fe95e3b16d"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "src/keyed_gram/authcap_collision.py",
+      "sha256": "a7f5b9b329a69e2543f428619bb84f2c8dd81cf972accce07937dd582809fcdc"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "src/keyed_gram/stage_f1.py",
+      "sha256": "a9e53152c5453129087700ea6876245fd623b118ad0015e2c5f756c6bc9ee18b"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "src/keyed_gram/stage_f1_protocol.py",
+      "sha256": "26a1644ff51cf2f2a7bd92330cfb4a1dbc36d21547d8deb27d15453b11eafa39"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "src/keyed_gram/stage_f1_metrics.py",
+      "sha256": "0d148b4acc238dcc6e52411e12f063c144dff5d692e9044001f28e752b0ee373"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "src/keyed_gram/cli.py",
+      "sha256": "953f525a6376c62fd60902641052d5ca6e08eefc478ee631df09c804a0955f81"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "tests/test_authcap_types.py",
+      "sha256": "8b4848679879b6981c9fec2601b0ae5c53faab0d3032669e750a2fdb2a69bba3"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "tests/test_authcap_authority.py",
+      "sha256": "6a0b10271af264c081228e630ed6aa3ab57cd50f04a197f53cf28d2209b7c2b9"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "tests/test_authcap_policy.py",
+      "sha256": "c6a3a2129e0a561ec63605b5bbd1a2ea9c2fa7c101f915217e8c1dff53aafdd2"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "tests/test_authcap_oracle.py",
+      "sha256": "1d651602f10c09fd6e73aae3ed330fbcb975579aff60ef8c99198497887f9392"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "tests/test_authcap_benchmark.py",
+      "sha256": "9183c70dce7d0b3f38e4519e06c789c70fc54458f1741f2fcadb12705ac4faa6"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "tests/test_authcap_collision.py",
+      "sha256": "85a381573d3a2f1348f08451cf531d2efcef352e79d8b9ef60e0da7a2d4ede1b"
+    },
+    {
+      "manifest": "artifacts/stage_f1/source_sha256_manifest.json",
+      "path": "tests/test_stage_f1_protocol.py",
+      "sha256": "01b2e65319cfb4af66053a517cffa038a3a86fd1327bbe9f766cc6f0aa4a9de7"
+    },
+    {
+      "manifest": "artifacts/stage_f1/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f1/benchmark_case_schema.json",
+      "sha256": "f9834250354957be871ac7e3539003a2797a7fe72eb9e2f963d011f67c5e125c"
+    },
+    {
+      "manifest": "artifacts/stage_f1/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f1/benchmark_distribution.csv",
+      "sha256": "492f43765917e8e6241d49b2a38a31b3b71827220dc554324b3d465f2fc5de13"
+    },
+    {
+      "manifest": "artifacts/stage_f1/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f1/benchmark_quality.json",
+      "sha256": "36d85c48513ecfe22f1de46cb72de056120ceca9d1ca91a3204b269c3b6fa509"
+    },
+    {
+      "manifest": "artifacts/stage_f1/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f1/benchmark_split_manifest.json",
+      "sha256": "7447b6e0784a02c9c6bc2ca0e855221e28913e301ee13c0d7c19600b1f4c1148"
+    },
+    {
+      "manifest": "artifacts/stage_f1/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f1/collision_audit.json",
+      "sha256": "43aeed4b7b13395de6a802fe3aa7ccc1ff832d18705ffab7da72b72a80da8b3b"
+    },
+    {
+      "manifest": "artifacts/stage_f1/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f1/oracle_manifest.json",
+      "sha256": "55a4347b15fbda5148ec0ba2e13b9420a980b5fe89f406e34f6b60f455393a1d"
+    },
+    {
+      "manifest": "artifacts/stage_f1/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f1/policy_manifest.json",
+      "sha256": "eaabeca22b113bd86e00123bbbec09ea6adaefd484ad89fec425aeaaff170fbb"
+    },
+    {
+      "manifest": "artifacts/stage_f1/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f1/protocol_status.json",
+      "sha256": "f27da8d7aaf5e18ecab15f561949f670845030fe1846ab529cdb2243bed6266c"
+    },
+    {
+      "manifest": "artifacts/stage_f1/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f1/resolved_config.json",
+      "sha256": "7105585f954a8ce3e28fdde22eb101113019bf17a9dad08a6bce97ce496cc4f7"
+    },
+    {
+      "manifest": "artifacts/stage_f1/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f1/source_sha256_manifest.json",
+      "sha256": "2b8840da95948fd7a6652563de6754bbf1ecbd9b73d533c624ace2c3b528cb0a"
+    },
+    {
+      "manifest": "artifacts/stage_f1/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f1/split_manifests/calibration.json",
+      "sha256": "135735564bd2acd7e736063633e464955115565af36bab5394dd1e00191f2d85"
+    },
+    {
+      "manifest": "artifacts/stage_f1/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f1/split_manifests/development.json",
+      "sha256": "6e9877adafb1a17f6e76e40cba311356885b32735fc55855712c837a69d7b08b"
+    },
+    {
+      "manifest": "artifacts/stage_f1/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f1/split_manifests/locked_test.json",
+      "sha256": "e5e8a2a3b107cdfd7361b6abbed98007b9688d635192bdc320566272a2df159c"
+    },
+    {
+      "manifest": "artifacts/stage_f1/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f1/split_manifests/train.json",
+      "sha256": "913e7256a6607800fc8197a54daf64c4c639c689e989b7c5add239555ba642c3"
+    },
+    {
+      "manifest": "artifacts/stage_f1/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f1/stage_f1_summary.json",
+      "sha256": "029ada9518498ffd66730be41aef13745a1f35120501dc07420c5d92060e8130"
+    },
+    {
+      "manifest": "artifacts/stage_f1/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f1/upstream_frozen_sha256.json",
+      "sha256": "2ef6bff25c823bbf9ee98f31aa35eaf2789ec91e81e634a3e20b07834583e528"
+    },
+    {
+      "manifest": "artifacts/stage_f1/upstream_frozen_sha256.json",
+      "path": "E0_RESEARCH_SYNTHESIS.md",
+      "sha256": "702ff8f0602d87208c993dce85c87082054ad0e28a078264c0de16347c1ee164"
+    },
+    {
+      "manifest": "artifacts/stage_f1/upstream_frozen_sha256.json",
+      "path": "docs/e0/EVIDENCE_SHA256.json",
+      "sha256": "545728ae4ce2b74986f0a0bd0c27d9448c3eb2b5217f1626a9c3b540700b8998"
+    },
+    {
+      "manifest": "artifacts/stage_f1/upstream_frozen_sha256.json",
+      "path": "docs/e0/STAGE_STATUS_REGISTRY.json",
+      "sha256": "d3c9bb5b3ec47cea2708a474bb0388881b95375771ac450ec8737fd9785005e7"
+    },
+    {
+      "manifest": "artifacts/stage_f1/upstream_frozen_sha256.json",
+      "path": "configs/research_status.yaml",
+      "sha256": "ad1a5ee7d1ad4111bac92a8149cc6fd9428ac1450170e56a7500b39543f7487f"
+    },
+    {
+      "manifest": "artifacts/stage_f1/upstream_frozen_sha256.json",
+      "path": "artifacts/stage_c25/artifact_sha256_manifest.json",
+      "sha256": "e23b75cf12d5b02e076b23756425552090b3858d0fa163967c8af79ea8d15cee"
+    },
+    {
+      "manifest": "artifacts/stage_f1/upstream_frozen_sha256.json",
+      "path": "artifacts/stage_d1/artifact_sha256_manifest.json",
+      "sha256": "c43e75262d56846072f9484ca870ae4bd981d8d03427ebc545ed6c93499d6eef"
+    },
+    {
+      "manifest": "artifacts/stage_f1/upstream_frozen_sha256.json",
+      "path": "artifacts/stage_d2/artifact_sha256_manifest.json",
+      "sha256": "fa7c626172dfccf4b283e6361ea4fd87b127ac69a03bed019a272360a1078138"
+    },
+    {
+      "manifest": "artifacts/stage_f1/upstream_frozen_sha256.json",
+      "path": "artifacts/stage_d21/artifact_sha256_manifest.json",
+      "sha256": "cc6ecf7c035e75e95a673121135e1a9730f2ea1a7fe5e744ee55b1b9358d3a5b"
+    },
+    {
+      "manifest": "artifacts/stage_f1/upstream_frozen_sha256.json",
+      "path": "artifacts/stage_d22/artifact_sha256_manifest.json",
+      "sha256": "70c1aea11679d7b0df653bd1cda70fe077b935c324daac0b796e40cdcfbe18e6"
+    },
+    {
+      "manifest": "artifacts/stage_f1/upstream_frozen_sha256.json",
+      "path": "artifacts/stage_d23/artifact_sha256_manifest.json",
+      "sha256": "bf5a9414220a594767827fb9295ca5b21617d4727d773a6443eec1bd594ab6b4"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "AUTHSYNTH_RESEARCH_PLAN.md",
+      "sha256": "a2b36de53c178526c6c49a032712f09c7e801f268c9ec3d1f94effdcd52410bc"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "configs/stage_f2a.yaml",
+      "sha256": "e681992cfa968e8954767581be661a789e958144799b594ad8dc0f2ce23b895c"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "docs/f2a/COUNTEREXAMPLES.md",
+      "sha256": "5c91aab5787b62ee5ea6e8f1469d46872d6c650a7ebbde55d106fb1a38ed8e90"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "docs/f2a/EXPERIMENT_PROTOCOL.md",
+      "sha256": "e64a27e18970d88c22005ffc692566b53e9d83b45fab6b9b071deedb74f9c5c2"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "docs/f2a/FORMAL_MODEL.md",
+      "sha256": "465d79576ef6f4c9adeb084b90e19db4b52a1394d46b58b16e12b0fd45b1eafb"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "docs/f2a/RELATED_WORK_GAP.md",
+      "sha256": "534b6f470f3aeee3c2ee3bdc02a32a720cb4aaec01f076565caba8fc8ae667dd"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "src/keyed_gram/tool_effects/__init__.py",
+      "sha256": "def4a2810c4ad1598167331ce029dc3a98ec7c24370a4ed55f9c634c561c9b22"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "src/keyed_gram/tool_effects/benchmark.py",
+      "sha256": "c43f63ab4a1f571c149369c0d565d06ca4c103ccfec7490ba1515ba5bbcf4d2a"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "src/keyed_gram/tool_effects/contracts.py",
+      "sha256": "f4d387b1a3a86095b4936842e8e6b7543b1938f62836853aee6f1609ae80b14d"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "src/keyed_gram/tool_effects/ir.py",
+      "sha256": "f0d42a2a146cbb4aea636694c8c79048f3974f349b6b01b4d5b6813bd5724823"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "src/keyed_gram/tool_effects/methods.py",
+      "sha256": "4a1d1024aabe815291641f9ee73ed5d790bf737505c023a15ff44b76dbe2f626"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "src/keyed_gram/tool_effects/metrics.py",
+      "sha256": "ba0bb1bbc862fab28de84aa00d0fe52ac664bc7e4e4a6bab32b70aeded3fea44"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "src/keyed_gram/tool_effects/shield.py",
+      "sha256": "5f2f9f98a1b2aa5096eccb6994db3174f679b73188635b5582fb40a02b063592"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "src/keyed_gram/tool_effects/types.py",
+      "sha256": "2a8677992526ed3eb5aceeab9ee0023f7ac3aef83f37d6c353f3bb7878b39128"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "src/keyed_gram/stage_f2a_autheffect.py",
+      "sha256": "37abd30b1cf90340c09496373a1dbf1930abf98073ac443ff63607916c8ec4c7"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "src/keyed_gram/stage_f2a_autheffect_protocol.py",
+      "sha256": "edc6eeac82416d4b057eb9bb047b69907486f3cf558ea0e6f1974dcc579e839a"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "tests/test_stage_f2a_autheffect.py",
+      "sha256": "4f955e0f58299c2061ceb0bb59c4377055f52b6ddd69cb049b45eb844179617c"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "tests/test_tool_effect_benchmark.py",
+      "sha256": "02bbfcd739a25a109534c339bab3588b33f09fcffe260b00f087631bd418a3c0"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "tests/test_tool_effect_contracts.py",
+      "sha256": "83096ee225675a59d433cbaec3cf6d8ffea69e42bff9994f4719b7c0e9f38dc0"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "tests/test_tool_effect_ir.py",
+      "sha256": "47f17b4407a89c4650a33b5b279dbf7f1e8daf599b9c94692d581856edef443d"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "tests/test_tool_effect_methods.py",
+      "sha256": "4b21e73aa74dabb23efc34754969d0edd21a6b224abcc8ca079d4404fee68c2f"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "path": "tests/test_tool_effect_shield.py",
+      "sha256": "8fe67adab71a4c8633b3c6fd544d07bd2f69247be529907140fdf5b9e5615d63"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/analyzer_freeze_manifest.json",
+      "sha256": "81dd13147ede7625022a6640e8fc15870864a244419621e477d2da4ddbdd4781"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/benchmark_manifest.json",
+      "sha256": "09d2f52e3624a1ddc53f2e4eec6b20467487a3ffa953008699a3f08d424bae1a"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/calibration_sanity.csv",
+      "sha256": "e2ddd6e2dfd81641cefb5ff13daae6cf2be2c4276df0126cf859190d1934baf4"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/case_results.csv",
+      "sha256": "959658965e5edb119a2a67555aca489362dd75416e29c949509461c1c13115d3"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/cgar_refinement_summary.json",
+      "sha256": "e7e1bd58c575082ebdec4eeb9a8e82ada4cbfcd06c27911b158443cfff7116cc"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/collision_audit.json",
+      "sha256": "f1637a8fbc1e7a6463d5d63623990bb121b4411640d64d11da574635cf08fe55"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/development_results.csv",
+      "sha256": "bdb62061616859c5373cdf9fe6934a8bb30a0e6d1820dba707a41eb77a2ee433"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/exact_shield_summary.json",
+      "sha256": "43f7c7cc97a96f936e52a935af26d42eccb4967bab78f6d2ff7b8fc3c91ca6a9"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/feasibility_gate.json",
+      "sha256": "793f6728b8b97edb04b7501c6cd50b95cdea6108476d0dfd7c064f8c418ffb36"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/locked_test_results.csv",
+      "sha256": "5a694f3204c637969bff0f33deb63cf37dd14ca7e47ea18b9a2f96eb21767836"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/method_metrics.csv",
+      "sha256": "6126346115d1bc812c9ea978fdb0e59162fbcf747011cc78e184c0e205783c1b"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/per_category_metrics.csv",
+      "sha256": "4576a51825579b2add3a97f77720072bbaeb9bbcd938b78bf543727fd032655d"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/protocol_status.json",
+      "sha256": "e2348154ef5d4ace328e43bdfdded2bb0bb377decae7f542e381dd88b0fab632"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/resolved_config.json",
+      "sha256": "912f2f3ad1168468d45c43a76cdc9e5d058cbf02ff4009d5b01f6c1a579942a0"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/sensitive_material_scan.json",
+      "sha256": "6713c433146de2f25746b3c4d05137e27ef92f4fa8da8d50648b5def15b0fafe"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "sha256": "f05522f082ef4320e957edd60c394e5086afe0a5b3c6b2e66898dbb29ec07c77"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/split_manifests/calibration.json",
+      "sha256": "7fd8ef6063bf381f1382e104fae9e8f09ec674b3fa226ab9925d84756cb47a0e"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/split_manifests/development.json",
+      "sha256": "056033622813dce26ec09b3528b69578f6c9c333ba8dd0165070abbcca9faee7"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/split_manifests/locked_test.json",
+      "sha256": "1ff8ddefea4fe4163d344426972e22af136a463377566a42534f1589a9ca199a"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/split_manifests/train.json",
+      "sha256": "cb90ed9f7c223895ef58d11ebaea089755a5aed38e8aab52918a5de490e68937"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/stage_f2a_summary.json",
+      "sha256": "561a9ccafc1f4c8e0b14a97f94b277801e697991f5692f1efcf3444b366dec4d"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/upstream_f1_sha256.json",
+      "sha256": "5913b7cebe7ebecb833668a7d58d54cfc0626fc1443d443e8e39063e5674b819"
+    },
+    {
+      "manifest": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2a_autheffect/variant_registry.json",
+      "sha256": "4cb5722c317faf00a5d1d9be82ed2ff9e631881fff45d32853d0f6c8aa0a64fa"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "AUTHSYNTH_F2B_RESEARCH_PLAN.md",
+      "sha256": "bff19874318d943884ed526804642e1aa55cb1cdfdc4afdf0818ca1873106467"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "configs/stage_f2b.yaml",
+      "sha256": "8879d554fa3c910329072a9aee41c0bd35078c6c4d66a6f471eee633fae519ae"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "docs/f2b/CGAR_ALGORITHM.md",
+      "sha256": "839cf3f569c2b82fb5632099abd92c9c933e2241224be08f4a5aa3f0528300ba"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "docs/f2b/COMPLETENESS_DEFINITIONS.md",
+      "sha256": "4bd0b284eb8ad5da233f45252f31ef2ab9657a5efe647d5959dd4c613942f196"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "docs/f2b/EXPERIMENT_PROTOCOL.md",
+      "sha256": "88346d63015e61cfd022dc87014f11169a514b056bde4b6558e1e11bc8a92d10"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "docs/f2b/F2A_REINTERPRETATION.md",
+      "sha256": "0a9a4613870f3879031b5caaddcc2ac77bfdfbd04bc52cdc718cf9c2c13aefd9"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "docs/f2b/INFORMATION_BOUNDARY.md",
+      "sha256": "27f14600395788201228e1379a52e66e53520e9d947d1e1d9a9acc02c3dd09e1"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "src/keyed_gram/authsynth_shared/__init__.py",
+      "sha256": "c3c71dee3604926dc8b9536d3713e1d08161f7576646cca57935806f419b0d2f"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "src/keyed_gram/authsynth_shared/schema.py",
+      "sha256": "de6f5ee8cab931bc1c6ccb980d16efbe37a83ad24950dd184e9fc6329904c78c"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "src/keyed_gram/authsynth_analyzer/__init__.py",
+      "sha256": "21a6a4b9389443cc2593ff568a36a1aac31d6fa1c8e4995221f6d322c75e6f6f"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "src/keyed_gram/authsynth_analyzer/cgar.py",
+      "sha256": "cf6c11fbd6dc9d83b4e33c1fc846cc3fadc6b807eb69f9f3fa8fd701faf53609"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "src/keyed_gram/authsynth_analyzer/models.py",
+      "sha256": "be3bfa62c0ccecfe6457a5c2421773675b7ff2b3b9fd35e8b8b6da59f63e067e"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "src/keyed_gram/authsynth_analyzer/replay.py",
+      "sha256": "135d0518085266086234d178cc338a60199b8eddfefc3d4c261c76be83764e5e"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "src/keyed_gram/authsynth_analyzer/shield.py",
+      "sha256": "02bde3a82054149045467f7013fd2766f343c000df13806b89aae7b03eee8ccf"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "src/keyed_gram/authsynth_evaluator/__init__.py",
+      "sha256": "e3a7dc9672ae13fd52e257497185c5bc1af00c4fd5cf44df6fea025bd55c07d6"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "src/keyed_gram/authsynth_evaluator/benchmark.py",
+      "sha256": "94d53723d9318db262ae545a9f793a8947d99693ecc533f1dab4097c45bcdc08"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "src/keyed_gram/authsynth_evaluator/cases.py",
+      "sha256": "275dce9f22ead7496ffc803a12acd89b5aeacfd6940dfeb9cee2bbfc4e86e53b"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "src/keyed_gram/authsynth_evaluator/evaluate.py",
+      "sha256": "90d8ca814ac5f0c6c2037aa50a171c1ac1201682b7c79c19b9d3266af5d4f4db"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "src/keyed_gram/authsynth_evaluator/replay_service.py",
+      "sha256": "35d5ac0383fbf3fa0262ec7a595da4a7ff9dba31026a554bf97827a9f12c67bb"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "src/keyed_gram/stage_f2b.py",
+      "sha256": "763792f2b76942f0e3a917b8b5c2cf88e9002b8f99f3696efe221054cdbef0fc"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "src/keyed_gram/stage_f2b_protocol.py",
+      "sha256": "2062ea797063abb584075823b416a2e9046a79ce0e2f2d8af42a8a304b390610"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "tests/test_authsynth_blind_cgar.py",
+      "sha256": "3c40f4d72949888fe490d5ad5636914984db8165a3a189a6fbc48cc397f450be"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "tests/test_authsynth_dependency_boundary.py",
+      "sha256": "44cf677b0201bf28941a72a5a33cf8e3f6f61f174258cf091362155069dbbf74"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "tests/test_authsynth_evaluator.py",
+      "sha256": "6bcb1ccc4d20851fe0cac2d7b58ee0b7b4a254383f30cc4fd9686b3a7ccbd160"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "tests/test_authsynth_shared_schema.py",
+      "sha256": "b3035b8d8187a63565a31a7698952d3b836e8f9702d64efda19360dea8e8b61b"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "path": "tests/test_stage_f2b_protocol.py",
+      "sha256": "55f72b6d2e58731e2a272e3eebd9251b8d90526669ded6959fe9c7711f9bbc72"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/aggregate_metrics.csv",
+      "sha256": "e053dd485adeba8aefc908142fafcd6a84f348d6227bb4e46c1cc3a4044998ba"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/analyzer_freeze_manifest.json",
+      "sha256": "94909ab2eb61b426e302a11c9aa5be8a96a9c6fe89249658d541aa760a580425"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/benchmark_manifest.json",
+      "sha256": "3ee783630e447f741fe294cfdbda1d096e6d215d1b49579fbf2e81d2a61d0563"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/calibration_results.csv",
+      "sha256": "7eba29c465d25e4b7fc9143ea17354c4e2aa1c6e1a7ca8b636103449a173823b"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/collision_audit.json",
+      "sha256": "67810bc05621f7082b03562e615283e877d54bb348e18ebb0eb4f82eec0f25b8"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/development_results.csv",
+      "sha256": "f0cf13149b4b754a3f085b1d8c1a505f507c86b3206c3ad2105274196ac35d52"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/information_boundary_audit.json",
+      "sha256": "0274aeea53941262d1f764f87f64fa0d67da903003f96fbbecfdd4afe5b1e180"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/locked_test_results.csv",
+      "sha256": "c62791364e48961e6ce55760b204667716298706257fde1e7b6cd98a5cb1fa21"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/per_category_metrics.csv",
+      "sha256": "1cb92e313dc33c0183888ab530d0a384a433eaeccded38b8075292a43d47964e"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/protocol_status.json",
+      "sha256": "bb9441c09031cfbc2b26d63e3470a87bf9d96074d1b0d0caf4b8295c6d4590b1"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/refinement_metrics.json",
+      "sha256": "e063a93187dc96ac6be5b37df329ffc876453b1b816a2e8d44b96ee91631224c"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/refinement_trace_digests.csv",
+      "sha256": "e7504a65f5c1654bf436f0fbb1caa95c2fbcc7235ad0a3fa4576d8192a10bb86"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/resolved_config.json",
+      "sha256": "4df9e310853b5b2ebadf5886edb695e0d5e10943b94bc997c39db18eeb5cdf7a"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/sensitive_material_scan.json",
+      "sha256": "ca756bc40cfc788c78d15fbad89dca2b711363aa825d86f6cde8db0b2b98e3a3"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/source_sha256_manifest.json",
+      "sha256": "d0465a0032b1b32674aaa8e0db1aa1d7c12d962db0f80ab3501c7bcbfc5e0e96"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/split_manifests/calibration.json",
+      "sha256": "59742909433157cee53532d8ec89be001515a76c88d1f4ee1db39020782c2665"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/split_manifests/development.json",
+      "sha256": "2a2f576062ddeb987d584596219818101189fe2d86e3bc098ced4c95cfcfcca5"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/split_manifests/locked_test.json",
+      "sha256": "4ed6e13cd1603f0301dbe461caeff9b928b05c3bb4f39581b5027d291f469371"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/split_manifests/train.json",
+      "sha256": "c4712c9176004a5977d0dc8333f2e7d70540e27290c6fa3f655f0844c735a564"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/stage_f2b_summary.json",
+      "sha256": "89f72340497fcac4f3ed6e4eec6b44d1c100697796e2acc659258eeb158df18d"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/upstream_frozen_sha256.json",
+      "sha256": "847625bc99263a0c7194e5f5fafe6be5ac10635329e74d768c7e86f7ce8f49b5"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/artifact_sha256_manifest.json",
+      "path": "artifacts/stage_f2b/variant_registry.json",
+      "sha256": "58a9ff174e922d4356be471faea6208d297bd6070a6ca2f6609db5b54edd2ba6"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/upstream_frozen_sha256.json",
+      "path": "AUTHCAP_RESEARCH_PLAN.md",
+      "sha256": "9047bf2c87b161230a7933aedfa7f0ded0973ab1c161b44e40b8bdf0c4f165d2"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/upstream_frozen_sha256.json",
+      "path": "PHASE_F1_REPORT.md",
+      "sha256": "28e9956192b20704589ecfc71baa37ed8d0f2b35567de32a8167b8fb6e7a51c9"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/upstream_frozen_sha256.json",
+      "path": "artifacts/stage_f1/stage_f1_summary.json",
+      "sha256": "029ada9518498ffd66730be41aef13745a1f35120501dc07420c5d92060e8130"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/upstream_frozen_sha256.json",
+      "path": "PHASE_F2A_REPORT.md",
+      "sha256": "3f7d4a24ff0bfd1a185c34069257fb1cae863de34095e5825fd7b809cf365d31"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/upstream_frozen_sha256.json",
+      "path": "artifacts/stage_f2a_autheffect/artifact_sha256_manifest.json",
+      "sha256": "47d242053634648b75d2fbcb780787a04d483e3d74c96b52d0b1bb7d5955077b"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/upstream_frozen_sha256.json",
+      "path": "artifacts/stage_f2a_autheffect/source_sha256_manifest.json",
+      "sha256": "f05522f082ef4320e957edd60c394e5086afe0a5b3c6b2e66898dbb29ec07c77"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/upstream_frozen_sha256.json",
+      "path": "artifacts/stage_f2a_autheffect/stage_f2a_summary.json",
+      "sha256": "561a9ccafc1f4c8e0b14a97f94b277801e697991f5692f1efcf3444b366dec4d"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/upstream_frozen_sha256.json",
+      "path": "AUTHSYNTH_F2B_RESEARCH_PLAN.md",
+      "sha256": "bff19874318d943884ed526804642e1aa55cb1cdfdc4afdf0818ca1873106467"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/upstream_frozen_sha256.json",
+      "path": "src/keyed_gram/authsynth_shared/schema.py",
+      "sha256": "de6f5ee8cab931bc1c6ccb980d16efbe37a83ad24950dd184e9fc6329904c78c"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/upstream_frozen_sha256.json",
+      "path": "src/keyed_gram/authsynth_analyzer/cgar.py",
+      "sha256": "cf6c11fbd6dc9d83b4e33c1fc846cc3fadc6b807eb69f9f3fa8fd701faf53609"
+    },
+    {
+      "manifest": "artifacts/stage_f2b/upstream_frozen_sha256.json",
+      "path": "src/keyed_gram/authsynth_analyzer/shield.py",
+      "sha256": "02bde3a82054149045467f7013fd2766f343c000df13806b89aae7b03eee8ccf"
+    }
+  ]
+}

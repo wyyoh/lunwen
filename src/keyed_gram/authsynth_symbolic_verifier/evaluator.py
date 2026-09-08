@@ -20,6 +20,7 @@ from keyed_gram.authsynth_symbolic_shared import (
     ConcreteAssignment,
     ConcreteEffect,
     ContractStatus,
+    PatchAtom,
     ShieldStatus,
     StateChange,
     StructuredStateDiff,
@@ -124,6 +125,11 @@ class SymbolicEvaluationRow:
     contract_ast_node_count: int
     contract_size_bytes: int
     certificate_size_bytes: int
+    predicted_patch_atom_digests: tuple[str, ...] = ()
+    expected_patch_atom_digests: tuple[str, ...] = ()
+    discovered_omission_atom_digests: tuple[str, ...] = ()
+    expected_omission_atom_digests: tuple[str, ...] = ()
+    unlocated_patch_record_count: int = 0
 
     def to_dict(self) -> dict[str, Any]:
         return self.__dict__.copy()
@@ -512,6 +518,28 @@ def _evaluate_case_method(
             }
         )
     )
+    expected_atoms = set(case.omission_atoms)
+    if case.implementation.proof_obstacle is not None:
+        expected_atoms.add(
+            PatchAtom(
+                "unsupported_region",
+                "tool",
+                case.analyzer_input.tool_id,
+                case.implementation.proof_obstacle,
+            )
+        )
+    patch_records = execution.outcome.patch_records if execution.outcome else ()
+    predicted_atom_ids = {
+        record.atom.digest
+        if record.atom is not None
+        else canonical_digest(
+            {
+                "unlocated_patch_type": record.patch_type,
+                "evidence_digest": record.target_digest,
+            }
+        )
+        for record in patch_records
+    }
     old_reuse = False
     if drift_expected and execution.outcome is not None:
         old_id = case.analyzer_input.existing_certificate_id
@@ -571,7 +599,9 @@ def _evaluate_case_method(
         old_certificate_reused_after_drift=old_reuse,
         converged=execution.contract_status == ContractStatus.VERIFIED_COMPLETE,
         predicted_patch_types=predicted_patches,
-        expected_patch_types=tuple(sorted(case.omission_atoms)),
+        expected_patch_types=tuple(
+            sorted({atom.patch_type for atom in expected_atoms})
+        ),
         reason_codes=(execution.outcome.reason_codes if execution.outcome else ()),
         contract_digest="" if contract is None else contract.digest,
         certificate_id=(
@@ -601,6 +631,24 @@ def _evaluate_case_method(
         if contract is None
         else len(canonical_json(contract.to_dict()).encode("utf-8")),
         certificate_size_bytes=certificate_size,
+        predicted_patch_atom_digests=tuple(sorted(predicted_atom_ids)),
+        expected_patch_atom_digests=tuple(
+            sorted(atom.digest for atom in expected_atoms)
+        ),
+        discovered_omission_atom_digests=tuple(
+            sorted(
+                atom.digest
+                for atom in (
+                    execution.outcome.discovered_atoms if execution.outcome else ()
+                )
+            )
+        ),
+        expected_omission_atom_digests=tuple(
+            sorted(atom.digest for atom in case.omission_atoms)
+        ),
+        unlocated_patch_record_count=sum(
+            record.atom is None for record in patch_records
+        ),
     )
 
 
@@ -631,6 +679,28 @@ def aggregate_metrics(
         patch_tp = sum(
             len(set(item.expected_patch_types) & set(item.predicted_patch_types))
             for item in selected
+        )
+        expected_atom_count = sum(
+            len(set(r.expected_patch_atom_digests)) for r in selected
+        )
+        predicted_atom_count = sum(
+            len(set(r.predicted_patch_atom_digests)) for r in selected
+        )
+        atom_tp = sum(
+            len(
+                set(r.expected_patch_atom_digests) & set(r.predicted_patch_atom_digests)
+            )
+            for r in selected
+        )
+        omission_count = sum(
+            len(set(r.expected_omission_atom_digests)) for r in selected
+        )
+        discovered_count = sum(
+            len(
+                set(r.expected_omission_atom_digests)
+                & set(r.discovered_omission_atom_digests)
+            )
+            for r in selected
         )
         drift_expected = sum(item.drift_expected for item in selected)
         result = {
@@ -724,10 +794,28 @@ def aggregate_metrics(
             ),
             "patch_type_precision": ratio(patch_tp, predicted_patches),
             "patch_type_recall": ratio(patch_tp, expected_patches),
-            "omission_atom_discovery_recall": ratio(patch_tp, expected_patches),
+            "patch_atom_precision": ratio(atom_tp, predicted_atom_count),
+            "patch_atom_recall": ratio(atom_tp, expected_atom_count),
+            "predicted_patch_atom_count": predicted_atom_count,
+            "expected_patch_atom_count": expected_atom_count,
+            "true_positive_patch_atom_count": atom_tp,
+            "unlocated_patch_record_count": sum(
+                r.unlocated_patch_record_count for r in selected
+            ),
+            "omission_atom_discovery_recall": ratio(discovered_count, omission_count),
+            "expected_omission_atom_count": omission_count,
+            "discovered_omission_atom_count": discovered_count,
+            "exact_patch_type_set_rate": ratio(
+                sum(
+                    set(r.predicted_patch_types) == set(r.expected_patch_types)
+                    for r in selected
+                ),
+                len(selected),
+            ),
             "exact_patch_set_rate": ratio(
                 sum(
-                    set(item.predicted_patch_types) == set(item.expected_patch_types)
+                    set(item.predicted_patch_atom_digests)
+                    == set(item.expected_patch_atom_digests)
                     for item in selected
                 ),
                 len(selected),
