@@ -1,0 +1,231 @@
+[
+  {
+    "environment": [
+      "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "LANG=C.UTF-8",
+      "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+      "PYTHON_VERSION=3.12.14",
+      "PYTHON_SHA256=5c8462af5790baf43a321a1559dbe0db06d1be4300fb85fb53c40060668e548a",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "PYTHONUNBUFFERED=1",
+      "PYTHONHASHSEED=0",
+      "PYTHONPATH=/workspace/lunwen/src",
+      "PIP_DISABLE_PIP_VERSION_CHECK=1",
+      "PIP_NO_CACHE_DIR=1",
+      "OMP_NUM_THREADS=1",
+      "MKL_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "NUMEXPR_NUM_THREADS=1",
+      "TORCH_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "HF_HUB_OFFLINE=1",
+      "TRANSFORMERS_OFFLINE=1",
+      "HF_DATASETS_OFFLINE=1"
+    ],
+    "host_config": {
+      "CapDrop": [
+        "ALL"
+      ],
+      "Memory": 4294967296,
+      "NanoCpus": 4000000000,
+      "NetworkMode": "none",
+      "PidsLimit": 256,
+      "ReadonlyRootfs": true,
+      "SecurityOpt": [
+        "no-new-privileges"
+      ]
+    },
+    "image": "sha256:b89ea8a6918ad5a06f04119cbe745178be48801c0c8e192faf28b74e39d14d4b",
+    "mounts": [
+      {
+        "Destination": "/workspace/lunwen",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "/var/tmp/f2c-container-check.Og31rZ/source",
+        "Type": "bind"
+      },
+      {
+        "Destination": "/workspace/runtime",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": true,
+        "Source": "/mnt/c/Users/pc/AppData/Local/Temp/f2c-results-Og31rZ",
+        "Type": "bind"
+      }
+    ],
+    "name": "/f2c-preflight-Og31rZ",
+    "state": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 1,
+      "FinishedAt": "2026-09-08T06:49:34.812678249Z",
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 0,
+      "Restarting": false,
+      "Running": false,
+      "StartedAt": "2026-09-08T06:49:28.408419709Z",
+      "Status": "exited"
+    },
+    "user": "researcher"
+  },
+  {
+    "environment": [
+      "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "LANG=C.UTF-8",
+      "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+      "PYTHON_VERSION=3.12.14",
+      "PYTHON_SHA256=5c8462af5790baf43a321a1559dbe0db06d1be4300fb85fb53c40060668e548a",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "PYTHONUNBUFFERED=1",
+      "PYTHONHASHSEED=0",
+      "PYTHONPATH=/workspace/lunwen/src",
+      "PIP_DISABLE_PIP_VERSION_CHECK=1",
+      "PIP_NO_CACHE_DIR=1",
+      "OMP_NUM_THREADS=1",
+      "MKL_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "NUMEXPR_NUM_THREADS=1",
+      "TORCH_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "HF_HUB_OFFLINE=1",
+      "TRANSFORMERS_OFFLINE=1",
+      "HF_DATASETS_OFFLINE=1"
+    ],
+    "host_config": {
+      "CapDrop": [
+        "ALL"
+      ],
+      "Memory": 4294967296,
+      "NanoCpus": 4000000000,
+      "NetworkMode": "none",
+      "PidsLimit": 256,
+      "ReadonlyRootfs": true,
+      "SecurityOpt": [
+        "no-new-privileges"
+      ]
+    },
+    "image": "sha256:b89ea8a6918ad5a06f04119cbe745178be48801c0c8e192faf28b74e39d14d4b",
+    "mounts": [
+      {
+        "Destination": "/workspace/lunwen",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "/var/tmp/f2c-container-check.Og31rZ/source",
+        "Type": "bind"
+      },
+      {
+        "Destination": "/workspace/run_train.py",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "/mnt/c/Users/pc/AppData/Local/Temp/run_f2c_train_pilot.py",
+        "Type": "bind"
+      },
+      {
+        "Destination": "/workspace/runtime",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": true,
+        "Source": "/mnt/c/Users/pc/AppData/Local/Temp/f2c-results-Og31rZ",
+        "Type": "bind"
+      }
+    ],
+    "name": "/f2c-train-Og31rZ",
+    "state": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 1,
+      "FinishedAt": "2026-09-08T06:49:40.882784971Z",
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 0,
+      "Restarting": false,
+      "Running": false,
+      "StartedAt": "2026-09-08T06:49:40.754657747Z",
+      "Status": "exited"
+    },
+    "user": "researcher"
+  },
+  {
+    "environment": [
+      "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "LANG=C.UTF-8",
+      "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+      "PYTHON_VERSION=3.12.14",
+      "PYTHON_SHA256=5c8462af5790baf43a321a1559dbe0db06d1be4300fb85fb53c40060668e548a",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "PYTHONUNBUFFERED=1",
+      "PYTHONHASHSEED=0",
+      "PYTHONPATH=/workspace/lunwen/src",
+      "PIP_DISABLE_PIP_VERSION_CHECK=1",
+      "PIP_NO_CACHE_DIR=1",
+      "OMP_NUM_THREADS=1",
+      "MKL_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "NUMEXPR_NUM_THREADS=1",
+      "TORCH_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "HF_HUB_OFFLINE=1",
+      "TRANSFORMERS_OFFLINE=1",
+      "HF_DATASETS_OFFLINE=1"
+    ],
+    "host_config": {
+      "CapDrop": [
+        "ALL"
+      ],
+      "Memory": 4294967296,
+      "NanoCpus": 4000000000,
+      "NetworkMode": "none",
+      "PidsLimit": 256,
+      "ReadonlyRootfs": true,
+      "SecurityOpt": [
+        "no-new-privileges"
+      ]
+    },
+    "image": "sha256:b89ea8a6918ad5a06f04119cbe745178be48801c0c8e192faf28b74e39d14d4b",
+    "mounts": [
+      {
+        "Destination": "/workspace/run_train.py",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "/mnt/c/Users/pc/AppData/Local/Temp/run_f2c_train_pilot_v2.py",
+        "Type": "bind"
+      },
+      {
+        "Destination": "/workspace/runtime",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": true,
+        "Source": "/mnt/c/Users/pc/AppData/Local/Temp/f2c-results-Og31rZ",
+        "Type": "bind"
+      },
+      {
+        "Destination": "/workspace/lunwen",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "/var/tmp/f2c-container-check.Og31rZ/source",
+        "Type": "bind"
+      }
+    ],
+    "name": "/f2c-train-v2-Og31rZ",
+    "state": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 0,
+      "FinishedAt": "2026-09-08T06:52:24.827547318Z",
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 0,
+      "Restarting": false,
+      "Running": false,
+      "StartedAt": "2026-09-08T06:51:19.181503492Z",
+      "Status": "exited"
+    },
+    "user": "researcher"
+  }
+]
