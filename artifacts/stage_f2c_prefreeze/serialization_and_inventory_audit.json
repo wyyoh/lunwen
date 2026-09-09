@@ -1,0 +1,12 @@
+{
+  "inventory_mismatch_count": 0,
+  "is_analyzer_freeze_manifest": false,
+  "scan_scope": "本轮修改/新增文本文件；私钥、GitHub token 与已知 canary 标记，不是任意秘密不存在的证明。",
+  "scanned_changed_file_count": 31,
+  "schema_version": 1,
+  "sensitive_marker_occurrence_count": 0,
+  "sha256_mismatch_count": 0,
+  "status": "passed",
+  "strict_json_failure_count": 0,
+  "unsafe_path_count": 0
+}

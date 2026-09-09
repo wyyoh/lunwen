@@ -382,7 +382,7 @@ def _declared_contract(
     return base
 
 
-def _make_case(
+def _make_legacy_case(
     seed: str,
     *,
     serial: int,
@@ -453,6 +453,103 @@ def _make_case(
         reference_contract=reference,
         expected_unknown=unknown,
         clean_control=category in CONTROLS,
+    )
+
+
+def _make_case(
+    seed,
+    *,
+    serial,
+    tool_family,
+    split,
+    domain,
+    category,
+    grammar,
+    replay_budget,
+    solver_timeout_ms,
+):
+    from .template_families import contract, declared, definition
+
+    template = definition(split, category)
+    public_id = f"f2c-{split}-{serial:04d}"
+    tool_id = _opaque(seed, public_id, "tool", prefix="tool")
+    version = _version(seed, tool_family, "v1")
+    actual_version = (
+        _version(seed, tool_family, f"v2-{serial}")
+        if category == "implementation_drift"
+        else version
+    )
+    reference = contract(template, tool_id, actual_version)
+    initial = declared(template, reference, category, version)
+    unknown = category == "exact_declared_control" and (serial // 10) % 2 == 0
+    implementation = HiddenSymbolicImplementation(
+        tool_id,
+        template.schema,
+        actual_version,
+        template.transitions,
+        delayed_depth=int(category == "bounded_delayed_effect"),
+        proof_obstacle="instrumentation_coverage_incomplete" if unknown else None,
+        bounded_loop_max=0 if template.loop is None else template.loop.max_iterations,
+        loop=template.loop,
+        after_loop=template.after_loop,
+    )
+    analyzer = SymbolicAnalyzerInput(
+        case_handle=_opaque(seed, public_id, "handle"),
+        public_case_id=public_id,
+        tool_id=tool_id,
+        schema=template.schema,
+        declared_contract=initial,
+        static_hypotheses=(),
+        trusted_safety_spec=TrustedSafetySpecification(
+            f"spec-{split}-{domain}",
+            frozenset({"delete", "execute"}),
+            frozenset({"external"}),
+            2,
+        ),
+        expected_version_digest=version,
+        existing_certificate_id=f"cert-old-{canonical_digest((tool_id, version))[:16]}",
+        grammar_limits=grammar,
+        replay_budget=replay_budget,
+        solver_timeout_ms=solver_timeout_ms,
+        max_iterations=replay_budget + 4,
+    )
+    family = f"{split}-{tool_family}-{category}"
+    return HiddenSymbolicCase(
+        analyzer,
+        split,
+        domain,
+        tool_family,
+        category,
+        family,
+        f"guard-{family}",
+        f"binding-{family}",
+        f"version-{family}",
+        f"ast-{family}",
+        implementation,
+        reference,
+        unknown,
+        category in CONTROLS,
+    )
+
+
+def generate_legacy_symbolic_fixtures(
+    seed, *, grammar, replay_budget, solver_timeout_ms
+):
+    """旧 train/calibration 仅作回归 fixture，绝不用于新 benchmark 或正式评分。"""
+    return tuple(
+        _make_legacy_case(
+            seed,
+            serial=i * 10 + j + 1,
+            tool_family=family,
+            split=split,
+            domain=domain,
+            category=category,
+            grammar=grammar,
+            replay_budget=replay_budget,
+            solver_timeout_ms=solver_timeout_ms,
+        )
+        for i, (family, split, domain) in enumerate(_TOOLS[:8])
+        for j, category in enumerate((*MUTATIONS, *CONTROLS))
     )
 
 
@@ -557,7 +654,7 @@ def enumerate_assignments(schema: BoundedSchema) -> Iterator[ConcreteAssignment]
         yield ConcreteAssignment(tuple(inputs), tuple(state))
 
 
-def collision_audit(cases: Sequence[HiddenSymbolicCase]) -> dict:
+def _legacy_collision_audit(cases: Sequence[HiddenSymbolicCase]) -> dict:
     """同时检查登记 ID 与实际内容；split 前缀不能充当结构隔离证据。
 
     shape 检查保守地忽略名称和常量取值，并保留操作符、字段角色和树结构。
@@ -586,8 +683,17 @@ def collision_audit(cases: Sequence[HiddenSymbolicCase]) -> dict:
                 for key, value in item.to_digest_dict().items()
                 if key != "transition_id"
             }
-            for item in case.implementation.transitions
+            for item in all_transitions(case)
         ]
+
+    def all_transitions(case):
+        implementation = case.implementation
+        loop = getattr(implementation, "loop", None)
+        return (
+            *implementation.transitions,
+            *(loop.body if loop else ()),
+            *getattr(implementation, "after_loop", ()),
+        )
 
     def schema_shape(case: HiddenSymbolicCase, source: str) -> list[dict]:
         fields = []
@@ -612,7 +718,7 @@ def collision_audit(cases: Sequence[HiddenSymbolicCase]) -> dict:
                     for key in ("tenant", "resource", "destination", "amount")
                 }
             )
-            for transition in case.implementation.transitions
+            for transition in all_transitions(case)
             for effect in transition.all_effects()
         ]
 
@@ -655,10 +761,7 @@ def collision_audit(cases: Sequence[HiddenSymbolicCase]) -> dict:
             schema_shape(item, "state")
         ),
         "guard_template_content": lambda item: canonical_digest(
-            [
-                shape(transition.guard.to_dict())
-                for transition in item.implementation.transitions
-            ]
+            [shape(transition.guard.to_dict()) for transition in all_transitions(item)]
         ),
         "field_binding_template_content": lambda item: canonical_digest(
             binding_shape(item)
@@ -702,6 +805,37 @@ def collision_audit(cases: Sequence[HiddenSymbolicCase]) -> dict:
         "split_case_counts": dict(
             sorted(Counter(item.split for item in cases).items())
         ),
+    }
+
+
+def collision_audit(cases: Sequence[HiddenSymbolicCase]) -> dict:
+    from .template_isolation import TemplateDefinition, audit_templates
+
+    legacy = _legacy_collision_audit(cases)
+    definitions = tuple(
+        TemplateDefinition(
+            case.mutation_family,
+            case.split,
+            case.implementation.schema,
+            case.implementation.transitions,
+            case.reference_contract.clauses,
+            case.reference_contract.state_updates,
+            loop=case.implementation.loop,
+            after_loop=case.implementation.after_loop,
+        )
+        for case in cases
+    )
+    independent = audit_templates(definitions)
+    return {
+        **legacy,
+        **independent,
+        "legacy_collision_count": legacy["cross_split_collision_count"],
+        "cross_split_collision_count": legacy["cross_split_collision_count"]
+        + independent["cross_split_collision_count"],
+        "status": "passed"
+        if legacy["cross_split_collision_count"] == 0
+        and independent["status"] == "passed"
+        else "failed",
     }
 
 

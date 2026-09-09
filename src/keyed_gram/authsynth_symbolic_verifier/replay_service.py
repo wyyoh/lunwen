@@ -12,6 +12,7 @@ from keyed_gram.authsynth_symbolic_shared import (
     SymbolicReplayResult,
 )
 
+from .bounded_loop import UnsupportedLoop
 from .hidden_ir import HiddenSymbolicCase
 
 
@@ -29,7 +30,17 @@ class SymbolicSandboxReplay:
         except KeyError as exc:
             raise ValueError("未知 symbolic replay handle") from exc
         implementation = case.implementation
-        events, updates = implementation.execute(assignment)
+        count, reason, exit_status = 0, "ACYCLIC", "ok"
+        try:
+            if implementation.loop is not None:
+                execution = implementation.execute_detailed(assignment)
+                events = execution.events
+                updates = dict(execution.final_state)
+                count, reason = execution.iteration_count, execution.termination_reason
+            else:
+                events, updates = implementation.execute(assignment)
+        except UnsupportedLoop:
+            events, updates, reason, exit_status = (), {}, "UNKNOWN", "unknown"
         changes = []
         for field, after in sorted(updates.items()):
             before = assignment.value("state", field)
@@ -47,10 +58,14 @@ class SymbolicSandboxReplay:
             bounded_quiescence_reached=(
                 implementation.delayed_depth <= 2
                 and implementation.bounded_loop_max is not None
+                and exit_status == "ok"
             ),
             instrumentation_coverage=implementation.instrumentation_coverage,
             observed_version_digest=implementation.version_digest,
-            exit_status="ok",
+            exit_status=exit_status,
+            iteration_count=count,
+            termination_reason=reason,
+            final_state=tuple(sorted({**dict(assignment.state), **updates}.items())),
         )
 
     def query_count(self, case_handle: str) -> int:

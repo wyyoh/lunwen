@@ -427,6 +427,12 @@ def _evaluate_case_method(
         for transition in case.implementation.transitions
         for effect in transition.all_effects()
     }
+    if case.implementation.loop is not None:
+        from .symbolic_loop import symbolic_execute
+
+        guard_signatures = {
+            event.signature for event in symbolic_execute(case.implementation).events
+        }
     if execution.contract is not None:
         guard_signatures.update(
             clause.effect.signature for clause in execution.contract.clauses

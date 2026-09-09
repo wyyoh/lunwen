@@ -75,6 +75,13 @@ materialization_defaults:
   replay_budget: 24
   solver_timeout_ms: 5000
 
+loop_semantics:
+  max_loop_iterations: 8
+  integer_semantics: bounded_mathematical_int_reject_overflow
+  async_schedule: drain_ordered_queue_at_iteration_barrier
+  max_async_depth: 2
+  unbounded_loop_status: CONTRACT_UNKNOWN
+
 readiness_gates:
   maximum_false_verified_complete_count: 0
   maximum_forbidden_trace_acceptance_rate: 0.0

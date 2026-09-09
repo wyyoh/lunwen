@@ -6,7 +6,7 @@ from functools import lru_cache
 
 from keyed_gram.authsynth_symbolic_shared import GrammarLimits
 from keyed_gram.authsynth_symbolic_verifier.benchmark import (
-    generate_symbolic_smoke_cases,
+    generate_legacy_symbolic_fixtures,
 )
 from keyed_gram.authsynth_symbolic_verifier.hidden_ir import HiddenSymbolicCase
 
@@ -15,7 +15,7 @@ GRAMMAR = GrammarLimits(4, 5, 16, True)
 
 @lru_cache(maxsize=1)
 def smoke_cases() -> tuple[HiddenSymbolicCase, ...]:
-    return generate_symbolic_smoke_cases(
+    return generate_legacy_symbolic_fixtures(
         "f2c-unit-only-train-calibration",
         grammar=GRAMMAR,
         replay_budget=16,

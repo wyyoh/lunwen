@@ -19,6 +19,8 @@ from keyed_gram.authsynth_symbolic_shared import (
     canonical_digest,
 )
 
+from .bounded_loop import BoundedLoop
+
 
 @dataclass(frozen=True)
 class GuardedTransition:
@@ -51,8 +53,12 @@ class HiddenSymbolicImplementation:
     delayed_depth: int = 0
     instrumentation_coverage: float = 1.0
     proof_obstacle: str | None = None
+    loop: BoundedLoop | None = None
+    after_loop: tuple[GuardedTransition, ...] = ()
 
     def __post_init__(self) -> None:
+        if self.after_loop and self.loop is None:
+            raise ValueError("after_loop 必须附属于显式 loop，不能静默忽略")
         if self.bounded_loop_max is not None and self.bounded_loop_max < 0:
             raise ValueError("bounded loop 上限不能为负")
         if self.delayed_depth < 0:
@@ -72,6 +78,8 @@ class HiddenSymbolicImplementation:
                 "delayed_depth": self.delayed_depth,
                 "instrumentation_coverage": self.instrumentation_coverage,
                 "proof_obstacle": self.proof_obstacle,
+                "loop": None if self.loop is None else self.loop.to_dict(),
+                "after_loop": [t.to_digest_dict() for t in self.after_loop],
             }
         )
 
@@ -79,6 +87,11 @@ class HiddenSymbolicImplementation:
         self, assignment: ConcreteAssignment
     ) -> tuple[tuple[ConcreteEffect, ...], dict[str, Any]]:
         self.schema.validate_assignment(assignment)
+        if self.loop is not None:
+            result = self.execute_detailed(assignment)
+            return result.events, {
+                change.field: change.after for change in result.state_diff.changes
+            }
         events: set[ConcreteEffect] = set()
         updates: dict[str, Any] = {}
         for transition in self.transitions:
@@ -92,6 +105,11 @@ class HiddenSymbolicImplementation:
                     raise ValueError("hidden transitions 对同一字段产生冲突 update")
                 updates[update.field] = value
         return tuple(sorted(events, key=lambda item: item.semantic_key)), updates
+
+    def execute_detailed(self, assignment: ConcreteAssignment):
+        from .bounded_loop import execute_program
+
+        return execute_program(self, assignment)
 
 
 @dataclass(frozen=True)

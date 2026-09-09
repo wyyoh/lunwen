@@ -80,7 +80,7 @@ class BoundedSymbolicVerifier:
                 VerificationKind.UNKNOWN,
                 reason_code="unbounded_loop_not_supported",
             )
-        if implementation.bounded_loop_max > 0:
+        if implementation.bounded_loop_max > 0 and implementation.loop is None:
             # 当前 IR 尚未展开循环体和逐轮状态；数字上限本身不是完整性证据。
             return VerificationResult(
                 VerificationKind.UNKNOWN,
@@ -110,6 +110,9 @@ class BoundedSymbolicVerifier:
                 VerificationKind.UNKNOWN,
                 reason_code="candidate_has_unsupported_region",
             )
+
+        if implementation.loop is not None:
+            return self._check_loop(case, candidate_contract)
 
         domain = Z3Domain(case.analyzer_input.schema)
         for label, updates in (
@@ -193,6 +196,105 @@ class BoundedSymbolicVerifier:
             VerificationKind.EQUIVALENT,
             observed_version_digest=implementation.version_digest,
             reason_code="smt_bounded_domain_equivalent",
+        )
+
+    def _check_loop(self, case, candidate):
+        from .bounded_loop import UnsupportedLoop
+        from .symbolic_loop import EncodedEvent, equal_expr, symbolic_execute
+
+        try:
+            execution = symbolic_execute(case.implementation)
+        except UnsupportedLoop as exc:
+            return VerificationResult(VerificationKind.UNKNOWN, reason_code=str(exc))
+        domain = execution.domain
+        invalid = z3.Or(
+            execution.invalid,
+            self._invalid_updates(
+                domain, [(c.guard, c.update) for c in candidate.state_updates]
+            ),
+        )
+        status, _ = deterministic_model(domain, invalid, timeout_ms=self._timeout_ms)
+        if status != "unsat":
+            return VerificationResult(
+                VerificationKind.UNKNOWN,
+                reason_code="loop_state_semantics_invalid"
+                if status == "sat"
+                else "solver_timeout_or_unknown",
+            )
+        candidates = tuple(
+            EncodedEvent(
+                c.effect.signature,
+                domain.formula(c.guard),
+                tuple(
+                    domain.term(t)
+                    for t in (
+                        c.effect.tenant,
+                        c.effect.resource,
+                        c.effect.destination,
+                        c.effect.amount,
+                    )
+                ),
+            )
+            for c in candidate.clauses
+        )
+        state_mismatch = []
+        for name, actual in execution.final_state.items():
+            predicted = domain.variables[("state", name)]
+            for c in candidate.state_updates:
+                if c.update.field == name:
+                    predicted = z3.If(
+                        domain.formula(c.guard), domain.term(c.update.value), predicted
+                    )
+            state_mismatch.append(actual != predicted)
+        outcome = self._counterexample(
+            case, domain, VerificationKind.STATE_UPDATE_MISMATCH, _or(state_mismatch)
+        )
+        if outcome is not None:
+            return outcome
+
+        def difference(left, right, *, fields):
+            failures = []
+            for e in left:
+                matches = [r for r in right if r.signature == e.signature]
+                exact = [
+                    z3.And(
+                        r.active,
+                        *(
+                            equal_expr(a, b)
+                            for a, b in zip(e.fields, r.fields, strict=True)
+                        ),
+                    )
+                    if fields
+                    else r.active
+                    for r in matches
+                ]
+                failures.append(z3.And(e.active, z3.Not(_or(exact))))
+            return _or(failures)
+
+        for kind, predicate in (
+            (
+                VerificationKind.MISSING_EFFECT,
+                difference(execution.events, candidates, fields=False),
+            ),
+            (
+                VerificationKind.SPURIOUS_EFFECT,
+                difference(candidates, execution.events, fields=False),
+            ),
+            (
+                VerificationKind.FIELD_BINDING_MISMATCH,
+                z3.Or(
+                    difference(execution.events, candidates, fields=True),
+                    difference(candidates, execution.events, fields=True),
+                ),
+            ),
+        ):
+            outcome = self._counterexample(case, domain, kind, predicate)
+            if outcome is not None:
+                return outcome
+        return VerificationResult(
+            VerificationKind.EQUIVALENT,
+            observed_version_digest=case.implementation.version_digest,
+            reason_code="smt_exact_bounded_loop_equivalent",
         )
 
     @staticmethod

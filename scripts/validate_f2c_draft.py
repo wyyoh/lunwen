@@ -14,6 +14,7 @@ from pathlib import Path
 def validate(root: Path) -> dict:
     tests = sorted(root.glob("tests/test_symbolic*.py"))
     tests += sorted(root.glob("tests/test_stage_f2c*.py"))
+    tests += sorted(root.glob("tests/test_f2c*.py"))
     relative_tests = [path.relative_to(root).as_posix() for path in tests]
     if not relative_tests:
         raise RuntimeError("缺少 F2C 定向测试")
@@ -28,6 +29,7 @@ def validate(root: Path) -> dict:
         "scripts/audit_f2c_prefreeze.py",
         "scripts/validate_f2c_draft.py",
         "scripts/run_f2c_train_pilot.py",
+        "scripts/audit_f2c_templates.py",
         *relative_tests,
     ]
     commands = {

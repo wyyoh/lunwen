@@ -132,15 +132,27 @@ class SymbolicReplayResult:
     instrumentation_coverage: float
     observed_version_digest: str
     exit_status: str
+    iteration_count: int = 0
+    termination_reason: str = "ACYCLIC"
+    final_state: tuple[tuple[str, Any], ...] = ()
 
     def __post_init__(self) -> None:
         if not 0.0 <= self.instrumentation_coverage <= 1.0:
             raise ValueError("instrumentation coverage 超界")
         restricted_token(self.exit_status, "replay exit status")
+        if type(self.iteration_count) is not int or self.iteration_count < 0:
+            raise ValueError("replay iteration count 非法")
+        if self.termination_reason not in {
+            "ACYCLIC",
+            "GUARD_FALSE",
+            "BOUND_REACHED",
+            "UNKNOWN",
+        }:
+            raise ValueError("replay termination reason 非法")
         ordered = tuple(
             sorted(
                 (*self.immediate_events, *self.delayed_events),
-                key=lambda x: x.semantic_key,
+                key=lambda x: (x.sequence, x.semantic_key),
             )
         )
         if len(ordered) != len(set(ordered)):
@@ -151,7 +163,7 @@ class SymbolicReplayResult:
         return tuple(
             sorted(
                 (*self.immediate_events, *self.delayed_events),
-                key=lambda x: x.semantic_key,
+                key=lambda x: (x.sequence, x.semantic_key),
             )
         )
 
@@ -169,6 +181,9 @@ class SymbolicReplayResult:
             "instrumentation_coverage": self.instrumentation_coverage,
             "observed_version_digest": self.observed_version_digest,
             "exit_status": self.exit_status,
+            "iteration_count": self.iteration_count,
+            "termination_reason": self.termination_reason,
+            "final_state": dict(self.final_state),
         }
 
 
