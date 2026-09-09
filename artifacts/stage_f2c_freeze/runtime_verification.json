@@ -1,0 +1,16 @@
+{
+  "analyzer_freeze_commit": "f141c77278a8924373d38585ff55036ca7340854",
+  "current_snapshot_equals_historical_f1_snapshot": false,
+  "entry_counts": {
+    "frozen_analyzer": 88,
+    "frozen_environment": 9,
+    "frozen_upstream": 149
+  },
+  "formal_development_started": false,
+  "formal_locked_started": false,
+  "frozen_analyzer_manifest_valid": true,
+  "frozen_environment_manifest_valid": true,
+  "frozen_upstream_manifest_valid": true,
+  "runtime_environment_checked": true,
+  "status": "passed"
+}

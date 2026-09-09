@@ -1,0 +1,30 @@
+{
+  "allowlisted_failure_summary_sha256": "a07e01706c0390ac28885055fa273c07f7087bfa5ef049df63719eae83cf4f1c",
+  "analyzer_freeze_commit": "f141c77278a8924373d38585ff55036ca7340854",
+  "analyzer_freeze_status": "frozen",
+  "benchmark_isolation_status": "passed",
+  "bounded_loop_semantics_status": "passed",
+  "current_snapshot_equals_historical_f1_snapshot": false,
+  "current_stage_regression_status": "passed",
+  "entry_counts": {
+    "frozen_analyzer": 88,
+    "frozen_environment": 9,
+    "frozen_upstream": 149
+  },
+  "formal_development_started": false,
+  "formal_locked_started": false,
+  "frozen_analyzer_manifest_valid": true,
+  "frozen_environment_manifest_valid": true,
+  "frozen_upstream_manifest_valid": true,
+  "full_repository_raw_test_status": "722_passed_7_known_historical_failures",
+  "historical_compatibility_allowlist_status": "passed",
+  "historical_compatibility_exception_count": 7,
+  "historical_test_allowlist_sha256": "6dd14774e05d74e9d56f83a5e941192099eb1330ff4f9e8a051eea42395d3db3",
+  "networkless_environment_verified": true,
+  "prefreeze_repair_status": "PASSED",
+  "ready_for_formal_development": true,
+  "regression_validation_script_sha256": "7b9d462bde17e001c8b61771f6b1e342aa85b4904ff61bf1dbb4793b4ec83357",
+  "runtime_environment_checked": true,
+  "status": "passed",
+  "unexpected_regression_count": 0
+}
