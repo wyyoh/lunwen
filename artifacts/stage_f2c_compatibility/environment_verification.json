@@ -1,0 +1,98 @@
+{
+  "architecture": "x86_64",
+  "base_image": "public.ecr.aws/docker/library/python:3.12-slim-bookworm",
+  "base_image_digest": "sha256:782412e85d0f0984994c290652577d4018aff08145c85b262bb63dc0c7522254",
+  "cap_drop": [
+    "ALL"
+  ],
+  "cpu_limit": 4.0,
+  "cpu_operation_ok": true,
+  "environment_files_byte_identical_to_previous": true,
+  "environment_source_repository_commit": "8056b1f2e204545fbb0e744100fe3a0987d2e692",
+  "environment_status": "passed",
+  "files": [
+    {
+      "matches_previous_manifest": true,
+      "path": "environments/torch212_cpu/Dockerfile",
+      "sha256": "160522ce590d930e0233b5abeb195ace9a42083d72c217b484a7066fb73e288d"
+    },
+    {
+      "matches_previous_manifest": true,
+      "path": "environments/torch212_cpu/ENVIRONMENT.md",
+      "sha256": "4e5bb3cd6c154ad0aae217a5a886d0640aa27b075aefb869b91badc8b656bb36"
+    },
+    {
+      "matches_previous_manifest": true,
+      "path": "environments/torch212_cpu/apptainer.def",
+      "sha256": "2343e94e9ea94c364c43ca1875d071ed159f86b205ec7e12c2924450ebe56906"
+    },
+    {
+      "matches_previous_manifest": true,
+      "path": "environments/torch212_cpu/generate_environment_manifest.py",
+      "sha256": "6bd228a25c2c452616561243d2c834e1f5fc5d1f363b37175e715a96c99e1f95"
+    },
+    {
+      "matches_previous_manifest": true,
+      "path": "environments/torch212_cpu/requirements.lock",
+      "sha256": "1c4c8c49aae59996f750f56cd37665ee166b320d1188d988f585717ade034402"
+    },
+    {
+      "matches_previous_manifest": true,
+      "path": "environments/torch212_cpu/run_f2c.sh",
+      "sha256": "8c1caa776aa55c52d034feff35f8b79223c85d6aad4305066b16fd65b76d41db"
+    },
+    {
+      "matches_previous_manifest": true,
+      "path": "environments/torch212_cpu/run_tests.sh",
+      "sha256": "505abac96311294b0c16558961d1ac3ebe3c4226d36883b6087a2a6f3725ce13"
+    },
+    {
+      "matches_previous_manifest": true,
+      "path": "environments/torch212_cpu/verify_environment.py",
+      "sha256": "fca73f6174316f6bedc5f6ef9e3b0ec6361db6b8cb832a21f421f0cd1cc218e4"
+    }
+  ],
+  "finished_at": "2026-09-09T13:48:06.73867659Z",
+  "glibc": "2.36",
+  "host_glibc_unchanged": true,
+  "image_architecture": "amd64",
+  "image_created": "2026-09-03T20:54:38.602372944+08:00",
+  "image_id": "sha256:b89ea8a6918ad5a06f04119cbe745178be48801c0c8e192faf28b74e39d14d4b",
+  "image_os": "linux",
+  "kernel": "6.18.33.2-microsoft-standard-WSL2",
+  "memory_limit_bytes": 8589934592,
+  "network_mode": "none",
+  "networkless_environment_verified": true,
+  "numpy": "2.5.2",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.36",
+  "project_import_ok": true,
+  "python": "3.12.14",
+  "raw_container_inspection_sha256": "7ebdfc95018b67e01dc644dfb02bbf663aa3749514c3bf5d156e0f471f80246a",
+  "raw_image_inspection_sha256": "6628fdaaa876e5eb9926103f7c6e66a9af856acab68e340f7442de59d4261a28",
+  "readonly_rootfs": true,
+  "repo_digest_available": true,
+  "repo_digests": [
+    "lunwen-torch212-cpu@sha256:b89ea8a6918ad5a06f04119cbe745178be48801c0c8e192faf28b74e39d14d4b"
+  ],
+  "runtime_facts": {
+    "architecture": "x86_64",
+    "cpu_only": true,
+    "cpu_operation_ok": true,
+    "glibc": "2.36",
+    "python": "3.12.14",
+    "torch": "2.12.0+cpu",
+    "transformers": "5.16.1",
+    "z3": "4.15.3.0"
+  },
+  "runtime_user": "researcher",
+  "schema_version": 1,
+  "security_opt": [
+    "no-new-privileges"
+  ],
+  "started_at": "2026-09-09T13:41:47.365085615Z",
+  "torch": "2.12.0+cpu",
+  "torch_cuda_available": false,
+  "torch_cuda_version": null,
+  "torch_num_threads": 1,
+  "z3": "4.15.3"
+}

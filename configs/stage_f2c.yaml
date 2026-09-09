@@ -23,6 +23,7 @@ protocol:
   base_branch: agent/stage-f2b-blind-cgar
   required_base_commit: 1c01a24fe8cdc123e405591a0ced0a5ee50aa5d6
   analyzer_freeze_commit: PENDING_ANALYZER_FREEZE
+  freeze_binding_path: artifacts/stage_f2c_freeze/freeze_binding.json
   tracked_worktree_must_be_clean: true
   formal_build_repeat_allowed: false
   development_runs: 1

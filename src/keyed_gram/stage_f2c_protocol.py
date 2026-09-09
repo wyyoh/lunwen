@@ -200,6 +200,19 @@ def load_config(config_path: str | Path) -> dict[str, Any]:
             raise F2CProtocolError("calibration replay budget 非法")
     for key in ("data_dir", "artifact_dir", "runtime_dir", "report_path"):
         safe_relative(value["outputs"][key], f"outputs.{key}")
+    binding_path = value.get("protocol", {}).get("freeze_binding_path")
+    if binding_path:
+        root = repo_root(config_path)
+        relative = safe_relative(binding_path, "freeze_binding_path")
+        if (root / relative).is_file():
+            from .stage_f2c_freeze import load_binding
+
+            binding, groups = load_binding(root, binding_path)
+            value["protocol"]["analyzer_freeze_commit"] = binding[
+                "analyzer_freeze_commit"
+            ]
+            for group, manifest in groups.items():
+                value[group] = manifest["files"]
     return value
 
 
@@ -230,6 +243,12 @@ def verify_frozen_files(
     config_path: str | Path, values: Mapping[str, Any]
 ) -> dict[str, Any]:
     root = repo_root(config_path)
+    if values.get("protocol", {}).get("freeze_binding_path"):
+        from .stage_f2c_freeze import verify_binding
+
+        return verify_binding(
+            root, values["protocol"]["freeze_binding_path"], check_runtime=True
+        )
     observed_files = []
     for group in ("frozen_upstream", "frozen_analyzer"):
         records = values.get(group)

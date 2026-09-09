@@ -63,6 +63,13 @@ from .stage_f2c_protocol import (
 )
 
 _SOURCE_PATHS = (
+    "configs/f2c_historical_test_allowlist.yaml",
+    "scripts/validate_f2c_regression.py",
+    "scripts/freeze_f2c_analyzer.py",
+    "src/keyed_gram/stage_f2c_regression.py",
+    "src/keyed_gram/stage_f2c_freeze.py",
+    "tests/test_f2c_historical_allowlist.py",
+    "tests/test_f2c_freeze_binding.py",
     "AUTHSYNTH_F2C_RESEARCH_PLAN.md",
     "configs/stage_f2c.yaml",
     "docs/f2c/F2B_AUDIT_AND_REINTERPRETATION.md",

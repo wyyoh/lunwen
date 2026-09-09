@@ -1,0 +1,11 @@
+{
+  "current_snapshot_equals_historical_f1_snapshot": false,
+  "historical_manifest_mismatch_count": 1,
+  "historical_manifests_rewritten": false,
+  "known_historical_mismatch_paths": [
+    ".gitattributes"
+  ],
+  "records_rechecked": 163,
+  "schema_version": 1,
+  "unchanged_from_prefreeze_base": true
+}

@@ -36,10 +36,16 @@ def main():
         "src/keyed_gram/stage_f2c.py",
         "src/keyed_gram/stage_f2c_metrics.py",
         "src/keyed_gram/stage_f2c_protocol.py",
+        "src/keyed_gram/stage_f2c_regression.py",
+        "src/keyed_gram/stage_f2c_freeze.py",
         "tests/f2c_symbolic_helpers.py",
         "scripts/audit_f2c_templates.py",
         "scripts/validate_f2c_draft.py",
         "scripts/run_f2c_prefreeze_validation.py",
+        "scripts/validate_f2c_regression.py",
+        "scripts/freeze_f2c_analyzer.py",
+        "scripts/audit_f2c_prefreeze.py",
+        "scripts/run_f2c_train_pilot.py",
         *test_paths,
     ]
     python = sys.executable
@@ -74,12 +80,9 @@ def main():
         "git_diff_check": ["git", "diff", "--check"],
         "full_repository": [
             python,
-            "-m",
-            "pytest",
-            "-q",
-            "-p",
-            "no:cacheprovider",
-            "--junitxml=" + str(output / "full_repository.xml"),
+            "scripts/validate_f2c_regression.py",
+            "--output",
+            str(output / "regression"),
         ],
     }
     records = {}
@@ -97,7 +100,9 @@ def main():
     for item in lint:
         p = root / item
         source_files.update(p.glob("*.py") if p.is_dir() else (p,))
-    source_files.add(root / "configs/stage_f2c.yaml")
+    source_files.update(root.glob("configs/stage_f2c*.yaml"))
+    source_files.add(root / "configs/f2c_historical_test_allowlist.yaml")
+    source_files.add(root / "requirements-stage-f2c.txt")
     result = {
         "validation_kind": "ordinary_prefreeze_regression_not_formal_experiment",
         "base_commit": subprocess.check_output(

@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "purpose": "用户明确接受的历史环境/快照兼容例外，不改变 pytest 原始结果。",
+  "maximum_total_failures": 7,
+  "registration_basis": {
+    "previous_raw_xml_sha256": "d175b3ab6e99f14ee37e04dd7cbb040bfbd5bc357ff2d4457abfcbee43dd1ad8",
+    "previous_commit": "e0196348061d0de99f9809812908cbba71ff5020",
+    "new_exceptions_require_explicit_user_approval": true
+  },
+  "reason_input_sha256": {
+    ".gitattributes": "e6a3c69a0668d6d3d4c215cc72c0dedee8d16eed2b672eccb48d94984a75f88e",
+    "artifacts/stage_f1/artifact_sha256_manifest.json": "0b84fbb000a3ac39efeab9476b96a81c0d9cf980e2fb3f3b0d0b497d24e60ff2",
+    "artifacts/stage_f1/source_sha256_manifest.json": "2b8840da95948fd7a6652563de6754bbf1ecbd9b73d533c624ace2c3b528cb0a",
+    "configs/stage_d21.yaml": "d31274f640a84f0da53e2d7c4c194ab9f5092671846909aeb87e330931633017",
+    "src/keyed_gram/stage_d21_protocol.py": "f63d1c5767ce11202cb6039d5984c7517a579d6d7b35d066e8d38d8b4561efe9",
+    "src/keyed_gram/stage_d22_ipc.py": "435b0dff0a292882e02549208cbdb012ec3e8873029f26b24eea3828c599cf63",
+    "src/keyed_gram/stage_d22_runtime.py": "8870156e0906f3b7a0dae2accb9bbdae1ca0ce942652ebe701dceacda88cb405",
+    "src/keyed_gram/stage_d23.py": "e701ca6b163c3dd88eaac9a9153d67a174e649fe8f6eacb96cc9ae1202edbe5e",
+    "src/keyed_gram/stage_f2a_autheffect_protocol.py": "edc6eeac82416d4b057eb9bb047b69907486f3cf558ea0e6f1974dcc579e839a",
+    "tests/test_stage_d21_protocol.py": "dad7bbf71084d9191b81c37715de4ba1a1649d7b5ad782bb0120ebe8f4e58347",
+    "tests/test_stage_d23_runtime.py": "d472685d0e47c1d8bac27ecfaa77edbd19bf5d8abc8d0875dfbf12e56713ee8a",
+    "tests/test_stage_f2a_autheffect.py": "4f955e0f58299c2061ceb0bb59c4377055f52b6ddd69cb049b45eb844179617c"
+  },
+  "exceptions": [
+    {
+      "id": "historical_environment_1",
+      "test_nodeid": "tests/test_stage_d21_protocol.py::test_formal_and_smoke_configs_validate",
+      "category": "historical_environment",
+      "expected_reason": "Transformers 5.14.1 vs current 5.16.1",
+      "maximum_occurrences": 1,
+      "signature": {
+        "when": "call",
+        "exception_type": "keyed_gram.stage_d21_protocol.D21ProtocolError",
+        "message": "D2.1 governance/canary/G1 冻结声明不完整",
+        "frames": [
+          {
+            "path": "tests/test_stage_d21_protocol.py",
+            "line": 63,
+            "function": "test_formal_and_smoke_configs_validate"
+          },
+          {
+            "path": "src/keyed_gram/stage_d21_protocol.py",
+            "line": 138,
+            "function": "load_config"
+          }
+        ],
+        "context": {
+          "required_transformers": "5.14.1",
+          "runtime_transformers": "5.16.1",
+          "required_torch": "2.12.0+cpu",
+          "runtime_torch": "2.12.0+cpu"
+        },
+        "chained_exception": false
+      }
+    },
+    {
+      "id": "historical_environment_2",
+      "test_nodeid": "tests/test_stage_d21_protocol.py::test_prepare_manifest_does_not_persist_cache_path",
+      "category": "historical_environment",
+      "expected_reason": "Transformers 5.14.1 vs current 5.16.1",
+      "maximum_occurrences": 1,
+      "signature": {
+        "when": "call",
+        "exception_type": "keyed_gram.stage_d21_protocol.D21ProtocolError",
+        "message": "D2.1 governance/canary/G1 冻结声明不完整",
+        "frames": [
+          {
+            "path": "tests/test_stage_d21_protocol.py",
+            "line": 90,
+            "function": "test_prepare_manifest_does_not_persist_cache_path"
+          },
+          {
+            "path": "src/keyed_gram/stage_d21_protocol.py",
+            "line": 203,
+            "function": "prepare_model"
+          },
+          {
+            "path": "src/keyed_gram/stage_d21_protocol.py",
+            "line": 138,
+            "function": "load_config"
+          }
+        ],
+        "context": {
+          "required_transformers": "5.14.1",
+          "runtime_transformers": "5.16.1",
+          "required_torch": "2.12.0+cpu",
+          "runtime_torch": "2.12.0+cpu"
+        },
+        "chained_exception": false
+      }
+    },
+    {
+      "id": "historical_environment_3",
+      "test_nodeid": "tests/test_stage_d21_protocol.py::test_attack_matrix_and_summary_pass_with_mock",
+      "category": "historical_environment",
+      "expected_reason": "Transformers 5.14.1 vs current 5.16.1",
+      "maximum_occurrences": 1,
+      "signature": {
+        "when": "call",
+        "exception_type": "keyed_gram.stage_d21_protocol.D21ProtocolError",
+        "message": "D2.1 governance/canary/G1 冻结声明不完整",
+        "frames": [
+          {
+            "path": "tests/test_stage_d21_protocol.py",
+            "line": 106,
+            "function": "test_attack_matrix_and_summary_pass_with_mock"
+          },
+          {
+            "path": "src/keyed_gram/stage_d21_protocol.py",
+            "line": 138,
+            "function": "load_config"
+          }
+        ],
+        "context": {
+          "required_transformers": "5.14.1",
+          "runtime_transformers": "5.16.1",
+          "required_torch": "2.12.0+cpu",
+          "runtime_torch": "2.12.0+cpu"
+        },
+        "chained_exception": false
+      }
+    },
+    {
+      "id": "historical_environment_4",
+      "test_nodeid": "tests/test_stage_d21_protocol.py::test_summary_rejects_missing_preregistered_scenario",
+      "category": "historical_environment",
+      "expected_reason": "Transformers 5.14.1 vs current 5.16.1",
+      "maximum_occurrences": 1,
+      "signature": {
+        "when": "call",
+        "exception_type": "keyed_gram.stage_d21_protocol.D21ProtocolError",
+        "message": "D2.1 governance/canary/G1 冻结声明不完整",
+        "frames": [
+          {
+            "path": "tests/test_stage_d21_protocol.py",
+            "line": 128,
+            "function": "test_summary_rejects_missing_preregistered_scenario"
+          },
+          {
+            "path": "src/keyed_gram/stage_d21_protocol.py",
+            "line": 138,
+            "function": "load_config"
+          }
+        ],
+        "context": {
+          "required_transformers": "5.14.1",
+          "runtime_transformers": "5.16.1",
+          "required_torch": "2.12.0+cpu",
+          "runtime_torch": "2.12.0+cpu"
+        },
+        "chained_exception": false
+      }
+    },
+    {
+      "id": "historical_environment_5",
+      "test_nodeid": "tests/test_stage_d21_protocol.py::test_summary_fails_when_parameter_hash_changes",
+      "category": "historical_environment",
+      "expected_reason": "Transformers 5.14.1 vs current 5.16.1",
+      "maximum_occurrences": 1,
+      "signature": {
+        "when": "call",
+        "exception_type": "keyed_gram.stage_d21_protocol.D21ProtocolError",
+        "message": "D2.1 governance/canary/G1 冻结声明不完整",
+        "frames": [
+          {
+            "path": "tests/test_stage_d21_protocol.py",
+            "line": 147,
+            "function": "test_summary_fails_when_parameter_hash_changes"
+          },
+          {
+            "path": "src/keyed_gram/stage_d21_protocol.py",
+            "line": 138,
+            "function": "load_config"
+          }
+        ],
+        "context": {
+          "required_transformers": "5.14.1",
+          "runtime_transformers": "5.16.1",
+          "required_torch": "2.12.0+cpu",
+          "runtime_torch": "2.12.0+cpu"
+        },
+        "chained_exception": false
+      }
+    },
+    {
+      "id": "historical_runtime_compatibility_6",
+      "test_nodeid": "tests/test_stage_d23_runtime.py::test_full_preregistered_matrix_rehearsal",
+      "category": "historical_runtime_compatibility",
+      "expected_reason": "generator socket readiness exceeded original 60s",
+      "maximum_occurrences": 1,
+      "signature": {
+        "when": "call",
+        "exception_type": "keyed_gram.stage_d22_contract.D22Error",
+        "message": "service socket 未在时限内就绪",
+        "frames": [
+          {
+            "path": "tests/test_stage_d23_runtime.py",
+            "line": 10,
+            "function": "test_full_preregistered_matrix_rehearsal"
+          },
+          {
+            "path": "src/keyed_gram/stage_d23.py",
+            "line": 1016,
+            "function": "_run_matrix"
+          },
+          {
+            "path": "src/keyed_gram/stage_d23.py",
+            "line": 196,
+            "function": "_run_positive"
+          },
+          {
+            "path": "src/keyed_gram/stage_d22_runtime.py",
+            "line": 315,
+            "function": "start_default"
+          },
+          {
+            "path": "src/keyed_gram/stage_d22_runtime.py",
+            "line": 226,
+            "function": "start_generator"
+          },
+          {
+            "path": "src/keyed_gram/stage_d22_runtime.py",
+            "line": 343,
+            "function": "_start"
+          },
+          {
+            "path": "src/keyed_gram/stage_d22_ipc.py",
+            "line": 132,
+            "function": "wait_for_socket"
+          }
+        ],
+        "context": {
+          "timeout_seconds": 60,
+          "socket_name": "generator-generator-a.sock",
+          "cluster_name": "positive-cluster",
+          "reason": "ipc_timeout"
+        },
+        "chained_exception": false
+      }
+    },
+    {
+      "id": "historical_snapshot_7",
+      "test_nodeid": "tests/test_stage_f2a_autheffect.py::test_f1_frozen_manifests_and_status_match",
+      "category": "historical_snapshot",
+      "expected_reason": ".gitattributes changed after historical freeze",
+      "maximum_occurrences": 1,
+      "signature": {
+        "when": "call",
+        "exception_type": "keyed_gram.stage_f2a_autheffect_protocol.F2AProtocolError",
+        "message": "F1 source/artifact manifest 校验失败",
+        "frames": [
+          {
+            "path": "tests/test_stage_f2a_autheffect.py",
+            "line": 38,
+            "function": "test_f1_frozen_manifests_and_status_match"
+          },
+          {
+            "path": "src/keyed_gram/stage_f2a_autheffect_protocol.py",
+            "line": 287,
+            "function": "verify_frozen_f1"
+          }
+        ],
+        "context": {
+          "source_failures": [
+            ".gitattributes"
+          ],
+          "artifact_failures": [],
+          "inventory_exact": true
+        },
+        "chained_exception": false
+      }
+    }
+  ]
+}

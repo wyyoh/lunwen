@@ -141,3 +141,75 @@ private_value_memory_ready = false
 original_c3_allowed = false
 c3_eligible = false
 ```
+
+## 后续补记：用户明确接受的历史兼容政策与冻结前复验
+
+本节追加在上述历史失败记录之后，不改写此前结论或任何历史产物。
+本轮实际起点为 `e0196348061d0de99f9809812908cbba71ff5020`，它是
+`053326f64e77ebf235d14ecfe18f250ccf2dacb9` 的直接后继，已包含 B1/B2 修复。
+用户明确接受上一轮七项历史兼容异常，允许仅在精确签名一致时不阻止 F2C freeze。
+
+在本轮完整普通回归之前，新增 `configs/f2c_historical_test_allowlist.yaml`，固定七个
+node ID、每项最多一次、异常类型/消息、完整应用调用栈（文件、函数、行号）、异常链及
+安全原因上下文。D2.1 还核验实际依赖版本对，F2A 只允许 `.gitattributes` 单项历史
+source 差异且 artifact inventory 精确，D2.3 只接受原 generator socket 的 60 秒
+`ipc_timeout`。所有原因相关源码/配置/manifest 均有 SHA 绑定。
+
+`scripts/validate_f2c_regression.py` 运行全仓普通 pytest，不使用 `pytest || true`、
+skip、xfail、目录排除或修改 pytest outcome。精确分类器遇到新增失败、签名变化、
+重复次数、缺失测试、collection/internal error 或跳过测试，均拒绝通过。
+
+| 本轮验证 | 实际结果 |
+| --- | --- |
+| 全仓原始结果 | **722 passed、7 failed、0 skipped**，267.55 秒 |
+| 历史兼容精确匹配 | **7 项**；未预期失败 **0 项** |
+| F2C 定向测试 | **152 passed、0 failed、0 skipped**，61.568 秒 |
+| B1 结构/语义/旧内容碰撞 | **0 / 0 / 0**；四 split 各 10 个模板定义 |
+| B2 差分复验 | **24 个程序、960 个赋值、0 差异** |
+| F2C 与本轮新增脚本 Ruff | 通过；未修改历史 Ruff 问题 |
+| git diff --check | 通过 |
+| 原容器断网、CPU kernel、项目 import | 通过；非 root、只读源码、4 CPU/8 GiB |
+
+The repository-wide regression suite produced 7 failures. All 7 correspond to explicitly
+accepted historical compatibility exceptions caused by intentional environment/repository
+evolution after earlier frozen stages. They were not repaired by modifying historical frozen
+code or artifacts. No unexpected regression attributable to Stage F2C was observed.
+
+全仓原始测试仍存在 7 项已知历史兼容失败。这些失败由历史冻结阶段之后的有意环境/
+仓库调整引起，经用户明确接受后作为预注册历史兼容例外处理。本轮未修改冻结历史
+源码、配置或产物，也未发现新的 F2C 引入回归。不能将本轮写成“729 tests passed”，
+也不能声称历史 D2.3 超时已修复、当前快照重新等于 F1 原快照。
+
+本轮新证据独立保存在 `artifacts/stage_f2c_compatibility/`；此前
+`artifacts/stage_f2c_prefreeze/` 的 FAILED 证据全部保持原字节。38 项新增测试验证
+allowlist、异常原因漂移、额外 traceback、精确次数、严格 JSON/YAML 和提交级冻结绑定。
+完整被测源码清单逐项与回传工作区字节匹配，没有在测试后更改 Analyzer 算法。
+
+环境仍是原镜像 `sha256:b89ea8a6918ad5a06f04119cbe745178be48801c0c8e192faf28b74e39d14d4b`，
+glibc 2.36、Python 3.12.14、Torch 2.12.0+cpu、Transformers 5.16.1、Z3 4.15.3
+（distribution version 4.15.3.0）。8 个环境文件从原环境仓库提交
+`8056b1f2e204545fbb0e744100fe3a0987d2e692` 原样复制入主仓库，以便同一提交绑定；
+SHA 与原环境证据一致，没有 rebuild、更换版本或修改宿主 glibc。
+
+新 upstream manifest 绑定的是 F2C 当前快照，另对 F1 历史 `.gitattributes` Git blob
+核验旧 SHA；不会修改旧 source manifest。源码冻结提交推送后，仅生成
+`artifacts/stage_f2c_freeze/` 后置协议元数据。`stage_f2c.yaml` 的静态占位通过受 SHA
+约束的 `freeze_binding.json` 解析为实际提交及三份清单，不在源码提交中嵌入自身 SHA。
+后置 metadata commit 不得更改已冻结 Analyzer、配置、环境或本节内容。
+
+```text
+prefreeze_repair_status = PASSED
+current_stage_regression_status = passed
+full_repository_raw_test_status = 722_passed_7_known_historical_failures
+historical_compatibility_exception_count = 7
+unexpected_regression_count = 0
+historical_compatibility_allowlist_status = passed
+ready_for_analyzer_freeze = true
+formal_development_started = false
+formal_locked_started = false
+```
+
+本节是创建 freeze 前的验收记录；实际 `analyzer_freeze_commit`、三类 manifest 条目数和
+freeze 完成状态，以随后生成且校验成功的 `artifacts/stage_f2c_freeze/protocol_status.json`
+为准。本轮不调用 formal preflight，不物化正式 held-out instances，不运行任何正式
+development/locked。完成冻结后等待用户另行决定是否开始正式实验。
