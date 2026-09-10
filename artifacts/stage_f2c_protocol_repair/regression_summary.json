@@ -1,0 +1,266 @@
+{
+  "allowlist_sha256": "6dd14774e05d74e9d56f83a5e941192099eb1330ff4f9e8a051eea42395d3db3",
+  "allowlisted_failure_count": 7,
+  "allowlisted_failures": [
+    {
+      "signature": {
+        "chained_exception": false,
+        "context": {
+          "required_torch": "2.12.0+cpu",
+          "required_transformers": "5.14.1",
+          "runtime_torch": "2.12.0+cpu",
+          "runtime_transformers": "5.16.1"
+        },
+        "exception_type": "keyed_gram.stage_d21_protocol.D21ProtocolError",
+        "frames": [
+          {
+            "function": "test_formal_and_smoke_configs_validate",
+            "line": 63,
+            "path": "tests/test_stage_d21_protocol.py"
+          },
+          {
+            "function": "load_config",
+            "line": 138,
+            "path": "src/keyed_gram/stage_d21_protocol.py"
+          }
+        ],
+        "message": "D2.1 governance/canary/G1 冻结声明不完整",
+        "when": "call"
+      },
+      "signature_sha256": "5af4f6d936a662013be6d8e1837bb6933629ed9c8862fc05611e1da9176d7d71",
+      "test_nodeid": "tests/test_stage_d21_protocol.py::test_formal_and_smoke_configs_validate",
+      "when": "call"
+    },
+    {
+      "signature": {
+        "chained_exception": false,
+        "context": {
+          "required_torch": "2.12.0+cpu",
+          "required_transformers": "5.14.1",
+          "runtime_torch": "2.12.0+cpu",
+          "runtime_transformers": "5.16.1"
+        },
+        "exception_type": "keyed_gram.stage_d21_protocol.D21ProtocolError",
+        "frames": [
+          {
+            "function": "test_prepare_manifest_does_not_persist_cache_path",
+            "line": 90,
+            "path": "tests/test_stage_d21_protocol.py"
+          },
+          {
+            "function": "prepare_model",
+            "line": 203,
+            "path": "src/keyed_gram/stage_d21_protocol.py"
+          },
+          {
+            "function": "load_config",
+            "line": 138,
+            "path": "src/keyed_gram/stage_d21_protocol.py"
+          }
+        ],
+        "message": "D2.1 governance/canary/G1 冻结声明不完整",
+        "when": "call"
+      },
+      "signature_sha256": "540faf1dbd46f52a0df6a5fb5e63bd342de488af6c47f1a7931333687030ee05",
+      "test_nodeid": "tests/test_stage_d21_protocol.py::test_prepare_manifest_does_not_persist_cache_path",
+      "when": "call"
+    },
+    {
+      "signature": {
+        "chained_exception": false,
+        "context": {
+          "required_torch": "2.12.0+cpu",
+          "required_transformers": "5.14.1",
+          "runtime_torch": "2.12.0+cpu",
+          "runtime_transformers": "5.16.1"
+        },
+        "exception_type": "keyed_gram.stage_d21_protocol.D21ProtocolError",
+        "frames": [
+          {
+            "function": "test_attack_matrix_and_summary_pass_with_mock",
+            "line": 106,
+            "path": "tests/test_stage_d21_protocol.py"
+          },
+          {
+            "function": "load_config",
+            "line": 138,
+            "path": "src/keyed_gram/stage_d21_protocol.py"
+          }
+        ],
+        "message": "D2.1 governance/canary/G1 冻结声明不完整",
+        "when": "call"
+      },
+      "signature_sha256": "b2cbdd966300b74e4f312f18955aaa945aef974c9b0afa7be261dd72350d7b09",
+      "test_nodeid": "tests/test_stage_d21_protocol.py::test_attack_matrix_and_summary_pass_with_mock",
+      "when": "call"
+    },
+    {
+      "signature": {
+        "chained_exception": false,
+        "context": {
+          "required_torch": "2.12.0+cpu",
+          "required_transformers": "5.14.1",
+          "runtime_torch": "2.12.0+cpu",
+          "runtime_transformers": "5.16.1"
+        },
+        "exception_type": "keyed_gram.stage_d21_protocol.D21ProtocolError",
+        "frames": [
+          {
+            "function": "test_summary_rejects_missing_preregistered_scenario",
+            "line": 128,
+            "path": "tests/test_stage_d21_protocol.py"
+          },
+          {
+            "function": "load_config",
+            "line": 138,
+            "path": "src/keyed_gram/stage_d21_protocol.py"
+          }
+        ],
+        "message": "D2.1 governance/canary/G1 冻结声明不完整",
+        "when": "call"
+      },
+      "signature_sha256": "4e63508d04eb72dd92436cf472597e5f9e431521300a0f090f351f51e9d64c95",
+      "test_nodeid": "tests/test_stage_d21_protocol.py::test_summary_rejects_missing_preregistered_scenario",
+      "when": "call"
+    },
+    {
+      "signature": {
+        "chained_exception": false,
+        "context": {
+          "required_torch": "2.12.0+cpu",
+          "required_transformers": "5.14.1",
+          "runtime_torch": "2.12.0+cpu",
+          "runtime_transformers": "5.16.1"
+        },
+        "exception_type": "keyed_gram.stage_d21_protocol.D21ProtocolError",
+        "frames": [
+          {
+            "function": "test_summary_fails_when_parameter_hash_changes",
+            "line": 147,
+            "path": "tests/test_stage_d21_protocol.py"
+          },
+          {
+            "function": "load_config",
+            "line": 138,
+            "path": "src/keyed_gram/stage_d21_protocol.py"
+          }
+        ],
+        "message": "D2.1 governance/canary/G1 冻结声明不完整",
+        "when": "call"
+      },
+      "signature_sha256": "ae20ebf50297c8e202b5084b1eda294ec2ab7573d12756c9110e17a3f06e1906",
+      "test_nodeid": "tests/test_stage_d21_protocol.py::test_summary_fails_when_parameter_hash_changes",
+      "when": "call"
+    },
+    {
+      "signature": {
+        "chained_exception": false,
+        "context": {
+          "cluster_name": "positive-cluster",
+          "reason": "ipc_timeout",
+          "socket_name": "generator-generator-a.sock",
+          "timeout_seconds": 60.0
+        },
+        "exception_type": "keyed_gram.stage_d22_contract.D22Error",
+        "frames": [
+          {
+            "function": "test_full_preregistered_matrix_rehearsal",
+            "line": 10,
+            "path": "tests/test_stage_d23_runtime.py"
+          },
+          {
+            "function": "_run_matrix",
+            "line": 1016,
+            "path": "src/keyed_gram/stage_d23.py"
+          },
+          {
+            "function": "_run_positive",
+            "line": 196,
+            "path": "src/keyed_gram/stage_d23.py"
+          },
+          {
+            "function": "start_default",
+            "line": 315,
+            "path": "src/keyed_gram/stage_d22_runtime.py"
+          },
+          {
+            "function": "start_generator",
+            "line": 226,
+            "path": "src/keyed_gram/stage_d22_runtime.py"
+          },
+          {
+            "function": "_start",
+            "line": 343,
+            "path": "src/keyed_gram/stage_d22_runtime.py"
+          },
+          {
+            "function": "wait_for_socket",
+            "line": 132,
+            "path": "src/keyed_gram/stage_d22_ipc.py"
+          }
+        ],
+        "message": "service socket 未在时限内就绪",
+        "when": "call"
+      },
+      "signature_sha256": "9a1672e5a34c52add97e419043923923e3016b91dd89cfb0e57a84d87649286b",
+      "test_nodeid": "tests/test_stage_d23_runtime.py::test_full_preregistered_matrix_rehearsal",
+      "when": "call"
+    },
+    {
+      "signature": {
+        "chained_exception": false,
+        "context": {
+          "artifact_failures": [],
+          "inventory_exact": true,
+          "source_failures": [
+            ".gitattributes"
+          ]
+        },
+        "exception_type": "keyed_gram.stage_f2a_autheffect_protocol.F2AProtocolError",
+        "frames": [
+          {
+            "function": "test_f1_frozen_manifests_and_status_match",
+            "line": 38,
+            "path": "tests/test_stage_f2a_autheffect.py"
+          },
+          {
+            "function": "verify_frozen_f1",
+            "line": 287,
+            "path": "src/keyed_gram/stage_f2a_autheffect_protocol.py"
+          }
+        ],
+        "message": "F1 source/artifact manifest 校验失败",
+        "when": "call"
+      },
+      "signature_sha256": "722bf05ecb6951ead4c6370cb087410f04dff8495a283f77fe31b053e36170fa",
+      "test_nodeid": "tests/test_stage_f2a_autheffect.py::test_f1_frozen_manifests_and_status_match",
+      "when": "call"
+    }
+  ],
+  "capture_sha256": "ef29589d1ef6d94ad28d22b5bb34d71bbfedac4b9cc8953748cf48bd9c48ec07",
+  "classifier_sha256": "4e475e8bbab6bd38289cca0d0b9c6c4109507c04d31bc40e9d30087712b6c6e4",
+  "collected_test_count": 739,
+  "current_stage_regression_status": "passed",
+  "duration_seconds": 271.711196688,
+  "formal_development_started": false,
+  "formal_locked_started": false,
+  "full_repository_raw_status": "failed",
+  "historical_compatibility_allowlist_status": "passed",
+  "historical_compatibility_status": "known_incompatibilities_allowlisted",
+  "historical_expected_failures": 7,
+  "infrastructure_failures": [],
+  "pytest_raw_exit_code": 1,
+  "raw_fail_count": 7,
+  "raw_log_sha256": "ce7ece4617b404e8d6cdb18cebd9a78c093054ebad65c984c338f6de46ed539e",
+  "raw_pass_count": 732,
+  "raw_skip_count": 0,
+  "raw_xml_sha256": "98f580ed167efa8110029a7e85b83b97d83b83e0b02eb9af48a55d6fb8aab632",
+  "ready_for_analyzer_freeze": true,
+  "schema_version": 1,
+  "source_commit": "a3bdb3b9ed244b3e05bb7c576737f165ac44425b",
+  "unexpected_failure_count": 0,
+  "unexpected_failures": [],
+  "unexpected_regression_count": 0,
+  "validation_kind": "ordinary_full_repository_regression_not_formal_audit",
+  "validation_script_sha256": "7b9d462bde17e001c8b61771f6b1e342aa85b4904ff61bf1dbb4793b4ec83357"
+}

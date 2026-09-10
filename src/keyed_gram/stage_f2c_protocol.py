@@ -7,6 +7,7 @@ import csv
 import hashlib
 import json
 import math
+import os
 import subprocess
 from collections.abc import Mapping, Sequence
 from pathlib import Path, PurePosixPath, PureWindowsPath
@@ -53,6 +54,11 @@ EXPECTED_ARTIFACT_FILES = frozenset(
         "split_manifests/train.json",
         "stage_f2c_summary.json",
         "unknown_reason_distribution.csv",
+        "evaluation_rows.json",
+        "development_gate.json",
+        "post_development_integrity.json",
+        "aggregate_metrics.csv",
+        "environment_freeze_manifest.json",
         "upstream_frozen_sha256.json",
     }
 )
@@ -326,6 +332,56 @@ def mark_started(runtime_dir: Path, git: Mapping[str, Any]) -> None:
     )
 
 
+def begin_evaluation(runtime_dir: Path, phase: str) -> None:
+    """在评价前持久消费资格；异常或进程崩溃不能恢复同一次运行。"""
+    state = read_json(runtime_dir / "protocol_state.json")
+    if phase not in {"development", "locked_test"}:
+        raise F2CProtocolError("非法 evaluation phase")
+    predecessor = "configuration_freeze" if phase == "development" else "development"
+    if state["phases"][predecessor] != 1:
+        raise F2CProtocolError("evaluation 前序 phase 未完成")
+    if phase == "locked_test":
+        authorization = read_json(runtime_dir / "locked_authorization.json")
+        if authorization.get("allowed") is not True:
+            raise F2CProtocolError("development gate 未通过，locked 不允许")
+    try:
+        with (runtime_dir / f"{phase}.consumed.json").open(
+            "x", encoding="utf-8"
+        ) as handle:
+            json.dump({"phase": phase, "run_count": 1}, handle, allow_nan=False)
+            handle.flush()
+            os.fsync(handle.fileno())
+    except FileExistsError as exc:
+        raise F2CProtocolError(f"formal {phase} audit already consumed") from exc
+
+
+def authorize_locked(runtime_dir: Path, config_path, values, gate) -> dict[str, Any]:
+    """只有 development 完成、全部 gate 通过且源码/环境不变时才签发调度许可。"""
+    state = read_json(runtime_dir / "protocol_state.json")
+    if state["phases"]["development"] != 1 or not gate or not all(gate.values()):
+        raise F2CProtocolError("development continuation gate 未通过")
+    if git_state(config_path)["tracked_dirty"]:
+        raise F2CProtocolError("development 后出现 tracked 修改")
+    root = repo_root(config_path)
+    allowed = output_paths(config_path, values)
+    for line in subprocess.check_output(
+        ("git", "status", "--porcelain", "--untracked-files=all"), cwd=root, text=True
+    ).splitlines():
+        if line.startswith("?? "):
+            candidate = root / safe_relative(line[3:], "untracked file")
+            if not any(candidate == p or p in candidate.parents for p in allowed):
+                raise F2CProtocolError("development 后出现非正式输出的 untracked 文件")
+    result = verify_frozen_files(config_path, values)
+    result = {**result, "post_development_analyzer_hash_changed": False}
+    path = runtime_dir / "locked_authorization.json"
+    if path.exists():
+        raise F2CProtocolError("locked authorization 已消费，不得重签")
+    write_json(
+        path, {"allowed": True, "development_gate": dict(gate), "integrity": result}
+    )
+    return result
+
+
 def record_phase(runtime_dir: Path, phase: str) -> None:
     path = runtime_dir / "protocol_state.json"
     state = read_json(path, label="F2C protocol state")
@@ -338,12 +394,19 @@ def record_phase(runtime_dir: Path, phase: str) -> None:
     write_json(path, state)
 
 
-def mark_completed(runtime_dir: Path, summary_sha256: str) -> None:
+def mark_completed(
+    runtime_dir: Path, summary_sha256: str, *, development_failed=False
+) -> None:
     path = runtime_dir / "protocol_state.json"
     state = read_json(path, label="F2C protocol state")
-    if any(value != 1 for value in state["phases"].values()):
+    expected = {
+        p: (0 if development_failed and p == "locked_test" else 1) for p in PHASES
+    }
+    if state["phases"] != expected:
         raise F2CProtocolError("F2C phases 未全部且仅运行一次")
-    state["formal_build"]["status"] = "completed"
+    state["formal_build"]["status"] = (
+        "failed_development" if development_failed else "completed"
+    )
     state["formal_build"]["summary_sha256"] = summary_sha256
     write_json(path, state)
 
@@ -440,7 +503,9 @@ def artifact_manifest(artifact_dir: Path, report_path: Path) -> dict[str, Any]:
     return payload
 
 
-def validate_artifact_inventory(artifact_dir: Path, report_path: Path) -> None:
+def validate_artifact_inventory(
+    artifact_dir: Path, report_path: Path, *, locked_scored=True
+) -> None:
     manifest = read_json(
         artifact_dir / "artifact_sha256_manifest.json", label="F2C artifact manifest"
     )
@@ -450,7 +515,18 @@ def validate_artifact_inventory(artifact_dir: Path, report_path: Path) -> None:
         if path.is_file() and path.name != "artifact_sha256_manifest.json"
     }
     expected = {item["path"] for item in manifest["files"]}
-    if actual != EXPECTED_ARTIFACT_FILES or actual != expected:
+    required = EXPECTED_ARTIFACT_FILES
+    if not locked_scored:
+        required = required - {
+            "locked_test_results.csv",
+            "split_manifests/locked_test.json",
+            "post_development_integrity.json",
+        }
+    if (
+        actual != required
+        or actual != expected
+        or len(manifest["files"]) != len(expected)
+    ):
         raise F2CProtocolError("F2C artifact inventory mismatch")
     for item in manifest["files"]:
         target = artifact_dir / safe_relative(item["path"], "artifact path")

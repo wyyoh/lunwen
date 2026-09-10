@@ -585,14 +585,20 @@ def generate_authsymbolbench(
     grammar: GrammarLimits,
     replay_budget: int,
     solver_timeout_ms: int,
+    splits: tuple[str, ...] = SPLITS,
 ) -> AuthSymbolBenchVault:
     if not _COMMIT.fullmatch(analyzer_freeze_commit):
         raise ValueError("Analyzer freeze 前不得 materialize 正式 benchmark")
+    if not splits or len(set(splits)) != len(splits) or set(splits) - set(SPLITS):
+        raise ValueError("非法或重复 materialization split")
     cases = []
     serial = 0
     for tool_family, split, domain in _TOOLS:
         for category in (*MUTATIONS, *CONTROLS):
             serial += 1
+            # 全局 serial/seed/模板不变；未获调度许可的 split 不创建任何实例。
+            if split not in splits:
+                continue
             cases.append(
                 _make_case(
                     seed,
@@ -606,8 +612,8 @@ def generate_authsymbolbench(
                     solver_timeout_ms=solver_timeout_ms,
                 )
             )
-    if len(cases) != 160:
-        raise RuntimeError("AuthSymbolBench case count 不等于 160")
+    if len(cases) != 40 * len(splits):
+        raise RuntimeError("AuthSymbolBench 每个请求 split 必须恰为 40 cases")
     return AuthSymbolBenchVault(tuple(cases), analyzer_freeze_commit, {})
 
 

@@ -12,14 +12,18 @@ def main():
     parser.add_argument("action", choices=("create", "verify"))
     parser.add_argument("--commit")
     parser.add_argument("--runtime", action="store_true")
+    parser.add_argument("--output", default="artifacts/stage_f2c_freeze")
+    parser.add_argument("--evidence", default="artifacts/stage_f2c_compatibility")
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
     if args.action == "create":
-        result = create_freeze(root, args.commit, "artifacts/stage_f2c_freeze")
+        result = create_freeze(
+            root, args.commit, args.output, evidence_dir=args.evidence
+        )
     else:
         result = verify_binding(
             root,
-            "artifacts/stage_f2c_freeze/freeze_binding.json",
+            args.output + "/freeze_binding.json",
             check_runtime=args.runtime,
         )
     print(json.dumps(result, sort_keys=True, allow_nan=False))

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from collections import Counter
 from collections.abc import Mapping, Sequence
 from dataclasses import replace
@@ -26,6 +27,7 @@ from keyed_gram.authsynth_symbolic_verifier.benchmark import (
     iter_evaluator_manifest,
 )
 from keyed_gram.authsynth_symbolic_verifier.evaluator import (
+    METHODS,
     SymbolicEvaluationRow,
     SymbolicMethod,
     aggregate_metrics,
@@ -46,6 +48,8 @@ from .stage_f2c_metrics import (
 from .stage_f2c_protocol import (
     F2CProtocolError,
     artifact_manifest,
+    authorize_locked,
+    begin_evaluation,
     formal_preflight,
     information_boundary_audit,
     load_config,
@@ -63,6 +67,8 @@ from .stage_f2c_protocol import (
 )
 
 _SOURCE_PATHS = (
+    "tests/test_f2c_dispatch.py",
+    "docs/f2c/DISPATCH_PROTOCOL_REPAIR.md",
     "configs/f2c_historical_test_allowlist.yaml",
     "scripts/validate_f2c_regression.py",
     "scripts/freeze_f2c_analyzer.py",
@@ -273,7 +279,12 @@ def _benchmark_summary(
         "mutation_category_counts": dict(
             sorted(Counter(case.mutation_category for case in cases).items())
         ),
-        "split_case_counts": collision["split_case_counts"],
+        "split_case_counts": dict(
+            sorted(Counter(case.split for case in cases).items())
+        ),
+        "bounded_loop_case_count": sum(
+            case.implementation.loop is not None for case in cases
+        ),
         "domain_assignment_count_per_case": min(
             case.analyzer_input.schema.cardinality for case in cases
         ),
@@ -385,12 +396,12 @@ bounded_assignments_per_case = {benchmark["domain_assignment_count_per_case"]}
 total_bounded_domain_assignments = {benchmark["total_bounded_domain_assignments"]}
 expected_unknown_case_count = {benchmark["expected_unknown_case_count"]}
 cross_split_collision_count = {summary["cross_split_collision_count"]}
-locked_test_scored_once = true
+locked_test_scored_once = {str(summary["locked_test_scored_once"]).lower()}
 llm_judge_used = false
 private_data_used = false
 ```
 
-Analyzer freeze 后才物化独立 AuthSymbolBench v1。四个 split 按 base tool、guard、
+Analyzer freeze 后才物化独立 AuthSymbolBench v1；仅报告实际已物化的 split。各 split 按 base tool、guard、
 field-binding、version lineage 与 AST shape 隔离；正式 artifacts 不含 hidden locked
 AST、gold locked contract/path predicates 或完整 assignment/output table。
 
@@ -424,13 +435,57 @@ noninterference 或 HyperLTL（留给 F2D），不使用真实 MCP、真实 Agen
 
 ## 协议状态
 
-Analyzer source、solver/grammar/budget 候选先冻结；locked 随后独立物化。Calibration
-只选择预注册的非安全性复杂度与预算参数；development 和 locked 各运行一次，locked
-反例未反馈给 Analyzer。F1/F2A/F2B locked 均未重跑，冻结资产未修改。
+Analyzer source、solver/grammar/budget 候选先冻结。Calibration 只按原有选择逻辑固定
+预注册参数；development gate 未通过则不物化、不运行 locked。通过时复核源码与环境，
+再物化和消费唯一 locked 资格。实际 development 次数为 {summary["formal_development_run_count"]}，
+locked 次数为 {summary["formal_locked_run_count"]}。不跨 split 学习或调整参数。
+F1/F2A/F2B locked 均未重跑，冻结资产未修改；历史全仓回归的七项兼容例外没有改写为通过。
 """
 
 
+def _evaluate_checkpointed(cases, runtime_dir, split, **kwargs):
+    """保持原 evaluator 的 method-major 顺序；只在调用外持久保存已完成统计行。"""
+    rows = []
+    with (runtime_dir / f"{split}_rows.jsonl").open("x", encoding="utf-8") as stream:
+        for method in METHODS:
+            for case in cases:
+                bundle = evaluate_cases((case,), methods=(method,), **kwargs)
+                for row in bundle["rows"]:
+                    rows.append(row)
+                    stream.write(canonical_json(row.to_dict()) + "\n")
+                    stream.flush()
+                    os.fsync(stream.fileno())
+                print(
+                    f"{split}: {method.value}: {len(rows)}/{len(cases) * len(METHODS)}",
+                    flush=True,
+                )
+    return {"rows": tuple(rows), "metrics": aggregate_metrics(rows)}
+
+
 def run_formal_build(
+    config_path: str | Path = "configs/stage_f2c.yaml",
+) -> dict[str, Any]:
+    # 已有 runtime 一律拒绝，不能把失败目录当作可恢复、可重跑的正式入口。
+    values = load_config(config_path)
+    _, _, runtime, _ = output_paths(config_path, values)
+    existed = runtime.exists()
+    try:
+        return _run_formal_build(config_path)
+    except Exception as exc:
+        if not existed and runtime.is_dir():
+            write_json(
+                runtime / "execution_failure.json",
+                {
+                    "status": "failed_execution",
+                    "exception_type": type(exc).__name__,
+                    "error_digest": canonical_digest(str(exc)),
+                    "retry_allowed": False,
+                },
+            )
+        raise
+
+
+def _run_formal_build(
     config_path: str | Path = "configs/stage_f2c.yaml",
 ) -> dict[str, Any]:
     values = load_config(config_path)
@@ -448,7 +503,7 @@ def run_formal_build(
         canonical_digest(
             {
                 "base": values["protocol"]["required_base_commit"],
-                "freeze": values["protocol"]["analyzer_freeze_commit"],
+                "freeze": values["protocol"]["benchmark_seed_freeze_commit"],
                 "benchmark": values["benchmark_version"],
             }
         ),
@@ -456,6 +511,7 @@ def run_formal_build(
         grammar=default_grammar,
         replay_budget=default_budget,
         solver_timeout_ms=default_timeout,
+        splits=("train", "calibration", "development"),
     )
     collision = collision_audit(vault.cases)
     if collision["cross_split_collision_count"]:
@@ -479,7 +535,7 @@ def run_formal_build(
 
     public_rows = []
     split_manifests = {}
-    for split in SPLITS:
+    for split in ("train", "calibration", "development"):
         rows = _public_rows(vault, split, configured_cases)
         public_rows.extend(rows)
         split_path = data_dir / f"{split}.jsonl"
@@ -496,30 +552,101 @@ def run_formal_build(
         for split in SPLITS
     }
     vault.open_for_evaluation("train")
-    train_bundle = evaluate_cases(
+    train_bundle = _evaluate_checkpointed(
         by_split["train"],
+        runtime_dir,
+        "train",
         replay_budget=selected_budget,
         solver_timeout_ms=selected_timeout,
     )
-    calibration_bundle = evaluate_cases(
+    calibration_bundle = _evaluate_checkpointed(
         by_split["calibration"],
+        runtime_dir,
+        "calibration",
         replay_budget=selected_budget,
         solver_timeout_ms=selected_timeout,
     )
     vault.open_for_evaluation("development")
-    development_bundle = evaluate_cases(
+    begin_evaluation(runtime_dir, "development")
+    development_bundle = _evaluate_checkpointed(
         by_split["development"],
+        runtime_dir,
+        "development",
         replay_budget=selected_budget,
         solver_timeout_ms=selected_timeout,
     )
     record_phase(runtime_dir, "development")
-    vault.open_for_evaluation("locked_test")
-    locked_bundle = evaluate_cases(
-        by_split["locked_test"],
-        replay_budget=selected_budget,
-        solver_timeout_ms=selected_timeout,
+    write_csv(artifact_dir / "development_results.csv", development_bundle["metrics"])
+    development_gate = readiness_gate(
+        selected_metrics(development_bundle["metrics"]), values["readiness_gates"]
     )
-    record_phase(runtime_dir, "locked_test")
+    development_gate["cross_split_collision_count"] = (
+        collision["cross_split_collision_count"]
+        <= values["readiness_gates"]["maximum_cross_split_collision_count"]
+    )
+    write_json(
+        artifact_dir / "development_gate.json",
+        {"checks": development_gate, "passed": all(development_gate.values())},
+    )
+    locked_bundle = {"rows": (), "metrics": []}
+    locked_gate = {}
+    locked_scored = False
+    if all(development_gate.values()):
+        integrity = authorize_locked(runtime_dir, config_path, values, development_gate)
+        write_json(artifact_dir / "post_development_integrity.json", integrity)
+        begin_evaluation(runtime_dir, "locked_test")
+        locked_vault = generate_authsymbolbench(
+            canonical_digest(
+                {
+                    "base": values["protocol"]["required_base_commit"],
+                    "freeze": values["protocol"]["benchmark_seed_freeze_commit"],
+                    "benchmark": values["benchmark_version"],
+                }
+            ),
+            analyzer_freeze_commit=values["protocol"]["analyzer_freeze_commit"],
+            grammar=default_grammar,
+            replay_budget=default_budget,
+            solver_timeout_ms=default_timeout,
+            splits=("locked_test",),
+        )
+        locked_cases = _configured_cases(
+            locked_vault.cases, selected_grammar, selected_budget, selected_timeout
+        )
+        configured_cases = (*configured_cases, *locked_cases)
+        collision = collision_audit(configured_cases)
+        if collision["cross_split_collision_count"]:
+            raise F2CProtocolError("locked materialization collision；不得重新生成")
+        rows = _public_rows(locked_vault, "locked_test", locked_cases)
+        public_rows.extend(rows)
+        split_path = data_dir / "locked_test.jsonl"
+        _write_jsonl(split_path, rows)
+        split_manifests["locked_test"] = _split_manifest(
+            "locked_test", rows, split_path
+        )
+        write_json(
+            artifact_dir / "split_manifests/locked_test.json",
+            split_manifests["locked_test"],
+        )
+        boundary = information_boundary_audit(root, public_rows)
+        if boundary["status"] != "passed":
+            raise F2CProtocolError("locked public schema information boundary")
+        locked_vault.open_for_evaluation("locked_test")
+        locked_bundle = _evaluate_checkpointed(
+            locked_cases,
+            runtime_dir,
+            "locked_test",
+            replay_budget=selected_budget,
+            solver_timeout_ms=selected_timeout,
+        )
+        record_phase(runtime_dir, "locked_test")
+        locked_scored = True
+        locked_gate = readiness_gate(
+            selected_metrics(locked_bundle["metrics"]), values["readiness_gates"]
+        )
+        locked_gate["cross_split_collision_count"] = (
+            collision["cross_split_collision_count"]
+            <= values["readiness_gates"]["maximum_cross_split_collision_count"]
+        )
 
     all_rows = (
         *train_bundle["rows"],
@@ -528,25 +655,33 @@ def run_formal_build(
         *locked_bundle["rows"],
     )
     all_metrics = aggregate_metrics(all_rows)
-    development_gate = readiness_gate(
-        selected_metrics(development_bundle["metrics"]), values["readiness_gates"]
-    )
-    locked_gate = readiness_gate(
-        selected_metrics(locked_bundle["metrics"]), values["readiness_gates"]
-    )
     passed = (
         all(development_gate.values())
+        and locked_scored
         and all(locked_gate.values())
         and collision["cross_split_collision_count"] == 0
         and boundary["status"] == "passed"
     )
-    selected = selected_metrics(all_metrics)
+    selected = selected_metrics(
+        aggregate_metrics((*development_bundle["rows"], *locked_bundle["rows"]))
+    )
     benchmark = _benchmark_summary(configured_cases, collision)
     summary = {
         "schema_version": 1,
         "stage": "F2C-symbolic-contracts",
-        "symbolic_contract_synthesis_status": "passed" if passed else "failed",
-        "query_generating_cegis_status": "passed" if passed else "failed",
+        "symbolic_contract_synthesis_status": "passed"
+        if passed
+        else ("failed_locked" if locked_scored else "failed_development"),
+        "query_generating_cegis_status": "passed"
+        if passed
+        else (
+            "passed_development_failed_locked"
+            if locked_scored
+            else "failed_development"
+        ),
+        "formal_development_run_count": 1,
+        "formal_locked_run_count": int(locked_scored),
+        "ready_for_locked_test": all(development_gate.values()),
         "bounded_domain_contract_completeness_validated": passed,
         "symbolic_unseen_generalization_validated": passed,
         "false_verified_complete_count": selected["false_verified_complete_count"],
@@ -560,7 +695,9 @@ def run_formal_build(
             "development": development_gate,
             "development_status": _gate_text(development_gate),
             "locked_test": locked_gate,
-            "locked_test_status": _gate_text(locked_gate),
+            "locked_test_status": _gate_text(locked_gate)
+            if locked_scored
+            else "not_started",
         },
         "cross_split_collision_count": collision["cross_split_collision_count"],
         "f2b_status": "passed_blind_finite_query_characterization",
@@ -571,7 +708,7 @@ def run_formal_build(
         "f2a_locked_test_rerun": False,
         "f2b_locked_test_rerun": False,
         "f2b_frozen_assets_modified": False,
-        "locked_test_scored_once": True,
+        "locked_test_scored_once": locked_scored,
         "relational_effect_completeness_validated": False,
         "real_tool_completeness_validated": False,
         "formal_model_completed": False,
@@ -590,6 +727,17 @@ def run_formal_build(
 
     write_json(artifact_dir / "resolved_config.json", values)
     write_json(artifact_dir / "upstream_frozen_sha256.json", preflight["frozen"])
+    write_json(
+        artifact_dir / "environment_freeze_manifest.json",
+        {
+            "analyzer_freeze_commit": values["protocol"]["analyzer_freeze_commit"],
+            "files": values["frozen_environment"],
+            "binding_path": values["protocol"]["freeze_binding_path"],
+            "binding_sha256": sha256_file(
+                root / values["protocol"]["freeze_binding_path"]
+            ),
+        },
+    )
     write_json(
         artifact_dir / "source_sha256_manifest.json", _source_manifest(config_path)
     )
@@ -637,7 +785,8 @@ def run_formal_build(
                 list(iter_evaluator_manifest(configured_cases))
             ),
             "analyzer_freeze_commit": values["protocol"]["analyzer_freeze_commit"],
-            "locked_materialized_after_analyzer_freeze": True,
+            "locked_materialized_after_analyzer_freeze": locked_scored,
+            "locked_materialized_after_development_gate": locked_scored,
             "hidden_locked_implementation_ast_persisted": False,
             "gold_locked_contract_persisted": False,
         },
@@ -650,14 +799,18 @@ def run_formal_build(
         artifact_dir / "protocol_status.json",
         {
             "schema_version": 1,
-            "formal_build": "completed",
+            "formal_build": "completed" if locked_scored else "failed_development",
             "analyzer_freeze_commit": values["protocol"]["analyzer_freeze_commit"],
             "code_freeze_commit": preflight["git"]["commit"],
-            "materialization_runs": 1,
+            "materialization_runs": 1 + int(locked_scored),
             "calibration_runs": 1,
             "development_runs": 1,
-            "locked_test_runs": 1,
-            "locked_test_scored_once": True,
+            "locked_test_runs": int(locked_scored),
+            "locked_test_scored_once": locked_scored,
+            "formal_development_started": True,
+            "formal_locked_started": locked_scored,
+            "ready_for_locked_test": all(development_gate.values()),
+            "post_development_analyzer_hash_changed": False if locked_scored else None,
             "f1_locked_test_scored": False,
             "f2a_locked_test_rerun": False,
             "f2b_locked_test_rerun": False,
@@ -668,7 +821,25 @@ def run_formal_build(
     )
     write_csv(artifact_dir / "calibration_results.csv", calibration_rows)
     write_csv(artifact_dir / "development_results.csv", development_bundle["metrics"])
-    write_csv(artifact_dir / "locked_test_results.csv", locked_bundle["metrics"])
+    if locked_scored:
+        write_csv(artifact_dir / "locked_test_results.csv", locked_bundle["metrics"])
+    write_csv(
+        artifact_dir / "aggregate_metrics.csv",
+        [
+            {"split": split, **metric}
+            for split, bundle in (
+                ("train", train_bundle),
+                ("calibration", calibration_bundle),
+                ("development", development_bundle),
+                ("locked_test", locked_bundle),
+            )
+            for metric in bundle["metrics"]
+        ],
+    )
+    write_json(
+        artifact_dir / "evaluation_rows.json",
+        {"schema_version": 1, "rows": [row.to_dict() for row in all_rows]},
+    )
     write_csv(artifact_dir / "per_category_metrics.csv", per_category_metrics(all_rows))
     write_csv(artifact_dir / "per_field_metrics.csv", per_field_metrics(all_rows))
     write_csv(artifact_dir / "patch_metrics.csv", patch_metrics(all_rows))
@@ -679,7 +850,7 @@ def run_formal_build(
         unknown_reason_distribution(all_rows),
     )
     write_csv(artifact_dir / "performance_metrics.csv", performance_metrics(all_rows))
-    report_path.write_text(_report(summary), encoding="utf-8")
+    report_path.write_text(_report(summary) + _split_report(summary), encoding="utf-8")
     scan_paths = [
         path
         for path in artifact_dir.rglob("*")
@@ -692,10 +863,41 @@ def run_formal_build(
         artifact_dir / "artifact_sha256_manifest.json",
         artifact_manifest(artifact_dir, report_path),
     )
-    validate_artifact_inventory(artifact_dir, report_path)
+    validate_artifact_inventory(artifact_dir, report_path, locked_scored=locked_scored)
     validate_strict_serialization(artifact_dir, data_dir)
-    mark_completed(runtime_dir, sha256_file(artifact_dir / "stage_f2c_summary.json"))
+    mark_completed(
+        runtime_dir,
+        sha256_file(artifact_dir / "stage_f2c_summary.json"),
+        development_failed=not locked_scored,
+    )
     return summary
+
+
+def _split_report(summary):
+    text = "\n## Development / Locked 的独立结果\n\n"
+    for split, key in (
+        ("development", "development_method_metrics"),
+        ("locked_test", "locked_test_method_metrics"),
+    ):
+        text += f"\n### {split}\n\n"
+        if not summary[key]:
+            text += "未物化、未运行；development gate 未通过，没有 locked 数值。\n"
+            continue
+        text += "|方法|FVCR|UER|Unseen P|Guard P/R|Field/State|COR|FTAR|Utility/MPR|RQR|Conv./UNKNOWN|\n|---|---:|---:|---:|---|---|---:|---:|---|---:|---|\n"
+        for m in summary[key]:
+            text += (
+                f"|{m['method']}|{m['false_verified_complete_rate']:.4f}|{m['unseen_effect_recall']:.4f}|{m['unseen_effect_precision']:.4f}|"
+                f"{m['guard_precision']:.4f}/{m['guard_recall']:.4f}|{m['field_binding_accuracy']:.4f}/{m['state_update_binding_accuracy']:.4f}|"
+                f"{m['contract_overapproximation_ratio']:.4f}|{m['forbidden_trace_acceptance_rate']:.4f}|{m['safe_utility']:.4f}/{m['maximal_permissiveness_ratio']:.4f}|"
+                f"{m['replay_query_reduction']:.4f}|{m['convergence_rate']:.4f}/{m['unknown_rate']:.4f}|\n"
+            )
+    text += (
+        "\n### Gate\n\n```json\n"
+        + json.dumps(summary["readiness_checks"], indent=2, sort_keys=True)
+        + "\n```\n"
+    )
+    text += "\nLoop 范围：acyclic 与明确静态上界的真实有界循环；unbounded/未知循环为 UNKNOWN。没有 F2D 双运行或真实工具完备性结论。\n"
+    return text
 
 
 def run_smoke() -> dict[str, Any]:

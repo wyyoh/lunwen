@@ -75,6 +75,7 @@ def analyzer_path(path):
                 "src/keyed_gram/stage_f2c",
                 "docs/f2c/",
                 "artifacts/stage_f2c_compatibility/",
+                "artifacts/stage_f2c_protocol_repair/",
                 "tests/test_symbolic",
                 "tests/test_stage_f2c",
                 "tests/test_f2c",
@@ -208,7 +209,10 @@ def verify_binding(root, path, *, check_runtime=False):
     for entry in groups["frozen_upstream"]["historical_snapshot_records"]:
         if sha(blob(root, entry["commit"], entry["path"])) != entry["sha256"]:
             raise FreezeError("historical snapshot hash mismatch")
-    evidence = read(root / "artifacts/stage_f2c_compatibility/regression_summary.json")
+    evidence_dir = groups["frozen_analyzer"].get(
+        "validation_evidence_dir", "artifacts/stage_f2c_compatibility"
+    )
+    evidence = read(root / safe(evidence_dir) / "regression_summary.json")
     allowlist = root / "configs/f2c_historical_test_allowlist.yaml"
     if (
         evidence["unexpected_regression_count"] != 0
@@ -244,7 +248,9 @@ def verify_binding(root, path, *, check_runtime=False):
     }
 
 
-def create_freeze(root, commit, output):
+def create_freeze(
+    root, commit, output, *, evidence_dir="artifacts/stage_f2c_compatibility"
+):
     root = Path(root)
     output = root / safe(output)
     if git(root, "rev-parse", "HEAD").decode().strip() != commit:
@@ -258,15 +264,14 @@ def create_freeze(root, commit, output):
     )
     if remote != commit:
         raise FreezeError("freeze commit has not been verified as pushed")
-    status = read(root / "artifacts/stage_f2c_compatibility/prefreeze_status.json")
+    evidence = root / safe(evidence_dir)
+    status = read(evidence / "prefreeze_status.json")
     if (
         status["prefreeze_repair_status"] != "PASSED"
         or status["ready_for_analyzer_freeze"] is not True
     ):
         raise FreezeError("pre-freeze gates have not passed")
-    source = read(
-        root / "artifacts/stage_f2c_compatibility/validated_source_manifest.json"
-    )
+    source = read(evidence / "validated_source_manifest.json")
     for e in source["files"]:
         _same_file(root, commit, e)
     paths = git(root, "ls-tree", "-r", "--name-only", commit).decode().splitlines()
@@ -289,14 +294,15 @@ def create_freeze(root, commit, output):
             "pyproject.toml",
         ]
     )
-    environment = read(
-        root / "artifacts/stage_f2c_compatibility/environment_verification.json"
-    )
+    environment = read(evidence / "environment_verification.json")
     if environment["networkless_environment_verified"] is not True:
         raise FreezeError("environment not verified")
     output.mkdir(parents=True, exist_ok=False)
     manifests = {
-        "frozen_analyzer": {"files": records(root, commit, selected)},
+        "frozen_analyzer": {
+            "files": records(root, commit, selected),
+            "validation_evidence_dir": evidence_dir,
+        },
         "frozen_upstream": {
             "files": records(root, commit, upstream),
             "snapshot_scope": "F2C freeze 时的现有上游文件，不声称等于 F1 历史快照",
@@ -320,10 +326,7 @@ def create_freeze(root, commit, output):
             "repo_digests": environment["repo_digests"],
             "repo_digest_available": bool(environment["repo_digests"]),
             "networkless_verification_sha256": sha(
-                (
-                    root
-                    / "artifacts/stage_f2c_compatibility/environment_verification.json"
-                ).read_bytes()
+                (evidence / "environment_verification.json").read_bytes()
             ),
         },
     }
