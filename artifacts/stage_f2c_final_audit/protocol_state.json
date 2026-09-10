@@ -1,0 +1,17 @@
+{
+  "formal_build": {
+    "branch": "agent/stage-f2c-symbolic-contracts",
+    "commit": "9d60b500dfef90d56e1bd44b89af6187cade595d",
+    "status": "failed_development",
+    "summary_sha256": "2c2ae5482b0486b85f99fa1121569c6faff3df0d364270bb4b19b0cc49535627",
+    "tracked_dirty": false
+  },
+  "phases": {
+    "calibration": 1,
+    "configuration_freeze": 1,
+    "development": 1,
+    "locked_test": 0,
+    "materialize": 1
+  },
+  "schema_version": 1
+}

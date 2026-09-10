@@ -1,0 +1,356 @@
+{
+  "files": [
+    {
+      "path": "tests/test_f2c_dispatch.py",
+      "sha256": "bd4647f182e71f8137bca742a08f9e91832734e9597de15c03403cb10cae21cb",
+      "size_bytes": 10374
+    },
+    {
+      "path": "docs/f2c/DISPATCH_PROTOCOL_REPAIR.md",
+      "sha256": "90db3f02127d7ebd945be0a06fb2bbf709ea4c1a5d47dd3375a2fb5cb8714e65",
+      "size_bytes": 3854
+    },
+    {
+      "path": "configs/f2c_historical_test_allowlist.yaml",
+      "sha256": "6dd14774e05d74e9d56f83a5e941192099eb1330ff4f9e8a051eea42395d3db3",
+      "size_bytes": 10291
+    },
+    {
+      "path": "scripts/validate_f2c_regression.py",
+      "sha256": "7b9d462bde17e001c8b61771f6b1e342aa85b4904ff61bf1dbb4793b4ec83357",
+      "size_bytes": 2854
+    },
+    {
+      "path": "scripts/freeze_f2c_analyzer.py",
+      "sha256": "df3ae82df1a67402eb48a7b2806d14efcb219039171d6cfab79bd5800290159d",
+      "size_bytes": 1069
+    },
+    {
+      "path": "src/keyed_gram/stage_f2c_regression.py",
+      "sha256": "4e475e8bbab6bd38289cca0d0b9c6c4109507c04d31bc40e9d30087712b6c6e4",
+      "size_bytes": 12026
+    },
+    {
+      "path": "src/keyed_gram/stage_f2c_freeze.py",
+      "sha256": "aea8f9db427dc16f864a31bfe12dc9933678d7f4f0158eb4ad076d838d858f8b",
+      "size_bytes": 13275
+    },
+    {
+      "path": "tests/test_f2c_historical_allowlist.py",
+      "sha256": "fd9d1b66f347bade5965b562eafae14644235609a920548271711c47f1d1d26d",
+      "size_bytes": 4968
+    },
+    {
+      "path": "tests/test_f2c_freeze_binding.py",
+      "sha256": "c4c9004691262860c3e8557cbffa7d4c5c6c18c99948eb52457f6d98f23281cf",
+      "size_bytes": 5906
+    },
+    {
+      "path": "AUTHSYNTH_F2C_RESEARCH_PLAN.md",
+      "sha256": "3f4610cb64c3f2fc6cd8c49cf6f5f010a8f36ca9615cbd9d0b072aded88efc46",
+      "size_bytes": 2080
+    },
+    {
+      "path": "configs/stage_f2c.yaml",
+      "sha256": "80c3ff38ae15bf1c2ab5c29e1b7949ba8beb3369767678e92c1b3ba985881f98",
+      "size_bytes": 4016
+    },
+    {
+      "path": "docs/f2c/F2B_AUDIT_AND_REINTERPRETATION.md",
+      "sha256": "b3dd96dbe3aeacea3b1b216a50d455887821b0e79890fd7f3b85770b89e58c74",
+      "size_bytes": 1190
+    },
+    {
+      "path": "docs/f2c/SYMBOLIC_CONTRACT_LANGUAGE.md",
+      "sha256": "e8602a9e16d40c310713478076352e50710686129b8e7a2977944f8dc9a4446e",
+      "size_bytes": 963
+    },
+    {
+      "path": "docs/f2c/CEGIS_ALGORITHM.md",
+      "sha256": "5a464b57d82c8af2c8ffd1222c9e28766112e50155fa79f1bcf233478b1de97b",
+      "size_bytes": 1782
+    },
+    {
+      "path": "docs/f2c/COMPLETENESS_CERTIFICATE.md",
+      "sha256": "cd4e18b6f7a748cb2806ae92d26bfcd4a852ca6298699dc5d8b12f10ac6b6bea",
+      "size_bytes": 980
+    },
+    {
+      "path": "docs/f2c/EXPERIMENT_PROTOCOL.md",
+      "sha256": "eb688e71fa807991ba4f194237ba32cbd7a4f87f456d81dc57c5db3dc423e79b",
+      "size_bytes": 810
+    },
+    {
+      "path": "docs/f2c/THREATS_TO_VALIDITY.md",
+      "sha256": "caba2a66f9ee1fbea5e95cef144fffe519030dbb48c0e55792f5f440c8992a5f",
+      "size_bytes": 785
+    },
+    {
+      "path": "docs/f2c/TEMPLATE_ISOLATION_PROTOCOL.md",
+      "sha256": "70ff38efd086c2dc13a2873e7d218f0a1144be63f4a569d5427497ac1e224b94",
+      "size_bytes": 2656
+    },
+    {
+      "path": "docs/f2c/BOUNDED_LOOP_SEMANTICS.md",
+      "sha256": "8cef957120ab716cfbc4b0ba7feb5b5a5c0abc2a4cd0445a6ffa0adbd99c32f0",
+      "size_bytes": 2870
+    },
+    {
+      "path": "requirements-stage-f2c.txt",
+      "sha256": "44b296966bca1bc445ade56faef88eac0a97a1f840a5ac50e065f527f4f3f257",
+      "size_bytes": 20
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_shared/__init__.py",
+      "sha256": "32a95b35f0b385453808507094741c240ef6f8e2de812ed4bf02aca2fc5cef05",
+      "size_bytes": 1962
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_shared/schema.py",
+      "sha256": "8a6505b75c897ba047fac29b3ec6528ee713d7c5bc665cbc5104dc4134a1d75e",
+      "size_bytes": 10213
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_shared/formulas.py",
+      "sha256": "83c9a778902157532e9886bf4af84bebe0d8264f38c395e7606b3e4a63280fae",
+      "size_bytes": 6007
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_shared/effects.py",
+      "sha256": "de5ac281fc3964e7ecd17c10e39198d9d4827767122d44d30500ff757de7f60c",
+      "size_bytes": 10463
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_shared/contracts.py",
+      "sha256": "2af8e4a16c3c4cf4bd9b57e519fa1184bfe5f83f87ec1098c308d59c2d017b4c",
+      "size_bytes": 8839
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_shared/certificates.py",
+      "sha256": "093c74ff2b2c5f21867fe481c420ea6a7911d7c12dbc5079f866ba33ede543d2",
+      "size_bytes": 4046
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_shared/interfaces.py",
+      "sha256": "10ac542d03c06cddb77197a4a9cb00d1fd89535dda4eea357aa1fe998183ea0a",
+      "size_bytes": 8747
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_shared/patches.py",
+      "sha256": "090fddd44cddb01b0ece045c907c5d141ccccccb182b44c9692493df723b3f68",
+      "size_bytes": 2095
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_analyzer/__init__.py",
+      "sha256": "3f390f246fa0edad6b0fc1c92f699b05e5580756deee7787e4df326087b1a6d5",
+      "size_bytes": 528
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_analyzer/models.py",
+      "sha256": "85befb9b0c0c58ff8a2732733c0f96ae2790e0df26fff11d3e63c23fb813e0b3",
+      "size_bytes": 3664
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_analyzer/diagnostics.py",
+      "sha256": "f63a72762066527358780156973a2c3463e0817a2b3dc4d12391f2064893a81a",
+      "size_bytes": 2913
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_analyzer/learner.py",
+      "sha256": "61cd28585db77bb6edf6b1274373f36370a1c89b524de323bb08d21aba4862a7",
+      "size_bytes": 16700
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_analyzer/query_generator.py",
+      "sha256": "9cc678002152b8de4d7b963db9d7f9946f26dbc2d4a4c9d04c91daa6e33083de",
+      "size_bytes": 534
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_analyzer/shield.py",
+      "sha256": "da509573685c9f0d770eee37caa4d2a1ee08983741696933844e5a867a11c283",
+      "size_bytes": 1373
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_analyzer/cegis.py",
+      "sha256": "ab03ecdac2e9e147e8d1bb7a56821dcf4a41b9877913dd6ce4c5fb222029157c",
+      "size_bytes": 13850
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_verifier/__init__.py",
+      "sha256": "716208c3b1eb2b894615540e4ca5c8da6ff2deede4321d6a5d8be1de55ce371f",
+      "size_bytes": 796
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_verifier/hidden_ir.py",
+      "sha256": "d859e95b9502cd87a2d1a89d964e04db307beaf1164a9c03ed8d540c2cbdd2eb",
+      "size_bytes": 6368
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_verifier/omission_oracle.py",
+      "sha256": "0c7ab0d2e79e9f4b19f8d34acabd8d497660d0bc2b2d5b99553aec14787af330",
+      "size_bytes": 3899
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_verifier/solver.py",
+      "sha256": "6010423d86502fd2a81a2cacc630d41e55f55791ee4baa122dfe7b65810a9468",
+      "size_bytes": 6761
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_verifier/equivalence.py",
+      "sha256": "69877ec19eeaebcb029a8e9e0fb5d20d1f9b5786372f7a2d39b7ffbce4468e1e",
+      "size_bytes": 18177
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_verifier/replay_service.py",
+      "sha256": "1f7155eb643599bdf0a7388f03c91c23b967c4129c7eaa7f9fb0155c2c02d2a3",
+      "size_bytes": 3122
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_verifier/benchmark.py",
+      "sha256": "74ea7664c52d9355cb91eb9431047188555a73690525a02b103100706373835e",
+      "size_bytes": 29628
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_verifier/template_families.py",
+      "sha256": "f204fe16e2cae0d1017ad00043482f6c397a30c3bd863978dbbee05217ee32e0",
+      "size_bytes": 15672
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_verifier/template_isolation.py",
+      "sha256": "0a40e70b97d6c691328f454087e9a631f8a0a6a612a61343f58147070c948c66",
+      "size_bytes": 15262
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_verifier/bounded_loop.py",
+      "sha256": "784f960201be922c011b9f41e61b17ed94a8c5290750c7aecfa91d825412b88c",
+      "size_bytes": 7643
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_verifier/symbolic_loop.py",
+      "sha256": "71cb5c4e5d3ddd4de01692a116dd0b4e5b20b714b3e0f65f39c18449deef36cd",
+      "size_bytes": 8093
+    },
+    {
+      "path": "scripts/audit_f2c_templates.py",
+      "sha256": "ae51d8f37186d86f370329e88bba9f2399f64aaafbc56436e356ea5fbdd1114b",
+      "size_bytes": 3629
+    },
+    {
+      "path": "tests/test_f2c_template_isolation.py",
+      "sha256": "5aba963ef72ed144e15bd89a885f14a47e09b18ab3584d10768cf4544ac6eaca",
+      "size_bytes": 4777
+    },
+    {
+      "path": "tests/test_f2c_loop_equivalence.py",
+      "sha256": "ac7ec6fae9703d29ce445519746fd99a9256f4731e38547bd67bfcf928e86a2c",
+      "size_bytes": 10497
+    },
+    {
+      "path": "src/keyed_gram/authsynth_symbolic_verifier/evaluator.py",
+      "sha256": "805ecdda77c16cf6c84664ccecd130fa99077fe09b55d0308b26c01972ceafdd",
+      "size_bytes": 33072
+    },
+    {
+      "path": "src/keyed_gram/stage_f2c.py",
+      "sha256": "82d4a3bd55a865adda0b31d39568d528e7c7295a6812d43993a5b3c6e61933de",
+      "size_bytes": 38526
+    },
+    {
+      "path": "src/keyed_gram/stage_f2c_metrics.py",
+      "sha256": "a6c0717e1e19ed26c78d8f543a6fc3d45b87e7747034162b339e496e1f510e7f",
+      "size_bytes": 8440
+    },
+    {
+      "path": "src/keyed_gram/stage_f2c_protocol.py",
+      "sha256": "32959d46b48e92a3b0639448335f9ff44b16744a32212bb721a6215b8d671b41",
+      "size_bytes": 22325
+    },
+    {
+      "path": "tests/f2c_symbolic_helpers.py",
+      "sha256": "7c34b5c095f48c87a969cd9791d95dfb399435266c81aa9d8a88d5e8d99a4f4e",
+      "size_bytes": 905
+    },
+    {
+      "path": "tests/test_symbolic_types.py",
+      "sha256": "7978d02ba847289c928f82248e47626db620c35883ecc2fc3c1c82edad6c4dc4",
+      "size_bytes": 1943
+    },
+    {
+      "path": "tests/test_symbolic_formulas.py",
+      "sha256": "65d57c3e37c0bc018db66957faae8ce85ebe6f2eb7e03e2582aa87c0af1386f8",
+      "size_bytes": 1861
+    },
+    {
+      "path": "tests/test_symbolic_contracts.py",
+      "sha256": "c0831c1c7cdace1c5cf045b31196f0d6941451ac7b11a1389f8af6ef187eaef5",
+      "size_bytes": 3080
+    },
+    {
+      "path": "tests/test_symbolic_learner.py",
+      "sha256": "16cd633d1248d42adb4eba8dd124a8f68ed83ae5572ca3dee2cea181173039fe",
+      "size_bytes": 3273
+    },
+    {
+      "path": "tests/test_symbolic_cegis.py",
+      "sha256": "258e2bf4a22c760f3aeb8e7edf7daedd5791180d2262f80adbd76545091c22aa",
+      "size_bytes": 3274
+    },
+    {
+      "path": "tests/test_symbolic_verifier.py",
+      "sha256": "44fd6554f08c94ee4e6eaa62c5714cf106682ea86b34584226621d974d747edd",
+      "size_bytes": 3162
+    },
+    {
+      "path": "tests/test_symbolic_collisions.py",
+      "sha256": "02056e63e3de692d0e9d95d0ad75ac95f01f042866ec6c610b660aa8726822a4",
+      "size_bytes": 1792
+    },
+    {
+      "path": "tests/test_symbolic_safety_regressions.py",
+      "sha256": "ef895ddd4ba3afd49641dbe725d252c1a10180e30061e636ba23ce7c7e2267e1",
+      "size_bytes": 9641
+    },
+    {
+      "path": "tests/test_symbolic_patch_atoms.py",
+      "sha256": "f3522ed023d8ac7685f1f96a90e1f79a5c05926f8503c086ad4cff18d6793ec7",
+      "size_bytes": 9957
+    },
+    {
+      "path": "scripts/audit_f2c_prefreeze.py",
+      "sha256": "65ff357bfb0463cb24252c5b1c114d30432ba561b160f9720244ad93845ef0d7",
+      "size_bytes": 1319
+    },
+    {
+      "path": "scripts/validate_f2c_draft.py",
+      "sha256": "ac669f4f303efa9517e0b222e2e6097ad63edb14ebb9394f7ef15d302986850c",
+      "size_bytes": 4288
+    },
+    {
+      "path": "tests/test_symbolic_query_generation.py",
+      "sha256": "7ac3c692d3f4c6b5d248fc975167e85275066bdc779aa5cd0b363a95dfceaca6",
+      "size_bytes": 1620
+    },
+    {
+      "path": "tests/test_symbolic_information_boundary.py",
+      "sha256": "1aa880542cf6c32cdf7bf3161493778499989b95ab26578159bfe3b98f46a980",
+      "size_bytes": 2154
+    },
+    {
+      "path": "tests/test_symbolic_shield.py",
+      "sha256": "881b67a613b9acbc1c430a4f97622b8e3e9ffb5fb8de43dbf94ed19f8a515bc0",
+      "size_bytes": 2099
+    },
+    {
+      "path": "tests/test_stage_f2c_metrics.py",
+      "sha256": "68091c72347df2fe51b31ccbfeddd5be14950d97cd5114a08a501b8d6042dc34",
+      "size_bytes": 3530
+    },
+    {
+      "path": "tests/test_stage_f2c_protocol.py",
+      "sha256": "f30ac1a0388d21cc00e99c5ce9ac40a1fceed337f8c77929b63339cd9053522e",
+      "size_bytes": 4010
+    }
+  ],
+  "manifest_payload_sha256": "de5c0ffe1ceca4ccd5ccef869741ebc9a2eec23c35a65d49f3c06f52de9e485c",
+  "schema_version": 1
+}

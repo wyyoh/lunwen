@@ -1,0 +1,11 @@
+{
+  "formal_capability_token_occurrence_count": 0,
+  "gold_locked_contract_persisted": false,
+  "hidden_locked_implementation_ast_persisted": false,
+  "locked_assignment_output_table_persisted": false,
+  "private_data_occurrence_count": 0,
+  "private_key_occurrence_count": 0,
+  "scanned_file_count": 29,
+  "schema_version": 1,
+  "status": "passed"
+}

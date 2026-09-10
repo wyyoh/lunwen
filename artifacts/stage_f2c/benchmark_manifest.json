@@ -1,0 +1,78 @@
+{
+  "analyzer_freeze_commit": "65d64537ee9e5a0260277e978084d34608f5ba5b",
+  "benchmark": {
+    "base_tool_count": 12,
+    "bounded_loop_case_count": 4,
+    "case_count": 120,
+    "clean_control_case_count": 24,
+    "domain_assignment_count_per_case": 768,
+    "domain_count": 4,
+    "expected_unknown_case_count": 6,
+    "mutation_category_count": 10,
+    "mutation_category_counts": {
+      "alias_redirect_effect": 12,
+      "bounded_delayed_effect": 12,
+      "conservative_control": 12,
+      "exact_declared_control": 12,
+      "hidden_guarded_effect": 12,
+      "implementation_drift": 12,
+      "multi_branch_effect": 12,
+      "parameter_role_alias": 12,
+      "state_dependent_effect": 12,
+      "threshold_effect": 12
+    },
+    "split_case_counts": {
+      "calibration": 40,
+      "development": 40,
+      "train": 40
+    },
+    "total_bounded_domain_assignments": 122880
+  },
+  "evaluator_manifest_digest": "79e9591a19bac8a52d098c3a87a34dab340a24035ddd9e7bcbddad006f9e9a58",
+  "gold_locked_contract_persisted": false,
+  "hidden_locked_implementation_ast_persisted": false,
+  "locked_materialized_after_analyzer_freeze": false,
+  "locked_materialized_after_development_gate": false,
+  "schema_version": 1,
+  "splits": {
+    "calibration": {
+      "analyzer_input_only": true,
+      "case_count": 40,
+      "case_id_digest": "39eb32b92cee7d9c47c87cde3e53405150bb29220f6a0eba8923a9cdc83ebc12",
+      "data_sha256": "f152e2a22c7088ee55584bb08174dbba02cc0df286ea0d9f2286523eb8acbca9",
+      "data_size_bytes": 148396,
+      "full_assignment_output_table_persisted": false,
+      "gold_contract_persisted": false,
+      "hidden_implementation_ast_persisted": false,
+      "manifest_payload_sha256": "4d7876ac5d4bcac23928e46129bdcd72951724770f03a0a23bd7c009412cb5e3",
+      "schema_version": 1,
+      "split": "calibration"
+    },
+    "development": {
+      "analyzer_input_only": true,
+      "case_count": 40,
+      "case_id_digest": "f894573f7f60d145e5f8858ce417ab73290700bfccd741874aaac6d492d03410",
+      "data_sha256": "c1b7bf8588938935e00da28737ab49279298287286b3db0a8d3ac7c6b6543665",
+      "data_size_bytes": 175852,
+      "full_assignment_output_table_persisted": false,
+      "gold_contract_persisted": false,
+      "hidden_implementation_ast_persisted": false,
+      "manifest_payload_sha256": "a11d7497f654a08a357ae15f19fa7dec8beaeaddaae223e6a0512cf5a4b38fbb",
+      "schema_version": 1,
+      "split": "development"
+    },
+    "train": {
+      "analyzer_input_only": true,
+      "case_count": 40,
+      "case_id_digest": "e9af1b61cca8e8dd49402d73c9a913f438bf4fc39eef6381f0b08e2d545b8d1b",
+      "data_sha256": "e68ac88b0430d9962e864c0a5398870dac7beb8c7ecbe65b4cce1f2575af5be5",
+      "data_size_bytes": 108424,
+      "full_assignment_output_table_persisted": false,
+      "gold_contract_persisted": false,
+      "hidden_implementation_ast_persisted": false,
+      "manifest_payload_sha256": "143dda430987cf2c38bceeb948711582c85db11da4030993155e164f89e58ee5",
+      "schema_version": 1,
+      "split": "train"
+    }
+  }
+}

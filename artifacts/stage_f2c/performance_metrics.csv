@@ -1,0 +1,9 @@
+analysis_p50_ms,analysis_p95_ms,method,replay_query_count,solver_call_count,synthesis_p50_ms,synthesis_p95_ms,verification_p50_ms,verification_p95_ms
+207.111381,8784.422121,AuthSynth-Symbolic,1428,1560,126.26199499999998,8522.475295,76.00030199999999,243.87100299999997
+251.125312,8424.356065,CEGIS-No-Minimization,1632,1764,153.808027,8157.442729,79.39529999999999,249.57636200000002
+24.683268,52.271796,Coverage-Guided Replay Table,480,0,0.0,0.0,0.0,0.0
+0.001467,0.002325,Declared-Contract Monitor,0,0,0.0,0.0,0.0,0.0
+0.001149,0.001549,DenyAll,0,0,0.0,0.0,0.0,0.0
+0.002562,0.004414,Gold Symbolic Contract,0,0,0.0,0.0,0.0,0.0
+52.406021,76.006958,Passive Symbolic Learner,480,0,0.0,0.0,0.0,0.0
+10.873012,23.157429,Random Replay Table,2880,0,0.0,0.0,0.0,0.0

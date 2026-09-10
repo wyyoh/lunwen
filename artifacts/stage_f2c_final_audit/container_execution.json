@@ -1,0 +1,29 @@
+{
+  "checkpoint_lines": {
+    "calibration": 320,
+    "development": 320,
+    "locked_test": 0,
+    "train": 320
+  },
+  "command": [
+    "python",
+    "-m",
+    "keyed_gram.stage_f2c",
+    "--config",
+    "configs/stage_f2c.yaml"
+  ],
+  "container_id": "ee6e1c293da98bc44bc6515e2ceb3235ca02f3da3928bd7015baff838b9a1aa3",
+  "cpus": 4.0,
+  "exit_code": 0,
+  "finished_at": "2026-09-10T02:16:41.855683789Z",
+  "image_id": "sha256:b89ea8a6918ad5a06f04119cbe745178be48801c0c8e192faf28b74e39d14d4b",
+  "interpretation": "CLI 正常归档 failed_development；退出码 0 不表示实验 gate 通过。",
+  "memory_limit": 8589934592,
+  "network_mode": "none",
+  "raw_inspection_sha256": "2e985396d5e9b4c9e611615c152a397ed59b33d87795187a36591e415c06e7ca",
+  "raw_log_sha256": "c1107f0fa875037c286f78d41b162d9e4c896329a1ffe958300123e4cabb3c05",
+  "readonly_rootfs": true,
+  "runtime_user": "researcher",
+  "stage_passed": false,
+  "started_at": "2026-09-10T02:01:47.604949948Z"
+}

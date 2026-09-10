@@ -1,0 +1,43 @@
+{
+  "audit_basis": "registered_ids_and_conservative_content_fingerprints",
+  "audit_kind": "prefreeze_template_definitions_only",
+  "collisions": {
+    "constant_template_content": [],
+    "field_binding_template": [],
+    "field_binding_template_content": [],
+    "guard_template_content": [],
+    "hidden_guard_template": [],
+    "implementation_ast_content": [],
+    "implementation_ast_normalized_shape": [],
+    "implementation_ast_shape": [],
+    "input_schema_content": [],
+    "mutation_family": [],
+    "public_case_id": [],
+    "state_schema_content": [],
+    "symbolic_contract_content": [],
+    "threshold_template_content": [],
+    "tool_family": [],
+    "version_lineage": []
+  },
+  "cross_split_collision_count": 0,
+  "cross_split_semantic_collision_count": 0,
+  "cross_split_structural_collision_count": 0,
+  "dead_guard_template_count": 0,
+  "formal_development_started": false,
+  "formal_locked_started": false,
+  "legacy_collision_count": 0,
+  "no_op_branch_count": 0,
+  "schema_version": 2,
+  "semantic_collision_groups": [],
+  "split_case_counts": {
+    "calibration": 40,
+    "development": 40,
+    "train": 40
+  },
+  "status": "passed",
+  "structural_collision_groups": [],
+  "tautological_separation_count": 0,
+  "template_count": 120,
+  "unreachable_branch_count": 0,
+  "unused_schema_field_count": 0
+}

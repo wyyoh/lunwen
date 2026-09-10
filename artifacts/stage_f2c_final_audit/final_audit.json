@@ -1,0 +1,50 @@
+{
+  "artifact_inventory": "passed",
+  "audit_kind": "post_run_read_only_no_reexecution",
+  "csv": "passed",
+  "formal_artifact_manifest_sha256": "7883911eed6ebb26d24104de5fdbe89e03275aa85bf80b1dc6ffcb8457010503",
+  "formal_development_run_count": 1,
+  "formal_locked_run_count": 0,
+  "formal_summary_sha256": "2c2ae5482b0486b85f99fa1121569c6faff3df0d364270bb4b19b0cc49535627",
+  "frozen": {
+    "analyzer_freeze_commit": "65d64537ee9e5a0260277e978084d34608f5ba5b",
+    "current_snapshot_equals_historical_f1_snapshot": false,
+    "entry_counts": {
+      "frozen_analyzer": 103,
+      "frozen_environment": 9,
+      "frozen_upstream": 149
+    },
+    "formal_development_started": false,
+    "formal_locked_started": false,
+    "frozen_analyzer_manifest_valid": true,
+    "frozen_environment_manifest_valid": true,
+    "frozen_upstream_manifest_valid": true,
+    "runtime_environment_checked": true,
+    "status": "passed"
+  },
+  "gate_recomputation": "passed",
+  "private_data_used": false,
+  "repeat_entry_preflight_rejected": true,
+  "report_sha256": "3e31577ec5b531c137d3b53cf287f2d2cff4e8c3c43c048c5ec30cccaf1bd221",
+  "rows_by_split": {
+    "calibration": 320,
+    "development": 320,
+    "locked_test": 0,
+    "train": 320
+  },
+  "sensitive_scan": {
+    "formal_capability_token_occurrence_count": 0,
+    "gold_locked_contract_persisted": false,
+    "hidden_locked_implementation_ast_persisted": false,
+    "locked_assignment_output_table_persisted": false,
+    "private_data_occurrence_count": 0,
+    "private_key_occurrence_count": 0,
+    "scanned_file_count": 31,
+    "schema_version": 1,
+    "status": "passed"
+  },
+  "source_sha": "passed",
+  "statistics_recomputation": "passed",
+  "status": "passed",
+  "strict_json": "passed"
+}
