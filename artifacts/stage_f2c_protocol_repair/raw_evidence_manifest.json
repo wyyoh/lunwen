@@ -1,0 +1,60 @@
+{
+  "files": [
+    {
+      "path": "bounded_loop_equivalence_audit.json",
+      "sha256": "ae1b20a5ac6c0d5a1e718b06fa4938eb5620036462a016b71554bd989e49f368"
+    },
+    {
+      "path": "full_repository.log",
+      "sha256": "6f938d0452238d3f159d9ddfc5048f7d0607e501fe06bfd0572deebece5917be"
+    },
+    {
+      "path": "git_diff_check.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "loop_equivalence.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "regression/full_repository.log",
+      "sha256": "ce7ece4617b404e8d6cdb18cebd9a78c093054ebad65c984c338f6de46ed539e"
+    },
+    {
+      "path": "regression/full_repository.xml",
+      "sha256": "98f580ed167efa8110029a7e85b83b97d83b83e0b02eb9af48a55d6fb8aab632"
+    },
+    {
+      "path": "regression/pytest_capture.json",
+      "sha256": "ef29589d1ef6d94ad28d22b5bb34d71bbfedac4b9cc8953748cf48bd9c48ec07"
+    },
+    {
+      "path": "regression/regression_summary.json",
+      "sha256": "0de666057ad46c976fdc29ba58f6e0233d4e84f3a53aec28894cf112ac6f1515"
+    },
+    {
+      "path": "ruff.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "path": "targeted.log",
+      "sha256": "9557f2abd16510dca0330f3013398af6e5a1131a956307a2122f01630b7b3c2a"
+    },
+    {
+      "path": "targeted.xml",
+      "sha256": "89576b12f1581f32b8a9eb0c06cd56db8c4efdc543a5a6c6248d036074f27751"
+    },
+    {
+      "path": "template_isolation.log",
+      "sha256": "fcd6f1ff14ef48c4c29e3b8e78f81e8a1b53e182b49de264827140a2b9221c51"
+    },
+    {
+      "path": "template_isolation_audit.json",
+      "sha256": "1ff6373aa0c4b9771fc0b8b55c32a437e751baa321d969be7ed16b9680a7f85f"
+    },
+    {
+      "path": "validation_run.json",
+      "sha256": "859b1c7020dad3e3ac2f468e034f85e75c43d63cfb1112346d17d7b762d2ba23"
+    }
+  ]
+}

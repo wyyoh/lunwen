@@ -1,0 +1,12 @@
+{
+  "analyzer_fixed_query_catalog_access": false,
+  "analyzer_forbidden_symbol_failure_count": 0,
+  "analyzer_hidden_implementation_access": false,
+  "analyzer_mutation_label_access": false,
+  "analyzer_reference_contract_access": false,
+  "analyzer_verifier_import_failure_count": 0,
+  "public_schema_forbidden_field_failure_count": 0,
+  "schema_version": 1,
+  "status": "passed",
+  "verifier_returns_hidden_formula": false
+}

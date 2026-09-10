@@ -1,0 +1,53 @@
+{
+  "cap_drop": [
+    "ALL"
+  ],
+  "command": [
+    "python",
+    "scripts/validate_f2c_draft.py",
+    "--output",
+    "/workspace/runtime/validation.json"
+  ],
+  "container_id": "edd3ab0dc788f4fc92b105455bda9d131ed9a8f1296daa4cbbdf7644e164d716",
+  "cpu_limit": 4.0,
+  "created": "2026-09-08T07:29:40.838107553Z",
+  "image_id": "sha256:b89ea8a6918ad5a06f04119cbe745178be48801c0c8e192faf28b74e39d14d4b",
+  "memory_limit_bytes": 4294967296,
+  "mounts": [
+    {
+      "Destination": "/workspace/lunwen",
+      "Mode": "",
+      "Propagation": "rprivate",
+      "RW": false,
+      "Source": "/var/tmp/f2c-atoms.csMzyO/source",
+      "Type": "bind"
+    },
+    {
+      "Destination": "/workspace/runtime",
+      "Mode": "",
+      "Propagation": "rprivate",
+      "RW": true,
+      "Source": "/mnt/c/Users/pc/AppData/Local/Temp/f2c-atoms-csMzyO-results",
+      "Type": "bind"
+    }
+  ],
+  "network_mode": "none",
+  "read_only_rootfs": true,
+  "runtime_user": "researcher",
+  "security_opt": [
+    "no-new-privileges"
+  ],
+  "state": {
+    "Dead": false,
+    "Error": "",
+    "ExitCode": 0,
+    "FinishedAt": "2026-09-08T07:29:48.568812612Z",
+    "OOMKilled": false,
+    "Paused": false,
+    "Pid": 0,
+    "Restarting": false,
+    "Running": false,
+    "StartedAt": "2026-09-08T07:29:40.865292902Z",
+    "Status": "exited"
+  }
+}

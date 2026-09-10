@@ -1,0 +1,49 @@
+expected_count,method,patch_type,precision,predicted_count,recall,true_positive_count
+60,AuthSynth-Symbolic,effect_patch,1.0,56,0.9333333333333333,56
+24,AuthSynth-Symbolic,field_binding_patch,0.3333333333333333,72,1.0,24
+24,AuthSynth-Symbolic,guard_patch,0.25,96,1.0,24
+12,AuthSynth-Symbolic,state_update_patch,0.11538461538461539,104,1.0,12
+6,AuthSynth-Symbolic,unsupported_region,0.2727272727272727,22,1.0,6
+12,AuthSynth-Symbolic,version_invalidation,1.0,12,1.0,12
+60,CEGIS-No-Minimization,effect_patch,1.0,56,0.9333333333333333,56
+24,CEGIS-No-Minimization,field_binding_patch,0.3333333333333333,72,1.0,24
+24,CEGIS-No-Minimization,guard_patch,0.25,96,1.0,24
+12,CEGIS-No-Minimization,state_update_patch,0.11538461538461539,104,1.0,12
+6,CEGIS-No-Minimization,unsupported_region,0.2727272727272727,22,1.0,6
+12,CEGIS-No-Minimization,version_invalidation,1.0,12,1.0,12
+60,Coverage-Guided Replay Table,effect_patch,1.0,0,0.0,0
+24,Coverage-Guided Replay Table,field_binding_patch,1.0,0,0.0,0
+24,Coverage-Guided Replay Table,guard_patch,1.0,0,0.0,0
+12,Coverage-Guided Replay Table,state_update_patch,1.0,0,0.0,0
+6,Coverage-Guided Replay Table,unsupported_region,1.0,0,0.0,0
+12,Coverage-Guided Replay Table,version_invalidation,1.0,0,0.0,0
+60,Declared-Contract Monitor,effect_patch,1.0,0,0.0,0
+24,Declared-Contract Monitor,field_binding_patch,1.0,0,0.0,0
+24,Declared-Contract Monitor,guard_patch,1.0,0,0.0,0
+12,Declared-Contract Monitor,state_update_patch,1.0,0,0.0,0
+6,Declared-Contract Monitor,unsupported_region,1.0,0,0.0,0
+12,Declared-Contract Monitor,version_invalidation,1.0,0,0.0,0
+60,DenyAll,effect_patch,1.0,0,0.0,0
+24,DenyAll,field_binding_patch,1.0,0,0.0,0
+24,DenyAll,guard_patch,1.0,0,0.0,0
+12,DenyAll,state_update_patch,1.0,0,0.0,0
+6,DenyAll,unsupported_region,1.0,0,0.0,0
+12,DenyAll,version_invalidation,1.0,0,0.0,0
+60,Gold Symbolic Contract,effect_patch,1.0,0,0.0,0
+24,Gold Symbolic Contract,field_binding_patch,1.0,0,0.0,0
+24,Gold Symbolic Contract,guard_patch,1.0,0,0.0,0
+12,Gold Symbolic Contract,state_update_patch,1.0,0,0.0,0
+6,Gold Symbolic Contract,unsupported_region,1.0,0,0.0,0
+12,Gold Symbolic Contract,version_invalidation,1.0,0,0.0,0
+60,Passive Symbolic Learner,effect_patch,1.0,0,0.0,0
+24,Passive Symbolic Learner,field_binding_patch,1.0,0,0.0,0
+24,Passive Symbolic Learner,guard_patch,1.0,0,0.0,0
+12,Passive Symbolic Learner,state_update_patch,1.0,0,0.0,0
+6,Passive Symbolic Learner,unsupported_region,1.0,0,0.0,0
+12,Passive Symbolic Learner,version_invalidation,1.0,0,0.0,0
+60,Random Replay Table,effect_patch,1.0,0,0.0,0
+24,Random Replay Table,field_binding_patch,1.0,0,0.0,0
+24,Random Replay Table,guard_patch,1.0,0,0.0,0
+12,Random Replay Table,state_update_patch,1.0,0,0.0,0
+6,Random Replay Table,unsupported_region,1.0,0,0.0,0
+12,Random Replay Table,version_invalidation,1.0,0,0.0,0

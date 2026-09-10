@@ -1,0 +1,8 @@
+{
+  "concrete_symbolic_loop_equivalence_failure_count": 0,
+  "exhaustive_assignment_count": 960,
+  "failures": [],
+  "formal_development_started": false,
+  "formal_locked_started": false,
+  "program_count": 24
+}

@@ -1,0 +1,126 @@
+schema_version: 1
+stage: F2C-symbolic-contracts
+method_name: AuthSynth-Symbolic
+benchmark_version: authsymbolbench-v1
+formal_build_mode: one_shot_query_generating_cegis_audit
+
+research_boundary:
+  f2b_role: blind_finite_query_characterization_only
+  analyzer_hidden_implementation_access: false
+  analyzer_reference_contract_access: false
+  analyzer_mutation_label_access: false
+  fixed_query_catalog_used: false
+  relational_effect_analysis_used: false
+  secret_dependent_payload_analyzed: false
+  real_tool_execution_used: false
+  real_agent_used: false
+  llm_judge_used: false
+  private_data_used: false
+  arbitrary_program_completeness_claimed: false
+
+protocol:
+  required_branch: agent/stage-f2c-symbolic-contracts
+  base_branch: agent/stage-f2b-blind-cgar
+  required_base_commit: 1c01a24fe8cdc123e405591a0ced0a5ee50aa5d6
+  analyzer_freeze_commit: PENDING_ANALYZER_FREEZE
+  freeze_binding_path: artifacts/stage_f2c_dispatch_freeze/freeze_binding.json
+  benchmark_seed_freeze_commit: f141c77278a8924373d38585ff55036ca7340854
+  tracked_worktree_must_be_clean: true
+  formal_build_repeat_allowed: false
+  development_runs: 1
+  locked_test_runs: 1
+  f1_locked_test_scoring_allowed: false
+  f2a_locked_test_rerun_allowed: false
+  f2b_locked_test_rerun_allowed: false
+
+benchmark:
+  expected_case_count: 160
+  expected_case_count_per_split: 40
+  expected_base_tool_count: 16
+  expected_domain_count: 4
+  expected_mutation_category_count: 10
+  expected_unknown_case_count: 8
+  minimum_domain_cardinality: 256
+  maximum_domain_cardinality: 4096
+  splits: [train, calibration, development, locked_test]
+  public_or_synthetic_only: true
+  ground_truth: hidden_toolsymbolicir_and_bounded_smt_oracle
+
+calibration_candidates:
+  - candidate_id: compact-12
+    max_disjuncts: 3
+    max_literals_per_conjunction: 4
+    max_total_literals: 12
+    allow_ite_terms: true
+    replay_budget: 12
+    solver_timeout_ms: 2000
+  - candidate_id: standard-16
+    max_disjuncts: 4
+    max_literals_per_conjunction: 5
+    max_total_literals: 16
+    allow_ite_terms: true
+    replay_budget: 16
+    solver_timeout_ms: 3000
+  - candidate_id: extended-24
+    max_disjuncts: 4
+    max_literals_per_conjunction: 5
+    max_total_literals: 16
+    allow_ite_terms: true
+    replay_budget: 24
+    solver_timeout_ms: 5000
+
+materialization_defaults:
+  max_disjuncts: 4
+  max_literals_per_conjunction: 5
+  max_total_literals: 16
+  allow_ite_terms: true
+  replay_budget: 24
+  solver_timeout_ms: 5000
+
+loop_semantics:
+  max_loop_iterations: 8
+  integer_semantics: bounded_mathematical_int_reject_overflow
+  async_schedule: drain_ordered_queue_at_iteration_barrier
+  max_async_depth: 2
+  unbounded_loop_status: CONTRACT_UNKNOWN
+
+readiness_gates:
+  maximum_false_verified_complete_count: 0
+  maximum_forbidden_trace_acceptance_rate: 0.0
+  minimum_unseen_effect_recall: 0.95
+  minimum_unseen_effect_precision: 0.90
+  minimum_guard_precision: 0.95
+  minimum_guard_recall: 0.95
+  minimum_field_binding_accuracy: 0.95
+  minimum_state_update_binding_accuracy: 0.90
+  maximum_contract_overapproximation_ratio: 0.10
+  minimum_safe_utility: 0.90
+  minimum_maximal_permissiveness_ratio: 0.90
+  minimum_replay_query_reduction: 0.70
+  minimum_convergence_rate: 0.85
+  maximum_unknown_rate: 0.20
+  minimum_drift_detection_recall: 1.0
+  maximum_old_certificate_reuse_after_drift_count: 0
+  maximum_cross_split_collision_count: 0
+
+outputs:
+  data_dir: data/authsymbolbench_v1/generated
+  artifact_dir: artifacts/stage_f2c
+  runtime_dir: .runs/stage_f2c
+  report_path: PHASE_F2C_REPORT.md
+
+frozen_upstream: []
+frozen_analyzer: []
+
+final_status:
+  symbolic_contract_synthesis_status: not_evaluated
+  query_generating_cegis_status: not_evaluated
+  ready_for_stage_f2d_relational_contracts: false
+  relational_effect_completeness_validated: false
+  real_tool_completeness_validated: false
+  formal_model_completed: false
+  real_agent_integration_completed: false
+  private_data_used: false
+  private_value_memory_ready: false
+  original_c3_allowed: false
+  c3_eligible: false

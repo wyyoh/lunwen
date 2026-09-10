@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "solver": "Z3",
+  "standard_solver_component_not_algorithmic_innovation": true,
+  "timeout_ms": 5000,
+  "version": "4.15.3"
+}

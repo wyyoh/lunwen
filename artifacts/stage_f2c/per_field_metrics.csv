@@ -1,0 +1,49 @@
+accuracy,correct_count,field,method,total_count
+0.8202917771883289,59376,tenant,AuthSynth-Symbolic,72384
+0.7519893899204244,54432,resource,AuthSynth-Symbolic,72384
+0.9920424403183024,71808,destination,AuthSynth-Symbolic,72384
+1.0,72384,amount,AuthSynth-Symbolic,72384
+1.0,72384,phase,AuthSynth-Symbolic,72384
+0.8639804180003766,183544,state,AuthSynth-Symbolic,212440
+0.821366612569254,58708,tenant,CEGIS-No-Minimization,71476
+0.7085455257708881,50644,resource,CEGIS-No-Minimization,71476
+0.9910459454921932,70836,destination,CEGIS-No-Minimization,71476
+1.0,71476,amount,CEGIS-No-Minimization,71476
+1.0,71476,phase,CEGIS-No-Minimization,71476
+0.8637263964082926,183148,state,CEGIS-No-Minimization,212044
+1.0,0,tenant,Coverage-Guided Replay Table,0
+1.0,0,resource,Coverage-Guided Replay Table,0
+1.0,0,destination,Coverage-Guided Replay Table,0
+1.0,0,amount,Coverage-Guided Replay Table,0
+1.0,0,phase,Coverage-Guided Replay Table,0
+0.7715832710978342,165304,state,Coverage-Guided Replay Table,214240
+1.0,54912,tenant,Declared-Contract Monitor,54912
+1.0,54912,resource,Declared-Contract Monitor,54912
+0.9254079254079254,50816,destination,Declared-Contract Monitor,54912
+1.0,54912,amount,Declared-Contract Monitor,54912
+1.0,54912,phase,Declared-Contract Monitor,54912
+0.9776785714285714,210240,state,Declared-Contract Monitor,215040
+1.0,0,tenant,DenyAll,0
+1.0,0,resource,DenyAll,0
+1.0,0,destination,DenyAll,0
+1.0,0,amount,DenyAll,0
+1.0,0,phase,DenyAll,0
+0.7714285714285715,165888,state,DenyAll,215040
+1.0,82560,tenant,Gold Symbolic Contract,82560
+1.0,82560,resource,Gold Symbolic Contract,82560
+1.0,82560,destination,Gold Symbolic Contract,82560
+1.0,82560,amount,Gold Symbolic Contract,82560
+1.0,82560,phase,Gold Symbolic Contract,82560
+1.0,215040,state,Gold Symbolic Contract,215040
+0.8685162846803377,34560,tenant,Passive Symbolic Learner,39792
+0.8974668275030157,35712,resource,Passive Symbolic Learner,39792
+0.9871330920788098,39280,destination,Passive Symbolic Learner,39792
+0.7104945717732207,28272,amount,Passive Symbolic Learner,39792
+1.0,39792,phase,Passive Symbolic Learner,39792
+0.6679611650485436,143104,state,Passive Symbolic Learner,214240
+1.0,0,tenant,Random Replay Table,0
+1.0,0,resource,Random Replay Table,0
+1.0,0,destination,Random Replay Table,0
+1.0,0,amount,Random Replay Table,0
+1.0,0,phase,Random Replay Table,0
+0.7713232496194825,162163,state,Random Replay Table,210240

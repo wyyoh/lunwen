@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "contract_overapproximation_ratio": false,
+    "convergence_rate": false,
+    "cross_split_collision_count": true,
+    "drift_detection_recall": true,
+    "false_verified_complete": true,
+    "field_binding_accuracy": false,
+    "forbidden_trace_acceptance": true,
+    "guard_precision": false,
+    "guard_recall": false,
+    "maximal_permissiveness_ratio": false,
+    "old_certificate_reuse": true,
+    "replay_query_reduction": true,
+    "safe_utility": false,
+    "state_update_binding_accuracy": false,
+    "unknown_rate": false,
+    "unseen_effect_precision": false,
+    "unseen_effect_recall": false
+  },
+  "passed": false
+}

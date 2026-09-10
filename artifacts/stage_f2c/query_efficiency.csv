@@ -1,0 +1,961 @@
+case_id,domain_assignment_count,method,replay_query_count,replay_query_reduction,solver_call_count,split
+f2c-train-0001,768,DenyAll,0,1.0,0,train
+f2c-train-0002,768,DenyAll,0,1.0,0,train
+f2c-train-0003,768,DenyAll,0,1.0,0,train
+f2c-train-0004,768,DenyAll,0,1.0,0,train
+f2c-train-0005,768,DenyAll,0,1.0,0,train
+f2c-train-0006,768,DenyAll,0,1.0,0,train
+f2c-train-0007,768,DenyAll,0,1.0,0,train
+f2c-train-0008,768,DenyAll,0,1.0,0,train
+f2c-train-0009,768,DenyAll,0,1.0,0,train
+f2c-train-0010,768,DenyAll,0,1.0,0,train
+f2c-train-0011,768,DenyAll,0,1.0,0,train
+f2c-train-0012,768,DenyAll,0,1.0,0,train
+f2c-train-0013,768,DenyAll,0,1.0,0,train
+f2c-train-0014,768,DenyAll,0,1.0,0,train
+f2c-train-0015,768,DenyAll,0,1.0,0,train
+f2c-train-0016,768,DenyAll,0,1.0,0,train
+f2c-train-0017,768,DenyAll,0,1.0,0,train
+f2c-train-0018,768,DenyAll,0,1.0,0,train
+f2c-train-0019,768,DenyAll,0,1.0,0,train
+f2c-train-0020,768,DenyAll,0,1.0,0,train
+f2c-train-0021,768,DenyAll,0,1.0,0,train
+f2c-train-0022,768,DenyAll,0,1.0,0,train
+f2c-train-0023,768,DenyAll,0,1.0,0,train
+f2c-train-0024,768,DenyAll,0,1.0,0,train
+f2c-train-0025,768,DenyAll,0,1.0,0,train
+f2c-train-0026,768,DenyAll,0,1.0,0,train
+f2c-train-0027,768,DenyAll,0,1.0,0,train
+f2c-train-0028,768,DenyAll,0,1.0,0,train
+f2c-train-0029,768,DenyAll,0,1.0,0,train
+f2c-train-0030,768,DenyAll,0,1.0,0,train
+f2c-train-0031,768,DenyAll,0,1.0,0,train
+f2c-train-0032,768,DenyAll,0,1.0,0,train
+f2c-train-0033,768,DenyAll,0,1.0,0,train
+f2c-train-0034,768,DenyAll,0,1.0,0,train
+f2c-train-0035,768,DenyAll,0,1.0,0,train
+f2c-train-0036,768,DenyAll,0,1.0,0,train
+f2c-train-0037,768,DenyAll,0,1.0,0,train
+f2c-train-0038,768,DenyAll,0,1.0,0,train
+f2c-train-0039,768,DenyAll,0,1.0,0,train
+f2c-train-0040,768,DenyAll,0,1.0,0,train
+f2c-train-0001,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0002,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0003,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0004,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0005,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0006,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0007,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0008,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0009,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0010,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0011,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0012,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0013,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0014,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0015,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0016,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0017,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0018,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0019,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0020,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0021,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0022,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0023,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0024,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0025,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0026,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0027,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0028,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0029,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0030,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0031,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0032,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0033,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0034,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0035,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0036,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0037,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0038,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0039,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0040,768,Declared-Contract Monitor,0,1.0,0,train
+f2c-train-0001,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0002,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0003,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0004,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0005,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0006,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0007,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0008,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0009,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0010,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0011,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0012,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0013,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0014,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0015,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0016,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0017,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0018,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0019,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0020,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0021,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0022,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0023,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0024,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0025,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0026,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0027,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0028,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0029,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0030,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0031,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0032,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0033,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0034,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0035,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0036,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0037,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0038,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0039,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0040,768,Random Replay Table,24,0.96875,0,train
+f2c-train-0001,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0002,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0003,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0004,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0005,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0006,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0007,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0008,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0009,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0010,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0011,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0012,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0013,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0014,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0015,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0016,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0017,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0018,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0019,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0020,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0021,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0022,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0023,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0024,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0025,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0026,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0027,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0028,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0029,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0030,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0031,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0032,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0033,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0034,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0035,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0036,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0037,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0038,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0039,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0040,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,train
+f2c-train-0001,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0002,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0003,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0004,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0005,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0006,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0007,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0008,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0009,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0010,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0011,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0012,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0013,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0014,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0015,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0016,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0017,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0018,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0019,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0020,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0021,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0022,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0023,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0024,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0025,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0026,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0027,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0028,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0029,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0030,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0031,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0032,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0033,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0034,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0035,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0036,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0037,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0038,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0039,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0040,768,Passive Symbolic Learner,4,0.9947916666666666,0,train
+f2c-train-0001,768,CEGIS-No-Minimization,7,0.9908854166666666,8,train
+f2c-train-0002,768,CEGIS-No-Minimization,7,0.9908854166666666,8,train
+f2c-train-0003,768,CEGIS-No-Minimization,8,0.9895833333333334,9,train
+f2c-train-0004,768,CEGIS-No-Minimization,7,0.9908854166666666,8,train
+f2c-train-0005,768,CEGIS-No-Minimization,7,0.9908854166666666,8,train
+f2c-train-0006,768,CEGIS-No-Minimization,7,0.9908854166666666,9,train
+f2c-train-0007,768,CEGIS-No-Minimization,9,0.98828125,10,train
+f2c-train-0008,768,CEGIS-No-Minimization,10,0.9869791666666666,11,train
+f2c-train-0009,768,CEGIS-No-Minimization,0,1.0,1,train
+f2c-train-0010,768,CEGIS-No-Minimization,5,0.9934895833333334,6,train
+f2c-train-0011,768,CEGIS-No-Minimization,7,0.9908854166666666,8,train
+f2c-train-0012,768,CEGIS-No-Minimization,7,0.9908854166666666,8,train
+f2c-train-0013,768,CEGIS-No-Minimization,8,0.9895833333333334,9,train
+f2c-train-0014,768,CEGIS-No-Minimization,7,0.9908854166666666,8,train
+f2c-train-0015,768,CEGIS-No-Minimization,7,0.9908854166666666,8,train
+f2c-train-0016,768,CEGIS-No-Minimization,7,0.9908854166666666,9,train
+f2c-train-0017,768,CEGIS-No-Minimization,9,0.98828125,10,train
+f2c-train-0018,768,CEGIS-No-Minimization,10,0.9869791666666666,11,train
+f2c-train-0019,768,CEGIS-No-Minimization,0,1.0,1,train
+f2c-train-0020,768,CEGIS-No-Minimization,5,0.9934895833333334,6,train
+f2c-train-0021,768,CEGIS-No-Minimization,7,0.9908854166666666,8,train
+f2c-train-0022,768,CEGIS-No-Minimization,7,0.9908854166666666,8,train
+f2c-train-0023,768,CEGIS-No-Minimization,8,0.9895833333333334,9,train
+f2c-train-0024,768,CEGIS-No-Minimization,7,0.9908854166666666,8,train
+f2c-train-0025,768,CEGIS-No-Minimization,7,0.9908854166666666,8,train
+f2c-train-0026,768,CEGIS-No-Minimization,7,0.9908854166666666,9,train
+f2c-train-0027,768,CEGIS-No-Minimization,9,0.98828125,10,train
+f2c-train-0028,768,CEGIS-No-Minimization,10,0.9869791666666666,11,train
+f2c-train-0029,768,CEGIS-No-Minimization,0,1.0,1,train
+f2c-train-0030,768,CEGIS-No-Minimization,5,0.9934895833333334,6,train
+f2c-train-0031,768,CEGIS-No-Minimization,7,0.9908854166666666,8,train
+f2c-train-0032,768,CEGIS-No-Minimization,7,0.9908854166666666,8,train
+f2c-train-0033,768,CEGIS-No-Minimization,8,0.9895833333333334,9,train
+f2c-train-0034,768,CEGIS-No-Minimization,7,0.9908854166666666,8,train
+f2c-train-0035,768,CEGIS-No-Minimization,7,0.9908854166666666,8,train
+f2c-train-0036,768,CEGIS-No-Minimization,7,0.9908854166666666,9,train
+f2c-train-0037,768,CEGIS-No-Minimization,9,0.98828125,10,train
+f2c-train-0038,768,CEGIS-No-Minimization,10,0.9869791666666666,11,train
+f2c-train-0039,768,CEGIS-No-Minimization,0,1.0,1,train
+f2c-train-0040,768,CEGIS-No-Minimization,5,0.9934895833333334,6,train
+f2c-train-0001,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0002,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0003,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0004,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0005,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0006,768,AuthSynth-Symbolic,7,0.9908854166666666,9,train
+f2c-train-0007,768,AuthSynth-Symbolic,9,0.98828125,10,train
+f2c-train-0008,768,AuthSynth-Symbolic,8,0.9895833333333334,9,train
+f2c-train-0009,768,AuthSynth-Symbolic,0,1.0,1,train
+f2c-train-0010,768,AuthSynth-Symbolic,5,0.9934895833333334,6,train
+f2c-train-0011,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0012,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0013,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0014,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0015,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0016,768,AuthSynth-Symbolic,7,0.9908854166666666,9,train
+f2c-train-0017,768,AuthSynth-Symbolic,9,0.98828125,10,train
+f2c-train-0018,768,AuthSynth-Symbolic,8,0.9895833333333334,9,train
+f2c-train-0019,768,AuthSynth-Symbolic,0,1.0,1,train
+f2c-train-0020,768,AuthSynth-Symbolic,5,0.9934895833333334,6,train
+f2c-train-0021,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0022,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0023,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0024,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0025,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0026,768,AuthSynth-Symbolic,7,0.9908854166666666,9,train
+f2c-train-0027,768,AuthSynth-Symbolic,9,0.98828125,10,train
+f2c-train-0028,768,AuthSynth-Symbolic,8,0.9895833333333334,9,train
+f2c-train-0029,768,AuthSynth-Symbolic,0,1.0,1,train
+f2c-train-0030,768,AuthSynth-Symbolic,5,0.9934895833333334,6,train
+f2c-train-0031,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0032,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0033,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0034,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0035,768,AuthSynth-Symbolic,7,0.9908854166666666,8,train
+f2c-train-0036,768,AuthSynth-Symbolic,7,0.9908854166666666,9,train
+f2c-train-0037,768,AuthSynth-Symbolic,9,0.98828125,10,train
+f2c-train-0038,768,AuthSynth-Symbolic,8,0.9895833333333334,9,train
+f2c-train-0039,768,AuthSynth-Symbolic,0,1.0,1,train
+f2c-train-0040,768,AuthSynth-Symbolic,5,0.9934895833333334,6,train
+f2c-train-0001,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0002,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0003,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0004,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0005,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0006,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0007,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0008,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0009,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0010,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0011,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0012,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0013,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0014,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0015,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0016,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0017,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0018,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0019,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0020,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0021,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0022,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0023,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0024,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0025,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0026,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0027,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0028,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0029,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0030,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0031,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0032,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0033,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0034,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0035,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0036,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0037,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0038,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0039,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-train-0040,768,Gold Symbolic Contract,0,1.0,0,train
+f2c-calibration-0041,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0042,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0043,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0044,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0045,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0046,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0047,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0048,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0049,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0050,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0051,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0052,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0053,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0054,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0055,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0056,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0057,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0058,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0059,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0060,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0061,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0062,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0063,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0064,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0065,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0066,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0067,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0068,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0069,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0070,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0071,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0072,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0073,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0074,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0075,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0076,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0077,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0078,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0079,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0080,768,DenyAll,0,1.0,0,calibration
+f2c-calibration-0041,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0042,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0043,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0044,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0045,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0046,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0047,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0048,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0049,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0050,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0051,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0052,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0053,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0054,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0055,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0056,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0057,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0058,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0059,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0060,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0061,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0062,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0063,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0064,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0065,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0066,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0067,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0068,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0069,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0070,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0071,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0072,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0073,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0074,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0075,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0076,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0077,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0078,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0079,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0080,768,Declared-Contract Monitor,0,1.0,0,calibration
+f2c-calibration-0041,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0042,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0043,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0044,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0045,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0046,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0047,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0048,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0049,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0050,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0051,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0052,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0053,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0054,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0055,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0056,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0057,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0058,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0059,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0060,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0061,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0062,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0063,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0064,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0065,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0066,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0067,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0068,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0069,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0070,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0071,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0072,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0073,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0074,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0075,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0076,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0077,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0078,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0079,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0080,768,Random Replay Table,24,0.96875,0,calibration
+f2c-calibration-0041,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0042,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0043,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0044,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0045,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0046,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0047,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0048,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0049,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0050,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0051,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0052,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0053,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0054,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0055,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0056,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0057,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0058,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0059,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0060,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0061,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0062,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0063,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0064,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0065,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0066,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0067,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0068,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0069,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0070,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0071,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0072,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0073,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0074,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0075,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0076,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0077,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0078,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0079,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0080,768,Coverage-Guided Replay Table,4,0.9947916666666666,0,calibration
+f2c-calibration-0041,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0042,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0043,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0044,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0045,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0046,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0047,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0048,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0049,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0050,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0051,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0052,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0053,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0054,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0055,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0056,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0057,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0058,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0059,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0060,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0061,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0062,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0063,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0064,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0065,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0066,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0067,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0068,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0069,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0070,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0071,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0072,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0073,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0074,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0075,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0076,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0077,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0078,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0079,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0080,768,Passive Symbolic Learner,4,0.9947916666666666,0,calibration
+f2c-calibration-0041,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0042,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0043,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0044,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0045,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0046,768,CEGIS-No-Minimization,24,0.96875,26,calibration
+f2c-calibration-0047,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0048,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0049,768,CEGIS-No-Minimization,0,1.0,1,calibration
+f2c-calibration-0050,768,CEGIS-No-Minimization,23,0.9700520833333334,24,calibration
+f2c-calibration-0051,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0052,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0053,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0054,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0055,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0056,768,CEGIS-No-Minimization,24,0.96875,26,calibration
+f2c-calibration-0057,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0058,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0059,768,CEGIS-No-Minimization,0,1.0,1,calibration
+f2c-calibration-0060,768,CEGIS-No-Minimization,23,0.9700520833333334,24,calibration
+f2c-calibration-0061,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0062,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0063,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0064,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0065,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0066,768,CEGIS-No-Minimization,24,0.96875,26,calibration
+f2c-calibration-0067,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0068,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0069,768,CEGIS-No-Minimization,0,1.0,1,calibration
+f2c-calibration-0070,768,CEGIS-No-Minimization,23,0.9700520833333334,24,calibration
+f2c-calibration-0071,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0072,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0073,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0074,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0075,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0076,768,CEGIS-No-Minimization,24,0.96875,26,calibration
+f2c-calibration-0077,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0078,768,CEGIS-No-Minimization,24,0.96875,25,calibration
+f2c-calibration-0079,768,CEGIS-No-Minimization,0,1.0,1,calibration
+f2c-calibration-0080,768,CEGIS-No-Minimization,23,0.9700520833333334,24,calibration
+f2c-calibration-0041,768,AuthSynth-Symbolic,19,0.9752604166666666,20,calibration
+f2c-calibration-0042,768,AuthSynth-Symbolic,19,0.9752604166666666,20,calibration
+f2c-calibration-0043,768,AuthSynth-Symbolic,18,0.9765625,19,calibration
+f2c-calibration-0044,768,AuthSynth-Symbolic,19,0.9752604166666666,20,calibration
+f2c-calibration-0045,768,AuthSynth-Symbolic,19,0.9752604166666666,20,calibration
+f2c-calibration-0046,768,AuthSynth-Symbolic,19,0.9752604166666666,21,calibration
+f2c-calibration-0047,768,AuthSynth-Symbolic,21,0.97265625,22,calibration
+f2c-calibration-0048,768,AuthSynth-Symbolic,17,0.9778645833333334,18,calibration
+f2c-calibration-0049,768,AuthSynth-Symbolic,0,1.0,1,calibration
+f2c-calibration-0050,768,AuthSynth-Symbolic,16,0.9791666666666666,17,calibration
+f2c-calibration-0051,768,AuthSynth-Symbolic,19,0.9752604166666666,20,calibration
+f2c-calibration-0052,768,AuthSynth-Symbolic,19,0.9752604166666666,20,calibration
+f2c-calibration-0053,768,AuthSynth-Symbolic,18,0.9765625,19,calibration
+f2c-calibration-0054,768,AuthSynth-Symbolic,19,0.9752604166666666,20,calibration
+f2c-calibration-0055,768,AuthSynth-Symbolic,19,0.9752604166666666,20,calibration
+f2c-calibration-0056,768,AuthSynth-Symbolic,19,0.9752604166666666,21,calibration
+f2c-calibration-0057,768,AuthSynth-Symbolic,21,0.97265625,22,calibration
+f2c-calibration-0058,768,AuthSynth-Symbolic,17,0.9778645833333334,18,calibration
+f2c-calibration-0059,768,AuthSynth-Symbolic,0,1.0,1,calibration
+f2c-calibration-0060,768,AuthSynth-Symbolic,16,0.9791666666666666,17,calibration
+f2c-calibration-0061,768,AuthSynth-Symbolic,19,0.9752604166666666,20,calibration
+f2c-calibration-0062,768,AuthSynth-Symbolic,19,0.9752604166666666,20,calibration
+f2c-calibration-0063,768,AuthSynth-Symbolic,18,0.9765625,19,calibration
+f2c-calibration-0064,768,AuthSynth-Symbolic,19,0.9752604166666666,20,calibration
+f2c-calibration-0065,768,AuthSynth-Symbolic,19,0.9752604166666666,20,calibration
+f2c-calibration-0066,768,AuthSynth-Symbolic,19,0.9752604166666666,21,calibration
+f2c-calibration-0067,768,AuthSynth-Symbolic,21,0.97265625,22,calibration
+f2c-calibration-0068,768,AuthSynth-Symbolic,17,0.9778645833333334,18,calibration
+f2c-calibration-0069,768,AuthSynth-Symbolic,0,1.0,1,calibration
+f2c-calibration-0070,768,AuthSynth-Symbolic,16,0.9791666666666666,17,calibration
+f2c-calibration-0071,768,AuthSynth-Symbolic,19,0.9752604166666666,20,calibration
+f2c-calibration-0072,768,AuthSynth-Symbolic,19,0.9752604166666666,20,calibration
+f2c-calibration-0073,768,AuthSynth-Symbolic,18,0.9765625,19,calibration
+f2c-calibration-0074,768,AuthSynth-Symbolic,19,0.9752604166666666,20,calibration
+f2c-calibration-0075,768,AuthSynth-Symbolic,19,0.9752604166666666,20,calibration
+f2c-calibration-0076,768,AuthSynth-Symbolic,19,0.9752604166666666,21,calibration
+f2c-calibration-0077,768,AuthSynth-Symbolic,21,0.97265625,22,calibration
+f2c-calibration-0078,768,AuthSynth-Symbolic,17,0.9778645833333334,18,calibration
+f2c-calibration-0079,768,AuthSynth-Symbolic,0,1.0,1,calibration
+f2c-calibration-0080,768,AuthSynth-Symbolic,16,0.9791666666666666,17,calibration
+f2c-calibration-0041,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0042,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0043,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0044,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0045,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0046,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0047,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0048,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0049,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0050,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0051,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0052,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0053,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0054,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0055,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0056,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0057,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0058,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0059,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0060,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0061,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0062,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0063,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0064,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0065,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0066,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0067,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0068,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0069,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0070,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0071,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0072,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0073,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0074,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0075,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0076,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0077,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0078,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0079,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-calibration-0080,768,Gold Symbolic Contract,0,1.0,0,calibration
+f2c-development-0081,1536,DenyAll,0,1.0,0,development
+f2c-development-0082,1536,DenyAll,0,1.0,0,development
+f2c-development-0083,1536,DenyAll,0,1.0,0,development
+f2c-development-0084,1536,DenyAll,0,1.0,0,development
+f2c-development-0085,1536,DenyAll,0,1.0,0,development
+f2c-development-0086,1536,DenyAll,0,1.0,0,development
+f2c-development-0087,1536,DenyAll,0,1.0,0,development
+f2c-development-0088,1536,DenyAll,0,1.0,0,development
+f2c-development-0089,1536,DenyAll,0,1.0,0,development
+f2c-development-0090,1536,DenyAll,0,1.0,0,development
+f2c-development-0091,1536,DenyAll,0,1.0,0,development
+f2c-development-0092,1536,DenyAll,0,1.0,0,development
+f2c-development-0093,1536,DenyAll,0,1.0,0,development
+f2c-development-0094,1536,DenyAll,0,1.0,0,development
+f2c-development-0095,1536,DenyAll,0,1.0,0,development
+f2c-development-0096,1536,DenyAll,0,1.0,0,development
+f2c-development-0097,1536,DenyAll,0,1.0,0,development
+f2c-development-0098,1536,DenyAll,0,1.0,0,development
+f2c-development-0099,1536,DenyAll,0,1.0,0,development
+f2c-development-0100,1536,DenyAll,0,1.0,0,development
+f2c-development-0101,1536,DenyAll,0,1.0,0,development
+f2c-development-0102,1536,DenyAll,0,1.0,0,development
+f2c-development-0103,1536,DenyAll,0,1.0,0,development
+f2c-development-0104,1536,DenyAll,0,1.0,0,development
+f2c-development-0105,1536,DenyAll,0,1.0,0,development
+f2c-development-0106,1536,DenyAll,0,1.0,0,development
+f2c-development-0107,1536,DenyAll,0,1.0,0,development
+f2c-development-0108,1536,DenyAll,0,1.0,0,development
+f2c-development-0109,1536,DenyAll,0,1.0,0,development
+f2c-development-0110,1536,DenyAll,0,1.0,0,development
+f2c-development-0111,1536,DenyAll,0,1.0,0,development
+f2c-development-0112,1536,DenyAll,0,1.0,0,development
+f2c-development-0113,1536,DenyAll,0,1.0,0,development
+f2c-development-0114,1536,DenyAll,0,1.0,0,development
+f2c-development-0115,1536,DenyAll,0,1.0,0,development
+f2c-development-0116,1536,DenyAll,0,1.0,0,development
+f2c-development-0117,1536,DenyAll,0,1.0,0,development
+f2c-development-0118,1536,DenyAll,0,1.0,0,development
+f2c-development-0119,1536,DenyAll,0,1.0,0,development
+f2c-development-0120,1536,DenyAll,0,1.0,0,development
+f2c-development-0081,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0082,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0083,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0084,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0085,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0086,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0087,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0088,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0089,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0090,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0091,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0092,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0093,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0094,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0095,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0096,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0097,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0098,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0099,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0100,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0101,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0102,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0103,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0104,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0105,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0106,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0107,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0108,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0109,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0110,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0111,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0112,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0113,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0114,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0115,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0116,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0117,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0118,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0119,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0120,1536,Declared-Contract Monitor,0,1.0,0,development
+f2c-development-0081,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0082,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0083,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0084,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0085,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0086,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0087,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0088,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0089,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0090,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0091,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0092,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0093,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0094,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0095,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0096,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0097,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0098,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0099,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0100,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0101,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0102,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0103,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0104,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0105,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0106,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0107,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0108,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0109,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0110,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0111,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0112,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0113,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0114,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0115,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0116,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0117,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0118,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0119,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0120,1536,Random Replay Table,24,0.984375,0,development
+f2c-development-0081,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0082,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0083,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0084,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0085,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0086,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0087,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0088,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0089,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0090,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0091,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0092,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0093,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0094,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0095,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0096,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0097,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0098,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0099,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0100,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0101,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0102,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0103,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0104,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0105,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0106,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0107,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0108,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0109,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0110,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0111,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0112,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0113,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0114,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0115,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0116,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0117,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0118,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0119,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0120,1536,Coverage-Guided Replay Table,4,0.9973958333333334,0,development
+f2c-development-0081,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0082,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0083,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0084,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0085,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0086,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0087,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0088,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0089,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0090,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0091,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0092,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0093,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0094,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0095,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0096,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0097,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0098,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0099,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0100,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0101,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0102,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0103,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0104,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0105,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0106,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0107,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0108,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0109,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0110,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0111,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0112,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0113,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0114,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0115,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0116,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0117,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0118,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0119,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0120,1536,Passive Symbolic Learner,4,0.9973958333333334,0,development
+f2c-development-0081,1536,CEGIS-No-Minimization,24,0.984375,25,development
+f2c-development-0082,1536,CEGIS-No-Minimization,24,0.984375,25,development
+f2c-development-0083,1536,CEGIS-No-Minimization,1,0.9993489583333334,2,development
+f2c-development-0084,1536,CEGIS-No-Minimization,24,0.984375,25,development
+f2c-development-0085,1536,CEGIS-No-Minimization,1,0.9993489583333334,2,development
+f2c-development-0086,1536,CEGIS-No-Minimization,24,0.984375,26,development
+f2c-development-0087,1536,CEGIS-No-Minimization,24,0.984375,25,development
+f2c-development-0088,1536,CEGIS-No-Minimization,2,0.9986979166666666,3,development
+f2c-development-0089,1536,CEGIS-No-Minimization,0,1.0,1,development
+f2c-development-0090,1536,CEGIS-No-Minimization,2,0.9986979166666666,3,development
+f2c-development-0091,1536,CEGIS-No-Minimization,24,0.984375,25,development
+f2c-development-0092,1536,CEGIS-No-Minimization,24,0.984375,25,development
+f2c-development-0093,1536,CEGIS-No-Minimization,1,0.9993489583333334,2,development
+f2c-development-0094,1536,CEGIS-No-Minimization,24,0.984375,25,development
+f2c-development-0095,1536,CEGIS-No-Minimization,1,0.9993489583333334,2,development
+f2c-development-0096,1536,CEGIS-No-Minimization,24,0.984375,26,development
+f2c-development-0097,1536,CEGIS-No-Minimization,24,0.984375,25,development
+f2c-development-0098,1536,CEGIS-No-Minimization,2,0.9986979166666666,3,development
+f2c-development-0099,1536,CEGIS-No-Minimization,0,1.0,1,development
+f2c-development-0100,1536,CEGIS-No-Minimization,2,0.9986979166666666,3,development
+f2c-development-0101,1536,CEGIS-No-Minimization,24,0.984375,25,development
+f2c-development-0102,1536,CEGIS-No-Minimization,24,0.984375,25,development
+f2c-development-0103,1536,CEGIS-No-Minimization,1,0.9993489583333334,2,development
+f2c-development-0104,1536,CEGIS-No-Minimization,24,0.984375,25,development
+f2c-development-0105,1536,CEGIS-No-Minimization,1,0.9993489583333334,2,development
+f2c-development-0106,1536,CEGIS-No-Minimization,24,0.984375,26,development
+f2c-development-0107,1536,CEGIS-No-Minimization,24,0.984375,25,development
+f2c-development-0108,1536,CEGIS-No-Minimization,2,0.9986979166666666,3,development
+f2c-development-0109,1536,CEGIS-No-Minimization,0,1.0,1,development
+f2c-development-0110,1536,CEGIS-No-Minimization,2,0.9986979166666666,3,development
+f2c-development-0111,1536,CEGIS-No-Minimization,24,0.984375,25,development
+f2c-development-0112,1536,CEGIS-No-Minimization,24,0.984375,25,development
+f2c-development-0113,1536,CEGIS-No-Minimization,1,0.9993489583333334,2,development
+f2c-development-0114,1536,CEGIS-No-Minimization,24,0.984375,25,development
+f2c-development-0115,1536,CEGIS-No-Minimization,1,0.9993489583333334,2,development
+f2c-development-0116,1536,CEGIS-No-Minimization,24,0.984375,26,development
+f2c-development-0117,1536,CEGIS-No-Minimization,24,0.984375,25,development
+f2c-development-0118,1536,CEGIS-No-Minimization,2,0.9986979166666666,3,development
+f2c-development-0119,1536,CEGIS-No-Minimization,0,1.0,1,development
+f2c-development-0120,1536,CEGIS-No-Minimization,2,0.9986979166666666,3,development
+f2c-development-0081,1536,AuthSynth-Symbolic,24,0.984375,25,development
+f2c-development-0082,1536,AuthSynth-Symbolic,24,0.984375,25,development
+f2c-development-0083,1536,AuthSynth-Symbolic,1,0.9993489583333334,2,development
+f2c-development-0084,1536,AuthSynth-Symbolic,24,0.984375,25,development
+f2c-development-0085,1536,AuthSynth-Symbolic,1,0.9993489583333334,2,development
+f2c-development-0086,1536,AuthSynth-Symbolic,24,0.984375,26,development
+f2c-development-0087,1536,AuthSynth-Symbolic,24,0.984375,25,development
+f2c-development-0088,1536,AuthSynth-Symbolic,2,0.9986979166666666,3,development
+f2c-development-0089,1536,AuthSynth-Symbolic,0,1.0,1,development
+f2c-development-0090,1536,AuthSynth-Symbolic,2,0.9986979166666666,3,development
+f2c-development-0091,1536,AuthSynth-Symbolic,24,0.984375,25,development
+f2c-development-0092,1536,AuthSynth-Symbolic,24,0.984375,25,development
+f2c-development-0093,1536,AuthSynth-Symbolic,1,0.9993489583333334,2,development
+f2c-development-0094,1536,AuthSynth-Symbolic,24,0.984375,25,development
+f2c-development-0095,1536,AuthSynth-Symbolic,1,0.9993489583333334,2,development
+f2c-development-0096,1536,AuthSynth-Symbolic,24,0.984375,26,development
+f2c-development-0097,1536,AuthSynth-Symbolic,24,0.984375,25,development
+f2c-development-0098,1536,AuthSynth-Symbolic,2,0.9986979166666666,3,development
+f2c-development-0099,1536,AuthSynth-Symbolic,0,1.0,1,development
+f2c-development-0100,1536,AuthSynth-Symbolic,2,0.9986979166666666,3,development
+f2c-development-0101,1536,AuthSynth-Symbolic,24,0.984375,25,development
+f2c-development-0102,1536,AuthSynth-Symbolic,24,0.984375,25,development
+f2c-development-0103,1536,AuthSynth-Symbolic,1,0.9993489583333334,2,development
+f2c-development-0104,1536,AuthSynth-Symbolic,24,0.984375,25,development
+f2c-development-0105,1536,AuthSynth-Symbolic,1,0.9993489583333334,2,development
+f2c-development-0106,1536,AuthSynth-Symbolic,24,0.984375,26,development
+f2c-development-0107,1536,AuthSynth-Symbolic,24,0.984375,25,development
+f2c-development-0108,1536,AuthSynth-Symbolic,2,0.9986979166666666,3,development
+f2c-development-0109,1536,AuthSynth-Symbolic,0,1.0,1,development
+f2c-development-0110,1536,AuthSynth-Symbolic,2,0.9986979166666666,3,development
+f2c-development-0111,1536,AuthSynth-Symbolic,24,0.984375,25,development
+f2c-development-0112,1536,AuthSynth-Symbolic,24,0.984375,25,development
+f2c-development-0113,1536,AuthSynth-Symbolic,1,0.9993489583333334,2,development
+f2c-development-0114,1536,AuthSynth-Symbolic,24,0.984375,25,development
+f2c-development-0115,1536,AuthSynth-Symbolic,1,0.9993489583333334,2,development
+f2c-development-0116,1536,AuthSynth-Symbolic,24,0.984375,26,development
+f2c-development-0117,1536,AuthSynth-Symbolic,24,0.984375,25,development
+f2c-development-0118,1536,AuthSynth-Symbolic,2,0.9986979166666666,3,development
+f2c-development-0119,1536,AuthSynth-Symbolic,0,1.0,1,development
+f2c-development-0120,1536,AuthSynth-Symbolic,2,0.9986979166666666,3,development
+f2c-development-0081,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0082,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0083,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0084,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0085,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0086,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0087,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0088,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0089,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0090,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0091,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0092,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0093,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0094,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0095,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0096,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0097,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0098,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0099,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0100,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0101,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0102,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0103,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0104,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0105,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0106,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0107,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0108,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0109,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0110,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0111,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0112,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0113,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0114,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0115,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0116,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0117,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0118,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0119,1536,Gold Symbolic Contract,0,1.0,0,development
+f2c-development-0120,1536,Gold Symbolic Contract,0,1.0,0,development

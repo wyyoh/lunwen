@@ -1,0 +1,21 @@
+{
+  "changed_after_development": false,
+  "changed_after_locked": false,
+  "grammar": {
+    "allow_ite_terms": true,
+    "max_disjuncts": 4,
+    "max_literals_per_conjunction": 5,
+    "max_total_literals": 16
+  },
+  "schema_version": 1,
+  "selected_before_development": true,
+  "selected_candidate": {
+    "allow_ite_terms": true,
+    "candidate_id": "extended-24",
+    "max_disjuncts": 4,
+    "max_literals_per_conjunction": 5,
+    "max_total_literals": 16,
+    "replay_budget": 24,
+    "solver_timeout_ms": 5000
+  }
+}

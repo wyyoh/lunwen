@@ -1,0 +1,20 @@
+{
+  "analyzer_freeze_commit": "65d64537ee9e5a0260277e978084d34608f5ba5b",
+  "analyzer_freeze_status": "frozen",
+  "current_snapshot_equals_historical_f1_snapshot": false,
+  "current_stage_regression_status": "passed",
+  "entry_counts": {
+    "frozen_analyzer": 103,
+    "frozen_environment": 9,
+    "frozen_upstream": 149
+  },
+  "formal_development_started": false,
+  "formal_locked_started": false,
+  "frozen_analyzer_manifest_valid": true,
+  "frozen_environment_manifest_valid": true,
+  "frozen_upstream_manifest_valid": true,
+  "prefreeze_repair_status": "PASSED",
+  "ready_for_formal_development": true,
+  "runtime_environment_checked": false,
+  "status": "passed"
+}

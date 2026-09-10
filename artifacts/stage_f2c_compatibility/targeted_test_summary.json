@@ -1,0 +1,9 @@
+{
+  "duration_seconds": 61.568,
+  "failed": 0,
+  "passed": 152,
+  "raw_xml_sha256": "03b81081be19bf5521d247c28e7d6e378d75204cfe0306758cfd505bc8f86e7d",
+  "skipped": 0,
+  "status": "passed",
+  "test_count": 152
+}

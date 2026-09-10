@@ -1,0 +1,20 @@
+{
+  "analyzer_freeze_commit": "65d64537ee9e5a0260277e978084d34608f5ba5b",
+  "formal_development_started": false,
+  "formal_locked_started": false,
+  "manifests": {
+    "frozen_analyzer": {
+      "path": "artifacts/stage_f2c_dispatch_freeze/frozen_analyzer.json",
+      "sha256": "0a9298fc4dafd91208a2e18ed4a2551dd77936382de29be0b1b1eef2cb98b42d"
+    },
+    "frozen_environment": {
+      "path": "artifacts/stage_f2c_dispatch_freeze/frozen_environment.json",
+      "sha256": "22346537a00b80f8d7815b7e516bc98fa9a35b65addf7dbdb34ddc8dd8f518c1"
+    },
+    "frozen_upstream": {
+      "path": "artifacts/stage_f2c_dispatch_freeze/frozen_upstream.json",
+      "sha256": "7ac7b0c6450cdafbaa0ef4880faacbfba54297eabd9f0631b9087f5c83028974"
+    }
+  },
+  "schema_version": 1
+}

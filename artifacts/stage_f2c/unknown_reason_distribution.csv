@@ -1,0 +1,26 @@
+count,method,reason_code,split
+2,AuthSynth-Symbolic,instrumentation_coverage_incomplete,calibration
+12,AuthSynth-Symbolic,candidate_state_semantics_invalid,development
+2,AuthSynth-Symbolic,instrumentation_coverage_incomplete,development
+4,AuthSynth-Symbolic,loop_state_semantics_invalid,development
+4,AuthSynth-Symbolic,old_certificate_invalidated,development
+20,AuthSynth-Symbolic,replay_budget_exhausted,development
+2,AuthSynth-Symbolic,instrumentation_coverage_incomplete,train
+2,CEGIS-No-Minimization,instrumentation_coverage_incomplete,calibration
+4,CEGIS-No-Minimization,old_certificate_invalidated,calibration
+32,CEGIS-No-Minimization,replay_budget_exhausted,calibration
+12,CEGIS-No-Minimization,candidate_state_semantics_invalid,development
+2,CEGIS-No-Minimization,instrumentation_coverage_incomplete,development
+4,CEGIS-No-Minimization,loop_state_semantics_invalid,development
+4,CEGIS-No-Minimization,old_certificate_invalidated,development
+20,CEGIS-No-Minimization,replay_budget_exhausted,development
+2,CEGIS-No-Minimization,instrumentation_coverage_incomplete,train
+40,Declared-Contract Monitor,unspecified_unknown,calibration
+40,Declared-Contract Monitor,unspecified_unknown,development
+40,Declared-Contract Monitor,unspecified_unknown,train
+40,DenyAll,unspecified_unknown,calibration
+40,DenyAll,unspecified_unknown,development
+40,DenyAll,unspecified_unknown,train
+40,Passive Symbolic Learner,unspecified_unknown,calibration
+40,Passive Symbolic Learner,unspecified_unknown,development
+40,Passive Symbolic Learner,unspecified_unknown,train

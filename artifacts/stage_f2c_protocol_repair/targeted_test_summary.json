@@ -1,0 +1,11 @@
+{
+  "junit": {
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "162",
+    "time": "62.303"
+  },
+  "status": "passed",
+  "xml_sha256": "89576b12f1581f32b8a9eb0c06cd56db8c4efdc543a5a6c6248d036074f27751"
+}

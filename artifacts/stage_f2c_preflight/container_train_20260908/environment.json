@@ -1,0 +1,1 @@
+{"architecture": "x86_64", "cpu_operation_ok": true, "glibc": "2.36", "kernel": "6.18.33.2-microsoft-standard-WSL2", "numpy": "2.5.2", "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.36", "project_import_ok": true, "python": "3.12.14", "torch": "2.12.0+cpu", "torch_cuda_available": false, "torch_cuda_version": null, "torch_num_threads": 1, "z3": "4.15.3"}

@@ -1,0 +1,17 @@
+{
+  "development_run_count": 1,
+  "environment_changed": false,
+  "frozen_source_changed": false,
+  "historical_artifacts_changed": false,
+  "locked_materialized": false,
+  "locked_run_count": 0,
+  "metrics_redefined": false,
+  "read_only_audit_script_sha256": "08cd291ebc56989f5373d7dc0decc94ca5a8287694fd7361c9c4d625e219b27b",
+  "report_only_postrun_appendix_added": true,
+  "status": "passed",
+  "verified_entries": {
+    "frozen_analyzer": 103,
+    "frozen_environment": 9,
+    "frozen_upstream": 149
+  }
+}

@@ -1,0 +1,471 @@
+{
+  "duration_seconds": 61.306,
+  "errors": 0,
+  "failures": 0,
+  "passed": 114,
+  "raw_log_sha256": "50900328df0f19229a4bba68e600c0d3c3552df2143721d022a550a9fdf9a44a",
+  "raw_xml_sha256": "0bd86dbfba71839822147e13a2b57e7bcc364b8dc90c18ce6945af440a74f53f",
+  "schema_version": 1,
+  "skipped": 0,
+  "status": "passed",
+  "test_results": [
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_loop_equivalence::test_loop_zero_one_multiple_and_exact_bound[3-4-0-GUARD_FALSE]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_loop_equivalence::test_loop_zero_one_multiple_and_exact_bound[2-4-1-GUARD_FALSE]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_loop_equivalence::test_loop_zero_one_multiple_and_exact_bound[0-4-3-GUARD_FALSE]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_loop_equivalence::test_loop_zero_one_multiple_and_exact_bound[0-3-3-BOUND_REACHED]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_loop_equivalence::test_loop_zero_one_multiple_and_exact_bound[0-0-0-BOUND_REACHED]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_loop_equivalence::test_state_recurrence_order_fields_and_delayed_parent"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_loop_equivalence::test_guard_false_never_reactivates_and_bool_enum_updates"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_loop_equivalence::test_unsupported_loop_is_unknown_not_unrolled_twice[None]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_loop_equivalence::test_unsupported_loop_is_unknown_not_unrolled_twice[9]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_loop_equivalence::test_integer_overflow_rejected_without_wrapping"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_loop_equivalence::test_cutoff_is_not_a_termination_proof"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_loop_equivalence::test_concrete_symbolic_equivalence_exhaustive"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_loop_equivalence::test_real_bounded_loop_can_be_certified_and_omission_is_detected"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_loop_equivalence::test_unknown_bound_verifier_and_replay_do_not_claim_success"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_loop_equivalence::test_replay_keeps_global_sequence_not_lexical_slot_order"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_loop_equivalence::test_config_freezes_exact_loop_limit_and_integer_semantics"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_template_isolation::test_alpha_renaming_does_not_change_fingerprint"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_template_isolation::test_constant_rename_does_not_fake_isolation"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_template_isolation::test_commutative_guard_normalization"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_template_isolation::test_dead_noop_does_not_fake_isolation"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_template_isolation::test_semantically_equivalent_guards_collide"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_template_isolation::test_structurally_distinct_semantically_distinct_pass_at_program_level"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_template_isolation::test_train_calibration_no_structural_collision"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_template_isolation::test_train_calibration_no_semantic_collision"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_f2c_template_isolation::test_all_split_template_families_disjoint"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_metrics::test_unseen_metrics_exclude_replayed_inputs_and_query_reduction_is_exact"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_metrics::test_unknown_does_not_count_as_complete"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_metrics::test_patch_precision_is_computed_against_omission_atoms_not_defined_as_one"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_metrics::test_readiness_gate_does_not_hide_safety_failures"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_protocol::test_locked_materialization_requires_real_analyzer_freeze_sha"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_protocol::test_phase_order_and_repeat_are_rejected"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_protocol::test_strict_json_rejects_duplicate_key_and_nonfinite"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_protocol::test_safe_relative_rejects_escape_and_absolute_paths"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_protocol::test_safe_relative_is_independent_of_host_os[C:/escape]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_protocol::test_safe_relative_is_independent_of_host_os[C:relative]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_protocol::test_safe_relative_is_independent_of_host_os[\\\\\\\\server\\\\share]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_protocol::test_safe_relative_is_independent_of_host_os[\\\\escape]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_protocol::test_safe_relative_is_independent_of_host_os[x:stream]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_protocol::test_safe_relative_is_independent_of_host_os[]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_protocol::test_safe_relative_is_independent_of_host_os[a/../b]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_protocol::test_safe_relative_is_independent_of_host_os[./file]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_protocol::test_safe_relative_is_independent_of_host_os[a//b]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_protocol::test_config_preserves_research_boundaries"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_protocol::test_dirty_worktree_is_rejected_before_formal_outputs"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_stage_f2c_protocol::test_exact_artifact_inventory_and_hash_validation"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_cegis::test_real_cegis_changes_contract_and_shield_until_equivalent"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_cegis::test_query_budget_exhaustion_is_unknown_not_complete"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_cegis::test_solver_unknown_is_fail_closed"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_cegis::test_version_drift_invalidates_old_certificate_before_recertification"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_collisions::test_content_collisions_cannot_be_hidden_by_unique_family_labels"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_collisions::test_prefreeze_fixture_currently_fails_content_isolation"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_collisions::test_within_split_reuse_is_not_cross_split_collision"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_contracts::test_contract_canonicalizes_duplicate_clauses_and_digest"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_contracts::test_contract_effect_fields_are_symbolic_not_case_lookup"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_contracts::test_unreachable_clause_is_safe_and_does_not_fire"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_contracts::test_overlapping_conflicting_state_updates_fail_closed"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_contracts::test_contract_is_bound_to_implementation_version"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_formulas::test_guard_canonicalization_and_evaluation"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_formulas::test_dnf_limits_are_enforced"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_formulas::test_ordered_comparison_is_int_only"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_formulas::test_true_and_false_have_explicit_dnf_semantics"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_information_boundary::test_analyzer_package_has_no_verifier_or_evaluator_dependency"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_information_boundary::test_analyzer_has_no_hidden_or_gold_symbols_and_no_fixed_catalog"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_information_boundary::test_verifier_result_schema_cannot_return_hidden_formula"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_information_boundary::test_public_analyzer_schema_does_not_contain_evaluator_labels"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_learner::test_examples_only_learner_produces_guarded_symbolic_contract"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_learner::test_grammar_insufficiency_returns_none_instead_of_lookup_table"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_learner::test_field_binding_infers_input_variable_not_concrete_value"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_patch_atoms::test_two_same_type_omissions_are_two_addressable_atoms"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_patch_atoms::test_ground_truth_does_not_depend_on_mutation_category_or_analyzer"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_patch_atoms::test_field_binding_atom_identifies_exact_field_not_only_type"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_patch_atoms::test_bool_int_field_difference_is_not_erased"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_patch_atoms::test_state_atoms_identify_different_fields"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_patch_atoms::test_empty_control_has_no_omission_atoms_even_when_instrumentation_is_unknown"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_patch_atoms::test_joint_binding_swap_is_detected_when_each_projection_is_unchanged"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_patch_atoms::test_type_recall_one_does_not_imply_atom_recall_one"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_patch_atoms::test_right_patch_type_wrong_location_gets_zero_atom_precision"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_patch_atoms::test_duplicate_evidence_does_not_count_one_atom_twice"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_patch_atoms::test_actual_cegis_discovers_atoms_without_reading_reference_contract"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_patch_atoms::test_patch_atom_schema_rejects_invalid_or_free_text_scope[args0]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_patch_atoms::test_patch_atom_schema_rejects_invalid_or_free_text_scope[args1]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_patch_atoms::test_patch_atom_schema_rejects_invalid_or_free_text_scope[args2]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_patch_atoms::test_patch_atom_schema_rejects_invalid_or_free_text_scope[args3]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_patch_atoms::test_record_atom_type_mismatch_is_rejected"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_patch_atoms::test_unlocated_record_is_counted_as_false_positive_not_discarded"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_patch_atoms::test_atom_counts_are_per_case_not_globally_deduplicated"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_query_generation::test_verifier_generates_assignment_not_analyzer_catalog"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_query_generation::test_second_verifier_query_changes_after_candidate_refinement"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_safety_regressions::test_conflicting_updates_cannot_be_hidden_by_last_write_encoding"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_safety_regressions::test_out_of_domain_implementation_state_cannot_be_certified"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_safety_regressions::test_tool_identity_is_bound_in_addition_to_version"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_safety_regressions::test_bool_and_int_are_distinct_in_smt_and_learner"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_safety_regressions::test_equivalence_without_observed_version_does_not_issue_certificate"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_safety_regressions::test_failed_replay_is_counted_but_not_learned"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_safety_regressions::test_drift_cannot_refund_replay_budget"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_safety_regressions::test_optimize_receives_timeout_and_returns_deterministic_dnf"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_safety_regressions::test_expired_synthesis_budget_does_not_start_unbounded_search"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_safety_regressions::test_unknown_optimizer_is_not_a_successful_candidate"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_safety_regressions::test_unverified_baselines_do_not_make_completeness_claims[DECLARED]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_safety_regressions::test_unverified_baselines_do_not_make_completeness_claims[PASSIVE]"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_safety_regressions::test_guard_metrics_include_inactive_slots_as_true_negatives"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_shield::test_unknown_regions_fail_closed_and_are_counted_as_utility_loss"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_shield::test_verified_safe_assignment_is_allowed_and_forbidden_one_is_blocked"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_shield::test_shield_digest_binds_contract_spec_and_status"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_types::test_bounded_schema_is_canonical_and_finite"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_types::test_assignment_rejects_duplicate_and_out_of_domain_values"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_types::test_identifier_wildcards_and_unbounded_ints_are_rejected"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_types::test_structured_state_diff_is_canonical_not_only_a_digest"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_verifier::test_verifier_finds_under_approximation_with_concrete_assignment"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_verifier::test_verifier_finds_field_binding_mismatch"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_verifier::test_verifier_finds_spurious_effect"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_verifier::test_exact_contract_is_equivalent_on_bounded_domain"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_verifier::test_unbounded_loop_and_async_horizon_return_unknown"
+    },
+    {
+      "status": "passed",
+      "test": "tests.test_symbolic_verifier::test_bounded_loop_metadata_alone_cannot_certify_unimplemented_semantics"
+    }
+  ],
+  "tests": 114,
+  "validation_kind": "ordinary_prefreeze_regression_not_formal_experiment"
+}

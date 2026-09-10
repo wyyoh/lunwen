@@ -1,0 +1,13 @@
+schema_version: 1
+stage: F2C-symbolic-contracts-smoke
+evaluated_splits: [train, calibration]
+development_scored: false
+locked_test_scored: false
+grammar:
+  max_disjuncts: 4
+  max_literals_per_conjunction: 5
+  max_total_literals: 16
+  allow_ite_terms: true
+replay_budget: 16
+solver_timeout_ms: 3000
+private_data_used: false

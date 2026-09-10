@@ -1,0 +1,45 @@
+{
+  "files": [
+    {
+      "path": "bounded_loop_equivalence_audit.json",
+      "sha256": "9e063bad2871a0ba77da714db83e2ff9adb94b881eb2b02708339e5f45eac023"
+    },
+    {
+      "path": "environment_verification.json",
+      "sha256": "7f8acc5eced6e9abbc49814932c80a4e5313dd9054db4d4e95b94ac1856fd778"
+    },
+    {
+      "path": "prefreeze_status.json",
+      "sha256": "279c3a405ad29eb5f0d5eb302eb34bb382c29ae77e7afba8000d29d48108695f"
+    },
+    {
+      "path": "raw_evidence_manifest.json",
+      "sha256": "d455b36b993842c5dd5bc98fcb2fac60dd73335e13231ab2e039b43228cdff02"
+    },
+    {
+      "path": "regression_summary.json",
+      "sha256": "a07e01706c0390ac28885055fa273c07f7087bfa5ef049df63719eae83cf4f1c"
+    },
+    {
+      "path": "targeted_test_summary.json",
+      "sha256": "f54190f1aad3e7b86a1ec2181af18361c99864885693b7f37a0213137dde365a"
+    },
+    {
+      "path": "template_isolation_audit.json",
+      "sha256": "1ff6373aa0c4b9771fc0b8b55c32a437e751baa321d969be7ed16b9680a7f85f"
+    },
+    {
+      "path": "upstream_recheck.json",
+      "sha256": "ec78d1e6a50e78cce5f9c57a901c0173b3612c253fe97a0b8b12213ac62757dd"
+    },
+    {
+      "path": "validated_source_manifest.json",
+      "sha256": "f3970d6739c98841b83639eeb377ae142c8ac3158d16a99f3dad3a5c20083977"
+    },
+    {
+      "path": "validation_run.json",
+      "sha256": "92df2aa8476d0e40f8d7ee1bc2648f16d3a0ba5db8e6894368e55f4aef3630a4"
+    }
+  ],
+  "schema_version": 1
+}

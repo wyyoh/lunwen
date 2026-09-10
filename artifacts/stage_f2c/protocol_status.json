@@ -1,0 +1,21 @@
+{
+  "analyzer_freeze_commit": "65d64537ee9e5a0260277e978084d34608f5ba5b",
+  "calibration_runs": 1,
+  "code_freeze_commit": "9d60b500dfef90d56e1bd44b89af6187cade595d",
+  "configuration_changed_after_development": false,
+  "configuration_changed_after_locked": false,
+  "development_runs": 1,
+  "f1_locked_test_scored": false,
+  "f2a_locked_test_rerun": false,
+  "f2b_locked_test_rerun": false,
+  "formal_build": "failed_development",
+  "formal_development_started": true,
+  "formal_locked_started": false,
+  "locked_counterexample_fed_back_to_analyzer": false,
+  "locked_test_runs": 0,
+  "locked_test_scored_once": false,
+  "materialization_runs": 1,
+  "post_development_analyzer_hash_changed": null,
+  "ready_for_locked_test": false,
+  "schema_version": 1
+}
